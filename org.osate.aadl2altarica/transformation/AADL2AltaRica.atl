@@ -12,22 +12,16 @@ create OUT: AR from IN: AADL;
 helper context String def: normalizeId(): String =
 	self.replaceAll('[:.]', '_');
 
+-- Get the component classifier for a compoent instance
 helper context AADL!ComponentInstance def: componentClassifier(): AADL2!ComponentClassifier =
-	if self.oclIsTypeOf(AADL!SystemInstance) then
-		self.componentImplementation
-	else
-		self.subcomponent.classifier
-	endif;
+	"#native"!"org::osate::aadl2::instance::util::InstanceUtil".refInvokeStaticOperation(
+		'getComponentClassifier', Sequence{self, 0, OclUndefined}
+	);
 
---helper context AADL!ComponentInstance def: getComponentClassifier(): AADL2!ComponentClassifier =
---	"#native...InstanceUtil.getComponentClassifier(self, 0, OclUndefined)"
+helper def: nodeForClassifier: Map(AADL2!ComponentClassifier, AR!Node) = Map{};
 
-helper def: nodeMap: Map(AADL2!ComponentClassifier, AR!Node) =
-	Map{};
-
-helper def: nodeInstances: Map(AR!NodeInstance, AADL!ComponentInstance) =
-	Map{};
-
+helper def: classifierForNodeInstance: Map(AR!NodeInstance, AADL!ComponentClassifier) = Map{};
+	
 lazy rule makeNodeInstance {
 	from
 		ci: AADL!ComponentInstance
@@ -36,7 +30,7 @@ lazy rule makeNodeInstance {
 			name <- ci.name
 		)
 	do {
-		thisModule.nodeInstances <- thisModule.nodeInstances -> including(ni, ci);
+		thisModule.classifierForNodeInstance <- thisModule.classifierForNodeInstance -> including(ni, ci.componentClassifier());
 		ni;
 	}
 }
@@ -52,15 +46,27 @@ lazy rule subNodes {
 
 -- Nodes are based on classifiers
 -- Problem: can't pass ci to create subnodes
-unique lazy rule makeNode {
+helper def: processedClassifiers: Set(AADL2!ComponentClassifier) = Set{};
+
+lazy rule makeNode {
 	from
-		c: AADL2!ComponentClassifier
+		c: AADL2!ComponentClassifier,
+	  ci: AADL!ComponentInstance (
+	  	not thisModule.processedClassifiers.contains(c)
+	  )
 	to
 		n: AR!Node (
-			name <- c.qualifiedName().normalizeId()
+			name <- c.qualifiedName().normalizeId(),
+			ownedSpecifications <- 
+					if not ci.componentInstance.isEmpty() then
+						Sequence{thisModule.subNodes(ci)}
+					else
+						Sequence{}
+					endif
 		)
 	do {
-		thisModule.nodeMap <- thisModule.nodeMap.including(c, n);
+		thisModule.processedClassifiers <:= thisModule.processedClassifiers.including(c);
+		thisModule.nodeForClassifier <:= thisModule.nodeForClassifier.including(c, n);
 		n;
 	}
 }
@@ -70,32 +76,22 @@ rule SystemInstance {
 		si: AADL!SystemInstance
 	to
 		s: AR!System (
-			ownedDeclarations <- AADL!ComponentInstance.allInstances() -> collect(ci |
-				thisModule.makeNode(ci.componentClassifier()))
+			ownedDeclarations <- AADL!ComponentInstance.allInstances() 
+					-> collect(ci | thisModule.makeNode(ci.componentClassifier(), ci))
+					-> iterate(n; acc: Sequence(AR!Node) = Sequence{} | if n.oclIsUndefined() then acc else acc.append(n) endif)
+					-> debug()
 		)
 }
 
 endpoint rule Finalize() {
 	do {
-		-- Create subnodes - must be done here because they are derived from ci, whereas the node is derived from c
-		-- TODO: Derive list of subnodes from component classifier: get instantiated classifier, get all subcomponents
-		for (ci in AADL!ComponentInstance.allInstances()) {
-			ci.componentClassifier().resolve('makeNode').debug();
-			thisModule.nodeMap.get(ci.componentClassifier()).ownedSpecifications <- 
-				if not ci.componentInstance.isEmpty() then
-					Sequence{thisModule.subNodes(ci)}
-				else
-					Sequence{}
-				endif;
-		} 
-		
 		-- Add the types to subnodes	
-		for (ni in thisModule.nodeInstances.getKeys()) {
+		for (ni in thisModule.classifierForNodeInstance.getKeys()) {
 			ni.nodeType <- 
 				let c: AADL2!ComponentClassifier =
-					thisModule.nodeInstances.get(ni).componentClassifier()
+					thisModule.classifierForNodeInstance.get(ni)
 				in
-					thisModule.nodeMap.get(c);
+					thisModule.nodeForClassifier.get(c);
 		}
 	}
 }

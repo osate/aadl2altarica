@@ -1,0 +1,6 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Aadl2altarica
+Bundle-SymbolicName: org.osate.aadl2altarica
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.osate.aadl2;bundle-version="1.0.0"
