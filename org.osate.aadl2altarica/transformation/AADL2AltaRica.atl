@@ -1,0 +1,101 @@
+-- @atlcompiler emftvm
+-- @nsURI AR=http://osate.org/Altarica
+-- @nsURI AADL=http://aadl.info/AADL/2.0/instance
+-- @nsURI AADL2=http://aadl.info/AADL/2.0
+-- @nsURI EMV2=http://www.aadl.info/EMV2
+
+
+module AADL2AltaRica;
+create OUT: AR from IN: AADL;
+
+-- Replace invalid characters in identifier with '_'
+helper context String def: normalizeId(): String =
+	self.replaceAll('[:.]', '_');
+
+helper context AADL!ComponentInstance def: componentClassifier(): AADL2!ComponentClassifier =
+	if self.oclIsTypeOf(AADL!SystemInstance) then
+		self.componentImplementation
+	else
+		self.subcomponent.classifier
+	endif;
+
+--helper context AADL!ComponentInstance def: getComponentClassifier(): AADL2!ComponentClassifier =
+--	"#native...InstanceUtil.getComponentClassifier(self, 0, OclUndefined)"
+
+helper def: nodeMap: Map(AADL2!ComponentClassifier, AR!Node) =
+	Map{};
+
+helper def: nodeInstances: Map(AR!NodeInstance, AADL!ComponentInstance) =
+	Map{};
+
+lazy rule makeNodeInstance {
+	from
+		ci: AADL!ComponentInstance
+	to
+		ni: AR!NodeInstance (
+			name <- ci.name
+		)
+	do {
+		thisModule.nodeInstances <- thisModule.nodeInstances -> including(ni, ci);
+		ni;
+	}
+}
+
+lazy rule subNodes {
+	from
+		ci: AADL!ComponentInstance
+	to
+		nis: AR!NodeInstanceSpecification (
+			ownedNodeInstances <- ci.componentInstance -> collect(s | thisModule.makeNodeInstance(s))
+		)
+}
+
+-- Nodes are based on classifiers
+-- Problem: can't pass ci to create subnodes
+unique lazy rule makeNode {
+	from
+		c: AADL2!ComponentClassifier
+	to
+		n: AR!Node (
+			name <- c.qualifiedName().normalizeId()
+		)
+	do {
+		thisModule.nodeMap <- thisModule.nodeMap.including(c, n);
+		n;
+	}
+}
+
+rule SystemInstance {
+	from
+		si: AADL!SystemInstance
+	to
+		s: AR!System (
+			ownedDeclarations <- AADL!ComponentInstance.allInstances() -> collect(ci |
+				thisModule.makeNode(ci.componentClassifier()))
+		)
+}
+
+endpoint rule Finalize() {
+	do {
+		-- Create subnodes - must be done here because they are derived from ci, whereas the node is derived from c
+		-- TODO: Derive list of subnodes from component classifier: get instantiated classifier, get all subcomponents
+		for (ci in AADL!ComponentInstance.allInstances()) {
+			ci.componentClassifier().resolve('makeNode').debug();
+			thisModule.nodeMap.get(ci.componentClassifier()).ownedSpecifications <- 
+				if not ci.componentInstance.isEmpty() then
+					Sequence{thisModule.subNodes(ci)}
+				else
+					Sequence{}
+				endif;
+		} 
+		
+		-- Add the types to subnodes	
+		for (ni in thisModule.nodeInstances.getKeys()) {
+			ni.nodeType <- 
+				let c: AADL2!ComponentClassifier =
+					thisModule.nodeInstances.get(ni).componentClassifier()
+				in
+					thisModule.nodeMap.get(c);
+		}
+	}
+}
