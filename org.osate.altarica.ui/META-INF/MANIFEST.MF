@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: org.osate.altarica.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.osate.altarica.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.osate.altarica;visibility:=reexport,
+ org.eclipse.xtext.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.ui,
+ org.eclipse.xtext.builder,
+ org.eclipse.xtext.xbase.lib
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.osate.altarica.ui.quickfix,
+ org.osate.altarica.ui.contentassist,
+ org.osate.altarica.ui.internal,
+ org.osate.altarica.ui.contentassist.antlr
+Bundle-Activator: org.osate.altarica.ui.internal.AltaricaActivator

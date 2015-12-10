@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.osate.altarica/src-gen" editDirectory="/org.osate.altarica.edit/src"
+    editorDirectory="/org.osate.altarica.editor/src" modelPluginID="org.osate.altarica"
+    forceOverwrite="true" modelName="Altarica" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    complianceLevel="6.0" copyrightFields="false" editPluginID="org.osate.altarica.edit"
+    editorPluginID="org.osate.altarica.editor" runtimeVersion="2.11">
+  <genPackages prefix="Altarica" basePackage="org.osate.altarica" disposableProviderFactory="true"
+      fileExtensions="altarica" ecorePackage="Altarica.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Altarica.ecore#//PrimitiveTypeKind">
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//PrimitiveTypeKind/INTEGER"/>
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//PrimitiveTypeKind/BOOLEAN"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Altarica.ecore#//FlowKind">
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//FlowKind/IN"/>
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//FlowKind/OUT"/>
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//FlowKind/INOUT"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Altarica.ecore#//VisibilityKind">
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//VisibilityKind/PUBLIC"/>
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//VisibilityKind/PRIVATE"/>
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//VisibilityKind/PARENT"/>
+    </genEnums>
+    <genClasses ecoreClass="Altarica.ecore#//System">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//System/ownedDeclarations"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractDeclaration"/>
+    <genClasses ecoreClass="Altarica.ecore#//NamedElement">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//NamedElement/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractDefinitionConstant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//AbstractDefinitionConstant/ownedExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ExpressionConstant"/>
+    <genClasses ecoreClass="Altarica.ecore#//DomainConstant">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//DomainConstant/domain"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractDomain"/>
+    <genClasses ecoreClass="Altarica.ecore#//Range">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Range/lower"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Range/upper"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Enumeration">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Enumeration/ownedLiterals"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//PrimitiveType">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//PrimitiveType/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractSpecification"/>
+    <genClasses ecoreClass="Altarica.ecore#//VariableAttribute">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//VariableAttribute/name"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//InitSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//InitSpecification/ownedInitStatements"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//InitStatement">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//InitStatement/affectation"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ExternalSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//ExternalSpecification/ownedDirectives"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ExternalDirective">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//ExternalDirective/directive"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//FlowSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//FlowSpecification/ownedFlows"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//EventSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//EventSpecification/ownedEvents"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Priority">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Priority/ownedExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//StateSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//StateSpecification/ownedStates"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractTypeRef"/>
+    <genClasses ecoreClass="Altarica.ecore#//DomainRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//DomainRef/reference"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//NodeInstanceSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NodeInstanceSpecification/ownedNodeInstances"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AssertSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//AssertSpecification/ownedAsserts"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Assert">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Assert/ownedExpressions"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//VectorSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//VectorSpecification/ownedVectors"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Vector">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Vector/ownedParameters"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Vector/cardinality"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//VectorParameter">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//VectorParameter/eventParameter"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//VectorParameter/isRequired"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Cardinality">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Cardinality/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//TransitionSpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//TransitionSpecification/ownedTransitionTransitions"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Transition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Transition/ownedExpression"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//Transition/event"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Transition/ownedAffectations"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Assignment">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//Assignment/state"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Assignment/ownedExpression"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractExpression"/>
+    <genClasses ecoreClass="Altarica.ecore#//AbstractBooleanExpression"/>
+    <genClasses ecoreClass="Altarica.ecore#//Switch">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Switch/ownedCases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Switch/default"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//CaseExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/body"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//IfThenElse">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//IfThenElse/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//IfThenElse/then"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//IfThenElse/else"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Expression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Expression/operand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//EventRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//EventRef/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//VariableRef">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//VariableRef/variable"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ARBoolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//ARBoolean/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ARString">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//ARString/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ARInteger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//ARInteger/value"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//ConstantDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//ConstantDefinition/expression"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Domain">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Domain/domain"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//EnumerationLiteral"/>
+    <genClasses ecoreClass="Altarica.ecore#//Node">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Node/ownedSpecifications"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Flow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Flow/domain"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//Flow/kind"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Flow/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Event">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Event/ownedPriority"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Event/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//State">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//State/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//State/attribute"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//NodeInstance">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//NodeInstance/nodeType"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Addition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Addition/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Addition/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Minus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Minus/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Minus/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Multiplication">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Multiplication/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Multiplication/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Division">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Division/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Division/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//And">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//And/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//And/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Or">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Or/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Or/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Equal">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Equal/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Equal/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//NotEqual">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NotEqual/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NotEqual/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//StrictLower">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//StrictLower/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//StrictLower/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Lower">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Lower/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Lower/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//StrictUpper">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//StrictUpper/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//StrictUpper/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Upper">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Upper/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Upper/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Imply">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Imply/leftOperand"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Imply/rightOperand"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//NestedQualifiedEventRef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NestedQualifiedEventRef/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//NestedQualifiedEventRef/nestedVariable"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//NestedQualifiedVariableRef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NestedQualifiedVariableRef/target"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//NestedQualifiedVariableRef/nestedVariable"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
