@@ -3,7 +3,7 @@
 <stringAttribute key="ATL File Name" value="//org.osate.aadl2altarica/transformation/AADL2AltaRica.atl"/>
 <booleanAttribute key="Disable JIT compiler" value="false"/>
 <booleanAttribute key="Display Profiling Data" value="false"/>
-<booleanAttribute key="Display Timing Data" value="true"/>
+<booleanAttribute key="Display Timing Data" value="false"/>
 <mapAttribute key="Inout Model Options"/>
 <mapAttribute key="Inout Models"/>
 <mapAttribute key="Inout Models Output Locations"/>
@@ -21,10 +21,12 @@
 <stringAttribute key="Module Name" value="AADL2AltaRica"/>
 <stringAttribute key="Module Path" value="/org.osate.aadl2altarica/transformation/"/>
 <mapAttribute key="Output Model Options">
-<mapEntry key="OUT" value="allowIntermodelReferences derivedFile"/>
+<mapEntry key="OUT" value="allowIntermodelReferences"/>
+<mapEntry key="trace" value="allowIntermodelReferences"/>
 </mapAttribute>
 <mapAttribute key="Output Models">
 <mapEntry key="OUT" value="platform:/resource/org.osate.aadl2altarica/ar/out.altarica"/>
+<mapEntry key="trace" value="platform:/resource/org.osate.aadl2altarica/ar/trace"/>
 </mapAttribute>
 <listAttribute key="Superimpose"/>
 </launchConfiguration>
