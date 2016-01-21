@@ -5,22 +5,29 @@
 -- @nsURI EMV2=http://www.aadl.info/EMV2
 
 
-module AADL2AltaRica;
+module AADLEM2AltaRica;
 create OUT: AR from IN: AADL;
 
--- Traverse component instances in post order
 -- Nodes must be declared before use
 rule SystemInstance {
 	from
 		si: AADL!SystemInstance
+	using {
+			emNodes: Sequence(AR!AbstractDeclaration) = thisModule.postOrder(si) 
+					-> flatten()
+					-> collect(ci | thisModule.makeNode(ci.componentClassifier(), ci))
+					-> select(n | not n.oclIsUndefined()) -> force();
+	}
 	to
 		s: AR!System (
-			ownedDeclarations <- thisModule.postOrder(si)->flatten()
-					-> collect(ci | thisModule.makeNode(ci.componentClassifier(), ci))
-					-> iterate(n; acc: Sequence(AR!Node) = Sequence{} | if n.oclIsUndefined() then acc else acc.append(n) endif)
+			ownedDeclarations <- emNodes -> including(thisModule.makeTopNode(si))
 		)
+	do {
+		thisModule.analysisModel.printPropagationPaths();
+	}
 }
 
+-- Traverse instance model in post order
 helper def: postOrder(ci: AADL!ComponentInstance): Sequence(AADL!ComponentInstance) =
 	let
 		subs: Sequence(AADL!ComponentInstance) = ci.componentInstance
@@ -35,7 +42,8 @@ lazy rule makeNode {
 	from
 		c: AADL2!ComponentClassifier,
 	  ci: AADL!ComponentInstance (
-	  	not thisModule.processedClassifiers.contains(c)
+	  	thisModule.emLeafComponents -> contains(ci) and
+	  	not thisModule.processedClassifiers -> contains(c)
 	  )
   using {
 		n: AR!Node = thisModule.Node(c);
@@ -48,13 +56,29 @@ lazy rule makeNode {
 			specifications <- specifications -> including(thisModule.flows(c)) -> flatten();
 		}
 		-- fill in sub nodes
-		if (not ci.componentInstance.isEmpty()) {
-			specifications <- specifications -> including(thisModule.subNodes(ci)) -> flatten();
-		}
+		--if (not ci.componentInstance.isEmpty()) {
+		--	specifications <- specifications -> including(thisModule.subNodes(ci, ci.componentInstance)) -> flatten();
+		--}
 		n.ownedSpecifications <- specifications;
 		-- process each referenced classifier only once
 		thisModule.processedClassifiers <:= thisModule.processedClassifiers.including(c);
 		n;
+	}
+}
+
+lazy rule makeTopNode {
+	from
+		si: AADL!SystemInstance
+	using {
+		top: AR!Node = thisModule.Node(si.getComponentImplementation());
+		specifications: Sequence(AR!AbstractSpecification) = Sequence{};
+	}
+	do {
+		if (not thisModule.emLeafComponents.isEmpty()) {
+			specifications <- specifications -> including(thisModule.subNodes(si, thisModule.emLeafComponents -> asSequence()));
+		}
+		top.ownedSpecifications <- specifications;
+		top;
 	}
 }
 
@@ -76,10 +100,11 @@ unique lazy rule Node {
 -- The sub-nodes section
 lazy rule subNodes {
 	from
-		ci: AADL!ComponentInstance
+		ci: AADL!ComponentInstance,
+		subs: Sequence(AADL!ComponentInstance)
 	to
 		nis: AR!NodeInstanceSpecification (
-			ownedNodeInstances <- ci.componentInstance -> collect(s | thisModule.NodeInstance(s))
+			ownedNodeInstances <- subs -> collect(s | thisModule.NodeInstance(s))
 		)
 }
 
@@ -89,7 +114,7 @@ lazy rule NodeInstance {
 	to
 		ni: AR!NodeInstance (
 			name <- ci.name,
-			nodeType <- ci.componentClassifier().resolve('Node')
+			nodeType <- ci.componentClassifier().debug().resolve('Node')
 		)
 }
 
@@ -100,7 +125,7 @@ lazy rule flows {
 	to
 		nis: AR!FlowSpecification (
 			ownedFlows <- 
-					c.debug().incomingErrorPropagations() -> collect(ep | c.makeFlows(ep, thisModule.flowDirectionIn))
+					c.incomingErrorPropagations() -> collect(ep | c.makeFlows(ep, thisModule.flowDirectionIn))
 					-> including(c.outgoingErrorPropagations() -> collect(ep | c.makeFlows(ep, thisModule.flowDirectionOut)))
 					-> flatten()
 		)
@@ -110,7 +135,7 @@ helper context AADL2!ComponentClassifier def: makeFlows(ep: EMV2!ErrorPropagatio
 	let
 		tokens: Sequence(EMV2!TypeToken) = ep.getTypeSet().leafTypeTokens(self.usedTypes())
 	in
-		-- TODO: 
+		-- TODO: process all tokens
 		tokens -> collect(t | thisModule.Flow(ep, t.type -> first().name, dir));
 	
 lazy rule Flow {
@@ -122,7 +147,7 @@ lazy rule Flow {
 	to
 		f: AR!Flow (
 			-- name <- ep.debug().altaRicaName(leafToken.debug().type -> first().name.debug()),
-			name <- ep.debug().altaRicaName(tokenName.debug()),
+			name <- ep.altaRicaName(tokenName),
 			domain <- thisModule.PrimitiveType(#bool),
 			kind <- dir
 		)
@@ -186,6 +211,17 @@ helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorMod
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EM2TypeSetUtil".refInvokeStaticOperation(
 		'generateAllLeafTypeTokens', Sequence{self, useTypes}
 	);
+
+helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel" =
+	let si: AADL!SystemInstance = AADL!SystemInstance.allInstances() -> asSequence() -> first() in
+		"#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel".refInvokeStaticOperation('createAnalysisModel', Sequence{si});
+
+-- Component instances that should be processed (leaf components wrt error model)
+helper def: emLeafComponents: Sequence(AADL!ComponentInstance) = thisModule.analysisModel.getSubcomponents();
+
+-- Force evaluation of a lazy collection by getting its size
+helper context Collection(OclAny) def: force(): Collection(OclAny) =
+	let i: Integer = self.size() in self;
 
 helper def: flowDirectionOut: AR!FlowKind = #out;
 helper def: flowDirectionIn: AR!FlowKind = #"in";
