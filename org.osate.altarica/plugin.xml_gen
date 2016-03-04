@@ -5,7 +5,7 @@
 
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
-       uri = "http://osate.org/Altarica" 
+       uri = "http://osate.org/Altarica/2.1" 
        class = "org.osate.altarica.altarica.AltaricaPackage"
        genModel = "model/generated/Altarica.genmodel" /> 
 	

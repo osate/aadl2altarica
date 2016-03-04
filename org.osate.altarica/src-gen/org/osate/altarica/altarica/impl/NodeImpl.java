@@ -14,8 +14,10 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.osate.altarica.altarica.AbstractSpecification;
 import org.osate.altarica.altarica.AltaricaPackage;
+import org.osate.altarica.altarica.Declaration;
+import org.osate.altarica.altarica.Instruction;
+import org.osate.altarica.altarica.LabeledTransition;
 import org.osate.altarica.altarica.Node;
 
 /**
@@ -26,7 +28,9 @@ import org.osate.altarica.altarica.Node;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.NodeImpl#getOwnedSpecifications <em>Owned Specifications</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.NodeImpl#getDeclarations <em>Declarations</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.NodeImpl#getTransitions <em>Transitions</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.NodeImpl#getAssertions <em>Assertions</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,14 +38,34 @@ import org.osate.altarica.altarica.Node;
 public class NodeImpl extends NamedElementImpl implements Node
 {
   /**
-   * The cached value of the '{@link #getOwnedSpecifications() <em>Owned Specifications</em>}' containment reference list.
+   * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOwnedSpecifications()
+   * @see #getDeclarations()
    * @generated
    * @ordered
    */
-  protected EList<AbstractSpecification> ownedSpecifications;
+  protected EList<Declaration> declarations;
+
+  /**
+   * The cached value of the '{@link #getTransitions() <em>Transitions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getTransitions()
+   * @generated
+   * @ordered
+   */
+  protected EList<LabeledTransition> transitions;
+
+  /**
+   * The cached value of the '{@link #getAssertions() <em>Assertions</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getAssertions()
+   * @generated
+   * @ordered
+   */
+  protected EList<Instruction> assertions;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,13 +93,41 @@ public class NodeImpl extends NamedElementImpl implements Node
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<AbstractSpecification> getOwnedSpecifications()
+  public EList<Declaration> getDeclarations()
   {
-    if (ownedSpecifications == null)
+    if (declarations == null)
     {
-      ownedSpecifications = new EObjectContainmentEList<AbstractSpecification>(AbstractSpecification.class, this, AltaricaPackage.NODE__OWNED_SPECIFICATIONS);
+      declarations = new EObjectContainmentEList<Declaration>(Declaration.class, this, AltaricaPackage.NODE__DECLARATIONS);
     }
-    return ownedSpecifications;
+    return declarations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<LabeledTransition> getTransitions()
+  {
+    if (transitions == null)
+    {
+      transitions = new EObjectContainmentEList<LabeledTransition>(LabeledTransition.class, this, AltaricaPackage.NODE__TRANSITIONS);
+    }
+    return transitions;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EList<Instruction> getAssertions()
+  {
+    if (assertions == null)
+    {
+      assertions = new EObjectContainmentEList<Instruction>(Instruction.class, this, AltaricaPackage.NODE__ASSERTIONS);
+    }
+    return assertions;
   }
 
   /**
@@ -88,8 +140,12 @@ public class NodeImpl extends NamedElementImpl implements Node
   {
     switch (featureID)
     {
-      case AltaricaPackage.NODE__OWNED_SPECIFICATIONS:
-        return ((InternalEList<?>)getOwnedSpecifications()).basicRemove(otherEnd, msgs);
+      case AltaricaPackage.NODE__DECLARATIONS:
+        return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
+      case AltaricaPackage.NODE__TRANSITIONS:
+        return ((InternalEList<?>)getTransitions()).basicRemove(otherEnd, msgs);
+      case AltaricaPackage.NODE__ASSERTIONS:
+        return ((InternalEList<?>)getAssertions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -104,8 +160,12 @@ public class NodeImpl extends NamedElementImpl implements Node
   {
     switch (featureID)
     {
-      case AltaricaPackage.NODE__OWNED_SPECIFICATIONS:
-        return getOwnedSpecifications();
+      case AltaricaPackage.NODE__DECLARATIONS:
+        return getDeclarations();
+      case AltaricaPackage.NODE__TRANSITIONS:
+        return getTransitions();
+      case AltaricaPackage.NODE__ASSERTIONS:
+        return getAssertions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,9 +181,17 @@ public class NodeImpl extends NamedElementImpl implements Node
   {
     switch (featureID)
     {
-      case AltaricaPackage.NODE__OWNED_SPECIFICATIONS:
-        getOwnedSpecifications().clear();
-        getOwnedSpecifications().addAll((Collection<? extends AbstractSpecification>)newValue);
+      case AltaricaPackage.NODE__DECLARATIONS:
+        getDeclarations().clear();
+        getDeclarations().addAll((Collection<? extends Declaration>)newValue);
+        return;
+      case AltaricaPackage.NODE__TRANSITIONS:
+        getTransitions().clear();
+        getTransitions().addAll((Collection<? extends LabeledTransition>)newValue);
+        return;
+      case AltaricaPackage.NODE__ASSERTIONS:
+        getAssertions().clear();
+        getAssertions().addAll((Collection<? extends Instruction>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,8 +207,14 @@ public class NodeImpl extends NamedElementImpl implements Node
   {
     switch (featureID)
     {
-      case AltaricaPackage.NODE__OWNED_SPECIFICATIONS:
-        getOwnedSpecifications().clear();
+      case AltaricaPackage.NODE__DECLARATIONS:
+        getDeclarations().clear();
+        return;
+      case AltaricaPackage.NODE__TRANSITIONS:
+        getTransitions().clear();
+        return;
+      case AltaricaPackage.NODE__ASSERTIONS:
+        getAssertions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -156,8 +230,12 @@ public class NodeImpl extends NamedElementImpl implements Node
   {
     switch (featureID)
     {
-      case AltaricaPackage.NODE__OWNED_SPECIFICATIONS:
-        return ownedSpecifications != null && !ownedSpecifications.isEmpty();
+      case AltaricaPackage.NODE__DECLARATIONS:
+        return declarations != null && !declarations.isEmpty();
+      case AltaricaPackage.NODE__TRANSITIONS:
+        return transitions != null && !transitions.isEmpty();
+      case AltaricaPackage.NODE__ASSERTIONS:
+        return assertions != null && !assertions.isEmpty();
     }
     return super.eIsSet(featureID);
   }

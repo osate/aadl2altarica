@@ -10,7 +10,6 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
-import org.eclipse.xtext.serializer.analysis.GrammarAlias.AlternativeAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -21,22 +20,14 @@ import org.osate.altarica.services.AltaricaGrammarAccess;
 public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected AltaricaGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_And_AmpersandKeyword_1_1_1_or_AndKeyword_1_1_0;
 	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_4_0_a;
 	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_4_0_p;
-	protected AbstractElementAlias match_Not_NotKeyword_0_0_1_or_TildeKeyword_0_0_0;
-	protected AbstractElementAlias match_Or_OrKeyword_1_1_0_or_VerticalLineKeyword_1_1_1;
-	protected AbstractElementAlias match_Priority_ExclamationMarkKeyword_0_0_or_PriorityKeyword_0_1;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (AltaricaGrammarAccess) access;
-		match_And_AmpersandKeyword_1_1_1_or_AndKeyword_1_1_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getAndAccess().getAmpersandKeyword_1_1_1()), new TokenAlias(false, false, grammarAccess.getAndAccess().getAndKeyword_1_1_0()));
 		match_Atom_LeftParenthesisKeyword_4_0_a = new TokenAlias(true, true, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_4_0());
 		match_Atom_LeftParenthesisKeyword_4_0_p = new TokenAlias(true, false, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_4_0());
-		match_Not_NotKeyword_0_0_1_or_TildeKeyword_0_0_0 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getNotAccess().getNotKeyword_0_0_1()), new TokenAlias(false, false, grammarAccess.getNotAccess().getTildeKeyword_0_0_0()));
-		match_Or_OrKeyword_1_1_0_or_VerticalLineKeyword_1_1_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getOrAccess().getOrKeyword_1_1_0()), new TokenAlias(false, false, grammarAccess.getOrAccess().getVerticalLineKeyword_1_1_1()));
-		match_Priority_ExclamationMarkKeyword_0_0_or_PriorityKeyword_0_1 = new AlternativeAlias(false, false, new TokenAlias(false, false, grammarAccess.getPriorityAccess().getExclamationMarkKeyword_0_0()), new TokenAlias(false, false, grammarAccess.getPriorityAccess().getPriorityKeyword_0_1()));
 	}
 	
 	@Override
@@ -51,58 +42,31 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_And_AmpersandKeyword_1_1_1_or_AndKeyword_1_1_0.equals(syntax))
-				emit_And_AmpersandKeyword_1_1_1_or_AndKeyword_1_1_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Atom_LeftParenthesisKeyword_4_0_a.equals(syntax))
+			if(match_Atom_LeftParenthesisKeyword_4_0_a.equals(syntax))
 				emit_Atom_LeftParenthesisKeyword_4_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if(match_Atom_LeftParenthesisKeyword_4_0_p.equals(syntax))
 				emit_Atom_LeftParenthesisKeyword_4_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Not_NotKeyword_0_0_1_or_TildeKeyword_0_0_0.equals(syntax))
-				emit_Not_NotKeyword_0_0_1_or_TildeKeyword_0_0_0(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Or_OrKeyword_1_1_0_or_VerticalLineKeyword_1_1_1.equals(syntax))
-				emit_Or_OrKeyword_1_1_0_or_VerticalLineKeyword_1_1_1(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Priority_ExclamationMarkKeyword_0_0_or_PriorityKeyword_0_1.equals(syntax))
-				emit_Priority_ExclamationMarkKeyword_0_0_or_PriorityKeyword_0_1(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
 
 	/**
 	 * Ambiguous syntax:
-	 *     'and' | '&'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     {And.leftOperand=} (ambiguity) rightOperand=Or
-	 */
-	protected void emit_And_AmpersandKeyword_1_1_1_or_AndKeyword_1_1_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
 	 *     '('*
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ('~' | 'not') operand=Atom
+	 *     (rule start) (ambiguity) '-' expression=Atom
+	 *     (rule start) (ambiguity) 'not' expression=Atom
 	 *     (rule start) (ambiguity) value='false'
 	 *     (rule start) (ambiguity) value='true'
 	 *     (rule start) (ambiguity) value=INT
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) variable=[NamedElement|ID]
-	 *     (rule start) (ambiguity) {Addition.leftOperand=}
-	 *     (rule start) (ambiguity) {And.leftOperand=}
-	 *     (rule start) (ambiguity) {Division.leftOperand=}
-	 *     (rule start) (ambiguity) {Equal.leftOperand=}
-	 *     (rule start) (ambiguity) {Imply.leftOperand=}
-	 *     (rule start) (ambiguity) {Lower.leftOperand=}
-	 *     (rule start) (ambiguity) {Minus.leftOperand=}
-	 *     (rule start) (ambiguity) {Multiplication.leftOperand=}
-	 *     (rule start) (ambiguity) {NestedQualifiedVariableRef.target=}
-	 *     (rule start) (ambiguity) {NotEqual.leftOperand=}
-	 *     (rule start) (ambiguity) {Or.leftOperand=}
-	 *     (rule start) (ambiguity) {StrictLower.leftOperand=}
-	 *     (rule start) (ambiguity) {StrictUpper.leftOperand=}
-	 *     (rule start) (ambiguity) {Upper.leftOperand=}
+	 *     (rule start) (ambiguity) {Addition.left=}
+	 *     (rule start) (ambiguity) {Equal.left=}
+	 *     (rule start) (ambiguity) {Logical.left=}
+	 *     (rule start) (ambiguity) {Multiplication.left=}
+	 *     (rule start) (ambiguity) {NestedRef.target=}
 	 */
 	protected void emit_Atom_LeftParenthesisKeyword_4_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
@@ -113,56 +77,14 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     '('+
 	 *
 	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ('~' | 'not') operand=Atom
-	 *     (rule start) (ambiguity) {Addition.leftOperand=}
-	 *     (rule start) (ambiguity) {And.leftOperand=}
-	 *     (rule start) (ambiguity) {Division.leftOperand=}
-	 *     (rule start) (ambiguity) {Equal.leftOperand=}
-	 *     (rule start) (ambiguity) {Imply.leftOperand=}
-	 *     (rule start) (ambiguity) {Lower.leftOperand=}
-	 *     (rule start) (ambiguity) {Minus.leftOperand=}
-	 *     (rule start) (ambiguity) {Multiplication.leftOperand=}
-	 *     (rule start) (ambiguity) {NotEqual.leftOperand=}
-	 *     (rule start) (ambiguity) {Or.leftOperand=}
-	 *     (rule start) (ambiguity) {StrictLower.leftOperand=}
-	 *     (rule start) (ambiguity) {StrictUpper.leftOperand=}
-	 *     (rule start) (ambiguity) {Upper.leftOperand=}
+	 *     (rule start) (ambiguity) '-' expression=Atom
+	 *     (rule start) (ambiguity) 'not' expression=Atom
+	 *     (rule start) (ambiguity) {Addition.left=}
+	 *     (rule start) (ambiguity) {Equal.left=}
+	 *     (rule start) (ambiguity) {Logical.left=}
+	 *     (rule start) (ambiguity) {Multiplication.left=}
 	 */
 	protected void emit_Atom_LeftParenthesisKeyword_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '~' | 'not'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) '('* (ambiguity) operand=Atom
-	 *     (rule start) '('+ (ambiguity) operand=Atom
-	 */
-	protected void emit_Not_NotKeyword_0_0_1_or_TildeKeyword_0_0_0(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     'or' | '|'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     {Or.leftOperand=} (ambiguity) rightOperand=Equal
-	 */
-	protected void emit_Or_OrKeyword_1_1_0_or_VerticalLineKeyword_1_1_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
-		acceptNodes(transition, nodes);
-	}
-	
-	/**
-	 * Ambiguous syntax:
-	 *     '!' | 'priority'
-	 *
-	 * This ambiguous syntax occurs at:
-	 *     (rule start) (ambiguity) ownedExpression=AbstractExpression
-	 */
-	protected void emit_Priority_ExclamationMarkKeyword_0_0_or_PriorityKeyword_0_1(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

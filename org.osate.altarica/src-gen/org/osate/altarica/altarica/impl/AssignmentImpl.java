@@ -9,12 +9,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.osate.altarica.altarica.AbstractExpression;
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.Assignment;
-import org.osate.altarica.altarica.State;
+import org.osate.altarica.altarica.Expression;
+import org.osate.altarica.altarica.NameRef;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,33 +23,33 @@ import org.osate.altarica.altarica.State;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.AssignmentImpl#getState <em>State</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.impl.AssignmentImpl#getOwnedExpression <em>Owned Expression</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.AssignmentImpl#getVariable <em>Variable</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.AssignmentImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assignment
+public class AssignmentImpl extends InstructionImpl implements Assignment
 {
   /**
-   * The cached value of the '{@link #getState() <em>State</em>}' reference.
+   * The cached value of the '{@link #getVariable() <em>Variable</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getState()
+   * @see #getVariable()
    * @generated
    * @ordered
    */
-  protected State state;
+  protected NameRef variable;
 
   /**
-   * The cached value of the '{@link #getOwnedExpression() <em>Owned Expression</em>}' containment reference.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOwnedExpression()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected AbstractExpression ownedExpression;
+  protected Expression value;
 
   /**
    * <!-- begin-user-doc -->
@@ -78,19 +77,9 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
    * <!-- end-user-doc -->
    * @generated
    */
-  public State getState()
+  public NameRef getVariable()
   {
-    if (state != null && state.eIsProxy())
-    {
-      InternalEObject oldState = (InternalEObject)state;
-      state = (State)eResolveProxy(oldState);
-      if (state != oldState)
-      {
-        if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AltaricaPackage.ASSIGNMENT__STATE, oldState, state));
-      }
-    }
-    return state;
+    return variable;
   }
 
   /**
@@ -98,46 +87,13 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
    * <!-- end-user-doc -->
    * @generated
    */
-  public State basicGetState()
+  public NotificationChain basicSetVariable(NameRef newVariable, NotificationChain msgs)
   {
-    return state;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setState(State newState)
-  {
-    State oldState = state;
-    state = newState;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__STATE, oldState, state));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractExpression getOwnedExpression()
-  {
-    return ownedExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetOwnedExpression(AbstractExpression newOwnedExpression, NotificationChain msgs)
-  {
-    AbstractExpression oldOwnedExpression = ownedExpression;
-    ownedExpression = newOwnedExpression;
+    NameRef oldVariable = variable;
+    variable = newVariable;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION, oldOwnedExpression, newOwnedExpression);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__VARIABLE, oldVariable, newVariable);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -148,20 +104,68 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setOwnedExpression(AbstractExpression newOwnedExpression)
+  public void setVariable(NameRef newVariable)
   {
-    if (newOwnedExpression != ownedExpression)
+    if (newVariable != variable)
     {
       NotificationChain msgs = null;
-      if (ownedExpression != null)
-        msgs = ((InternalEObject)ownedExpression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION, null, msgs);
-      if (newOwnedExpression != null)
-        msgs = ((InternalEObject)newOwnedExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION, null, msgs);
-      msgs = basicSetOwnedExpression(newOwnedExpression, msgs);
+      if (variable != null)
+        msgs = ((InternalEObject)variable).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ASSIGNMENT__VARIABLE, null, msgs);
+      if (newVariable != null)
+        msgs = ((InternalEObject)newVariable).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ASSIGNMENT__VARIABLE, null, msgs);
+      msgs = basicSetVariable(newVariable, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION, newOwnedExpression, newOwnedExpression));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__VARIABLE, newVariable, newVariable));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getValue()
+  {
+    return value;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetValue(Expression newValue, NotificationChain msgs)
+  {
+    Expression oldValue = value;
+    value = newValue;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__VALUE, oldValue, newValue);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setValue(Expression newValue)
+  {
+    if (newValue != value)
+    {
+      NotificationChain msgs = null;
+      if (value != null)
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ASSIGNMENT__VALUE, null, msgs);
+      if (newValue != null)
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ASSIGNMENT__VALUE, null, msgs);
+      msgs = basicSetValue(newValue, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ASSIGNMENT__VALUE, newValue, newValue));
   }
 
   /**
@@ -174,8 +178,10 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
   {
     switch (featureID)
     {
-      case AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION:
-        return basicSetOwnedExpression(null, msgs);
+      case AltaricaPackage.ASSIGNMENT__VARIABLE:
+        return basicSetVariable(null, msgs);
+      case AltaricaPackage.ASSIGNMENT__VALUE:
+        return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -190,11 +196,10 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
   {
     switch (featureID)
     {
-      case AltaricaPackage.ASSIGNMENT__STATE:
-        if (resolve) return getState();
-        return basicGetState();
-      case AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION:
-        return getOwnedExpression();
+      case AltaricaPackage.ASSIGNMENT__VARIABLE:
+        return getVariable();
+      case AltaricaPackage.ASSIGNMENT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -209,11 +214,11 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
   {
     switch (featureID)
     {
-      case AltaricaPackage.ASSIGNMENT__STATE:
-        setState((State)newValue);
+      case AltaricaPackage.ASSIGNMENT__VARIABLE:
+        setVariable((NameRef)newValue);
         return;
-      case AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION:
-        setOwnedExpression((AbstractExpression)newValue);
+      case AltaricaPackage.ASSIGNMENT__VALUE:
+        setValue((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -229,11 +234,11 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
   {
     switch (featureID)
     {
-      case AltaricaPackage.ASSIGNMENT__STATE:
-        setState((State)null);
+      case AltaricaPackage.ASSIGNMENT__VARIABLE:
+        setVariable((NameRef)null);
         return;
-      case AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION:
-        setOwnedExpression((AbstractExpression)null);
+      case AltaricaPackage.ASSIGNMENT__VALUE:
+        setValue((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -249,10 +254,10 @@ public class AssignmentImpl extends MinimalEObjectImpl.Container implements Assi
   {
     switch (featureID)
     {
-      case AltaricaPackage.ASSIGNMENT__STATE:
-        return state != null;
-      case AltaricaPackage.ASSIGNMENT__OWNED_EXPRESSION:
-        return ownedExpression != null;
+      case AltaricaPackage.ASSIGNMENT__VARIABLE:
+        return variable != null;
+      case AltaricaPackage.ASSIGNMENT__VALUE:
+        return value != null;
     }
     return super.eIsSet(featureID);
   }

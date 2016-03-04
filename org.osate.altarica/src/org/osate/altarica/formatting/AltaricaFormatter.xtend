@@ -81,14 +81,14 @@ class AltaricaFormatter extends AbstractDeclarativeFormatter {
 			c.setLinewrap(0, 0, 1).after(arrow)
 		]
 
-		findKeywords("flow", "state", "event", "trans", "assert", "sub").forEach [ section |
+		findKeywords("transition", "assertion").forEach [ section |
 			c.indentSection(section)
 		]
 
-		c.setLinewrap(1,2,2).before(nodeAccess.nodeKeyword_1)
-		c.setLinewrap.after(nodeAccess.nameIDTerminalRuleCall_2_0)
-		c.indentInComponent(nodeAccess.nodeKeyword_1, nodeAccess.edonKeyword_4)
-		c.setLinewrap(1,2,2).after(nodeAccess.edonKeyword_4)
+		c.setLinewrap(1,2,2).before(classAccess.classKeyword_1)
+		c.setLinewrap.after(classAccess.nameIDTerminalRuleCall_2_0)
+		c.indentInClass(classAccess.classKeyword_1, classAccess.endKeyword_6)
+		c.setLinewrap(1,2,2).after(classAccess.endKeyword_6)
 	}
 
 	protected def indentSection(FormattingConfig c, Keyword keyword) {
@@ -98,7 +98,7 @@ class AltaricaFormatter extends AbstractDeclarativeFormatter {
 		c.setIndentationIncrement.after(keyword)
 	}
 
-	protected def indentInComponent(FormattingConfig c, Keyword start, Keyword end) {
+	protected def indentInClass(FormattingConfig c, Keyword start, Keyword end) {
 		c.indentTwiceAfter(start)
 		c.setLinewrap(1, 1, 2).before(end)
 		c.unindentTwiceBefore(end)

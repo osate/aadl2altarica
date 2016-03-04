@@ -6,7 +6,6 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -14,6 +13,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.Expression;
 import org.osate.altarica.altarica.IfThenElse;
+import org.osate.altarica.altarica.Instruction;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,7 +30,7 @@ import org.osate.altarica.altarica.IfThenElse;
  *
  * @generated
  */
-public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
+public class IfThenElseImpl extends InstructionImpl implements IfThenElse
 {
   /**
    * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
@@ -50,7 +50,7 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * @generated
    * @ordered
    */
-  protected EObject then;
+  protected Instruction then;
 
   /**
    * The cached value of the '{@link #getElse() <em>Else</em>}' containment reference.
@@ -60,7 +60,7 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * @generated
    * @ordered
    */
-  protected EObject else_;
+  protected Instruction else_;
 
   /**
    * <!-- begin-user-doc -->
@@ -136,7 +136,7 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getThen()
+  public Instruction getThen()
   {
     return then;
   }
@@ -146,9 +146,9 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetThen(EObject newThen, NotificationChain msgs)
+  public NotificationChain basicSetThen(Instruction newThen, NotificationChain msgs)
   {
-    EObject oldThen = then;
+    Instruction oldThen = then;
     then = newThen;
     if (eNotificationRequired())
     {
@@ -163,7 +163,7 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setThen(EObject newThen)
+  public void setThen(Instruction newThen)
   {
     if (newThen != then)
     {
@@ -184,7 +184,7 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * <!-- end-user-doc -->
    * @generated
    */
-  public EObject getElse()
+  public Instruction getElse()
   {
     return else_;
   }
@@ -194,9 +194,9 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetElse(EObject newElse, NotificationChain msgs)
+  public NotificationChain basicSetElse(Instruction newElse, NotificationChain msgs)
   {
-    EObject oldElse = else_;
+    Instruction oldElse = else_;
     else_ = newElse;
     if (eNotificationRequired())
     {
@@ -211,7 +211,7 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setElse(EObject newElse)
+  public void setElse(Instruction newElse)
   {
     if (newElse != else_)
     {
@@ -281,10 +281,10 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
         setCondition((Expression)newValue);
         return;
       case AltaricaPackage.IF_THEN_ELSE__THEN:
-        setThen((EObject)newValue);
+        setThen((Instruction)newValue);
         return;
       case AltaricaPackage.IF_THEN_ELSE__ELSE:
-        setElse((EObject)newValue);
+        setElse((Instruction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -304,10 +304,10 @@ public class IfThenElseImpl extends AbstractExpressionImpl implements IfThenElse
         setCondition((Expression)null);
         return;
       case AltaricaPackage.IF_THEN_ELSE__THEN:
-        setThen((EObject)null);
+        setThen((Instruction)null);
         return;
       case AltaricaPackage.IF_THEN_ELSE__ELSE:
-        setElse((EObject)null);
+        setElse((Instruction)null);
         return;
     }
     super.eUnset(featureID);

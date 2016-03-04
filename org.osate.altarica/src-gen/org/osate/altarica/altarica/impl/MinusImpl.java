@@ -22,8 +22,7 @@ import org.osate.altarica.altarica.Minus;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.MinusImpl#getLeftOperand <em>Left Operand</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.impl.MinusImpl#getRightOperand <em>Right Operand</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.MinusImpl#getExpression <em>Expression</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,24 +30,14 @@ import org.osate.altarica.altarica.Minus;
 public class MinusImpl extends ExpressionImpl implements Minus
 {
   /**
-   * The cached value of the '{@link #getLeftOperand() <em>Left Operand</em>}' containment reference.
+   * The cached value of the '{@link #getExpression() <em>Expression</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLeftOperand()
+   * @see #getExpression()
    * @generated
    * @ordered
    */
-  protected Expression leftOperand;
-
-  /**
-   * The cached value of the '{@link #getRightOperand() <em>Right Operand</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getRightOperand()
-   * @generated
-   * @ordered
-   */
-  protected Expression rightOperand;
+  protected Expression expression;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,9 +65,9 @@ public class MinusImpl extends ExpressionImpl implements Minus
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getLeftOperand()
+  public Expression getExpression()
   {
-    return leftOperand;
+    return expression;
   }
 
   /**
@@ -86,13 +75,13 @@ public class MinusImpl extends ExpressionImpl implements Minus
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeftOperand(Expression newLeftOperand, NotificationChain msgs)
+  public NotificationChain basicSetExpression(Expression newExpression, NotificationChain msgs)
   {
-    Expression oldLeftOperand = leftOperand;
-    leftOperand = newLeftOperand;
+    Expression oldExpression = expression;
+    expression = newExpression;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.MINUS__LEFT_OPERAND, oldLeftOperand, newLeftOperand);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.MINUS__EXPRESSION, oldExpression, newExpression);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -103,68 +92,20 @@ public class MinusImpl extends ExpressionImpl implements Minus
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLeftOperand(Expression newLeftOperand)
+  public void setExpression(Expression newExpression)
   {
-    if (newLeftOperand != leftOperand)
+    if (newExpression != expression)
     {
       NotificationChain msgs = null;
-      if (leftOperand != null)
-        msgs = ((InternalEObject)leftOperand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.MINUS__LEFT_OPERAND, null, msgs);
-      if (newLeftOperand != null)
-        msgs = ((InternalEObject)newLeftOperand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.MINUS__LEFT_OPERAND, null, msgs);
-      msgs = basicSetLeftOperand(newLeftOperand, msgs);
+      if (expression != null)
+        msgs = ((InternalEObject)expression).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.MINUS__EXPRESSION, null, msgs);
+      if (newExpression != null)
+        msgs = ((InternalEObject)newExpression).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.MINUS__EXPRESSION, null, msgs);
+      msgs = basicSetExpression(newExpression, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.MINUS__LEFT_OPERAND, newLeftOperand, newLeftOperand));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Expression getRightOperand()
-  {
-    return rightOperand;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetRightOperand(Expression newRightOperand, NotificationChain msgs)
-  {
-    Expression oldRightOperand = rightOperand;
-    rightOperand = newRightOperand;
-    if (eNotificationRequired())
-    {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.MINUS__RIGHT_OPERAND, oldRightOperand, newRightOperand);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
-    }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setRightOperand(Expression newRightOperand)
-  {
-    if (newRightOperand != rightOperand)
-    {
-      NotificationChain msgs = null;
-      if (rightOperand != null)
-        msgs = ((InternalEObject)rightOperand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.MINUS__RIGHT_OPERAND, null, msgs);
-      if (newRightOperand != null)
-        msgs = ((InternalEObject)newRightOperand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.MINUS__RIGHT_OPERAND, null, msgs);
-      msgs = basicSetRightOperand(newRightOperand, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.MINUS__RIGHT_OPERAND, newRightOperand, newRightOperand));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.MINUS__EXPRESSION, newExpression, newExpression));
   }
 
   /**
@@ -177,10 +118,8 @@ public class MinusImpl extends ExpressionImpl implements Minus
   {
     switch (featureID)
     {
-      case AltaricaPackage.MINUS__LEFT_OPERAND:
-        return basicSetLeftOperand(null, msgs);
-      case AltaricaPackage.MINUS__RIGHT_OPERAND:
-        return basicSetRightOperand(null, msgs);
+      case AltaricaPackage.MINUS__EXPRESSION:
+        return basicSetExpression(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -195,10 +134,8 @@ public class MinusImpl extends ExpressionImpl implements Minus
   {
     switch (featureID)
     {
-      case AltaricaPackage.MINUS__LEFT_OPERAND:
-        return getLeftOperand();
-      case AltaricaPackage.MINUS__RIGHT_OPERAND:
-        return getRightOperand();
+      case AltaricaPackage.MINUS__EXPRESSION:
+        return getExpression();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -213,11 +150,8 @@ public class MinusImpl extends ExpressionImpl implements Minus
   {
     switch (featureID)
     {
-      case AltaricaPackage.MINUS__LEFT_OPERAND:
-        setLeftOperand((Expression)newValue);
-        return;
-      case AltaricaPackage.MINUS__RIGHT_OPERAND:
-        setRightOperand((Expression)newValue);
+      case AltaricaPackage.MINUS__EXPRESSION:
+        setExpression((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,11 +167,8 @@ public class MinusImpl extends ExpressionImpl implements Minus
   {
     switch (featureID)
     {
-      case AltaricaPackage.MINUS__LEFT_OPERAND:
-        setLeftOperand((Expression)null);
-        return;
-      case AltaricaPackage.MINUS__RIGHT_OPERAND:
-        setRightOperand((Expression)null);
+      case AltaricaPackage.MINUS__EXPRESSION:
+        setExpression((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -253,10 +184,8 @@ public class MinusImpl extends ExpressionImpl implements Minus
   {
     switch (featureID)
     {
-      case AltaricaPackage.MINUS__LEFT_OPERAND:
-        return leftOperand != null;
-      case AltaricaPackage.MINUS__RIGHT_OPERAND:
-        return rightOperand != null;
+      case AltaricaPackage.MINUS__EXPRESSION:
+        return expression != null;
     }
     return super.eIsSet(featureID);
   }

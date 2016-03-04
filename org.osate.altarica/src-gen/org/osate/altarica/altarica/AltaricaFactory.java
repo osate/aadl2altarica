@@ -23,13 +23,13 @@ public interface AltaricaFactory extends EFactory
   AltaricaFactory eINSTANCE = org.osate.altarica.altarica.impl.AltaricaFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>System</em>'.
+   * Returns a new object of class '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>System</em>'.
+   * @return a new object of class '<em>Model</em>'.
    * @generated
    */
-  System createSystem();
+  Model createModel();
 
   /**
    * Returns a new object of class '<em>Abstract Declaration</em>'.
@@ -104,247 +104,76 @@ public interface AltaricaFactory extends EFactory
   Enumeration createEnumeration();
 
   /**
-   * Returns a new object of class '<em>Primitive Type</em>'.
+   * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Primitive Type</em>'.
+   * @return a new object of class '<em>Type</em>'.
    * @generated
    */
-  PrimitiveType createPrimitiveType();
+  Type createType();
 
   /**
-   * Returns a new object of class '<em>Abstract Specification</em>'.
+   * Returns a new object of class '<em>Base Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Specification</em>'.
+   * @return a new object of class '<em>Base Type</em>'.
    * @generated
    */
-  AbstractSpecification createAbstractSpecification();
+  BaseType createBaseType();
 
   /**
-   * Returns a new object of class '<em>Variable Attribute</em>'.
+   * Returns a new object of class '<em>Class Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Attribute</em>'.
+   * @return a new object of class '<em>Class Type</em>'.
    * @generated
    */
-  VariableAttribute createVariableAttribute();
+  ClassType createClassType();
 
   /**
-   * Returns a new object of class '<em>Init Specification</em>'.
+   * Returns a new object of class '<em>Declaration</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Init Specification</em>'.
+   * @return a new object of class '<em>Declaration</em>'.
    * @generated
    */
-  InitSpecification createInitSpecification();
+  Declaration createDeclaration();
 
   /**
-   * Returns a new object of class '<em>Init Statement</em>'.
+   * Returns a new object of class '<em>Labeled Transition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Init Statement</em>'.
+   * @return a new object of class '<em>Labeled Transition</em>'.
    * @generated
    */
-  InitStatement createInitStatement();
+  LabeledTransition createLabeledTransition();
 
   /**
-   * Returns a new object of class '<em>External Specification</em>'.
+   * Returns a new object of class '<em>Transition Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Specification</em>'.
+   * @return a new object of class '<em>Transition Expression</em>'.
    * @generated
    */
-  ExternalSpecification createExternalSpecification();
+  TransitionExpression createTransitionExpression();
 
   /**
-   * Returns a new object of class '<em>External Directive</em>'.
+   * Returns a new object of class '<em>ITransition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>External Directive</em>'.
+   * @return a new object of class '<em>ITransition</em>'.
    * @generated
    */
-  ExternalDirective createExternalDirective();
+  ITransition createITransition();
 
   /**
-   * Returns a new object of class '<em>Flow Specification</em>'.
+   * Returns a new object of class '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Flow Specification</em>'.
+   * @return a new object of class '<em>Instruction</em>'.
    * @generated
    */
-  FlowSpecification createFlowSpecification();
-
-  /**
-   * Returns a new object of class '<em>Event Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Event Specification</em>'.
-   * @generated
-   */
-  EventSpecification createEventSpecification();
-
-  /**
-   * Returns a new object of class '<em>Priority</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Priority</em>'.
-   * @generated
-   */
-  Priority createPriority();
-
-  /**
-   * Returns a new object of class '<em>State Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>State Specification</em>'.
-   * @generated
-   */
-  StateSpecification createStateSpecification();
-
-  /**
-   * Returns a new object of class '<em>Abstract Type Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Type Ref</em>'.
-   * @generated
-   */
-  AbstractTypeRef createAbstractTypeRef();
-
-  /**
-   * Returns a new object of class '<em>Domain Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domain Ref</em>'.
-   * @generated
-   */
-  DomainRef createDomainRef();
-
-  /**
-   * Returns a new object of class '<em>Node Instance Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Node Instance Specification</em>'.
-   * @generated
-   */
-  NodeInstanceSpecification createNodeInstanceSpecification();
-
-  /**
-   * Returns a new object of class '<em>Assert Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assert Specification</em>'.
-   * @generated
-   */
-  AssertSpecification createAssertSpecification();
-
-  /**
-   * Returns a new object of class '<em>Assert</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assert</em>'.
-   * @generated
-   */
-  Assert createAssert();
-
-  /**
-   * Returns a new object of class '<em>Vector Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vector Specification</em>'.
-   * @generated
-   */
-  VectorSpecification createVectorSpecification();
-
-  /**
-   * Returns a new object of class '<em>Vector</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vector</em>'.
-   * @generated
-   */
-  Vector createVector();
-
-  /**
-   * Returns a new object of class '<em>Vector Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Vector Parameter</em>'.
-   * @generated
-   */
-  VectorParameter createVectorParameter();
-
-  /**
-   * Returns a new object of class '<em>Cardinality</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Cardinality</em>'.
-   * @generated
-   */
-  Cardinality createCardinality();
-
-  /**
-   * Returns a new object of class '<em>Transition Specification</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Transition Specification</em>'.
-   * @generated
-   */
-  TransitionSpecification createTransitionSpecification();
-
-  /**
-   * Returns a new object of class '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Transition</em>'.
-   * @generated
-   */
-  Transition createTransition();
-
-  /**
-   * Returns a new object of class '<em>Assignment</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Assignment</em>'.
-   * @generated
-   */
-  Assignment createAssignment();
-
-  /**
-   * Returns a new object of class '<em>Abstract Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Expression</em>'.
-   * @generated
-   */
-  AbstractExpression createAbstractExpression();
-
-  /**
-   * Returns a new object of class '<em>Abstract Boolean Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Boolean Expression</em>'.
-   * @generated
-   */
-  AbstractBooleanExpression createAbstractBooleanExpression();
-
-  /**
-   * Returns a new object of class '<em>Switch</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Switch</em>'.
-   * @generated
-   */
-  Switch createSwitch();
-
-  /**
-   * Returns a new object of class '<em>Case Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Case Expression</em>'.
-   * @generated
-   */
-  CaseExpression createCaseExpression();
+  Instruction createInstruction();
 
   /**
    * Returns a new object of class '<em>If Then Else</em>'.
@@ -363,24 +192,6 @@ public interface AltaricaFactory extends EFactory
    * @generated
    */
   Expression createExpression();
-
-  /**
-   * Returns a new object of class '<em>Event Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Event Ref</em>'.
-   * @generated
-   */
-  EventRef createEventRef();
-
-  /**
-   * Returns a new object of class '<em>Variable Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Ref</em>'.
-   * @generated
-   */
-  VariableRef createVariableRef();
 
   /**
    * Returns a new object of class '<em>AR Boolean</em>'.
@@ -408,6 +219,69 @@ public interface AltaricaFactory extends EFactory
    * @generated
    */
   ARInteger createARInteger();
+
+  /**
+   * Returns a new object of class '<em>Name Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Name Ref</em>'.
+   * @generated
+   */
+  NameRef createNameRef();
+
+  /**
+   * Returns a new object of class '<em>Variable Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Variable Attribute</em>'.
+   * @generated
+   */
+  VariableAttribute createVariableAttribute();
+
+  /**
+   * Returns a new object of class '<em>Abstract Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Type Ref</em>'.
+   * @generated
+   */
+  AbstractTypeRef createAbstractTypeRef();
+
+  /**
+   * Returns a new object of class '<em>Domain Ref</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Domain Ref</em>'.
+   * @generated
+   */
+  DomainRef createDomainRef();
+
+  /**
+   * Returns a new object of class '<em>Abstract Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Abstract Expression</em>'.
+   * @generated
+   */
+  AbstractExpression createAbstractExpression();
+
+  /**
+   * Returns a new object of class '<em>Switch</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Switch</em>'.
+   * @generated
+   */
+  Switch createSwitch();
+
+  /**
+   * Returns a new object of class '<em>Case Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Case Expression</em>'.
+   * @generated
+   */
+  CaseExpression createCaseExpression();
 
   /**
    * Returns a new object of class '<em>Constant Definition</em>'.
@@ -446,13 +320,22 @@ public interface AltaricaFactory extends EFactory
   Node createNode();
 
   /**
-   * Returns a new object of class '<em>Flow</em>'.
+   * Returns a new object of class '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Flow</em>'.
+   * @return a new object of class '<em>Variable</em>'.
    * @generated
    */
-  Flow createFlow();
+  Variable createVariable();
+
+  /**
+   * Returns a new object of class '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Attribute</em>'.
+   * @generated
+   */
+  Attribute createAttribute();
 
   /**
    * Returns a new object of class '<em>Event</em>'.
@@ -464,76 +347,76 @@ public interface AltaricaFactory extends EFactory
   Event createEvent();
 
   /**
-   * Returns a new object of class '<em>State</em>'.
+   * Returns a new object of class '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>State</em>'.
+   * @return a new object of class '<em>Parameter</em>'.
    * @generated
    */
-  State createState();
+  Parameter createParameter();
 
   /**
-   * Returns a new object of class '<em>Node Instance</em>'.
+   * Returns a new object of class '<em>Observer</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Node Instance</em>'.
+   * @return a new object of class '<em>Observer</em>'.
    * @generated
    */
-  NodeInstance createNodeInstance();
+  Observer createObserver();
 
   /**
-   * Returns a new object of class '<em>Addition</em>'.
+   * Returns a new object of class '<em>Transition And</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Addition</em>'.
+   * @return a new object of class '<em>Transition And</em>'.
    * @generated
    */
-  Addition createAddition();
+  TransitionAnd createTransitionAnd();
 
   /**
-   * Returns a new object of class '<em>Minus</em>'.
+   * Returns a new object of class '<em>Transition Or</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Minus</em>'.
+   * @return a new object of class '<em>Transition Or</em>'.
    * @generated
    */
-  Minus createMinus();
+  TransitionOr createTransitionOr();
 
   /**
-   * Returns a new object of class '<em>Multiplication</em>'.
+   * Returns a new object of class '<em>Skip</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Multiplication</em>'.
+   * @return a new object of class '<em>Skip</em>'.
    * @generated
    */
-  Multiplication createMultiplication();
+  Skip createSkip();
 
   /**
-   * Returns a new object of class '<em>Division</em>'.
+   * Returns a new object of class '<em>Assignment</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Division</em>'.
+   * @return a new object of class '<em>Assignment</em>'.
    * @generated
    */
-  Division createDivision();
+  Assignment createAssignment();
 
   /**
-   * Returns a new object of class '<em>And</em>'.
+   * Returns a new object of class '<em>Block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>And</em>'.
+   * @return a new object of class '<em>Block</em>'.
    * @generated
    */
-  And createAnd();
+  Block createBlock();
 
   /**
-   * Returns a new object of class '<em>Or</em>'.
+   * Returns a new object of class '<em>Logical</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Or</em>'.
+   * @return a new object of class '<em>Logical</em>'.
    * @generated
    */
-  Or createOr();
+  Logical createLogical();
 
   /**
    * Returns a new object of class '<em>Equal</em>'.
@@ -545,76 +428,49 @@ public interface AltaricaFactory extends EFactory
   Equal createEqual();
 
   /**
-   * Returns a new object of class '<em>Not Equal</em>'.
+   * Returns a new object of class '<em>Addition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Not Equal</em>'.
+   * @return a new object of class '<em>Addition</em>'.
    * @generated
    */
-  NotEqual createNotEqual();
+  Addition createAddition();
 
   /**
-   * Returns a new object of class '<em>Strict Lower</em>'.
+   * Returns a new object of class '<em>Multiplication</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Strict Lower</em>'.
+   * @return a new object of class '<em>Multiplication</em>'.
    * @generated
    */
-  StrictLower createStrictLower();
+  Multiplication createMultiplication();
 
   /**
-   * Returns a new object of class '<em>Lower</em>'.
+   * Returns a new object of class '<em>Not</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Lower</em>'.
+   * @return a new object of class '<em>Not</em>'.
    * @generated
    */
-  Lower createLower();
+  Not createNot();
 
   /**
-   * Returns a new object of class '<em>Strict Upper</em>'.
+   * Returns a new object of class '<em>Minus</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Strict Upper</em>'.
+   * @return a new object of class '<em>Minus</em>'.
    * @generated
    */
-  StrictUpper createStrictUpper();
+  Minus createMinus();
 
   /**
-   * Returns a new object of class '<em>Upper</em>'.
+   * Returns a new object of class '<em>Nested Ref</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Upper</em>'.
+   * @return a new object of class '<em>Nested Ref</em>'.
    * @generated
    */
-  Upper createUpper();
-
-  /**
-   * Returns a new object of class '<em>Imply</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Imply</em>'.
-   * @generated
-   */
-  Imply createImply();
-
-  /**
-   * Returns a new object of class '<em>Nested Qualified Event Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Nested Qualified Event Ref</em>'.
-   * @generated
-   */
-  NestedQualifiedEventRef createNestedQualifiedEventRef();
-
-  /**
-   * Returns a new object of class '<em>Nested Qualified Variable Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Nested Qualified Variable Ref</em>'.
-   * @generated
-   */
-  NestedQualifiedVariableRef createNestedQualifiedVariableRef();
+  NestedRef createNestedRef();
 
   /**
    * Returns the package supported by this factory.

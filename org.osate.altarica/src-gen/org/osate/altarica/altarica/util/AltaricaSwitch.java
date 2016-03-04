@@ -7,71 +7,7 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.osate.altarica.altarica.ARBoolean;
-import org.osate.altarica.altarica.ARInteger;
-import org.osate.altarica.altarica.ARString;
-import org.osate.altarica.altarica.AbstractBooleanExpression;
-import org.osate.altarica.altarica.AbstractDeclaration;
-import org.osate.altarica.altarica.AbstractDefinitionConstant;
-import org.osate.altarica.altarica.AbstractDomain;
-import org.osate.altarica.altarica.AbstractExpression;
-import org.osate.altarica.altarica.AbstractSpecification;
-import org.osate.altarica.altarica.AbstractTypeRef;
-import org.osate.altarica.altarica.Addition;
-import org.osate.altarica.altarica.AltaricaPackage;
-import org.osate.altarica.altarica.And;
-import org.osate.altarica.altarica.Assert;
-import org.osate.altarica.altarica.AssertSpecification;
-import org.osate.altarica.altarica.Assignment;
-import org.osate.altarica.altarica.Cardinality;
-import org.osate.altarica.altarica.CaseExpression;
-import org.osate.altarica.altarica.ConstantDefinition;
-import org.osate.altarica.altarica.Division;
-import org.osate.altarica.altarica.Domain;
-import org.osate.altarica.altarica.DomainConstant;
-import org.osate.altarica.altarica.DomainRef;
-import org.osate.altarica.altarica.Enumeration;
-import org.osate.altarica.altarica.EnumerationLiteral;
-import org.osate.altarica.altarica.Equal;
-import org.osate.altarica.altarica.Event;
-import org.osate.altarica.altarica.EventRef;
-import org.osate.altarica.altarica.EventSpecification;
-import org.osate.altarica.altarica.Expression;
-import org.osate.altarica.altarica.ExpressionConstant;
-import org.osate.altarica.altarica.ExternalDirective;
-import org.osate.altarica.altarica.ExternalSpecification;
-import org.osate.altarica.altarica.Flow;
-import org.osate.altarica.altarica.FlowSpecification;
-import org.osate.altarica.altarica.IfThenElse;
-import org.osate.altarica.altarica.Imply;
-import org.osate.altarica.altarica.InitSpecification;
-import org.osate.altarica.altarica.InitStatement;
-import org.osate.altarica.altarica.Lower;
-import org.osate.altarica.altarica.Minus;
-import org.osate.altarica.altarica.Multiplication;
-import org.osate.altarica.altarica.NamedElement;
-import org.osate.altarica.altarica.NestedQualifiedEventRef;
-import org.osate.altarica.altarica.NestedQualifiedVariableRef;
-import org.osate.altarica.altarica.Node;
-import org.osate.altarica.altarica.NodeInstance;
-import org.osate.altarica.altarica.NodeInstanceSpecification;
-import org.osate.altarica.altarica.NotEqual;
-import org.osate.altarica.altarica.Or;
-import org.osate.altarica.altarica.PrimitiveType;
-import org.osate.altarica.altarica.Priority;
-import org.osate.altarica.altarica.Range;
-import org.osate.altarica.altarica.State;
-import org.osate.altarica.altarica.StateSpecification;
-import org.osate.altarica.altarica.StrictLower;
-import org.osate.altarica.altarica.StrictUpper;
-import org.osate.altarica.altarica.Transition;
-import org.osate.altarica.altarica.TransitionSpecification;
-import org.osate.altarica.altarica.Upper;
-import org.osate.altarica.altarica.VariableAttribute;
-import org.osate.altarica.altarica.VariableRef;
-import org.osate.altarica.altarica.Vector;
-import org.osate.altarica.altarica.VectorParameter;
-import org.osate.altarica.altarica.VectorSpecification;
+import org.osate.altarica.altarica.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -136,10 +72,10 @@ public class AltaricaSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case AltaricaPackage.SYSTEM:
+      case AltaricaPackage.MODEL:
       {
-        org.osate.altarica.altarica.System system = (org.osate.altarica.altarica.System)theEObject;
-        T result = caseSystem(system);
+        Model model = (Model)theEObject;
+        T result = caseModel(model);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -155,6 +91,7 @@ public class AltaricaSwitch<T> extends Switch<T>
         NamedElement namedElement = (NamedElement)theEObject;
         T result = caseNamedElement(namedElement);
         if (result == null) result = caseAbstractDeclaration(namedElement);
+        if (result == null) result = caseDeclaration(namedElement);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -207,19 +144,117 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.PRIMITIVE_TYPE:
+      case AltaricaPackage.TYPE:
       {
-        PrimitiveType primitiveType = (PrimitiveType)theEObject;
-        T result = casePrimitiveType(primitiveType);
-        if (result == null) result = caseAbstractDomain(primitiveType);
-        if (result == null) result = caseAbstractTypeRef(primitiveType);
+        Type type = (Type)theEObject;
+        T result = caseType(type);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.ABSTRACT_SPECIFICATION:
+      case AltaricaPackage.BASE_TYPE:
       {
-        AbstractSpecification abstractSpecification = (AbstractSpecification)theEObject;
-        T result = caseAbstractSpecification(abstractSpecification);
+        BaseType baseType = (BaseType)theEObject;
+        T result = caseBaseType(baseType);
+        if (result == null) result = caseAbstractDomain(baseType);
+        if (result == null) result = caseType(baseType);
+        if (result == null) result = caseAbstractTypeRef(baseType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.CLASS_TYPE:
+      {
+        ClassType classType = (ClassType)theEObject;
+        T result = caseClassType(classType);
+        if (result == null) result = caseType(classType);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.DECLARATION:
+      {
+        Declaration declaration = (Declaration)theEObject;
+        T result = caseDeclaration(declaration);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.LABELED_TRANSITION:
+      {
+        LabeledTransition labeledTransition = (LabeledTransition)theEObject;
+        T result = caseLabeledTransition(labeledTransition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.TRANSITION_EXPRESSION:
+      {
+        TransitionExpression transitionExpression = (TransitionExpression)theEObject;
+        T result = caseTransitionExpression(transitionExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.ITRANSITION:
+      {
+        ITransition iTransition = (ITransition)theEObject;
+        T result = caseITransition(iTransition);
+        if (result == null) result = caseTransitionExpression(iTransition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.INSTRUCTION:
+      {
+        Instruction instruction = (Instruction)theEObject;
+        T result = caseInstruction(instruction);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.IF_THEN_ELSE:
+      {
+        IfThenElse ifThenElse = (IfThenElse)theEObject;
+        T result = caseIfThenElse(ifThenElse);
+        if (result == null) result = caseInstruction(ifThenElse);
+        if (result == null) result = caseAbstractExpression(ifThenElse);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.EXPRESSION:
+      {
+        Expression expression = (Expression)theEObject;
+        T result = caseExpression(expression);
+        if (result == null) result = caseAbstractExpression(expression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.AR_BOOLEAN:
+      {
+        ARBoolean arBoolean = (ARBoolean)theEObject;
+        T result = caseARBoolean(arBoolean);
+        if (result == null) result = caseExpression(arBoolean);
+        if (result == null) result = caseAbstractExpression(arBoolean);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.AR_STRING:
+      {
+        ARString arString = (ARString)theEObject;
+        T result = caseARString(arString);
+        if (result == null) result = caseExpression(arString);
+        if (result == null) result = caseAbstractExpression(arString);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.AR_INTEGER:
+      {
+        ARInteger arInteger = (ARInteger)theEObject;
+        T result = caseARInteger(arInteger);
+        if (result == null) result = caseExpression(arInteger);
+        if (result == null) result = caseAbstractExpression(arInteger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.NAME_REF:
+      {
+        NameRef nameRef = (NameRef)theEObject;
+        T result = caseNameRef(nameRef);
+        if (result == null) result = caseExpression(nameRef);
+        if (result == null) result = caseAbstractExpression(nameRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -227,67 +262,6 @@ public class AltaricaSwitch<T> extends Switch<T>
       {
         VariableAttribute variableAttribute = (VariableAttribute)theEObject;
         T result = caseVariableAttribute(variableAttribute);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.INIT_SPECIFICATION:
-      {
-        InitSpecification initSpecification = (InitSpecification)theEObject;
-        T result = caseInitSpecification(initSpecification);
-        if (result == null) result = caseAbstractSpecification(initSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.INIT_STATEMENT:
-      {
-        InitStatement initStatement = (InitStatement)theEObject;
-        T result = caseInitStatement(initStatement);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.EXTERNAL_SPECIFICATION:
-      {
-        ExternalSpecification externalSpecification = (ExternalSpecification)theEObject;
-        T result = caseExternalSpecification(externalSpecification);
-        if (result == null) result = caseAbstractSpecification(externalSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.EXTERNAL_DIRECTIVE:
-      {
-        ExternalDirective externalDirective = (ExternalDirective)theEObject;
-        T result = caseExternalDirective(externalDirective);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.FLOW_SPECIFICATION:
-      {
-        FlowSpecification flowSpecification = (FlowSpecification)theEObject;
-        T result = caseFlowSpecification(flowSpecification);
-        if (result == null) result = caseAbstractSpecification(flowSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.EVENT_SPECIFICATION:
-      {
-        EventSpecification eventSpecification = (EventSpecification)theEObject;
-        T result = caseEventSpecification(eventSpecification);
-        if (result == null) result = caseAbstractSpecification(eventSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.PRIORITY:
-      {
-        Priority priority = (Priority)theEObject;
-        T result = casePriority(priority);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.STATE_SPECIFICATION:
-      {
-        StateSpecification stateSpecification = (StateSpecification)theEObject;
-        T result = caseStateSpecification(stateSpecification);
-        if (result == null) result = caseAbstractSpecification(stateSpecification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -306,91 +280,10 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.NODE_INSTANCE_SPECIFICATION:
-      {
-        NodeInstanceSpecification nodeInstanceSpecification = (NodeInstanceSpecification)theEObject;
-        T result = caseNodeInstanceSpecification(nodeInstanceSpecification);
-        if (result == null) result = caseAbstractSpecification(nodeInstanceSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.ASSERT_SPECIFICATION:
-      {
-        AssertSpecification assertSpecification = (AssertSpecification)theEObject;
-        T result = caseAssertSpecification(assertSpecification);
-        if (result == null) result = caseAbstractSpecification(assertSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.ASSERT:
-      {
-        Assert assert_ = (Assert)theEObject;
-        T result = caseAssert(assert_);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.VECTOR_SPECIFICATION:
-      {
-        VectorSpecification vectorSpecification = (VectorSpecification)theEObject;
-        T result = caseVectorSpecification(vectorSpecification);
-        if (result == null) result = caseAbstractSpecification(vectorSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.VECTOR:
-      {
-        Vector vector = (Vector)theEObject;
-        T result = caseVector(vector);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.VECTOR_PARAMETER:
-      {
-        VectorParameter vectorParameter = (VectorParameter)theEObject;
-        T result = caseVectorParameter(vectorParameter);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.CARDINALITY:
-      {
-        Cardinality cardinality = (Cardinality)theEObject;
-        T result = caseCardinality(cardinality);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.TRANSITION_SPECIFICATION:
-      {
-        TransitionSpecification transitionSpecification = (TransitionSpecification)theEObject;
-        T result = caseTransitionSpecification(transitionSpecification);
-        if (result == null) result = caseAbstractSpecification(transitionSpecification);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.TRANSITION:
-      {
-        Transition transition = (Transition)theEObject;
-        T result = caseTransition(transition);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.ASSIGNMENT:
-      {
-        Assignment assignment = (Assignment)theEObject;
-        T result = caseAssignment(assignment);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AltaricaPackage.ABSTRACT_EXPRESSION:
       {
         AbstractExpression abstractExpression = (AbstractExpression)theEObject;
         T result = caseAbstractExpression(abstractExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.ABSTRACT_BOOLEAN_EXPRESSION:
-      {
-        AbstractBooleanExpression abstractBooleanExpression = (AbstractBooleanExpression)theEObject;
-        T result = caseAbstractBooleanExpression(abstractBooleanExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -399,7 +292,6 @@ public class AltaricaSwitch<T> extends Switch<T>
         org.osate.altarica.altarica.Switch switch_ = (org.osate.altarica.altarica.Switch)theEObject;
         T result = caseSwitch(switch_);
         if (result == null) result = caseAbstractExpression(switch_);
-        if (result == null) result = caseAbstractBooleanExpression(switch_);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -410,77 +302,13 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.IF_THEN_ELSE:
-      {
-        IfThenElse ifThenElse = (IfThenElse)theEObject;
-        T result = caseIfThenElse(ifThenElse);
-        if (result == null) result = caseAbstractExpression(ifThenElse);
-        if (result == null) result = caseAbstractBooleanExpression(ifThenElse);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.EXPRESSION:
-      {
-        Expression expression = (Expression)theEObject;
-        T result = caseExpression(expression);
-        if (result == null) result = caseAbstractExpression(expression);
-        if (result == null) result = caseAbstractBooleanExpression(expression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.EVENT_REF:
-      {
-        EventRef eventRef = (EventRef)theEObject;
-        T result = caseEventRef(eventRef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.VARIABLE_REF:
-      {
-        VariableRef variableRef = (VariableRef)theEObject;
-        T result = caseVariableRef(variableRef);
-        if (result == null) result = caseExpression(variableRef);
-        if (result == null) result = caseAbstractExpression(variableRef);
-        if (result == null) result = caseAbstractBooleanExpression(variableRef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.AR_BOOLEAN:
-      {
-        ARBoolean arBoolean = (ARBoolean)theEObject;
-        T result = caseARBoolean(arBoolean);
-        if (result == null) result = caseExpression(arBoolean);
-        if (result == null) result = caseAbstractExpression(arBoolean);
-        if (result == null) result = caseAbstractBooleanExpression(arBoolean);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.AR_STRING:
-      {
-        ARString arString = (ARString)theEObject;
-        T result = caseARString(arString);
-        if (result == null) result = caseExpression(arString);
-        if (result == null) result = caseAbstractExpression(arString);
-        if (result == null) result = caseAbstractBooleanExpression(arString);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.AR_INTEGER:
-      {
-        ARInteger arInteger = (ARInteger)theEObject;
-        T result = caseARInteger(arInteger);
-        if (result == null) result = caseExpression(arInteger);
-        if (result == null) result = caseAbstractExpression(arInteger);
-        if (result == null) result = caseAbstractBooleanExpression(arInteger);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AltaricaPackage.CONSTANT_DEFINITION:
       {
         ConstantDefinition constantDefinition = (ConstantDefinition)theEObject;
         T result = caseConstantDefinition(constantDefinition);
         if (result == null) result = caseNamedElement(constantDefinition);
         if (result == null) result = caseAbstractDeclaration(constantDefinition);
+        if (result == null) result = caseDeclaration(constantDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -490,6 +318,7 @@ public class AltaricaSwitch<T> extends Switch<T>
         T result = caseDomain(domain);
         if (result == null) result = caseNamedElement(domain);
         if (result == null) result = caseAbstractDeclaration(domain);
+        if (result == null) result = caseDeclaration(domain);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -499,6 +328,7 @@ public class AltaricaSwitch<T> extends Switch<T>
         T result = caseEnumerationLiteral(enumerationLiteral);
         if (result == null) result = caseNamedElement(enumerationLiteral);
         if (result == null) result = caseAbstractDeclaration(enumerationLiteral);
+        if (result == null) result = caseDeclaration(enumerationLiteral);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -508,15 +338,27 @@ public class AltaricaSwitch<T> extends Switch<T>
         T result = caseNode(node);
         if (result == null) result = caseNamedElement(node);
         if (result == null) result = caseAbstractDeclaration(node);
+        if (result == null) result = caseDeclaration(node);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.FLOW:
+      case AltaricaPackage.VARIABLE:
       {
-        Flow flow = (Flow)theEObject;
-        T result = caseFlow(flow);
-        if (result == null) result = caseNamedElement(flow);
-        if (result == null) result = caseAbstractDeclaration(flow);
+        Variable variable = (Variable)theEObject;
+        T result = caseVariable(variable);
+        if (result == null) result = caseNamedElement(variable);
+        if (result == null) result = caseAbstractDeclaration(variable);
+        if (result == null) result = caseDeclaration(variable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.ATTRIBUTE:
+      {
+        Attribute attribute = (Attribute)theEObject;
+        T result = caseAttribute(attribute);
+        if (result == null) result = caseNamedElement(attribute);
+        if (result == null) result = caseAbstractDeclaration(attribute);
+        if (result == null) result = caseDeclaration(attribute);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -526,84 +368,76 @@ public class AltaricaSwitch<T> extends Switch<T>
         T result = caseEvent(event);
         if (result == null) result = caseNamedElement(event);
         if (result == null) result = caseAbstractDeclaration(event);
+        if (result == null) result = caseDeclaration(event);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.STATE:
+      case AltaricaPackage.PARAMETER:
       {
-        State state = (State)theEObject;
-        T result = caseState(state);
-        if (result == null) result = caseNamedElement(state);
-        if (result == null) result = caseAbstractDeclaration(state);
+        Parameter parameter = (Parameter)theEObject;
+        T result = caseParameter(parameter);
+        if (result == null) result = caseNamedElement(parameter);
+        if (result == null) result = caseAbstractDeclaration(parameter);
+        if (result == null) result = caseDeclaration(parameter);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.NODE_INSTANCE:
+      case AltaricaPackage.OBSERVER:
       {
-        NodeInstance nodeInstance = (NodeInstance)theEObject;
-        T result = caseNodeInstance(nodeInstance);
-        if (result == null) result = caseNamedElement(nodeInstance);
-        if (result == null) result = caseAbstractDeclaration(nodeInstance);
+        Observer observer = (Observer)theEObject;
+        T result = caseObserver(observer);
+        if (result == null) result = caseNamedElement(observer);
+        if (result == null) result = caseAbstractDeclaration(observer);
+        if (result == null) result = caseDeclaration(observer);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.ADDITION:
+      case AltaricaPackage.TRANSITION_AND:
       {
-        Addition addition = (Addition)theEObject;
-        T result = caseAddition(addition);
-        if (result == null) result = caseExpression(addition);
-        if (result == null) result = caseAbstractExpression(addition);
-        if (result == null) result = caseAbstractBooleanExpression(addition);
+        TransitionAnd transitionAnd = (TransitionAnd)theEObject;
+        T result = caseTransitionAnd(transitionAnd);
+        if (result == null) result = caseTransitionExpression(transitionAnd);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.MINUS:
+      case AltaricaPackage.TRANSITION_OR:
       {
-        Minus minus = (Minus)theEObject;
-        T result = caseMinus(minus);
-        if (result == null) result = caseExpression(minus);
-        if (result == null) result = caseAbstractExpression(minus);
-        if (result == null) result = caseAbstractBooleanExpression(minus);
+        TransitionOr transitionOr = (TransitionOr)theEObject;
+        T result = caseTransitionOr(transitionOr);
+        if (result == null) result = caseTransitionExpression(transitionOr);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.MULTIPLICATION:
+      case AltaricaPackage.SKIP:
       {
-        Multiplication multiplication = (Multiplication)theEObject;
-        T result = caseMultiplication(multiplication);
-        if (result == null) result = caseExpression(multiplication);
-        if (result == null) result = caseAbstractExpression(multiplication);
-        if (result == null) result = caseAbstractBooleanExpression(multiplication);
+        Skip skip = (Skip)theEObject;
+        T result = caseSkip(skip);
+        if (result == null) result = caseInstruction(skip);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.DIVISION:
+      case AltaricaPackage.ASSIGNMENT:
       {
-        Division division = (Division)theEObject;
-        T result = caseDivision(division);
-        if (result == null) result = caseExpression(division);
-        if (result == null) result = caseAbstractExpression(division);
-        if (result == null) result = caseAbstractBooleanExpression(division);
+        Assignment assignment = (Assignment)theEObject;
+        T result = caseAssignment(assignment);
+        if (result == null) result = caseInstruction(assignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.AND:
+      case AltaricaPackage.BLOCK:
       {
-        And and = (And)theEObject;
-        T result = caseAnd(and);
-        if (result == null) result = caseExpression(and);
-        if (result == null) result = caseAbstractExpression(and);
-        if (result == null) result = caseAbstractBooleanExpression(and);
+        Block block = (Block)theEObject;
+        T result = caseBlock(block);
+        if (result == null) result = caseInstruction(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.OR:
+      case AltaricaPackage.LOGICAL:
       {
-        Or or = (Or)theEObject;
-        T result = caseOr(or);
-        if (result == null) result = caseExpression(or);
-        if (result == null) result = caseAbstractExpression(or);
-        if (result == null) result = caseAbstractBooleanExpression(or);
+        Logical logical = (Logical)theEObject;
+        T result = caseLogical(logical);
+        if (result == null) result = caseExpression(logical);
+        if (result == null) result = caseAbstractExpression(logical);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -613,86 +447,52 @@ public class AltaricaSwitch<T> extends Switch<T>
         T result = caseEqual(equal);
         if (result == null) result = caseExpression(equal);
         if (result == null) result = caseAbstractExpression(equal);
-        if (result == null) result = caseAbstractBooleanExpression(equal);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.NOT_EQUAL:
+      case AltaricaPackage.ADDITION:
       {
-        NotEqual notEqual = (NotEqual)theEObject;
-        T result = caseNotEqual(notEqual);
-        if (result == null) result = caseExpression(notEqual);
-        if (result == null) result = caseAbstractExpression(notEqual);
-        if (result == null) result = caseAbstractBooleanExpression(notEqual);
+        Addition addition = (Addition)theEObject;
+        T result = caseAddition(addition);
+        if (result == null) result = caseExpression(addition);
+        if (result == null) result = caseAbstractExpression(addition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.STRICT_LOWER:
+      case AltaricaPackage.MULTIPLICATION:
       {
-        StrictLower strictLower = (StrictLower)theEObject;
-        T result = caseStrictLower(strictLower);
-        if (result == null) result = caseExpression(strictLower);
-        if (result == null) result = caseAbstractExpression(strictLower);
-        if (result == null) result = caseAbstractBooleanExpression(strictLower);
+        Multiplication multiplication = (Multiplication)theEObject;
+        T result = caseMultiplication(multiplication);
+        if (result == null) result = caseExpression(multiplication);
+        if (result == null) result = caseAbstractExpression(multiplication);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.LOWER:
+      case AltaricaPackage.NOT:
       {
-        Lower lower = (Lower)theEObject;
-        T result = caseLower(lower);
-        if (result == null) result = caseExpression(lower);
-        if (result == null) result = caseAbstractExpression(lower);
-        if (result == null) result = caseAbstractBooleanExpression(lower);
+        Not not = (Not)theEObject;
+        T result = caseNot(not);
+        if (result == null) result = caseExpression(not);
+        if (result == null) result = caseAbstractExpression(not);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.STRICT_UPPER:
+      case AltaricaPackage.MINUS:
       {
-        StrictUpper strictUpper = (StrictUpper)theEObject;
-        T result = caseStrictUpper(strictUpper);
-        if (result == null) result = caseExpression(strictUpper);
-        if (result == null) result = caseAbstractExpression(strictUpper);
-        if (result == null) result = caseAbstractBooleanExpression(strictUpper);
+        Minus minus = (Minus)theEObject;
+        T result = caseMinus(minus);
+        if (result == null) result = caseExpression(minus);
+        if (result == null) result = caseAbstractExpression(minus);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.UPPER:
+      case AltaricaPackage.NESTED_REF:
       {
-        Upper upper = (Upper)theEObject;
-        T result = caseUpper(upper);
-        if (result == null) result = caseExpression(upper);
-        if (result == null) result = caseAbstractExpression(upper);
-        if (result == null) result = caseAbstractBooleanExpression(upper);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.IMPLY:
-      {
-        Imply imply = (Imply)theEObject;
-        T result = caseImply(imply);
-        if (result == null) result = caseExpression(imply);
-        if (result == null) result = caseAbstractExpression(imply);
-        if (result == null) result = caseAbstractBooleanExpression(imply);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.NESTED_QUALIFIED_EVENT_REF:
-      {
-        NestedQualifiedEventRef nestedQualifiedEventRef = (NestedQualifiedEventRef)theEObject;
-        T result = caseNestedQualifiedEventRef(nestedQualifiedEventRef);
-        if (result == null) result = caseEventRef(nestedQualifiedEventRef);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case AltaricaPackage.NESTED_QUALIFIED_VARIABLE_REF:
-      {
-        NestedQualifiedVariableRef nestedQualifiedVariableRef = (NestedQualifiedVariableRef)theEObject;
-        T result = caseNestedQualifiedVariableRef(nestedQualifiedVariableRef);
-        if (result == null) result = caseVariableRef(nestedQualifiedVariableRef);
-        if (result == null) result = caseExpression(nestedQualifiedVariableRef);
-        if (result == null) result = caseAbstractExpression(nestedQualifiedVariableRef);
-        if (result == null) result = caseAbstractBooleanExpression(nestedQualifiedVariableRef);
+        NestedRef nestedRef = (NestedRef)theEObject;
+        T result = caseNestedRef(nestedRef);
+        if (result == null) result = caseNameRef(nestedRef);
+        if (result == null) result = caseExpression(nestedRef);
+        if (result == null) result = caseAbstractExpression(nestedRef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -701,17 +501,17 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>System</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Model</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>System</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Model</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseSystem(org.osate.altarica.altarica.System object)
+  public T caseModel(Model object)
   {
     return null;
   }
@@ -845,433 +645,129 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Primitive Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePrimitiveType(PrimitiveType object)
+  public T caseType(Type object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Base Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Base Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAbstractSpecification(AbstractSpecification object)
+  public T caseBaseType(BaseType object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Attribute</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Class Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Attribute</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Class Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseVariableAttribute(VariableAttribute object)
+  public T caseClassType(ClassType object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Init Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Init Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Declaration</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInitSpecification(InitSpecification object)
+  public T caseDeclaration(Declaration object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Init Statement</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Labeled Transition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Init Statement</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Labeled Transition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseInitStatement(InitStatement object)
+  public T caseLabeledTransition(LabeledTransition object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>External Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Transition Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>External Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Transition Expression</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExternalSpecification(ExternalSpecification object)
+  public T caseTransitionExpression(TransitionExpression object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>External Directive</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>ITransition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>External Directive</em>'.
+   * @return the result of interpreting the object as an instance of '<em>ITransition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExternalDirective(ExternalDirective object)
+  public T caseITransition(ITransition object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Flow Specification</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Flow Specification</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Instruction</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFlowSpecification(FlowSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Event Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Event Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEventSpecification(EventSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Priority</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Priority</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePriority(Priority object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>State Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseStateSpecification(StateSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Type Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Type Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbstractTypeRef(AbstractTypeRef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Domain Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Domain Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseDomainRef(DomainRef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Node Instance Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Node Instance Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNodeInstanceSpecification(NodeInstanceSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assert Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assert Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssertSpecification(AssertSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assert</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assert</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssert(Assert object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Vector Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vector Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVectorSpecification(VectorSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Vector</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vector</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVector(Vector object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Vector Parameter</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Vector Parameter</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVectorParameter(VectorParameter object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Cardinality</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Cardinality</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCardinality(Cardinality object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Transition Specification</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Transition Specification</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTransitionSpecification(TransitionSpecification object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Transition</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Transition</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseTransition(Transition object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAssignment(Assignment object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbstractExpression(AbstractExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Abstract Boolean Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Abstract Boolean Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseAbstractBooleanExpression(AbstractBooleanExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Switch</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Switch</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseSwitch(org.osate.altarica.altarica.Switch object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Case Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Case Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCaseExpression(CaseExpression object)
+  public T caseInstruction(Instruction object)
   {
     return null;
   }
@@ -1304,38 +800,6 @@ public class AltaricaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseExpression(Expression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Event Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Event Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseEventRef(EventRef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Variable Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Variable Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseVariableRef(VariableRef object)
   {
     return null;
   }
@@ -1384,6 +848,118 @@ public class AltaricaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseARInteger(ARInteger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Name Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Name Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNameRef(NameRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Variable Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Variable Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseVariableAttribute(VariableAttribute object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Type Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Type Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractTypeRef(AbstractTypeRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Domain Ref</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Domain Ref</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseDomainRef(DomainRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Abstract Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Abstract Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAbstractExpression(AbstractExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Switch</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSwitch(org.osate.altarica.altarica.Switch object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Case Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Case Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCaseExpression(CaseExpression object)
   {
     return null;
   }
@@ -1453,17 +1029,33 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Flow</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Variable</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Flow</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Variable</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseFlow(Flow object)
+  public T caseVariable(Variable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Attribute</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Attribute</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseAttribute(Attribute object)
   {
     return null;
   }
@@ -1485,129 +1077,129 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>State</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>State</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Parameter</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseState(State object)
+  public T caseParameter(Parameter object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Node Instance</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Observer</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Node Instance</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Observer</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNodeInstance(NodeInstance object)
+  public T caseObserver(Observer object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Addition</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Transition And</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Addition</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Transition And</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAddition(Addition object)
+  public T caseTransitionAnd(TransitionAnd object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Transition Or</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Transition Or</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMinus(Minus object)
+  public T caseTransitionOr(TransitionOr object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Multiplication</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Skip</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Multiplication</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Skip</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMultiplication(Multiplication object)
+  public T caseSkip(Skip object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Division</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Assignment</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Division</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Assignment</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseDivision(Division object)
+  public T caseAssignment(Assignment object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>And</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Block</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>And</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Block</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseAnd(And object)
+  public T caseBlock(Block object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Or</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Logical</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Or</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Logical</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseOr(Or object)
+  public T caseLogical(Logical object)
   {
     return null;
   }
@@ -1629,129 +1221,81 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Not Equal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Addition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Not Equal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Addition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNotEqual(NotEqual object)
+  public T caseAddition(Addition object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Strict Lower</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Multiplication</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Strict Lower</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Multiplication</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStrictLower(StrictLower object)
+  public T caseMultiplication(Multiplication object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Lower</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Not</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Lower</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Not</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLower(Lower object)
+  public T caseNot(Not object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Strict Upper</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Minus</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Strict Upper</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Minus</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseStrictUpper(StrictUpper object)
+  public T caseMinus(Minus object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Upper</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Nested Ref</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Upper</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Nested Ref</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseUpper(Upper object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Imply</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Imply</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseImply(Imply object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Nested Qualified Event Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Nested Qualified Event Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNestedQualifiedEventRef(NestedQualifiedEventRef object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Nested Qualified Variable Ref</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Nested Qualified Variable Ref</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNestedQualifiedVariableRef(NestedQualifiedVariableRef object)
+  public T caseNestedRef(NestedRef object)
   {
     return null;
   }

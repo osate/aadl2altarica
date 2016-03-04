@@ -1,25 +1,14 @@
-/*******************************************************************************
-* Copyright (c) 2011-2012 Frédéric Thomas.
-* All rights reserved. This program and the accompanying materials
-* are made available under the terms of the Eclipse Public License v1.0
-* which accompanies this distribution, and is available at
-* http://www.eclipse.org/legal/epl-v10.html
-*
-* Contributors:
-* fthomas - initial grammar
-*******************************************************************************/
-
 grammar org.osate.altarica.Altarica with org.eclipse.xtext.common.Terminals
 
-generate altarica "http://osate.org/Altarica"
+generate altarica "http://osate.org/Altarica/2.1"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-System:
-	ownedDeclarations+=AbstractDeclaration*;
+Model:
+	declarations+=AbstractDeclaration*;
 
 AbstractDeclaration:
-	Domain | ConstantDefinition | Node;
+	Class;
 
 ConstantDefinition returns NamedElement:
 	{ConstantDefinition}
@@ -39,7 +28,7 @@ Domain returns NamedElement:
 	'domain' name=ID '=' domain=AbstractDomain ';';
 
 AbstractDomain:
-	PrimitiveType | Range | Enumeration;
+	BaseType | Range | Enumeration;
 
 Range:
 	'[' lower=Atom ',' upper=Atom ']';
@@ -47,187 +36,157 @@ Range:
 Enumeration:
 	'{' ownedLiterals+=Literal (',' ownedLiterals+=Literal)* '}';
 
-PrimitiveType:
-	name=PrimitiveTypeKind;
-
-enum PrimitiveTypeKind:
-	INTEGER='integer' | BOOLEAN='bool';
-
 Literal returns NamedElement:
 	{EnumerationLiteral} name=ID;
 
-Node returns NamedElement:
+
+
+
+Type:
+	=>BaseType | ClassType
+;
+
+BaseType:
+	name=BaseTypeEnum;
+
+enum BaseTypeEnum:
+	INTEGER='Integer' | BOOLEAN='Boolean';
+
+ClassType:
+	class=[Node]
+;
+
+// ========== Classes ==========
+
+Class returns NamedElement:
 	{Node}
-	'node' name=ID 
-		ownedSpecifications+=AbstractSpecification*
-	'edon';
+	'class' name=ID
+		declarations+=Declaration*
+		(
+		  "transition"
+		  transitions+=LabeledTransition+
+		)?
+		(
+		  "assertion"
+		  assertions+=Instruction+
+		)?
+	'end'
+;
 
-AbstractSpecification:
-	FlowSpecification | StateSpecification | EventSpecification | NodeInstanceSpecification | AssertSpecification |
-	VectorSpecification | TransitionSpecification | InitSpecification | ExternalSpecification;
+// ========== Declarations ==========
 
-VariableAttribute:
-	name=ID;
+Declaration:
+	VariableDeclaration | EventDeclaration | ParameterDeclaration | ObserverDeclaration
+;
 
-InitSpecification:
-	'init' ownedInitStatements+=InitStatement*;
 
-InitStatement:
-	affectation=Assignment ";";
-
-ExternalSpecification:
-	'extern' ownedDirectives+=ExternalDirective*;
-
-ExternalDirective:
-	directive = SL_COMMENT;
-
-//terminal Directive returns ecore::EString : "/*" -> ";";
-
-FlowSpecification:
-	'flow' ownedFlows+=Flow*;
-
-Flow returns NamedElement:
-	{Flow}
-	name=ID ':' domain=AbstractTypeRef (':' kind=FlowKind)? (':' attribute=VariableAttribute)? ";";
-
-enum FlowKind:
-	IN='in' | OUT='out' | INOUT='inout';
-
-enum VisibilityKind:
-	PUBLIC='public' | PRIVATE='private' | PARENT='parent';
-
-EventSpecification:
-	'event' ownedEvents+=Event*;
-
-Event returns NamedElement:
-	{Event}
-	name=ID ('[' ownedPriority=Priority ']')? (':' attribute=VariableAttribute)? ';';
-
-Priority:
-	('!' | 'priority') ownedExpression=AbstractExpression;
-
-StateSpecification:
-	'state' ownedStates+=State*;
-
-State returns NamedElement:
-	{State}
-	name=ID ':' domain=AbstractTypeRef (':' attribute=VariableAttribute)? ";";
-
-AbstractTypeRef:
-	DomainRef | AbstractDomain;
-
-DomainRef:
-	reference=[Domain];
-
-NodeInstanceSpecification:
-	'sub' ownedNodeInstances+=NodeInstance*;
-
-NodeInstance returns NamedElement:
-	{NodeInstance}
-	name=ID ':' nodeType=[Node] ";";
-
-AssertSpecification:
-	'assert' ownedAsserts+=Assert*;
-
-Assert:
-	ownedExpressions+=AbstractBooleanExpression ";";
-
-VectorSpecification:
-	'sync' ownedVectors+=Vector*;
-
-Vector:
-	'<' ownedParameters+=VectorParameter (',' ownedParameters+=VectorParameter)* '>' ('[' cardinality=Cardinality ']')? ";";
-
-VectorParameter:
-	eventParameter= EventRef (isRequired?='?')?;
-
-Cardinality:
-	('>' expression=AbstractExpression) | ('>=' expression=AbstractExpression) | ('=' expression=AbstractExpression);
-
-TransitionSpecification:
-	'trans' ownedTransitionTransitions+=Transition*;
-
-Transition:
-	ownedExpression=AbstractExpression '|-' event=[Event] '->' (ownedAffectations+=Assignment (','
-	ownedAffectations+=Assignment)*)* ";";
-
-Assignment:
-	state=[State] ':=' ownedExpression=AbstractExpression;
-
-AbstractExpression:
-	IfThenElse| Switch | Expression;
-
-AbstractBooleanExpression:
-	IfThenElse| Switch | BooleanExpression;
+VariableDeclaration returns NamedElement:
+	{Variable}
+	type=Type name=ID 
+	( "(" attributes+=Attribute ("," attributes+=Attribute)* ")" )?
+	";"
+;
 	
-Switch:
-	'case {' 
-		ownedCases+=CaseExpression*
-	'else'
-		default=Expression
-	'}';
+Attribute returns NamedElement:
+	{Attribute}
+	name=ID "=" value=Expression
+	";"
+;
+	
 
-CaseExpression:
-	condition=BooleanExpression ':' body=Expression ',';
+EventDeclaration returns NamedElement:
+	{Event}
+	"event" name=ID	
+	( "(" attributes+=Attribute ("," attributes+=Attribute)* ")" )?
+;
+
+
+ParameterDeclaration returns NamedElement:
+	{Parameter}
+	"parameter" type=Type name=ID "=" value=Expression
+	";"
+;
+
+
+ObserverDeclaration returns NamedElement:
+	{Observer}
+	"observer" type=Type name=ID "=" value=Expression
+	";"
+;
+
+// ========== Transitions ==========
+
+LabeledTransition:
+	event=NameRef ":" expression=TransitionAnd
+;
+
+TransitionAnd returns TransitionExpression:
+	TransitionOr ({TransitionAnd.left=current} '&' right=TransitionOr)*;
+
+TransitionOr returns TransitionExpression:
+	ITransition ({TransitionOr.left=current} '|' right=ITransition)*;
+
+ITransition:
+	{ITransition}
+	"$transition"
+;
+
+// ========== Instructions ==========
+
+Instruction:
+	Skip | Assignment | Block | IfThenElse
+;
+
+Skip returns Instruction:
+	{Skip} 
+	'skip' ';'
+;
+
+Assignment returns Instruction:
+	{Assignment}
+	variable=NameRef ':=' value=Expression ';'
+;
+
+Block returns Instruction:
+	{Block}
+	'{' (instructions+=Instruction)+ '}'
+;
 
 IfThenElse:
-	'if' condition=BooleanExpression 'then' then=(Switch | Expression) 'else' else=(Switch | Expression);
+	'if' condition=Expression 'then' then=Instruction (=>'else' else=Instruction)? ";"
+;
 
-Expression :
-	Minus ({Addition.leftOperand=current} '+' rightOperand=Minus)*;
+// ========== Expressions ==========Or
 
-Minus returns Expression:
-	Multiplication ({Minus.leftOperand=current} '-' rightOperand=Multiplication)*;
+Expression:
+	Logical
+;
+	
+Logical returns Expression:
+	Relation =>({Logical.left=current} op=('and' | 'or') right=Relation)*
+;
+
+Relation returns Expression:
+	Addition =>({Equal.left=current} op=('='|'!=' | '<' | '<=' | '>=' | '>') right=Addition)*
+;
+
+Addition returns Expression:
+	Multiplication =>({Addition.left=current} op=('+' | '-') right=Multiplication)*
+;
 
 Multiplication returns Expression:
-	Division ({Multiplication.leftOperand=current} '*' rightOperand=Division)*;
+	Neg =>({Multiplication.left=current} op=('*' | '/') right=Neg)*
+;
 
-Division returns Expression:
-	 BooleanExpression ({Division.leftOperand=current} '/' rightOperand=BooleanExpression)*;
-
-
-
-BooleanExpression returns Expression:
-	And;
-	
-And returns Expression:
-	Or ({And.leftOperand=current} ('and'|'&') rightOperand=Or)*;
-
-Or returns Expression:
-	Equal ({Or.leftOperand=current} ('or'|'|') rightOperand=Equal)*;
-
-Equal returns Expression:
-	NotEqual ({Equal.leftOperand=current} '=' rightOperand=NotEqual)*;
-
-NotEqual returns Expression:
-	StrictLower ({NotEqual.leftOperand=current} '!=' rightOperand=StrictLower)*;
-
-StrictLower returns Expression:
-	Lower ({StrictLower.leftOperand=current} '<' rightOperand=Lower)*;
-
-Lower returns Expression:
-	StrictUpper ({Lower.leftOperand=current} '<=' rightOperand=StrictUpper)*;
-
-StrictUpper returns Expression:
-	Upper ({StrictUpper.leftOperand=current} '>' rightOperand=Upper)*;
-
-Upper returns Expression:
-	Imply ({Upper.leftOperand=current} '>=' rightOperand=Imply)*;
-
-Imply returns Expression:
-	Not ({Imply.leftOperand=current} '=>' rightOperand=Not)*;
-
-Not returns Expression:
-	(('~'|'not')operand = Atom) | Atom;
+Neg returns Expression:
+	{Not} =>'not' expression=Atom
+	| {Minus} =>'-' expression=Atom 
+	| Atom
+;
 
 Atom returns Expression:
-	BooleanLiteral | StringLiteral | IntegerLiteral | VariableRef | '(' Expression ')';
-
-EventRef:
-	variable=[NamedElement] ({NestedQualifiedEventRef.target=current} '.' nestedVariable=[NamedElement])*; //('.' ownedFeature=QualifiedEventRef)?;
-
-VariableRef:
-	variable=[NamedElement] ({NestedQualifiedVariableRef.target=current} '.' nestedVariable=[NamedElement])*;
+	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | '(' Expression ')'
+;
 
 BooleanLiteral returns ARBoolean:
 	value=('true' | 'false');
@@ -237,3 +196,37 @@ StringLiteral returns ARString:
 
 IntegerLiteral returns ARInteger:
 	value=INT;
+
+NameRef:
+	variable=[NamedElement] =>({NestedRef.target=current} '.' nested=NameRef)*;
+
+//================
+
+VariableAttribute:
+	name=ID;
+
+//terminal Directive returns ecore::EString : "/*" -> ";";
+
+AbstractTypeRef:
+	DomainRef | AbstractDomain;
+
+DomainRef:
+	reference=[Domain];
+
+
+//Assignment:
+//	state=[State] ':=' ownedExpression=AbstractExpression;
+
+AbstractExpression:
+	IfThenElse| Switch | Expression;
+
+Switch:
+	'case {' 
+		ownedCases+=CaseExpression*
+	'else'
+		default=Expression
+	'}';
+
+CaseExpression:
+	condition=Expression ':' body=Expression ',';
+

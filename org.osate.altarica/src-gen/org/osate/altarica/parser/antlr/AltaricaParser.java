@@ -25,7 +25,7 @@ public class AltaricaParser extends org.eclipse.xtext.parser.antlr.AbstractAntlr
 	
 	@Override 
 	protected String getDefaultRuleName() {
-		return "System";
+		return "Model";
 	}
 	
 	public AltaricaGrammarAccess getGrammarAccess() {

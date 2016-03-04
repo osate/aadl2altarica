@@ -2,7 +2,6 @@
  */
 package org.osate.altarica.altarica;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +21,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface IfThenElse extends AbstractExpression, AbstractBooleanExpression
+public interface IfThenElse extends Instruction, AbstractExpression
 {
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -59,12 +58,12 @@ public interface IfThenElse extends AbstractExpression, AbstractBooleanExpressio
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Then</em>' containment reference.
-   * @see #setThen(EObject)
+   * @see #setThen(Instruction)
    * @see org.osate.altarica.altarica.AltaricaPackage#getIfThenElse_Then()
    * @model containment="true"
    * @generated
    */
-  EObject getThen();
+  Instruction getThen();
 
   /**
    * Sets the value of the '{@link org.osate.altarica.altarica.IfThenElse#getThen <em>Then</em>}' containment reference.
@@ -74,7 +73,7 @@ public interface IfThenElse extends AbstractExpression, AbstractBooleanExpressio
    * @see #getThen()
    * @generated
    */
-  void setThen(EObject value);
+  void setThen(Instruction value);
 
   /**
    * Returns the value of the '<em><b>Else</b></em>' containment reference.
@@ -85,12 +84,12 @@ public interface IfThenElse extends AbstractExpression, AbstractBooleanExpressio
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Else</em>' containment reference.
-   * @see #setElse(EObject)
+   * @see #setElse(Instruction)
    * @see org.osate.altarica.altarica.AltaricaPackage#getIfThenElse_Else()
    * @model containment="true"
    * @generated
    */
-  EObject getElse();
+  Instruction getElse();
 
   /**
    * Sets the value of the '{@link org.osate.altarica.altarica.IfThenElse#getElse <em>Else</em>}' containment reference.
@@ -100,6 +99,6 @@ public interface IfThenElse extends AbstractExpression, AbstractBooleanExpressio
    * @see #getElse()
    * @generated
    */
-  void setElse(EObject value);
+  void setElse(Instruction value);
 
 } // IfThenElse

@@ -11,76 +11,7 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.osate.altarica.altarica.ARBoolean;
-import org.osate.altarica.altarica.ARInteger;
-import org.osate.altarica.altarica.ARString;
-import org.osate.altarica.altarica.AbstractBooleanExpression;
-import org.osate.altarica.altarica.AbstractDeclaration;
-import org.osate.altarica.altarica.AbstractDefinitionConstant;
-import org.osate.altarica.altarica.AbstractDomain;
-import org.osate.altarica.altarica.AbstractExpression;
-import org.osate.altarica.altarica.AbstractSpecification;
-import org.osate.altarica.altarica.AbstractTypeRef;
-import org.osate.altarica.altarica.Addition;
-import org.osate.altarica.altarica.AltaricaFactory;
-import org.osate.altarica.altarica.AltaricaPackage;
-import org.osate.altarica.altarica.And;
-import org.osate.altarica.altarica.Assert;
-import org.osate.altarica.altarica.AssertSpecification;
-import org.osate.altarica.altarica.Assignment;
-import org.osate.altarica.altarica.Cardinality;
-import org.osate.altarica.altarica.CaseExpression;
-import org.osate.altarica.altarica.ConstantDefinition;
-import org.osate.altarica.altarica.Division;
-import org.osate.altarica.altarica.Domain;
-import org.osate.altarica.altarica.DomainConstant;
-import org.osate.altarica.altarica.DomainRef;
-import org.osate.altarica.altarica.Enumeration;
-import org.osate.altarica.altarica.EnumerationLiteral;
-import org.osate.altarica.altarica.Equal;
-import org.osate.altarica.altarica.Event;
-import org.osate.altarica.altarica.EventRef;
-import org.osate.altarica.altarica.EventSpecification;
-import org.osate.altarica.altarica.Expression;
-import org.osate.altarica.altarica.ExpressionConstant;
-import org.osate.altarica.altarica.ExternalDirective;
-import org.osate.altarica.altarica.ExternalSpecification;
-import org.osate.altarica.altarica.Flow;
-import org.osate.altarica.altarica.FlowKind;
-import org.osate.altarica.altarica.FlowSpecification;
-import org.osate.altarica.altarica.IfThenElse;
-import org.osate.altarica.altarica.Imply;
-import org.osate.altarica.altarica.InitSpecification;
-import org.osate.altarica.altarica.InitStatement;
-import org.osate.altarica.altarica.Lower;
-import org.osate.altarica.altarica.Minus;
-import org.osate.altarica.altarica.Multiplication;
-import org.osate.altarica.altarica.NamedElement;
-import org.osate.altarica.altarica.NestedQualifiedEventRef;
-import org.osate.altarica.altarica.NestedQualifiedVariableRef;
-import org.osate.altarica.altarica.Node;
-import org.osate.altarica.altarica.NodeInstance;
-import org.osate.altarica.altarica.NodeInstanceSpecification;
-import org.osate.altarica.altarica.NotEqual;
-import org.osate.altarica.altarica.Or;
-import org.osate.altarica.altarica.PrimitiveType;
-import org.osate.altarica.altarica.PrimitiveTypeKind;
-import org.osate.altarica.altarica.Priority;
-import org.osate.altarica.altarica.Range;
-import org.osate.altarica.altarica.State;
-import org.osate.altarica.altarica.StateSpecification;
-import org.osate.altarica.altarica.StrictLower;
-import org.osate.altarica.altarica.StrictUpper;
-import org.osate.altarica.altarica.Switch;
-import org.osate.altarica.altarica.Transition;
-import org.osate.altarica.altarica.TransitionSpecification;
-import org.osate.altarica.altarica.Upper;
-import org.osate.altarica.altarica.VariableAttribute;
-import org.osate.altarica.altarica.VariableRef;
-import org.osate.altarica.altarica.Vector;
-import org.osate.altarica.altarica.VectorParameter;
-import org.osate.altarica.altarica.VectorSpecification;
-import org.osate.altarica.altarica.VisibilityKind;
+import org.osate.altarica.altarica.*;
 
 /**
  * <!-- begin-user-doc -->
@@ -134,7 +65,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     switch (eClass.getClassifierID())
     {
-      case AltaricaPackage.SYSTEM: return createSystem();
+      case AltaricaPackage.MODEL: return createModel();
       case AltaricaPackage.ABSTRACT_DECLARATION: return createAbstractDeclaration();
       case AltaricaPackage.NAMED_ELEMENT: return createNamedElement();
       case AltaricaPackage.ABSTRACT_DEFINITION_CONSTANT: return createAbstractDefinitionConstant();
@@ -143,63 +74,47 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.ABSTRACT_DOMAIN: return createAbstractDomain();
       case AltaricaPackage.RANGE: return createRange();
       case AltaricaPackage.ENUMERATION: return createEnumeration();
-      case AltaricaPackage.PRIMITIVE_TYPE: return createPrimitiveType();
-      case AltaricaPackage.ABSTRACT_SPECIFICATION: return createAbstractSpecification();
-      case AltaricaPackage.VARIABLE_ATTRIBUTE: return createVariableAttribute();
-      case AltaricaPackage.INIT_SPECIFICATION: return createInitSpecification();
-      case AltaricaPackage.INIT_STATEMENT: return createInitStatement();
-      case AltaricaPackage.EXTERNAL_SPECIFICATION: return createExternalSpecification();
-      case AltaricaPackage.EXTERNAL_DIRECTIVE: return createExternalDirective();
-      case AltaricaPackage.FLOW_SPECIFICATION: return createFlowSpecification();
-      case AltaricaPackage.EVENT_SPECIFICATION: return createEventSpecification();
-      case AltaricaPackage.PRIORITY: return createPriority();
-      case AltaricaPackage.STATE_SPECIFICATION: return createStateSpecification();
-      case AltaricaPackage.ABSTRACT_TYPE_REF: return createAbstractTypeRef();
-      case AltaricaPackage.DOMAIN_REF: return createDomainRef();
-      case AltaricaPackage.NODE_INSTANCE_SPECIFICATION: return createNodeInstanceSpecification();
-      case AltaricaPackage.ASSERT_SPECIFICATION: return createAssertSpecification();
-      case AltaricaPackage.ASSERT: return createAssert();
-      case AltaricaPackage.VECTOR_SPECIFICATION: return createVectorSpecification();
-      case AltaricaPackage.VECTOR: return createVector();
-      case AltaricaPackage.VECTOR_PARAMETER: return createVectorParameter();
-      case AltaricaPackage.CARDINALITY: return createCardinality();
-      case AltaricaPackage.TRANSITION_SPECIFICATION: return createTransitionSpecification();
-      case AltaricaPackage.TRANSITION: return createTransition();
-      case AltaricaPackage.ASSIGNMENT: return createAssignment();
-      case AltaricaPackage.ABSTRACT_EXPRESSION: return createAbstractExpression();
-      case AltaricaPackage.ABSTRACT_BOOLEAN_EXPRESSION: return createAbstractBooleanExpression();
-      case AltaricaPackage.SWITCH: return createSwitch();
-      case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
+      case AltaricaPackage.TYPE: return createType();
+      case AltaricaPackage.BASE_TYPE: return createBaseType();
+      case AltaricaPackage.CLASS_TYPE: return createClassType();
+      case AltaricaPackage.DECLARATION: return createDeclaration();
+      case AltaricaPackage.LABELED_TRANSITION: return createLabeledTransition();
+      case AltaricaPackage.TRANSITION_EXPRESSION: return createTransitionExpression();
+      case AltaricaPackage.ITRANSITION: return createITransition();
+      case AltaricaPackage.INSTRUCTION: return createInstruction();
       case AltaricaPackage.IF_THEN_ELSE: return createIfThenElse();
       case AltaricaPackage.EXPRESSION: return createExpression();
-      case AltaricaPackage.EVENT_REF: return createEventRef();
-      case AltaricaPackage.VARIABLE_REF: return createVariableRef();
       case AltaricaPackage.AR_BOOLEAN: return createARBoolean();
       case AltaricaPackage.AR_STRING: return createARString();
       case AltaricaPackage.AR_INTEGER: return createARInteger();
+      case AltaricaPackage.NAME_REF: return createNameRef();
+      case AltaricaPackage.VARIABLE_ATTRIBUTE: return createVariableAttribute();
+      case AltaricaPackage.ABSTRACT_TYPE_REF: return createAbstractTypeRef();
+      case AltaricaPackage.DOMAIN_REF: return createDomainRef();
+      case AltaricaPackage.ABSTRACT_EXPRESSION: return createAbstractExpression();
+      case AltaricaPackage.SWITCH: return createSwitch();
+      case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
       case AltaricaPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case AltaricaPackage.DOMAIN: return createDomain();
       case AltaricaPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
       case AltaricaPackage.NODE: return createNode();
-      case AltaricaPackage.FLOW: return createFlow();
+      case AltaricaPackage.VARIABLE: return createVariable();
+      case AltaricaPackage.ATTRIBUTE: return createAttribute();
       case AltaricaPackage.EVENT: return createEvent();
-      case AltaricaPackage.STATE: return createState();
-      case AltaricaPackage.NODE_INSTANCE: return createNodeInstance();
-      case AltaricaPackage.ADDITION: return createAddition();
-      case AltaricaPackage.MINUS: return createMinus();
-      case AltaricaPackage.MULTIPLICATION: return createMultiplication();
-      case AltaricaPackage.DIVISION: return createDivision();
-      case AltaricaPackage.AND: return createAnd();
-      case AltaricaPackage.OR: return createOr();
+      case AltaricaPackage.PARAMETER: return createParameter();
+      case AltaricaPackage.OBSERVER: return createObserver();
+      case AltaricaPackage.TRANSITION_AND: return createTransitionAnd();
+      case AltaricaPackage.TRANSITION_OR: return createTransitionOr();
+      case AltaricaPackage.SKIP: return createSkip();
+      case AltaricaPackage.ASSIGNMENT: return createAssignment();
+      case AltaricaPackage.BLOCK: return createBlock();
+      case AltaricaPackage.LOGICAL: return createLogical();
       case AltaricaPackage.EQUAL: return createEqual();
-      case AltaricaPackage.NOT_EQUAL: return createNotEqual();
-      case AltaricaPackage.STRICT_LOWER: return createStrictLower();
-      case AltaricaPackage.LOWER: return createLower();
-      case AltaricaPackage.STRICT_UPPER: return createStrictUpper();
-      case AltaricaPackage.UPPER: return createUpper();
-      case AltaricaPackage.IMPLY: return createImply();
-      case AltaricaPackage.NESTED_QUALIFIED_EVENT_REF: return createNestedQualifiedEventRef();
-      case AltaricaPackage.NESTED_QUALIFIED_VARIABLE_REF: return createNestedQualifiedVariableRef();
+      case AltaricaPackage.ADDITION: return createAddition();
+      case AltaricaPackage.MULTIPLICATION: return createMultiplication();
+      case AltaricaPackage.NOT: return createNot();
+      case AltaricaPackage.MINUS: return createMinus();
+      case AltaricaPackage.NESTED_REF: return createNestedRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -215,12 +130,8 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case AltaricaPackage.PRIMITIVE_TYPE_KIND:
-        return createPrimitiveTypeKindFromString(eDataType, initialValue);
-      case AltaricaPackage.FLOW_KIND:
-        return createFlowKindFromString(eDataType, initialValue);
-      case AltaricaPackage.VISIBILITY_KIND:
-        return createVisibilityKindFromString(eDataType, initialValue);
+      case AltaricaPackage.BASE_TYPE_ENUM:
+        return createBaseTypeEnumFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -236,12 +147,8 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case AltaricaPackage.PRIMITIVE_TYPE_KIND:
-        return convertPrimitiveTypeKindToString(eDataType, instanceValue);
-      case AltaricaPackage.FLOW_KIND:
-        return convertFlowKindToString(eDataType, instanceValue);
-      case AltaricaPackage.VISIBILITY_KIND:
-        return convertVisibilityKindToString(eDataType, instanceValue);
+      case AltaricaPackage.BASE_TYPE_ENUM:
+        return convertBaseTypeEnumToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -252,10 +159,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public org.osate.altarica.altarica.System createSystem()
+  public Model createModel()
   {
-    SystemImpl system = new SystemImpl();
-    return system;
+    ModelImpl model = new ModelImpl();
+    return model;
   }
 
   /**
@@ -351,10 +258,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public PrimitiveType createPrimitiveType()
+  public Type createType()
   {
-    PrimitiveTypeImpl primitiveType = new PrimitiveTypeImpl();
-    return primitiveType;
+    TypeImpl type = new TypeImpl();
+    return type;
   }
 
   /**
@@ -362,10 +269,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractSpecification createAbstractSpecification()
+  public BaseType createBaseType()
   {
-    AbstractSpecificationImpl abstractSpecification = new AbstractSpecificationImpl();
-    return abstractSpecification;
+    BaseTypeImpl baseType = new BaseTypeImpl();
+    return baseType;
   }
 
   /**
@@ -373,10 +280,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public VariableAttribute createVariableAttribute()
+  public ClassType createClassType()
   {
-    VariableAttributeImpl variableAttribute = new VariableAttributeImpl();
-    return variableAttribute;
+    ClassTypeImpl classType = new ClassTypeImpl();
+    return classType;
   }
 
   /**
@@ -384,10 +291,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public InitSpecification createInitSpecification()
+  public Declaration createDeclaration()
   {
-    InitSpecificationImpl initSpecification = new InitSpecificationImpl();
-    return initSpecification;
+    DeclarationImpl declaration = new DeclarationImpl();
+    return declaration;
   }
 
   /**
@@ -395,10 +302,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public InitStatement createInitStatement()
+  public LabeledTransition createLabeledTransition()
   {
-    InitStatementImpl initStatement = new InitStatementImpl();
-    return initStatement;
+    LabeledTransitionImpl labeledTransition = new LabeledTransitionImpl();
+    return labeledTransition;
   }
 
   /**
@@ -406,10 +313,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExternalSpecification createExternalSpecification()
+  public TransitionExpression createTransitionExpression()
   {
-    ExternalSpecificationImpl externalSpecification = new ExternalSpecificationImpl();
-    return externalSpecification;
+    TransitionExpressionImpl transitionExpression = new TransitionExpressionImpl();
+    return transitionExpression;
   }
 
   /**
@@ -417,10 +324,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ExternalDirective createExternalDirective()
+  public ITransition createITransition()
   {
-    ExternalDirectiveImpl externalDirective = new ExternalDirectiveImpl();
-    return externalDirective;
+    ITransitionImpl iTransition = new ITransitionImpl();
+    return iTransition;
   }
 
   /**
@@ -428,219 +335,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public FlowSpecification createFlowSpecification()
+  public Instruction createInstruction()
   {
-    FlowSpecificationImpl flowSpecification = new FlowSpecificationImpl();
-    return flowSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EventSpecification createEventSpecification()
-  {
-    EventSpecificationImpl eventSpecification = new EventSpecificationImpl();
-    return eventSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Priority createPriority()
-  {
-    PriorityImpl priority = new PriorityImpl();
-    return priority;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public StateSpecification createStateSpecification()
-  {
-    StateSpecificationImpl stateSpecification = new StateSpecificationImpl();
-    return stateSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractTypeRef createAbstractTypeRef()
-  {
-    AbstractTypeRefImpl abstractTypeRef = new AbstractTypeRefImpl();
-    return abstractTypeRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DomainRef createDomainRef()
-  {
-    DomainRefImpl domainRef = new DomainRefImpl();
-    return domainRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NodeInstanceSpecification createNodeInstanceSpecification()
-  {
-    NodeInstanceSpecificationImpl nodeInstanceSpecification = new NodeInstanceSpecificationImpl();
-    return nodeInstanceSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AssertSpecification createAssertSpecification()
-  {
-    AssertSpecificationImpl assertSpecification = new AssertSpecificationImpl();
-    return assertSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Assert createAssert()
-  {
-    AssertImpl assert_ = new AssertImpl();
-    return assert_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VectorSpecification createVectorSpecification()
-  {
-    VectorSpecificationImpl vectorSpecification = new VectorSpecificationImpl();
-    return vectorSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Vector createVector()
-  {
-    VectorImpl vector = new VectorImpl();
-    return vector;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VectorParameter createVectorParameter()
-  {
-    VectorParameterImpl vectorParameter = new VectorParameterImpl();
-    return vectorParameter;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Cardinality createCardinality()
-  {
-    CardinalityImpl cardinality = new CardinalityImpl();
-    return cardinality;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public TransitionSpecification createTransitionSpecification()
-  {
-    TransitionSpecificationImpl transitionSpecification = new TransitionSpecificationImpl();
-    return transitionSpecification;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Transition createTransition()
-  {
-    TransitionImpl transition = new TransitionImpl();
-    return transition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Assignment createAssignment()
-  {
-    AssignmentImpl assignment = new AssignmentImpl();
-    return assignment;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractExpression createAbstractExpression()
-  {
-    AbstractExpressionImpl abstractExpression = new AbstractExpressionImpl();
-    return abstractExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractBooleanExpression createAbstractBooleanExpression()
-  {
-    AbstractBooleanExpressionImpl abstractBooleanExpression = new AbstractBooleanExpressionImpl();
-    return abstractBooleanExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Switch createSwitch()
-  {
-    SwitchImpl switch_ = new SwitchImpl();
-    return switch_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CaseExpression createCaseExpression()
-  {
-    CaseExpressionImpl caseExpression = new CaseExpressionImpl();
-    return caseExpression;
+    InstructionImpl instruction = new InstructionImpl();
+    return instruction;
   }
 
   /**
@@ -663,28 +361,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     ExpressionImpl expression = new ExpressionImpl();
     return expression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EventRef createEventRef()
-  {
-    EventRefImpl eventRef = new EventRefImpl();
-    return eventRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariableRef createVariableRef()
-  {
-    VariableRefImpl variableRef = new VariableRefImpl();
-    return variableRef;
   }
 
   /**
@@ -718,6 +394,83 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     ARIntegerImpl arInteger = new ARIntegerImpl();
     return arInteger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NameRef createNameRef()
+  {
+    NameRefImpl nameRef = new NameRefImpl();
+    return nameRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public VariableAttribute createVariableAttribute()
+  {
+    VariableAttributeImpl variableAttribute = new VariableAttributeImpl();
+    return variableAttribute;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractTypeRef createAbstractTypeRef()
+  {
+    AbstractTypeRefImpl abstractTypeRef = new AbstractTypeRefImpl();
+    return abstractTypeRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public DomainRef createDomainRef()
+  {
+    DomainRefImpl domainRef = new DomainRefImpl();
+    return domainRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public AbstractExpression createAbstractExpression()
+  {
+    AbstractExpressionImpl abstractExpression = new AbstractExpressionImpl();
+    return abstractExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Switch createSwitch()
+  {
+    SwitchImpl switch_ = new SwitchImpl();
+    return switch_;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CaseExpression createCaseExpression()
+  {
+    CaseExpressionImpl caseExpression = new CaseExpressionImpl();
+    return caseExpression;
   }
 
   /**
@@ -769,10 +522,21 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Flow createFlow()
+  public Variable createVariable()
   {
-    FlowImpl flow = new FlowImpl();
-    return flow;
+    VariableImpl variable = new VariableImpl();
+    return variable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Attribute createAttribute()
+  {
+    AttributeImpl attribute = new AttributeImpl();
+    return attribute;
   }
 
   /**
@@ -791,10 +555,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public State createState()
+  public Parameter createParameter()
   {
-    StateImpl state = new StateImpl();
-    return state;
+    ParameterImpl parameter = new ParameterImpl();
+    return parameter;
   }
 
   /**
@@ -802,10 +566,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public NodeInstance createNodeInstance()
+  public Observer createObserver()
   {
-    NodeInstanceImpl nodeInstance = new NodeInstanceImpl();
-    return nodeInstance;
+    ObserverImpl observer = new ObserverImpl();
+    return observer;
   }
 
   /**
@@ -813,10 +577,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Addition createAddition()
+  public TransitionAnd createTransitionAnd()
   {
-    AdditionImpl addition = new AdditionImpl();
-    return addition;
+    TransitionAndImpl transitionAnd = new TransitionAndImpl();
+    return transitionAnd;
   }
 
   /**
@@ -824,10 +588,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Minus createMinus()
+  public TransitionOr createTransitionOr()
   {
-    MinusImpl minus = new MinusImpl();
-    return minus;
+    TransitionOrImpl transitionOr = new TransitionOrImpl();
+    return transitionOr;
   }
 
   /**
@@ -835,10 +599,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Multiplication createMultiplication()
+  public Skip createSkip()
   {
-    MultiplicationImpl multiplication = new MultiplicationImpl();
-    return multiplication;
+    SkipImpl skip = new SkipImpl();
+    return skip;
   }
 
   /**
@@ -846,10 +610,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Division createDivision()
+  public Assignment createAssignment()
   {
-    DivisionImpl division = new DivisionImpl();
-    return division;
+    AssignmentImpl assignment = new AssignmentImpl();
+    return assignment;
   }
 
   /**
@@ -857,10 +621,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public And createAnd()
+  public Block createBlock()
   {
-    AndImpl and = new AndImpl();
-    return and;
+    BlockImpl block = new BlockImpl();
+    return block;
   }
 
   /**
@@ -868,10 +632,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Or createOr()
+  public Logical createLogical()
   {
-    OrImpl or = new OrImpl();
-    return or;
+    LogicalImpl logical = new LogicalImpl();
+    return logical;
   }
 
   /**
@@ -890,10 +654,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotEqual createNotEqual()
+  public Addition createAddition()
   {
-    NotEqualImpl notEqual = new NotEqualImpl();
-    return notEqual;
+    AdditionImpl addition = new AdditionImpl();
+    return addition;
   }
 
   /**
@@ -901,10 +665,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StrictLower createStrictLower()
+  public Multiplication createMultiplication()
   {
-    StrictLowerImpl strictLower = new StrictLowerImpl();
-    return strictLower;
+    MultiplicationImpl multiplication = new MultiplicationImpl();
+    return multiplication;
   }
 
   /**
@@ -912,10 +676,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Lower createLower()
+  public Not createNot()
   {
-    LowerImpl lower = new LowerImpl();
-    return lower;
+    NotImpl not = new NotImpl();
+    return not;
   }
 
   /**
@@ -923,10 +687,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public StrictUpper createStrictUpper()
+  public Minus createMinus()
   {
-    StrictUpperImpl strictUpper = new StrictUpperImpl();
-    return strictUpper;
+    MinusImpl minus = new MinusImpl();
+    return minus;
   }
 
   /**
@@ -934,10 +698,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Upper createUpper()
+  public NestedRef createNestedRef()
   {
-    UpperImpl upper = new UpperImpl();
-    return upper;
+    NestedRefImpl nestedRef = new NestedRefImpl();
+    return nestedRef;
   }
 
   /**
@@ -945,42 +709,9 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Imply createImply()
+  public BaseTypeEnum createBaseTypeEnumFromString(EDataType eDataType, String initialValue)
   {
-    ImplyImpl imply = new ImplyImpl();
-    return imply;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NestedQualifiedEventRef createNestedQualifiedEventRef()
-  {
-    NestedQualifiedEventRefImpl nestedQualifiedEventRef = new NestedQualifiedEventRefImpl();
-    return nestedQualifiedEventRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NestedQualifiedVariableRef createNestedQualifiedVariableRef()
-  {
-    NestedQualifiedVariableRefImpl nestedQualifiedVariableRef = new NestedQualifiedVariableRefImpl();
-    return nestedQualifiedVariableRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PrimitiveTypeKind createPrimitiveTypeKindFromString(EDataType eDataType, String initialValue)
-  {
-    PrimitiveTypeKind result = PrimitiveTypeKind.get(initialValue);
+    BaseTypeEnum result = BaseTypeEnum.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -990,51 +721,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertPrimitiveTypeKindToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public FlowKind createFlowKindFromString(EDataType eDataType, String initialValue)
-  {
-    FlowKind result = FlowKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertFlowKindToString(EDataType eDataType, Object instanceValue)
-  {
-    return instanceValue == null ? null : instanceValue.toString();
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VisibilityKind createVisibilityKindFromString(EDataType eDataType, String initialValue)
-  {
-    VisibilityKind result = VisibilityKind.get(initialValue);
-    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-    return result;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public String convertVisibilityKindToString(EDataType eDataType, Object instanceValue)
+  public String convertBaseTypeEnumToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

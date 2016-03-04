@@ -30,8 +30,8 @@ public class AltaricaStandaloneSetupGenerated implements ISetup {
 	}
 	
 	public void register(Injector injector) {
-	if (!EPackage.Registry.INSTANCE.containsKey("http://osate.org/Altarica")) {
-		EPackage.Registry.INSTANCE.put("http://osate.org/Altarica", org.osate.altarica.altarica.AltaricaPackage.eINSTANCE);
+	if (!EPackage.Registry.INSTANCE.containsKey("http://osate.org/Altarica/2.1")) {
+		EPackage.Registry.INSTANCE.put("http://osate.org/Altarica/2.1", org.osate.altarica.altarica.AltaricaPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

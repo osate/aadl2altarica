@@ -19,7 +19,7 @@ package org.osate.altarica.altarica;
  * @model
  * @generated
  */
-public interface NamedElement extends AbstractDeclaration
+public interface NamedElement extends AbstractDeclaration, Declaration
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

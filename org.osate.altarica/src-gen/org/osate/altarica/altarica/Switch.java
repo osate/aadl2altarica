@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * @model
  * @generated
  */
-public interface Switch extends AbstractExpression, AbstractBooleanExpression
+public interface Switch extends AbstractExpression
 {
   /**
    * Returns the value of the '<em><b>Owned Cases</b></em>' containment reference list.

@@ -2,6 +2,7 @@
  */
 package org.osate.altarica.altarica;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,8 +13,7 @@ package org.osate.altarica.altarica;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.Event#getOwnedPriority <em>Owned Priority</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.Event#getAttribute <em>Attribute</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.Event#getAttributes <em>Attributes</em>}</li>
  * </ul>
  *
  * @see org.osate.altarica.altarica.AltaricaPackage#getEvent()
@@ -23,55 +23,19 @@ package org.osate.altarica.altarica;
 public interface Event extends NamedElement
 {
   /**
-   * Returns the value of the '<em><b>Owned Priority</b></em>' containment reference.
+   * Returns the value of the '<em><b>Attributes</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.altarica.altarica.NamedElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Owned Priority</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Attributes</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Owned Priority</em>' containment reference.
-   * @see #setOwnedPriority(Priority)
-   * @see org.osate.altarica.altarica.AltaricaPackage#getEvent_OwnedPriority()
+   * @return the value of the '<em>Attributes</em>' containment reference list.
+   * @see org.osate.altarica.altarica.AltaricaPackage#getEvent_Attributes()
    * @model containment="true"
    * @generated
    */
-  Priority getOwnedPriority();
-
-  /**
-   * Sets the value of the '{@link org.osate.altarica.altarica.Event#getOwnedPriority <em>Owned Priority</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Owned Priority</em>' containment reference.
-   * @see #getOwnedPriority()
-   * @generated
-   */
-  void setOwnedPriority(Priority value);
-
-  /**
-   * Returns the value of the '<em><b>Attribute</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Attribute</em>' containment reference isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Attribute</em>' containment reference.
-   * @see #setAttribute(VariableAttribute)
-   * @see org.osate.altarica.altarica.AltaricaPackage#getEvent_Attribute()
-   * @model containment="true"
-   * @generated
-   */
-  VariableAttribute getAttribute();
-
-  /**
-   * Sets the value of the '{@link org.osate.altarica.altarica.Event#getAttribute <em>Attribute</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Attribute</em>' containment reference.
-   * @see #getAttribute()
-   * @generated
-   */
-  void setAttribute(VariableAttribute value);
+  EList<NamedElement> getAttributes();
 
 } // Event

@@ -22,8 +22,9 @@ import org.osate.altarica.altarica.Expression;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.AdditionImpl#getLeftOperand <em>Left Operand</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.impl.AdditionImpl#getRightOperand <em>Right Operand</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.AdditionImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.AdditionImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.AdditionImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
@@ -31,24 +32,44 @@ import org.osate.altarica.altarica.Expression;
 public class AdditionImpl extends ExpressionImpl implements Addition
 {
   /**
-   * The cached value of the '{@link #getLeftOperand() <em>Left Operand</em>}' containment reference.
+   * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getLeftOperand()
+   * @see #getLeft()
    * @generated
    * @ordered
    */
-  protected Expression leftOperand;
+  protected Expression left;
 
   /**
-   * The cached value of the '{@link #getRightOperand() <em>Right Operand</em>}' containment reference.
+   * The default value of the '{@link #getOp() <em>Op</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getRightOperand()
+   * @see #getOp()
    * @generated
    * @ordered
    */
-  protected Expression rightOperand;
+  protected static final String OP_EDEFAULT = null;
+
+  /**
+   * The cached value of the '{@link #getOp() <em>Op</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getOp()
+   * @generated
+   * @ordered
+   */
+  protected String op = OP_EDEFAULT;
+
+  /**
+   * The cached value of the '{@link #getRight() <em>Right</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getRight()
+   * @generated
+   * @ordered
+   */
+  protected Expression right;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,9 +97,9 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getLeftOperand()
+  public Expression getLeft()
   {
-    return leftOperand;
+    return left;
   }
 
   /**
@@ -86,13 +107,13 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetLeftOperand(Expression newLeftOperand, NotificationChain msgs)
+  public NotificationChain basicSetLeft(Expression newLeft, NotificationChain msgs)
   {
-    Expression oldLeftOperand = leftOperand;
-    leftOperand = newLeftOperand;
+    Expression oldLeft = left;
+    left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__LEFT_OPERAND, oldLeftOperand, newLeftOperand);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -103,20 +124,20 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setLeftOperand(Expression newLeftOperand)
+  public void setLeft(Expression newLeft)
   {
-    if (newLeftOperand != leftOperand)
+    if (newLeft != left)
     {
       NotificationChain msgs = null;
-      if (leftOperand != null)
-        msgs = ((InternalEObject)leftOperand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__LEFT_OPERAND, null, msgs);
-      if (newLeftOperand != null)
-        msgs = ((InternalEObject)newLeftOperand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__LEFT_OPERAND, null, msgs);
-      msgs = basicSetLeftOperand(newLeftOperand, msgs);
+      if (left != null)
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__LEFT, null, msgs);
+      if (newLeft != null)
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__LEFT, null, msgs);
+      msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__LEFT_OPERAND, newLeftOperand, newLeftOperand));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -124,9 +145,9 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getRightOperand()
+  public String getOp()
   {
-    return rightOperand;
+    return op;
   }
 
   /**
@@ -134,13 +155,36 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRightOperand(Expression newRightOperand, NotificationChain msgs)
+  public void setOp(String newOp)
   {
-    Expression oldRightOperand = rightOperand;
-    rightOperand = newRightOperand;
+    String oldOp = op;
+    op = newOp;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__OP, oldOp, op));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Expression getRight()
+  {
+    return right;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetRight(Expression newRight, NotificationChain msgs)
+  {
+    Expression oldRight = right;
+    right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__RIGHT_OPERAND, oldRightOperand, newRightOperand);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -151,20 +195,20 @@ public class AdditionImpl extends ExpressionImpl implements Addition
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRightOperand(Expression newRightOperand)
+  public void setRight(Expression newRight)
   {
-    if (newRightOperand != rightOperand)
+    if (newRight != right)
     {
       NotificationChain msgs = null;
-      if (rightOperand != null)
-        msgs = ((InternalEObject)rightOperand).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__RIGHT_OPERAND, null, msgs);
-      if (newRightOperand != null)
-        msgs = ((InternalEObject)newRightOperand).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__RIGHT_OPERAND, null, msgs);
-      msgs = basicSetRightOperand(newRightOperand, msgs);
+      if (right != null)
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__RIGHT, null, msgs);
+      if (newRight != null)
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.ADDITION__RIGHT, null, msgs);
+      msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__RIGHT_OPERAND, newRightOperand, newRightOperand));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.ADDITION__RIGHT, newRight, newRight));
   }
 
   /**
@@ -177,10 +221,10 @@ public class AdditionImpl extends ExpressionImpl implements Addition
   {
     switch (featureID)
     {
-      case AltaricaPackage.ADDITION__LEFT_OPERAND:
-        return basicSetLeftOperand(null, msgs);
-      case AltaricaPackage.ADDITION__RIGHT_OPERAND:
-        return basicSetRightOperand(null, msgs);
+      case AltaricaPackage.ADDITION__LEFT:
+        return basicSetLeft(null, msgs);
+      case AltaricaPackage.ADDITION__RIGHT:
+        return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -195,10 +239,12 @@ public class AdditionImpl extends ExpressionImpl implements Addition
   {
     switch (featureID)
     {
-      case AltaricaPackage.ADDITION__LEFT_OPERAND:
-        return getLeftOperand();
-      case AltaricaPackage.ADDITION__RIGHT_OPERAND:
-        return getRightOperand();
+      case AltaricaPackage.ADDITION__LEFT:
+        return getLeft();
+      case AltaricaPackage.ADDITION__OP:
+        return getOp();
+      case AltaricaPackage.ADDITION__RIGHT:
+        return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -213,11 +259,14 @@ public class AdditionImpl extends ExpressionImpl implements Addition
   {
     switch (featureID)
     {
-      case AltaricaPackage.ADDITION__LEFT_OPERAND:
-        setLeftOperand((Expression)newValue);
+      case AltaricaPackage.ADDITION__LEFT:
+        setLeft((Expression)newValue);
         return;
-      case AltaricaPackage.ADDITION__RIGHT_OPERAND:
-        setRightOperand((Expression)newValue);
+      case AltaricaPackage.ADDITION__OP:
+        setOp((String)newValue);
+        return;
+      case AltaricaPackage.ADDITION__RIGHT:
+        setRight((Expression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -233,11 +282,14 @@ public class AdditionImpl extends ExpressionImpl implements Addition
   {
     switch (featureID)
     {
-      case AltaricaPackage.ADDITION__LEFT_OPERAND:
-        setLeftOperand((Expression)null);
+      case AltaricaPackage.ADDITION__LEFT:
+        setLeft((Expression)null);
         return;
-      case AltaricaPackage.ADDITION__RIGHT_OPERAND:
-        setRightOperand((Expression)null);
+      case AltaricaPackage.ADDITION__OP:
+        setOp(OP_EDEFAULT);
+        return;
+      case AltaricaPackage.ADDITION__RIGHT:
+        setRight((Expression)null);
         return;
     }
     super.eUnset(featureID);
@@ -253,12 +305,31 @@ public class AdditionImpl extends ExpressionImpl implements Addition
   {
     switch (featureID)
     {
-      case AltaricaPackage.ADDITION__LEFT_OPERAND:
-        return leftOperand != null;
-      case AltaricaPackage.ADDITION__RIGHT_OPERAND:
-        return rightOperand != null;
+      case AltaricaPackage.ADDITION__LEFT:
+        return left != null;
+      case AltaricaPackage.ADDITION__OP:
+        return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
+      case AltaricaPackage.ADDITION__RIGHT:
+        return right != null;
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (op: ");
+    result.append(op);
+    result.append(')');
+    return result.toString();
   }
 
 } //AdditionImpl
