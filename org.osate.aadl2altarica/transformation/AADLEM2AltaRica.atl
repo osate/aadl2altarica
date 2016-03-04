@@ -1,5 +1,5 @@
 -- @atlcompiler emftvm
--- @nsURI AR=http://osate.org/Altarica
+-- @nsURI AR=http://osate.org/Altarica/2.1
 -- @nsURI AADL=http://aadl.info/AADL/2.0/instance
 -- @nsURI AADL2=http://aadl.info/AADL/2.0
 -- @nsURI EMV2=http://www.aadl.info/EMV2
@@ -12,154 +12,173 @@ create OUT: AR from IN: AADL;
 rule SystemInstance {
 	from
 		si: AADL!SystemInstance
-	using {
-			emNodes: Sequence(AR!AbstractDeclaration) = thisModule.postOrder(si) 
-					-> flatten()
-					-> collect(ci | thisModule.makeNode(ci.componentClassifier(), ci))
-					-> select(n | not n.oclIsUndefined()) -> force();
-	}
 	to
-		s: AR!System (
-			ownedDeclarations <- emNodes -> including(thisModule.makeTopNode(si))
+		s: AR!Model (
 		)
 	do {
+		thisModule.MakeNode(si.componentClassifier, si);
+		s.declarations <- thisModule.createdClasses;
 		thisModule.analysisModel.printPropagationPaths();
+		'done'.debug();
 	}
 }
 
--- Traverse instance model in post order
-helper def: postOrder(ci: AADL!ComponentInstance): Sequence(AADL!ComponentInstance) =
-	let
-		subs: Sequence(AADL!ComponentInstance) = ci.componentInstance
-	in
-		subs -> iterate(sub; acc:Sequence(AADL!ComponentInstance) = Sequence{} |
-				acc -> append(thisModule.postOrder(sub))
-		).append(ci);
-
 -- Create a node for the referenced classifier
--- This must be a rule because we need to modify the created node
-lazy rule makeNode {
+lazy rule MakeNode {
 	from
 		c: AADL2!ComponentClassifier,
 	  ci: AADL!ComponentInstance (
-	  	thisModule.emLeafComponents -> contains(ci) and
 	  	not thisModule.processedClassifiers -> contains(c)
 	  )
   using {
 		n: AR!Node = thisModule.Node(c);
-		specifications: Sequence(AR!AbstractSpecification) = Sequence{};
+		declarations: Sequence(AR!Declaration) = Sequence{};
+		subs: Sequence(AADL!ComponentInstance) = ci.componentInstance;
 		eps: Sequence(EMV2!ErrorPropagation) = c.errorPropagations();
   }
 	do {
+		-- fill in sub nodes
+		if (not thisModule.emLeafComponents -> contains(ci) and not subs.isEmpty()) {
+			declarations <- declarations -> append(thisModule.subNodes(subs));
+		}
 		-- fill in flow variables
 		if (not eps.isEmpty()) {
-			specifications <- specifications -> including(thisModule.flows(c)) -> flatten();
+			declarations <- declarations -> append(c.flows());
 		}
-		-- fill in sub nodes
-		--if (not ci.componentInstance.isEmpty()) {
-		--	specifications <- specifications -> including(thisModule.subNodes(ci, ci.componentInstance)) -> flatten();
-		--}
-		n.ownedSpecifications <- specifications;
-		-- process each referenced classifier only once
-		thisModule.processedClassifiers <:= thisModule.processedClassifiers.including(c);
-		n;
-	}
-}
+		n.declarations <- declarations -> flatten();
 
-lazy rule makeTopNode {
-	from
-		si: AADL!SystemInstance
-	using {
-		top: AR!Node = thisModule.Node(si.getComponentImplementation());
-		specifications: Sequence(AR!AbstractSpecification) = Sequence{};
-	}
-	do {
-		if (not thisModule.emLeafComponents.isEmpty()) {
-			specifications <- specifications -> including(thisModule.subNodes(si, thisModule.emLeafComponents -> asSequence()));
+		if (ci.oclIsTypeOf(AADL!SystemInstance)) {
+			n.assertions <- thisModule.assertions();
 		}
-		top.ownedSpecifications <- specifications;
-		top;
+		thisModule.createdClasses <:= thisModule.createdClasses -> append(n);
+		-- process each referenced classifier only once
+		thisModule.processedClassifiers <:= thisModule.processedClassifiers -> including(c);
+		n;
 	}
 }
 
 helper def: processedClassifiers: Set(AADL2!ComponentClassifier) = Set{};
 
+helper def: createdClasses: Sequence(AR!Node) = Sequence{};
+
 -- Need this a a separate rule to resolve classifier
--- Alternative is to create a (classifier |-> node) map
 unique lazy rule Node {
 	from	
 		c: AADL2!ComponentClassifier
 	to
-		n: AR!Node (
+		node: AR!Node (
 			-- AltaRica editor doesn't understand quoted IDs
 			-- name <- c.qualifiedName().quoted()
 			name <- c.qualifiedName().normalizeId()
 		)
 }
 
--- The sub-nodes section
-lazy rule subNodes {
-	from
-		ci: AADL!ComponentInstance,
-		subs: Sequence(AADL!ComponentInstance)
-	to
-		nis: AR!NodeInstanceSpecification (
-			ownedNodeInstances <- subs -> collect(s | thisModule.NodeInstance(s))
-		)
-}
+-- The contained instances
+helper def: subNodes(subs: Sequence(AADL!ComponentInstance)): Sequence(AR!Variable) =
+	subs -> collect(s | thisModule.NodeInstance(s));
 
-lazy rule NodeInstance {
+unique lazy rule NodeInstance {
 	from
 		ci: AADL!ComponentInstance
 	to
-		ni: AR!NodeInstance (
-			name <- ci.name,
-			nodeType <- ci.componentClassifier().debug().resolve('Node')
+		ni: AR!Variable (
+			type <-
+					let c: AADL2!ComponentClassifier = ci.componentClassifier in
+					let referenced: AR!Node = 
+							if thisModule.processedClassifiers -> contains(c) then
+								thisModule.Node(c)
+							else
+								thisModule.MakeNode(c, ci)
+							endif
+					in
+						thisModule.ClassType(referenced),
+			name <- ci.name
 		)
 }
 
--- The flows section
-lazy rule flows {
+lazy rule ClassType {
 	from
-		c: AADL!ComponentClassifier
+		node: AR!Node
 	to
-		nis: AR!FlowSpecification (
-			ownedFlows <- 
-					c.incomingErrorPropagations() -> collect(ep | c.makeFlows(ep, thisModule.flowDirectionIn))
-					-> including(c.outgoingErrorPropagations() -> collect(ep | c.makeFlows(ep, thisModule.flowDirectionOut)))
-					-> flatten()
+	  type: AR!ClassType (
+	  	class <- node
 		)
 }
 
-helper context AADL2!ComponentClassifier def: makeFlows(ep: EMV2!ErrorPropagation, dir: AR!FlowKind): Sequence(AR!Flow) =
-	let
-		tokens: Sequence(EMV2!TypeToken) = ep.getTypeSet().leafTypeTokens(self.usedTypes())
-	in
-		-- TODO: process all tokens
-		tokens -> collect(t | thisModule.Flow(ep, t.type -> first().name, dir));
-	
-lazy rule Flow {
+-- flow variables
+helper context AADL2!ComponentClassifier def: flows(): Sequence(AR!Variable) =
+	self.errorPropagations() -> collect(ep | thisModule.Flow(ep));
+
+unique lazy rule Flow {
 	from
-		ep: EMV2!ErrorPropagation,
---		leafToken: EMV2!TypeToken,
-		tokenName: String,
-		dir: AR!FlowKind
+		propagation: EMV2!ErrorPropagation
 	to
-		f: AR!Flow (
-			-- name <- ep.debug().altaRicaName(leafToken.debug().type -> first().name.debug()),
-			name <- ep.altaRicaName(tokenName),
-			domain <- thisModule.PrimitiveType(#bool),
-			kind <- dir
+		f: AR!Variable (
+			type <- thisModule.BaseType(thisModule.int),
+			name <- propagation.getFeatureorPPRef().altaRicaName()
 		)
 }
 
 -- a bool or integer
-lazy rule PrimitiveType {
+lazy rule BaseType {
 	from
-		kind: AR!PrimitiveTypeKind
+		kind: AR!BaseTypeEnum
 	to
-	  p: AR!PrimitiveType (
+	  p: AR!BaseType (
 	  	name <- kind
+		)
+}
+
+-- assertions (at top level)
+
+helper def: assertions(): Sequence(AR!Instruction) =
+	thisModule.propagationPaths -> 
+			select(pp | pp.isConnectionPath()) -> 
+			collect(pp | pp.makeAssertion());
+
+helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord" def: makeAssertion(): AR!Instruction =
+	let srcFlow: AR!NamedElement = thisModule.Flow(self.getPathSrc().getErrorPropagation()) in
+	let dstFlow: AR!NamedElement = thisModule.Flow(self.getPathDst().getErrorPropagation()) in
+	let srcCi: AADL!ComponentInstance = self.getPathSrc().getComponentInstance() in
+	let dstCi: AADL!ComponentInstance = self.getPathDst().getComponentInstance() in
+		thisModule.Assignment(thisModule.NameRef(dstFlow).makeNameRef(dstCi), thisModule.NameRef(srcFlow).makeNameRef(srcCi));
+
+helper context AR!NameRef def: makeNameRef(owner: AADL!InstanceObject): AR!NameRef =
+		if owner.oclIsTypeOf(AADL!SystemInstance) then
+			self
+		else
+			let parent: AADL!InstanceObject = owner.refImmediateComposite() in
+				thisModule.NestedRef(thisModule.NodeInstance(owner), self).makeNameRef(parent)
+		endif;
+	
+lazy rule NestedRef {
+	from
+		owner: AR!Variable,
+		nested: AR!NameRef
+	to
+		ref: AR!NestedRef (
+			target <- thisModule.NameRef(owner),
+			nested <- nested
+		)
+}
+
+lazy rule NameRef {
+	from
+		element: AR!NamedElement
+	to
+		name: AR!NameRef (
+			variable <- element
+		)
+}
+
+lazy rule Assignment {
+	from
+		variable: AR!NameRef,
+		value: AR!NameRef
+	to
+		i: AR!Assignment (
+			variable <- variable,
+			value <- value
 		)
 }
 
@@ -170,8 +189,8 @@ helper context String def: normalizeId(): String =
 helper context String def: quoted(): String =
 	'"' + self + '"';
 
--- Get the component classifier for a compoent instance
-helper context AADL!ComponentInstance def: componentClassifier(): AADL2!ComponentClassifier =
+-- The component classifier for a compoent instance
+helper context AADL!ComponentInstance def: componentClassifier: AADL2!ComponentClassifier =
 	"#native"!"org::osate::aadl2::instance::util::InstanceUtil".refInvokeStaticOperation(
 		'getComponentClassifier', Sequence{self, 0, OclUndefined}
 	);
@@ -195,11 +214,11 @@ helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrar
 		'getErrorModelSubclauseWithUseTypes', Sequence{self}
 	);
 
-helper context EMV2!ErrorPropagation def: altaRicaName(typeName: String): String =
+helper context EMV2!ErrorPropagation def: altaRicaName(): String =
 	let
 		ref: EMV2!FeatureorPPReference = self.getFeatureorPPRef()
 	in
-		ref.altaRicaName() + '_' + typeName;
+		ref.altaRicaName();
 
 helper context EMV2!FeatureorPPReference def: altaRicaName(): String =
 	let
@@ -217,13 +236,14 @@ helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util
 		"#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel".refInvokeStaticOperation('createAnalysisModel', Sequence{si});
 
 -- Component instances that should be processed (leaf components wrt error model)
-helper def: emLeafComponents: Sequence(AADL!ComponentInstance) = thisModule.analysisModel.getSubcomponents();
+helper def: emLeafComponents: Sequence(AADL!ComponentInstance) = 
+	thisModule.analysisModel.getSubcomponents();
+
+helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
+	thisModule.analysisModel.getPropagationPaths();
 
 -- Force evaluation of a lazy collection by getting its size
 helper context Collection(OclAny) def: force(): Collection(OclAny) =
 	let i: Integer = self.size() in self;
 
-helper def: flowDirectionOut: AR!FlowKind = #out;
-helper def: flowDirectionIn: AR!FlowKind = #"in";
-
-
+helper def: int: AR!BaseTypeEnum = #"Integer";
