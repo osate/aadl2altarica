@@ -9,7 +9,7 @@
 <mapAttribute key="Inout Models Output Locations"/>
 <mapAttribute key="Input Model Options"/>
 <mapAttribute key="Input Models">
-<mapEntry key="IN" value="platform:/resource/LargeExamplesforEMV2TR/instances/FG_System_pkg_FGS_threestate_Instance.aaxl2"/>
+<mapEntry key="IN" value="platform:/resource/AADL2AR_Examples/aadl/instances/ex1_Top_i_Instance.aaxl2"/>
 </mapAttribute>
 <mapAttribute key="Metamodel Options"/>
 <mapAttribute key="Metamodels">
@@ -25,8 +25,8 @@
 <mapEntry key="trace" value="allowIntermodelReferences"/>
 </mapAttribute>
 <mapAttribute key="Output Models">
-<mapEntry key="OUT" value="platform:/resource/org.osate.aadl2altarica/ar/out.altarica"/>
-<mapEntry key="trace" value="platform:/resource/org.osate.aadl2altarica/ar/trace"/>
+<mapEntry key="OUT" value="platform:/resource/AADL2AR_Examples/ar/ex1.altarica"/>
+<mapEntry key="trace" value="platform:/resource/AADL2AR_Examples/ar/ex1.trace"/>
 </mapAttribute>
 <listAttribute key="Superimpose">
 <listEntry value="//org.osate.aadl2altarica/transformation/Util.asm"/>

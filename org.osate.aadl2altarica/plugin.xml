@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            id="org.osate.aadl2altarica.convert"
+            name="Create AltaRica Model">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.osate.ui.navigator.AadlNavigator?after=additions">
+         <command
+               commandId="org.osate.aadl2altarica.convert"
+               style="push">
+         </command>
+      </menuContribution>
+   </extension>
+   <extension
+         point="org.eclipse.ui.handlers">
+      <handler
+            class="org.osate.aadl2altarica.ConvertToAltaRica"
+            commandId="org.osate.aadl2altarica.convert">
+         <enabledWhen>
+            <or>
+               <reference
+                     definitionId="org.osate.core.isInstanceFileSelected">
+               </reference>
+            </or>
+         </enabledWhen>
+      </handler>
+   </extension>
+</plugin>

@@ -8,16 +8,28 @@
 module AADLEM2AltaRica;
 create OUT: AR from IN: AADL;
 
+uses Util;
+
 -- Nodes must be declared before use
 rule SystemInstance {
 	from
 		si: AADL!SystemInstance
 	to
-		s: AR!Model (
+		m: AR!Model (
 		)
 	do {
 		thisModule.MakeNode(si.componentClassifier, si);
-		s.declarations <- thisModule.createdClasses;
+	}
+}
+
+endpoint rule Finish() {
+	using {
+		m: AR!Model = thisModule.traces.getDefaultSourceElements()
+			-> collect(e | e.getObject())
+			-> any(o | o.oclIsKindOf(AADL!SystemInstance)).resolve();
+	}
+	do {
+		m.declarations <- thisModule.createdClasses -> reverse();
 		thisModule.analysisModel.printPropagationPaths();
 		'done'.debug();
 	}
@@ -35,6 +47,7 @@ lazy rule MakeNode {
 		declarations: Sequence(AR!Declaration) = Sequence{};
 		subs: Sequence(AADL!ComponentInstance) = ci.componentInstance;
 		eps: Sequence(EMV2!ErrorPropagation) = c.errorPropagations();
+		m: AR!Node = n;
   }
 	do {
 		-- fill in sub nodes
@@ -53,7 +66,7 @@ lazy rule MakeNode {
 		thisModule.createdClasses <:= thisModule.createdClasses -> append(n);
 		-- process each referenced classifier only once
 		thisModule.processedClassifiers <:= thisModule.processedClassifiers -> including(c);
-		n;
+		m;
 	}
 }
 
@@ -67,9 +80,7 @@ unique lazy rule Node {
 		c: AADL2!ComponentClassifier
 	to
 		node: AR!Node (
-			-- AltaRica editor doesn't understand quoted IDs
-			-- name <- c.qualifiedName().quoted()
-			name <- c.qualifiedName().normalizeId()
+			name <- c.debug().getQualifiedName().debug().normalizeId()
 		)
 }
 
@@ -182,68 +193,3 @@ lazy rule Assignment {
 		)
 }
 
--- Replace invalid characters in identifier with '_'
-helper context String def: normalizeId(): String =
-	self.replaceAll('[:.]', '_');
-
-helper context String def: quoted(): String =
-	'"' + self + '"';
-
--- The component classifier for a compoent instance
-helper context AADL!ComponentInstance def: componentClassifier: AADL2!ComponentClassifier =
-	"#native"!"org::osate::aadl2::instance::util::InstanceUtil".refInvokeStaticOperation(
-		'getComponentClassifier', Sequence{self, 0, OclUndefined}
-	);
-
--- Helpers for EMV2 processing
-helper context AADL2!Classifier def: outgoingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
-	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
-		'getAllOutgoingErrorPropagations', Sequence{self}
-	);
-
-helper context AADL2!Classifier def: incomingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
-	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
-		'getAllIncomingErrorPropagations', Sequence{self}
-	);
-
-helper context AADL2!Classifier def: errorPropagations(): Sequence(EMV2!ErrorPropagation) =
-	self.incomingErrorPropagations() -> including(self.outgoingErrorPropagations()) -> flatten();
-
-helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrary) =
-	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
-		'getErrorModelSubclauseWithUseTypes', Sequence{self}
-	);
-
-helper context EMV2!ErrorPropagation def: altaRicaName(): String =
-	let
-		ref: EMV2!FeatureorPPReference = self.getFeatureorPPRef()
-	in
-		ref.altaRicaName();
-
-helper context EMV2!FeatureorPPReference def: altaRicaName(): String =
-	let
-		name: String = self.featureorPP.name
-	in
-		if self.next.oclIsUndefined() then name else name + '_' + self.next.altaRicaName() endif;
-
-helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorModelLibrary)): Sequence(EMV2!TypeToken) =
-	"#native"!"org::osate::xtext::aadl2::errormodel::util::EM2TypeSetUtil".refInvokeStaticOperation(
-		'generateAllLeafTypeTokens', Sequence{self, useTypes}
-	);
-
-helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel" =
-	let si: AADL!SystemInstance = AADL!SystemInstance.allInstances() -> asSequence() -> first() in
-		"#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel".refInvokeStaticOperation('createAnalysisModel', Sequence{si});
-
--- Component instances that should be processed (leaf components wrt error model)
-helper def: emLeafComponents: Sequence(AADL!ComponentInstance) = 
-	thisModule.analysisModel.getSubcomponents();
-
-helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
-	thisModule.analysisModel.getPropagationPaths();
-
--- Force evaluation of a lazy collection by getting its size
-helper context Collection(OclAny) def: force(): Collection(OclAny) =
-	let i: Integer = self.size() in self;
-
-helper def: int: AR!BaseTypeEnum = #"Integer";

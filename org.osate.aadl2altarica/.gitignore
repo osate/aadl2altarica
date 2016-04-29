@@ -1,2 +1,5 @@
-/ar/
-/.aadlbin-gen/
+/bin
+/target
+*._trace
+/xtend-gen/
+/ar
