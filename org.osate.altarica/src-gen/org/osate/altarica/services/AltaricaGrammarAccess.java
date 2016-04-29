@@ -1096,7 +1096,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
 		private final RuleCall cLogicalParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//// ========== Expressions ==========Or
+		//// ========== Expressions ==========
 		//Expression:
 		//	Logical;
 		@Override public ParserRule getRule() { return rule; }
@@ -1493,16 +1493,17 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariableNamedElementIDTerminalRuleCall_0_0_1 = (RuleCall)cVariableNamedElementCrossReference_0_0.eContents().get(1);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cNestedRefTargetAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Action cNameRefNestedAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
 		private final Keyword cFullStopKeyword_1_0_1 = (Keyword)cGroup_1_0.eContents().get(1);
-		private final Assignment cNestedAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
-		private final RuleCall cNestedNameRefParserRuleCall_1_0_2_0 = (RuleCall)cNestedAssignment_1_0_2.eContents().get(0);
+		private final Assignment cVariableAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final CrossReference cVariableNamedElementCrossReference_1_0_2_0 = (CrossReference)cVariableAssignment_1_0_2.eContents().get(0);
+		private final RuleCall cVariableNamedElementIDTerminalRuleCall_1_0_2_0_1 = (RuleCall)cVariableNamedElementCrossReference_1_0_2_0.eContents().get(1);
 		
 		//NameRef:
-		//	variable=[NamedElement] => ({NestedRef.target=current} "." nested=NameRef)*;
+		//	variable=[NamedElement] => ({NameRef.nested=current} "." variable=[NamedElement])*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//variable=[NamedElement] => ({NestedRef.target=current} "." nested=NameRef)*
+		//variable=[NamedElement] => ({NameRef.nested=current} "." variable=[NamedElement])*
 		public Group getGroup() { return cGroup; }
 
 		//variable=[NamedElement]
@@ -1514,23 +1515,26 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getVariableNamedElementIDTerminalRuleCall_0_0_1() { return cVariableNamedElementIDTerminalRuleCall_0_0_1; }
 
-		//=> ({NestedRef.target=current} "." nested=NameRef)*
+		//=> ({NameRef.nested=current} "." variable=[NamedElement])*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{NestedRef.target=current} "." nested=NameRef
+		//{NameRef.nested=current} "." variable=[NamedElement]
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
-		//{NestedRef.target=current}
-		public Action getNestedRefTargetAction_1_0_0() { return cNestedRefTargetAction_1_0_0; }
+		//{NameRef.nested=current}
+		public Action getNameRefNestedAction_1_0_0() { return cNameRefNestedAction_1_0_0; }
 
 		//"."
 		public Keyword getFullStopKeyword_1_0_1() { return cFullStopKeyword_1_0_1; }
 
-		//nested=NameRef
-		public Assignment getNestedAssignment_1_0_2() { return cNestedAssignment_1_0_2; }
+		//variable=[NamedElement]
+		public Assignment getVariableAssignment_1_0_2() { return cVariableAssignment_1_0_2; }
 
-		//NameRef
-		public RuleCall getNestedNameRefParserRuleCall_1_0_2_0() { return cNestedNameRefParserRuleCall_1_0_2_0; }
+		//[NamedElement]
+		public CrossReference getVariableNamedElementCrossReference_1_0_2_0() { return cVariableNamedElementCrossReference_1_0_2_0; }
+
+		//ID
+		public RuleCall getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1() { return cVariableNamedElementIDTerminalRuleCall_1_0_2_0_1; }
 	}
 
 	public class VariableAttributeElements extends AbstractParserRuleElementFinder {
@@ -2172,7 +2176,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getIfThenElseAccess().getRule();
 	}
 
-	//// ========== Expressions ==========Or
+	//// ========== Expressions ==========
 	//Expression:
 	//	Logical;
 	public ExpressionElements getExpressionAccess() {
@@ -2274,7 +2278,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NameRef:
-	//	variable=[NamedElement] => ({NestedRef.target=current} "." nested=NameRef)*;
+	//	variable=[NamedElement] => ({NameRef.nested=current} "." variable=[NamedElement])*;
 	public NameRefElements getNameRefAccess() {
 		return pNameRef;
 	}

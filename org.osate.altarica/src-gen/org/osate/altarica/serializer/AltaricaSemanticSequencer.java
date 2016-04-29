@@ -44,7 +44,6 @@ import org.osate.altarica.altarica.Minus;
 import org.osate.altarica.altarica.Model;
 import org.osate.altarica.altarica.Multiplication;
 import org.osate.altarica.altarica.NameRef;
-import org.osate.altarica.altarica.NestedRef;
 import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
@@ -147,9 +146,6 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case AltaricaPackage.NAME_REF:
 				sequence_NameRef(context, (NameRef) semanticObject); 
-				return; 
-			case AltaricaPackage.NESTED_REF:
-				sequence_NameRef(context, (NestedRef) semanticObject); 
 				return; 
 			case AltaricaPackage.NODE:
 				sequence_Class(context, (Node) semanticObject); 
@@ -508,25 +504,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     variable=[NamedElement|ID]
+	 *     ((nested=NameRef_NameRef_1_0_0 variable=[NamedElement|ID]) | variable=[NamedElement|ID])
 	 */
 	protected void sequence_NameRef(EObject context, NameRef semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAME_REF__VARIABLE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAME_REF__VARIABLE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_0_0_1(), semanticObject.getVariable());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
-	 *     (target=NameRef_NestedRef_1_0_0 nested=NameRef)
-	 */
-	protected void sequence_NameRef(EObject context, NestedRef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	

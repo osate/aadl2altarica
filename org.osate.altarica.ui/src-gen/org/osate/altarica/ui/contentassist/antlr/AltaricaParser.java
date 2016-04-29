@@ -162,7 +162,7 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
 					put(grammarAccess.getIntegerLiteralAccess().getValueAssignment(), "rule__IntegerLiteral__ValueAssignment");
 					put(grammarAccess.getNameRefAccess().getVariableAssignment_0(), "rule__NameRef__VariableAssignment_0");
-					put(grammarAccess.getNameRefAccess().getNestedAssignment_1_0_2(), "rule__NameRef__NestedAssignment_1_0_2");
+					put(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2(), "rule__NameRef__VariableAssignment_1_0_2");
 					put(grammarAccess.getVariableAttributeAccess().getNameAssignment(), "rule__VariableAttribute__NameAssignment");
 					put(grammarAccess.getDomainRefAccess().getReferenceAssignment(), "rule__DomainRef__ReferenceAssignment");
 					put(grammarAccess.getSwitchAccess().getOwnedCasesAssignment_1(), "rule__Switch__OwnedCasesAssignment_1");

@@ -114,7 +114,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.MULTIPLICATION: return createMultiplication();
       case AltaricaPackage.NOT: return createNot();
       case AltaricaPackage.MINUS: return createMinus();
-      case AltaricaPackage.NESTED_REF: return createNestedRef();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -691,17 +690,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     MinusImpl minus = new MinusImpl();
     return minus;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NestedRef createNestedRef()
-  {
-    NestedRefImpl nestedRef = new NestedRefImpl();
-    return nestedRef;
   }
 
   /**

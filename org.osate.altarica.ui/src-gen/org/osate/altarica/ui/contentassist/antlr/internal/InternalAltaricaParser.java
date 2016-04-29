@@ -17248,13 +17248,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                 int LA34_0 = input.LA(1);
 
                 if ( (LA34_0==52) ) {
-                    int LA34_2 = input.LA(2);
-
-                    if ( (synpred47_InternalAltarica()) ) {
-                        alt34=1;
-                    }
-
-
+                    alt34=1;
                 }
 
 
@@ -17436,7 +17430,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6192:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNameRefAccess().getNestedRefTargetAction_1_0_0()); 
+               before(grammarAccess.getNameRefAccess().getNameRefNestedAction_1_0_0()); 
             }
             // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6193:1: ()
             // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6195:1: 
@@ -17444,7 +17438,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNameRefAccess().getNestedRefTargetAction_1_0_0()); 
+               after(grammarAccess.getNameRefAccess().getNameRefNestedAction_1_0_0()); 
             }
 
             }
@@ -17576,26 +17570,26 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__2__Impl"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6247:1: rule__NameRef__Group_1_0__2__Impl : ( ( rule__NameRef__NestedAssignment_1_0_2 ) ) ;
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6247:1: rule__NameRef__Group_1_0__2__Impl : ( ( rule__NameRef__VariableAssignment_1_0_2 ) ) ;
     public final void rule__NameRef__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6251:1: ( ( ( rule__NameRef__NestedAssignment_1_0_2 ) ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6252:1: ( ( rule__NameRef__NestedAssignment_1_0_2 ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6251:1: ( ( ( rule__NameRef__VariableAssignment_1_0_2 ) ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6252:1: ( ( rule__NameRef__VariableAssignment_1_0_2 ) )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6252:1: ( ( rule__NameRef__NestedAssignment_1_0_2 ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6253:1: ( rule__NameRef__NestedAssignment_1_0_2 )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6252:1: ( ( rule__NameRef__VariableAssignment_1_0_2 ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6253:1: ( rule__NameRef__VariableAssignment_1_0_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNameRefAccess().getNestedAssignment_1_0_2()); 
+               before(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2()); 
             }
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6254:1: ( rule__NameRef__NestedAssignment_1_0_2 )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6254:2: rule__NameRef__NestedAssignment_1_0_2
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6254:1: ( rule__NameRef__VariableAssignment_1_0_2 )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6254:2: rule__NameRef__VariableAssignment_1_0_2
             {
-            pushFollow(FOLLOW_rule__NameRef__NestedAssignment_1_0_2_in_rule__NameRef__Group_1_0__2__Impl12549);
-            rule__NameRef__NestedAssignment_1_0_2();
+            pushFollow(FOLLOW_rule__NameRef__VariableAssignment_1_0_2_in_rule__NameRef__Group_1_0__2__Impl12549);
+            rule__NameRef__VariableAssignment_1_0_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -17603,7 +17597,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNameRefAccess().getNestedAssignment_1_0_2()); 
+               after(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2()); 
             }
 
             }
@@ -20825,29 +20819,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__NameRef__VariableAssignment_0"
 
 
-    // $ANTLR start "rule__NameRef__NestedAssignment_1_0_2"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7385:1: rule__NameRef__NestedAssignment_1_0_2 : ( ruleNameRef ) ;
-    public final void rule__NameRef__NestedAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__NameRef__VariableAssignment_1_0_2"
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7385:1: rule__NameRef__VariableAssignment_1_0_2 : ( ( RULE_ID ) ) ;
+    public final void rule__NameRef__VariableAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7389:1: ( ( ruleNameRef ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7390:1: ( ruleNameRef )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7389:1: ( ( ( RULE_ID ) ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7390:1: ( ( RULE_ID ) )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7390:1: ( ruleNameRef )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7391:1: ruleNameRef
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7390:1: ( ( RULE_ID ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7391:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getNameRefAccess().getNestedNameRefParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); 
             }
-            pushFollow(FOLLOW_ruleNameRef_in_rule__NameRef__NestedAssignment_1_0_214857);
-            ruleNameRef();
-
-            state._fsp--;
-            if (state.failed) return ;
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7392:1: ( RULE_ID )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7393:1: RULE_ID
+            {
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getNameRefAccess().getNestedNameRefParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1()); 
+            }
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__NameRef__VariableAssignment_1_0_214861); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1()); 
+            }
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); 
             }
 
             }
@@ -20867,32 +20869,32 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__NameRef__NestedAssignment_1_0_2"
+    // $ANTLR end "rule__NameRef__VariableAssignment_1_0_2"
 
 
     // $ANTLR start "rule__DomainRef__ReferenceAssignment"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7401:1: rule__DomainRef__ReferenceAssignment : ( ( RULE_ID ) ) ;
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7405:1: rule__DomainRef__ReferenceAssignment : ( ( RULE_ID ) ) ;
     public final void rule__DomainRef__ReferenceAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7405:1: ( ( ( RULE_ID ) ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7406:1: ( ( RULE_ID ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7409:1: ( ( ( RULE_ID ) ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7410:1: ( ( RULE_ID ) )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7406:1: ( ( RULE_ID ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7407:1: ( RULE_ID )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7410:1: ( ( RULE_ID ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7411:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainRefAccess().getReferenceDomainCrossReference_0()); 
             }
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7408:1: ( RULE_ID )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7409:1: RULE_ID
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7412:1: ( RULE_ID )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7413:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainRefAccess().getReferenceDomainIDTerminalRuleCall_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DomainRef__ReferenceAssignment14893); if (state.failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__DomainRef__ReferenceAssignment14901); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDomainRefAccess().getReferenceDomainIDTerminalRuleCall_0_1()); 
             }
@@ -20924,22 +20926,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__OwnedCasesAssignment_1"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7420:1: rule__Switch__OwnedCasesAssignment_1 : ( ruleCaseExpression ) ;
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7424:1: rule__Switch__OwnedCasesAssignment_1 : ( ruleCaseExpression ) ;
     public final void rule__Switch__OwnedCasesAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7424:1: ( ( ruleCaseExpression ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7425:1: ( ruleCaseExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7428:1: ( ( ruleCaseExpression ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7429:1: ( ruleCaseExpression )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7425:1: ( ruleCaseExpression )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7426:1: ruleCaseExpression
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7429:1: ( ruleCaseExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7430:1: ruleCaseExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getOwnedCasesCaseExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleCaseExpression_in_rule__Switch__OwnedCasesAssignment_114928);
+            pushFollow(FOLLOW_ruleCaseExpression_in_rule__Switch__OwnedCasesAssignment_114936);
             ruleCaseExpression();
 
             state._fsp--;
@@ -20969,22 +20971,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__DefaultAssignment_3"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7435:1: rule__Switch__DefaultAssignment_3 : ( ruleExpression ) ;
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7439:1: rule__Switch__DefaultAssignment_3 : ( ruleExpression ) ;
     public final void rule__Switch__DefaultAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7439:1: ( ( ruleExpression ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7440:1: ( ruleExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7443:1: ( ( ruleExpression ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7444:1: ( ruleExpression )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7440:1: ( ruleExpression )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7441:1: ruleExpression
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7444:1: ( ruleExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7445:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getDefaultExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__Switch__DefaultAssignment_314959);
+            pushFollow(FOLLOW_ruleExpression_in_rule__Switch__DefaultAssignment_314967);
             ruleExpression();
 
             state._fsp--;
@@ -21014,22 +21016,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__ConditionAssignment_0"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7450:1: rule__CaseExpression__ConditionAssignment_0 : ( ruleExpression ) ;
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7454:1: rule__CaseExpression__ConditionAssignment_0 : ( ruleExpression ) ;
     public final void rule__CaseExpression__ConditionAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7454:1: ( ( ruleExpression ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7455:1: ( ruleExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7458:1: ( ( ruleExpression ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7459:1: ( ruleExpression )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7455:1: ( ruleExpression )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7456:1: ruleExpression
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7459:1: ( ruleExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7460:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getConditionExpressionParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__CaseExpression__ConditionAssignment_014990);
+            pushFollow(FOLLOW_ruleExpression_in_rule__CaseExpression__ConditionAssignment_014998);
             ruleExpression();
 
             state._fsp--;
@@ -21059,22 +21061,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__BodyAssignment_2"
-    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7465:1: rule__CaseExpression__BodyAssignment_2 : ( ruleExpression ) ;
+    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7469:1: rule__CaseExpression__BodyAssignment_2 : ( ruleExpression ) ;
     public final void rule__CaseExpression__BodyAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7469:1: ( ( ruleExpression ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7470:1: ( ruleExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7473:1: ( ( ruleExpression ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7474:1: ( ruleExpression )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7470:1: ( ruleExpression )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7471:1: ruleExpression
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7474:1: ( ruleExpression )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7475:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getBodyExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__CaseExpression__BodyAssignment_215021);
+            pushFollow(FOLLOW_ruleExpression_in_rule__CaseExpression__BodyAssignment_215029);
             ruleExpression();
 
             state._fsp--;
@@ -21102,37 +21104,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     }
     // $ANTLR end "rule__CaseExpression__BodyAssignment_2"
 
-    // $ANTLR start synpred47_InternalAltarica
-    public final void synpred47_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6130:2: ( rule__NameRef__Group_1__0 )
-        // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:6130:2: rule__NameRef__Group_1__0
-        {
-        pushFollow(FOLLOW_rule__NameRef__Group_1__0_in_synpred47_InternalAltarica12305);
-        rule__NameRef__Group_1__0();
-
-        state._fsp--;
-        if (state.failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred47_InternalAltarica
-
     // Delegated rules
-
-    public final boolean synpred47_InternalAltarica() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred47_InternalAltarica_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
 
 
  
@@ -21672,7 +21644,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_rule__NameRef__Group_1_0__2_in_rule__NameRef__Group_1_0__112463 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_52_in_rule__NameRef__Group_1_0__1__Impl12491 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__NameRef__Group_1_0__2__Impl_in_rule__NameRef__Group_1_0__212522 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NameRef__NestedAssignment_1_0_2_in_rule__NameRef__Group_1_0__2__Impl12549 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__NameRef__VariableAssignment_1_0_2_in_rule__NameRef__Group_1_0__2__Impl12549 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Switch__Group__0__Impl_in_rule__Switch__Group__012585 = new BitSet(new long[]{0x000C004001900070L});
     public static final BitSet FOLLOW_rule__Switch__Group__1_in_rule__Switch__Group__012588 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_53_in_rule__Switch__Group__0__Impl12616 = new BitSet(new long[]{0x0000000000000002L});
@@ -21752,12 +21724,11 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_RULE_STRING_in_rule__StringLiteral__ValueAssignment14756 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_INT_in_rule__IntegerLiteral__ValueAssignment14787 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__NameRef__VariableAssignment_014822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNameRef_in_rule__NameRef__NestedAssignment_1_0_214857 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__DomainRef__ReferenceAssignment14893 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCaseExpression_in_rule__Switch__OwnedCasesAssignment_114928 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__Switch__DefaultAssignment_314959 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__CaseExpression__ConditionAssignment_014990 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__CaseExpression__BodyAssignment_215021 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__NameRef__Group_1__0_in_synpred47_InternalAltarica12305 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__NameRef__VariableAssignment_1_0_214861 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__DomainRef__ReferenceAssignment14901 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCaseExpression_in_rule__Switch__OwnedCasesAssignment_114936 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__Switch__DefaultAssignment_314967 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__CaseExpression__ConditionAssignment_014998 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__CaseExpression__BodyAssignment_215029 = new BitSet(new long[]{0x0000000000000002L});
 
 }

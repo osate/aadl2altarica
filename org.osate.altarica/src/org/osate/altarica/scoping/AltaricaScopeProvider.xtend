@@ -9,7 +9,7 @@ import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.osate.altarica.altarica.ClassType
 import org.osate.altarica.altarica.NameRef
-import org.osate.altarica.altarica.NestedRef
+import org.osate.altarica.altarica.Node
 import org.osate.altarica.altarica.Variable
 
 import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
@@ -23,18 +23,21 @@ import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
  */
 class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 	def scope_NameRef_variable(NameRef context, EReference reference) {
-		val parent = context.getContainerOfType(NestedRef)
-		if (parent.target === context) {
-			delegateGetScope(context, reference)
+		val nested = context.nested
+		if (nested == null) {
+			Scopes.scopeFor(context.getContainerOfType(Node).declarations)
 		} else {
-			val variable = parent.target.variable
+			val variable = nested.variable
 			if (variable instanceof Variable) {
 				val type = variable.type
 				if (type instanceof ClassType) {
-					return Scopes.scopeFor(type.class_.declarations)
+					Scopes.scopeFor(type.class_.declarations)
+				} else {
+					IScope.NULLSCOPE
 				}
+			} else {
+				IScope.NULLSCOPE
 			}
-			return IScope.NULLSCOPE
 		}
 	}
 }

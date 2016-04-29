@@ -65,6 +65,7 @@
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//NameRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//NameRef/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NameRef/nested"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//VariableAttribute">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//VariableAttribute/name"/>
@@ -153,10 +154,6 @@
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Minus">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Minus/expression"/>
-    </genClasses>
-    <genClasses ecoreClass="Altarica.ecore#//NestedRef">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NestedRef/target"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NestedRef/nested"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

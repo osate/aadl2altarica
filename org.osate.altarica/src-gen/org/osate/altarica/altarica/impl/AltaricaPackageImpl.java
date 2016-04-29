@@ -49,7 +49,6 @@ import org.osate.altarica.altarica.Model;
 import org.osate.altarica.altarica.Multiplication;
 import org.osate.altarica.altarica.NameRef;
 import org.osate.altarica.altarica.NamedElement;
-import org.osate.altarica.altarica.NestedRef;
 import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
@@ -414,13 +413,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass minusEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass nestedRefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -900,6 +892,16 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
   public EReference getNameRef_Variable()
   {
     return (EReference)nameRefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNameRef_Nested()
+  {
+    return (EReference)nameRefEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1567,36 +1569,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getNestedRef()
-  {
-    return nestedRefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getNestedRef_Target()
-  {
-    return (EReference)nestedRefEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getNestedRef_Nested()
-  {
-    return (EReference)nestedRefEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EEnum getBaseTypeEnum()
   {
     return baseTypeEnumEEnum;
@@ -1695,6 +1667,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     nameRefEClass = createEClass(NAME_REF);
     createEReference(nameRefEClass, NAME_REF__VARIABLE);
+    createEReference(nameRefEClass, NAME_REF__NESTED);
 
     variableAttributeEClass = createEClass(VARIABLE_ATTRIBUTE);
     createEAttribute(variableAttributeEClass, VARIABLE_ATTRIBUTE__NAME);
@@ -1788,10 +1761,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     minusEClass = createEClass(MINUS);
     createEReference(minusEClass, MINUS__EXPRESSION);
 
-    nestedRefEClass = createEClass(NESTED_REF);
-    createEReference(nestedRefEClass, NESTED_REF__TARGET);
-    createEReference(nestedRefEClass, NESTED_REF__NESTED);
-
     // Create enums
     baseTypeEnumEEnum = createEEnum(BASE_TYPE_ENUM);
   }
@@ -1865,7 +1834,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     multiplicationEClass.getESuperTypes().add(this.getExpression());
     notEClass.getESuperTypes().add(this.getExpression());
     minusEClass.getESuperTypes().add(this.getExpression());
-    nestedRefEClass.getESuperTypes().add(this.getNameRef());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1931,6 +1899,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(nameRefEClass, NameRef.class, "NameRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNameRef_Variable(), this.getNamedElement(), null, "variable", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNameRef_Nested(), this.getNameRef(), null, "nested", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(variableAttributeEClass, VariableAttribute.class, "VariableAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVariableAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -2023,10 +1992,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMinus_Expression(), this.getExpression(), null, "expression", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(nestedRefEClass, NestedRef.class, "NestedRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getNestedRef_Target(), this.getNameRef(), null, "target", null, 0, 1, NestedRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getNestedRef_Nested(), this.getNameRef(), null, "nested", null, 0, 1, NestedRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(baseTypeEnumEEnum, BaseTypeEnum.class, "BaseTypeEnum");

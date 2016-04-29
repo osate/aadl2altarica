@@ -70,6 +70,8 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NameRef" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//NamedElement"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//NameRef"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="VariableAttribute">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -188,12 +190,6 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Minus" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expression" eType="#//Expression"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NestedRef" eSuperTypes="#//NameRef">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//NameRef"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//NameRef"
         containment="true"/>
   </eClassifiers>
 </ecore:EPackage>

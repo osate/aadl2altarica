@@ -156,7 +156,7 @@ IfThenElse:
 	'if' condition=Expression 'then' then=Instruction (=>'else' else=Instruction)? ";"
 ;
 
-// ========== Expressions ==========Or
+// ========== Expressions ==========
 
 Expression:
 	Logical
@@ -198,7 +198,7 @@ IntegerLiteral returns ARInteger:
 	value=INT;
 
 NameRef:
-	variable=[NamedElement] =>({NestedRef.target=current} '.' nested=NameRef)*;
+	variable=[NamedElement] =>({NameRef.nested=current} '.' variable=[NamedElement])*;
 
 //================
 

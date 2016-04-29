@@ -704,13 +704,22 @@ public interface AltaricaPackage extends EPackage
   int NAME_REF__VARIABLE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
+   * The feature id for the '<em><b>Nested</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int NAME_REF__NESTED = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
    * The number of structural features of the '<em>Name Ref</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NAME_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int NAME_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.VariableAttributeImpl <em>Variable Attribute</em>}' class.
@@ -1610,52 +1619,6 @@ public interface AltaricaPackage extends EPackage
   int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.altarica.altarica.impl.NestedRefImpl <em>Nested Ref</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.altarica.altarica.impl.NestedRefImpl
-   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNestedRef()
-   * @generated
-   */
-  int NESTED_REF = 49;
-
-  /**
-   * The feature id for the '<em><b>Variable</b></em>' reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_REF__VARIABLE = NAME_REF__VARIABLE;
-
-  /**
-   * The feature id for the '<em><b>Target</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_REF__TARGET = NAME_REF_FEATURE_COUNT + 0;
-
-  /**
-   * The feature id for the '<em><b>Nested</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_REF__NESTED = NAME_REF_FEATURE_COUNT + 1;
-
-  /**
-   * The number of structural features of the '<em>Nested Ref</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int NESTED_REF_FEATURE_COUNT = NAME_REF_FEATURE_COUNT + 2;
-
-  /**
    * The meta object id for the '{@link org.osate.altarica.altarica.BaseTypeEnum <em>Base Type Enum</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1663,7 +1626,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBaseTypeEnum()
    * @generated
    */
-  int BASE_TYPE_ENUM = 50;
+  int BASE_TYPE_ENUM = 49;
 
 
   /**
@@ -2093,6 +2056,17 @@ public interface AltaricaPackage extends EPackage
    * @generated
    */
   EReference getNameRef_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.NameRef#getNested <em>Nested</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Nested</em>'.
+   * @see org.osate.altarica.altarica.NameRef#getNested()
+   * @see #getNameRef()
+   * @generated
+   */
+  EReference getNameRef_Nested();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.VariableAttribute <em>Variable Attribute</em>}'.
@@ -2795,38 +2769,6 @@ public interface AltaricaPackage extends EPackage
   EReference getMinus_Expression();
 
   /**
-   * Returns the meta object for class '{@link org.osate.altarica.altarica.NestedRef <em>Nested Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Nested Ref</em>'.
-   * @see org.osate.altarica.altarica.NestedRef
-   * @generated
-   */
-  EClass getNestedRef();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.NestedRef#getTarget <em>Target</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Target</em>'.
-   * @see org.osate.altarica.altarica.NestedRef#getTarget()
-   * @see #getNestedRef()
-   * @generated
-   */
-  EReference getNestedRef_Target();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.NestedRef#getNested <em>Nested</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Nested</em>'.
-   * @see org.osate.altarica.altarica.NestedRef#getNested()
-   * @see #getNestedRef()
-   * @generated
-   */
-  EReference getNestedRef_Nested();
-
-  /**
    * Returns the meta object for enum '{@link org.osate.altarica.altarica.BaseTypeEnum <em>Base Type Enum</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3232,6 +3174,14 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EReference NAME_REF__VARIABLE = eINSTANCE.getNameRef_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Nested</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference NAME_REF__NESTED = eINSTANCE.getNameRef_Nested();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.VariableAttributeImpl <em>Variable Attribute</em>}' class.
@@ -3812,32 +3762,6 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EReference MINUS__EXPRESSION = eINSTANCE.getMinus_Expression();
-
-    /**
-     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.NestedRefImpl <em>Nested Ref</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.altarica.altarica.impl.NestedRefImpl
-     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNestedRef()
-     * @generated
-     */
-    EClass NESTED_REF = eINSTANCE.getNestedRef();
-
-    /**
-     * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NESTED_REF__TARGET = eINSTANCE.getNestedRef_Target();
-
-    /**
-     * The meta object literal for the '<em><b>Nested</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference NESTED_REF__NESTED = eINSTANCE.getNestedRef_Nested();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.BaseTypeEnum <em>Base Type Enum</em>}' enum.

@@ -464,15 +464,6 @@ public interface AltaricaFactory extends EFactory
   Minus createMinus();
 
   /**
-   * Returns a new object of class '<em>Nested Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Nested Ref</em>'.
-   * @generated
-   */
-  NestedRef createNestedRef();
-
-  /**
    * Returns the package supported by this factory.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

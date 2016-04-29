@@ -6189,11 +6189,11 @@ rule__NameRef__Group_1_0__0__Impl
     }
 :
 (
-{ before(grammarAccess.getNameRefAccess().getNestedRefTargetAction_1_0_0()); }
+{ before(grammarAccess.getNameRefAccess().getNameRefNestedAction_1_0_0()); }
 (
 
 )
-{ after(grammarAccess.getNameRefAccess().getNestedRefTargetAction_1_0_0()); }
+{ after(grammarAccess.getNameRefAccess().getNameRefNestedAction_1_0_0()); }
 )
 
 ;
@@ -6250,9 +6250,9 @@ rule__NameRef__Group_1_0__2__Impl
     }
 :
 (
-{ before(grammarAccess.getNameRefAccess().getNestedAssignment_1_0_2()); }
-(rule__NameRef__NestedAssignment_1_0_2)
-{ after(grammarAccess.getNameRefAccess().getNestedAssignment_1_0_2()); }
+{ before(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2()); }
+(rule__NameRef__VariableAssignment_1_0_2)
+{ after(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2()); }
 )
 
 ;
@@ -7382,14 +7382,18 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__NameRef__NestedAssignment_1_0_2
+rule__NameRef__VariableAssignment_1_0_2
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getNameRefAccess().getNestedNameRefParserRuleCall_1_0_2_0()); }
-	ruleNameRef{ after(grammarAccess.getNameRefAccess().getNestedNameRefParserRuleCall_1_0_2_0()); }
+{ before(grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); }
+(
+{ before(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1()); }
+	RULE_ID{ after(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1()); }
+)
+{ after(grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); }
 )
 
 ;

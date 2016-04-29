@@ -2616,12 +2616,13 @@ ruleNameRef returns [EObject current=null]
 )	'.' 
 (
 (
-ruleNameRef
+	RULE_ID
+
 )
 )))=>((
     {
         $current = forceCreateModelElementAndSet(
-            grammarAccess.getNameRefAccess().getNestedRefTargetAction_1_0_0(),
+            grammarAccess.getNameRefAccess().getNameRefNestedAction_1_0_0(),
             $current);
     }
 )	otherlv_2='.' 
@@ -2630,20 +2631,15 @@ ruleNameRef
     }
 (
 (
-		{ 
-	        newCompositeNode(grammarAccess.getNameRefAccess().getNestedNameRefParserRuleCall_1_0_2_0()); 
-	    }
-		lv_nested_3_0=ruleNameRef		{
-	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getNameRefRule());
+		{
+			if ($current==null) {
+	            $current = createModelElement(grammarAccess.getNameRefRule());
 	        }
-       		set(
-       			$current, 
-       			"nested",
-        		lv_nested_3_0, 
-        		"NameRef");
-	        afterParserOrEnumRuleCall();
-	    }
+        }
+	otherlv_3=RULE_ID
+	{
+		newLeafNode(otherlv_3, grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); 
+	}
 
 )
 )))*)
