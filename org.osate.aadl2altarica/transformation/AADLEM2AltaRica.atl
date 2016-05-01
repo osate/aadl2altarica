@@ -63,7 +63,6 @@ lazy rule MakeNode {
 		if (ci.oclIsTypeOf(AADL!SystemInstance)) {
 			n.assertions <- thisModule.assertions();
 		}
-		thisModule.createdClasses <:= thisModule.createdClasses -> append(n);
 		-- process each referenced classifier only once
 		thisModule.processedClassifiers <:= thisModule.processedClassifiers -> including(c);
 		m;
@@ -80,8 +79,12 @@ unique lazy rule Node {
 		c: AADL2!ComponentClassifier
 	to
 		node: AR!Node (
-			name <- c.debug().getQualifiedName().debug().normalizeId()
+			name <- c.debug().getQualifiedName().normalizeId()
 		)
+	do {
+		thisModule.createdClasses <:= thisModule.createdClasses -> append(node);
+		node;
+	}
 }
 
 -- The contained instances
@@ -93,6 +96,7 @@ unique lazy rule NodeInstance {
 		ci: AADL!ComponentInstance
 	to
 		ni: AR!Variable (
+			name <- ci.name.debug('Node instance in ' + ci.eContainer().name),
 			type <-
 					let c: AADL2!ComponentClassifier = ci.componentClassifier in
 					let referenced: AR!Node = 
@@ -102,8 +106,7 @@ unique lazy rule NodeInstance {
 								thisModule.MakeNode(c, ci)
 							endif
 					in
-						thisModule.ClassType(referenced),
-			name <- ci.name
+						thisModule.ClassType(referenced)
 		)
 }
 
@@ -152,35 +155,7 @@ helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::Propagatio
 	let dstFlow: AR!NamedElement = thisModule.Flow(self.getPathDst().getErrorPropagation()) in
 	let srcCi: AADL!ComponentInstance = self.getPathSrc().getComponentInstance() in
 	let dstCi: AADL!ComponentInstance = self.getPathDst().getComponentInstance() in
-		thisModule.Assignment(thisModule.NameRef(dstFlow).makeNameRef(dstCi), thisModule.NameRef(srcFlow).makeNameRef(srcCi));
-
-helper context AR!NameRef def: makeNameRef(owner: AADL!InstanceObject): AR!NameRef =
-		if owner.oclIsTypeOf(AADL!SystemInstance) then
-			self
-		else
-			let parent: AADL!InstanceObject = owner.refImmediateComposite() in
-				thisModule.NestedRef(thisModule.NodeInstance(owner), self).makeNameRef(parent)
-		endif;
-	
-lazy rule NestedRef {
-	from
-		owner: AR!Variable,
-		nested: AR!NameRef
-	to
-		ref: AR!NestedRef (
-			target <- thisModule.NameRef(owner),
-			nested <- nested
-		)
-}
-
-lazy rule NameRef {
-	from
-		element: AR!NamedElement
-	to
-		name: AR!NameRef (
-			variable <- element
-		)
-}
+	thisModule.Assignment(thisModule.NameRef(dstFlow, dstCi), thisModule.NameRef(srcFlow, srcCi));
 
 lazy rule Assignment {
 	from
@@ -190,6 +165,32 @@ lazy rule Assignment {
 		i: AR!Assignment (
 			variable <- variable,
 			value <- value
+		)
+}
+	
+lazy rule NameRef {
+	from
+		var: AR!Variable,
+		owner: AADL!ComponentInstance
+	to
+		ref: AR!NameRef (
+			variable <- var.debug(),
+			nested <- 
+					let parent: AADL!ComponentInstance = owner.refImmediateComposite() in
+					if parent.oclIsTypeOf(AADL!SystemInstance) then		
+						thisModule.LeafNameRef(thisModule.NodeInstance(owner))
+					else
+						thisModule.NameRef(thisModule.NodeInstance(owner), parent)
+					endif
+		)
+}
+
+lazy rule LeafNameRef {
+	from
+		var: AR!Variable
+	to
+		ref: AR!NameRef (
+			variable <- var.debug()
 		)
 }
 
