@@ -35,6 +35,7 @@ endpoint rule Finish() {
 	}
 }
 
+-- TODO: simplify this
 -- Create a node for the referenced classifier
 lazy rule MakeNode {
 	from
@@ -47,11 +48,10 @@ lazy rule MakeNode {
 		declarations: Sequence(AR!Declaration) = Sequence{};
 		subs: Sequence(AADL!ComponentInstance) = ci.componentInstance;
 		eps: Sequence(EMV2!ErrorPropagation) = c.errorPropagations();
-		m: AR!Node = n;
   }
 	do {
 		-- fill in sub nodes
-		if (not thisModule.emLeafComponents -> contains(ci) and not subs.isEmpty()) {
+		if (not ci.isLeaf and not subs.isEmpty()) {
 			declarations <- declarations -> append(thisModule.subNodes(subs));
 		}
 		-- fill in flow variables
@@ -65,7 +65,7 @@ lazy rule MakeNode {
 		}
 		-- process each referenced classifier only once
 		thisModule.processedClassifiers <:= thisModule.processedClassifiers -> including(c);
-		m;
+		n;
 	}
 }
 
@@ -87,26 +87,34 @@ unique lazy rule Node {
 	}
 }
 
--- The contained instances
+-- the contained node instances
 helper def: subNodes(subs: Sequence(AADL!ComponentInstance)): Sequence(AR!Variable) =
-	subs -> collect(s | thisModule.NodeInstance(s));
+	subs -> collect(s | s.nodeInstance);
 
+-- the node instance in AltaRica that corresponding to this component instance in AADL
+helper context AADL!ComponentInstance def: nodeInstance: AR!Variable =
+	let c: AADL2!ComponentClassifier = self.componentClassifier in
+	let type: AR!ClassType = 
+			let referenced: AR!Node = 
+					if thisModule.processedClassifiers -> contains(c) then
+						thisModule.Node(c)
+					else
+						thisModule.MakeNode(c, self)
+					endif
+			in
+				thisModule.ClassType(referenced)
+	in
+		thisModule.NodeInstance(self.subcomponent);
+	
 unique lazy rule NodeInstance {
 	from
-		ci: AADL!ComponentInstance
+		sub: AADL2!Subcomponent
 	to
 		ni: AR!Variable (
-			name <- ci.name.debug('Node instance in ' + ci.eContainer().name),
-			type <-
-					let c: AADL2!ComponentClassifier = ci.componentClassifier in
-					let referenced: AR!Node = 
-							if thisModule.processedClassifiers -> contains(c) then
-								thisModule.Node(c)
-							else
-								thisModule.MakeNode(c, ci)
-							endif
-					in
-						thisModule.ClassType(referenced)
+			name <- sub.name.debug('Node instance in ' + sub.eContainer().name),
+			type <- 
+					let referenced: AR!Node = thisModule.Node(sub.getAllClassifier()) in
+					thisModule.ClassType(referenced)
 		)
 }
 
@@ -178,9 +186,9 @@ lazy rule NameRef {
 			nested <- 
 					let parent: AADL!ComponentInstance = owner.refImmediateComposite() in
 					if parent.oclIsTypeOf(AADL!SystemInstance) then		
-						thisModule.LeafNameRef(thisModule.NodeInstance(owner))
+						thisModule.LeafNameRef(owner.nodeInstance)
 					else
-						thisModule.NameRef(thisModule.NodeInstance(owner), parent)
+						thisModule.NameRef(owner.nodeInstance, parent)
 					endif
 		)
 }

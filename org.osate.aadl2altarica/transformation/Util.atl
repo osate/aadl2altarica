@@ -17,7 +17,7 @@ helper context AADL!ComponentInstance def: isLeaf: Boolean =
 
 -- Helpers for EMV2 processing
 
-	helper context AADL2!Classifier def: outgoingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
+helper context AADL2!Classifier def: outgoingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllOutgoingErrorPropagations', Sequence{self}
 	);
@@ -25,6 +25,14 @@ helper context AADL!ComponentInstance def: isLeaf: Boolean =
 helper context AADL2!Classifier def: incomingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllIncomingErrorPropagations', Sequence{self}
+	);
+
+helper context AADL2!Classifier def: errorPropagations(): Sequence(EMV2!ErrorPropagation) =
+	self.incomingErrorPropagations() -> including(self.outgoingErrorPropagations()) -> flatten();
+
+helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrary) =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getErrorModelSubclauseWithUseTypes', Sequence{self}
 	);
 
 helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorModelLibrary)): Sequence(EMV2!TypeToken) =
@@ -54,14 +62,6 @@ helper context String def: normalizeId(): String =
 
 helper context String def: quoted(): String =
 	'"' + self + '"';
-
-helper context AADL2!Classifier def: errorPropagations(): Sequence(EMV2!ErrorPropagation) =
-	self.incomingErrorPropagations() -> including(self.outgoingErrorPropagations()) -> flatten();
-
-helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrary) =
-	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
-		'getErrorModelSubclauseWithUseTypes', Sequence{self}
-	);
 
 helper context EMV2!ErrorPropagation def: altaRicaName(): String =
 	let
