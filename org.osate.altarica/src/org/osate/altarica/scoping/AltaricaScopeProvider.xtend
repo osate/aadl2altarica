@@ -3,6 +3,7 @@
  */
 package org.osate.altarica.scoping
 
+import org.eclipse.emf.ecore.EObject
 import org.eclipse.emf.ecore.EReference
 import org.eclipse.xtext.scoping.IScope
 import org.eclipse.xtext.scoping.Scopes
@@ -23,11 +24,12 @@ import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
  */
 class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 	def scope_NameRef_variable(NameRef context, EReference reference) {
+		val current = context.eGet(reference, false) as EObject
 		val nested = context.nested
-		if (nested == null) {
+		if (current.eIsProxy && nested == null) {
 			Scopes.scopeFor(context.getContainerOfType(Node).declarations)
 		} else {
-			val variable = nested.variable
+			val variable = if (current.eIsProxy) nested.variable else context.variable
 			if (variable instanceof Variable) {
 				val type = variable.type
 				if (type instanceof ClassType) {
