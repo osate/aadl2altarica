@@ -52,6 +52,16 @@ helper def: emLeafComponents: Sequence(AADL!ComponentInstance) =
 helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
 	thisModule.analysisModel.getPropagationPaths();
 
+-- How to split propagation destinations based on fan-in
+--helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd" 
+--		def: splits: Sequence(Tuple("#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel", AR!Variable)) =
+--	
+helper def: end2paths: Map("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd", "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
+	thisModule.propagationPaths -> mappedBy(p | 
+			let d: OclAny = p.getPathDst() in 
+			Tuple{io = d.getInstanceObject(), prop = d.getErrorPropagation()}
+	);
+
 -- Force evaluation of a lazy collection by getting its size
 helper context Collection(OclAny) def: force(): Collection(OclAny) =
 	let i: Integer = self.size() in self;
