@@ -56,7 +56,7 @@ helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::erro
 --helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd" 
 --		def: splits: Sequence(Tuple("#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel", AR!Variable)) =
 --	
-helper def: end2paths: Map("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd", "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
+helper def: dst2paths: Map("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd", "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
 	thisModule.propagationPaths -> mappedBy(p | 
 			let d: OclAny = p.getPathDst() in 
 			Tuple{io = d.getInstanceObject(), prop = d.getErrorPropagation()}
