@@ -24,12 +24,11 @@ import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
  */
 class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 	def scope_NameRef_variable(NameRef context, EReference reference) {
-		val current = context.eGet(reference, false) as EObject
 		val nested = context.nested
-		if (current.eIsProxy && nested == null) {
+		if (nested == null) {
 			Scopes.scopeFor(context.getContainerOfType(Node).declarations)
 		} else {
-			val variable = if (current.eIsProxy) nested.variable else context.variable
+			val variable = nested.variable
 			if (variable instanceof Variable) {
 				val type = variable.type
 				if (type instanceof ClassType) {
