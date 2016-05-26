@@ -8,7 +8,7 @@ Model:
 	declarations+=AbstractDeclaration*;
 
 AbstractDeclaration:
-	Class;
+	Domain | Class;
 
 ConstantDefinition returns NamedElement:
 	{ConstantDefinition}
@@ -25,7 +25,7 @@ DomainConstant:
 
 Domain returns NamedElement:
 	{Domain}
-	'domain' name=ID '=' domain=AbstractDomain ';';
+	'domain' name=ID domain=Enumeration ';';
 
 AbstractDomain:
 	BaseType | Range | Enumeration;
@@ -34,16 +34,16 @@ Range:
 	'[' lower=Atom ',' upper=Atom ']';
 
 Enumeration:
-	'{' ownedLiterals+=Literal (',' ownedLiterals+=Literal)* '}';
+	{Enumeration} '{' ( ownedSymbols+=SymbolicConstant (',' ownedSymbols+=SymbolicConstant)* )? '}';
 
-Literal returns NamedElement:
-	{EnumerationLiteral} name=ID;
+SymbolicConstant returns NamedElement:
+	{SymbolicConstant} name=ID;
 
 
 
 
 Type:
-	=>BaseType | ClassType
+	=>BaseType | NamedType
 ;
 
 BaseType:
@@ -52,8 +52,8 @@ BaseType:
 enum BaseTypeEnum:
 	INTEGER='Integer' | BOOLEAN='Boolean';
 
-ClassType:
-	class=[Node]
+NamedType:
+	ref=[NamedElement|ID]
 ;
 
 // ========== Classes ==========
@@ -230,3 +230,21 @@ Switch:
 CaseExpression:
 	condition=Expression ':' body=Expression ',';
 
+//===== Terminals
+
+terminal fragment ALPHA: 'a'..'z'|'A'..'Z';
+
+terminal fragment DIGIT: '0'..'9';
+
+terminal fragment REGULAR_ID: (ALPHA|'_')(ALPHA |'_'| DIGIT)*;
+
+terminal fragment STRING_ID: "'" (
+		ALPHA | DIGIT | '!' | '#' | '$'  | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' 
+		| '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_'
+	)*  "'";
+
+terminal ID:
+	REGULAR_ID | STRING_ID;
+
+terminal STRING  : 
+	'"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* '"';

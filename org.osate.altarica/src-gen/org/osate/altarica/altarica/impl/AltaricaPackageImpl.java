@@ -27,14 +27,12 @@ import org.osate.altarica.altarica.BaseType;
 import org.osate.altarica.altarica.BaseTypeEnum;
 import org.osate.altarica.altarica.Block;
 import org.osate.altarica.altarica.CaseExpression;
-import org.osate.altarica.altarica.ClassType;
 import org.osate.altarica.altarica.ConstantDefinition;
 import org.osate.altarica.altarica.Declaration;
 import org.osate.altarica.altarica.Domain;
 import org.osate.altarica.altarica.DomainConstant;
 import org.osate.altarica.altarica.DomainRef;
 import org.osate.altarica.altarica.Enumeration;
-import org.osate.altarica.altarica.EnumerationLiteral;
 import org.osate.altarica.altarica.Equal;
 import org.osate.altarica.altarica.Event;
 import org.osate.altarica.altarica.Expression;
@@ -49,6 +47,7 @@ import org.osate.altarica.altarica.Model;
 import org.osate.altarica.altarica.Multiplication;
 import org.osate.altarica.altarica.NameRef;
 import org.osate.altarica.altarica.NamedElement;
+import org.osate.altarica.altarica.NamedType;
 import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
@@ -56,6 +55,7 @@ import org.osate.altarica.altarica.Parameter;
 import org.osate.altarica.altarica.Range;
 import org.osate.altarica.altarica.Skip;
 import org.osate.altarica.altarica.Switch;
+import org.osate.altarica.altarica.SymbolicConstant;
 import org.osate.altarica.altarica.TransitionAnd;
 import org.osate.altarica.altarica.TransitionExpression;
 import org.osate.altarica.altarica.TransitionOr;
@@ -153,7 +153,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass classTypeEClass = null;
+  private EClass namedTypeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -293,7 +293,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass enumerationLiteralEClass = null;
+  private EClass symbolicConstantEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -639,7 +639,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getEnumeration_OwnedLiterals()
+  public EReference getEnumeration_OwnedSymbols()
   {
     return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
   }
@@ -679,9 +679,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getClassType()
+  public EClass getNamedType()
   {
-    return classTypeEClass;
+    return namedTypeEClass;
   }
 
   /**
@@ -689,9 +689,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getClassType_Class()
+  public EReference getNamedType_Ref()
   {
-    return (EReference)classTypeEClass.getEStructuralFeatures().get(0);
+    return (EReference)namedTypeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1069,9 +1069,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getEnumerationLiteral()
+  public EClass getSymbolicConstant()
   {
-    return enumerationLiteralEClass;
+    return symbolicConstantEClass;
   }
 
   /**
@@ -1627,15 +1627,15 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     createEReference(rangeEClass, RANGE__UPPER);
 
     enumerationEClass = createEClass(ENUMERATION);
-    createEReference(enumerationEClass, ENUMERATION__OWNED_LITERALS);
+    createEReference(enumerationEClass, ENUMERATION__OWNED_SYMBOLS);
 
     typeEClass = createEClass(TYPE);
 
     baseTypeEClass = createEClass(BASE_TYPE);
     createEAttribute(baseTypeEClass, BASE_TYPE__NAME);
 
-    classTypeEClass = createEClass(CLASS_TYPE);
-    createEReference(classTypeEClass, CLASS_TYPE__CLASS);
+    namedTypeEClass = createEClass(NAMED_TYPE);
+    createEReference(namedTypeEClass, NAMED_TYPE__REF);
 
     declarationEClass = createEClass(DECLARATION);
 
@@ -1693,7 +1693,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     domainEClass = createEClass(DOMAIN);
     createEReference(domainEClass, DOMAIN__DOMAIN);
 
-    enumerationLiteralEClass = createEClass(ENUMERATION_LITERAL);
+    symbolicConstantEClass = createEClass(SYMBOLIC_CONSTANT);
 
     nodeEClass = createEClass(NODE);
     createEReference(nodeEClass, NODE__DECLARATIONS);
@@ -1803,7 +1803,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     enumerationEClass.getESuperTypes().add(this.getAbstractDomain());
     baseTypeEClass.getESuperTypes().add(this.getAbstractDomain());
     baseTypeEClass.getESuperTypes().add(this.getType());
-    classTypeEClass.getESuperTypes().add(this.getType());
+    namedTypeEClass.getESuperTypes().add(this.getType());
     iTransitionEClass.getESuperTypes().add(this.getTransitionExpression());
     ifThenElseEClass.getESuperTypes().add(this.getInstruction());
     ifThenElseEClass.getESuperTypes().add(this.getAbstractExpression());
@@ -1816,7 +1816,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     switchEClass.getESuperTypes().add(this.getAbstractExpression());
     constantDefinitionEClass.getESuperTypes().add(this.getNamedElement());
     domainEClass.getESuperTypes().add(this.getNamedElement());
-    enumerationLiteralEClass.getESuperTypes().add(this.getNamedElement());
+    symbolicConstantEClass.getESuperTypes().add(this.getNamedElement());
     nodeEClass.getESuperTypes().add(this.getNamedElement());
     variableEClass.getESuperTypes().add(this.getNamedElement());
     attributeEClass.getESuperTypes().add(this.getNamedElement());
@@ -1859,15 +1859,15 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEReference(getRange_Upper(), this.getExpression(), null, "upper", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEnumeration_OwnedLiterals(), this.getNamedElement(), null, "ownedLiterals", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getEnumeration_OwnedSymbols(), this.getNamedElement(), null, "ownedSymbols", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(baseTypeEClass, BaseType.class, "BaseType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getBaseType_Name(), this.getBaseTypeEnum(), "name", null, 0, 1, BaseType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(classTypeEClass, ClassType.class, "ClassType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getClassType_Class(), this.getNode(), null, "class", null, 0, 1, ClassType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(namedTypeEClass, NamedType.class, "NamedType", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNamedType_Ref(), this.getNamedElement(), null, "ref", null, 0, 1, NamedType.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(declarationEClass, Declaration.class, "Declaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1923,9 +1923,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEReference(getConstantDefinition_Expression(), this.getAbstractDefinitionConstant(), null, "expression", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomain_Domain(), this.getAbstractDomain(), null, "domain", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomain_Domain(), this.getEnumeration(), null, "domain", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(enumerationLiteralEClass, EnumerationLiteral.class, "EnumerationLiteral", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(symbolicConstantEClass, SymbolicConstant.class, "SymbolicConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(nodeEClass, Node.class, "Node", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNode_Declarations(), this.getDeclaration(), null, "declarations", null, 0, -1, Node.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

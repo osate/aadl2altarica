@@ -76,7 +76,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.ENUMERATION: return createEnumeration();
       case AltaricaPackage.TYPE: return createType();
       case AltaricaPackage.BASE_TYPE: return createBaseType();
-      case AltaricaPackage.CLASS_TYPE: return createClassType();
+      case AltaricaPackage.NAMED_TYPE: return createNamedType();
       case AltaricaPackage.DECLARATION: return createDeclaration();
       case AltaricaPackage.LABELED_TRANSITION: return createLabeledTransition();
       case AltaricaPackage.TRANSITION_EXPRESSION: return createTransitionExpression();
@@ -96,7 +96,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
       case AltaricaPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case AltaricaPackage.DOMAIN: return createDomain();
-      case AltaricaPackage.ENUMERATION_LITERAL: return createEnumerationLiteral();
+      case AltaricaPackage.SYMBOLIC_CONSTANT: return createSymbolicConstant();
       case AltaricaPackage.NODE: return createNode();
       case AltaricaPackage.VARIABLE: return createVariable();
       case AltaricaPackage.ATTRIBUTE: return createAttribute();
@@ -279,10 +279,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ClassType createClassType()
+  public NamedType createNamedType()
   {
-    ClassTypeImpl classType = new ClassTypeImpl();
-    return classType;
+    NamedTypeImpl namedType = new NamedTypeImpl();
+    return namedType;
   }
 
   /**
@@ -499,10 +499,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public EnumerationLiteral createEnumerationLiteral()
+  public SymbolicConstant createSymbolicConstant()
   {
-    EnumerationLiteralImpl enumerationLiteral = new EnumerationLiteralImpl();
-    return enumerationLiteral;
+    SymbolicConstantImpl symbolicConstant = new SymbolicConstantImpl();
+    return symbolicConstant;
   }
 
   /**

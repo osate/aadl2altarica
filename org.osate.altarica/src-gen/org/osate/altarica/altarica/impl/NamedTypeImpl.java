@@ -10,40 +10,40 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.altarica.altarica.AltaricaPackage;
-import org.osate.altarica.altarica.ClassType;
-import org.osate.altarica.altarica.Node;
+import org.osate.altarica.altarica.NamedElement;
+import org.osate.altarica.altarica.NamedType;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Class Type</b></em>'.
+ * An implementation of the model object '<em><b>Named Type</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.ClassTypeImpl#getClass_ <em>Class</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.NamedTypeImpl#getRef <em>Ref</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ClassTypeImpl extends TypeImpl implements ClassType
+public class NamedTypeImpl extends TypeImpl implements NamedType
 {
   /**
-   * The cached value of the '{@link #getClass_() <em>Class</em>}' reference.
+   * The cached value of the '{@link #getRef() <em>Ref</em>}' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getClass_()
+   * @see #getRef()
    * @generated
    * @ordered
    */
-  protected Node class_;
+  protected NamedElement ref;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ClassTypeImpl()
+  protected NamedTypeImpl()
   {
     super();
   }
@@ -56,7 +56,7 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
   @Override
   protected EClass eStaticClass()
   {
-    return AltaricaPackage.Literals.CLASS_TYPE;
+    return AltaricaPackage.Literals.NAMED_TYPE;
   }
 
   /**
@@ -64,19 +64,19 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
    * <!-- end-user-doc -->
    * @generated
    */
-  public Node getClass_()
+  public NamedElement getRef()
   {
-    if (class_ != null && class_.eIsProxy())
+    if (ref != null && ref.eIsProxy())
     {
-      InternalEObject oldClass = (InternalEObject)class_;
-      class_ = (Node)eResolveProxy(oldClass);
-      if (class_ != oldClass)
+      InternalEObject oldRef = (InternalEObject)ref;
+      ref = (NamedElement)eResolveProxy(oldRef);
+      if (ref != oldRef)
       {
         if (eNotificationRequired())
-          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AltaricaPackage.CLASS_TYPE__CLASS, oldClass, class_));
+          eNotify(new ENotificationImpl(this, Notification.RESOLVE, AltaricaPackage.NAMED_TYPE__REF, oldRef, ref));
       }
     }
-    return class_;
+    return ref;
   }
 
   /**
@@ -84,9 +84,9 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
    * <!-- end-user-doc -->
    * @generated
    */
-  public Node basicGetClass()
+  public NamedElement basicGetRef()
   {
-    return class_;
+    return ref;
   }
 
   /**
@@ -94,12 +94,12 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setClass(Node newClass)
+  public void setRef(NamedElement newRef)
   {
-    Node oldClass = class_;
-    class_ = newClass;
+    NamedElement oldRef = ref;
+    ref = newRef;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.CLASS_TYPE__CLASS, oldClass, class_));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.NAMED_TYPE__REF, oldRef, ref));
   }
 
   /**
@@ -112,9 +112,9 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
   {
     switch (featureID)
     {
-      case AltaricaPackage.CLASS_TYPE__CLASS:
-        if (resolve) return getClass_();
-        return basicGetClass();
+      case AltaricaPackage.NAMED_TYPE__REF:
+        if (resolve) return getRef();
+        return basicGetRef();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -129,8 +129,8 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
   {
     switch (featureID)
     {
-      case AltaricaPackage.CLASS_TYPE__CLASS:
-        setClass((Node)newValue);
+      case AltaricaPackage.NAMED_TYPE__REF:
+        setRef((NamedElement)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -146,8 +146,8 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
   {
     switch (featureID)
     {
-      case AltaricaPackage.CLASS_TYPE__CLASS:
-        setClass((Node)null);
+      case AltaricaPackage.NAMED_TYPE__REF:
+        setRef((NamedElement)null);
         return;
     }
     super.eUnset(featureID);
@@ -163,10 +163,10 @@ public class ClassTypeImpl extends TypeImpl implements ClassType
   {
     switch (featureID)
     {
-      case AltaricaPackage.CLASS_TYPE__CLASS:
-        return class_ != null;
+      case AltaricaPackage.NAMED_TYPE__REF:
+        return ref != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ClassTypeImpl
+} //NamedTypeImpl

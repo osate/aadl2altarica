@@ -5,23 +5,23 @@ package org.osate.altarica.altarica.impl;
 import org.eclipse.emf.ecore.EClass;
 
 import org.osate.altarica.altarica.AltaricaPackage;
-import org.osate.altarica.altarica.EnumerationLiteral;
+import org.osate.altarica.altarica.SymbolicConstant;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Enumeration Literal</b></em>'.
+ * An implementation of the model object '<em><b>Symbolic Constant</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class EnumerationLiteralImpl extends NamedElementImpl implements EnumerationLiteral
+public class SymbolicConstantImpl extends NamedElementImpl implements SymbolicConstant
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected EnumerationLiteralImpl()
+  protected SymbolicConstantImpl()
   {
     super();
   }
@@ -34,7 +34,7 @@ public class EnumerationLiteralImpl extends NamedElementImpl implements Enumerat
   @Override
   protected EClass eStaticClass()
   {
-    return AltaricaPackage.Literals.ENUMERATION_LITERAL;
+    return AltaricaPackage.Literals.SYMBOLIC_CONSTANT;
   }
 
-} //EnumerationLiteralImpl
+} //SymbolicConstantImpl

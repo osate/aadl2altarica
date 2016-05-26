@@ -161,11 +161,11 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.CLASS_TYPE:
+      case AltaricaPackage.NAMED_TYPE:
       {
-        ClassType classType = (ClassType)theEObject;
-        T result = caseClassType(classType);
-        if (result == null) result = caseType(classType);
+        NamedType namedType = (NamedType)theEObject;
+        T result = caseNamedType(namedType);
+        if (result == null) result = caseType(namedType);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -322,13 +322,13 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.ENUMERATION_LITERAL:
+      case AltaricaPackage.SYMBOLIC_CONSTANT:
       {
-        EnumerationLiteral enumerationLiteral = (EnumerationLiteral)theEObject;
-        T result = caseEnumerationLiteral(enumerationLiteral);
-        if (result == null) result = caseNamedElement(enumerationLiteral);
-        if (result == null) result = caseAbstractDeclaration(enumerationLiteral);
-        if (result == null) result = caseDeclaration(enumerationLiteral);
+        SymbolicConstant symbolicConstant = (SymbolicConstant)theEObject;
+        T result = caseSymbolicConstant(symbolicConstant);
+        if (result == null) result = caseNamedElement(symbolicConstant);
+        if (result == null) result = caseAbstractDeclaration(symbolicConstant);
+        if (result == null) result = caseDeclaration(symbolicConstant);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -667,17 +667,17 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Class Type</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Named Type</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Class Type</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Named Type</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseClassType(ClassType object)
+  public T caseNamedType(NamedType object)
   {
     return null;
   }
@@ -987,17 +987,17 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Enumeration Literal</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Symbolic Constant</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Enumeration Literal</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Symbolic Constant</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEnumerationLiteral(EnumerationLiteral object)
+  public T caseSymbolicConstant(SymbolicConstant object)
   {
     return null;
   }

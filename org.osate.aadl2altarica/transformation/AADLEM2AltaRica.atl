@@ -22,6 +22,12 @@ rule SystemInstance {
 	}
 }
 
+-- helper to collect created domains
+helper def: domains: Sequence(AR!Domain) = Sequence{};
+
+-- helper to collect created classes
+helper def: classes: Sequence(AR!Node) = Sequence{};
+
 endpoint rule Finish() {
 	using {
 		m: AR!Model = thisModule.traces.getDefaultSourceElements()
@@ -29,13 +35,12 @@ endpoint rule Finish() {
 			-> any(o | o.oclIsKindOf(AADL!SystemInstance)).resolve();
 	}
 	do {
-		m.declarations <- thisModule.createdClasses -> reverse();
-		thisModule.analysisModel.printPropagationPaths();
+		m.declarations <- 
+				thisModule.domains -> append(thisModule.classes) -> flatten();
+--		thisModule.analysisModel.printPropagationPaths();
 		'done'.debug();
 	}
 }
-
-helper def: createdClasses: Sequence(AR!Node) = Sequence{};
 
 unique lazy rule Node {
 	from	
@@ -47,12 +52,13 @@ unique lazy rule Node {
   }
 	to
 		node: AR!Node (
-			name <- ((c.name + '__' + ci.debug().getQualifiedName()).normalizeId() + '_' + thisModule.createdClasses -> size().toString()).debug(' as '),
-			declarations <- ci.subnodes() -> append(ci.flows()) -> flatten(),
+			name <- ((c.name + '__' + ci.debug().getQualifiedName()).normalizeId() + '_' + thisModule.classes -> size().toString()).debug(' as '),
+			-- need to force declaratoins because assertions need containment structure in place
+			declarations <- ci.subnodes() -> append(ci.flows()) -> flatten() -> force(),
 			assertions <- ci.assertions()
 		)
 	do {
-		thisModule.createdClasses <:= thisModule.createdClasses -> append(node);
+		thisModule.classes <:= thisModule.classes -> append(node);
 		node;
 	}
 }
@@ -73,27 +79,102 @@ unique lazy rule NodeInstance {
 			name <- sub.name.debug('Node instance in ' + sub.eContainer().name),
 			type <- classType 
 		),
-	  classType: AR!ClassType (
-	  	class <- thisModule.Node(sub)
+	  classType: AR!NamedType (
+	  	ref <- thisModule.Node(sub)
 		)
 }
 
 -- flow variables
 
 helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
-	self.componentClassifier.errorPropagations() -> collect(ep | thisModule.Flow(self, ep));
+	let outFlows: Sequence(AR!Variable) = 
+		self.componentClassifier.outgoingErrorPropagations() -> collect(oep | thisModule.OutFlow(self, oep)) in
+	let inFlows: Sequence(AR!Variable) = 
+		self.componentClassifier.incomingErrorPropagations() ->
+				collect(iep | thisModule.dst2paths.get(Tuple{io = self, prop = iep}) -> collect(path | thisModule.InFlow(self, path))) in
+	outFlows -> append(inFlows);
+	
 
-unique lazy rule Flow {
+unique lazy rule OutFlow {
 	from
 		ci: AADL!ComponentInstance,
 		propagation: EMV2!ErrorPropagation
 	to
 		f: AR!Variable (
-			type <- thisModule.BaseType(thisModule.int),
-			name <- propagation.getFeatureorPPRef().altaRicaName().debug('variable: ')
+			name <- propagation.altaRicaName(),
+			type <- thisModule.DomainType(propagation)
 		)
 }
 
+unique lazy rule InFlow {
+	from
+		ci: AADL!ComponentInstance,
+		path: "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord"
+	using {
+		count: Integer = thisModule.inCount;
+	}
+	to
+		flow: AR!Variable (
+			name <- 
+					let dstProp: EMV2!ErrorPropagation = path.getPathDst().getErrorPropagation() in
+					dstProp.indexedName(count),
+			type <-
+					let srcProp: EMV2!ErrorPropagation = path.getPathSrc().getErrorPropagation() in
+					thisModule.DomainType(srcProp)
+		)
+	do {
+		thisModule.inCount <:= count + 1;
+		flow;
+	}
+}
+-- counter for in flow variable names to avoid duplicates
+helper def: inCount: Integer = 0;
+
+lazy rule DomainType {
+	from
+		prop: EMV2!ErrorPropagation
+	to
+		domainType: AR!NamedType (
+			ref <- thisModule.Domain(prop)
+		)
+}
+
+unique lazy rule Domain {
+	from
+		prop: EMV2!ErrorPropagation
+	using {
+		count: Integer = thisModule.domainCount;
+	}
+	to
+		domain: AR!Domain (
+			name <- 'domain_' + count.toString(),
+			domain <- enum
+		),
+		enum: AR!Enumeration (
+			ownedSymbols <- prop.createSymbols()
+		)
+	do {
+		thisModule.domainCount <:= count + 1;
+		thisModule.domains <:= thisModule.domains -> append(domain);
+		domain;
+	}
+}
+
+helper def: domainCount: Integer = 0;
+
+helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
+	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
+	let tokens: Sequence(EMV2!TypeToken) = self.typeSet.leafTypeTokens(usedTypes) in
+	tokens -> collect(t | thisModule.SymbolicConstant(t));
+
+lazy rule SymbolicConstant {
+	from
+		token: EMV2!TypeToken
+	to 
+		const: AR!SymbolicConstant (
+			name <- ('\'' + token.name() + '\'').debug('symbol')
+		)
+}
 -- a bool or integer
 
 lazy rule BaseType {
@@ -114,14 +195,14 @@ helper context AADL!ComponentInstance def: assertions(): Sequence(AR!Instruction
 				collect(pp | pp.makeAssertion())
 	else
 		Sequence{}
-	endif;
-
+  endif;
+  
 helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord" 
 		def: makeAssertion(): AR!Instruction =
 	let srcCi: AADL!ComponentInstance = self.getPathSrc().getComponentInstance() in
 	let dstCi: AADL!ComponentInstance = self.getPathDst().getComponentInstance() in
-	let srcFlow: AR!Variable = thisModule.Flow(srcCi, self.getPathSrc().getErrorPropagation()) in
-	let dstFlow: AR!Variable = thisModule.Flow(dstCi, self.getPathDst().getErrorPropagation()) in
+	let srcFlow: AR!Variable = thisModule.OutFlow(srcCi, self.getPathSrc().getErrorPropagation()) in
+	let dstFlow: AR!Variable = thisModule.InFlow(dstCi, self) in
 	thisModule.Assignment(thisModule.NameRef(dstFlow, dstCi), thisModule.NameRef(srcFlow, srcCi));
 
 lazy rule Assignment {

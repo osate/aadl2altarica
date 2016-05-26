@@ -26,7 +26,7 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Enumeration" eSuperTypes="#//AbstractDomain">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedLiterals" upperBound="-1"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ownedSymbols" upperBound="-1"
         eType="#//NamedElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Type"/>
@@ -37,8 +37,8 @@
     <eLiterals name="INTEGER" literal="Integer"/>
     <eLiterals name="BOOLEAN" value="1" literal="Boolean"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ClassType" eSuperTypes="#//Type">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="class" eType="#//Node"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NamedType" eSuperTypes="#//Type">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ref" eType="#//NamedElement"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Declaration"/>
   <eClassifiers xsi:type="ecore:EClass" name="LabeledTransition">
@@ -98,10 +98,10 @@
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Domain" eSuperTypes="#//NamedElement">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" eType="#//AbstractDomain"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="domain" eType="#//Enumeration"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="EnumerationLiteral" eSuperTypes="#//NamedElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SymbolicConstant" eSuperTypes="#//NamedElement"/>
   <eClassifiers xsi:type="ecore:EClass" name="Node" eSuperTypes="#//NamedElement">
     <eStructuralFeatures xsi:type="ecore:EReference" name="declarations" upperBound="-1"
         eType="#//Declaration" containment="true"/>

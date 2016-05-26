@@ -26,7 +26,7 @@ import org.osate.altarica.altarica.NamedElement;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.EnumerationImpl#getOwnedLiterals <em>Owned Literals</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.EnumerationImpl#getOwnedSymbols <em>Owned Symbols</em>}</li>
  * </ul>
  *
  * @generated
@@ -34,14 +34,14 @@ import org.osate.altarica.altarica.NamedElement;
 public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
 {
   /**
-   * The cached value of the '{@link #getOwnedLiterals() <em>Owned Literals</em>}' containment reference list.
+   * The cached value of the '{@link #getOwnedSymbols() <em>Owned Symbols</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getOwnedLiterals()
+   * @see #getOwnedSymbols()
    * @generated
    * @ordered
    */
-  protected EList<NamedElement> ownedLiterals;
+  protected EList<NamedElement> ownedSymbols;
 
   /**
    * <!-- begin-user-doc -->
@@ -69,13 +69,13 @@ public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<NamedElement> getOwnedLiterals()
+  public EList<NamedElement> getOwnedSymbols()
   {
-    if (ownedLiterals == null)
+    if (ownedSymbols == null)
     {
-      ownedLiterals = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, AltaricaPackage.ENUMERATION__OWNED_LITERALS);
+      ownedSymbols = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, AltaricaPackage.ENUMERATION__OWNED_SYMBOLS);
     }
-    return ownedLiterals;
+    return ownedSymbols;
   }
 
   /**
@@ -88,8 +88,8 @@ public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
   {
     switch (featureID)
     {
-      case AltaricaPackage.ENUMERATION__OWNED_LITERALS:
-        return ((InternalEList<?>)getOwnedLiterals()).basicRemove(otherEnd, msgs);
+      case AltaricaPackage.ENUMERATION__OWNED_SYMBOLS:
+        return ((InternalEList<?>)getOwnedSymbols()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -104,8 +104,8 @@ public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
   {
     switch (featureID)
     {
-      case AltaricaPackage.ENUMERATION__OWNED_LITERALS:
-        return getOwnedLiterals();
+      case AltaricaPackage.ENUMERATION__OWNED_SYMBOLS:
+        return getOwnedSymbols();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -121,9 +121,9 @@ public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
   {
     switch (featureID)
     {
-      case AltaricaPackage.ENUMERATION__OWNED_LITERALS:
-        getOwnedLiterals().clear();
-        getOwnedLiterals().addAll((Collection<? extends NamedElement>)newValue);
+      case AltaricaPackage.ENUMERATION__OWNED_SYMBOLS:
+        getOwnedSymbols().clear();
+        getOwnedSymbols().addAll((Collection<? extends NamedElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -139,8 +139,8 @@ public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
   {
     switch (featureID)
     {
-      case AltaricaPackage.ENUMERATION__OWNED_LITERALS:
-        getOwnedLiterals().clear();
+      case AltaricaPackage.ENUMERATION__OWNED_SYMBOLS:
+        getOwnedSymbols().clear();
         return;
     }
     super.eUnset(featureID);
@@ -156,8 +156,8 @@ public class EnumerationImpl extends AbstractDomainImpl implements Enumeration
   {
     switch (featureID)
     {
-      case AltaricaPackage.ENUMERATION__OWNED_LITERALS:
-        return ownedLiterals != null && !ownedLiterals.isEmpty();
+      case AltaricaPackage.ENUMERATION__OWNED_SYMBOLS:
+        return ownedSymbols != null && !ownedSymbols.isEmpty();
     }
     return super.eIsSet(featureID);
   }

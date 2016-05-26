@@ -130,9 +130,9 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createBaseTypeAdapter();
       }
       @Override
-      public Adapter caseClassType(ClassType object)
+      public Adapter caseNamedType(NamedType object)
       {
-        return createClassTypeAdapter();
+        return createNamedTypeAdapter();
       }
       @Override
       public Adapter caseDeclaration(Declaration object)
@@ -230,9 +230,9 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createDomainAdapter();
       }
       @Override
-      public Adapter caseEnumerationLiteral(EnumerationLiteral object)
+      public Adapter caseSymbolicConstant(SymbolicConstant object)
       {
-        return createEnumerationLiteralAdapter();
+        return createSymbolicConstantAdapter();
       }
       @Override
       public Adapter caseNode(Node object)
@@ -507,16 +507,16 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.ClassType <em>Class Type</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.NamedType <em>Named Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.altarica.altarica.ClassType
+   * @see org.osate.altarica.altarica.NamedType
    * @generated
    */
-  public Adapter createClassTypeAdapter()
+  public Adapter createNamedTypeAdapter()
   {
     return null;
   }
@@ -807,16 +807,16 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.EnumerationLiteral <em>Enumeration Literal</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.SymbolicConstant <em>Symbolic Constant</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.altarica.altarica.EnumerationLiteral
+   * @see org.osate.altarica.altarica.SymbolicConstant
    * @generated
    */
-  public Adapter createEnumerationLiteralAdapter()
+  public Adapter createSymbolicConstantAdapter()
   {
     return null;
   }

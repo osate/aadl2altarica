@@ -31,14 +31,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Range/upper"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Enumeration">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Enumeration/ownedLiterals"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Enumeration/ownedSymbols"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Type"/>
     <genClasses ecoreClass="Altarica.ecore#//BaseType">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//BaseType/name"/>
     </genClasses>
-    <genClasses ecoreClass="Altarica.ecore#//ClassType">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//ClassType/class"/>
+    <genClasses ecoreClass="Altarica.ecore#//NamedType">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//NamedType/ref"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Declaration"/>
     <genClasses ecoreClass="Altarica.ecore#//LabeledTransition">
@@ -89,7 +89,7 @@
     <genClasses ecoreClass="Altarica.ecore#//Domain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Domain/domain"/>
     </genClasses>
-    <genClasses ecoreClass="Altarica.ecore#//EnumerationLiteral"/>
+    <genClasses ecoreClass="Altarica.ecore#//SymbolicConstant"/>
     <genClasses ecoreClass="Altarica.ecore#//Node">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Node/declarations"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Node/transitions"/>

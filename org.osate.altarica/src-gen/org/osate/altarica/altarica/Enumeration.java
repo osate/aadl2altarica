@@ -13,7 +13,7 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.Enumeration#getOwnedLiterals <em>Owned Literals</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.Enumeration#getOwnedSymbols <em>Owned Symbols</em>}</li>
  * </ul>
  *
  * @see org.osate.altarica.altarica.AltaricaPackage#getEnumeration()
@@ -23,19 +23,19 @@ import org.eclipse.emf.common.util.EList;
 public interface Enumeration extends AbstractDomain
 {
   /**
-   * Returns the value of the '<em><b>Owned Literals</b></em>' containment reference list.
+   * Returns the value of the '<em><b>Owned Symbols</b></em>' containment reference list.
    * The list contents are of type {@link org.osate.altarica.altarica.NamedElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Owned Literals</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Owned Symbols</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Owned Literals</em>' containment reference list.
-   * @see org.osate.altarica.altarica.AltaricaPackage#getEnumeration_OwnedLiterals()
+   * @return the value of the '<em>Owned Symbols</em>' containment reference list.
+   * @see org.osate.altarica.altarica.AltaricaPackage#getEnumeration_OwnedSymbols()
    * @model containment="true"
    * @generated
    */
-  EList<NamedElement> getOwnedLiterals();
+  EList<NamedElement> getOwnedSymbols();
 
 } // Enumeration

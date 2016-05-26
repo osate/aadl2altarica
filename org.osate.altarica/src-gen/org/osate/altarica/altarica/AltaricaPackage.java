@@ -311,13 +311,13 @@ public interface AltaricaPackage extends EPackage
   int ENUMERATION = 8;
 
   /**
-   * The feature id for the '<em><b>Owned Literals</b></em>' containment reference list.
+   * The feature id for the '<em><b>Owned Symbols</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUMERATION__OWNED_LITERALS = ABSTRACT_DOMAIN_FEATURE_COUNT + 0;
+  int ENUMERATION__OWNED_SYMBOLS = ABSTRACT_DOMAIN_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Enumeration</em>' class.
@@ -376,32 +376,32 @@ public interface AltaricaPackage extends EPackage
   int BASE_TYPE_FEATURE_COUNT = ABSTRACT_DOMAIN_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.altarica.altarica.impl.ClassTypeImpl <em>Class Type</em>}' class.
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.NamedTypeImpl <em>Named Type</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.altarica.altarica.impl.ClassTypeImpl
-   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getClassType()
+   * @see org.osate.altarica.altarica.impl.NamedTypeImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNamedType()
    * @generated
    */
-  int CLASS_TYPE = 11;
+  int NAMED_TYPE = 11;
 
   /**
-   * The feature id for the '<em><b>Class</b></em>' reference.
+   * The feature id for the '<em><b>Ref</b></em>' reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_TYPE__CLASS = TYPE_FEATURE_COUNT + 0;
+  int NAMED_TYPE__REF = TYPE_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Class Type</em>' class.
+   * The number of structural features of the '<em>Named Type</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CLASS_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
+  int NAMED_TYPE_FEATURE_COUNT = TYPE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -926,14 +926,14 @@ public interface AltaricaPackage extends EPackage
   int DOMAIN_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.altarica.altarica.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.SymbolicConstantImpl <em>Symbolic Constant</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.altarica.altarica.impl.EnumerationLiteralImpl
-   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEnumerationLiteral()
+   * @see org.osate.altarica.altarica.impl.SymbolicConstantImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSymbolicConstant()
    * @generated
    */
-  int ENUMERATION_LITERAL = 31;
+  int SYMBOLIC_CONSTANT = 31;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -942,16 +942,16 @@ public interface AltaricaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ENUMERATION_LITERAL__NAME = NAMED_ELEMENT__NAME;
+  int SYMBOLIC_CONSTANT__NAME = NAMED_ELEMENT__NAME;
 
   /**
-   * The number of structural features of the '<em>Enumeration Literal</em>' class.
+   * The number of structural features of the '<em>Symbolic Constant</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int ENUMERATION_LITERAL_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
+  int SYMBOLIC_CONSTANT_FEATURE_COUNT = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.NodeImpl <em>Node</em>}' class.
@@ -1786,15 +1786,15 @@ public interface AltaricaPackage extends EPackage
   EClass getEnumeration();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.Enumeration#getOwnedLiterals <em>Owned Literals</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.Enumeration#getOwnedSymbols <em>Owned Symbols</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Owned Literals</em>'.
-   * @see org.osate.altarica.altarica.Enumeration#getOwnedLiterals()
+   * @return the meta object for the containment reference list '<em>Owned Symbols</em>'.
+   * @see org.osate.altarica.altarica.Enumeration#getOwnedSymbols()
    * @see #getEnumeration()
    * @generated
    */
-  EReference getEnumeration_OwnedLiterals();
+  EReference getEnumeration_OwnedSymbols();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Type <em>Type</em>}'.
@@ -1828,25 +1828,25 @@ public interface AltaricaPackage extends EPackage
   EAttribute getBaseType_Name();
 
   /**
-   * Returns the meta object for class '{@link org.osate.altarica.altarica.ClassType <em>Class Type</em>}'.
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.NamedType <em>Named Type</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Class Type</em>'.
-   * @see org.osate.altarica.altarica.ClassType
+   * @return the meta object for class '<em>Named Type</em>'.
+   * @see org.osate.altarica.altarica.NamedType
    * @generated
    */
-  EClass getClassType();
+  EClass getNamedType();
 
   /**
-   * Returns the meta object for the reference '{@link org.osate.altarica.altarica.ClassType#getClass_ <em>Class</em>}'.
+   * Returns the meta object for the reference '{@link org.osate.altarica.altarica.NamedType#getRef <em>Ref</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the reference '<em>Class</em>'.
-   * @see org.osate.altarica.altarica.ClassType#getClass_()
-   * @see #getClassType()
+   * @return the meta object for the reference '<em>Ref</em>'.
+   * @see org.osate.altarica.altarica.NamedType#getRef()
+   * @see #getNamedType()
    * @generated
    */
-  EReference getClassType_Class();
+  EReference getNamedType_Ref();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Declaration <em>Declaration</em>}'.
@@ -2237,14 +2237,14 @@ public interface AltaricaPackage extends EPackage
   EReference getDomain_Domain();
 
   /**
-   * Returns the meta object for class '{@link org.osate.altarica.altarica.EnumerationLiteral <em>Enumeration Literal</em>}'.
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.SymbolicConstant <em>Symbolic Constant</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Enumeration Literal</em>'.
-   * @see org.osate.altarica.altarica.EnumerationLiteral
+   * @return the meta object for class '<em>Symbolic Constant</em>'.
+   * @see org.osate.altarica.altarica.SymbolicConstant
    * @generated
    */
-  EClass getEnumerationLiteral();
+  EClass getSymbolicConstant();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Node <em>Node</em>}'.
@@ -2940,12 +2940,12 @@ public interface AltaricaPackage extends EPackage
     EClass ENUMERATION = eINSTANCE.getEnumeration();
 
     /**
-     * The meta object literal for the '<em><b>Owned Literals</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Owned Symbols</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference ENUMERATION__OWNED_LITERALS = eINSTANCE.getEnumeration_OwnedLiterals();
+    EReference ENUMERATION__OWNED_SYMBOLS = eINSTANCE.getEnumeration_OwnedSymbols();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.TypeImpl <em>Type</em>}' class.
@@ -2976,22 +2976,22 @@ public interface AltaricaPackage extends EPackage
     EAttribute BASE_TYPE__NAME = eINSTANCE.getBaseType_Name();
 
     /**
-     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.ClassTypeImpl <em>Class Type</em>}' class.
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.NamedTypeImpl <em>Named Type</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.altarica.altarica.impl.ClassTypeImpl
-     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getClassType()
+     * @see org.osate.altarica.altarica.impl.NamedTypeImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNamedType()
      * @generated
      */
-    EClass CLASS_TYPE = eINSTANCE.getClassType();
+    EClass NAMED_TYPE = eINSTANCE.getNamedType();
 
     /**
-     * The meta object literal for the '<em><b>Class</b></em>' reference feature.
+     * The meta object literal for the '<em><b>Ref</b></em>' reference feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference CLASS_TYPE__CLASS = eINSTANCE.getClassType_Class();
+    EReference NAMED_TYPE__REF = eINSTANCE.getNamedType_Ref();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.DeclarationImpl <em>Declaration</em>}' class.
@@ -3328,14 +3328,14 @@ public interface AltaricaPackage extends EPackage
     EReference DOMAIN__DOMAIN = eINSTANCE.getDomain_Domain();
 
     /**
-     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.EnumerationLiteralImpl <em>Enumeration Literal</em>}' class.
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.SymbolicConstantImpl <em>Symbolic Constant</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.altarica.altarica.impl.EnumerationLiteralImpl
-     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEnumerationLiteral()
+     * @see org.osate.altarica.altarica.impl.SymbolicConstantImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSymbolicConstant()
      * @generated
      */
-    EClass ENUMERATION_LITERAL = eINSTANCE.getEnumerationLiteral();
+    EClass SYMBOLIC_CONSTANT = eINSTANCE.getSymbolicConstant();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.NodeImpl <em>Node</em>}' class.

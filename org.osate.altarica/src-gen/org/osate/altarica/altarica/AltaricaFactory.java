@@ -122,13 +122,13 @@ public interface AltaricaFactory extends EFactory
   BaseType createBaseType();
 
   /**
-   * Returns a new object of class '<em>Class Type</em>'.
+   * Returns a new object of class '<em>Named Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Class Type</em>'.
+   * @return a new object of class '<em>Named Type</em>'.
    * @generated
    */
-  ClassType createClassType();
+  NamedType createNamedType();
 
   /**
    * Returns a new object of class '<em>Declaration</em>'.
@@ -302,13 +302,13 @@ public interface AltaricaFactory extends EFactory
   Domain createDomain();
 
   /**
-   * Returns a new object of class '<em>Enumeration Literal</em>'.
+   * Returns a new object of class '<em>Symbolic Constant</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enumeration Literal</em>'.
+   * @return a new object of class '<em>Symbolic Constant</em>'.
    * @generated
    */
-  EnumerationLiteral createEnumerationLiteral();
+  SymbolicConstant createSymbolicConstant();
 
   /**
    * Returns a new object of class '<em>Node</em>'.

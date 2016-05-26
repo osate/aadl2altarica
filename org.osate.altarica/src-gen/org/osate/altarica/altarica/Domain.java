@@ -30,12 +30,12 @@ public interface Domain extends NamedElement
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Domain</em>' containment reference.
-   * @see #setDomain(AbstractDomain)
+   * @see #setDomain(Enumeration)
    * @see org.osate.altarica.altarica.AltaricaPackage#getDomain_Domain()
    * @model containment="true"
    * @generated
    */
-  AbstractDomain getDomain();
+  Enumeration getDomain();
 
   /**
    * Sets the value of the '{@link org.osate.altarica.altarica.Domain#getDomain <em>Domain</em>}' containment reference.
@@ -45,6 +45,6 @@ public interface Domain extends NamedElement
    * @see #getDomain()
    * @generated
    */
-  void setDomain(AbstractDomain value);
+  void setDomain(Enumeration value);
 
 } // Domain

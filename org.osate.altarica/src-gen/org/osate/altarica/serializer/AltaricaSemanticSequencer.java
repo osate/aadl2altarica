@@ -26,13 +26,11 @@ import org.osate.altarica.altarica.Attribute;
 import org.osate.altarica.altarica.BaseType;
 import org.osate.altarica.altarica.Block;
 import org.osate.altarica.altarica.CaseExpression;
-import org.osate.altarica.altarica.ClassType;
 import org.osate.altarica.altarica.ConstantDefinition;
 import org.osate.altarica.altarica.Domain;
 import org.osate.altarica.altarica.DomainConstant;
 import org.osate.altarica.altarica.DomainRef;
 import org.osate.altarica.altarica.Enumeration;
-import org.osate.altarica.altarica.EnumerationLiteral;
 import org.osate.altarica.altarica.Equal;
 import org.osate.altarica.altarica.Event;
 import org.osate.altarica.altarica.ExpressionConstant;
@@ -44,6 +42,7 @@ import org.osate.altarica.altarica.Minus;
 import org.osate.altarica.altarica.Model;
 import org.osate.altarica.altarica.Multiplication;
 import org.osate.altarica.altarica.NameRef;
+import org.osate.altarica.altarica.NamedType;
 import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
@@ -51,6 +50,7 @@ import org.osate.altarica.altarica.Parameter;
 import org.osate.altarica.altarica.Range;
 import org.osate.altarica.altarica.Skip;
 import org.osate.altarica.altarica.Switch;
+import org.osate.altarica.altarica.SymbolicConstant;
 import org.osate.altarica.altarica.TransitionAnd;
 import org.osate.altarica.altarica.TransitionOr;
 import org.osate.altarica.altarica.Variable;
@@ -93,9 +93,6 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case AltaricaPackage.CASE_EXPRESSION:
 				sequence_CaseExpression(context, (CaseExpression) semanticObject); 
 				return; 
-			case AltaricaPackage.CLASS_TYPE:
-				sequence_ClassType(context, (ClassType) semanticObject); 
-				return; 
 			case AltaricaPackage.CONSTANT_DEFINITION:
 				sequence_ConstantDefinition(context, (ConstantDefinition) semanticObject); 
 				return; 
@@ -110,9 +107,6 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case AltaricaPackage.ENUMERATION:
 				sequence_Enumeration(context, (Enumeration) semanticObject); 
-				return; 
-			case AltaricaPackage.ENUMERATION_LITERAL:
-				sequence_Literal(context, (EnumerationLiteral) semanticObject); 
 				return; 
 			case AltaricaPackage.EQUAL:
 				sequence_Relation(context, (Equal) semanticObject); 
@@ -147,6 +141,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case AltaricaPackage.NAME_REF:
 				sequence_NameRef(context, (NameRef) semanticObject); 
 				return; 
+			case AltaricaPackage.NAMED_TYPE:
+				sequence_NamedType(context, (NamedType) semanticObject); 
+				return; 
 			case AltaricaPackage.NODE:
 				sequence_Class(context, (Node) semanticObject); 
 				return; 
@@ -167,6 +164,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case AltaricaPackage.SWITCH:
 				sequence_Switch(context, (Switch) semanticObject); 
+				return; 
+			case AltaricaPackage.SYMBOLIC_CONSTANT:
+				sequence_SymbolicConstant(context, (SymbolicConstant) semanticObject); 
 				return; 
 			case AltaricaPackage.TRANSITION_AND:
 				sequence_TransitionAnd(context, (TransitionAnd) semanticObject); 
@@ -286,22 +286,6 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     class=[Node|ID]
-	 */
-	protected void sequence_ClassType(EObject context, ClassType semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CLASS_TYPE__CLASS) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.CLASS_TYPE__CLASS));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getClassTypeAccess().getClassNodeIDTerminalRuleCall_0_1(), semanticObject.getClass_());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (name=ID declarations+=Declaration* transitions+=LabeledTransition* assertions+=Instruction*)
 	 */
 	protected void sequence_Class(EObject context, Node semanticObject) {
@@ -355,7 +339,7 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (name=ID domain=AbstractDomain)
+	 *     (name=ID domain=Enumeration)
 	 */
 	protected void sequence_Domain(EObject context, Domain semanticObject) {
 		if(errorAcceptor != null) {
@@ -367,14 +351,14 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getDomainAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDomainAccess().getDomainAbstractDomainParserRuleCall_4_0(), semanticObject.getDomain());
+		feeder.accept(grammarAccess.getDomainAccess().getDomainEnumerationParserRuleCall_3_0(), semanticObject.getDomain());
 		feeder.finish();
 	}
 	
 	
 	/**
 	 * Constraint:
-	 *     (ownedLiterals+=Literal ownedLiterals+=Literal*)
+	 *     ((ownedSymbols+=SymbolicConstant ownedSymbols+=SymbolicConstant*)?)
 	 */
 	protected void sequence_Enumeration(EObject context, Enumeration semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -461,22 +445,6 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_Literal(EObject context, EnumerationLiteral semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getLiteralAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
-	}
-	
-	
-	/**
-	 * Constraint:
 	 *     (left=Logical_Logical_1_0_0 (op='and' | op='or') right=Relation)
 	 */
 	protected void sequence_Logical(EObject context, Logical semanticObject) {
@@ -508,6 +476,22 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_NameRef(EObject context, NameRef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     ref=[NamedElement|ID]
+	 */
+	protected void sequence_NamedType(EObject context, NamedType semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_TYPE__REF) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_TYPE__REF));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getNamedTypeAccess().getRefNamedElementIDTerminalRuleCall_0_1(), semanticObject.getRef());
+		feeder.finish();
 	}
 	
 	
@@ -657,6 +641,22 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 */
 	protected void sequence_Switch(EObject context, Switch semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     name=ID
+	 */
+	protected void sequence_SymbolicConstant(EObject context, SymbolicConstant semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getSymbolicConstantAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

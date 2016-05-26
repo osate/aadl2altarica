@@ -37,6 +37,7 @@ public class AltaricaParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
+					put(grammarAccess.getAbstractDeclarationAccess().getAlternatives(), "rule__AbstractDeclaration__Alternatives");
 					put(grammarAccess.getAbstractDefinitionConstantAccess().getAlternatives(), "rule__AbstractDefinitionConstant__Alternatives");
 					put(grammarAccess.getAbstractDomainAccess().getAlternatives(), "rule__AbstractDomain__Alternatives");
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
@@ -60,7 +61,8 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getRangeAccess().getGroup(), "rule__Range__Group__0");
 					put(grammarAccess.getEnumerationAccess().getGroup(), "rule__Enumeration__Group__0");
 					put(grammarAccess.getEnumerationAccess().getGroup_2(), "rule__Enumeration__Group_2__0");
-					put(grammarAccess.getLiteralAccess().getGroup(), "rule__Literal__Group__0");
+					put(grammarAccess.getEnumerationAccess().getGroup_2_1(), "rule__Enumeration__Group_2_1__0");
+					put(grammarAccess.getSymbolicConstantAccess().getGroup(), "rule__SymbolicConstant__Group__0");
 					put(grammarAccess.getClassAccess().getGroup(), "rule__Class__Group__0");
 					put(grammarAccess.getClassAccess().getGroup_4(), "rule__Class__Group_4__0");
 					put(grammarAccess.getClassAccess().getGroup_5(), "rule__Class__Group_5__0");
@@ -111,14 +113,14 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDomainConstantAccess().getDomainAssignment_1(), "rule__DomainConstant__DomainAssignment_1");
 					put(grammarAccess.getDomainConstantAccess().getOwnedExpressionAssignment_2_1(), "rule__DomainConstant__OwnedExpressionAssignment_2_1");
 					put(grammarAccess.getDomainAccess().getNameAssignment_2(), "rule__Domain__NameAssignment_2");
-					put(grammarAccess.getDomainAccess().getDomainAssignment_4(), "rule__Domain__DomainAssignment_4");
+					put(grammarAccess.getDomainAccess().getDomainAssignment_3(), "rule__Domain__DomainAssignment_3");
 					put(grammarAccess.getRangeAccess().getLowerAssignment_1(), "rule__Range__LowerAssignment_1");
 					put(grammarAccess.getRangeAccess().getUpperAssignment_3(), "rule__Range__UpperAssignment_3");
-					put(grammarAccess.getEnumerationAccess().getOwnedLiteralsAssignment_1(), "rule__Enumeration__OwnedLiteralsAssignment_1");
-					put(grammarAccess.getEnumerationAccess().getOwnedLiteralsAssignment_2_1(), "rule__Enumeration__OwnedLiteralsAssignment_2_1");
-					put(grammarAccess.getLiteralAccess().getNameAssignment_1(), "rule__Literal__NameAssignment_1");
+					put(grammarAccess.getEnumerationAccess().getOwnedSymbolsAssignment_2_0(), "rule__Enumeration__OwnedSymbolsAssignment_2_0");
+					put(grammarAccess.getEnumerationAccess().getOwnedSymbolsAssignment_2_1_1(), "rule__Enumeration__OwnedSymbolsAssignment_2_1_1");
+					put(grammarAccess.getSymbolicConstantAccess().getNameAssignment_1(), "rule__SymbolicConstant__NameAssignment_1");
 					put(grammarAccess.getBaseTypeAccess().getNameAssignment(), "rule__BaseType__NameAssignment");
-					put(grammarAccess.getClassTypeAccess().getClassAssignment(), "rule__ClassType__ClassAssignment");
+					put(grammarAccess.getNamedTypeAccess().getRefAssignment(), "rule__NamedType__RefAssignment");
 					put(grammarAccess.getClassAccess().getNameAssignment_2(), "rule__Class__NameAssignment_2");
 					put(grammarAccess.getClassAccess().getDeclarationsAssignment_3(), "rule__Class__DeclarationsAssignment_3");
 					put(grammarAccess.getClassAccess().getTransitionsAssignment_4_1(), "rule__Class__TransitionsAssignment_4_1");

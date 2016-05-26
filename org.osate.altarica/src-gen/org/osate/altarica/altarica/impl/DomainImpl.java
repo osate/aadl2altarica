@@ -10,9 +10,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.osate.altarica.altarica.AbstractDomain;
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.Domain;
+import org.osate.altarica.altarica.Enumeration;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,7 +37,7 @@ public class DomainImpl extends NamedElementImpl implements Domain
    * @generated
    * @ordered
    */
-  protected AbstractDomain domain;
+  protected Enumeration domain;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,7 +65,7 @@ public class DomainImpl extends NamedElementImpl implements Domain
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractDomain getDomain()
+  public Enumeration getDomain()
   {
     return domain;
   }
@@ -75,9 +75,9 @@ public class DomainImpl extends NamedElementImpl implements Domain
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetDomain(AbstractDomain newDomain, NotificationChain msgs)
+  public NotificationChain basicSetDomain(Enumeration newDomain, NotificationChain msgs)
   {
-    AbstractDomain oldDomain = domain;
+    Enumeration oldDomain = domain;
     domain = newDomain;
     if (eNotificationRequired())
     {
@@ -92,7 +92,7 @@ public class DomainImpl extends NamedElementImpl implements Domain
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setDomain(AbstractDomain newDomain)
+  public void setDomain(Enumeration newDomain)
   {
     if (newDomain != domain)
     {
@@ -151,7 +151,7 @@ public class DomainImpl extends NamedElementImpl implements Domain
     switch (featureID)
     {
       case AltaricaPackage.DOMAIN__DOMAIN:
-        setDomain((AbstractDomain)newValue);
+        setDomain((Enumeration)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -168,7 +168,7 @@ public class DomainImpl extends NamedElementImpl implements Domain
     switch (featureID)
     {
       case AltaricaPackage.DOMAIN__DOMAIN:
-        setDomain((AbstractDomain)null);
+        setDomain((Enumeration)null);
         return;
     }
     super.eUnset(featureID);

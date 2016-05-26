@@ -35,6 +35,21 @@ helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrar
 		'getErrorModelSubclauseWithUseTypes', Sequence{self}
 	);
 
+helper context EMV2!ErrorPropagation def: name() : String =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getPropagationName', Sequence{self}
+	);
+	
+helper context EMV2!ErrorPropagation def: containingClassifier() : AADL2!ComponentClassifier =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getAssociatedClassifier', Sequence{self}
+	);
+	
+helper context EMV2!TypeToken def: name() : String =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getName', Sequence{self}
+	);
+	
 helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorModelLibrary)): Sequence(EMV2!TypeToken) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EM2TypeSetUtil".refInvokeStaticOperation(
 		'generateAllLeafTypeTokens', Sequence{self, useTypes}
@@ -53,13 +68,10 @@ helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::erro
 	thisModule.analysisModel.getPropagationPaths();
 
 -- How to split propagation destinations based on fan-in
---helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd" 
---		def: splits: Sequence(Tuple("#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel", AR!Variable)) =
---	
-helper def: dst2paths: Map("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathEnd", "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
+helper def: dst2paths: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) =
 	thisModule.propagationPaths -> mappedBy(p | 
 			let d: OclAny = p.getPathDst() in 
-			Tuple{io = d.getInstanceObject(), prop = d.getErrorPropagation()}
+			Tuple{io = d.getComponentInstance(), prop = d.getErrorPropagation()}
 	);
 
 -- Force evaluation of a lazy collection by getting its size
@@ -74,15 +86,9 @@ helper context String def: quoted(): String =
 	'"' + self + '"';
 
 helper context EMV2!ErrorPropagation def: altaRicaName(): String =
-	let
-		ref: EMV2!FeatureorPPReference = self.getFeatureorPPRef()
-	in
-		ref.altaRicaName();
+	self.name().normalizeId();
 
-helper context EMV2!FeatureorPPReference def: altaRicaName(): String =
-	let
-		name: String = self.featureorPP.name
-	in
-		if self.next.oclIsUndefined() then name else name + '_' + self.next.altaRicaName() endif;
+helper context AADL2!NamedElement def: indexedName(index: Integer): String =
+	self.altaRicaName() + '_' + index.toString();
 
 helper def: int: AR!BaseTypeEnum = #"Integer";
