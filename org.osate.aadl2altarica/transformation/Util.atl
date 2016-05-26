@@ -74,6 +74,19 @@ helper def: dst2paths: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!Erro
 			Tuple{io = d.getComponentInstance(), prop = d.getErrorPropagation()}
 	);
 
+-- Where to put assertions
+helper def: ci2paths: Map(AADL!ComponentInstance, Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) =
+	thisModule.propagationPaths -> mappedBy(p | p.assertionContainer);
+
+helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord" def: assertionContainer: AADL!ComponentInstance =
+	if self.isConnectionPath() then
+		self.getConnectionInstance().eContainer()
+	else
+		thisModule.systemInstance
+	endif;
+	
+helper def: systemInstance: AADL!SystemInstance = AADL!SystemInstance.allInstances() -> first();
+
 -- Force evaluation of a lazy collection by getting its size
 helper context Collection(OclAny) def: force(): Collection(OclAny) =
 	let i: Integer = self.size() in self;

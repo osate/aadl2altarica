@@ -189,21 +189,20 @@ lazy rule BaseType {
 -- external assertions (at top level)
 
 helper context AADL!ComponentInstance def: assertions(): Sequence(AR!Instruction) =
-	if self.oclIsTypeOf(AADL!SystemInstance) then
-		thisModule.propagationPaths -> 
-				select(pp | not pp.isConnectionBindingPath()) -> 
-				collect(pp | pp.makeAssertion())
+	if thisModule.ci2paths.getKeys() -> includes(self) then 
+		thisModule.ci2paths.get(self) -> select(pp | not pp.isConnectionBindingPath()) -> collect(pp | pp.makeAssertion())
 	else
 		Sequence{}
-  endif;
-  
+	endif;
+
 helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord" 
 		def: makeAssertion(): AR!Instruction =
+	let container: AADL!ComponentInstance = self.assertionContainer in
 	let srcCi: AADL!ComponentInstance = self.getPathSrc().getComponentInstance() in
 	let dstCi: AADL!ComponentInstance = self.getPathDst().getComponentInstance() in
 	let srcFlow: AR!Variable = thisModule.OutFlow(srcCi, self.getPathSrc().getErrorPropagation()) in
 	let dstFlow: AR!Variable = thisModule.InFlow(dstCi, self) in
-	thisModule.Assignment(thisModule.NameRef(dstFlow, dstCi), thisModule.NameRef(srcFlow, srcCi));
+	thisModule.Assignment(thisModule.NameRef(dstFlow, dstCi, container), thisModule.NameRef(srcFlow, srcCi, container));
 
 lazy rule Assignment {
 	from
@@ -219,13 +218,14 @@ lazy rule Assignment {
 lazy rule NameRef {
 	from
 		var: AR!Variable,
-		owner: AADL!ComponentInstance
+		owner: AADL!ComponentInstance,
+		upto: AADL!ComponentInstance
 	to
 		ref: AR!NameRef (
 			variable <- var,
-			nested <- 
+			nested <-
 					let parent: AADL!ComponentInstance = owner.refImmediateComposite() in
-					if parent.oclIsTypeOf(AADL!SystemInstance) then		
+					if parent = upto then		
 						thisModule.LeafNameRef(owner.nodeInstance)
 					else
 						thisModule.NameRef(owner.nodeInstance, parent)
