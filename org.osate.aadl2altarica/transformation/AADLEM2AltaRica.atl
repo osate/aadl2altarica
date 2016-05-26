@@ -52,8 +52,8 @@ unique lazy rule Node {
   }
 	to
 		node: AR!Node (
-			name <- ((c.name + '__' + ci.debug().getQualifiedName()).normalizeId() + '_' + thisModule.classes -> size().toString()).debug(' as '),
-			-- need to force declaratoins because assertions need containment structure in place
+			name <- c.name.normalizeId() + '_' + thisModule.classes -> size().toString(),
+			-- need to force declarations because assertions need containment structure in place
 			declarations <- ci.subnodes() -> append(ci.flows()) -> flatten() -> force(),
 			assertions <- ci.assertions()
 		)
@@ -76,7 +76,7 @@ unique lazy rule NodeInstance {
 		sub: AADL!ComponentInstance
 	to
 		ni: AR!Variable (
-			name <- sub.name.debug('Node instance in ' + sub.eContainer().name),
+			name <- sub.name,
 			type <- classType 
 		),
 	  classType: AR!NamedType (
@@ -172,7 +172,7 @@ lazy rule SymbolicConstant {
 		token: EMV2!TypeToken
 	to 
 		const: AR!SymbolicConstant (
-			name <- ('\'' + token.name() + '\'').debug('symbol')
+			name <- '\'' + token.name() + '\''
 		)
 }
 -- a bool or integer
@@ -222,7 +222,7 @@ lazy rule NameRef {
 		owner: AADL!ComponentInstance
 	to
 		ref: AR!NameRef (
-			variable <- var.debug(),
+			variable <- var,
 			nested <- 
 					let parent: AADL!ComponentInstance = owner.refImmediateComposite() in
 					if parent.oclIsTypeOf(AADL!SystemInstance) then		
@@ -238,7 +238,7 @@ lazy rule LeafNameRef {
 		var: AR!Variable
 	to
 		ref: AR!NameRef (
-			variable <- var.debug()
+			variable <- var
 		)
 }
 
