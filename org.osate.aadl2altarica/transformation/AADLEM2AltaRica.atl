@@ -93,17 +93,23 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 		self.componentClassifier.incomingErrorPropagations() ->
 				collect(iep | thisModule.dst2paths.get(Tuple{io = self, prop = iep}) -> collect(path | thisModule.InFlow(self, path))) in
 	outFlows -> append(inFlows);
-	
+
+-- map to keep track of flow variables created for propagations in a component instance
+helper def: ep2flows: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence(AR!Variable)) = Map{};
 
 unique lazy rule OutFlow {
 	from
 		ci: AADL!ComponentInstance,
-		propagation: EMV2!ErrorPropagation
+		prop: EMV2!ErrorPropagation
 	to
-		f: AR!Variable (
-			name <- propagation.altaRicaName(),
-			type <- thisModule.DomainType(propagation)
+		flow: AR!Variable (
+			name <- prop.altaRicaName(),
+			type <- thisModule.DomainType(prop)
 		)
+	do {
+		thisModule.ep2flows <:= thisModule.ep2flows -> including(Tuple{io = ci, prop = prop}, Sequence{flow});
+		flow;
+	}
 }
 
 unique lazy rule InFlow {
@@ -112,17 +118,26 @@ unique lazy rule InFlow {
 		path: "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord"
 	using {
 		count: Integer = thisModule.inCount;
+		prop: EMV2!ErrorPropagation = path.getPathDst().getErrorPropagation();
 	}
 	to
 		flow: AR!Variable (
-			name <- 
-					let dstProp: EMV2!ErrorPropagation = path.getPathDst().getErrorPropagation() in
-					dstProp.indexedName(count),
+			name <- prop.indexedName(count),
 			type <-
 					let srcProp: EMV2!ErrorPropagation = path.getPathSrc().getErrorPropagation() in
 					thisModule.DomainType(srcProp)
 		)
 	do {
+		if (thisModule.ep2flows.getKeys() -> includes(Tuple{io = ci, prop = prop})) {
+			thisModule.ep2flows <:= thisModule.ep2flows -> 
+					including(
+							Tuple{io = ci, prop = prop}, 
+							thisModule.ep2flows.get(Tuple{io = ci, prop = prop}) -> append(flow)
+					);
+		} else {
+			thisModule.ep2flows <:= thisModule.ep2flows -> 
+					including(Tuple{io = ci, prop = prop}, Sequence{flow});
+		}
 		thisModule.inCount <:= count + 1;
 		flow;
 	}
@@ -138,6 +153,9 @@ lazy rule DomainType {
 			ref <- thisModule.Domain(prop)
 		)
 }
+
+-- map to keep track of type tokens in domains
+--helper def: domain2tokens: Map(AR!Domain, Set(EMV2!TypeToken)) = Map{};
 
 unique lazy rule Domain {
 	from
@@ -156,17 +174,20 @@ unique lazy rule Domain {
 	do {
 		thisModule.domainCount <:= count + 1;
 		thisModule.domains <:= thisModule.domains -> append(domain);
+		--thisModule.domain2tokens <:= thisModule.domain2tokens -> including(domain, prop.leafTokens() -> asSet());
 		domain;
 	}
 }
 
 helper def: domainCount: Integer = 0;
 
-helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
+helper context EMV2!ErrorPropagation def: leafTokens(): Sequence(EMV2!TypeToken) =
 	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
-	let tokens: Sequence(EMV2!TypeToken) = self.typeSet.leafTypeTokens(usedTypes) in
-	tokens -> collect(t | thisModule.SymbolicConstant(t));
+	self.typeSet.leafTypeTokens(usedTypes);
 
+helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
+	self.leafTokens() -> collect(t | thisModule.SymbolicConstant(t));
+	
 lazy rule SymbolicConstant {
 	from
 		token: EMV2!TypeToken
@@ -175,6 +196,7 @@ lazy rule SymbolicConstant {
 			name <- '\'' + token.name() + '\''
 		)
 }
+
 -- a bool or integer
 
 lazy rule BaseType {
@@ -186,7 +208,7 @@ lazy rule BaseType {
 		)
 }
 
--- external assertions (at top level)
+-- external assertions (at same level as connection, or at top level for bindings)
 
 helper context AADL!ComponentInstance def: assertions(): Sequence(AR!Instruction) =
 	if thisModule.ci2paths.getKeys() -> includes(self) then 
