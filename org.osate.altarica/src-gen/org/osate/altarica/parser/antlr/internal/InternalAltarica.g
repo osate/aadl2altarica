@@ -1167,7 +1167,11 @@ ruleEventDeclaration returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getEventDeclarationAccess().getRightParenthesisKeyword_3_3());
     }
-)?)
+)?	otherlv_8=';' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getEventDeclarationAccess().getSemicolonKeyword_4());
+    }
+)
 ;
 
 

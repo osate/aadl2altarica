@@ -646,12 +646,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cAttributesAssignment_3_2_1 = (Assignment)cGroup_3_2.eContents().get(1);
 		private final RuleCall cAttributesAttributeParserRuleCall_3_2_1_0 = (RuleCall)cAttributesAssignment_3_2_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
+		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//EventDeclaration returns NamedElement:
-		//	{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")?;
+		//	{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")?
+		//{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{Event}
@@ -692,6 +693,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 
 		//")"
 		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
+
+		//";"
+		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class ParameterDeclarationElements extends AbstractParserRuleElementFinder {
@@ -2079,7 +2083,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//EventDeclaration returns NamedElement:
-	//	{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")?;
+	//	{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";";
 	public EventDeclarationElements getEventDeclarationAccess() {
 		return pEventDeclaration;
 	}

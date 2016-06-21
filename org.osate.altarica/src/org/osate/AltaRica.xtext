@@ -98,6 +98,7 @@ EventDeclaration returns NamedElement:
 	{Event}
 	"event" name=ID	
 	( "(" attributes+=Attribute ("," attributes+=Attribute)* ")" )?
+	";"
 ;
 
 

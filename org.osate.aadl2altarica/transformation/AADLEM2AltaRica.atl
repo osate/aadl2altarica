@@ -46,7 +46,7 @@ unique lazy rule Node {
 	from	
 		ci: AADL!ComponentInstance
   using {
-		c: AADL2!ComponentClassifier = ci.componentClassifier;
+		c: AADL2!ComponentClassifier = ci.classifier;
 		hasPropagations: Sequence(EMV2!ErrorPropagation) = 
 			not (c.oclIsUndefined() or c.errorPropagations().isEmpty());
   }
@@ -54,11 +54,12 @@ unique lazy rule Node {
 		node: AR!Node (
 			name <- c.name.normalizeId() + '_' + thisModule.classes -> size().toString(),
 			-- need to force declarations because assertions need containment structure in place
-			declarations <- ci.subnodes() -> append(ci.flows()) -> flatten() -> force(),
+			declarations <- ci.subnodes() -> force() ->
+					append(ci.events()) -> append(ci.states()) -> append(ci.flows()) -> flatten(),
 			assertions <- ci.assertions()
 		)
 	do {
-		thisModule.classes <:= thisModule.classes -> append(node);
+		thisModule.classes <:= thisModule.classes -> prepend(node);
 		node;
 	}
 }
@@ -84,13 +85,97 @@ unique lazy rule NodeInstance {
 		)
 }
 
+-- events
+
+helper context AADL!ComponentInstance def: events(): Sequence(AR!Variable) =
+	self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event));
+
+unique lazy rule Event {
+	from
+		ci: AADL!ComponentInstance,
+		e: EMV2!ErrorBehaviorEvent
+	to
+		event : AR!Event (
+			name <- e.altaRicaName()
+		)
+}
+
+-- states
+
+helper context AADL!ComponentInstance def: states(): Sequence(AR!Variable) =
+	let state: AR!Variable = thisModule.State(self) in
+	if state.oclIsUndefined() then 
+		Sequence{}
+	else 
+		Sequence{state}
+	endif;
+
+unique lazy rule State {
+	from
+		ci: AADL!ComponentInstance (
+			not ci.classifier.errorStates().isEmpty()
+		)
+	to
+		state : AR!Variable (
+			name <- 'errorstate',
+			type <- thisModule.StateDomainType(ci)
+		)
+}
+
+lazy rule StateDomainType {
+	from
+		ci: AADL!ComponentInstance
+	to
+		domainType: AR!NamedType (
+			ref <- thisModule.StateDomain(ci.classifier)
+		)
+}
+
+-- map to keep track of type tokens in domains
+--helper def: domain2tokens: Map(AR!Domain, Set(EMV2!TypeToken)) = Map{};
+
+--- doc
+unique lazy rule StateDomain {
+	from
+		c: AADL!ComponentClassifier
+	using {
+		count: Integer = thisModule.domainCount;
+	}
+	to
+		domain: AR!Domain (
+			name <- 'domain_' + count.toString(),
+			domain <- enum
+		),
+		enum: AR!Enumeration (
+			ownedSymbols <- c.createSymbols()
+		)
+	do {
+		thisModule.domainCount <:= count + 1;
+		thisModule.domains <:= thisModule.domains -> append(domain);
+		domain;
+	}
+}
+	
+--- Create the symbols for the domain of the error propagation
+helper context AADL2!ComponentClassifier def: createSymbols(): Sequence(AR!SymbolicConstant) =
+	self.errorStates() -> collect(s | thisModule.StateSymbol(s));
+	
+lazy rule StateSymbol {
+	from
+		state: EMV2!ErrorBehaviorState
+	to 
+		const: AR!SymbolicConstant (
+			name <- state.altaRicaName()
+		)
+}
+
 -- flow variables
 
 helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 	let outFlows: Sequence(AR!Variable) = 
-		self.componentClassifier.outgoingErrorPropagations() -> collect(oep | thisModule.OutFlow(self, oep)) in
+		self.classifier.outgoingErrorPropagations() -> collect(oep | thisModule.OutFlow(self, oep)) in
 	let inFlows: Sequence(AR!Variable) = 
-		self.componentClassifier.incomingErrorPropagations() ->
+		self.classifier.incomingErrorPropagations() ->
 				collect(iep | thisModule.dst2paths.get(Tuple{io = self, prop = iep}) -> collect(path | thisModule.InFlow(self, path))) in
 	outFlows -> append(inFlows);
 
@@ -104,7 +189,7 @@ unique lazy rule OutFlow {
 	to
 		flow: AR!Variable (
 			name <- prop.altaRicaName(),
-			type <- thisModule.DomainType(prop)
+			type <- thisModule.FlowDomainType(prop)
 		)
 	do {
 		thisModule.ep2flows <:= thisModule.ep2flows -> 
@@ -126,7 +211,7 @@ unique lazy rule InFlow {
 			name <- prop.indexedName(count),
 			type <-
 					let srcProp: EMV2!ErrorPropagation = path.getPathSrc().getErrorPropagation() in
-					thisModule.DomainType(srcProp)
+					thisModule.FlowDomainType(srcProp)
 		)
 	do {
 		if (thisModule.ep2flows.getKeys() -> includes(Tuple{io = ci, prop = prop})) {
@@ -146,12 +231,12 @@ unique lazy rule InFlow {
 -- counter for in flow variable names to avoid duplicates
 helper def: inCount: Integer = 0;
 
-lazy rule DomainType {
+lazy rule FlowDomainType {
 	from
 		prop: EMV2!ErrorPropagation
 	to
 		domainType: AR!NamedType (
-			ref <- thisModule.Domain(prop)
+			ref <- thisModule.FlowDomain(prop)
 		)
 }
 
@@ -159,7 +244,7 @@ lazy rule DomainType {
 --helper def: domain2tokens: Map(AR!Domain, Set(EMV2!TypeToken)) = Map{};
 
 --- doc
-unique lazy rule Domain {
+unique lazy rule FlowDomain {
 	from
 		prop: EMV2!ErrorPropagation
 	using {

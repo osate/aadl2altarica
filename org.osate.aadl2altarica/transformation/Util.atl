@@ -7,7 +7,7 @@
 library Util;
 
 -- The component classifier for a component instance
-helper context AADL!ComponentInstance def: componentClassifier: AADL2!ComponentClassifier =
+helper context AADL!ComponentInstance def: classifier: AADL2!ComponentClassifier =
 	"#native"!"org::osate::aadl2::instance::util::InstanceUtil".refInvokeStaticOperation(
 		'getComponentClassifier', Sequence{self, 0, OclUndefined}
 	);
@@ -35,11 +35,29 @@ helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrar
 		'getErrorModelSubclauseWithUseTypes', Sequence{self}
 	);
 
+helper context AADL2!Classifier def: errorEvents(): Sequence(EMV2!ErrorBehaviorEvent) =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getAllErrorBehaviorEvents', Sequence{self}
+	);
+
+helper context AADL2!Classifier def: errorStates(): Sequence(EMV2!ErrorBehaviorState) =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getAllErrorBehaviorStates', Sequence{self}
+	);
+
+helper context AADL2!Classifier def: errorTransitions(): Sequence(EMV2!ErrorBehaviorTransition) =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getAllErrorBehaviorTransitions', Sequence{self}
+	);
+
 helper context EMV2!ErrorPropagation def: name() : String =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getPropagationName', Sequence{self}
 	);
-	
+
+helper context AADL2!NamedElement def: name() : String =
+	self.getName();
+
 helper context EMV2!ErrorPropagation def: containingClassifier() : AADL2!ComponentClassifier =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAssociatedClassifier', Sequence{self}
@@ -98,7 +116,7 @@ helper context String def: normalizeId(): String =
 helper context String def: quoted(): String =
 	'"' + self + '"';
 
-helper context EMV2!ErrorPropagation def: altaRicaName(): String =
+helper context AADL2!NamedElement def: altaRicaName(): String =
 	self.name().normalizeId();
 
 helper context AADL2!NamedElement def: indexedName(index: Integer): String =
