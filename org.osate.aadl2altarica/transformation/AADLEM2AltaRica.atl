@@ -107,7 +107,8 @@ unique lazy rule OutFlow {
 			type <- thisModule.DomainType(prop)
 		)
 	do {
-		thisModule.ep2flows <:= thisModule.ep2flows -> including(Tuple{io = ci, prop = prop}, Sequence{flow});
+		thisModule.ep2flows <:= thisModule.ep2flows -> 
+				including(Tuple{io = ci, prop = prop}, Sequence{flow});
 		flow;
 	}
 }
@@ -157,6 +158,7 @@ lazy rule DomainType {
 -- map to keep track of type tokens in domains
 --helper def: domain2tokens: Map(AR!Domain, Set(EMV2!TypeToken)) = Map{};
 
+--- doc
 unique lazy rule Domain {
 	from
 		prop: EMV2!ErrorPropagation
@@ -169,7 +171,7 @@ unique lazy rule Domain {
 			domain <- enum
 		),
 		enum: AR!Enumeration (
-			ownedSymbols <- prop.createSymbols()
+			ownedSymbols <- prop.createSymbols() -> prepend(thisModule.NoError(domain))
 		)
 	do {
 		thisModule.domainCount <:= count + 1;
@@ -181,10 +183,12 @@ unique lazy rule Domain {
 
 helper def: domainCount: Integer = 0;
 
+--- Get the leaf error tokens associated with an error propagation
 helper context EMV2!ErrorPropagation def: leafTokens(): Sequence(EMV2!TypeToken) =
 	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
 	self.typeSet.leafTypeTokens(usedTypes);
 
+--- Create the symbols for the domain of the error propagation
 helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
 	self.leafTokens() -> collect(t | thisModule.SymbolicConstant(t));
 	
@@ -194,6 +198,15 @@ lazy rule SymbolicConstant {
 	to 
 		const: AR!SymbolicConstant (
 			name <- '\'' + token.name() + '\''
+		)
+}
+
+unique lazy rule NoError {
+	from 
+		domain: AR!Domain
+	to
+		noError: AR!SymbolicConstant (
+			name <- 'no_error'
 		)
 }
 
