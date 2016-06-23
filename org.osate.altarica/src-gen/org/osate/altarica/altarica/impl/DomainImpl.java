@@ -2,17 +2,21 @@
  */
 package org.osate.altarica.altarica.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
 import org.eclipse.emf.common.notify.NotificationChain;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.Domain;
-import org.osate.altarica.altarica.Enumeration;
+import org.osate.altarica.altarica.NamedElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,7 +26,7 @@ import org.osate.altarica.altarica.Enumeration;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.DomainImpl#getDomain <em>Domain</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.DomainImpl#getConstants <em>Constants</em>}</li>
  * </ul>
  *
  * @generated
@@ -30,14 +34,14 @@ import org.osate.altarica.altarica.Enumeration;
 public class DomainImpl extends NamedElementImpl implements Domain
 {
   /**
-   * The cached value of the '{@link #getDomain() <em>Domain</em>}' containment reference.
+   * The cached value of the '{@link #getConstants() <em>Constants</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getDomain()
+   * @see #getConstants()
    * @generated
    * @ordered
    */
-  protected Enumeration domain;
+  protected EList<NamedElement> constants;
 
   /**
    * <!-- begin-user-doc -->
@@ -65,47 +69,13 @@ public class DomainImpl extends NamedElementImpl implements Domain
    * <!-- end-user-doc -->
    * @generated
    */
-  public Enumeration getDomain()
+  public EList<NamedElement> getConstants()
   {
-    return domain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public NotificationChain basicSetDomain(Enumeration newDomain, NotificationChain msgs)
-  {
-    Enumeration oldDomain = domain;
-    domain = newDomain;
-    if (eNotificationRequired())
+    if (constants == null)
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.DOMAIN__DOMAIN, oldDomain, newDomain);
-      if (msgs == null) msgs = notification; else msgs.add(notification);
+      constants = new EObjectContainmentEList<NamedElement>(NamedElement.class, this, AltaricaPackage.DOMAIN__CONSTANTS);
     }
-    return msgs;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setDomain(Enumeration newDomain)
-  {
-    if (newDomain != domain)
-    {
-      NotificationChain msgs = null;
-      if (domain != null)
-        msgs = ((InternalEObject)domain).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.DOMAIN__DOMAIN, null, msgs);
-      if (newDomain != null)
-        msgs = ((InternalEObject)newDomain).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.DOMAIN__DOMAIN, null, msgs);
-      msgs = basicSetDomain(newDomain, msgs);
-      if (msgs != null) msgs.dispatch();
-    }
-    else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.DOMAIN__DOMAIN, newDomain, newDomain));
+    return constants;
   }
 
   /**
@@ -118,8 +88,8 @@ public class DomainImpl extends NamedElementImpl implements Domain
   {
     switch (featureID)
     {
-      case AltaricaPackage.DOMAIN__DOMAIN:
-        return basicSetDomain(null, msgs);
+      case AltaricaPackage.DOMAIN__CONSTANTS:
+        return ((InternalEList<?>)getConstants()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -134,8 +104,8 @@ public class DomainImpl extends NamedElementImpl implements Domain
   {
     switch (featureID)
     {
-      case AltaricaPackage.DOMAIN__DOMAIN:
-        return getDomain();
+      case AltaricaPackage.DOMAIN__CONSTANTS:
+        return getConstants();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -145,13 +115,15 @@ public class DomainImpl extends NamedElementImpl implements Domain
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case AltaricaPackage.DOMAIN__DOMAIN:
-        setDomain((Enumeration)newValue);
+      case AltaricaPackage.DOMAIN__CONSTANTS:
+        getConstants().clear();
+        getConstants().addAll((Collection<? extends NamedElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -167,8 +139,8 @@ public class DomainImpl extends NamedElementImpl implements Domain
   {
     switch (featureID)
     {
-      case AltaricaPackage.DOMAIN__DOMAIN:
-        setDomain((Enumeration)null);
+      case AltaricaPackage.DOMAIN__CONSTANTS:
+        getConstants().clear();
         return;
     }
     super.eUnset(featureID);
@@ -184,8 +156,8 @@ public class DomainImpl extends NamedElementImpl implements Domain
   {
     switch (featureID)
     {
-      case AltaricaPackage.DOMAIN__DOMAIN:
-        return domain != null;
+      case AltaricaPackage.DOMAIN__CONSTANTS:
+        return constants != null && !constants.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -335,27 +335,57 @@ ruleDomain returns [EObject current=null]
 	    }
 
 )
-)(
+)	otherlv_3='{' 
+    {
+    	newLeafNode(otherlv_3, grammarAccess.getDomainAccess().getLeftCurlyBracketKeyword_3());
+    }
+((
 (
 		{ 
-	        newCompositeNode(grammarAccess.getDomainAccess().getDomainEnumerationParserRuleCall_3_0()); 
+	        newCompositeNode(grammarAccess.getDomainAccess().getConstantsSymbolicConstantParserRuleCall_4_0_0()); 
 	    }
-		lv_domain_3_0=ruleEnumeration		{
+		lv_constants_4_0=ruleSymbolicConstant		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getDomainRule());
 	        }
-       		set(
+       		add(
        			$current, 
-       			"domain",
-        		lv_domain_3_0, 
-        		"Enumeration");
+       			"constants",
+        		lv_constants_4_0, 
+        		"SymbolicConstant");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_4=';' 
+)(	otherlv_5=',' 
     {
-    	newLeafNode(otherlv_4, grammarAccess.getDomainAccess().getSemicolonKeyword_4());
+    	newLeafNode(otherlv_5, grammarAccess.getDomainAccess().getCommaKeyword_4_1_0());
+    }
+(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getDomainAccess().getConstantsSymbolicConstantParserRuleCall_4_1_1_0()); 
+	    }
+		lv_constants_6_0=ruleSymbolicConstant		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getDomainRule());
+	        }
+       		add(
+       			$current, 
+       			"constants",
+        		lv_constants_6_0, 
+        		"SymbolicConstant");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))*)?	otherlv_7='}' 
+    {
+    	newLeafNode(otherlv_7, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_5());
+    }
+	otherlv_8=';' 
+    {
+    	newLeafNode(otherlv_8, grammarAccess.getDomainAccess().getSemicolonKeyword_6());
     }
 )
 ;
@@ -1066,11 +1096,7 @@ ruleAttribute returns [EObject current=null]
 	    }
 
 )
-)	otherlv_4=';' 
-    {
-    	newLeafNode(otherlv_4, grammarAccess.getAttributeAccess().getSemicolonKeyword_4());
-    }
-)
+))
 ;
 
 

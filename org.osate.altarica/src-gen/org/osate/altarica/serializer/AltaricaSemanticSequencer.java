@@ -339,20 +339,10 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (name=ID domain=Enumeration)
+	 *     (name=ID (constants+=SymbolicConstant constants+=SymbolicConstant*)?)
 	 */
 	protected void sequence_Domain(EObject context, Domain semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.DOMAIN__DOMAIN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.DOMAIN__DOMAIN));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getDomainAccess().getNameIDTerminalRuleCall_2_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getDomainAccess().getDomainEnumerationParserRuleCall_3_0(), semanticObject.getDomain());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

@@ -25,7 +25,7 @@ DomainConstant:
 
 Domain returns NamedElement:
 	{Domain}
-	'domain' name=ID domain=Enumeration ';';
+	'domain' name=ID '{' ( constants+=SymbolicConstant (',' constants+=SymbolicConstant)* )? '}' ';';
 
 AbstractDomain:
 	BaseType | Range | Enumeration;
@@ -90,7 +90,6 @@ VariableDeclaration returns NamedElement:
 Attribute returns NamedElement:
 	{Attribute}
 	name=ID "=" value=Expression
-	";"
 ;
 	
 

@@ -1059,7 +1059,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getDomain_Domain()
+  public EReference getDomain_Constants()
   {
     return (EReference)domainEClass.getEStructuralFeatures().get(0);
   }
@@ -1691,7 +1691,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     createEReference(constantDefinitionEClass, CONSTANT_DEFINITION__EXPRESSION);
 
     domainEClass = createEClass(DOMAIN);
-    createEReference(domainEClass, DOMAIN__DOMAIN);
+    createEReference(domainEClass, DOMAIN__CONSTANTS);
 
     symbolicConstantEClass = createEClass(SYMBOLIC_CONSTANT);
 
@@ -1923,7 +1923,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEReference(getConstantDefinition_Expression(), this.getAbstractDefinitionConstant(), null, "expression", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomain_Domain(), this.getEnumeration(), null, "domain", null, 0, 1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getDomain_Constants(), this.getNamedElement(), null, "constants", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(symbolicConstantEClass, SymbolicConstant.class, "SymbolicConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

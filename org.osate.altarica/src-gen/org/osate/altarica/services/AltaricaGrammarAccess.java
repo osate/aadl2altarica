@@ -185,15 +185,22 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cDomainKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cNameAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cNameIDTerminalRuleCall_2_0 = (RuleCall)cNameAssignment_2.eContents().get(0);
-		private final Assignment cDomainAssignment_3 = (Assignment)cGroup.eContents().get(3);
-		private final RuleCall cDomainEnumerationParserRuleCall_3_0 = (RuleCall)cDomainAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Keyword cLeftCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cConstantsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cConstantsSymbolicConstantParserRuleCall_4_0_0 = (RuleCall)cConstantsAssignment_4_0.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cConstantsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cConstantsSymbolicConstantParserRuleCall_4_1_1_0 = (RuleCall)cConstantsAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Domain returns NamedElement:
-		//	{Domain} "domain" name=ID domain=Enumeration ";";
+		//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}" ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Domain} "domain" name=ID domain=Enumeration ";"
+		//{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}" ";"
 		public Group getGroup() { return cGroup; }
 
 		//{Domain}
@@ -208,14 +215,35 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//domain=Enumeration
-		public Assignment getDomainAssignment_3() { return cDomainAssignment_3; }
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//Enumeration
-		public RuleCall getDomainEnumerationParserRuleCall_3_0() { return cDomainEnumerationParserRuleCall_3_0; }
+		//(constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)?
+		public Group getGroup_4() { return cGroup_4; }
+
+		//constants+=SymbolicConstant
+		public Assignment getConstantsAssignment_4_0() { return cConstantsAssignment_4_0; }
+
+		//SymbolicConstant
+		public RuleCall getConstantsSymbolicConstantParserRuleCall_4_0_0() { return cConstantsSymbolicConstantParserRuleCall_4_0_0; }
+
+		//("," constants+=SymbolicConstant)*
+		public Group getGroup_4_1() { return cGroup_4_1; }
+
+		//","
+		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+
+		//constants+=SymbolicConstant
+		public Assignment getConstantsAssignment_4_1_1() { return cConstantsAssignment_4_1_1; }
+
+		//SymbolicConstant
+		public RuleCall getConstantsSymbolicConstantParserRuleCall_4_1_1_0() { return cConstantsSymbolicConstantParserRuleCall_4_1_1_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 
 		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
+		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class AbstractDomainElements extends AbstractParserRuleElementFinder {
@@ -599,13 +627,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValueExpressionParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
-		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//Attribute returns NamedElement:
-		//	{Attribute} name=ID "=" value=Expression ";";
+		//	{Attribute} name=ID "=" value=Expression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Attribute} name=ID "=" value=Expression ";"
+		//{Attribute} name=ID "=" value=Expression
 		public Group getGroup() { return cGroup; }
 
 		//{Attribute}
@@ -625,9 +652,6 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Expression
 		public RuleCall getValueExpressionParserRuleCall_3_0() { return cValueExpressionParserRuleCall_3_0; }
-
-		//";"
-		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class EventDeclarationElements extends AbstractParserRuleElementFinder {
@@ -1950,7 +1974,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Domain returns NamedElement:
-	//	{Domain} "domain" name=ID domain=Enumeration ";";
+	//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}" ";";
 	public DomainElements getDomainAccess() {
 		return pDomain;
 	}
@@ -2073,7 +2097,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Attribute returns NamedElement:
-	//	{Attribute} name=ID "=" value=Expression ";";
+	//	{Attribute} name=ID "=" value=Expression;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
 	}

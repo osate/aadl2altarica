@@ -2,6 +2,7 @@
  */
 package org.osate.altarica.altarica;
 
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->
@@ -12,7 +13,7 @@ package org.osate.altarica.altarica;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.Domain#getDomain <em>Domain</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.Domain#getConstants <em>Constants</em>}</li>
  * </ul>
  *
  * @see org.osate.altarica.altarica.AltaricaPackage#getDomain()
@@ -22,29 +23,19 @@ package org.osate.altarica.altarica;
 public interface Domain extends NamedElement
 {
   /**
-   * Returns the value of the '<em><b>Domain</b></em>' containment reference.
+   * Returns the value of the '<em><b>Constants</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.altarica.altarica.NamedElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Domain</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Constants</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Domain</em>' containment reference.
-   * @see #setDomain(Enumeration)
-   * @see org.osate.altarica.altarica.AltaricaPackage#getDomain_Domain()
+   * @return the value of the '<em>Constants</em>' containment reference list.
+   * @see org.osate.altarica.altarica.AltaricaPackage#getDomain_Constants()
    * @model containment="true"
    * @generated
    */
-  Enumeration getDomain();
-
-  /**
-   * Sets the value of the '{@link org.osate.altarica.altarica.Domain#getDomain <em>Domain</em>}' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Domain</em>' containment reference.
-   * @see #getDomain()
-   * @generated
-   */
-  void setDomain(Enumeration value);
+  EList<NamedElement> getConstants();
 
 } // Domain

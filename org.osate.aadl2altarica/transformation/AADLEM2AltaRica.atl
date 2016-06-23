@@ -113,14 +113,27 @@ helper context AADL!ComponentInstance def: states(): Sequence(AR!Variable) =
 unique lazy rule State {
 	from
 		ci: AADL!ComponentInstance (
-			not ci.classifier.errorStates().isEmpty()
+			ci.classifier.errorStates() -> notEmpty()
 		)
 	to
-		state : AR!Variable (
+		state: AR!Variable (
 			name <- 'errorstate',
-			type <- thisModule.StateDomainType(ci)
+			type <- thisModule.StateDomainType(ci),
+			attributes <- Sequence{init}
+		),
+		init: AR!Attribute (
+			name <- 'init',
+			value <- thisModule.LeafNameRef(ci.classifier.initialState())
 		)
 }
+
+--- Get the initial error state
+helper context AADL2!ComponentClassifier def: initialState(): AR!SymbolicConstant =
+	let state: EMV2!ErrorBehaviorState = self.errorStates() -> any(s | s.isInitial()) in
+	thisModule.StateSymbol(self, state);
+
+--- Workaround for typo in EMV2 grammar
+helper context EMV2!ErrorBehaviorState def: isInitial(): Boolean = self.isIntial();
 
 lazy rule StateDomainType {
 	from
@@ -144,10 +157,7 @@ unique lazy rule StateDomain {
 	to
 		domain: AR!Domain (
 			name <- 'domain_' + count.toString(),
-			domain <- enum
-		),
-		enum: AR!Enumeration (
-			ownedSymbols <- c.createSymbols()
+			constants <- c.createSymbols()
 		)
 	do {
 		thisModule.domainCount <:= count + 1;
@@ -158,10 +168,11 @@ unique lazy rule StateDomain {
 	
 --- Create the symbols for the domain of the error propagation
 helper context AADL2!ComponentClassifier def: createSymbols(): Sequence(AR!SymbolicConstant) =
-	self.errorStates() -> collect(s | thisModule.StateSymbol(s));
-	
-lazy rule StateSymbol {
+	self.errorStates() -> collect(s | thisModule.StateSymbol(self, s));
+
+unique lazy rule StateSymbol {
 	from
+		c: AADL2!ComponentClassifier,
 		state: EMV2!ErrorBehaviorState
 	to 
 		const: AR!SymbolicConstant (
@@ -189,7 +200,12 @@ unique lazy rule OutFlow {
 	to
 		flow: AR!Variable (
 			name <- prop.altaRicaName(),
-			type <- thisModule.FlowDomainType(prop)
+			type <- thisModule.FlowDomainType(prop),
+			attributes <- Sequence{reset}
+		),
+		reset: AR!Attribute (
+			name <- 'reset',
+			value <- thisModule.LeafNameRef(thisModule.NoError(thisModule.FlowDomain(prop))).debug()
 		)
 	do {
 		thisModule.ep2flows <:= thisModule.ep2flows -> 
@@ -253,10 +269,7 @@ unique lazy rule FlowDomain {
 	to
 		domain: AR!Domain (
 			name <- 'domain_' + count.toString(),
-			domain <- enum
-		),
-		enum: AR!Enumeration (
-			ownedSymbols <- prop.createSymbols() -> prepend(thisModule.NoError(domain))
+			constants <- prop.createSymbols() -> prepend(thisModule.NoError(domain))
 		)
 	do {
 		thisModule.domainCount <:= count + 1;
@@ -355,7 +368,7 @@ lazy rule NameRef {
 
 lazy rule LeafNameRef {
 	from
-		var: AR!Variable
+		var: AR!NamedElement
 	to
 		ref: AR!NameRef (
 			variable <- var

@@ -58,6 +58,8 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDomainConstantAccess().getGroup(), "rule__DomainConstant__Group__0");
 					put(grammarAccess.getDomainConstantAccess().getGroup_2(), "rule__DomainConstant__Group_2__0");
 					put(grammarAccess.getDomainAccess().getGroup(), "rule__Domain__Group__0");
+					put(grammarAccess.getDomainAccess().getGroup_4(), "rule__Domain__Group_4__0");
+					put(grammarAccess.getDomainAccess().getGroup_4_1(), "rule__Domain__Group_4_1__0");
 					put(grammarAccess.getRangeAccess().getGroup(), "rule__Range__Group__0");
 					put(grammarAccess.getEnumerationAccess().getGroup(), "rule__Enumeration__Group__0");
 					put(grammarAccess.getEnumerationAccess().getGroup_2(), "rule__Enumeration__Group_2__0");
@@ -113,7 +115,8 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getDomainConstantAccess().getDomainAssignment_1(), "rule__DomainConstant__DomainAssignment_1");
 					put(grammarAccess.getDomainConstantAccess().getOwnedExpressionAssignment_2_1(), "rule__DomainConstant__OwnedExpressionAssignment_2_1");
 					put(grammarAccess.getDomainAccess().getNameAssignment_2(), "rule__Domain__NameAssignment_2");
-					put(grammarAccess.getDomainAccess().getDomainAssignment_3(), "rule__Domain__DomainAssignment_3");
+					put(grammarAccess.getDomainAccess().getConstantsAssignment_4_0(), "rule__Domain__ConstantsAssignment_4_0");
+					put(grammarAccess.getDomainAccess().getConstantsAssignment_4_1_1(), "rule__Domain__ConstantsAssignment_4_1_1");
 					put(grammarAccess.getRangeAccess().getLowerAssignment_1(), "rule__Range__LowerAssignment_1");
 					put(grammarAccess.getRangeAccess().getUpperAssignment_3(), "rule__Range__UpperAssignment_3");
 					put(grammarAccess.getEnumerationAccess().getOwnedSymbolsAssignment_2_0(), "rule__Enumeration__OwnedSymbolsAssignment_2_0");

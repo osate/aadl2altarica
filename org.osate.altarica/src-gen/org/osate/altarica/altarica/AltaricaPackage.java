@@ -908,13 +908,13 @@ public interface AltaricaPackage extends EPackage
   int DOMAIN__NAME = NAMED_ELEMENT__NAME;
 
   /**
-   * The feature id for the '<em><b>Domain</b></em>' containment reference.
+   * The feature id for the '<em><b>Constants</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int DOMAIN__DOMAIN = NAMED_ELEMENT_FEATURE_COUNT + 0;
+  int DOMAIN__CONSTANTS = NAMED_ELEMENT_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Domain</em>' class.
@@ -2226,15 +2226,15 @@ public interface AltaricaPackage extends EPackage
   EClass getDomain();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.Domain#getDomain <em>Domain</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.Domain#getConstants <em>Constants</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Domain</em>'.
-   * @see org.osate.altarica.altarica.Domain#getDomain()
+   * @return the meta object for the containment reference list '<em>Constants</em>'.
+   * @see org.osate.altarica.altarica.Domain#getConstants()
    * @see #getDomain()
    * @generated
    */
-  EReference getDomain_Domain();
+  EReference getDomain_Constants();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.SymbolicConstant <em>Symbolic Constant</em>}'.
@@ -3320,12 +3320,12 @@ public interface AltaricaPackage extends EPackage
     EClass DOMAIN = eINSTANCE.getDomain();
 
     /**
-     * The meta object literal for the '<em><b>Domain</b></em>' containment reference feature.
+     * The meta object literal for the '<em><b>Constants</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference DOMAIN__DOMAIN = eINSTANCE.getDomain_Domain();
+    EReference DOMAIN__CONSTANTS = eINSTANCE.getDomain_Constants();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.SymbolicConstantImpl <em>Symbolic Constant</em>}' class.

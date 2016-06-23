@@ -87,7 +87,7 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//ConstantDefinition/expression"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Domain">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Domain/domain"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Domain/constants"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//SymbolicConstant"/>
     <genClasses ecoreClass="Altarica.ecore#//Node">
