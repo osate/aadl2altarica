@@ -2,6 +2,7 @@
  */
 package org.osate.altarica.altarica;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -13,6 +14,6 @@ package org.osate.altarica.altarica;
  * @model
  * @generated
  */
-public interface Expression extends AbstractExpression
+public interface Expression extends EObject
 {
 } // Expression

@@ -19,7 +19,7 @@ package org.osate.altarica.altarica;
  * @model
  * @generated
  */
-public interface BaseType extends AbstractDomain, Type
+public interface BaseType extends Type
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

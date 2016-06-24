@@ -4,6 +4,8 @@ package org.osate.altarica.altarica.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.Expression;
 
@@ -14,7 +16,7 @@ import org.osate.altarica.altarica.Expression;
  *
  * @generated
  */
-public class ExpressionImpl extends AbstractExpressionImpl implements Expression
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
    * <!-- begin-user-doc -->

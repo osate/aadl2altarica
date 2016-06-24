@@ -57,12 +57,12 @@ public interface TransitionOr extends TransitionExpression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Right</em>' containment reference.
-   * @see #setRight(ITransition)
+   * @see #setRight(TransitionExpression)
    * @see org.osate.altarica.altarica.AltaricaPackage#getTransitionOr_Right()
    * @model containment="true"
    * @generated
    */
-  ITransition getRight();
+  TransitionExpression getRight();
 
   /**
    * Sets the value of the '{@link org.osate.altarica.altarica.TransitionOr#getRight <em>Right</em>}' containment reference.
@@ -72,6 +72,6 @@ public interface TransitionOr extends TransitionExpression
    * @see #getRight()
    * @generated
    */
-  void setRight(ITransition value);
+  void setRight(TransitionExpression value);
 
 } // TransitionOr

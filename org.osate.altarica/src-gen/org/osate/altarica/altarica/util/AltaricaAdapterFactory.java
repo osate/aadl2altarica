@@ -90,36 +90,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createNamedElementAdapter();
       }
       @Override
-      public Adapter caseAbstractDefinitionConstant(AbstractDefinitionConstant object)
-      {
-        return createAbstractDefinitionConstantAdapter();
-      }
-      @Override
-      public Adapter caseExpressionConstant(ExpressionConstant object)
-      {
-        return createExpressionConstantAdapter();
-      }
-      @Override
-      public Adapter caseDomainConstant(DomainConstant object)
-      {
-        return createDomainConstantAdapter();
-      }
-      @Override
-      public Adapter caseAbstractDomain(AbstractDomain object)
-      {
-        return createAbstractDomainAdapter();
-      }
-      @Override
-      public Adapter caseRange(Range object)
-      {
-        return createRangeAdapter();
-      }
-      @Override
-      public Adapter caseEnumeration(Enumeration object)
-      {
-        return createEnumerationAdapter();
-      }
-      @Override
       public Adapter caseType(Type object)
       {
         return createTypeAdapter();
@@ -150,19 +120,14 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createTransitionExpressionAdapter();
       }
       @Override
-      public Adapter caseITransition(ITransition object)
-      {
-        return createITransitionAdapter();
-      }
-      @Override
       public Adapter caseInstruction(Instruction object)
       {
         return createInstructionAdapter();
       }
       @Override
-      public Adapter caseIfThenElse(IfThenElse object)
+      public Adapter caseCaseExpression(CaseExpression object)
       {
-        return createIfThenElseAdapter();
+        return createCaseExpressionAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -188,41 +153,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNameRef(NameRef object)
       {
         return createNameRefAdapter();
-      }
-      @Override
-      public Adapter caseVariableAttribute(VariableAttribute object)
-      {
-        return createVariableAttributeAdapter();
-      }
-      @Override
-      public Adapter caseAbstractTypeRef(AbstractTypeRef object)
-      {
-        return createAbstractTypeRefAdapter();
-      }
-      @Override
-      public Adapter caseDomainRef(DomainRef object)
-      {
-        return createDomainRefAdapter();
-      }
-      @Override
-      public Adapter caseAbstractExpression(AbstractExpression object)
-      {
-        return createAbstractExpressionAdapter();
-      }
-      @Override
-      public Adapter caseSwitch(Switch object)
-      {
-        return createSwitchAdapter();
-      }
-      @Override
-      public Adapter caseCaseExpression(CaseExpression object)
-      {
-        return createCaseExpressionAdapter();
-      }
-      @Override
-      public Adapter caseConstantDefinition(ConstantDefinition object)
-      {
-        return createConstantDefinitionAdapter();
       }
       @Override
       public Adapter caseDomain(Domain object)
@@ -275,6 +205,11 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createTransitionOrAdapter();
       }
       @Override
+      public Adapter caseTransition(Transition object)
+      {
+        return createTransitionAdapter();
+      }
+      @Override
       public Adapter caseSkip(Skip object)
       {
         return createSkipAdapter();
@@ -288,6 +223,11 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseBlock(Block object)
       {
         return createBlockAdapter();
+      }
+      @Override
+      public Adapter caseConditional(Conditional object)
+      {
+        return createConditionalAdapter();
       }
       @Override
       public Adapter caseLogical(Logical object)
@@ -387,96 +327,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.AbstractDefinitionConstant <em>Abstract Definition Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.AbstractDefinitionConstant
-   * @generated
-   */
-  public Adapter createAbstractDefinitionConstantAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.ExpressionConstant <em>Expression Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.ExpressionConstant
-   * @generated
-   */
-  public Adapter createExpressionConstantAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.DomainConstant <em>Domain Constant</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.DomainConstant
-   * @generated
-   */
-  public Adapter createDomainConstantAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.AbstractDomain <em>Abstract Domain</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.AbstractDomain
-   * @generated
-   */
-  public Adapter createAbstractDomainAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Range <em>Range</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.Range
-   * @generated
-   */
-  public Adapter createRangeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Enumeration <em>Enumeration</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.Enumeration
-   * @generated
-   */
-  public Adapter createEnumerationAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Type <em>Type</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -567,21 +417,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.ITransition <em>ITransition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.ITransition
-   * @generated
-   */
-  public Adapter createITransitionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Instruction <em>Instruction</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -597,16 +432,16 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.IfThenElse <em>If Then Else</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.CaseExpression <em>Case Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.altarica.altarica.IfThenElse
+   * @see org.osate.altarica.altarica.CaseExpression
    * @generated
    */
-  public Adapter createIfThenElseAdapter()
+  public Adapter createCaseExpressionAdapter()
   {
     return null;
   }
@@ -682,111 +517,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNameRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.VariableAttribute <em>Variable Attribute</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.VariableAttribute
-   * @generated
-   */
-  public Adapter createVariableAttributeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.AbstractTypeRef <em>Abstract Type Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.AbstractTypeRef
-   * @generated
-   */
-  public Adapter createAbstractTypeRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.DomainRef <em>Domain Ref</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.DomainRef
-   * @generated
-   */
-  public Adapter createDomainRefAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.AbstractExpression <em>Abstract Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.AbstractExpression
-   * @generated
-   */
-  public Adapter createAbstractExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Switch <em>Switch</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.Switch
-   * @generated
-   */
-  public Adapter createSwitchAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.CaseExpression <em>Case Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.CaseExpression
-   * @generated
-   */
-  public Adapter createCaseExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.ConstantDefinition <em>Constant Definition</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.ConstantDefinition
-   * @generated
-   */
-  public Adapter createConstantDefinitionAdapter()
   {
     return null;
   }
@@ -942,6 +672,21 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Transition <em>Transition</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.Transition
+   * @generated
+   */
+  public Adapter createTransitionAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Skip <em>Skip</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -982,6 +727,21 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Conditional <em>Conditional</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.Conditional
+   * @generated
+   */
+  public Adapter createConditionalAdapter()
   {
     return null;
   }

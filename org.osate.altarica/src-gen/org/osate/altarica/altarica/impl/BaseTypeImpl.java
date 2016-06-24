@@ -25,7 +25,7 @@ import org.osate.altarica.altarica.BaseTypeEnum;
  *
  * @generated
  */
-public class BaseTypeImpl extends AbstractDomainImpl implements BaseType
+public class BaseTypeImpl extends TypeImpl implements BaseType
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

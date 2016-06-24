@@ -68,33 +68,19 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.MODEL: return createModel();
       case AltaricaPackage.ABSTRACT_DECLARATION: return createAbstractDeclaration();
       case AltaricaPackage.NAMED_ELEMENT: return createNamedElement();
-      case AltaricaPackage.ABSTRACT_DEFINITION_CONSTANT: return createAbstractDefinitionConstant();
-      case AltaricaPackage.EXPRESSION_CONSTANT: return createExpressionConstant();
-      case AltaricaPackage.DOMAIN_CONSTANT: return createDomainConstant();
-      case AltaricaPackage.ABSTRACT_DOMAIN: return createAbstractDomain();
-      case AltaricaPackage.RANGE: return createRange();
-      case AltaricaPackage.ENUMERATION: return createEnumeration();
       case AltaricaPackage.TYPE: return createType();
       case AltaricaPackage.BASE_TYPE: return createBaseType();
       case AltaricaPackage.NAMED_TYPE: return createNamedType();
       case AltaricaPackage.DECLARATION: return createDeclaration();
       case AltaricaPackage.LABELED_TRANSITION: return createLabeledTransition();
       case AltaricaPackage.TRANSITION_EXPRESSION: return createTransitionExpression();
-      case AltaricaPackage.ITRANSITION: return createITransition();
       case AltaricaPackage.INSTRUCTION: return createInstruction();
-      case AltaricaPackage.IF_THEN_ELSE: return createIfThenElse();
+      case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
       case AltaricaPackage.EXPRESSION: return createExpression();
       case AltaricaPackage.AR_BOOLEAN: return createARBoolean();
       case AltaricaPackage.AR_STRING: return createARString();
       case AltaricaPackage.AR_INTEGER: return createARInteger();
       case AltaricaPackage.NAME_REF: return createNameRef();
-      case AltaricaPackage.VARIABLE_ATTRIBUTE: return createVariableAttribute();
-      case AltaricaPackage.ABSTRACT_TYPE_REF: return createAbstractTypeRef();
-      case AltaricaPackage.DOMAIN_REF: return createDomainRef();
-      case AltaricaPackage.ABSTRACT_EXPRESSION: return createAbstractExpression();
-      case AltaricaPackage.SWITCH: return createSwitch();
-      case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
-      case AltaricaPackage.CONSTANT_DEFINITION: return createConstantDefinition();
       case AltaricaPackage.DOMAIN: return createDomain();
       case AltaricaPackage.SYMBOLIC_CONSTANT: return createSymbolicConstant();
       case AltaricaPackage.NODE: return createNode();
@@ -105,9 +91,11 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.OBSERVER: return createObserver();
       case AltaricaPackage.TRANSITION_AND: return createTransitionAnd();
       case AltaricaPackage.TRANSITION_OR: return createTransitionOr();
+      case AltaricaPackage.TRANSITION: return createTransition();
       case AltaricaPackage.SKIP: return createSkip();
       case AltaricaPackage.ASSIGNMENT: return createAssignment();
       case AltaricaPackage.BLOCK: return createBlock();
+      case AltaricaPackage.CONDITIONAL: return createConditional();
       case AltaricaPackage.LOGICAL: return createLogical();
       case AltaricaPackage.EQUAL: return createEqual();
       case AltaricaPackage.ADDITION: return createAddition();
@@ -191,72 +179,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public AbstractDefinitionConstant createAbstractDefinitionConstant()
-  {
-    AbstractDefinitionConstantImpl abstractDefinitionConstant = new AbstractDefinitionConstantImpl();
-    return abstractDefinitionConstant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ExpressionConstant createExpressionConstant()
-  {
-    ExpressionConstantImpl expressionConstant = new ExpressionConstantImpl();
-    return expressionConstant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DomainConstant createDomainConstant()
-  {
-    DomainConstantImpl domainConstant = new DomainConstantImpl();
-    return domainConstant;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractDomain createAbstractDomain()
-  {
-    AbstractDomainImpl abstractDomain = new AbstractDomainImpl();
-    return abstractDomain;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Range createRange()
-  {
-    RangeImpl range = new RangeImpl();
-    return range;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Enumeration createEnumeration()
-  {
-    EnumerationImpl enumeration = new EnumerationImpl();
-    return enumeration;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Type createType()
   {
     TypeImpl type = new TypeImpl();
@@ -323,17 +245,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ITransition createITransition()
-  {
-    ITransitionImpl iTransition = new ITransitionImpl();
-    return iTransition;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Instruction createInstruction()
   {
     InstructionImpl instruction = new InstructionImpl();
@@ -345,10 +256,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public IfThenElse createIfThenElse()
+  public CaseExpression createCaseExpression()
   {
-    IfThenElseImpl ifThenElse = new IfThenElseImpl();
-    return ifThenElse;
+    CaseExpressionImpl caseExpression = new CaseExpressionImpl();
+    return caseExpression;
   }
 
   /**
@@ -404,83 +315,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     NameRefImpl nameRef = new NameRefImpl();
     return nameRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public VariableAttribute createVariableAttribute()
-  {
-    VariableAttributeImpl variableAttribute = new VariableAttributeImpl();
-    return variableAttribute;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractTypeRef createAbstractTypeRef()
-  {
-    AbstractTypeRefImpl abstractTypeRef = new AbstractTypeRefImpl();
-    return abstractTypeRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public DomainRef createDomainRef()
-  {
-    DomainRefImpl domainRef = new DomainRefImpl();
-    return domainRef;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public AbstractExpression createAbstractExpression()
-  {
-    AbstractExpressionImpl abstractExpression = new AbstractExpressionImpl();
-    return abstractExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public Switch createSwitch()
-  {
-    SwitchImpl switch_ = new SwitchImpl();
-    return switch_;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public CaseExpression createCaseExpression()
-  {
-    CaseExpressionImpl caseExpression = new CaseExpressionImpl();
-    return caseExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ConstantDefinition createConstantDefinition()
-  {
-    ConstantDefinitionImpl constantDefinition = new ConstantDefinitionImpl();
-    return constantDefinition;
   }
 
   /**
@@ -598,6 +432,17 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  public Transition createTransition()
+  {
+    TransitionImpl transition = new TransitionImpl();
+    return transition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public Skip createSkip()
   {
     SkipImpl skip = new SkipImpl();
@@ -624,6 +469,17 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     BlockImpl block = new BlockImpl();
     return block;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Conditional createConditional()
+  {
+    ConditionalImpl conditional = new ConditionalImpl();
+    return conditional;
   }
 
   /**

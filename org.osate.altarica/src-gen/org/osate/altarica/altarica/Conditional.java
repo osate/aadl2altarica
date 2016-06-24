@@ -2,26 +2,25 @@
  */
 package org.osate.altarica.altarica;
 
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Case Expression</b></em>'.
+ * A representation of the model object '<em><b>Conditional</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.CaseExpression#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.CaseExpression#getThen <em>Then</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.Conditional#getCondition <em>Condition</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.Conditional#getThen <em>Then</em>}</li>
  * </ul>
  *
- * @see org.osate.altarica.altarica.AltaricaPackage#getCaseExpression()
+ * @see org.osate.altarica.altarica.AltaricaPackage#getConditional()
  * @model
  * @generated
  */
-public interface CaseExpression extends EObject
+public interface Conditional extends Instruction
 {
   /**
    * Returns the value of the '<em><b>Condition</b></em>' containment reference.
@@ -33,14 +32,14 @@ public interface CaseExpression extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Condition</em>' containment reference.
    * @see #setCondition(Expression)
-   * @see org.osate.altarica.altarica.AltaricaPackage#getCaseExpression_Condition()
+   * @see org.osate.altarica.altarica.AltaricaPackage#getConditional_Condition()
    * @model containment="true"
    * @generated
    */
   Expression getCondition();
 
   /**
-   * Sets the value of the '{@link org.osate.altarica.altarica.CaseExpression#getCondition <em>Condition</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.altarica.altarica.Conditional#getCondition <em>Condition</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Condition</em>' containment reference.
@@ -59,14 +58,14 @@ public interface CaseExpression extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Then</em>' containment reference.
    * @see #setThen(Instruction)
-   * @see org.osate.altarica.altarica.AltaricaPackage#getCaseExpression_Then()
+   * @see org.osate.altarica.altarica.AltaricaPackage#getConditional_Then()
    * @model containment="true"
    * @generated
    */
   Instruction getThen();
 
   /**
-   * Sets the value of the '{@link org.osate.altarica.altarica.CaseExpression#getThen <em>Then</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.altarica.altarica.Conditional#getThen <em>Then</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Then</em>' containment reference.
@@ -75,4 +74,4 @@ public interface CaseExpression extends EObject
    */
   void setThen(Instruction value);
 
-} // CaseExpression
+} // Conditional

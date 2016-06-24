@@ -56,7 +56,8 @@ unique lazy rule Node {
 			-- need to force declarations because assertions need containment structure in place
 			declarations <- ci.subnodes() -> force() ->
 					append(ci.events()) -> append(ci.states()) -> append(ci.flows()) -> flatten(),
-			assertions <- ci.assertions()
+			transitions <- ci.transitions(),
+			assertions <- ci.internalAssertions() -> append(ci.externalAssertions()) -> flatten()
 		)
 	do {
 		thisModule.classes <:= thisModule.classes -> prepend(node);
@@ -86,6 +87,7 @@ unique lazy rule NodeInstance {
 }
 
 -- events
+-- TODO: handle typed error events
 
 helper context AADL!ComponentInstance def: events(): Sequence(AR!Variable) =
 	self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event));
@@ -101,6 +103,7 @@ unique lazy rule Event {
 }
 
 -- states
+-- TODO: handle typed error states
 
 helper context AADL!ComponentInstance def: states(): Sequence(AR!Variable) =
 	let state: AR!Variable = thisModule.State(self) in
@@ -205,7 +208,7 @@ unique lazy rule OutFlow {
 		),
 		reset: AR!Attribute (
 			name <- 'reset',
-			value <- thisModule.LeafNameRef(thisModule.NoError(thisModule.FlowDomain(prop))).debug()
+			value <- thisModule.LeafNameRef(thisModule.NoError(thisModule.FlowDomain(prop)))
 		)
 	do {
 		thisModule.ep2flows <:= thisModule.ep2flows -> 
@@ -308,7 +311,56 @@ unique lazy rule NoError {
 		)
 }
 
--- a bool or integer
+-- transitions
+
+helper context EMV2!ConditionExpression def: isSingleEvent(): Boolean =
+	self.oclIsTypeOf(EMV2!ConditionElement) and self.constraint.oclIsUndefined() and self.qualifiedErrorPropagationReference.emv2Target.namedElement.oclIsTypeOf(EMV2!ErrorEvent);
+
+helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTransition) =
+	let transitions: Collection(EMV2!ErrorBehaviorTransition) = self.classifier.errorTransitions() in
+	let handled: Collection(EMV2!ErrorBehaviorTransition) = 
+		transitions -> select(t |
+			if t.source.oclIsUndefined() or t.target.oclIsUndefined() or not t.condition.isSingleEvent() then
+				false.debug('ignored a transition')
+			else
+				true
+			endif
+		) 
+	in
+		handled -> collect(t | thisModule.LabeledTransition(self, t.debug('processing et ')))
+	;
+
+lazy rule LabeledTransition {
+	from
+		ci: AADL!ComponentInstance,
+		et: EMV2!ErrorBehaviorTransition
+	to
+		lt: AR!LabeledTransition (
+			event <- let event: AR!Event = thisModule.Event(ci, et.condition.qualifiedErrorPropagationReference.emv2Target.namedElement.debug('ne ')) in
+					thisModule.LeafNameRef(event),
+			expression <- te
+		),
+		te: AR!Transition (
+			guard <- g,
+			action <- a
+		),
+		g: AR!Equal (
+			left <- thisModule.LeafNameRef(thisModule.State(ci)).debug('guard state '),
+			op <- '=',
+			right <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.source)).debug('guard symbol ')
+		),
+		a: AR!Assignment (
+			variable <- thisModule.LeafNameRef(thisModule.State(ci)).debug('assign state '),
+			value <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.target)).debug('assign symbol ')
+		)
+}
+	
+-- internal assertions
+
+helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
+	Sequence{};
+
+	-- a bool or integer
 
 lazy rule BaseType {
 	from
@@ -321,7 +373,7 @@ lazy rule BaseType {
 
 -- external assertions (at same level as connection, or at top level for bindings)
 
-helper context AADL!ComponentInstance def: assertions(): Sequence(AR!Instruction) =
+helper context AADL!ComponentInstance def: externalAssertions(): Sequence(AR!Instruction) =
 	if thisModule.ci2paths.getKeys() -> includes(self) then 
 		thisModule.ci2paths.get(self) -> select(pp | not pp.isConnectionBindingPath()) -> collect(pp | pp.makeAssertion())
 	else

@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.CaseExpression;
 import org.osate.altarica.altarica.Expression;
+import org.osate.altarica.altarica.Instruction;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +25,7 @@ import org.osate.altarica.altarica.Expression;
  * </p>
  * <ul>
  *   <li>{@link org.osate.altarica.altarica.impl.CaseExpressionImpl#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.impl.CaseExpressionImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.CaseExpressionImpl#getThen <em>Then</em>}</li>
  * </ul>
  *
  * @generated
@@ -42,14 +43,14 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
   protected Expression condition;
 
   /**
-   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
+   * The cached value of the '{@link #getThen() <em>Then</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBody()
+   * @see #getThen()
    * @generated
    * @ordered
    */
-  protected Expression body;
+  protected Instruction then;
 
   /**
    * <!-- begin-user-doc -->
@@ -125,9 +126,9 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public Expression getBody()
+  public Instruction getThen()
   {
-    return body;
+    return then;
   }
 
   /**
@@ -135,13 +136,13 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBody(Expression newBody, NotificationChain msgs)
+  public NotificationChain basicSetThen(Instruction newThen, NotificationChain msgs)
   {
-    Expression oldBody = body;
-    body = newBody;
+    Instruction oldThen = then;
+    then = newThen;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.CASE_EXPRESSION__BODY, oldBody, newBody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.CASE_EXPRESSION__THEN, oldThen, newThen);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -152,20 +153,20 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody(Expression newBody)
+  public void setThen(Instruction newThen)
   {
-    if (newBody != body)
+    if (newThen != then)
     {
       NotificationChain msgs = null;
-      if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.CASE_EXPRESSION__BODY, null, msgs);
-      if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.CASE_EXPRESSION__BODY, null, msgs);
-      msgs = basicSetBody(newBody, msgs);
+      if (then != null)
+        msgs = ((InternalEObject)then).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.CASE_EXPRESSION__THEN, null, msgs);
+      if (newThen != null)
+        msgs = ((InternalEObject)newThen).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.CASE_EXPRESSION__THEN, null, msgs);
+      msgs = basicSetThen(newThen, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.CASE_EXPRESSION__BODY, newBody, newBody));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.CASE_EXPRESSION__THEN, newThen, newThen));
   }
 
   /**
@@ -180,8 +181,8 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
     {
       case AltaricaPackage.CASE_EXPRESSION__CONDITION:
         return basicSetCondition(null, msgs);
-      case AltaricaPackage.CASE_EXPRESSION__BODY:
-        return basicSetBody(null, msgs);
+      case AltaricaPackage.CASE_EXPRESSION__THEN:
+        return basicSetThen(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -198,8 +199,8 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
     {
       case AltaricaPackage.CASE_EXPRESSION__CONDITION:
         return getCondition();
-      case AltaricaPackage.CASE_EXPRESSION__BODY:
-        return getBody();
+      case AltaricaPackage.CASE_EXPRESSION__THEN:
+        return getThen();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -217,8 +218,8 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
       case AltaricaPackage.CASE_EXPRESSION__CONDITION:
         setCondition((Expression)newValue);
         return;
-      case AltaricaPackage.CASE_EXPRESSION__BODY:
-        setBody((Expression)newValue);
+      case AltaricaPackage.CASE_EXPRESSION__THEN:
+        setThen((Instruction)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -237,8 +238,8 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
       case AltaricaPackage.CASE_EXPRESSION__CONDITION:
         setCondition((Expression)null);
         return;
-      case AltaricaPackage.CASE_EXPRESSION__BODY:
-        setBody((Expression)null);
+      case AltaricaPackage.CASE_EXPRESSION__THEN:
+        setThen((Instruction)null);
         return;
     }
     super.eUnset(featureID);
@@ -256,8 +257,8 @@ public class CaseExpressionImpl extends MinimalEObjectImpl.Container implements 
     {
       case AltaricaPackage.CASE_EXPRESSION__CONDITION:
         return condition != null;
-      case AltaricaPackage.CASE_EXPRESSION__BODY:
-        return body != null;
+      case AltaricaPackage.CASE_EXPRESSION__THEN:
+        return then != null;
     }
     return super.eIsSet(featureID);
   }

@@ -14,10 +14,6 @@ import org.osate.altarica.altarica.ARBoolean;
 import org.osate.altarica.altarica.ARInteger;
 import org.osate.altarica.altarica.ARString;
 import org.osate.altarica.altarica.AbstractDeclaration;
-import org.osate.altarica.altarica.AbstractDefinitionConstant;
-import org.osate.altarica.altarica.AbstractDomain;
-import org.osate.altarica.altarica.AbstractExpression;
-import org.osate.altarica.altarica.AbstractTypeRef;
 import org.osate.altarica.altarica.Addition;
 import org.osate.altarica.altarica.AltaricaFactory;
 import org.osate.altarica.altarica.AltaricaPackage;
@@ -27,18 +23,12 @@ import org.osate.altarica.altarica.BaseType;
 import org.osate.altarica.altarica.BaseTypeEnum;
 import org.osate.altarica.altarica.Block;
 import org.osate.altarica.altarica.CaseExpression;
-import org.osate.altarica.altarica.ConstantDefinition;
+import org.osate.altarica.altarica.Conditional;
 import org.osate.altarica.altarica.Declaration;
 import org.osate.altarica.altarica.Domain;
-import org.osate.altarica.altarica.DomainConstant;
-import org.osate.altarica.altarica.DomainRef;
-import org.osate.altarica.altarica.Enumeration;
 import org.osate.altarica.altarica.Equal;
 import org.osate.altarica.altarica.Event;
 import org.osate.altarica.altarica.Expression;
-import org.osate.altarica.altarica.ExpressionConstant;
-import org.osate.altarica.altarica.ITransition;
-import org.osate.altarica.altarica.IfThenElse;
 import org.osate.altarica.altarica.Instruction;
 import org.osate.altarica.altarica.LabeledTransition;
 import org.osate.altarica.altarica.Logical;
@@ -52,16 +42,14 @@ import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
 import org.osate.altarica.altarica.Parameter;
-import org.osate.altarica.altarica.Range;
 import org.osate.altarica.altarica.Skip;
-import org.osate.altarica.altarica.Switch;
 import org.osate.altarica.altarica.SymbolicConstant;
+import org.osate.altarica.altarica.Transition;
 import org.osate.altarica.altarica.TransitionAnd;
 import org.osate.altarica.altarica.TransitionExpression;
 import org.osate.altarica.altarica.TransitionOr;
 import org.osate.altarica.altarica.Type;
 import org.osate.altarica.altarica.Variable;
-import org.osate.altarica.altarica.VariableAttribute;
 
 /**
  * <!-- begin-user-doc -->
@@ -91,48 +79,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass namedElementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractDefinitionConstantEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass expressionConstantEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass domainConstantEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractDomainEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass rangeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass enumerationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -181,13 +127,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass iTransitionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass instructionEClass = null;
 
   /**
@@ -195,7 +134,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass ifThenElseEClass = null;
+  private EClass caseExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -231,55 +170,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass nameRefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass variableAttributeEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractTypeRefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass domainRefEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass abstractExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass switchEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass caseExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass constantDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -356,6 +246,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass transitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass skipEClass = null;
 
   /**
@@ -371,6 +268,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass blockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass conditionalEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -539,116 +443,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getAbstractDefinitionConstant()
-  {
-    return abstractDefinitionConstantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getAbstractDefinitionConstant_OwnedExpression()
-  {
-    return (EReference)abstractDefinitionConstantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getExpressionConstant()
-  {
-    return expressionConstantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDomainConstant()
-  {
-    return domainConstantEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDomainConstant_Domain()
-  {
-    return (EReference)domainConstantEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAbstractDomain()
-  {
-    return abstractDomainEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getRange()
-  {
-    return rangeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRange_Lower()
-  {
-    return (EReference)rangeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getRange_Upper()
-  {
-    return (EReference)rangeEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getEnumeration()
-  {
-    return enumerationEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getEnumeration_OwnedSymbols()
-  {
-    return (EReference)enumerationEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getType()
   {
     return typeEClass;
@@ -749,16 +543,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getITransition()
-  {
-    return iTransitionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getInstruction()
   {
     return instructionEClass;
@@ -769,9 +553,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getIfThenElse()
+  public EReference getInstruction_Cases()
   {
-    return ifThenElseEClass;
+    return (EReference)instructionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -779,9 +563,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfThenElse_Condition()
+  public EReference getInstruction_Else()
   {
-    return (EReference)ifThenElseEClass.getEStructuralFeatures().get(0);
+    return (EReference)instructionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -789,9 +573,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfThenElse_Then()
+  public EClass getCaseExpression()
   {
-    return (EReference)ifThenElseEClass.getEStructuralFeatures().get(1);
+    return caseExpressionEClass;
   }
 
   /**
@@ -799,9 +583,19 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getIfThenElse_Else()
+  public EReference getCaseExpression_Condition()
   {
-    return (EReference)ifThenElseEClass.getEStructuralFeatures().get(2);
+    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCaseExpression_Then()
+  {
+    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -902,146 +696,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
   public EReference getNameRef_Nested()
   {
     return (EReference)nameRefEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getVariableAttribute()
-  {
-    return variableAttributeEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getVariableAttribute_Name()
-  {
-    return (EAttribute)variableAttributeEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAbstractTypeRef()
-  {
-    return abstractTypeRefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getDomainRef()
-  {
-    return domainRefEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getDomainRef_Reference()
-  {
-    return (EReference)domainRefEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getAbstractExpression()
-  {
-    return abstractExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSwitch()
-  {
-    return switchEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSwitch_OwnedCases()
-  {
-    return (EReference)switchEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSwitch_Default()
-  {
-    return (EReference)switchEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getCaseExpression()
-  {
-    return caseExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCaseExpression_Condition()
-  {
-    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCaseExpression_Body()
-  {
-    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getConstantDefinition()
-  {
-    return constantDefinitionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getConstantDefinition_Expression()
-  {
-    return (EReference)constantDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1309,6 +963,36 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTransition()
+  {
+    return transitionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransition_Guard()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransition_Action()
+  {
+    return (EReference)transitionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSkip()
   {
     return skipEClass;
@@ -1362,6 +1046,36 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
   public EReference getBlock_Instructions()
   {
     return (EReference)blockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getConditional()
+  {
+    return conditionalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConditional_Condition()
+  {
+    return (EReference)conditionalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getConditional_Then()
+  {
+    return (EReference)conditionalEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1612,23 +1326,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     namedElementEClass = createEClass(NAMED_ELEMENT);
     createEAttribute(namedElementEClass, NAMED_ELEMENT__NAME);
 
-    abstractDefinitionConstantEClass = createEClass(ABSTRACT_DEFINITION_CONSTANT);
-    createEReference(abstractDefinitionConstantEClass, ABSTRACT_DEFINITION_CONSTANT__OWNED_EXPRESSION);
-
-    expressionConstantEClass = createEClass(EXPRESSION_CONSTANT);
-
-    domainConstantEClass = createEClass(DOMAIN_CONSTANT);
-    createEReference(domainConstantEClass, DOMAIN_CONSTANT__DOMAIN);
-
-    abstractDomainEClass = createEClass(ABSTRACT_DOMAIN);
-
-    rangeEClass = createEClass(RANGE);
-    createEReference(rangeEClass, RANGE__LOWER);
-    createEReference(rangeEClass, RANGE__UPPER);
-
-    enumerationEClass = createEClass(ENUMERATION);
-    createEReference(enumerationEClass, ENUMERATION__OWNED_SYMBOLS);
-
     typeEClass = createEClass(TYPE);
 
     baseTypeEClass = createEClass(BASE_TYPE);
@@ -1645,14 +1342,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     transitionExpressionEClass = createEClass(TRANSITION_EXPRESSION);
 
-    iTransitionEClass = createEClass(ITRANSITION);
-
     instructionEClass = createEClass(INSTRUCTION);
+    createEReference(instructionEClass, INSTRUCTION__CASES);
+    createEReference(instructionEClass, INSTRUCTION__ELSE);
 
-    ifThenElseEClass = createEClass(IF_THEN_ELSE);
-    createEReference(ifThenElseEClass, IF_THEN_ELSE__CONDITION);
-    createEReference(ifThenElseEClass, IF_THEN_ELSE__THEN);
-    createEReference(ifThenElseEClass, IF_THEN_ELSE__ELSE);
+    caseExpressionEClass = createEClass(CASE_EXPRESSION);
+    createEReference(caseExpressionEClass, CASE_EXPRESSION__CONDITION);
+    createEReference(caseExpressionEClass, CASE_EXPRESSION__THEN);
 
     expressionEClass = createEClass(EXPRESSION);
 
@@ -1668,27 +1364,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     nameRefEClass = createEClass(NAME_REF);
     createEReference(nameRefEClass, NAME_REF__VARIABLE);
     createEReference(nameRefEClass, NAME_REF__NESTED);
-
-    variableAttributeEClass = createEClass(VARIABLE_ATTRIBUTE);
-    createEAttribute(variableAttributeEClass, VARIABLE_ATTRIBUTE__NAME);
-
-    abstractTypeRefEClass = createEClass(ABSTRACT_TYPE_REF);
-
-    domainRefEClass = createEClass(DOMAIN_REF);
-    createEReference(domainRefEClass, DOMAIN_REF__REFERENCE);
-
-    abstractExpressionEClass = createEClass(ABSTRACT_EXPRESSION);
-
-    switchEClass = createEClass(SWITCH);
-    createEReference(switchEClass, SWITCH__OWNED_CASES);
-    createEReference(switchEClass, SWITCH__DEFAULT);
-
-    caseExpressionEClass = createEClass(CASE_EXPRESSION);
-    createEReference(caseExpressionEClass, CASE_EXPRESSION__CONDITION);
-    createEReference(caseExpressionEClass, CASE_EXPRESSION__BODY);
-
-    constantDefinitionEClass = createEClass(CONSTANT_DEFINITION);
-    createEReference(constantDefinitionEClass, CONSTANT_DEFINITION__EXPRESSION);
 
     domainEClass = createEClass(DOMAIN);
     createEReference(domainEClass, DOMAIN__CONSTANTS);
@@ -1726,6 +1401,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     createEReference(transitionOrEClass, TRANSITION_OR__LEFT);
     createEReference(transitionOrEClass, TRANSITION_OR__RIGHT);
 
+    transitionEClass = createEClass(TRANSITION);
+    createEReference(transitionEClass, TRANSITION__GUARD);
+    createEReference(transitionEClass, TRANSITION__ACTION);
+
     skipEClass = createEClass(SKIP);
 
     assignmentEClass = createEClass(ASSIGNMENT);
@@ -1734,6 +1413,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     blockEClass = createEClass(BLOCK);
     createEReference(blockEClass, BLOCK__INSTRUCTIONS);
+
+    conditionalEClass = createEClass(CONDITIONAL);
+    createEReference(conditionalEClass, CONDITIONAL__CONDITION);
+    createEReference(conditionalEClass, CONDITIONAL__THEN);
 
     logicalEClass = createEClass(LOGICAL);
     createEReference(logicalEClass, LOGICAL__LEFT);
@@ -1796,25 +1479,12 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     // Add supertypes to classes
     namedElementEClass.getESuperTypes().add(this.getAbstractDeclaration());
     namedElementEClass.getESuperTypes().add(this.getDeclaration());
-    expressionConstantEClass.getESuperTypes().add(this.getAbstractDefinitionConstant());
-    domainConstantEClass.getESuperTypes().add(this.getAbstractDefinitionConstant());
-    abstractDomainEClass.getESuperTypes().add(this.getAbstractTypeRef());
-    rangeEClass.getESuperTypes().add(this.getAbstractDomain());
-    enumerationEClass.getESuperTypes().add(this.getAbstractDomain());
-    baseTypeEClass.getESuperTypes().add(this.getAbstractDomain());
     baseTypeEClass.getESuperTypes().add(this.getType());
     namedTypeEClass.getESuperTypes().add(this.getType());
-    iTransitionEClass.getESuperTypes().add(this.getTransitionExpression());
-    ifThenElseEClass.getESuperTypes().add(this.getInstruction());
-    ifThenElseEClass.getESuperTypes().add(this.getAbstractExpression());
-    expressionEClass.getESuperTypes().add(this.getAbstractExpression());
     arBooleanEClass.getESuperTypes().add(this.getExpression());
     arStringEClass.getESuperTypes().add(this.getExpression());
     arIntegerEClass.getESuperTypes().add(this.getExpression());
     nameRefEClass.getESuperTypes().add(this.getExpression());
-    domainRefEClass.getESuperTypes().add(this.getAbstractTypeRef());
-    switchEClass.getESuperTypes().add(this.getAbstractExpression());
-    constantDefinitionEClass.getESuperTypes().add(this.getNamedElement());
     domainEClass.getESuperTypes().add(this.getNamedElement());
     symbolicConstantEClass.getESuperTypes().add(this.getNamedElement());
     nodeEClass.getESuperTypes().add(this.getNamedElement());
@@ -1825,9 +1495,11 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     observerEClass.getESuperTypes().add(this.getNamedElement());
     transitionAndEClass.getESuperTypes().add(this.getTransitionExpression());
     transitionOrEClass.getESuperTypes().add(this.getTransitionExpression());
+    transitionEClass.getESuperTypes().add(this.getTransitionExpression());
     skipEClass.getESuperTypes().add(this.getInstruction());
     assignmentEClass.getESuperTypes().add(this.getInstruction());
     blockEClass.getESuperTypes().add(this.getInstruction());
+    conditionalEClass.getESuperTypes().add(this.getInstruction());
     logicalEClass.getESuperTypes().add(this.getExpression());
     equalEClass.getESuperTypes().add(this.getExpression());
     additionEClass.getESuperTypes().add(this.getExpression());
@@ -1843,23 +1515,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(namedElementEClass, NamedElement.class, "NamedElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNamedElement_Name(), ecorePackage.getEString(), "name", null, 0, 1, NamedElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractDefinitionConstantEClass, AbstractDefinitionConstant.class, "AbstractDefinitionConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getAbstractDefinitionConstant_OwnedExpression(), this.getExpression(), null, "ownedExpression", null, 0, 1, AbstractDefinitionConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(expressionConstantEClass, ExpressionConstant.class, "ExpressionConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(domainConstantEClass, DomainConstant.class, "DomainConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomainConstant_Domain(), this.getAbstractDomain(), null, "domain", null, 0, 1, DomainConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractDomainEClass, AbstractDomain.class, "AbstractDomain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(rangeEClass, Range.class, "Range", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRange_Lower(), this.getExpression(), null, "lower", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRange_Upper(), this.getExpression(), null, "upper", null, 0, 1, Range.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(enumerationEClass, Enumeration.class, "Enumeration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getEnumeration_OwnedSymbols(), this.getNamedElement(), null, "ownedSymbols", null, 0, -1, Enumeration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(typeEClass, Type.class, "Type", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1877,14 +1532,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(transitionExpressionEClass, TransitionExpression.class, "TransitionExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(iTransitionEClass, ITransition.class, "ITransition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
     initEClass(instructionEClass, Instruction.class, "Instruction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getInstruction_Cases(), this.getCaseExpression(), null, "cases", null, 0, -1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getInstruction_Else(), ecorePackage.getEObject(), null, "else", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(ifThenElseEClass, IfThenElse.class, "IfThenElse", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getIfThenElse_Condition(), this.getExpression(), null, "condition", null, 0, 1, IfThenElse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfThenElse_Then(), this.getInstruction(), null, "then", null, 0, 1, IfThenElse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getIfThenElse_Else(), this.getInstruction(), null, "else", null, 0, 1, IfThenElse.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(caseExpressionEClass, CaseExpression.class, "CaseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCaseExpression_Condition(), this.getExpression(), null, "condition", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseExpression_Then(), this.getInstruction(), null, "then", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1900,27 +1554,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEClass(nameRefEClass, NameRef.class, "NameRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNameRef_Variable(), this.getNamedElement(), null, "variable", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNameRef_Nested(), this.getNameRef(), null, "nested", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(variableAttributeEClass, VariableAttribute.class, "VariableAttribute", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getVariableAttribute_Name(), ecorePackage.getEString(), "name", null, 0, 1, VariableAttribute.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractTypeRefEClass, AbstractTypeRef.class, "AbstractTypeRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(domainRefEClass, DomainRef.class, "DomainRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getDomainRef_Reference(), this.getDomain(), null, "reference", null, 0, 1, DomainRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(abstractExpressionEClass, AbstractExpression.class, "AbstractExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(switchEClass, Switch.class, "Switch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSwitch_OwnedCases(), this.getCaseExpression(), null, "ownedCases", null, 0, -1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getSwitch_Default(), this.getExpression(), null, "default", null, 0, 1, Switch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(caseExpressionEClass, CaseExpression.class, "CaseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCaseExpression_Condition(), this.getExpression(), null, "condition", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCaseExpression_Body(), this.getExpression(), null, "body", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(constantDefinitionEClass, ConstantDefinition.class, "ConstantDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getConstantDefinition_Expression(), this.getAbstractDefinitionConstant(), null, "expression", null, 0, 1, ConstantDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDomain_Constants(), this.getNamedElement(), null, "constants", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1956,7 +1589,11 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(transitionOrEClass, TransitionOr.class, "TransitionOr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getTransitionOr_Left(), this.getTransitionExpression(), null, "left", null, 0, 1, TransitionOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getTransitionOr_Right(), this.getITransition(), null, "right", null, 0, 1, TransitionOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransitionOr_Right(), this.getTransitionExpression(), null, "right", null, 0, 1, TransitionOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(transitionEClass, Transition.class, "Transition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTransition_Guard(), this.getExpression(), null, "guard", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransition_Action(), this.getInstruction(), null, "action", null, 0, 1, Transition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(skipEClass, Skip.class, "Skip", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -1966,6 +1603,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(blockEClass, Block.class, "Block", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getBlock_Instructions(), this.getInstruction(), null, "instructions", null, 0, -1, Block.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(conditionalEClass, Conditional.class, "Conditional", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getConditional_Condition(), this.getExpression(), null, "condition", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getConditional_Then(), this.getInstruction(), null, "then", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(logicalEClass, Logical.class, "Logical", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getLogical_Left(), this.getExpression(), null, "left", null, 0, 1, Logical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

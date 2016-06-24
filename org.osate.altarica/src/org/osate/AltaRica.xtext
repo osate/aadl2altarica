@@ -10,37 +10,12 @@ Model:
 AbstractDeclaration:
 	Domain | Class;
 
-ConstantDefinition returns NamedElement:
-	{ConstantDefinition}
-	'const' name=ID expression=AbstractDefinitionConstant ';';
-
-AbstractDefinitionConstant:
-	ExpressionConstant | DomainConstant;
-
-ExpressionConstant:
-	'=' ownedExpression=Expression;
-
-DomainConstant:
-	':' domain=AbstractDomain ('=' ownedExpression=Expression)?;
-
 Domain returns NamedElement:
 	{Domain}
 	'domain' name=ID '{' ( constants+=SymbolicConstant (',' constants+=SymbolicConstant)* )? '}' ';';
 
-AbstractDomain:
-	BaseType | Range | Enumeration;
-
-Range:
-	'[' lower=Atom ',' upper=Atom ']';
-
-Enumeration:
-	{Enumeration} '{' ( ownedSymbols+=SymbolicConstant (',' ownedSymbols+=SymbolicConstant)* )? '}';
-
 SymbolicConstant returns NamedElement:
 	{SymbolicConstant} name=ID;
-
-
-
 
 Type:
 	=>BaseType | NamedType
@@ -124,17 +99,16 @@ TransitionAnd returns TransitionExpression:
 	TransitionOr ({TransitionAnd.left=current} '&' right=TransitionOr)*;
 
 TransitionOr returns TransitionExpression:
-	ITransition ({TransitionOr.left=current} '|' right=ITransition)*;
+	Transition ({TransitionOr.left=current} '|' right=Transition)*;
 
-ITransition:
-	{ITransition}
-	"$transition"
+Transition returns TransitionExpression:
+	{Transition} guard=Expression '->' action=Instruction
 ;
 
 // ========== Instructions ==========
 
 Instruction:
-	Skip | Assignment | Block | IfThenElse
+	Skip | Assignment | Block | Conditional | Switch
 ;
 
 Skip returns Instruction:
@@ -152,9 +126,20 @@ Block returns Instruction:
 	'{' (instructions+=Instruction)+ '}'
 ;
 
-IfThenElse:
+Conditional returns Instruction:
+	{Conditional}
 	'if' condition=Expression 'then' then=Instruction (=>'else' else=Instruction)? ";"
 ;
+
+Switch returns Instruction:
+	'switch' '{' 
+		cases+=CaseExpression*
+	'else' ':'
+		else=Expression
+	'}';
+
+CaseExpression:
+	condition=Expression ':' then=Instruction ',';
 
 // ========== Expressions ==========
 
@@ -199,36 +184,6 @@ IntegerLiteral returns ARInteger:
 
 NameRef:
 	variable=[NamedElement] =>({NameRef.nested=current} '.' variable=[NamedElement])*;
-
-//================
-
-VariableAttribute:
-	name=ID;
-
-//terminal Directive returns ecore::EString : "/*" -> ";";
-
-AbstractTypeRef:
-	DomainRef | AbstractDomain;
-
-DomainRef:
-	reference=[Domain];
-
-
-//Assignment:
-//	state=[State] ':=' ownedExpression=AbstractExpression;
-
-AbstractExpression:
-	IfThenElse| Switch | Expression;
-
-Switch:
-	'case {' 
-		ownedCases+=CaseExpression*
-	'else'
-		default=Expression
-	'}';
-
-CaseExpression:
-	condition=Expression ':' body=Expression ',';
 
 //===== Terminals
 

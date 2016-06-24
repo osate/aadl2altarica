@@ -50,60 +50,6 @@ public interface AltaricaFactory extends EFactory
   NamedElement createNamedElement();
 
   /**
-   * Returns a new object of class '<em>Abstract Definition Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Definition Constant</em>'.
-   * @generated
-   */
-  AbstractDefinitionConstant createAbstractDefinitionConstant();
-
-  /**
-   * Returns a new object of class '<em>Expression Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Expression Constant</em>'.
-   * @generated
-   */
-  ExpressionConstant createExpressionConstant();
-
-  /**
-   * Returns a new object of class '<em>Domain Constant</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domain Constant</em>'.
-   * @generated
-   */
-  DomainConstant createDomainConstant();
-
-  /**
-   * Returns a new object of class '<em>Abstract Domain</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Domain</em>'.
-   * @generated
-   */
-  AbstractDomain createAbstractDomain();
-
-  /**
-   * Returns a new object of class '<em>Range</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Range</em>'.
-   * @generated
-   */
-  Range createRange();
-
-  /**
-   * Returns a new object of class '<em>Enumeration</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Enumeration</em>'.
-   * @generated
-   */
-  Enumeration createEnumeration();
-
-  /**
    * Returns a new object of class '<em>Type</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -158,15 +104,6 @@ public interface AltaricaFactory extends EFactory
   TransitionExpression createTransitionExpression();
 
   /**
-   * Returns a new object of class '<em>ITransition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>ITransition</em>'.
-   * @generated
-   */
-  ITransition createITransition();
-
-  /**
    * Returns a new object of class '<em>Instruction</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -176,13 +113,13 @@ public interface AltaricaFactory extends EFactory
   Instruction createInstruction();
 
   /**
-   * Returns a new object of class '<em>If Then Else</em>'.
+   * Returns a new object of class '<em>Case Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>If Then Else</em>'.
+   * @return a new object of class '<em>Case Expression</em>'.
    * @generated
    */
-  IfThenElse createIfThenElse();
+  CaseExpression createCaseExpression();
 
   /**
    * Returns a new object of class '<em>Expression</em>'.
@@ -228,69 +165,6 @@ public interface AltaricaFactory extends EFactory
    * @generated
    */
   NameRef createNameRef();
-
-  /**
-   * Returns a new object of class '<em>Variable Attribute</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Variable Attribute</em>'.
-   * @generated
-   */
-  VariableAttribute createVariableAttribute();
-
-  /**
-   * Returns a new object of class '<em>Abstract Type Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Type Ref</em>'.
-   * @generated
-   */
-  AbstractTypeRef createAbstractTypeRef();
-
-  /**
-   * Returns a new object of class '<em>Domain Ref</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Domain Ref</em>'.
-   * @generated
-   */
-  DomainRef createDomainRef();
-
-  /**
-   * Returns a new object of class '<em>Abstract Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Abstract Expression</em>'.
-   * @generated
-   */
-  AbstractExpression createAbstractExpression();
-
-  /**
-   * Returns a new object of class '<em>Switch</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Switch</em>'.
-   * @generated
-   */
-  Switch createSwitch();
-
-  /**
-   * Returns a new object of class '<em>Case Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Case Expression</em>'.
-   * @generated
-   */
-  CaseExpression createCaseExpression();
-
-  /**
-   * Returns a new object of class '<em>Constant Definition</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Constant Definition</em>'.
-   * @generated
-   */
-  ConstantDefinition createConstantDefinition();
 
   /**
    * Returns a new object of class '<em>Domain</em>'.
@@ -383,6 +257,15 @@ public interface AltaricaFactory extends EFactory
   TransitionOr createTransitionOr();
 
   /**
+   * Returns a new object of class '<em>Transition</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transition</em>'.
+   * @generated
+   */
+  Transition createTransition();
+
+  /**
    * Returns a new object of class '<em>Skip</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -408,6 +291,15 @@ public interface AltaricaFactory extends EFactory
    * @generated
    */
   Block createBlock();
+
+  /**
+   * Returns a new object of class '<em>Conditional</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Conditional</em>'.
+   * @generated
+   */
+  Conditional createConditional();
 
   /**
    * Returns a new object of class '<em>Logical</em>'.

@@ -35,17 +35,17 @@ helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrar
 		'getErrorModelSubclauseWithUseTypes', Sequence{self}
 	);
 
-helper context AADL2!Classifier def: errorEvents(): Sequence(EMV2!ErrorBehaviorEvent) =
+helper context AADL2!Classifier def: errorEvents(): Collection(EMV2!ErrorBehaviorEvent) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllErrorBehaviorEvents', Sequence{self}
 	);
 
-helper context AADL2!Classifier def: errorStates(): Sequence(EMV2!ErrorBehaviorState) =
+helper context AADL2!Classifier def: errorStates(): Collection(EMV2!ErrorBehaviorState) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllErrorBehaviorStates', Sequence{self}
 	);
 
-helper context AADL2!Classifier def: errorTransitions(): Sequence(EMV2!ErrorBehaviorTransition) =
+helper context AADL2!Classifier def: errorTransitions(): Collection(EMV2!ErrorBehaviorTransition) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllErrorBehaviorTransitions', Sequence{self}
 	);

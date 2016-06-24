@@ -11,7 +11,6 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.altarica.altarica.AltaricaPackage;
-import org.osate.altarica.altarica.ITransition;
 import org.osate.altarica.altarica.TransitionExpression;
 import org.osate.altarica.altarica.TransitionOr;
 
@@ -49,7 +48,7 @@ public class TransitionOrImpl extends TransitionExpressionImpl implements Transi
    * @generated
    * @ordered
    */
-  protected ITransition right;
+  protected TransitionExpression right;
 
   /**
    * <!-- begin-user-doc -->
@@ -125,7 +124,7 @@ public class TransitionOrImpl extends TransitionExpressionImpl implements Transi
    * <!-- end-user-doc -->
    * @generated
    */
-  public ITransition getRight()
+  public TransitionExpression getRight()
   {
     return right;
   }
@@ -135,9 +134,9 @@ public class TransitionOrImpl extends TransitionExpressionImpl implements Transi
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetRight(ITransition newRight, NotificationChain msgs)
+  public NotificationChain basicSetRight(TransitionExpression newRight, NotificationChain msgs)
   {
-    ITransition oldRight = right;
+    TransitionExpression oldRight = right;
     right = newRight;
     if (eNotificationRequired())
     {
@@ -152,7 +151,7 @@ public class TransitionOrImpl extends TransitionExpressionImpl implements Transi
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setRight(ITransition newRight)
+  public void setRight(TransitionExpression newRight)
   {
     if (newRight != right)
     {
@@ -218,7 +217,7 @@ public class TransitionOrImpl extends TransitionExpressionImpl implements Transi
         setLeft((TransitionExpression)newValue);
         return;
       case AltaricaPackage.TRANSITION_OR__RIGHT:
-        setRight((ITransition)newValue);
+        setRight((TransitionExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -238,7 +237,7 @@ public class TransitionOrImpl extends TransitionExpressionImpl implements Transi
         setLeft((TransitionExpression)null);
         return;
       case AltaricaPackage.TRANSITION_OR__RIGHT:
-        setRight((ITransition)null);
+        setRight((TransitionExpression)null);
         return;
     }
     super.eUnset(featureID);
