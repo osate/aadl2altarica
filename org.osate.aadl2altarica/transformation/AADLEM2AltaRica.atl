@@ -90,18 +90,34 @@ unique lazy rule NodeInstance {
 -- TODO: handle typed error events
 
 helper context AADL!ComponentInstance def: events(): Sequence(AR!Variable) =
-	self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event));
+	self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event)) -> append(thisModule.ImmediateEvent(self));
 
 unique lazy rule Event {
 	from
 		ci: AADL!ComponentInstance,
 		e: EMV2!ErrorBehaviorEvent
 	to
-		event : AR!Event (
+		event: AR!Event (
 			name <- e.altaRicaName()
 		)
 }
 
+unique lazy rule ImmediateEvent {
+	from 
+		ci: AADL!ComponentInstance
+	to
+		event: AR!Event (
+			name <- 'error_propagation',
+			attributes <- Sequence{delay}
+		),
+		delay: AR!Attribute (
+			name <- 'delay',
+			value <- zero
+		),
+		zero: AR!ARInteger (
+			value <- 0
+		)
+}
 -- states
 -- TODO: handle typed error states
 
@@ -318,19 +334,19 @@ helper context EMV2!ConditionExpression def: isSingleEvent(): Boolean =
 
 helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTransition) =
 	let transitions: Collection(EMV2!ErrorBehaviorTransition) = self.classifier.errorTransitions() in
-	let handled: Collection(EMV2!ErrorBehaviorTransition) = 
+	let handled_events: Collection(EMV2!ErrorBehaviorTransition) = 
 		transitions -> select(t |
-			if t.source.oclIsUndefined() or t.target.oclIsUndefined() or not t.condition.isSingleEvent() then
-				false.debug('ignored a transition')
-			else
-				true
-			endif
-		) 
+			not (t.source.oclIsUndefined() or t.target.oclIsUndefined()) and t.condition.isSingleEvent()
+		) in
+	let handled_props: Collection(EMV2!ErrorBehaviorTransition) =
+		transitions -> select(t |
+			not (t.source.oclIsUndefined() or t.target.oclIsUndefined()) and not t.condition.isSingleEvent()
+		)
 	in
-		handled -> collect(t | thisModule.LabeledTransition(self, t.debug('processing et ')))
+		handled_events -> collect(t | thisModule.EventTransition(self, t.debug('processing et ')))
 	;
 
-lazy rule LabeledTransition {
+lazy rule EventTransition {
 	from
 		ci: AADL!ComponentInstance,
 		et: EMV2!ErrorBehaviorTransition
@@ -354,7 +370,32 @@ lazy rule LabeledTransition {
 			value <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.target)).debug('assign symbol ')
 		)
 }
-	
+
+lazy rule PropagationTransition {
+	from
+		ci: AADL!ComponentInstance,
+		et: EMV2!ErrorBehaviorTransition
+	to
+		lt: AR!LabeledTransition (
+			event <- let event: AR!Event = thisModule.Event(ci, et.condition.qualifiedErrorPropagationReference.emv2Target.namedElement.debug('ne ')) in
+					thisModule.LeafNameRef(event),
+			expression <- te
+		),
+		te: AR!Transition (
+			guard <- g,
+			action <- a
+		),
+		g: AR!Equal (
+			left <- thisModule.LeafNameRef(thisModule.State(ci)).debug('guard state '),
+			op <- '=',
+			right <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.source)).debug('guard symbol ')
+		),
+		a: AR!Assignment (
+			variable <- thisModule.LeafNameRef(thisModule.State(ci)).debug('assign state '),
+			value <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.target)).debug('assign symbol ')
+		)
+}
+
 -- internal assertions
 
 helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
