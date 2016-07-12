@@ -214,7 +214,7 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 				collect(iep | thisModule.dst2paths.get(Tuple{io = self, prop = iep}) -> collect(path | thisModule.InFlow(self, path))) in
 	outFlows -> append(inFlows);
 
--- map to keep track of flow variables created for propagations in a component instance
+--- Map to keep track of flow variables created for propagations in a component instance
 helper def: ep2flows: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence(AR!Variable)) = Map{};
 
 unique lazy rule OutFlow {
@@ -238,9 +238,16 @@ unique lazy rule OutFlow {
 	}
 }
 
---- Return a reference to the no_error symbol for this propagation
+--- Return a reference to the no_error symbol for this out(!) propagation
 helper context EMV2!ErrorPropagation def: noError: AR!SymbolicConstant =
 	thisModule.NoError(thisModule.FlowDomain(self));
+
+--- Return a reference to the no_error symbol for this in(!) flow
+helper context AR!Variable def: noError: AR!SymbolicConstant =
+	thisModule.NoError(thisModule.FlowDomain(thisModule.inFlow2srcProp.get(self))).debug();
+
+--- Map to keep track of propagations used to create the domain for incoming flow variables
+helper def: inFlow2srcProp: Map(AR!Variable, EMV2!ErrorPropagation) = Map{};
 
 unique lazy rule InFlow {
 	from
@@ -249,13 +256,12 @@ unique lazy rule InFlow {
 	using {
 		count: Integer = thisModule.inCount;
 		prop: EMV2!ErrorPropagation = path.getPathDst().getErrorPropagation();
+		srcProp: EMV2!ErrorPropagation = path.getPathSrc().getErrorPropagation();
 	}
 	to
 		flow: AR!Variable (
 			name <- prop.indexedName(count),
-			type <-
-					let srcProp: EMV2!ErrorPropagation = path.getPathSrc().getErrorPropagation() in
-					thisModule.FlowDomainType(srcProp)
+			type <- thisModule.FlowDomainType(srcProp)
 		)
 	do {
 		if (thisModule.ep2flows.getKeys() -> includes(Tuple{io = ci, prop = prop})) {
@@ -268,6 +274,7 @@ unique lazy rule InFlow {
 			thisModule.ep2flows <:= thisModule.ep2flows -> 
 					including(Tuple{io = ci, prop = prop}, Sequence{flow});
 		}
+		thisModule.inFlow2srcProp <:= thisModule.inFlow2srcProp -> including(flow, srcProp).debug('XXX');
 		thisModule.inCount <:= count + 1;
 		flow;
 	}
@@ -284,9 +291,6 @@ lazy rule FlowDomainType {
 		)
 }
 
--- map to keep track of type tokens in domains
---helper def: domain2tokens: Map(AR!Domain, Set(EMV2!TypeToken)) = Map{};
-
 --- doc
 unique lazy rule FlowDomain {
 	from
@@ -302,7 +306,6 @@ unique lazy rule FlowDomain {
 	do {
 		thisModule.domainCount <:= count + 1;
 		thisModule.domains <:= thisModule.domains -> append(domain);
-		--thisModule.domain2tokens <:= thisModule.domain2tokens -> including(domain, prop.leafTokens() -> asSet());
 		domain;
 	}
 }
@@ -383,6 +386,7 @@ lazy rule EventTransition {
 		)
 }
 
+
 --- Create a state transition which is caused by an incoming error propagation
 lazy rule PropagationTransition {
 	from
@@ -394,26 +398,84 @@ lazy rule PropagationTransition {
 			expression <- te
 		),
 		te: AR!Transition (
-			guard <- g,
+			guard <- ci.guardExpression(et),
 			action <- a
 		),
-		g: AR!Equal (
-			left <- thisModule.State(ci).ref(),
-			op <- '=',
-			right <- thisModule.StateSymbol(ci.classifier, et.source).ref()
-		),
+--		g: AR!Equal (
+--			left <- thisModule.State(ci).ref(),
+--			op <- '=',
+--			right <- thisModule.StateSymbol(ci.classifier, et.source).ref()
+--		),
 		a: AR!Assignment (
 			variable <- thisModule.State(ci).ref(),
 			value <- thisModule.StateSymbol(ci.classifier, et.target).ref()
 		)
 }
 
--- internal assertions
+helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehaviorTransition): AR!Expression =
+	let inProp: EMV2!ErrorPropagation = et.condition.qualifiedErrorPropagationReference.emv2Target.namedElement in
+	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations() in -- -> excluding(inProp) in
+	self.allNoError(otherProps);
 
-helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
-	Sequence{};
+helper context AADL!ComponentInstance def: allNoError(eps: Sequence(EMV2!ErrorPropagation)): AR!Expression =
+	let head: EMV2!ErrorPropagation = eps -> first() in
+	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = head}) in
+	let exp: AR!Expression = thisModule.allNoError(inFlows) in
+	if eps -> size() = 1 then
+		exp
+	else
+		thisModule.And(exp, self.allNoError(eps -> tail()))
+	endif;
+	
+helper def: allNoError(flows: Sequence(AR!Variable)): AR!Expression =
+	let head: AR!Variable = flows->at(1) in
+	let exp: AR!Expression = thisModule.Equal(head, head.noError) in
+	if flows -> size() = 1 then
+		exp
+	else
+		thisModule.And(exp, thisModule.allNoError(flows -> tail()))
+	endif;
+	
+helper context Sequence(OclAny) def: tail(): Sequence(OclAny) =
+	self.subSequence(2, self -> size());
 
-	-- a bool or integer
+lazy rule Or {
+	from
+		left: AR!Expression,
+		right: AR!Expression
+	to
+		a: AR!Logical (
+			left <- left,
+			op <-'or',
+			right <- right
+		)
+}
+
+lazy rule And {
+	from
+		left: AR!Expression,
+		right: AR!Expression
+	to
+		a: AR!Logical (
+			left <- left,
+			op <-'and',
+			right <- right
+		)
+}
+
+lazy rule Equal {
+	from
+		inflow: AR!Variable,
+		value: AR!SymbolicConstant
+	to
+		eq: AR!Equal (
+			left <- inflow.ref(),
+			op <- '=',
+			right <- value.ref()
+		)
+}
+
+-- a bool or integer
 
 lazy rule BaseType {
 	from
@@ -424,8 +486,11 @@ lazy rule BaseType {
 		)
 }
 
--- external assertions (at same level as connection, or at top level for bindings)
 
+helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
+	Sequence{};
+
+-- external assertions (at same level as connection, or at top level for bindings)
 helper context AADL!ComponentInstance def: externalAssertions(): Sequence(AR!Instruction) =
 	if thisModule.ci2paths.getKeys() -> includes(self) then 
 		thisModule.ci2paths.get(self) -> select(pp | not pp.isConnectionBindingPath()) -> collect(pp | pp.makeAssertion())
