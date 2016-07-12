@@ -147,7 +147,7 @@ unique lazy rule State {
 		),
 		init: AR!Attribute (
 			name <- 'init',
-			value <- thisModule.LeafNameRef(ci.classifier.initialState())
+			value <- ci.classifier.initialState().ref()
 		)
 }
 
@@ -229,7 +229,7 @@ unique lazy rule OutFlow {
 		),
 		reset: AR!Attribute (
 			name <- 'reset',
-			value <- thisModule.LeafNameRef(thisModule.NoError(thisModule.FlowDomain(prop)))
+			value <- prop.noError.ref()
 		)
 	do {
 		thisModule.ep2flows <:= thisModule.ep2flows -> 
@@ -237,6 +237,10 @@ unique lazy rule OutFlow {
 		flow;
 	}
 }
+
+--- Return a reference to the no_error symbol for this propagation
+helper context EMV2!ErrorPropagation def: noError: AR!SymbolicConstant =
+	thisModule.NoError(thisModule.FlowDomain(self));
 
 unique lazy rule InFlow {
 	from
@@ -348,8 +352,8 @@ helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTra
 			not (t.source.oclIsUndefined() or t.target.oclIsUndefined()) and not t.condition.isSingleEvent()
 		)
 	in
-		handled_events -> collect(t | thisModule.EventTransition(self, t.debug('processing et ')))
-		-> append(handled_props -> collect(t | thisModule.PropagationTransition(self, t.debug('processing pt '))))
+		handled_events -> collect(t | thisModule.EventTransition(self, t))
+		-> append(handled_props -> collect(t | thisModule.PropagationTransition(self, t)))
 		-> flatten()
 	;
 
@@ -360,8 +364,8 @@ lazy rule EventTransition {
 		et: EMV2!ErrorBehaviorTransition
 	to
 		lt: AR!LabeledTransition (
-			event <- let event: AR!Event = thisModule.Event(ci, et.condition.qualifiedErrorPropagationReference.emv2Target.namedElement.debug('ne ')) in
-					thisModule.LeafNameRef(event),
+			event <- let event: AR!Event = thisModule.Event(ci, et.condition.qualifiedErrorPropagationReference.emv2Target.namedElement) in
+					event.ref(),
 			expression <- te
 		),
 		te: AR!Transition (
@@ -369,13 +373,13 @@ lazy rule EventTransition {
 			action <- a
 		),
 		g: AR!Equal (
-			left <- thisModule.LeafNameRef(thisModule.State(ci)).debug('guard state '),
+			left <- thisModule.State(ci).ref(),
 			op <- '=',
-			right <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.source)).debug('guard symbol ')
+			right <- thisModule.StateSymbol(ci.classifier, et.source).ref()
 		),
 		a: AR!Assignment (
-			variable <- thisModule.LeafNameRef(thisModule.State(ci)).debug('assign state '),
-			value <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.target)).debug('assign symbol ')
+			variable <- thisModule.State(ci).ref(),
+			value <- thisModule.StateSymbol(ci.classifier, et.target).ref()
 		)
 }
 
@@ -386,8 +390,7 @@ lazy rule PropagationTransition {
 		et: EMV2!ErrorBehaviorTransition
 	to
 		lt: AR!LabeledTransition (
-			event <- let event: AR!Event = thisModule.ImmediateEvent(ci) in
-					thisModule.LeafNameRef(event),
+			event <- thisModule.ImmediateEvent(ci).ref(),
 			expression <- te
 		),
 		te: AR!Transition (
@@ -395,13 +398,13 @@ lazy rule PropagationTransition {
 			action <- a
 		),
 		g: AR!Equal (
-			left <- thisModule.LeafNameRef(thisModule.State(ci)).debug('guard state '),
+			left <- thisModule.State(ci).ref(),
 			op <- '=',
-			right <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.source)).debug('guard symbol ')
+			right <- thisModule.StateSymbol(ci.classifier, et.source).ref()
 		),
 		a: AR!Assignment (
-			variable <- thisModule.LeafNameRef(thisModule.State(ci)).debug('assign state '),
-			value <- thisModule.LeafNameRef(thisModule.StateSymbol(ci.classifier, et.target)).debug('assign symbol ')
+			variable <- thisModule.State(ci).ref(),
+			value <- thisModule.StateSymbol(ci.classifier, et.target).ref()
 		)
 }
 
@@ -461,12 +464,15 @@ lazy rule NameRef {
 			nested <-
 					let parent: AADL!ComponentInstance = owner.refImmediateComposite() in
 					if parent = upto then		
-						thisModule.LeafNameRef(owner.nodeInstance)
+						owner.nodeInstance.ref()
 					else
 						thisModule.NameRef(owner.nodeInstance, parent)
 					endif
 		)
 }
+
+helper context AR!NamedElement def: ref(): AR!NameRef =
+	thisModule.LeafNameRef(self);
 
 lazy rule LeafNameRef {
 	from
@@ -476,4 +482,3 @@ lazy rule LeafNameRef {
 			variable <- var
 		)
 }
-
