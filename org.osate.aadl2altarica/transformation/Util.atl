@@ -50,19 +50,24 @@ helper context AADL2!Classifier def: errorTransitions(): Collection(EMV2!ErrorBe
 		'getAllErrorBehaviorTransitions', Sequence{self}
 	);
 
-helper context EMV2!ErrorPropagation def: name() : String =
+helper context EMV2!ErrorPropagation def: name(): String =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getPropagationName', Sequence{self}
 	);
 
-helper context AADL2!NamedElement def: name() : String =
+helper context AADL2!NamedElement def: name(): String =
 	self.getName();
 
-helper context EMV2!ErrorPropagation def: containingClassifier() : AADL2!ComponentClassifier =
+helper context EMV2!ErrorPropagation def: containingClassifier(): AADL2!ComponentClassifier =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAssociatedClassifier', Sequence{self}
 	);
 	
+--- Get the leaf error tokens associated with an error propagation
+helper context EMV2!ErrorPropagation def: leafTokens(): Sequence(EMV2!TypeToken) =
+	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
+	self.typeSet.leafTypeTokens(usedTypes);
+
 helper context EMV2!TypeToken def: name() : String =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getName', Sequence{self}

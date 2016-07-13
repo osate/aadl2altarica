@@ -312,17 +312,13 @@ unique lazy rule FlowDomain {
 
 helper def: domainCount: Integer = 0;
 
---- Get the leaf error tokens associated with an error propagation
-helper context EMV2!ErrorPropagation def: leafTokens(): Sequence(EMV2!TypeToken) =
-	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
-	self.typeSet.leafTypeTokens(usedTypes);
-
 --- Create the symbols for the domain of the error propagation
 helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
-	self.leafTokens() -> collect(t | thisModule.SymbolicConstant(t));
+	self.leafTokens() -> collect(t | thisModule.SymbolicConstant(self, t));
 	
-lazy rule SymbolicConstant {
+unique lazy rule SymbolicConstant {
 	from
+		prop: EMV2!ErrorPropagation,
 		token: EMV2!TypeToken
 	to 
 		const: AR!SymbolicConstant (
