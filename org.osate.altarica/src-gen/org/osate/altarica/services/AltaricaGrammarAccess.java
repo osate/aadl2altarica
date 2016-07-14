@@ -70,13 +70,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cConstantsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
 		private final RuleCall cConstantsSymbolicConstantParserRuleCall_4_1_1_0 = (RuleCall)cConstantsAssignment_4_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
-		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//Domain returns NamedElement:
-		//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}" ";";
+		//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}" ";"
+		//{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}"
 		public Group getGroup() { return cGroup; }
 
 		//{Domain}
@@ -117,9 +116,6 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"}"
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
-
-		//";"
-		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class SymbolicConstantElements extends AbstractParserRuleElementFinder {
@@ -1074,7 +1070,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Action cEqualLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
 		private final Assignment cOpAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
 		private final Alternatives cOpAlternatives_1_0_1_0 = (Alternatives)cOpAssignment_1_0_1.eContents().get(0);
-		private final Keyword cOpEqualsSignKeyword_1_0_1_0_0 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(0);
+		private final Keyword cOpEqualsSignEqualsSignKeyword_1_0_1_0_0 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(0);
 		private final Keyword cOpExclamationMarkEqualsSignKeyword_1_0_1_0_1 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(1);
 		private final Keyword cOpLessThanSignKeyword_1_0_1_0_2 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(2);
 		private final Keyword cOpLessThanSignEqualsSignKeyword_1_0_1_0_3 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(3);
@@ -1084,32 +1080,32 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cRightAdditionParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
 		//Relation returns Expression:
-		//	Addition => ({Equal.left=current} op=("=" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*;
+		//	Addition => ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Addition => ({Equal.left=current} op=("=" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*
+		//Addition => ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*
 		public Group getGroup() { return cGroup; }
 
 		//Addition
 		public RuleCall getAdditionParserRuleCall_0() { return cAdditionParserRuleCall_0; }
 
-		//=> ({Equal.left=current} op=("=" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*
+		//=> ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{Equal.left=current} op=("=" | "!=" | "<" | "<=" | ">=" | ">") right=Addition
+		//{Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{Equal.left=current}
 		public Action getEqualLeftAction_1_0_0() { return cEqualLeftAction_1_0_0; }
 
-		//op=("=" | "!=" | "<" | "<=" | ">=" | ">")
+		//op=("==" | "!=" | "<" | "<=" | ">=" | ">")
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"=" | "!=" | "<" | "<=" | ">=" | ">"
+		//"==" | "!=" | "<" | "<=" | ">=" | ">"
 		public Alternatives getOpAlternatives_1_0_1_0() { return cOpAlternatives_1_0_1_0; }
 
-		//"="
-		public Keyword getOpEqualsSignKeyword_1_0_1_0_0() { return cOpEqualsSignKeyword_1_0_1_0_0; }
+		//"=="
+		public Keyword getOpEqualsSignEqualsSignKeyword_1_0_1_0_0() { return cOpEqualsSignEqualsSignKeyword_1_0_1_0_0; }
 
 		//"!="
 		public Keyword getOpExclamationMarkEqualsSignKeyword_1_0_1_0_1() { return cOpExclamationMarkEqualsSignKeyword_1_0_1_0_1; }
@@ -1620,7 +1616,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Domain returns NamedElement:
-	//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}" ";";
+	//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}";
 	public DomainElements getDomainAccess() {
 		return pDomain;
 	}
@@ -1886,7 +1882,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Relation returns Expression:
-	//	Addition => ({Equal.left=current} op=("=" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*;
+	//	Addition => ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*;
 	public RelationElements getRelationAccess() {
 		return pRelation;
 	}

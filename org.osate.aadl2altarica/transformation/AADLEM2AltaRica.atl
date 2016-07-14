@@ -377,13 +377,8 @@ lazy rule EventTransition {
 			expression <- te
 		),
 		te: AR!Transition (
-			guard <- g,
+			guard <- thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, et.source)),
 			action <- a
-		),
-		g: AR!Equal (
-			left <- thisModule.State(ci).ref(),
-			op <- '=',
-			right <- thisModule.StateSymbol(ci.classifier, et.source).ref()
 		),
 		a: AR!Assignment (
 			variable <- thisModule.State(ci).ref(),
@@ -519,7 +514,7 @@ lazy rule Equal {
 	to
 		eq: AR!Equal (
 			left <- inflow.ref(),
-			op <- '=',
+			op <- '==',
 			right <- value.ref()
 		)
 }

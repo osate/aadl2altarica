@@ -233,10 +233,6 @@ ruleDomain returns [EObject current=null]
     {
     	newLeafNode(otherlv_7, grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_5());
     }
-	otherlv_8=';' 
-    {
-    	newLeafNode(otherlv_8, grammarAccess.getDomainAccess().getSemicolonKeyword_6());
-    }
 )
 ;
 
@@ -1917,7 +1913,7 @@ ruleRelation returns [EObject current=null]
 )(
 (
 (
-	'=' 
+	'==' 
  
 
     |			'!=' 
@@ -1951,9 +1947,9 @@ ruleAddition
 )(
 (
 (
-		lv_op_2_1=	'=' 
+		lv_op_2_1=	'==' 
     {
-        newLeafNode(lv_op_2_1, grammarAccess.getRelationAccess().getOpEqualsSignKeyword_1_0_1_0_0());
+        newLeafNode(lv_op_2_1, grammarAccess.getRelationAccess().getOpEqualsSignEqualsSignKeyword_1_0_1_0_0());
     }
  
 	    {

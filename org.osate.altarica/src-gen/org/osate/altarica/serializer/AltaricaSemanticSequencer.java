@@ -450,7 +450,7 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     (
 	 *         left=Relation_Equal_1_0_0 
 	 *         (
-	 *             op='=' | 
+	 *             op='==' | 
 	 *             op='!=' | 
 	 *             op='<' | 
 	 *             op='<=' | 

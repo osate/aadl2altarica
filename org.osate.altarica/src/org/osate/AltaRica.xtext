@@ -12,7 +12,7 @@ AbstractDeclaration:
 
 Domain returns NamedElement:
 	{Domain}
-	'domain' name=ID '{' ( constants+=SymbolicConstant (',' constants+=SymbolicConstant)* )? '}' ';';
+	'domain' name=ID '{' ( constants+=SymbolicConstant (',' constants+=SymbolicConstant)* )? '}';
 
 SymbolicConstant returns NamedElement:
 	{SymbolicConstant} name=ID;
@@ -152,7 +152,7 @@ Logical returns Expression:
 ;
 
 Relation returns Expression:
-	Addition =>({Equal.left=current} op=('='|'!=' | '<' | '<=' | '>=' | '>') right=Addition)*
+	Addition =>({Equal.left=current} op=('=='|'!=' | '<' | '<=' | '>=' | '>') right=Addition)*
 ;
 
 Addition returns Expression:

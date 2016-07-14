@@ -27,6 +27,9 @@ class AltaricaFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap(0, 1, 2).before(SL_COMMENTRule)
 		c.setLinewrap(0, 1, 2).before(ML_COMMENTRule)
 		c.setLinewrap(0, 1, 1).after(ML_COMMENTRule)
+		
+		c.setAutoLinewrap(120);
+		c.setWrappedLineIndentation(2);
 
 		// find common keywords an specify formatting for them
 		findKeywordPairs("(", ")").forEach [ pair |
@@ -52,6 +55,7 @@ class AltaricaFormatter extends AbstractDeclarativeFormatter {
 			c.setIndentationDecrement().before(pair.second)
 			c.setNoSpace().before(pair.second)
 			c.setLinewrap(0, 0, 1).before(pair.second)
+			c.setLinewrap(1, 1, 2).after(pair.second)
 		]
 		findKeywords(",").forEach [ comma |
 			c.setNoSpace().before(comma)
