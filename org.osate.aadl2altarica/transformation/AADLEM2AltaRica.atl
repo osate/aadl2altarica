@@ -549,11 +549,11 @@ lazy rule BaseType {
 		)
 }
 
-
+--- Create assertions from out propagations
 helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
 	Sequence{};
 
--- external assertions (at same level as connection, or at top level for bindings)
+--- Create external assertions from error propagation paths (at same level as connection, or at top level for bindings)
 helper context AADL!ComponentInstance def: externalAssertions(): Sequence(AR!Instruction) =
 	if thisModule.ci2paths.getKeys() -> includes(self) then 
 		thisModule.ci2paths.get(self) -> select(pp | not pp.isConnectionBindingPath()) -> collect(pp | pp.makeAssertion())
