@@ -238,13 +238,19 @@ unique lazy rule OutFlow {
 	}
 }
 
---- Return a reference to the no_error symbol for this out(!) propagation
+--- Return the no_error symbol for this out(!) propagation
 helper context EMV2!ErrorPropagation def: noError: AR!SymbolicConstant =
 	thisModule.NoError(thisModule.FlowDomain(self));
 
---- Return a reference to the no_error symbol for this in(!) flow
+--- Return the no_error symbol for this in(!) flow
 helper context AR!Variable def: noError: AR!SymbolicConstant =
-	thisModule.NoError(thisModule.FlowDomain(thisModule.inFlow2srcProp.get(self))).debug();
+	let srcProp: EMV2!ErrorPropagation = thisModule.inFlow2srcProp.get(self) in
+	srcProp.noError;
+
+--- Return the symbolic constant corresponding to the given token for this in(!) flow
+helper context AR!Variable def: constant(token: EMV2!TypeToken): AR!SymbolicConstant =
+	let srcProp: EMV2!ErrorPropagation = thisModule.inFlow2srcProp.get(self) in
+	srcProp.getSymbol(token);
 
 --- Map to keep track of propagations used to create the domain for incoming flow variables
 helper def: inFlow2srcProp: Map(AR!Variable, EMV2!ErrorPropagation) = Map{};
@@ -274,7 +280,7 @@ unique lazy rule InFlow {
 			thisModule.ep2flows <:= thisModule.ep2flows -> 
 					including(Tuple{io = ci, prop = prop}, Sequence{flow});
 		}
-		thisModule.inFlow2srcProp <:= thisModule.inFlow2srcProp -> including(flow, srcProp).debug('XXX');
+		thisModule.inFlow2srcProp <:= thisModule.inFlow2srcProp -> including(flow, srcProp);
 		thisModule.inCount <:= count + 1;
 		flow;
 	}
@@ -314,15 +320,18 @@ helper def: domainCount: Integer = 0;
 
 --- Create the symbols for the domain of the error propagation
 helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
-	self.leafTokens() -> collect(t | thisModule.SymbolicConstant(self, t));
+	self.leafTokens() -> collect(t | self.getSymbol(t));
+	
+helper context EMV2!ErrorPropagation def: getSymbol(token: EMV2!TypeToken): AR!SymbolicConstant =
+	thisModule.SymbolicConstant(self, token.name());
 	
 unique lazy rule SymbolicConstant {
 	from
 		prop: EMV2!ErrorPropagation,
-		token: EMV2!TypeToken
+		name: String
 	to 
 		const: AR!SymbolicConstant (
-			name <- '\'' + token.name() + '\''
+			name <- name
 		)
 }
 
@@ -397,11 +406,6 @@ lazy rule PropagationTransition {
 			guard <- ci.guardExpression(et),
 			action <- a
 		),
---		g: AR!Equal (
---			left <- thisModule.State(ci).ref(),
---			op <- '=',
---			right <- thisModule.StateSymbol(ci.classifier, et.source).ref()
---		),
 		a: AR!Assignment (
 			variable <- thisModule.State(ci).ref(),
 			value <- thisModule.StateSymbol(ci.classifier, et.target).ref()
@@ -409,10 +413,59 @@ lazy rule PropagationTransition {
 }
 
 helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehaviorTransition): AR!Expression =
-	let inProp: EMV2!ErrorPropagation = et.condition.qualifiedErrorPropagationReference.emv2Target.namedElement in
-	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations() in -- -> excluding(inProp) in
-	self.allNoError(otherProps);
+	let condition: EMV2!ConditionElement = et.condition in
+	let inProp: EMV2!ErrorPropagation = condition.qualifiedErrorPropagationReference.errorPropagation in
+	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations() -> excluding(inProp) in
+	let propGuard: AR!Expression = self.inPropGuard(condition, inProp) in
+	if otherProps.isEmpty() then
+		propGuard
+	else
+		thisModule.And(propGuard, self.allNoError(otherProps))
+	endif;
 
+--- Create a guard expression fragment from an in propagation
+helper context AADL!ComponentInstance def: inPropGuard(condition: EMV2!ConditionElement, inProp: EMV2!ErrorPropagation): AR!Expression =
+	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = inProp}) in
+	condition.orOfFlows(inFlows);
+
+helper context EMV2!ConditionElement def: orOfFlows(flows: Sequence(AR!Variable)): AR!Expression =
+	let head: AR!Variable = flows->at(1) in
+	let constants: Sequence(AR!SymbolicConstant) = 
+		self.leafTokens()
+		->collect(t | head.constant(t))
+		->select(c | not c.oclIsUndefined()) in
+	let exp: AR!Expression = head.orOfConstants(constants) in
+	if flows->size() = 1 then
+		exp
+	else
+		let tailExp: AR!Expression = self.orOfFlows(flows->tail()) in
+		if exp.oclIsUndefined() then
+			tailExp
+		else
+			thisModule.Or(exp, tailExp)
+		endif
+	endif;
+
+helper context AR!Variable def: orOfConstants(constants: Sequence(AR!SymbolicConstant)): AR!Expression =
+	if constants->isEmpty() then
+		let flow: AR!Variable = self in
+		thisModule.NotEqual(self, flow.noError) 
+	else 
+		let head: AR!SymbolicConstant = constants->at(1) in
+		let exp: AR!Expression = thisModule.Equal(self, head) in
+		if constants->size() <= 1 then
+			exp
+		else
+			let tailExp: AR!Expression = self.orOfConstants(constants->tail()) in
+			if exp.oclIsUndefined() then
+				tailExp
+			else
+				thisModule.Or(exp, tailExp)
+			endif
+		endif
+	endif;
+
+--- Create a guard expression fragment for a set of in propagations that must be error free
 helper context AADL!ComponentInstance def: allNoError(eps: Sequence(EMV2!ErrorPropagation)): AR!Expression =
 	let head: EMV2!ErrorPropagation = eps -> first() in
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = head}) in
@@ -424,7 +477,7 @@ helper context AADL!ComponentInstance def: allNoError(eps: Sequence(EMV2!ErrorPr
 	endif;
 	
 helper def: allNoError(flows: Sequence(AR!Variable)): AR!Expression =
-	let head: AR!Variable = flows->at(1) in
+	let head: AR!Variable = flows->at(1) in -- ATL bug: first() throws exception
 	let exp: AR!Expression = thisModule.Equal(head, head.noError) in
 	if flows -> size() = 1 then
 		exp
@@ -467,6 +520,18 @@ lazy rule Equal {
 		eq: AR!Equal (
 			left <- inflow.ref(),
 			op <- '=',
+			right <- value.ref()
+		)
+}
+
+lazy rule NotEqual {
+	from
+		inflow: AR!Variable,
+		value: AR!SymbolicConstant
+	to
+		eq: AR!Equal (
+			left <- inflow.ref(),
+			op <- '!=',
 			right <- value.ref()
 		)
 }

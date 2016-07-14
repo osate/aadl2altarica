@@ -58,7 +58,7 @@ helper context EMV2!ErrorPropagation def: name(): String =
 helper context AADL2!NamedElement def: name(): String =
 	self.getName();
 
-helper context EMV2!ErrorPropagation def: containingClassifier(): AADL2!ComponentClassifier =
+helper context AADL2!Element def: containingClassifier(): AADL2!ComponentClassifier =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAssociatedClassifier', Sequence{self}
 	);
@@ -77,6 +77,19 @@ helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorMod
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EM2TypeSetUtil".refInvokeStaticOperation(
 		'generateAllLeafTypeTokens', Sequence{self, useTypes}
 	);
+
+helper context EMV2!EMV2Path def: errorPropagation: EMV2!ErrorPropagation =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getErrorPropagation', Sequence{self}
+	);
+
+helper context EMV2!ConditionElement def: leafTokens(): Sequence(EMV2!TypeToken) =
+	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
+	if self.constraint.oclIsUndefined() then
+		Sequence{}
+	else
+		self.constraint.leafTypeTokens(usedTypes)
+	endif;
 
 helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel" =
 	let si: AADL!SystemInstance = AADL!SystemInstance.allInstances() -> asSequence() -> first() in
