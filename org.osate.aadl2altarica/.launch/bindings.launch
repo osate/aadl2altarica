@@ -9,7 +9,7 @@
 <mapAttribute key="Inout Models Output Locations"/>
 <mapAttribute key="Input Model Options"/>
 <mapAttribute key="Input Models">
-<mapEntry key="IN" value="platform:/resource/AADL2AR_Examples/aadl/instances/ex1_X_i_Instance.aaxl2"/>
+<mapEntry key="IN" value="platform:/resource/AADL2AR_Examples/aadl/instances/bindings_S_i_Instance.aaxl2"/>
 </mapAttribute>
 <mapAttribute key="Metamodel Options"/>
 <mapAttribute key="Metamodels">
@@ -24,7 +24,7 @@
 <mapEntry key="OUT" value="allowIntermodelReferences"/>
 </mapAttribute>
 <mapAttribute key="Output Models">
-<mapEntry key="OUT" value="platform:/resource/AADL2AR_Examples/aadl/instances/ex1_X_i_Instance.altarica"/>
+<mapEntry key="OUT" value="platform:/resource/AADL2AR_Examples/aadl/instances/test.altarica"/>
 </mapAttribute>
 <listAttribute key="Superimpose">
 <listEntry value="//org.osate.aadl2altarica/transformation/Util.asm"/>
