@@ -78,10 +78,32 @@ helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorMod
 		'generateAllLeafTypeTokens', Sequence{self, useTypes}
 	);
 
-helper context EMV2!EMV2Path def: errorPropagation: EMV2!ErrorPropagation =
+helper context EMV2!ErrorBehaviorTransition def: conditionElements: EMV2!ErrorPropagation =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
-		'getErrorPropagation', Sequence{self}
+		'getAllConditionElementsFromConditionExpression', Sequence{self}
 	);
+
+helper context EMV2!ConditionElement def: getErrorPropagation(): EMV2!ErrorPropagation =
+	let ne: AADL2!NamedElement = self.namedElement in
+	if ne.oclIsTypeOf(EMV2!ErrorPropagation) then
+		ne
+	else
+		OclUndefined
+	endif;
+
+helper context EMV2!ConditionElement def: getErrorEvent(): EMV2!ErrorEvent =
+	let ne: AADL2!NamedElement = self.namedElement in
+	if ne.oclIsTypeOf(EMV2!ErrorEvent) then
+		ne
+	else
+		OclUndefined
+	endif;
+
+helper context EMV2!ConditionElement def: namedElement: AADL2!NamedElement =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getErrorModelElement', Sequence{self}
+	);
+
 
 helper context EMV2!ConditionElement def: leafTokens(): Sequence(EMV2!TypeToken) =
 	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
@@ -90,6 +112,11 @@ helper context EMV2!ConditionElement def: leafTokens(): Sequence(EMV2!TypeToken)
 	else
 		self.constraint.leafTypeTokens(usedTypes)
 	endif;
+
+helper context EMV2!EMV2Path def: errorPropagation: EMV2!ErrorPropagation =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getErrorPropagation', Sequence{self}
+	);
 
 helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel" =
 	let si: AADL!SystemInstance = AADL!SystemInstance.allInstances() -> asSequence() -> first() in
@@ -126,6 +153,14 @@ helper def: systemInstance: AADL!SystemInstance = AADL!SystemInstance.allInstanc
 -- Force evaluation of a lazy collection by getting its size
 helper context Collection(OclAny) def: force(): Collection(OclAny) =
 	let i: Integer = self.size() in self;
+
+--- Remove all elements of a sequence from this sequence
+helper context Sequence(OclAny) def: removeAll(toRemove: Sequence(OclAny)): Sequence(OclAny) =
+	if toRemove.isEmpty() then
+		self
+	else
+		self->excluding(toRemove->first())->removeAll(toRemove->excluding(toRemove->first()))
+	endif;
 
 -- Replace invalid characters in identifier with '_'
 helper context String def: normalizeId(): String =
