@@ -144,11 +144,15 @@ CaseExpression:
 // ========== Expressions ==========
 
 Expression:
-	Logical
+	LogicalOr
 ;
 	
-Logical returns Expression:
-	Relation =>({Logical.left=current} op=('and' | 'or') right=Relation)*
+LogicalOr returns Expression:
+	LogicalAnd =>({LogicalOr.left=current} op='or' right=LogicalAnd)*
+;
+
+LogicalAnd returns Expression:
+	Relation =>({LogicalAnd.left=current} op='and' right=Relation)*
 ;
 
 Relation returns Expression:

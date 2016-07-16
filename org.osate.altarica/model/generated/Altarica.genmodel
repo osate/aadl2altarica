@@ -104,10 +104,15 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Conditional/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Conditional/then"/>
     </genClasses>
-    <genClasses ecoreClass="Altarica.ecore#//Logical">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Logical/left"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//Logical/op"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Logical/right"/>
+    <genClasses ecoreClass="Altarica.ecore#//LogicalOr">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//LogicalOr/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//LogicalOr/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//LogicalOr/right"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//LogicalAnd">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//LogicalAnd/left"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//LogicalAnd/op"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//LogicalAnd/right"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Equal">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Equal/left"/>

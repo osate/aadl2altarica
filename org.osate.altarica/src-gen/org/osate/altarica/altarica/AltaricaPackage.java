@@ -1133,14 +1133,14 @@ public interface AltaricaPackage extends EPackage
   int CONDITIONAL_FEATURE_COUNT = INSTRUCTION_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.osate.altarica.altarica.impl.LogicalImpl <em>Logical</em>}' class.
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.LogicalOrImpl <em>Logical Or</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.altarica.altarica.impl.LogicalImpl
-   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogical()
+   * @see org.osate.altarica.altarica.impl.LogicalOrImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalOr()
    * @generated
    */
-  int LOGICAL = 31;
+  int LOGICAL_OR = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1149,7 +1149,7 @@ public interface AltaricaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+  int LOGICAL_OR__LEFT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Op</b></em>' attribute.
@@ -1158,7 +1158,7 @@ public interface AltaricaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL__OP = EXPRESSION_FEATURE_COUNT + 1;
+  int LOGICAL_OR__OP = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The feature id for the '<em><b>Right</b></em>' containment reference.
@@ -1167,16 +1167,62 @@ public interface AltaricaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LOGICAL__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+  int LOGICAL_OR__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
-   * The number of structural features of the '<em>Logical</em>' class.
+   * The number of structural features of the '<em>Logical Or</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LOGICAL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+  int LOGICAL_OR_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
+
+  /**
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.LogicalAndImpl <em>Logical And</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.altarica.altarica.impl.LogicalAndImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalAnd()
+   * @generated
+   */
+  int LOGICAL_AND = 32;
+
+  /**
+   * The feature id for the '<em><b>Left</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND__LEFT = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Op</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND__OP = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Right</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND__RIGHT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Logical And</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LOGICAL_AND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 3;
 
   /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.EqualImpl <em>Equal</em>}' class.
@@ -1186,7 +1232,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEqual()
    * @generated
    */
-  int EQUAL = 32;
+  int EQUAL = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1232,7 +1278,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 33;
+  int ADDITION = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1278,7 +1324,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 34;
+  int MULTIPLICATION = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1324,7 +1370,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 35;
+  int NOT = 36;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1352,7 +1398,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 36;
+  int MINUS = 37;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1380,7 +1426,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBaseTypeEnum()
    * @generated
    */
-  int BASE_TYPE_ENUM = 37;
+  int BASE_TYPE_ENUM = 38;
 
 
   /**
@@ -2112,47 +2158,90 @@ public interface AltaricaPackage extends EPackage
   EReference getConditional_Then();
 
   /**
-   * Returns the meta object for class '{@link org.osate.altarica.altarica.Logical <em>Logical</em>}'.
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.LogicalOr <em>Logical Or</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Logical</em>'.
-   * @see org.osate.altarica.altarica.Logical
+   * @return the meta object for class '<em>Logical Or</em>'.
+   * @see org.osate.altarica.altarica.LogicalOr
    * @generated
    */
-  EClass getLogical();
+  EClass getLogicalOr();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.Logical#getLeft <em>Left</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.LogicalOr#getLeft <em>Left</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Left</em>'.
-   * @see org.osate.altarica.altarica.Logical#getLeft()
-   * @see #getLogical()
+   * @see org.osate.altarica.altarica.LogicalOr#getLeft()
+   * @see #getLogicalOr()
    * @generated
    */
-  EReference getLogical_Left();
+  EReference getLogicalOr_Left();
 
   /**
-   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.Logical#getOp <em>Op</em>}'.
+   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.LogicalOr#getOp <em>Op</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Op</em>'.
-   * @see org.osate.altarica.altarica.Logical#getOp()
-   * @see #getLogical()
+   * @see org.osate.altarica.altarica.LogicalOr#getOp()
+   * @see #getLogicalOr()
    * @generated
    */
-  EAttribute getLogical_Op();
+  EAttribute getLogicalOr_Op();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.Logical#getRight <em>Right</em>}'.
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.LogicalOr#getRight <em>Right</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Right</em>'.
-   * @see org.osate.altarica.altarica.Logical#getRight()
-   * @see #getLogical()
+   * @see org.osate.altarica.altarica.LogicalOr#getRight()
+   * @see #getLogicalOr()
    * @generated
    */
-  EReference getLogical_Right();
+  EReference getLogicalOr_Right();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.LogicalAnd <em>Logical And</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Logical And</em>'.
+   * @see org.osate.altarica.altarica.LogicalAnd
+   * @generated
+   */
+  EClass getLogicalAnd();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.LogicalAnd#getLeft <em>Left</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Left</em>'.
+   * @see org.osate.altarica.altarica.LogicalAnd#getLeft()
+   * @see #getLogicalAnd()
+   * @generated
+   */
+  EReference getLogicalAnd_Left();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.LogicalAnd#getOp <em>Op</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Op</em>'.
+   * @see org.osate.altarica.altarica.LogicalAnd#getOp()
+   * @see #getLogicalAnd()
+   * @generated
+   */
+  EAttribute getLogicalAnd_Op();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.LogicalAnd#getRight <em>Right</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Right</em>'.
+   * @see org.osate.altarica.altarica.LogicalAnd#getRight()
+   * @see #getLogicalAnd()
+   * @generated
+   */
+  EReference getLogicalAnd_Right();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Equal <em>Equal</em>}'.
@@ -2973,14 +3062,14 @@ public interface AltaricaPackage extends EPackage
     EReference CONDITIONAL__THEN = eINSTANCE.getConditional_Then();
 
     /**
-     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.LogicalImpl <em>Logical</em>}' class.
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.LogicalOrImpl <em>Logical Or</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.altarica.altarica.impl.LogicalImpl
-     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogical()
+     * @see org.osate.altarica.altarica.impl.LogicalOrImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalOr()
      * @generated
      */
-    EClass LOGICAL = eINSTANCE.getLogical();
+    EClass LOGICAL_OR = eINSTANCE.getLogicalOr();
 
     /**
      * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
@@ -2988,7 +3077,7 @@ public interface AltaricaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOGICAL__LEFT = eINSTANCE.getLogical_Left();
+    EReference LOGICAL_OR__LEFT = eINSTANCE.getLogicalOr_Left();
 
     /**
      * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
@@ -2996,7 +3085,7 @@ public interface AltaricaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LOGICAL__OP = eINSTANCE.getLogical_Op();
+    EAttribute LOGICAL_OR__OP = eINSTANCE.getLogicalOr_Op();
 
     /**
      * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
@@ -3004,7 +3093,41 @@ public interface AltaricaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference LOGICAL__RIGHT = eINSTANCE.getLogical_Right();
+    EReference LOGICAL_OR__RIGHT = eINSTANCE.getLogicalOr_Right();
+
+    /**
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.LogicalAndImpl <em>Logical And</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.altarica.altarica.impl.LogicalAndImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalAnd()
+     * @generated
+     */
+    EClass LOGICAL_AND = eINSTANCE.getLogicalAnd();
+
+    /**
+     * The meta object literal for the '<em><b>Left</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_AND__LEFT = eINSTANCE.getLogicalAnd_Left();
+
+    /**
+     * The meta object literal for the '<em><b>Op</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute LOGICAL_AND__OP = eINSTANCE.getLogicalAnd_Op();
+
+    /**
+     * The meta object literal for the '<em><b>Right</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LOGICAL_AND__RIGHT = eINSTANCE.getLogicalAnd_Right();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.EqualImpl <em>Equal</em>}' class.

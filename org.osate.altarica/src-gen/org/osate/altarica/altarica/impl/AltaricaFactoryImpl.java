@@ -96,7 +96,8 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.ASSIGNMENT: return createAssignment();
       case AltaricaPackage.BLOCK: return createBlock();
       case AltaricaPackage.CONDITIONAL: return createConditional();
-      case AltaricaPackage.LOGICAL: return createLogical();
+      case AltaricaPackage.LOGICAL_OR: return createLogicalOr();
+      case AltaricaPackage.LOGICAL_AND: return createLogicalAnd();
       case AltaricaPackage.EQUAL: return createEqual();
       case AltaricaPackage.ADDITION: return createAddition();
       case AltaricaPackage.MULTIPLICATION: return createMultiplication();
@@ -487,10 +488,21 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Logical createLogical()
+  public LogicalOr createLogicalOr()
   {
-    LogicalImpl logical = new LogicalImpl();
-    return logical;
+    LogicalOrImpl logicalOr = new LogicalOrImpl();
+    return logicalOr;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public LogicalAnd createLogicalAnd()
+  {
+    LogicalAndImpl logicalAnd = new LogicalAndImpl();
+    return logicalAnd;
   }
 
   /**

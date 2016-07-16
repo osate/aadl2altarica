@@ -41,7 +41,6 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getTypeAccess().getAlternatives(), "rule__Type__Alternatives");
 					put(grammarAccess.getDeclarationAccess().getAlternatives(), "rule__Declaration__Alternatives");
 					put(grammarAccess.getInstructionAccess().getAlternatives(), "rule__Instruction__Alternatives");
-					put(grammarAccess.getLogicalAccess().getOpAlternatives_1_0_1_0(), "rule__Logical__OpAlternatives_1_0_1_0");
 					put(grammarAccess.getRelationAccess().getOpAlternatives_1_0_1_0(), "rule__Relation__OpAlternatives_1_0_1_0");
 					put(grammarAccess.getAdditionAccess().getOpAlternatives_1_0_1_0(), "rule__Addition__OpAlternatives_1_0_1_0");
 					put(grammarAccess.getMultiplicationAccess().getOpAlternatives_1_0_1_0(), "rule__Multiplication__OpAlternatives_1_0_1_0");
@@ -78,9 +77,12 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getConditionalAccess().getGroup_5(), "rule__Conditional__Group_5__0");
 					put(grammarAccess.getSwitchAccess().getGroup(), "rule__Switch__Group__0");
 					put(grammarAccess.getCaseExpressionAccess().getGroup(), "rule__CaseExpression__Group__0");
-					put(grammarAccess.getLogicalAccess().getGroup(), "rule__Logical__Group__0");
-					put(grammarAccess.getLogicalAccess().getGroup_1(), "rule__Logical__Group_1__0");
-					put(grammarAccess.getLogicalAccess().getGroup_1_0(), "rule__Logical__Group_1_0__0");
+					put(grammarAccess.getLogicalOrAccess().getGroup(), "rule__LogicalOr__Group__0");
+					put(grammarAccess.getLogicalOrAccess().getGroup_1(), "rule__LogicalOr__Group_1__0");
+					put(grammarAccess.getLogicalOrAccess().getGroup_1_0(), "rule__LogicalOr__Group_1_0__0");
+					put(grammarAccess.getLogicalAndAccess().getGroup(), "rule__LogicalAnd__Group__0");
+					put(grammarAccess.getLogicalAndAccess().getGroup_1(), "rule__LogicalAnd__Group_1__0");
+					put(grammarAccess.getLogicalAndAccess().getGroup_1_0(), "rule__LogicalAnd__Group_1_0__0");
 					put(grammarAccess.getRelationAccess().getGroup(), "rule__Relation__Group__0");
 					put(grammarAccess.getRelationAccess().getGroup_1(), "rule__Relation__Group_1__0");
 					put(grammarAccess.getRelationAccess().getGroup_1_0(), "rule__Relation__Group_1_0__0");
@@ -138,8 +140,10 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSwitchAccess().getElseAssignment_5(), "rule__Switch__ElseAssignment_5");
 					put(grammarAccess.getCaseExpressionAccess().getConditionAssignment_0(), "rule__CaseExpression__ConditionAssignment_0");
 					put(grammarAccess.getCaseExpressionAccess().getThenAssignment_2(), "rule__CaseExpression__ThenAssignment_2");
-					put(grammarAccess.getLogicalAccess().getOpAssignment_1_0_1(), "rule__Logical__OpAssignment_1_0_1");
-					put(grammarAccess.getLogicalAccess().getRightAssignment_1_0_2(), "rule__Logical__RightAssignment_1_0_2");
+					put(grammarAccess.getLogicalOrAccess().getOpAssignment_1_0_1(), "rule__LogicalOr__OpAssignment_1_0_1");
+					put(grammarAccess.getLogicalOrAccess().getRightAssignment_1_0_2(), "rule__LogicalOr__RightAssignment_1_0_2");
+					put(grammarAccess.getLogicalAndAccess().getOpAssignment_1_0_1(), "rule__LogicalAnd__OpAssignment_1_0_1");
+					put(grammarAccess.getLogicalAndAccess().getRightAssignment_1_0_2(), "rule__LogicalAnd__RightAssignment_1_0_2");
 					put(grammarAccess.getRelationAccess().getOpAssignment_1_0_1(), "rule__Relation__OpAssignment_1_0_1");
 					put(grammarAccess.getRelationAccess().getRightAssignment_1_0_2(), "rule__Relation__RightAssignment_1_0_2");
 					put(grammarAccess.getAdditionAccess().getOpAssignment_1_0_1(), "rule__Addition__OpAssignment_1_0_1");

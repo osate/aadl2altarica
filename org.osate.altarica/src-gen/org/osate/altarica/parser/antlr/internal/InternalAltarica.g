@@ -1771,11 +1771,11 @@ ruleExpression returns [EObject current=null]
     @after { leaveRule(); }:
 
     { 
-        newCompositeNode(grammarAccess.getExpressionAccess().getLogicalParserRuleCall()); 
+        newCompositeNode(grammarAccess.getExpressionAccess().getLogicalOrParserRuleCall()); 
     }
-    this_Logical_0=ruleLogical
+    this_LogicalOr_0=ruleLogicalOr
     { 
-        $current = $this_Logical_0.current; 
+        $current = $this_LogicalOr_0.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -1785,23 +1785,103 @@ ruleExpression returns [EObject current=null]
 
 
 
-// Entry rule entryRuleLogical
-entryRuleLogical returns [EObject current=null] 
+// Entry rule entryRuleLogicalOr
+entryRuleLogicalOr returns [EObject current=null] 
 	:
-	{ newCompositeNode(grammarAccess.getLogicalRule()); }
-	 iv_ruleLogical=ruleLogical 
-	 { $current=$iv_ruleLogical.current; } 
+	{ newCompositeNode(grammarAccess.getLogicalOrRule()); }
+	 iv_ruleLogicalOr=ruleLogicalOr 
+	 { $current=$iv_ruleLogicalOr.current; } 
 	 EOF 
 ;
 
-// Rule Logical
-ruleLogical returns [EObject current=null] 
+// Rule LogicalOr
+ruleLogicalOr returns [EObject current=null] 
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
 (
     { 
-        newCompositeNode(grammarAccess.getLogicalAccess().getRelationParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getLogicalOrAccess().getLogicalAndParserRuleCall_0()); 
+    }
+    this_LogicalAnd_0=ruleLogicalAnd
+    { 
+        $current = $this_LogicalAnd_0.current; 
+        afterParserOrEnumRuleCall();
+    }
+((((
+)(
+(
+	'or' 
+ 
+
+)
+)(
+(
+ruleLogicalAnd
+)
+)))=>((
+    {
+        $current = forceCreateModelElementAndSet(
+            grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0_0(),
+            $current);
+    }
+)(
+(
+		lv_op_2_0=	'or' 
+    {
+        newLeafNode(lv_op_2_0, grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getLogicalOrRule());
+	        }
+       		setWithLastConsumed($current, "op", lv_op_2_0, "or");
+	    }
+
+)
+)(
+(
+		{ 
+	        newCompositeNode(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0()); 
+	    }
+		lv_right_3_0=ruleLogicalAnd		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getLogicalOrRule());
+	        }
+       		set(
+       			$current, 
+       			"right",
+        		lv_right_3_0, 
+        		"LogicalAnd");
+	        afterParserOrEnumRuleCall();
+	    }
+
+)
+)))*)
+;
+
+
+
+
+
+// Entry rule entryRuleLogicalAnd
+entryRuleLogicalAnd returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getLogicalAndRule()); }
+	 iv_ruleLogicalAnd=ruleLogicalAnd 
+	 { $current=$iv_ruleLogicalAnd.current; } 
+	 EOF 
+;
+
+// Rule LogicalAnd
+ruleLogicalAnd returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(
+    { 
+        newCompositeNode(grammarAccess.getLogicalAndAccess().getRelationParserRuleCall_0()); 
     }
     this_Relation_0=ruleRelation
     { 
@@ -1811,14 +1891,8 @@ ruleLogical returns [EObject current=null]
 ((((
 )(
 (
-(
 	'and' 
  
-
-    |			'or' 
- 
-
-)
 
 )
 )(
@@ -1828,47 +1902,32 @@ ruleRelation
 )))=>((
     {
         $current = forceCreateModelElementAndSet(
-            grammarAccess.getLogicalAccess().getLogicalLeftAction_1_0_0(),
+            grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0_0(),
             $current);
     }
 )(
 (
-(
-		lv_op_2_1=	'and' 
+		lv_op_2_0=	'and' 
     {
-        newLeafNode(lv_op_2_1, grammarAccess.getLogicalAccess().getOpAndKeyword_1_0_1_0_0());
+        newLeafNode(lv_op_2_0, grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0());
     }
  
 	    {
 	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLogicalRule());
+	            $current = createModelElement(grammarAccess.getLogicalAndRule());
 	        }
-       		setWithLastConsumed($current, "op", lv_op_2_1, null);
+       		setWithLastConsumed($current, "op", lv_op_2_0, "and");
 	    }
-
-    |		lv_op_2_2=	'or' 
-    {
-        newLeafNode(lv_op_2_2, grammarAccess.getLogicalAccess().getOpOrKeyword_1_0_1_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getLogicalRule());
-	        }
-       		setWithLastConsumed($current, "op", lv_op_2_2, null);
-	    }
-
-)
 
 )
 )(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getLogicalAccess().getRightRelationParserRuleCall_1_0_2_0()); 
+	        newCompositeNode(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0()); 
 	    }
 		lv_right_3_0=ruleRelation		{
 	        if ($current==null) {
-	            $current = createModelElementForParent(grammarAccess.getLogicalRule());
+	            $current = createModelElementForParent(grammarAccess.getLogicalAndRule());
 	        }
        		set(
        			$current, 

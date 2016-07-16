@@ -302,13 +302,22 @@ public interface AltaricaFactory extends EFactory
   Conditional createConditional();
 
   /**
-   * Returns a new object of class '<em>Logical</em>'.
+   * Returns a new object of class '<em>Logical Or</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Logical</em>'.
+   * @return a new object of class '<em>Logical Or</em>'.
    * @generated
    */
-  Logical createLogical();
+  LogicalOr createLogicalOr();
+
+  /**
+   * Returns a new object of class '<em>Logical And</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Logical And</em>'.
+   * @generated
+   */
+  LogicalAnd createLogicalAnd();
 
   /**
    * Returns a new object of class '<em>Equal</em>'.

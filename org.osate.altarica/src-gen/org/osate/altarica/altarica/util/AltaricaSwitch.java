@@ -328,11 +328,19 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.LOGICAL:
+      case AltaricaPackage.LOGICAL_OR:
       {
-        Logical logical = (Logical)theEObject;
-        T result = caseLogical(logical);
-        if (result == null) result = caseExpression(logical);
+        LogicalOr logicalOr = (LogicalOr)theEObject;
+        T result = caseLogicalOr(logicalOr);
+        if (result == null) result = caseExpression(logicalOr);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.LOGICAL_AND:
+      {
+        LogicalAnd logicalAnd = (LogicalAnd)theEObject;
+        T result = caseLogicalAnd(logicalAnd);
+        if (result == null) result = caseExpression(logicalAnd);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -877,17 +885,33 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Logical</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Logical Or</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Logical</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Logical Or</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLogical(Logical object)
+  public T caseLogicalOr(LogicalOr object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Logical And</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Logical And</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLogicalAnd(LogicalAnd object)
   {
     return null;
   }

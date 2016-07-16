@@ -64,7 +64,8 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) variable=[NamedElement|ID]
 	 *     (rule start) (ambiguity) {Addition.left=}
 	 *     (rule start) (ambiguity) {Equal.left=}
-	 *     (rule start) (ambiguity) {Logical.left=}
+	 *     (rule start) (ambiguity) {LogicalAnd.left=}
+	 *     (rule start) (ambiguity) {LogicalOr.left=}
 	 *     (rule start) (ambiguity) {Multiplication.left=}
 	 *     (rule start) (ambiguity) {NameRef.nested=}
 	 */
@@ -81,7 +82,8 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'not' expression=Atom
 	 *     (rule start) (ambiguity) {Addition.left=}
 	 *     (rule start) (ambiguity) {Equal.left=}
-	 *     (rule start) (ambiguity) {Logical.left=}
+	 *     (rule start) (ambiguity) {LogicalAnd.left=}
+	 *     (rule start) (ambiguity) {LogicalOr.left=}
 	 *     (rule start) (ambiguity) {Multiplication.left=}
 	 */
 	protected void emit_Atom_LeftParenthesisKeyword_4_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {

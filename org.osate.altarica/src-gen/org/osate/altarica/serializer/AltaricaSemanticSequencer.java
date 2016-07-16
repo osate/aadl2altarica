@@ -32,7 +32,8 @@ import org.osate.altarica.altarica.Equal;
 import org.osate.altarica.altarica.Event;
 import org.osate.altarica.altarica.Instruction;
 import org.osate.altarica.altarica.LabeledTransition;
-import org.osate.altarica.altarica.Logical;
+import org.osate.altarica.altarica.LogicalAnd;
+import org.osate.altarica.altarica.LogicalOr;
 import org.osate.altarica.altarica.Minus;
 import org.osate.altarica.altarica.Model;
 import org.osate.altarica.altarica.Multiplication;
@@ -104,8 +105,11 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case AltaricaPackage.LABELED_TRANSITION:
 				sequence_LabeledTransition(context, (LabeledTransition) semanticObject); 
 				return; 
-			case AltaricaPackage.LOGICAL:
-				sequence_Logical(context, (Logical) semanticObject); 
+			case AltaricaPackage.LOGICAL_AND:
+				sequence_LogicalAnd(context, (LogicalAnd) semanticObject); 
+				return; 
+			case AltaricaPackage.LOGICAL_OR:
+				sequence_LogicalOr(context, (LogicalOr) semanticObject); 
 				return; 
 			case AltaricaPackage.MINUS:
 				sequence_Neg(context, (Minus) semanticObject); 
@@ -319,10 +323,45 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (left=Logical_Logical_1_0_0 (op='and' | op='or') right=Relation)
+	 *     (left=LogicalAnd_LogicalAnd_1_0_0 op='and' right=Relation)
 	 */
-	protected void sequence_Logical(EObject context, Logical semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_LogicalAnd(EObject context, LogicalAnd semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__LEFT));
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__OP));
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (left=LogicalOr_LogicalOr_1_0_0 op='or' right=LogicalAnd)
+	 */
+	protected void sequence_LogicalOr(EObject context, LogicalOr semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__LEFT));
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__OP));
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__RIGHT));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.finish();
 	}
 	
 	

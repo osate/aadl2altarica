@@ -230,9 +230,14 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createConditionalAdapter();
       }
       @Override
-      public Adapter caseLogical(Logical object)
+      public Adapter caseLogicalOr(LogicalOr object)
       {
-        return createLogicalAdapter();
+        return createLogicalOrAdapter();
+      }
+      @Override
+      public Adapter caseLogicalAnd(LogicalAnd object)
+      {
+        return createLogicalAndAdapter();
       }
       @Override
       public Adapter caseEqual(Equal object)
@@ -747,16 +752,31 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Logical <em>Logical</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.LogicalOr <em>Logical Or</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.altarica.altarica.Logical
+   * @see org.osate.altarica.altarica.LogicalOr
    * @generated
    */
-  public Adapter createLogicalAdapter()
+  public Adapter createLogicalOrAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.LogicalAnd <em>Logical And</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.LogicalAnd
+   * @generated
+   */
+  public Adapter createLogicalAndAdapter()
   {
     return null;
   }

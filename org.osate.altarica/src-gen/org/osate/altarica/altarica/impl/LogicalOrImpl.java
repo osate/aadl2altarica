@@ -12,24 +12,24 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.osate.altarica.altarica.AltaricaPackage;
 import org.osate.altarica.altarica.Expression;
-import org.osate.altarica.altarica.Logical;
+import org.osate.altarica.altarica.LogicalOr;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Logical</b></em>'.
+ * An implementation of the model object '<em><b>Logical Or</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.LogicalImpl#getLeft <em>Left</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.impl.LogicalImpl#getOp <em>Op</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.impl.LogicalImpl#getRight <em>Right</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.LogicalOrImpl#getLeft <em>Left</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.LogicalOrImpl#getOp <em>Op</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.LogicalOrImpl#getRight <em>Right</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class LogicalImpl extends ExpressionImpl implements Logical
+public class LogicalOrImpl extends ExpressionImpl implements LogicalOr
 {
   /**
    * The cached value of the '{@link #getLeft() <em>Left</em>}' containment reference.
@@ -76,7 +76,7 @@ public class LogicalImpl extends ExpressionImpl implements Logical
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LogicalImpl()
+  protected LogicalOrImpl()
   {
     super();
   }
@@ -89,7 +89,7 @@ public class LogicalImpl extends ExpressionImpl implements Logical
   @Override
   protected EClass eStaticClass()
   {
-    return AltaricaPackage.Literals.LOGICAL;
+    return AltaricaPackage.Literals.LOGICAL_OR;
   }
 
   /**
@@ -113,7 +113,7 @@ public class LogicalImpl extends ExpressionImpl implements Logical
     left = newLeft;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL__LEFT, oldLeft, newLeft);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL_OR__LEFT, oldLeft, newLeft);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -130,14 +130,14 @@ public class LogicalImpl extends ExpressionImpl implements Logical
     {
       NotificationChain msgs = null;
       if (left != null)
-        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL__LEFT, null, msgs);
+        msgs = ((InternalEObject)left).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL_OR__LEFT, null, msgs);
       if (newLeft != null)
-        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL__LEFT, null, msgs);
+        msgs = ((InternalEObject)newLeft).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL_OR__LEFT, null, msgs);
       msgs = basicSetLeft(newLeft, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL__LEFT, newLeft, newLeft));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL_OR__LEFT, newLeft, newLeft));
   }
 
   /**
@@ -160,7 +160,7 @@ public class LogicalImpl extends ExpressionImpl implements Logical
     String oldOp = op;
     op = newOp;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL__OP, oldOp, op));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL_OR__OP, oldOp, op));
   }
 
   /**
@@ -184,7 +184,7 @@ public class LogicalImpl extends ExpressionImpl implements Logical
     right = newRight;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL__RIGHT, oldRight, newRight);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL_OR__RIGHT, oldRight, newRight);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -201,14 +201,14 @@ public class LogicalImpl extends ExpressionImpl implements Logical
     {
       NotificationChain msgs = null;
       if (right != null)
-        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL__RIGHT, null, msgs);
+        msgs = ((InternalEObject)right).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL_OR__RIGHT, null, msgs);
       if (newRight != null)
-        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL__RIGHT, null, msgs);
+        msgs = ((InternalEObject)newRight).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - AltaricaPackage.LOGICAL_OR__RIGHT, null, msgs);
       msgs = basicSetRight(newRight, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL__RIGHT, newRight, newRight));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.LOGICAL_OR__RIGHT, newRight, newRight));
   }
 
   /**
@@ -221,9 +221,9 @@ public class LogicalImpl extends ExpressionImpl implements Logical
   {
     switch (featureID)
     {
-      case AltaricaPackage.LOGICAL__LEFT:
+      case AltaricaPackage.LOGICAL_OR__LEFT:
         return basicSetLeft(null, msgs);
-      case AltaricaPackage.LOGICAL__RIGHT:
+      case AltaricaPackage.LOGICAL_OR__RIGHT:
         return basicSetRight(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -239,11 +239,11 @@ public class LogicalImpl extends ExpressionImpl implements Logical
   {
     switch (featureID)
     {
-      case AltaricaPackage.LOGICAL__LEFT:
+      case AltaricaPackage.LOGICAL_OR__LEFT:
         return getLeft();
-      case AltaricaPackage.LOGICAL__OP:
+      case AltaricaPackage.LOGICAL_OR__OP:
         return getOp();
-      case AltaricaPackage.LOGICAL__RIGHT:
+      case AltaricaPackage.LOGICAL_OR__RIGHT:
         return getRight();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -259,13 +259,13 @@ public class LogicalImpl extends ExpressionImpl implements Logical
   {
     switch (featureID)
     {
-      case AltaricaPackage.LOGICAL__LEFT:
+      case AltaricaPackage.LOGICAL_OR__LEFT:
         setLeft((Expression)newValue);
         return;
-      case AltaricaPackage.LOGICAL__OP:
+      case AltaricaPackage.LOGICAL_OR__OP:
         setOp((String)newValue);
         return;
-      case AltaricaPackage.LOGICAL__RIGHT:
+      case AltaricaPackage.LOGICAL_OR__RIGHT:
         setRight((Expression)newValue);
         return;
     }
@@ -282,13 +282,13 @@ public class LogicalImpl extends ExpressionImpl implements Logical
   {
     switch (featureID)
     {
-      case AltaricaPackage.LOGICAL__LEFT:
+      case AltaricaPackage.LOGICAL_OR__LEFT:
         setLeft((Expression)null);
         return;
-      case AltaricaPackage.LOGICAL__OP:
+      case AltaricaPackage.LOGICAL_OR__OP:
         setOp(OP_EDEFAULT);
         return;
-      case AltaricaPackage.LOGICAL__RIGHT:
+      case AltaricaPackage.LOGICAL_OR__RIGHT:
         setRight((Expression)null);
         return;
     }
@@ -305,11 +305,11 @@ public class LogicalImpl extends ExpressionImpl implements Logical
   {
     switch (featureID)
     {
-      case AltaricaPackage.LOGICAL__LEFT:
+      case AltaricaPackage.LOGICAL_OR__LEFT:
         return left != null;
-      case AltaricaPackage.LOGICAL__OP:
+      case AltaricaPackage.LOGICAL_OR__OP:
         return OP_EDEFAULT == null ? op != null : !OP_EDEFAULT.equals(op);
-      case AltaricaPackage.LOGICAL__RIGHT:
+      case AltaricaPackage.LOGICAL_OR__RIGHT:
         return right != null;
     }
     return super.eIsSet(featureID);
@@ -332,4 +332,4 @@ public class LogicalImpl extends ExpressionImpl implements Logical
     return result.toString();
   }
 
-} //LogicalImpl
+} //LogicalOrImpl

@@ -86,10 +86,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:11:7: ( 'and' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:11:9: 'and'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:11:7: ( '==' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:11:9: '=='
             {
-            match("and"); 
+            match("=="); 
 
 
             }
@@ -107,10 +107,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:12:7: ( 'or' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:12:9: 'or'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:12:7: ( '!=' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:12:9: '!='
             {
-            match("or"); 
+            match("!="); 
 
 
             }
@@ -128,11 +128,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:13:7: ( '==' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:13:9: '=='
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:13:7: ( '<' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:13:9: '<'
             {
-            match("=="); 
-
+            match('<'); 
 
             }
 
@@ -149,10 +148,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:14:7: ( '!=' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:14:9: '!='
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:14:7: ( '<=' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:14:9: '<='
             {
-            match("!="); 
+            match("<="); 
 
 
             }
@@ -170,10 +169,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:15:7: ( '<' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:15:9: '<'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:15:7: ( '>=' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:15:9: '>='
             {
-            match('<'); 
+            match(">="); 
+
 
             }
 
@@ -190,11 +190,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:16:7: ( '<=' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:16:9: '<='
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:16:7: ( '>' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:16:9: '>'
             {
-            match("<="); 
-
+            match('>'); 
 
             }
 
@@ -211,11 +210,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:17:7: ( '>=' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:17:9: '>='
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:17:7: ( '+' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:17:9: '+'
             {
-            match(">="); 
-
+            match('+'); 
 
             }
 
@@ -232,10 +230,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:18:7: ( '>' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:18:9: '>'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:18:7: ( '-' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:18:9: '-'
             {
-            match('>'); 
+            match('-'); 
 
             }
 
@@ -252,10 +250,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:19:7: ( '+' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:19:9: '+'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:19:7: ( '*' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:19:9: '*'
             {
-            match('+'); 
+            match('*'); 
 
             }
 
@@ -272,10 +270,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:20:7: ( '-' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:20:9: '-'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:20:7: ( '/' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:20:9: '/'
             {
-            match('-'); 
+            match('/'); 
 
             }
 
@@ -292,10 +290,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:21:7: ( '*' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:21:9: '*'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:21:7: ( 'true' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:21:9: 'true'
             {
-            match('*'); 
+            match("true"); 
+
 
             }
 
@@ -312,10 +311,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:22:7: ( '/' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:22:9: '/'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:22:7: ( 'false' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:22:9: 'false'
             {
-            match('/'); 
+            match("false"); 
+
 
             }
 
@@ -332,10 +332,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:23:7: ( 'true' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:23:9: 'true'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:23:7: ( 'Integer' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:23:9: 'Integer'
             {
-            match("true"); 
+            match("Integer"); 
 
 
             }
@@ -353,10 +353,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:24:7: ( 'false' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:24:9: 'false'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:24:7: ( 'Boolean' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:24:9: 'Boolean'
             {
-            match("false"); 
+            match("Boolean"); 
 
 
             }
@@ -374,10 +374,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:25:7: ( 'Integer' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:25:9: 'Integer'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:25:7: ( 'domain' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:25:9: 'domain'
             {
-            match("Integer"); 
+            match("domain"); 
 
 
             }
@@ -395,11 +395,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:26:7: ( 'Boolean' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:26:9: 'Boolean'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:26:7: ( '{' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:26:9: '{'
             {
-            match("Boolean"); 
-
+            match('{'); 
 
             }
 
@@ -416,11 +415,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:27:7: ( 'domain' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:27:9: 'domain'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:27:7: ( '}' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:27:9: '}'
             {
-            match("domain"); 
-
+            match('}'); 
 
             }
 
@@ -437,10 +435,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:28:7: ( '{' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:28:9: '{'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:28:7: ( ',' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:28:9: ','
             {
-            match('{'); 
+            match(','); 
 
             }
 
@@ -457,10 +455,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:29:7: ( '}' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:29:9: '}'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:29:7: ( 'class' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:29:9: 'class'
             {
-            match('}'); 
+            match("class"); 
+
 
             }
 
@@ -477,10 +476,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:30:7: ( ',' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:30:9: ','
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:30:7: ( 'end' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:30:9: 'end'
             {
-            match(','); 
+            match("end"); 
+
 
             }
 
@@ -497,10 +497,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:31:7: ( 'class' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:31:9: 'class'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:31:7: ( 'transition' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:31:9: 'transition'
             {
-            match("class"); 
+            match("transition"); 
 
 
             }
@@ -518,10 +518,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:32:7: ( 'end' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:32:9: 'end'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:32:7: ( 'assertion' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:32:9: 'assertion'
             {
-            match("end"); 
+            match("assertion"); 
 
 
             }
@@ -539,11 +539,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:33:7: ( 'transition' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:33:9: 'transition'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:33:7: ( ';' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:33:9: ';'
             {
-            match("transition"); 
-
+            match(';'); 
 
             }
 
@@ -560,11 +559,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:34:7: ( 'assertion' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:34:9: 'assertion'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:34:7: ( '(' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:34:9: '('
             {
-            match("assertion"); 
-
+            match('('); 
 
             }
 
@@ -581,10 +579,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:35:7: ( ';' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:35:9: ';'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:35:7: ( ')' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:35:9: ')'
             {
-            match(';'); 
+            match(')'); 
 
             }
 
@@ -601,10 +599,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:36:7: ( '(' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:36:9: '('
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:36:7: ( '=' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:36:9: '='
             {
-            match('('); 
+            match('='); 
 
             }
 
@@ -621,10 +619,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:37:7: ( ')' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:37:9: ')'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:37:7: ( 'event' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:37:9: 'event'
             {
-            match(')'); 
+            match("event"); 
+
 
             }
 
@@ -641,10 +640,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:38:7: ( '=' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:38:9: '='
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:38:7: ( 'parameter' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:38:9: 'parameter'
             {
-            match('='); 
+            match("parameter"); 
+
 
             }
 
@@ -661,10 +661,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:39:7: ( 'event' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:39:9: 'event'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:39:7: ( 'observer' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:39:9: 'observer'
             {
-            match("event"); 
+            match("observer"); 
 
 
             }
@@ -682,11 +682,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:40:7: ( 'parameter' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:40:9: 'parameter'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:40:7: ( ':' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:40:9: ':'
             {
-            match("parameter"); 
-
+            match(':'); 
 
             }
 
@@ -703,11 +702,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:41:7: ( 'observer' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:41:9: 'observer'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:41:7: ( '&' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:41:9: '&'
             {
-            match("observer"); 
-
+            match('&'); 
 
             }
 
@@ -724,10 +722,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:42:7: ( ':' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:42:9: ':'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:42:7: ( '|' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:42:9: '|'
             {
-            match(':'); 
+            match('|'); 
 
             }
 
@@ -744,10 +742,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:43:7: ( '&' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:43:9: '&'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:43:7: ( '->' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:43:9: '->'
             {
-            match('&'); 
+            match("->"); 
+
 
             }
 
@@ -764,10 +763,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:44:7: ( '|' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:44:9: '|'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:44:7: ( 'skip' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:44:9: 'skip'
             {
-            match('|'); 
+            match("skip"); 
+
 
             }
 
@@ -784,10 +784,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:45:7: ( '->' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:45:9: '->'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:45:7: ( ':=' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:45:9: ':='
             {
-            match("->"); 
+            match(":="); 
 
 
             }
@@ -805,10 +805,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:46:7: ( 'skip' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:46:9: 'skip'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:46:7: ( 'if' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:46:9: 'if'
             {
-            match("skip"); 
+            match("if"); 
 
 
             }
@@ -826,10 +826,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:47:7: ( ':=' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:47:9: ':='
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:47:7: ( 'then' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:47:9: 'then'
             {
-            match(":="); 
+            match("then"); 
 
 
             }
@@ -847,10 +847,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:48:7: ( 'if' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:48:9: 'if'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:48:7: ( 'else' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:48:9: 'else'
             {
-            match("if"); 
+            match("else"); 
 
 
             }
@@ -868,10 +868,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:49:7: ( 'then' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:49:9: 'then'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:49:7: ( 'switch' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:49:9: 'switch'
             {
-            match("then"); 
+            match("switch"); 
 
 
             }
@@ -889,10 +889,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:50:7: ( 'else' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:50:9: 'else'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:50:7: ( 'not' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:50:9: 'not'
             {
-            match("else"); 
+            match("not"); 
 
 
             }
@@ -910,11 +910,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:51:7: ( 'switch' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:51:9: 'switch'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:51:7: ( '.' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:51:9: '.'
             {
-            match("switch"); 
-
+            match('.'); 
 
             }
 
@@ -931,10 +930,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:52:7: ( 'not' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:52:9: 'not'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:52:7: ( 'or' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:52:9: 'or'
             {
-            match("not"); 
+            match("or"); 
 
 
             }
@@ -952,10 +951,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:53:7: ( '.' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:53:9: '.'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:53:7: ( 'and' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:53:9: 'and'
             {
-            match('.'); 
+            match("and"); 
+
 
             }
 
@@ -970,8 +970,8 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_ALPHA"
     public final void mRULE_ALPHA() throws RecognitionException {
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7135:21: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7135:23: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7367:21: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7367:23: ( 'a' .. 'z' | 'A' .. 'Z' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -994,8 +994,8 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_DIGIT"
     public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7137:21: ( '0' .. '9' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7137:23: '0' .. '9'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7369:21: ( '0' .. '9' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7369:23: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -1010,8 +1010,8 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_REGULAR_ID"
     public final void mRULE_REGULAR_ID() throws RecognitionException {
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7139:26: ( ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )* )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7139:28: ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )*
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7371:26: ( ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )* )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7371:28: ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1022,7 +1022,7 @@ public class InternalAltaricaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7139:45: ( RULE_ALPHA | '_' | RULE_DIGIT )*
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7371:45: ( RULE_ALPHA | '_' | RULE_DIGIT )*
             loop1:
             do {
                 int alt1=2;
@@ -1067,11 +1067,11 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_STRING_ID"
     public final void mRULE_STRING_ID() throws RecognitionException {
         try {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7141:25: ( '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\'' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7141:27: '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\''
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7373:25: ( '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\'' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7373:27: '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\''
             {
             match('\''); 
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7141:32: ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )*
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7373:32: ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )*
             loop2:
             do {
                 int alt2=2;
@@ -1119,10 +1119,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7143:9: ( ( RULE_REGULAR_ID | RULE_STRING_ID ) )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7143:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7375:9: ( ( RULE_REGULAR_ID | RULE_STRING_ID ) )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7375:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7143:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7375:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1140,14 +1140,14 @@ public class InternalAltaricaLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7143:12: RULE_REGULAR_ID
+                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7375:12: RULE_REGULAR_ID
                     {
                     mRULE_REGULAR_ID(); 
 
                     }
                     break;
                 case 2 :
-                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7143:28: RULE_STRING_ID
+                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7375:28: RULE_STRING_ID
                     {
                     mRULE_STRING_ID(); 
 
@@ -1172,11 +1172,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7145:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7145:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7377:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7377:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"'
             {
             match('\"'); 
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7145:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7377:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
             loop4:
             do {
                 int alt4=3;
@@ -1201,7 +1201,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7145:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7377:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1217,7 +1217,7 @@ public class InternalAltaricaLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7145:65: ~ ( ( '\\\\' | '\\'' ) )
+            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7377:65: ~ ( ( '\\\\' | '\\'' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1254,10 +1254,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7147:10: ( ( '0' .. '9' )+ )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7147:12: ( '0' .. '9' )+
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7379:10: ( ( '0' .. '9' )+ )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7379:12: ( '0' .. '9' )+
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7147:12: ( '0' .. '9' )+
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7379:12: ( '0' .. '9' )+
             int cnt5=0;
             loop5:
             do {
@@ -1271,7 +1271,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7147:13: '0' .. '9'
+            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7379:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1303,12 +1303,12 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7149:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7149:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7381:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7381:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7149:24: ( options {greedy=false; } : . )*
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7381:24: ( options {greedy=false; } : . )*
             loop6:
             do {
                 int alt6=2;
@@ -1333,7 +1333,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7149:52: .
+            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7381:52: .
             	    {
             	    matchAny(); 
 
@@ -1363,12 +1363,12 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop7:
             do {
                 int alt7=2;
@@ -1381,7 +1381,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1401,7 +1401,7 @@ public class InternalAltaricaLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:40: ( ( '\\r' )? '\\n' )?
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:40: ( ( '\\r' )? '\\n' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -1410,9 +1410,9 @@ public class InternalAltaricaLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:41: ( '\\r' )? '\\n'
+                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:41: ( '\\r' )?
+                    // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:41: ( '\\r' )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -1421,7 +1421,7 @@ public class InternalAltaricaLexer extends Lexer {
                     }
                     switch (alt8) {
                         case 1 :
-                            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7151:41: '\\r'
+                            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7383:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1453,10 +1453,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7153:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7153:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7385:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7385:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7153:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7385:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt10=0;
             loop10:
             do {
@@ -1510,8 +1510,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7155:16: ( . )
-            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7155:18: .
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7387:16: ( . )
+            // ../org.osate.altarica.ui/src-gen/org/osate/altarica/ui/contentassist/antlr/internal/InternalAltarica.g:7387:18: .
             {
             matchAny(); 
 
@@ -1888,43 +1888,43 @@ public class InternalAltaricaLexer extends Lexer {
 
     protected DFA11 dfa11 = new DFA11(this);
     static final String DFA11_eotS =
-        "\1\uffff\2\50\1\54\1\45\1\57\1\61\1\uffff\1\64\1\uffff\1\70\5\50\3\uffff\2\50\3\uffff\1\50\1\113\2\uffff\3\50\2\uffff\2\45\3\uffff\2\50\1\uffff\1\130\1\50\16\uffff\6\50\3\uffff\4\50\3\uffff\1\50\4\uffff\2\50\1\150\1\50\4\uffff\1\152\1\50\1\uffff\11\50\1\165\5\50\1\uffff\1\173\1\uffff\2\50\1\176\1\50\1\u0080\5\50\1\uffff\1\50\1\u0087\1\50\1\u0089\1\50\1\uffff\2\50\1\uffff\1\50\1\uffff\1\u008e\3\50\1\u0092\1\u0093\1\uffff\1\50\1\uffff\4\50\1\uffff\2\50\1\u009b\2\uffff\1\50\1\u009d\3\50\1\u00a1\1\u00a2\1\uffff\1\50\1\uffff\1\50\1\u00a5\1\50\2\uffff\1\50\1\u00a8\1\uffff\1\50\1\u00aa\1\uffff\1\u00ab\2\uffff";
+        "\1\uffff\1\47\1\45\1\52\1\54\1\uffff\1\57\1\uffff\1\63\5\66\3\uffff\3\66\3\uffff\2\66\1\113\2\uffff\3\66\2\uffff\2\45\21\uffff\2\66\1\uffff\4\66\3\uffff\6\66\3\uffff\2\66\1\145\4\uffff\2\66\1\150\1\66\4\uffff\10\66\1\162\3\66\1\166\2\66\1\uffff\2\66\1\uffff\1\173\1\174\1\66\1\176\5\66\1\uffff\1\66\1\u0085\1\66\1\uffff\2\66\1\u0089\1\66\2\uffff\1\66\1\uffff\1\u008c\3\66\1\u0090\1\u0091\1\uffff\3\66\1\uffff\2\66\1\uffff\2\66\1\u0099\2\uffff\3\66\1\u009d\1\66\1\u009f\1\u00a0\1\uffff\3\66\1\uffff\1\66\2\uffff\2\66\1\u00a7\1\66\1\u00a9\1\u00aa\1\uffff\1\u00ab\3\uffff";
     static final String DFA11_eofS =
         "\u00ac\uffff";
     static final String DFA11_minS =
-        "\1\0\1\156\1\142\4\75\1\uffff\1\76\1\uffff\1\52\1\150\1\141\1\156\2\157\3\uffff\2\154\3\uffff\1\141\1\75\2\uffff\1\153\1\146\1\157\2\uffff\1\41\1\0\3\uffff\1\144\1\163\1\uffff\1\60\1\163\16\uffff\1\141\1\145\1\154\1\164\1\157\1\155\3\uffff\1\141\1\144\1\145\1\163\3\uffff\1\162\4\uffff\2\151\1\60\1\164\4\uffff\1\60\1\145\1\uffff\2\145\2\156\1\163\1\145\1\154\1\141\1\163\1\60\1\156\1\145\1\141\1\160\1\164\1\uffff\1\60\1\uffff\2\162\1\60\1\163\1\60\1\145\1\147\1\145\1\151\1\163\1\uffff\1\164\1\60\1\155\1\60\1\143\1\uffff\1\164\1\166\1\uffff\1\151\1\uffff\1\60\1\145\1\141\1\156\2\60\1\uffff\1\145\1\uffff\1\150\1\151\1\145\1\164\1\uffff\1\162\1\156\1\60\2\uffff\1\164\1\60\1\157\1\162\1\151\2\60\1\uffff\1\145\1\uffff\1\156\1\60\1\157\2\uffff\1\162\1\60\1\uffff\1\156\1\60\1\uffff\1\60\2\uffff";
+        "\1\0\4\75\1\uffff\1\76\1\uffff\1\52\1\150\1\141\1\156\2\157\3\uffff\2\154\1\156\3\uffff\1\141\1\142\1\75\2\uffff\1\153\1\146\1\157\2\uffff\1\41\1\0\21\uffff\1\141\1\145\1\uffff\1\154\1\164\1\157\1\155\3\uffff\1\141\1\144\1\145\2\163\1\144\3\uffff\1\162\1\163\1\60\4\uffff\2\151\1\60\1\164\4\uffff\1\145\2\156\1\163\1\145\1\154\1\141\1\163\1\60\1\156\2\145\1\60\1\141\1\145\1\uffff\1\160\1\164\1\uffff\2\60\1\163\1\60\1\145\1\147\1\145\1\151\1\163\1\uffff\1\164\1\60\1\162\1\uffff\1\155\1\162\1\60\1\143\2\uffff\1\151\1\uffff\1\60\1\145\1\141\1\156\2\60\1\uffff\1\164\1\145\1\166\1\uffff\1\150\1\164\1\uffff\1\162\1\156\1\60\2\uffff\1\151\1\164\1\145\1\60\1\151\2\60\1\uffff\1\157\1\145\1\162\1\uffff\1\157\2\uffff\1\156\1\162\1\60\1\156\2\60\1\uffff\1\60\3\uffff";
     static final String DFA11_maxS =
-        "\1\uffff\1\163\1\162\4\75\1\uffff\1\76\1\uffff\1\57\1\162\1\141\1\156\2\157\3\uffff\1\154\1\166\3\uffff\1\141\1\75\2\uffff\1\167\1\146\1\157\2\uffff\1\176\1\uffff\3\uffff\1\144\1\163\1\uffff\1\172\1\163\16\uffff\1\165\1\145\1\154\1\164\1\157\1\155\3\uffff\1\141\1\144\1\145\1\163\3\uffff\1\162\4\uffff\2\151\1\172\1\164\4\uffff\1\172\1\145\1\uffff\2\145\2\156\1\163\1\145\1\154\1\141\1\163\1\172\1\156\1\145\1\141\1\160\1\164\1\uffff\1\172\1\uffff\2\162\1\172\1\163\1\172\1\145\1\147\1\145\1\151\1\163\1\uffff\1\164\1\172\1\155\1\172\1\143\1\uffff\1\164\1\166\1\uffff\1\151\1\uffff\1\172\1\145\1\141\1\156\2\172\1\uffff\1\145\1\uffff\1\150\1\151\1\145\1\164\1\uffff\1\162\1\156\1\172\2\uffff\1\164\1\172\1\157\1\162\1\151\2\172\1\uffff\1\145\1\uffff\1\156\1\172\1\157\2\uffff\1\162\1\172\1\uffff\1\156\1\172\1\uffff\1\172\2\uffff";
+        "\1\uffff\4\75\1\uffff\1\76\1\uffff\1\57\1\162\1\141\1\156\2\157\3\uffff\1\154\1\166\1\163\3\uffff\1\141\1\162\1\75\2\uffff\1\167\1\146\1\157\2\uffff\1\176\1\uffff\21\uffff\1\165\1\145\1\uffff\1\154\1\164\1\157\1\155\3\uffff\1\141\1\144\1\145\2\163\1\144\3\uffff\1\162\1\163\1\172\4\uffff\2\151\1\172\1\164\4\uffff\1\145\2\156\1\163\1\145\1\154\1\141\1\163\1\172\1\156\2\145\1\172\1\141\1\145\1\uffff\1\160\1\164\1\uffff\2\172\1\163\1\172\1\145\1\147\1\145\1\151\1\163\1\uffff\1\164\1\172\1\162\1\uffff\1\155\1\162\1\172\1\143\2\uffff\1\151\1\uffff\1\172\1\145\1\141\1\156\2\172\1\uffff\1\164\1\145\1\166\1\uffff\1\150\1\164\1\uffff\1\162\1\156\1\172\2\uffff\1\151\1\164\1\145\1\172\1\151\2\172\1\uffff\1\157\1\145\1\162\1\uffff\1\157\2\uffff\1\156\1\162\1\172\1\156\2\172\1\uffff\1\172\3\uffff";
     static final String DFA11_acceptS =
-        "\7\uffff\1\11\1\uffff\1\13\6\uffff\1\22\1\23\1\24\2\uffff\1\31\1\32\1\33\2\uffff\1\41\1\42\3\uffff\1\53\1\54\2\uffff\1\56\1\61\1\62\2\uffff\1\54\2\uffff\1\3\1\34\1\4\1\6\1\5\1\7\1\10\1\11\1\43\1\12\1\13\1\57\1\60\1\14\6\uffff\1\22\1\23\1\24\4\uffff\1\31\1\32\1\33\1\uffff\1\45\1\40\1\41\1\42\4\uffff\1\53\1\55\1\56\1\61\2\uffff\1\2\17\uffff\1\46\1\uffff\1\1\12\uffff\1\26\5\uffff\1\52\2\uffff\1\15\1\uffff\1\47\6\uffff\1\50\1\uffff\1\44\4\uffff\1\16\3\uffff\1\25\1\35\7\uffff\1\21\1\uffff\1\51\3\uffff\1\17\1\20\2\uffff\1\37\2\uffff\1\30\1\uffff\1\36\1\27";
+        "\5\uffff\1\7\1\uffff\1\11\6\uffff\1\20\1\21\1\22\3\uffff\1\27\1\30\1\31\3\uffff\1\37\1\40\3\uffff\1\51\1\54\2\uffff\1\56\1\61\1\62\1\1\1\32\1\2\1\4\1\3\1\5\1\6\1\7\1\41\1\10\1\11\1\57\1\60\1\12\2\uffff\1\54\4\uffff\1\20\1\21\1\22\6\uffff\1\27\1\30\1\31\3\uffff\1\43\1\36\1\37\1\40\4\uffff\1\51\1\55\1\56\1\61\17\uffff\1\52\2\uffff\1\44\11\uffff\1\24\3\uffff\1\53\4\uffff\1\50\1\13\1\uffff\1\45\6\uffff\1\46\3\uffff\1\42\2\uffff\1\14\3\uffff\1\23\1\33\7\uffff\1\17\3\uffff\1\47\1\uffff\1\15\1\16\6\uffff\1\35\1\uffff\1\26\1\34\1\25";
     static final String DFA11_specialS =
         "\1\1\41\uffff\1\0\u0089\uffff}>";
     static final String[] DFA11_transitionS = {
-            "\11\45\2\44\2\45\1\44\22\45\1\44\1\4\1\42\3\45\1\32\1\41\1\26\1\27\1\11\1\7\1\22\1\10\1\37\1\12\12\43\1\31\1\25\1\5\1\3\1\6\2\45\1\40\1\16\6\40\1\15\21\40\4\45\1\40\1\45\1\1\1\40\1\23\1\17\1\24\1\14\2\40\1\35\4\40\1\36\1\2\1\30\2\40\1\34\1\13\6\40\1\20\1\33\1\21\uff82\45",
-            "\1\46\4\uffff\1\47",
-            "\1\52\17\uffff\1\51",
+            "\11\45\2\44\2\45\1\44\22\45\1\44\1\2\1\42\3\45\1\32\1\41\1\25\1\26\1\7\1\5\1\20\1\6\1\37\1\10\12\43\1\31\1\24\1\3\1\1\1\4\2\45\1\40\1\14\6\40\1\13\21\40\4\45\1\40\1\45\1\23\1\40\1\21\1\15\1\22\1\12\2\40\1\35\4\40\1\36\1\30\1\27\2\40\1\34\1\11\6\40\1\16\1\33\1\17\uff82\45",
+            "\1\46",
+            "\1\50",
+            "\1\51",
             "\1\53",
-            "\1\55",
+            "",
             "\1\56",
-            "\1\60",
             "",
-            "\1\63",
+            "\1\61\4\uffff\1\62",
+            "\1\65\11\uffff\1\64",
+            "\1\67",
+            "\1\70",
+            "\1\71",
+            "\1\72",
             "",
-            "\1\66\4\uffff\1\67",
-            "\1\72\11\uffff\1\71",
-            "\1\73",
-            "\1\74",
-            "\1\75",
+            "",
+            "",
             "\1\76",
+            "\1\101\1\uffff\1\77\7\uffff\1\100",
+            "\1\103\4\uffff\1\102",
             "",
             "",
             "",
-            "\1\102",
-            "\1\105\1\uffff\1\103\7\uffff\1\104",
-            "",
-            "",
-            "",
-            "\1\111",
+            "\1\107",
+            "\1\110\17\uffff\1\111",
             "\1\112",
             "",
             "",
@@ -1933,143 +1933,143 @@ public class InternalAltaricaLexer extends Lexer {
             "\1\121",
             "",
             "",
-            "\1\50\1\uffff\71\50\1\uffff\3\50\1\uffff\36\50",
+            "\1\66\1\uffff\71\66\1\uffff\3\66\1\uffff\36\66",
             "\47\123\1\uffff\uffd8\123",
             "",
             "",
             "",
-            "\1\126",
-            "\1\127",
             "",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\127\23\uffff\1\126",
+            "\1\130",
+            "",
             "\1\131",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\133\23\uffff\1\132",
+            "\1\132",
+            "\1\133",
             "\1\134",
+            "",
+            "",
+            "",
             "\1\135",
             "\1\136",
             "\1\137",
             "\1\140",
-            "",
-            "",
-            "",
             "\1\141",
             "\1\142",
+            "",
+            "",
+            "",
             "\1\143",
             "\1\144",
-            "",
-            "",
-            "",
-            "\1\145",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
             "",
             "",
             "",
             "\1\146",
             "\1\147",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\151",
             "",
             "",
             "",
             "",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\1\152",
             "\1\153",
-            "",
             "\1\154",
             "\1\155",
             "\1\156",
             "\1\157",
             "\1\160",
             "\1\161",
-            "\1\162",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\163",
             "\1\164",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "\1\166",
+            "\1\165",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\167",
             "\1\170",
+            "",
             "\1\171",
             "\1\172",
             "",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "",
-            "\1\174",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\175",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\177",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\1\u0080",
             "\1\u0081",
             "\1\u0082",
             "\1\u0083",
-            "\1\u0084",
-            "\1\u0085",
             "",
+            "\1\u0084",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u0086",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "",
+            "\1\u0087",
             "\1\u0088",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u008a",
             "",
+            "",
             "\1\u008b",
-            "\1\u008c",
             "",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u008d",
-            "",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\1\u008e",
             "\1\u008f",
-            "\1\u0090",
-            "\1\u0091",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
+            "\1\u0092",
+            "\1\u0093",
             "\1\u0094",
             "",
             "\1\u0095",
             "\1\u0096",
+            "",
             "\1\u0097",
             "\1\u0098",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
-            "\1\u0099",
+            "",
             "\1\u009a",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "",
-            "",
+            "\1\u009b",
             "\1\u009c",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "\1\u009e",
-            "\1\u009f",
-            "\1\u00a0",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
+            "\1\u00a1",
+            "\1\u00a2",
             "\1\u00a3",
             "",
             "\1\u00a4",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
+            "",
+            "",
+            "\1\u00a5",
             "\1\u00a6",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\1\u00a8",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
+            "\12\66\7\uffff\32\66\4\uffff\1\66\1\uffff\32\66",
             "",
-            "\1\u00a7",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "",
-            "\1\u00a9",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
-            "",
-            "\12\50\7\uffff\32\50\4\uffff\1\50\1\uffff\32\50",
             "",
             ""
     };
@@ -2124,53 +2124,53 @@ public class InternalAltaricaLexer extends Lexer {
                         int LA11_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA11_0=='a') ) {s = 1;}
+                        if ( (LA11_0=='=') ) {s = 1;}
 
-                        else if ( (LA11_0=='o') ) {s = 2;}
+                        else if ( (LA11_0=='!') ) {s = 2;}
 
-                        else if ( (LA11_0=='=') ) {s = 3;}
+                        else if ( (LA11_0=='<') ) {s = 3;}
 
-                        else if ( (LA11_0=='!') ) {s = 4;}
+                        else if ( (LA11_0=='>') ) {s = 4;}
 
-                        else if ( (LA11_0=='<') ) {s = 5;}
+                        else if ( (LA11_0=='+') ) {s = 5;}
 
-                        else if ( (LA11_0=='>') ) {s = 6;}
+                        else if ( (LA11_0=='-') ) {s = 6;}
 
-                        else if ( (LA11_0=='+') ) {s = 7;}
+                        else if ( (LA11_0=='*') ) {s = 7;}
 
-                        else if ( (LA11_0=='-') ) {s = 8;}
+                        else if ( (LA11_0=='/') ) {s = 8;}
 
-                        else if ( (LA11_0=='*') ) {s = 9;}
+                        else if ( (LA11_0=='t') ) {s = 9;}
 
-                        else if ( (LA11_0=='/') ) {s = 10;}
+                        else if ( (LA11_0=='f') ) {s = 10;}
 
-                        else if ( (LA11_0=='t') ) {s = 11;}
+                        else if ( (LA11_0=='I') ) {s = 11;}
 
-                        else if ( (LA11_0=='f') ) {s = 12;}
+                        else if ( (LA11_0=='B') ) {s = 12;}
 
-                        else if ( (LA11_0=='I') ) {s = 13;}
+                        else if ( (LA11_0=='d') ) {s = 13;}
 
-                        else if ( (LA11_0=='B') ) {s = 14;}
+                        else if ( (LA11_0=='{') ) {s = 14;}
 
-                        else if ( (LA11_0=='d') ) {s = 15;}
+                        else if ( (LA11_0=='}') ) {s = 15;}
 
-                        else if ( (LA11_0=='{') ) {s = 16;}
+                        else if ( (LA11_0==',') ) {s = 16;}
 
-                        else if ( (LA11_0=='}') ) {s = 17;}
+                        else if ( (LA11_0=='c') ) {s = 17;}
 
-                        else if ( (LA11_0==',') ) {s = 18;}
+                        else if ( (LA11_0=='e') ) {s = 18;}
 
-                        else if ( (LA11_0=='c') ) {s = 19;}
+                        else if ( (LA11_0=='a') ) {s = 19;}
 
-                        else if ( (LA11_0=='e') ) {s = 20;}
+                        else if ( (LA11_0==';') ) {s = 20;}
 
-                        else if ( (LA11_0==';') ) {s = 21;}
+                        else if ( (LA11_0=='(') ) {s = 21;}
 
-                        else if ( (LA11_0=='(') ) {s = 22;}
+                        else if ( (LA11_0==')') ) {s = 22;}
 
-                        else if ( (LA11_0==')') ) {s = 23;}
+                        else if ( (LA11_0=='p') ) {s = 23;}
 
-                        else if ( (LA11_0=='p') ) {s = 24;}
+                        else if ( (LA11_0=='o') ) {s = 24;}
 
                         else if ( (LA11_0==':') ) {s = 25;}
 

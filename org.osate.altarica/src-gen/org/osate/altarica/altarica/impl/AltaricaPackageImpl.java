@@ -31,7 +31,8 @@ import org.osate.altarica.altarica.Event;
 import org.osate.altarica.altarica.Expression;
 import org.osate.altarica.altarica.Instruction;
 import org.osate.altarica.altarica.LabeledTransition;
-import org.osate.altarica.altarica.Logical;
+import org.osate.altarica.altarica.LogicalAnd;
+import org.osate.altarica.altarica.LogicalOr;
 import org.osate.altarica.altarica.Minus;
 import org.osate.altarica.altarica.Model;
 import org.osate.altarica.altarica.Multiplication;
@@ -281,7 +282,14 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass logicalEClass = null;
+  private EClass logicalOrEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass logicalAndEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1083,9 +1091,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getLogical()
+  public EClass getLogicalOr()
   {
-    return logicalEClass;
+    return logicalOrEClass;
   }
 
   /**
@@ -1093,9 +1101,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLogical_Left()
+  public EReference getLogicalOr_Left()
   {
-    return (EReference)logicalEClass.getEStructuralFeatures().get(0);
+    return (EReference)logicalOrEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1103,9 +1111,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLogical_Op()
+  public EAttribute getLogicalOr_Op()
   {
-    return (EAttribute)logicalEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)logicalOrEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1113,9 +1121,49 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getLogical_Right()
+  public EReference getLogicalOr_Right()
   {
-    return (EReference)logicalEClass.getEStructuralFeatures().get(2);
+    return (EReference)logicalOrEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLogicalAnd()
+  {
+    return logicalAndEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLogicalAnd_Left()
+  {
+    return (EReference)logicalAndEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getLogicalAnd_Op()
+  {
+    return (EAttribute)logicalAndEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLogicalAnd_Right()
+  {
+    return (EReference)logicalAndEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -1418,10 +1466,15 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     createEReference(conditionalEClass, CONDITIONAL__CONDITION);
     createEReference(conditionalEClass, CONDITIONAL__THEN);
 
-    logicalEClass = createEClass(LOGICAL);
-    createEReference(logicalEClass, LOGICAL__LEFT);
-    createEAttribute(logicalEClass, LOGICAL__OP);
-    createEReference(logicalEClass, LOGICAL__RIGHT);
+    logicalOrEClass = createEClass(LOGICAL_OR);
+    createEReference(logicalOrEClass, LOGICAL_OR__LEFT);
+    createEAttribute(logicalOrEClass, LOGICAL_OR__OP);
+    createEReference(logicalOrEClass, LOGICAL_OR__RIGHT);
+
+    logicalAndEClass = createEClass(LOGICAL_AND);
+    createEReference(logicalAndEClass, LOGICAL_AND__LEFT);
+    createEAttribute(logicalAndEClass, LOGICAL_AND__OP);
+    createEReference(logicalAndEClass, LOGICAL_AND__RIGHT);
 
     equalEClass = createEClass(EQUAL);
     createEReference(equalEClass, EQUAL__LEFT);
@@ -1500,7 +1553,8 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     assignmentEClass.getESuperTypes().add(this.getInstruction());
     blockEClass.getESuperTypes().add(this.getInstruction());
     conditionalEClass.getESuperTypes().add(this.getInstruction());
-    logicalEClass.getESuperTypes().add(this.getExpression());
+    logicalOrEClass.getESuperTypes().add(this.getExpression());
+    logicalAndEClass.getESuperTypes().add(this.getExpression());
     equalEClass.getESuperTypes().add(this.getExpression());
     additionEClass.getESuperTypes().add(this.getExpression());
     multiplicationEClass.getESuperTypes().add(this.getExpression());
@@ -1608,10 +1662,15 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEReference(getConditional_Condition(), this.getExpression(), null, "condition", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getConditional_Then(), this.getInstruction(), null, "then", null, 0, 1, Conditional.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(logicalEClass, Logical.class, "Logical", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLogical_Left(), this.getExpression(), null, "left", null, 0, 1, Logical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getLogical_Op(), ecorePackage.getEString(), "op", null, 0, 1, Logical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getLogical_Right(), this.getExpression(), null, "right", null, 0, 1, Logical.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(logicalOrEClass, LogicalOr.class, "LogicalOr", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalOr_Left(), this.getExpression(), null, "left", null, 0, 1, LogicalOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLogicalOr_Op(), ecorePackage.getEString(), "op", null, 0, 1, LogicalOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicalOr_Right(), this.getExpression(), null, "right", null, 0, 1, LogicalOr.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(logicalAndEClass, LogicalAnd.class, "LogicalAnd", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLogicalAnd_Left(), this.getExpression(), null, "left", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLogicalAnd_Op(), ecorePackage.getEString(), "op", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getLogicalAnd_Right(), this.getExpression(), null, "right", null, 0, 1, LogicalAnd.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(equalEClass, Equal.class, "Equal", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getEqual_Left(), this.getExpression(), null, "left", null, 0, 1, Equal.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

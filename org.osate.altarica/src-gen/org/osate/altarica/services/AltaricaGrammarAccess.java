@@ -998,61 +998,97 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
-		private final RuleCall cLogicalParserRuleCall = (RuleCall)rule.eContents().get(1);
+		private final RuleCall cLogicalOrParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//// ========== Expressions ==========
 		//Expression:
-		//	Logical;
+		//	LogicalOr;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Logical
-		public RuleCall getLogicalParserRuleCall() { return cLogicalParserRuleCall; }
+		//LogicalOr
+		public RuleCall getLogicalOrParserRuleCall() { return cLogicalOrParserRuleCall; }
 	}
 
-	public class LogicalElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Logical");
+	public class LogicalOrElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LogicalOr");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cLogicalAndParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
+		private final Action cLogicalOrLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Assignment cOpAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
+		private final Keyword cOpOrKeyword_1_0_1_0 = (Keyword)cOpAssignment_1_0_1.eContents().get(0);
+		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
+		private final RuleCall cRightLogicalAndParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
+		
+		//LogicalOr returns Expression:
+		//	LogicalAnd => ({LogicalOr.left=current} op="or" right=LogicalAnd)*;
+		@Override public ParserRule getRule() { return rule; }
+
+		//LogicalAnd => ({LogicalOr.left=current} op="or" right=LogicalAnd)*
+		public Group getGroup() { return cGroup; }
+
+		//LogicalAnd
+		public RuleCall getLogicalAndParserRuleCall_0() { return cLogicalAndParserRuleCall_0; }
+
+		//=> ({LogicalOr.left=current} op="or" right=LogicalAnd)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//{LogicalOr.left=current} op="or" right=LogicalAnd
+		public Group getGroup_1_0() { return cGroup_1_0; }
+
+		//{LogicalOr.left=current}
+		public Action getLogicalOrLeftAction_1_0_0() { return cLogicalOrLeftAction_1_0_0; }
+
+		//op="or"
+		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
+
+		//"or"
+		public Keyword getOpOrKeyword_1_0_1_0() { return cOpOrKeyword_1_0_1_0; }
+
+		//right=LogicalAnd
+		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
+
+		//LogicalAnd
+		public RuleCall getRightLogicalAndParserRuleCall_1_0_2_0() { return cRightLogicalAndParserRuleCall_1_0_2_0; }
+	}
+
+	public class LogicalAndElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LogicalAnd");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cRelationParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Group cGroup_1_0 = (Group)cGroup_1.eContents().get(0);
-		private final Action cLogicalLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
+		private final Action cLogicalAndLeftAction_1_0_0 = (Action)cGroup_1_0.eContents().get(0);
 		private final Assignment cOpAssignment_1_0_1 = (Assignment)cGroup_1_0.eContents().get(1);
-		private final Alternatives cOpAlternatives_1_0_1_0 = (Alternatives)cOpAssignment_1_0_1.eContents().get(0);
-		private final Keyword cOpAndKeyword_1_0_1_0_0 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(0);
-		private final Keyword cOpOrKeyword_1_0_1_0_1 = (Keyword)cOpAlternatives_1_0_1_0.eContents().get(1);
+		private final Keyword cOpAndKeyword_1_0_1_0 = (Keyword)cOpAssignment_1_0_1.eContents().get(0);
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cRightRelationParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
-		//Logical returns Expression:
-		//	Relation => ({Logical.left=current} op=("and" | "or") right=Relation)*;
+		//LogicalAnd returns Expression:
+		//	Relation => ({LogicalAnd.left=current} op="and" right=Relation)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Relation => ({Logical.left=current} op=("and" | "or") right=Relation)*
+		//Relation => ({LogicalAnd.left=current} op="and" right=Relation)*
 		public Group getGroup() { return cGroup; }
 
 		//Relation
 		public RuleCall getRelationParserRuleCall_0() { return cRelationParserRuleCall_0; }
 
-		//=> ({Logical.left=current} op=("and" | "or") right=Relation)*
+		//=> ({LogicalAnd.left=current} op="and" right=Relation)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{Logical.left=current} op=("and" | "or") right=Relation
+		//{LogicalAnd.left=current} op="and" right=Relation
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
-		//{Logical.left=current}
-		public Action getLogicalLeftAction_1_0_0() { return cLogicalLeftAction_1_0_0; }
+		//{LogicalAnd.left=current}
+		public Action getLogicalAndLeftAction_1_0_0() { return cLogicalAndLeftAction_1_0_0; }
 
-		//op=("and" | "or")
+		//op="and"
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"and" | "or"
-		public Alternatives getOpAlternatives_1_0_1_0() { return cOpAlternatives_1_0_1_0; }
-
 		//"and"
-		public Keyword getOpAndKeyword_1_0_1_0_0() { return cOpAndKeyword_1_0_1_0_0; }
-
-		//"or"
-		public Keyword getOpOrKeyword_1_0_1_0_1() { return cOpOrKeyword_1_0_1_0_1; }
+		public Keyword getOpAndKeyword_1_0_1_0() { return cOpAndKeyword_1_0_1_0; }
 
 		//right=Relation
 		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
@@ -1497,7 +1533,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	private final SwitchElements pSwitch;
 	private final CaseExpressionElements pCaseExpression;
 	private final ExpressionElements pExpression;
-	private final LogicalElements pLogical;
+	private final LogicalOrElements pLogicalOr;
+	private final LogicalAndElements pLogicalAnd;
 	private final RelationElements pRelation;
 	private final AdditionElements pAddition;
 	private final MultiplicationElements pMultiplication;
@@ -1550,7 +1587,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSwitch = new SwitchElements();
 		this.pCaseExpression = new CaseExpressionElements();
 		this.pExpression = new ExpressionElements();
-		this.pLogical = new LogicalElements();
+		this.pLogicalOr = new LogicalOrElements();
+		this.pLogicalAnd = new LogicalAndElements();
 		this.pRelation = new RelationElements();
 		this.pAddition = new AdditionElements();
 		this.pMultiplication = new MultiplicationElements();
@@ -1862,7 +1900,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// ========== Expressions ==========
 	//Expression:
-	//	Logical;
+	//	LogicalOr;
 	public ExpressionElements getExpressionAccess() {
 		return pExpression;
 	}
@@ -1871,14 +1909,24 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 
-	//Logical returns Expression:
-	//	Relation => ({Logical.left=current} op=("and" | "or") right=Relation)*;
-	public LogicalElements getLogicalAccess() {
-		return pLogical;
+	//LogicalOr returns Expression:
+	//	LogicalAnd => ({LogicalOr.left=current} op="or" right=LogicalAnd)*;
+	public LogicalOrElements getLogicalOrAccess() {
+		return pLogicalOr;
 	}
 	
-	public ParserRule getLogicalRule() {
-		return getLogicalAccess().getRule();
+	public ParserRule getLogicalOrRule() {
+		return getLogicalOrAccess().getRule();
+	}
+
+	//LogicalAnd returns Expression:
+	//	Relation => ({LogicalAnd.left=current} op="and" right=Relation)*;
+	public LogicalAndElements getLogicalAndAccess() {
+		return pLogicalAnd;
+	}
+	
+	public ParserRule getLogicalAndRule() {
+		return getLogicalAndAccess().getRule();
 	}
 
 	//Relation returns Expression:

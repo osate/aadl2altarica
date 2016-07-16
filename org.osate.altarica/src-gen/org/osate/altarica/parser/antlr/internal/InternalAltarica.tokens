@@ -20,7 +20,7 @@
 '>='=46
 'Boolean'=57
 'Integer'=56
-'and'=40
+'and'=41
 'assertion'=21
 'class'=19
 'domain'=15
@@ -31,7 +31,7 @@
 'if'=36
 'not'=52
 'observer'=29
-'or'=41
+'or'=40
 'parameter'=28
 'skip'=34
 'switch'=39
