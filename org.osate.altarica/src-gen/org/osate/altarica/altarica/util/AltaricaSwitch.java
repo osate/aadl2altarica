@@ -146,13 +146,6 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.CASE_EXPRESSION:
-      {
-        CaseExpression caseExpression = (CaseExpression)theEObject;
-        T result = caseCaseExpression(caseExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case AltaricaPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -189,6 +182,21 @@ public class AltaricaSwitch<T> extends Switch<T>
         NameRef nameRef = (NameRef)theEObject;
         T result = caseNameRef(nameRef);
         if (result == null) result = caseExpression(nameRef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.SWITCH_EXPRESSION:
+      {
+        SwitchExpression switchExpression = (SwitchExpression)theEObject;
+        T result = caseSwitchExpression(switchExpression);
+        if (result == null) result = caseExpression(switchExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.CASE_EXPRESSION:
+      {
+        CaseExpression caseExpression = (CaseExpression)theEObject;
+        T result = caseCaseExpression(caseExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -549,22 +557,6 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Case Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Case Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseCaseExpression(CaseExpression object)
-  {
-    return null;
-  }
-
-  /**
    * Returns the result of interpreting the object as an instance of '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -640,6 +632,38 @@ public class AltaricaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseNameRef(NameRef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Switch Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Switch Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSwitchExpression(SwitchExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Case Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Case Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseCaseExpression(CaseExpression object)
   {
     return null;
   }

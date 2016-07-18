@@ -113,15 +113,6 @@ public interface AltaricaFactory extends EFactory
   Instruction createInstruction();
 
   /**
-   * Returns a new object of class '<em>Case Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Case Expression</em>'.
-   * @generated
-   */
-  CaseExpression createCaseExpression();
-
-  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -165,6 +156,24 @@ public interface AltaricaFactory extends EFactory
    * @generated
    */
   NameRef createNameRef();
+
+  /**
+   * Returns a new object of class '<em>Switch Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Switch Expression</em>'.
+   * @generated
+   */
+  SwitchExpression createSwitchExpression();
+
+  /**
+   * Returns a new object of class '<em>Case Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Case Expression</em>'.
+   * @generated
+   */
+  CaseExpression createCaseExpression();
 
   /**
    * Returns a new object of class '<em>Domain</em>'.

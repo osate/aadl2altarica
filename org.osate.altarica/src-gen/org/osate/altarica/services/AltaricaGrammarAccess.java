@@ -960,42 +960,6 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
-	public class CaseExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CaseExpression");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cConditionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cConditionExpressionParserRuleCall_0_0 = (RuleCall)cConditionAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cThenAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cThenInstructionParserRuleCall_2_0 = (RuleCall)cThenAssignment_2.eContents().get(0);
-		private final Keyword cCommaKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		
-		//CaseExpression:
-		//	condition=Expression ":" then=Instruction ",";
-		@Override public ParserRule getRule() { return rule; }
-
-		//condition=Expression ":" then=Instruction ","
-		public Group getGroup() { return cGroup; }
-
-		//condition=Expression
-		public Assignment getConditionAssignment_0() { return cConditionAssignment_0; }
-
-		//Expression
-		public RuleCall getConditionExpressionParserRuleCall_0_0() { return cConditionExpressionParserRuleCall_0_0; }
-
-		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
-
-		//then=Instruction
-		public Assignment getThenAssignment_2() { return cThenAssignment_2; }
-
-		//Instruction
-		public RuleCall getThenInstructionParserRuleCall_2_0() { return cThenInstructionParserRuleCall_2_0; }
-
-		//","
-		public Keyword getCommaKeyword_3() { return cCommaKeyword_3; }
-	}
-
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
 		private final RuleCall cLogicalOrParserRuleCall = (RuleCall)rule.eContents().get(1);
@@ -1332,16 +1296,17 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cIntegerLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cNameRefParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final Group cGroup_4 = (Group)cAlternatives.eContents().get(4);
-		private final Keyword cLeftParenthesisKeyword_4_0 = (Keyword)cGroup_4.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_4_1 = (RuleCall)cGroup_4.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_4_2 = (Keyword)cGroup_4.eContents().get(2);
+		private final RuleCall cSwitchExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
+		private final Keyword cLeftParenthesisKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
+		private final RuleCall cExpressionParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
 		
 		//Atom returns Expression:
-		//	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | "(" Expression ")";
+		//	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | "(" Expression ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | "(" Expression ")"
+		//BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | "(" Expression ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BooleanLiteral
@@ -1356,17 +1321,20 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//NameRef
 		public RuleCall getNameRefParserRuleCall_3() { return cNameRefParserRuleCall_3; }
 
+		//SwitchExpression
+		public RuleCall getSwitchExpressionParserRuleCall_4() { return cSwitchExpressionParserRuleCall_4; }
+
 		//"(" Expression ")"
-		public Group getGroup_4() { return cGroup_4; }
+		public Group getGroup_5() { return cGroup_5; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_4_0() { return cLeftParenthesisKeyword_4_0; }
+		public Keyword getLeftParenthesisKeyword_5_0() { return cLeftParenthesisKeyword_5_0; }
 
 		//Expression
-		public RuleCall getExpressionParserRuleCall_4_1() { return cExpressionParserRuleCall_4_1; }
+		public RuleCall getExpressionParserRuleCall_5_1() { return cExpressionParserRuleCall_5_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_4_2() { return cRightParenthesisKeyword_4_2; }
+		public Keyword getRightParenthesisKeyword_5_2() { return cRightParenthesisKeyword_5_2; }
 	}
 
 	public class BooleanLiteralElements extends AbstractParserRuleElementFinder {
@@ -1476,6 +1444,86 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1() { return cVariableNamedElementIDTerminalRuleCall_1_0_2_0_1; }
 	}
+
+	public class SwitchExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SwitchExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSwitchKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cCasesAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCasesCaseExpressionParserRuleCall_2_0 = (RuleCall)cCasesAssignment_2.eContents().get(0);
+		private final Keyword cElseKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		private final Assignment cDefaultAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cDefaultExpressionParserRuleCall_5_0 = (RuleCall)cDefaultAssignment_5.eContents().get(0);
+		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
+		
+		//SwitchExpression:
+		//	"switch" "{" cases+=CaseExpression* "else" ":" default=Expression "}";
+		@Override public ParserRule getRule() { return rule; }
+
+		//"switch" "{" cases+=CaseExpression* "else" ":" default=Expression "}"
+		public Group getGroup() { return cGroup; }
+
+		//"switch"
+		public Keyword getSwitchKeyword_0() { return cSwitchKeyword_0; }
+
+		//"{"
+		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
+
+		//cases+=CaseExpression*
+		public Assignment getCasesAssignment_2() { return cCasesAssignment_2; }
+
+		//CaseExpression
+		public RuleCall getCasesCaseExpressionParserRuleCall_2_0() { return cCasesCaseExpressionParserRuleCall_2_0; }
+
+		//"else"
+		public Keyword getElseKeyword_3() { return cElseKeyword_3; }
+
+		//":"
+		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
+
+		//default=Expression
+		public Assignment getDefaultAssignment_5() { return cDefaultAssignment_5; }
+
+		//Expression
+		public RuleCall getDefaultExpressionParserRuleCall_5_0() { return cDefaultExpressionParserRuleCall_5_0; }
+
+		//"}"
+		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
+	}
+
+	public class CaseExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CaseExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cConditionAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cConditionLogicalOrParserRuleCall_0_0 = (RuleCall)cConditionAssignment_0.eContents().get(0);
+		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cCaseAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cCaseExpressionParserRuleCall_2_0 = (RuleCall)cCaseAssignment_2.eContents().get(0);
+		
+		//CaseExpression:
+		//	condition=LogicalOr ":" case=Expression;
+		@Override public ParserRule getRule() { return rule; }
+
+		//condition=LogicalOr ":" case=Expression
+		public Group getGroup() { return cGroup; }
+
+		//condition=LogicalOr
+		public Assignment getConditionAssignment_0() { return cConditionAssignment_0; }
+
+		//LogicalOr
+		public RuleCall getConditionLogicalOrParserRuleCall_0_0() { return cConditionLogicalOrParserRuleCall_0_0; }
+
+		//":"
+		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+
+		//case=Expression
+		public Assignment getCaseAssignment_2() { return cCaseAssignment_2; }
+
+		//Expression
+		public RuleCall getCaseExpressionParserRuleCall_2_0() { return cCaseExpressionParserRuleCall_2_0; }
+	}
 	
 	
 	public class BaseTypeEnumElements extends AbstractEnumRuleElementFinder {
@@ -1531,7 +1579,6 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	private final BlockElements pBlock;
 	private final ConditionalElements pConditional;
 	private final SwitchElements pSwitch;
-	private final CaseExpressionElements pCaseExpression;
 	private final ExpressionElements pExpression;
 	private final LogicalOrElements pLogicalOr;
 	private final LogicalAndElements pLogicalAnd;
@@ -1544,6 +1591,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	private final StringLiteralElements pStringLiteral;
 	private final IntegerLiteralElements pIntegerLiteral;
 	private final NameRefElements pNameRef;
+	private final SwitchExpressionElements pSwitchExpression;
+	private final CaseExpressionElements pCaseExpression;
 	private final TerminalRule tALPHA;
 	private final TerminalRule tDIGIT;
 	private final TerminalRule tREGULAR_ID;
@@ -1585,7 +1634,6 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pBlock = new BlockElements();
 		this.pConditional = new ConditionalElements();
 		this.pSwitch = new SwitchElements();
-		this.pCaseExpression = new CaseExpressionElements();
 		this.pExpression = new ExpressionElements();
 		this.pLogicalOr = new LogicalOrElements();
 		this.pLogicalAnd = new LogicalAndElements();
@@ -1598,6 +1646,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pStringLiteral = new StringLiteralElements();
 		this.pIntegerLiteral = new IntegerLiteralElements();
 		this.pNameRef = new NameRefElements();
+		this.pSwitchExpression = new SwitchExpressionElements();
+		this.pCaseExpression = new CaseExpressionElements();
 		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ALPHA");
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DIGIT");
 		this.tREGULAR_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "REGULAR_ID");
@@ -1888,16 +1938,6 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getSwitchAccess().getRule();
 	}
 
-	//CaseExpression:
-	//	condition=Expression ":" then=Instruction ",";
-	public CaseExpressionElements getCaseExpressionAccess() {
-		return pCaseExpression;
-	}
-	
-	public ParserRule getCaseExpressionRule() {
-		return getCaseExpressionAccess().getRule();
-	}
-
 	//// ========== Expressions ==========
 	//Expression:
 	//	LogicalOr;
@@ -1970,7 +2010,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Atom returns Expression:
-	//	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | "(" Expression ")";
+	//	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | "(" Expression ")";
 	public AtomElements getAtomAccess() {
 		return pAtom;
 	}
@@ -2017,6 +2057,26 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getNameRefRule() {
 		return getNameRefAccess().getRule();
+	}
+
+	//SwitchExpression:
+	//	"switch" "{" cases+=CaseExpression* "else" ":" default=Expression "}";
+	public SwitchExpressionElements getSwitchExpressionAccess() {
+		return pSwitchExpression;
+	}
+	
+	public ParserRule getSwitchExpressionRule() {
+		return getSwitchExpressionAccess().getRule();
+	}
+
+	//CaseExpression:
+	//	condition=LogicalOr ":" case=Expression;
+	public CaseExpressionElements getCaseExpressionAccess() {
+		return pCaseExpression;
+	}
+	
+	public ParserRule getCaseExpressionRule() {
+		return getCaseExpressionAccess().getRule();
 	}
 
 	////===== Terminals

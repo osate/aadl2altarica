@@ -35,10 +35,6 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Instruction/cases"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Instruction/else"/>
     </genClasses>
-    <genClasses ecoreClass="Altarica.ecore#//CaseExpression">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/condition"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/then"/>
-    </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Expression"/>
     <genClasses ecoreClass="Altarica.ecore#//ARBoolean">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//ARBoolean/value"/>
@@ -52,6 +48,14 @@
     <genClasses ecoreClass="Altarica.ecore#//NameRef">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference Altarica.ecore#//NameRef/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//NameRef/nested"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//SwitchExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//SwitchExpression/cases"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//SwitchExpression/default"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//CaseExpression">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/condition"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/case"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Domain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Domain/constants"/>

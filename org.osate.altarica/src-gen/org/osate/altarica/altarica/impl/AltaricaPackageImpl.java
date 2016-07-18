@@ -44,6 +44,7 @@ import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
 import org.osate.altarica.altarica.Parameter;
 import org.osate.altarica.altarica.Skip;
+import org.osate.altarica.altarica.SwitchExpression;
 import org.osate.altarica.altarica.SymbolicConstant;
 import org.osate.altarica.altarica.Transition;
 import org.osate.altarica.altarica.TransitionAnd;
@@ -135,13 +136,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass caseExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   private EClass expressionEClass = null;
 
   /**
@@ -171,6 +165,20 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass nameRefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass switchExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass caseExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -581,36 +589,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCaseExpression()
-  {
-    return caseExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCaseExpression_Condition()
-  {
-    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getCaseExpression_Then()
-  {
-    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getExpression()
   {
     return expressionEClass;
@@ -704,6 +682,66 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
   public EReference getNameRef_Nested()
   {
     return (EReference)nameRefEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSwitchExpression()
+  {
+    return switchExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSwitchExpression_Cases()
+  {
+    return (EReference)switchExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSwitchExpression_Default()
+  {
+    return (EReference)switchExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getCaseExpression()
+  {
+    return caseExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCaseExpression_Condition()
+  {
+    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getCaseExpression_Case()
+  {
+    return (EReference)caseExpressionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1394,10 +1432,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     createEReference(instructionEClass, INSTRUCTION__CASES);
     createEReference(instructionEClass, INSTRUCTION__ELSE);
 
-    caseExpressionEClass = createEClass(CASE_EXPRESSION);
-    createEReference(caseExpressionEClass, CASE_EXPRESSION__CONDITION);
-    createEReference(caseExpressionEClass, CASE_EXPRESSION__THEN);
-
     expressionEClass = createEClass(EXPRESSION);
 
     arBooleanEClass = createEClass(AR_BOOLEAN);
@@ -1412,6 +1446,14 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     nameRefEClass = createEClass(NAME_REF);
     createEReference(nameRefEClass, NAME_REF__VARIABLE);
     createEReference(nameRefEClass, NAME_REF__NESTED);
+
+    switchExpressionEClass = createEClass(SWITCH_EXPRESSION);
+    createEReference(switchExpressionEClass, SWITCH_EXPRESSION__CASES);
+    createEReference(switchExpressionEClass, SWITCH_EXPRESSION__DEFAULT);
+
+    caseExpressionEClass = createEClass(CASE_EXPRESSION);
+    createEReference(caseExpressionEClass, CASE_EXPRESSION__CONDITION);
+    createEReference(caseExpressionEClass, CASE_EXPRESSION__CASE);
 
     domainEClass = createEClass(DOMAIN);
     createEReference(domainEClass, DOMAIN__CONSTANTS);
@@ -1538,6 +1580,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     arStringEClass.getESuperTypes().add(this.getExpression());
     arIntegerEClass.getESuperTypes().add(this.getExpression());
     nameRefEClass.getESuperTypes().add(this.getExpression());
+    switchExpressionEClass.getESuperTypes().add(this.getExpression());
     domainEClass.getESuperTypes().add(this.getNamedElement());
     symbolicConstantEClass.getESuperTypes().add(this.getNamedElement());
     nodeEClass.getESuperTypes().add(this.getNamedElement());
@@ -1590,10 +1633,6 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEReference(getInstruction_Cases(), this.getCaseExpression(), null, "cases", null, 0, -1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getInstruction_Else(), ecorePackage.getEObject(), null, "else", null, 0, 1, Instruction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(caseExpressionEClass, CaseExpression.class, "CaseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getCaseExpression_Condition(), this.getExpression(), null, "condition", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getCaseExpression_Then(), this.getInstruction(), null, "then", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(arBooleanEClass, ARBoolean.class, "ARBoolean", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1608,6 +1647,14 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEClass(nameRefEClass, NameRef.class, "NameRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNameRef_Variable(), this.getNamedElement(), null, "variable", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getNameRef_Nested(), this.getNameRef(), null, "nested", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(switchExpressionEClass, SwitchExpression.class, "SwitchExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSwitchExpression_Cases(), this.getCaseExpression(), null, "cases", null, 0, -1, SwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSwitchExpression_Default(), this.getExpression(), null, "default", null, 0, 1, SwitchExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(caseExpressionEClass, CaseExpression.class, "CaseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getCaseExpression_Condition(), this.getExpression(), null, "condition", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getCaseExpression_Case(), this.getExpression(), null, "case", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDomain_Constants(), this.getNamedElement(), null, "constants", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

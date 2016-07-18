@@ -4550,7 +4550,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                 int alt21=2;
                 int LA21_0 = input.LA(1);
 
-                if ( ((LA21_0>=RULE_ID && LA21_0<=RULE_INT)||LA21_0==23||LA21_0==49||(LA21_0>=52 && LA21_0<=54)) ) {
+                if ( ((LA21_0>=RULE_ID && LA21_0<=RULE_INT)||LA21_0==23||LA21_0==39||LA21_0==49||(LA21_0>=52 && LA21_0<=54)) ) {
                     alt21=1;
                 }
 
@@ -4672,173 +4672,8 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleSwitch"
 
 
-    // $ANTLR start "entryRuleCaseExpression"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1694:1: entryRuleCaseExpression returns [EObject current=null] : iv_ruleCaseExpression= ruleCaseExpression EOF ;
-    public final EObject entryRuleCaseExpression() throws RecognitionException {
-        EObject current = null;
-
-        EObject iv_ruleCaseExpression = null;
-
-
-        try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1695:2: (iv_ruleCaseExpression= ruleCaseExpression EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1696:2: iv_ruleCaseExpression= ruleCaseExpression EOF
-            {
-            if ( state.backtracking==0 ) {
-               newCompositeNode(grammarAccess.getCaseExpressionRule()); 
-            }
-            pushFollow(FOLLOW_ruleCaseExpression_in_entryRuleCaseExpression3695);
-            iv_ruleCaseExpression=ruleCaseExpression();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-               current =iv_ruleCaseExpression; 
-            }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleCaseExpression3705); if (state.failed) return current;
-
-            }
-
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "entryRuleCaseExpression"
-
-
-    // $ANTLR start "ruleCaseExpression"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1703:1: ruleCaseExpression returns [EObject current=null] : ( ( (lv_condition_0_0= ruleExpression ) ) otherlv_1= ':' ( (lv_then_2_0= ruleInstruction ) ) otherlv_3= ',' ) ;
-    public final EObject ruleCaseExpression() throws RecognitionException {
-        EObject current = null;
-
-        Token otherlv_1=null;
-        Token otherlv_3=null;
-        EObject lv_condition_0_0 = null;
-
-        EObject lv_then_2_0 = null;
-
-
-         enterRule(); 
-            
-        try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1706:28: ( ( ( (lv_condition_0_0= ruleExpression ) ) otherlv_1= ':' ( (lv_then_2_0= ruleInstruction ) ) otherlv_3= ',' ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1707:1: ( ( (lv_condition_0_0= ruleExpression ) ) otherlv_1= ':' ( (lv_then_2_0= ruleInstruction ) ) otherlv_3= ',' )
-            {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1707:1: ( ( (lv_condition_0_0= ruleExpression ) ) otherlv_1= ':' ( (lv_then_2_0= ruleInstruction ) ) otherlv_3= ',' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1707:2: ( (lv_condition_0_0= ruleExpression ) ) otherlv_1= ':' ( (lv_then_2_0= ruleInstruction ) ) otherlv_3= ','
-            {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1707:2: ( (lv_condition_0_0= ruleExpression ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1708:1: (lv_condition_0_0= ruleExpression )
-            {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1708:1: (lv_condition_0_0= ruleExpression )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1709:3: lv_condition_0_0= ruleExpression
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getConditionExpressionParserRuleCall_0_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleExpression_in_ruleCaseExpression3751);
-            lv_condition_0_0=ruleExpression();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getCaseExpressionRule());
-              	        }
-                     		set(
-                     			current, 
-                     			"condition",
-                      		lv_condition_0_0, 
-                      		"Expression");
-              	        afterParserOrEnumRuleCall();
-              	    
-            }
-
-            }
-
-
-            }
-
-            otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleCaseExpression3763); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-                  	newLeafNode(otherlv_1, grammarAccess.getCaseExpressionAccess().getColonKeyword_1());
-                  
-            }
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1729:1: ( (lv_then_2_0= ruleInstruction ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1730:1: (lv_then_2_0= ruleInstruction )
-            {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1730:1: (lv_then_2_0= ruleInstruction )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1731:3: lv_then_2_0= ruleInstruction
-            {
-            if ( state.backtracking==0 ) {
-               
-              	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getThenInstructionParserRuleCall_2_0()); 
-              	    
-            }
-            pushFollow(FOLLOW_ruleInstruction_in_ruleCaseExpression3784);
-            lv_then_2_0=ruleInstruction();
-
-            state._fsp--;
-            if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-              	        if (current==null) {
-              	            current = createModelElementForParent(grammarAccess.getCaseExpressionRule());
-              	        }
-                     		set(
-                     			current, 
-                     			"then",
-                      		lv_then_2_0, 
-                      		"Instruction");
-              	        afterParserOrEnumRuleCall();
-              	    
-            }
-
-            }
-
-
-            }
-
-            otherlv_3=(Token)match(input,17,FOLLOW_17_in_ruleCaseExpression3796); if (state.failed) return current;
-            if ( state.backtracking==0 ) {
-
-                  	newLeafNode(otherlv_3, grammarAccess.getCaseExpressionAccess().getCommaKeyword_3());
-                  
-            }
-
-            }
-
-
-            }
-
-            if ( state.backtracking==0 ) {
-               leaveRule(); 
-            }
-        }
-         
-            catch (RecognitionException re) { 
-                recover(input,re); 
-                appendSkippedTokens();
-            } 
-        finally {
-        }
-        return current;
-    }
-    // $ANTLR end "ruleCaseExpression"
-
-
     // $ANTLR start "entryRuleExpression"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1759:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1694:1: entryRuleExpression returns [EObject current=null] : iv_ruleExpression= ruleExpression EOF ;
     public final EObject entryRuleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4846,13 +4681,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1760:2: (iv_ruleExpression= ruleExpression EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1761:2: iv_ruleExpression= ruleExpression EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1695:2: (iv_ruleExpression= ruleExpression EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1696:2: iv_ruleExpression= ruleExpression EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getExpressionRule()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression3832);
+            pushFollow(FOLLOW_ruleExpression_in_entryRuleExpression3695);
             iv_ruleExpression=ruleExpression();
 
             state._fsp--;
@@ -4860,7 +4695,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleExpression; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression3842); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleExpression3705); if (state.failed) return current;
 
             }
 
@@ -4878,7 +4713,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleExpression"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1768:1: ruleExpression returns [EObject current=null] : this_LogicalOr_0= ruleLogicalOr ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1703:1: ruleExpression returns [EObject current=null] : this_LogicalOr_0= ruleLogicalOr ;
     public final EObject ruleExpression() throws RecognitionException {
         EObject current = null;
 
@@ -4888,15 +4723,15 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1771:28: (this_LogicalOr_0= ruleLogicalOr )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1773:5: this_LogicalOr_0= ruleLogicalOr
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1706:28: (this_LogicalOr_0= ruleLogicalOr )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1708:5: this_LogicalOr_0= ruleLogicalOr
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getExpressionAccess().getLogicalOrParserRuleCall()); 
                   
             }
-            pushFollow(FOLLOW_ruleLogicalOr_in_ruleExpression3888);
+            pushFollow(FOLLOW_ruleLogicalOr_in_ruleExpression3751);
             this_LogicalOr_0=ruleLogicalOr();
 
             state._fsp--;
@@ -4927,7 +4762,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLogicalOr"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1789:1: entryRuleLogicalOr returns [EObject current=null] : iv_ruleLogicalOr= ruleLogicalOr EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1724:1: entryRuleLogicalOr returns [EObject current=null] : iv_ruleLogicalOr= ruleLogicalOr EOF ;
     public final EObject entryRuleLogicalOr() throws RecognitionException {
         EObject current = null;
 
@@ -4935,13 +4770,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1790:2: (iv_ruleLogicalOr= ruleLogicalOr EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1791:2: iv_ruleLogicalOr= ruleLogicalOr EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1725:2: (iv_ruleLogicalOr= ruleLogicalOr EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1726:2: iv_ruleLogicalOr= ruleLogicalOr EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLogicalOrRule()); 
             }
-            pushFollow(FOLLOW_ruleLogicalOr_in_entryRuleLogicalOr3922);
+            pushFollow(FOLLOW_ruleLogicalOr_in_entryRuleLogicalOr3785);
             iv_ruleLogicalOr=ruleLogicalOr();
 
             state._fsp--;
@@ -4949,7 +4784,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLogicalOr; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLogicalOr3932); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLogicalOr3795); if (state.failed) return current;
 
             }
 
@@ -4967,7 +4802,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLogicalOr"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1798:1: ruleLogicalOr returns [EObject current=null] : (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1733:1: ruleLogicalOr returns [EObject current=null] : (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* ) ;
     public final EObject ruleLogicalOr() throws RecognitionException {
         EObject current = null;
 
@@ -4980,18 +4815,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1801:28: ( (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1802:1: (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1736:28: ( (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1737:1: (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1802:1: (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1803:5: this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1737:1: (this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1738:5: this_LogicalAnd_0= ruleLogicalAnd ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getLogicalOrAccess().getLogicalAndParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleLogicalAnd_in_ruleLogicalOr3979);
+            pushFollow(FOLLOW_ruleLogicalAnd_in_ruleLogicalOr3842);
             this_LogicalAnd_0=ruleLogicalAnd();
 
             state._fsp--;
@@ -5002,7 +4837,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:1: ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:1: ( ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) ) )*
             loop22:
             do {
                 int alt22=2;
@@ -5015,13 +4850,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                 switch (alt22) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:2: ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:2: ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )=> ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1822:6: ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1822:7: () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1757:6: ( () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1757:7: () ( (lv_op_2_0= 'or' ) ) ( (lv_right_3_0= ruleLogicalAnd ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1822:7: ()
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1823:5: 
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1757:7: ()
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1758:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5033,13 +4868,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1828:2: ( (lv_op_2_0= 'or' ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1829:1: (lv_op_2_0= 'or' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1763:2: ( (lv_op_2_0= 'or' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1764:1: (lv_op_2_0= 'or' )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1829:1: (lv_op_2_0= 'or' )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1830:3: lv_op_2_0= 'or'
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1764:1: (lv_op_2_0= 'or' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1765:3: lv_op_2_0= 'or'
             	    {
-            	    lv_op_2_0=(Token)match(input,40,FOLLOW_40_in_ruleLogicalOr4038); if (state.failed) return current;
+            	    lv_op_2_0=(Token)match(input,40,FOLLOW_40_in_ruleLogicalOr3901); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              newLeafNode(lv_op_2_0, grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0());
@@ -5059,18 +4894,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1843:2: ( (lv_right_3_0= ruleLogicalAnd ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1844:1: (lv_right_3_0= ruleLogicalAnd )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1778:2: ( (lv_right_3_0= ruleLogicalAnd ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1779:1: (lv_right_3_0= ruleLogicalAnd )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1844:1: (lv_right_3_0= ruleLogicalAnd )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1845:3: lv_right_3_0= ruleLogicalAnd
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1779:1: (lv_right_3_0= ruleLogicalAnd )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1780:3: lv_right_3_0= ruleLogicalAnd
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleLogicalAnd_in_ruleLogicalOr4072);
+            	    pushFollow(FOLLOW_ruleLogicalAnd_in_ruleLogicalOr3935);
             	    lv_right_3_0=ruleLogicalAnd();
 
             	    state._fsp--;
@@ -5129,7 +4964,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLogicalAnd"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1869:1: entryRuleLogicalAnd returns [EObject current=null] : iv_ruleLogicalAnd= ruleLogicalAnd EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1804:1: entryRuleLogicalAnd returns [EObject current=null] : iv_ruleLogicalAnd= ruleLogicalAnd EOF ;
     public final EObject entryRuleLogicalAnd() throws RecognitionException {
         EObject current = null;
 
@@ -5137,13 +4972,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1870:2: (iv_ruleLogicalAnd= ruleLogicalAnd EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1871:2: iv_ruleLogicalAnd= ruleLogicalAnd EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1805:2: (iv_ruleLogicalAnd= ruleLogicalAnd EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1806:2: iv_ruleLogicalAnd= ruleLogicalAnd EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getLogicalAndRule()); 
             }
-            pushFollow(FOLLOW_ruleLogicalAnd_in_entryRuleLogicalAnd4111);
+            pushFollow(FOLLOW_ruleLogicalAnd_in_entryRuleLogicalAnd3974);
             iv_ruleLogicalAnd=ruleLogicalAnd();
 
             state._fsp--;
@@ -5151,7 +4986,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleLogicalAnd; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleLogicalAnd4121); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleLogicalAnd3984); if (state.failed) return current;
 
             }
 
@@ -5169,7 +5004,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLogicalAnd"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1878:1: ruleLogicalAnd returns [EObject current=null] : (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1813:1: ruleLogicalAnd returns [EObject current=null] : (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* ) ;
     public final EObject ruleLogicalAnd() throws RecognitionException {
         EObject current = null;
 
@@ -5182,18 +5017,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1881:28: ( (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1882:1: (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1816:28: ( (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1817:1: (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1882:1: (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1883:5: this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1817:1: (this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1818:5: this_Relation_0= ruleRelation ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getLogicalAndAccess().getRelationParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleRelation_in_ruleLogicalAnd4168);
+            pushFollow(FOLLOW_ruleRelation_in_ruleLogicalAnd4031);
             this_Relation_0=ruleRelation();
 
             state._fsp--;
@@ -5204,7 +5039,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:1: ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:1: ( ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) ) )*
             loop23:
             do {
                 int alt23=2;
@@ -5217,13 +5052,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                 switch (alt23) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:2: ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:2: ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )=> ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1902:6: ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1902:7: () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1837:6: ( () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1837:7: () ( (lv_op_2_0= 'and' ) ) ( (lv_right_3_0= ruleRelation ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1902:7: ()
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1903:5: 
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1837:7: ()
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1838:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5235,13 +5070,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1908:2: ( (lv_op_2_0= 'and' ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1909:1: (lv_op_2_0= 'and' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1843:2: ( (lv_op_2_0= 'and' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1844:1: (lv_op_2_0= 'and' )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1909:1: (lv_op_2_0= 'and' )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1910:3: lv_op_2_0= 'and'
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1844:1: (lv_op_2_0= 'and' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1845:3: lv_op_2_0= 'and'
             	    {
-            	    lv_op_2_0=(Token)match(input,41,FOLLOW_41_in_ruleLogicalAnd4227); if (state.failed) return current;
+            	    lv_op_2_0=(Token)match(input,41,FOLLOW_41_in_ruleLogicalAnd4090); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	              newLeafNode(lv_op_2_0, grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0());
@@ -5261,18 +5096,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1923:2: ( (lv_right_3_0= ruleRelation ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1924:1: (lv_right_3_0= ruleRelation )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1858:2: ( (lv_right_3_0= ruleRelation ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1859:1: (lv_right_3_0= ruleRelation )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1924:1: (lv_right_3_0= ruleRelation )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1925:3: lv_right_3_0= ruleRelation
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1859:1: (lv_right_3_0= ruleRelation )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1860:3: lv_right_3_0= ruleRelation
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleRelation_in_ruleLogicalAnd4261);
+            	    pushFollow(FOLLOW_ruleRelation_in_ruleLogicalAnd4124);
             	    lv_right_3_0=ruleRelation();
 
             	    state._fsp--;
@@ -5331,7 +5166,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleRelation"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1949:1: entryRuleRelation returns [EObject current=null] : iv_ruleRelation= ruleRelation EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1884:1: entryRuleRelation returns [EObject current=null] : iv_ruleRelation= ruleRelation EOF ;
     public final EObject entryRuleRelation() throws RecognitionException {
         EObject current = null;
 
@@ -5339,13 +5174,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1950:2: (iv_ruleRelation= ruleRelation EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1951:2: iv_ruleRelation= ruleRelation EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1885:2: (iv_ruleRelation= ruleRelation EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1886:2: iv_ruleRelation= ruleRelation EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getRelationRule()); 
             }
-            pushFollow(FOLLOW_ruleRelation_in_entryRuleRelation4300);
+            pushFollow(FOLLOW_ruleRelation_in_entryRuleRelation4163);
             iv_ruleRelation=ruleRelation();
 
             state._fsp--;
@@ -5353,7 +5188,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleRelation; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRelation4310); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelation4173); if (state.failed) return current;
 
             }
 
@@ -5371,7 +5206,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleRelation"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1958:1: ruleRelation returns [EObject current=null] : (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1893:1: ruleRelation returns [EObject current=null] : (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* ) ;
     public final EObject ruleRelation() throws RecognitionException {
         EObject current = null;
 
@@ -5389,18 +5224,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1961:28: ( (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1962:1: (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1896:28: ( (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1897:1: (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1962:1: (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1963:5: this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1897:1: (this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1898:5: this_Addition_0= ruleAddition ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getRelationAccess().getAdditionParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleAddition_in_ruleRelation4357);
+            pushFollow(FOLLOW_ruleAddition_in_ruleRelation4220);
             this_Addition_0=ruleAddition();
 
             state._fsp--;
@@ -5411,7 +5246,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:1: ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:1: ( ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) ) )*
             loop25:
             do {
                 int alt25=2;
@@ -5439,13 +5274,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                 switch (alt25) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:2: ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:2: ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )=> ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2000:6: ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2000:7: () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1935:6: ( () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1935:7: () ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) ) ( (lv_right_3_0= ruleAddition ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2000:7: ()
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2001:5: 
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1935:7: ()
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1936:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5457,13 +5292,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2006:2: ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2007:1: ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1941:2: ( ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1942:1: ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2007:1: ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2008:1: (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1942:1: ( (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1943:1: (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2008:1: (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1943:1: (lv_op_2_1= '==' | lv_op_2_2= '!=' | lv_op_2_3= '<' | lv_op_2_4= '<=' | lv_op_2_5= '>=' | lv_op_2_6= '>' )
             	    int alt24=6;
             	    switch ( input.LA(1) ) {
             	    case 42:
@@ -5506,9 +5341,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    switch (alt24) {
             	        case 1 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2009:3: lv_op_2_1= '=='
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1944:3: lv_op_2_1= '=='
             	            {
-            	            lv_op_2_1=(Token)match(input,42,FOLLOW_42_in_ruleRelation4493); if (state.failed) return current;
+            	            lv_op_2_1=(Token)match(input,42,FOLLOW_42_in_ruleRelation4356); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_1, grammarAccess.getRelationAccess().getOpEqualsSignEqualsSignKeyword_1_0_1_0_0());
@@ -5526,9 +5361,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2021:8: lv_op_2_2= '!='
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1956:8: lv_op_2_2= '!='
             	            {
-            	            lv_op_2_2=(Token)match(input,43,FOLLOW_43_in_ruleRelation4522); if (state.failed) return current;
+            	            lv_op_2_2=(Token)match(input,43,FOLLOW_43_in_ruleRelation4385); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_2, grammarAccess.getRelationAccess().getOpExclamationMarkEqualsSignKeyword_1_0_1_0_1());
@@ -5546,9 +5381,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 3 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2033:8: lv_op_2_3= '<'
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1968:8: lv_op_2_3= '<'
             	            {
-            	            lv_op_2_3=(Token)match(input,44,FOLLOW_44_in_ruleRelation4551); if (state.failed) return current;
+            	            lv_op_2_3=(Token)match(input,44,FOLLOW_44_in_ruleRelation4414); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_3, grammarAccess.getRelationAccess().getOpLessThanSignKeyword_1_0_1_0_2());
@@ -5566,9 +5401,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 4 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2045:8: lv_op_2_4= '<='
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1980:8: lv_op_2_4= '<='
             	            {
-            	            lv_op_2_4=(Token)match(input,45,FOLLOW_45_in_ruleRelation4580); if (state.failed) return current;
+            	            lv_op_2_4=(Token)match(input,45,FOLLOW_45_in_ruleRelation4443); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_4, grammarAccess.getRelationAccess().getOpLessThanSignEqualsSignKeyword_1_0_1_0_3());
@@ -5586,9 +5421,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 5 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2057:8: lv_op_2_5= '>='
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1992:8: lv_op_2_5= '>='
             	            {
-            	            lv_op_2_5=(Token)match(input,46,FOLLOW_46_in_ruleRelation4609); if (state.failed) return current;
+            	            lv_op_2_5=(Token)match(input,46,FOLLOW_46_in_ruleRelation4472); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_5, grammarAccess.getRelationAccess().getOpGreaterThanSignEqualsSignKeyword_1_0_1_0_4());
@@ -5606,9 +5441,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 6 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2069:8: lv_op_2_6= '>'
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2004:8: lv_op_2_6= '>'
             	            {
-            	            lv_op_2_6=(Token)match(input,47,FOLLOW_47_in_ruleRelation4638); if (state.failed) return current;
+            	            lv_op_2_6=(Token)match(input,47,FOLLOW_47_in_ruleRelation4501); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_6, grammarAccess.getRelationAccess().getOpGreaterThanSignKeyword_1_0_1_0_5());
@@ -5634,18 +5469,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2084:2: ( (lv_right_3_0= ruleAddition ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2085:1: (lv_right_3_0= ruleAddition )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2019:2: ( (lv_right_3_0= ruleAddition ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2020:1: (lv_right_3_0= ruleAddition )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2085:1: (lv_right_3_0= ruleAddition )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2086:3: lv_right_3_0= ruleAddition
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2020:1: (lv_right_3_0= ruleAddition )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2021:3: lv_right_3_0= ruleAddition
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getRelationAccess().getRightAdditionParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleAddition_in_ruleRelation4675);
+            	    pushFollow(FOLLOW_ruleAddition_in_ruleRelation4538);
             	    lv_right_3_0=ruleAddition();
 
             	    state._fsp--;
@@ -5704,7 +5539,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAddition"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2110:1: entryRuleAddition returns [EObject current=null] : iv_ruleAddition= ruleAddition EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2045:1: entryRuleAddition returns [EObject current=null] : iv_ruleAddition= ruleAddition EOF ;
     public final EObject entryRuleAddition() throws RecognitionException {
         EObject current = null;
 
@@ -5712,13 +5547,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2111:2: (iv_ruleAddition= ruleAddition EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2112:2: iv_ruleAddition= ruleAddition EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2046:2: (iv_ruleAddition= ruleAddition EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2047:2: iv_ruleAddition= ruleAddition EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAdditionRule()); 
             }
-            pushFollow(FOLLOW_ruleAddition_in_entryRuleAddition4714);
+            pushFollow(FOLLOW_ruleAddition_in_entryRuleAddition4577);
             iv_ruleAddition=ruleAddition();
 
             state._fsp--;
@@ -5726,7 +5561,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAddition; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAddition4724); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAddition4587); if (state.failed) return current;
 
             }
 
@@ -5744,7 +5579,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAddition"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2119:1: ruleAddition returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2054:1: ruleAddition returns [EObject current=null] : (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* ) ;
     public final EObject ruleAddition() throws RecognitionException {
         EObject current = null;
 
@@ -5758,18 +5593,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2122:28: ( (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2123:1: (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2057:28: ( (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2058:1: (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2123:1: (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2124:5: this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2058:1: (this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2059:5: this_Multiplication_0= ruleMultiplication ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getAdditionAccess().getMultiplicationParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleMultiplication_in_ruleAddition4771);
+            pushFollow(FOLLOW_ruleMultiplication_in_ruleAddition4634);
             this_Multiplication_0=ruleMultiplication();
 
             state._fsp--;
@@ -5780,29 +5615,20 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:1: ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:1: ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )*
             loop27:
             do {
                 int alt27=2;
-                int LA27_0 = input.LA(1);
-
-                if ( (LA27_0==48) && (synpred6_InternalAltarica())) {
-                    alt27=1;
-                }
-                else if ( (LA27_0==49) && (synpred6_InternalAltarica())) {
-                    alt27=1;
-                }
-
-
+                alt27 = dfa27.predict(input);
                 switch (alt27) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:2: ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:2: ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2149:6: ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2149:7: () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2084:6: ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2084:7: () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2149:7: ()
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2150:5: 
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2084:7: ()
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2085:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -5814,13 +5640,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2155:2: ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2156:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2090:2: ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2091:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2156:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2157:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2091:1: ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2092:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2157:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2092:1: (lv_op_2_1= '+' | lv_op_2_2= '-' )
             	    int alt26=2;
             	    int LA26_0 = input.LA(1);
 
@@ -5839,9 +5665,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt26) {
             	        case 1 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2158:3: lv_op_2_1= '+'
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2093:3: lv_op_2_1= '+'
             	            {
-            	            lv_op_2_1=(Token)match(input,48,FOLLOW_48_in_ruleAddition4851); if (state.failed) return current;
+            	            lv_op_2_1=(Token)match(input,48,FOLLOW_48_in_ruleAddition4714); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_1, grammarAccess.getAdditionAccess().getOpPlusSignKeyword_1_0_1_0_0());
@@ -5859,9 +5685,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2170:8: lv_op_2_2= '-'
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2105:8: lv_op_2_2= '-'
             	            {
-            	            lv_op_2_2=(Token)match(input,49,FOLLOW_49_in_ruleAddition4880); if (state.failed) return current;
+            	            lv_op_2_2=(Token)match(input,49,FOLLOW_49_in_ruleAddition4743); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_2, grammarAccess.getAdditionAccess().getOpHyphenMinusKeyword_1_0_1_0_1());
@@ -5887,18 +5713,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2185:2: ( (lv_right_3_0= ruleMultiplication ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2186:1: (lv_right_3_0= ruleMultiplication )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2120:2: ( (lv_right_3_0= ruleMultiplication ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2121:1: (lv_right_3_0= ruleMultiplication )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2186:1: (lv_right_3_0= ruleMultiplication )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2187:3: lv_right_3_0= ruleMultiplication
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2121:1: (lv_right_3_0= ruleMultiplication )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2122:3: lv_right_3_0= ruleMultiplication
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleMultiplication_in_ruleAddition4917);
+            	    pushFollow(FOLLOW_ruleMultiplication_in_ruleAddition4780);
             	    lv_right_3_0=ruleMultiplication();
 
             	    state._fsp--;
@@ -5957,7 +5783,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMultiplication"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2211:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2146:1: entryRuleMultiplication returns [EObject current=null] : iv_ruleMultiplication= ruleMultiplication EOF ;
     public final EObject entryRuleMultiplication() throws RecognitionException {
         EObject current = null;
 
@@ -5965,13 +5791,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2212:2: (iv_ruleMultiplication= ruleMultiplication EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2213:2: iv_ruleMultiplication= ruleMultiplication EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2147:2: (iv_ruleMultiplication= ruleMultiplication EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2148:2: iv_ruleMultiplication= ruleMultiplication EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getMultiplicationRule()); 
             }
-            pushFollow(FOLLOW_ruleMultiplication_in_entryRuleMultiplication4956);
+            pushFollow(FOLLOW_ruleMultiplication_in_entryRuleMultiplication4819);
             iv_ruleMultiplication=ruleMultiplication();
 
             state._fsp--;
@@ -5979,7 +5805,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleMultiplication; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplication4966); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleMultiplication4829); if (state.failed) return current;
 
             }
 
@@ -5997,7 +5823,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMultiplication"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2220:1: ruleMultiplication returns [EObject current=null] : (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2155:1: ruleMultiplication returns [EObject current=null] : (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* ) ;
     public final EObject ruleMultiplication() throws RecognitionException {
         EObject current = null;
 
@@ -6011,18 +5837,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2223:28: ( (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2224:1: (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2158:28: ( (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2159:1: (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2224:1: (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2225:5: this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2159:1: (this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2160:5: this_Neg_0= ruleNeg ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )*
             {
             if ( state.backtracking==0 ) {
                
                       newCompositeNode(grammarAccess.getMultiplicationAccess().getNegParserRuleCall_0()); 
                   
             }
-            pushFollow(FOLLOW_ruleNeg_in_ruleMultiplication5013);
+            pushFollow(FOLLOW_ruleNeg_in_ruleMultiplication4876);
             this_Neg_0=ruleNeg();
 
             state._fsp--;
@@ -6033,7 +5859,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                       afterParserOrEnumRuleCall();
                   
             }
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:1: ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:1: ( ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) ) )*
             loop29:
             do {
                 int alt29=2;
@@ -6049,13 +5875,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                 switch (alt29) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:2: ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:2: ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )=> ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2250:6: ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2250:7: () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2185:6: ( () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2185:7: () ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) ) ( (lv_right_3_0= ruleNeg ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2250:7: ()
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2251:5: 
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2185:7: ()
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2186:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -6067,13 +5893,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2256:2: ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2257:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2191:2: ( ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2192:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2257:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2258:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2192:1: ( (lv_op_2_1= '*' | lv_op_2_2= '/' ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2193:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2258:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2193:1: (lv_op_2_1= '*' | lv_op_2_2= '/' )
             	    int alt28=2;
             	    int LA28_0 = input.LA(1);
 
@@ -6092,9 +5918,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	    }
             	    switch (alt28) {
             	        case 1 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2259:3: lv_op_2_1= '*'
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2194:3: lv_op_2_1= '*'
             	            {
-            	            lv_op_2_1=(Token)match(input,50,FOLLOW_50_in_ruleMultiplication5093); if (state.failed) return current;
+            	            lv_op_2_1=(Token)match(input,50,FOLLOW_50_in_ruleMultiplication4956); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_1, grammarAccess.getMultiplicationAccess().getOpAsteriskKeyword_1_0_1_0_0());
@@ -6112,9 +5938,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	            }
             	            break;
             	        case 2 :
-            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2271:8: lv_op_2_2= '/'
+            	            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2206:8: lv_op_2_2= '/'
             	            {
-            	            lv_op_2_2=(Token)match(input,51,FOLLOW_51_in_ruleMultiplication5122); if (state.failed) return current;
+            	            lv_op_2_2=(Token)match(input,51,FOLLOW_51_in_ruleMultiplication4985); if (state.failed) return current;
             	            if ( state.backtracking==0 ) {
 
             	                      newLeafNode(lv_op_2_2, grammarAccess.getMultiplicationAccess().getOpSolidusKeyword_1_0_1_0_1());
@@ -6140,18 +5966,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2286:2: ( (lv_right_3_0= ruleNeg ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2287:1: (lv_right_3_0= ruleNeg )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2221:2: ( (lv_right_3_0= ruleNeg ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2222:1: (lv_right_3_0= ruleNeg )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2287:1: (lv_right_3_0= ruleNeg )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2288:3: lv_right_3_0= ruleNeg
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2222:1: (lv_right_3_0= ruleNeg )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2223:3: lv_right_3_0= ruleNeg
             	    {
             	    if ( state.backtracking==0 ) {
             	       
             	      	        newCompositeNode(grammarAccess.getMultiplicationAccess().getRightNegParserRuleCall_1_0_2_0()); 
             	      	    
             	    }
-            	    pushFollow(FOLLOW_ruleNeg_in_ruleMultiplication5159);
+            	    pushFollow(FOLLOW_ruleNeg_in_ruleMultiplication5022);
             	    lv_right_3_0=ruleNeg();
 
             	    state._fsp--;
@@ -6210,7 +6036,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNeg"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2312:1: entryRuleNeg returns [EObject current=null] : iv_ruleNeg= ruleNeg EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2247:1: entryRuleNeg returns [EObject current=null] : iv_ruleNeg= ruleNeg EOF ;
     public final EObject entryRuleNeg() throws RecognitionException {
         EObject current = null;
 
@@ -6218,13 +6044,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2313:2: (iv_ruleNeg= ruleNeg EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2314:2: iv_ruleNeg= ruleNeg EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2248:2: (iv_ruleNeg= ruleNeg EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2249:2: iv_ruleNeg= ruleNeg EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNegRule()); 
             }
-            pushFollow(FOLLOW_ruleNeg_in_entryRuleNeg5198);
+            pushFollow(FOLLOW_ruleNeg_in_entryRuleNeg5061);
             iv_ruleNeg=ruleNeg();
 
             state._fsp--;
@@ -6232,7 +6058,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNeg; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNeg5208); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNeg5071); if (state.failed) return current;
 
             }
 
@@ -6250,7 +6076,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNeg"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2321:1: ruleNeg returns [EObject current=null] : ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2256:1: ruleNeg returns [EObject current=null] : ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom ) ;
     public final EObject ruleNeg() throws RecognitionException {
         EObject current = null;
 
@@ -6266,10 +6092,10 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2324:28: ( ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2325:1: ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2259:28: ( ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2260:1: ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2325:1: ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2260:1: ( ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) ) | ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) ) | this_Atom_6= ruleAtom )
             int alt30=3;
             switch ( input.LA(1) ) {
             case 52:
@@ -6286,6 +6112,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             case RULE_STRING:
             case RULE_INT:
             case 23:
+            case 39:
             case 53:
             case 54:
                 {
@@ -6302,13 +6129,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             switch (alt30) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2325:2: ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2260:2: ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2325:2: ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2325:3: () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2260:2: ( () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2260:3: () ( ( 'not' )=>otherlv_1= 'not' ) ( (lv_expression_2_0= ruleAtom ) )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2325:3: ()
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2326:5: 
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2260:3: ()
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2261:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6320,10 +6147,10 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2331:2: ( ( 'not' )=>otherlv_1= 'not' )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2331:3: ( 'not' )=>otherlv_1= 'not'
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2266:2: ( ( 'not' )=>otherlv_1= 'not' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2266:3: ( 'not' )=>otherlv_1= 'not'
                     {
-                    otherlv_1=(Token)match(input,52,FOLLOW_52_in_ruleNeg5263); if (state.failed) return current;
+                    otherlv_1=(Token)match(input,52,FOLLOW_52_in_ruleNeg5126); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_1, grammarAccess.getNegAccess().getNotKeyword_0_1());
@@ -6332,18 +6159,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2336:2: ( (lv_expression_2_0= ruleAtom ) )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2337:1: (lv_expression_2_0= ruleAtom )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2271:2: ( (lv_expression_2_0= ruleAtom ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2272:1: (lv_expression_2_0= ruleAtom )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2337:1: (lv_expression_2_0= ruleAtom )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2338:3: lv_expression_2_0= ruleAtom
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2272:1: (lv_expression_2_0= ruleAtom )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2273:3: lv_expression_2_0= ruleAtom
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_0_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAtom_in_ruleNeg5285);
+                    pushFollow(FOLLOW_ruleAtom_in_ruleNeg5148);
                     lv_expression_2_0=ruleAtom();
 
                     state._fsp--;
@@ -6374,13 +6201,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2355:6: ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2290:6: ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2355:6: ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2355:7: () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2290:6: ( () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2290:7: () ( ( '-' )=>otherlv_4= '-' ) ( (lv_expression_5_0= ruleAtom ) )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2355:7: ()
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2356:5: 
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2290:7: ()
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2291:5: 
                     {
                     if ( state.backtracking==0 ) {
 
@@ -6392,10 +6219,10 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2361:2: ( ( '-' )=>otherlv_4= '-' )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2361:3: ( '-' )=>otherlv_4= '-'
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2296:2: ( ( '-' )=>otherlv_4= '-' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2296:3: ( '-' )=>otherlv_4= '-'
                     {
-                    otherlv_4=(Token)match(input,49,FOLLOW_49_in_ruleNeg5322); if (state.failed) return current;
+                    otherlv_4=(Token)match(input,49,FOLLOW_49_in_ruleNeg5185); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                           	newLeafNode(otherlv_4, grammarAccess.getNegAccess().getHyphenMinusKeyword_1_1());
@@ -6404,18 +6231,18 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                     }
 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2366:2: ( (lv_expression_5_0= ruleAtom ) )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2367:1: (lv_expression_5_0= ruleAtom )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2301:2: ( (lv_expression_5_0= ruleAtom ) )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2302:1: (lv_expression_5_0= ruleAtom )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2367:1: (lv_expression_5_0= ruleAtom )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2368:3: lv_expression_5_0= ruleAtom
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2302:1: (lv_expression_5_0= ruleAtom )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2303:3: lv_expression_5_0= ruleAtom
                     {
                     if ( state.backtracking==0 ) {
                        
                       	        newCompositeNode(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_1_2_0()); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleAtom_in_ruleNeg5344);
+                    pushFollow(FOLLOW_ruleAtom_in_ruleNeg5207);
                     lv_expression_5_0=ruleAtom();
 
                     state._fsp--;
@@ -6446,14 +6273,14 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2386:5: this_Atom_6= ruleAtom
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2321:5: this_Atom_6= ruleAtom
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getNegAccess().getAtomParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleAtom_in_ruleNeg5373);
+                    pushFollow(FOLLOW_ruleAtom_in_ruleNeg5236);
                     this_Atom_6=ruleAtom();
 
                     state._fsp--;
@@ -6490,7 +6317,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleAtom"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2402:1: entryRuleAtom returns [EObject current=null] : iv_ruleAtom= ruleAtom EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2337:1: entryRuleAtom returns [EObject current=null] : iv_ruleAtom= ruleAtom EOF ;
     public final EObject entryRuleAtom() throws RecognitionException {
         EObject current = null;
 
@@ -6498,13 +6325,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2403:2: (iv_ruleAtom= ruleAtom EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2404:2: iv_ruleAtom= ruleAtom EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2338:2: (iv_ruleAtom= ruleAtom EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2339:2: iv_ruleAtom= ruleAtom EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getAtomRule()); 
             }
-            pushFollow(FOLLOW_ruleAtom_in_entryRuleAtom5408);
+            pushFollow(FOLLOW_ruleAtom_in_entryRuleAtom5271);
             iv_ruleAtom=ruleAtom();
 
             state._fsp--;
@@ -6512,7 +6339,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleAtom; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleAtom5418); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleAtom5281); if (state.failed) return current;
 
             }
 
@@ -6530,12 +6357,12 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAtom"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2411:1: ruleAtom returns [EObject current=null] : (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | (otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')' ) ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2346:1: ruleAtom returns [EObject current=null] : (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | this_SwitchExpression_4= ruleSwitchExpression | (otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')' ) ) ;
     public final EObject ruleAtom() throws RecognitionException {
         EObject current = null;
 
-        Token otherlv_4=null;
-        Token otherlv_6=null;
+        Token otherlv_5=null;
+        Token otherlv_7=null;
         EObject this_BooleanLiteral_0 = null;
 
         EObject this_StringLiteral_1 = null;
@@ -6544,17 +6371,19 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
         EObject this_NameRef_3 = null;
 
-        EObject this_Expression_5 = null;
+        EObject this_SwitchExpression_4 = null;
+
+        EObject this_Expression_6 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2414:28: ( (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | (otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')' ) ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2415:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | (otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')' ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2349:28: ( (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | this_SwitchExpression_4= ruleSwitchExpression | (otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')' ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2350:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | this_SwitchExpression_4= ruleSwitchExpression | (otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')' ) )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2415:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | (otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')' ) )
-            int alt31=5;
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2350:1: (this_BooleanLiteral_0= ruleBooleanLiteral | this_StringLiteral_1= ruleStringLiteral | this_IntegerLiteral_2= ruleIntegerLiteral | this_NameRef_3= ruleNameRef | this_SwitchExpression_4= ruleSwitchExpression | (otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')' ) )
+            int alt31=6;
             switch ( input.LA(1) ) {
             case 53:
             case 54:
@@ -6577,9 +6406,14 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                 alt31=4;
                 }
                 break;
-            case 23:
+            case 39:
                 {
                 alt31=5;
+                }
+                break;
+            case 23:
+                {
+                alt31=6;
                 }
                 break;
             default:
@@ -6592,14 +6426,14 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             switch (alt31) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2416:5: this_BooleanLiteral_0= ruleBooleanLiteral
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2351:5: this_BooleanLiteral_0= ruleBooleanLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getAtomAccess().getBooleanLiteralParserRuleCall_0()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleAtom5465);
+                    pushFollow(FOLLOW_ruleBooleanLiteral_in_ruleAtom5328);
                     this_BooleanLiteral_0=ruleBooleanLiteral();
 
                     state._fsp--;
@@ -6614,14 +6448,14 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2426:5: this_StringLiteral_1= ruleStringLiteral
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2361:5: this_StringLiteral_1= ruleStringLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getAtomAccess().getStringLiteralParserRuleCall_1()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleAtom5492);
+                    pushFollow(FOLLOW_ruleStringLiteral_in_ruleAtom5355);
                     this_StringLiteral_1=ruleStringLiteral();
 
                     state._fsp--;
@@ -6636,14 +6470,14 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2436:5: this_IntegerLiteral_2= ruleIntegerLiteral
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2371:5: this_IntegerLiteral_2= ruleIntegerLiteral
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getAtomAccess().getIntegerLiteralParserRuleCall_2()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleIntegerLiteral_in_ruleAtom5519);
+                    pushFollow(FOLLOW_ruleIntegerLiteral_in_ruleAtom5382);
                     this_IntegerLiteral_2=ruleIntegerLiteral();
 
                     state._fsp--;
@@ -6658,14 +6492,14 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2446:5: this_NameRef_3= ruleNameRef
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2381:5: this_NameRef_3= ruleNameRef
                     {
                     if ( state.backtracking==0 ) {
                        
                               newCompositeNode(grammarAccess.getAtomAccess().getNameRefParserRuleCall_3()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNameRef_in_ruleAtom5546);
+                    pushFollow(FOLLOW_ruleNameRef_in_ruleAtom5409);
                     this_NameRef_3=ruleNameRef();
 
                     state._fsp--;
@@ -6680,37 +6514,59 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2455:6: (otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2391:5: this_SwitchExpression_4= ruleSwitchExpression
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2455:6: (otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')' )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2455:8: otherlv_4= '(' this_Expression_5= ruleExpression otherlv_6= ')'
-                    {
-                    otherlv_4=(Token)match(input,23,FOLLOW_23_in_ruleAtom5564); if (state.failed) return current;
-                    if ( state.backtracking==0 ) {
-
-                          	newLeafNode(otherlv_4, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_4_0());
-                          
-                    }
                     if ( state.backtracking==0 ) {
                        
-                              newCompositeNode(grammarAccess.getAtomAccess().getExpressionParserRuleCall_4_1()); 
+                              newCompositeNode(grammarAccess.getAtomAccess().getSwitchExpressionParserRuleCall_4()); 
                           
                     }
-                    pushFollow(FOLLOW_ruleExpression_in_ruleAtom5586);
-                    this_Expression_5=ruleExpression();
+                    pushFollow(FOLLOW_ruleSwitchExpression_in_ruleAtom5436);
+                    this_SwitchExpression_4=ruleSwitchExpression();
 
                     state._fsp--;
                     if (state.failed) return current;
                     if ( state.backtracking==0 ) {
                        
-                              current = this_Expression_5; 
+                              current = this_SwitchExpression_4; 
                               afterParserOrEnumRuleCall();
                           
                     }
-                    otherlv_6=(Token)match(input,24,FOLLOW_24_in_ruleAtom5597); if (state.failed) return current;
+
+                    }
+                    break;
+                case 6 :
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2400:6: (otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')' )
+                    {
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2400:6: (otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2400:8: otherlv_5= '(' this_Expression_6= ruleExpression otherlv_7= ')'
+                    {
+                    otherlv_5=(Token)match(input,23,FOLLOW_23_in_ruleAtom5454); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                          	newLeafNode(otherlv_6, grammarAccess.getAtomAccess().getRightParenthesisKeyword_4_2());
+                          	newLeafNode(otherlv_5, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_5_0());
+                          
+                    }
+                    if ( state.backtracking==0 ) {
+                       
+                              newCompositeNode(grammarAccess.getAtomAccess().getExpressionParserRuleCall_5_1()); 
+                          
+                    }
+                    pushFollow(FOLLOW_ruleExpression_in_ruleAtom5476);
+                    this_Expression_6=ruleExpression();
+
+                    state._fsp--;
+                    if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+                       
+                              current = this_Expression_6; 
+                              afterParserOrEnumRuleCall();
+                          
+                    }
+                    otherlv_7=(Token)match(input,24,FOLLOW_24_in_ruleAtom5487); if (state.failed) return current;
+                    if ( state.backtracking==0 ) {
+
+                          	newLeafNode(otherlv_7, grammarAccess.getAtomAccess().getRightParenthesisKeyword_5_2());
                           
                     }
 
@@ -6742,7 +6598,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleBooleanLiteral"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2480:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2425:1: entryRuleBooleanLiteral returns [EObject current=null] : iv_ruleBooleanLiteral= ruleBooleanLiteral EOF ;
     public final EObject entryRuleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6750,13 +6606,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2481:2: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2482:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2426:2: (iv_ruleBooleanLiteral= ruleBooleanLiteral EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2427:2: iv_ruleBooleanLiteral= ruleBooleanLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getBooleanLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral5634);
+            pushFollow(FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral5524);
             iv_ruleBooleanLiteral=ruleBooleanLiteral();
 
             state._fsp--;
@@ -6764,7 +6620,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleBooleanLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral5644); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBooleanLiteral5534); if (state.failed) return current;
 
             }
 
@@ -6782,7 +6638,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleBooleanLiteral"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2489:1: ruleBooleanLiteral returns [EObject current=null] : ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2434:1: ruleBooleanLiteral returns [EObject current=null] : ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) ) ;
     public final EObject ruleBooleanLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6792,16 +6648,16 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2492:28: ( ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2493:1: ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2437:28: ( ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2438:1: ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2493:1: ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2494:1: ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2438:1: ( ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2439:1: ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2494:1: ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2495:1: (lv_value_0_1= 'true' | lv_value_0_2= 'false' )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2439:1: ( (lv_value_0_1= 'true' | lv_value_0_2= 'false' ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2440:1: (lv_value_0_1= 'true' | lv_value_0_2= 'false' )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2495:1: (lv_value_0_1= 'true' | lv_value_0_2= 'false' )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2440:1: (lv_value_0_1= 'true' | lv_value_0_2= 'false' )
             int alt32=2;
             int LA32_0 = input.LA(1);
 
@@ -6820,9 +6676,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             }
             switch (alt32) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2496:3: lv_value_0_1= 'true'
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2441:3: lv_value_0_1= 'true'
                     {
-                    lv_value_0_1=(Token)match(input,53,FOLLOW_53_in_ruleBooleanLiteral5688); if (state.failed) return current;
+                    lv_value_0_1=(Token)match(input,53,FOLLOW_53_in_ruleBooleanLiteral5578); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_value_0_1, grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_0_0());
@@ -6840,9 +6696,9 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2508:8: lv_value_0_2= 'false'
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2453:8: lv_value_0_2= 'false'
                     {
-                    lv_value_0_2=(Token)match(input,54,FOLLOW_54_in_ruleBooleanLiteral5717); if (state.failed) return current;
+                    lv_value_0_2=(Token)match(input,54,FOLLOW_54_in_ruleBooleanLiteral5607); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               newLeafNode(lv_value_0_2, grammarAccess.getBooleanLiteralAccess().getValueFalseKeyword_0_1());
@@ -6888,7 +6744,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleStringLiteral"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2531:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2476:1: entryRuleStringLiteral returns [EObject current=null] : iv_ruleStringLiteral= ruleStringLiteral EOF ;
     public final EObject entryRuleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6896,13 +6752,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2532:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2533:2: iv_ruleStringLiteral= ruleStringLiteral EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2477:2: (iv_ruleStringLiteral= ruleStringLiteral EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2478:2: iv_ruleStringLiteral= ruleStringLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getStringLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5768);
+            pushFollow(FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5658);
             iv_ruleStringLiteral=ruleStringLiteral();
 
             state._fsp--;
@@ -6910,7 +6766,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleStringLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral5778); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleStringLiteral5668); if (state.failed) return current;
 
             }
 
@@ -6928,7 +6784,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleStringLiteral"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2540:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2485:1: ruleStringLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_STRING ) ) ;
     public final EObject ruleStringLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6937,16 +6793,16 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2543:28: ( ( (lv_value_0_0= RULE_STRING ) ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2544:1: ( (lv_value_0_0= RULE_STRING ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2488:28: ( ( (lv_value_0_0= RULE_STRING ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2489:1: ( (lv_value_0_0= RULE_STRING ) )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2544:1: ( (lv_value_0_0= RULE_STRING ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2545:1: (lv_value_0_0= RULE_STRING )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2489:1: ( (lv_value_0_0= RULE_STRING ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2490:1: (lv_value_0_0= RULE_STRING )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2545:1: (lv_value_0_0= RULE_STRING )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2546:3: lv_value_0_0= RULE_STRING
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2490:1: (lv_value_0_0= RULE_STRING )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2491:3: lv_value_0_0= RULE_STRING
             {
-            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral5819); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_STRING,FOLLOW_RULE_STRING_in_ruleStringLiteral5709); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
@@ -6990,7 +6846,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleIntegerLiteral"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2570:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2515:1: entryRuleIntegerLiteral returns [EObject current=null] : iv_ruleIntegerLiteral= ruleIntegerLiteral EOF ;
     public final EObject entryRuleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -6998,13 +6854,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2571:2: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2572:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2516:2: (iv_ruleIntegerLiteral= ruleIntegerLiteral EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2517:2: iv_ruleIntegerLiteral= ruleIntegerLiteral EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getIntegerLiteralRule()); 
             }
-            pushFollow(FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral5859);
+            pushFollow(FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral5749);
             iv_ruleIntegerLiteral=ruleIntegerLiteral();
 
             state._fsp--;
@@ -7012,7 +6868,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleIntegerLiteral; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerLiteral5869); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleIntegerLiteral5759); if (state.failed) return current;
 
             }
 
@@ -7030,7 +6886,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleIntegerLiteral"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2579:1: ruleIntegerLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2524:1: ruleIntegerLiteral returns [EObject current=null] : ( (lv_value_0_0= RULE_INT ) ) ;
     public final EObject ruleIntegerLiteral() throws RecognitionException {
         EObject current = null;
 
@@ -7039,16 +6895,16 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2582:28: ( ( (lv_value_0_0= RULE_INT ) ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2583:1: ( (lv_value_0_0= RULE_INT ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2527:28: ( ( (lv_value_0_0= RULE_INT ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2528:1: ( (lv_value_0_0= RULE_INT ) )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2583:1: ( (lv_value_0_0= RULE_INT ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2584:1: (lv_value_0_0= RULE_INT )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2528:1: ( (lv_value_0_0= RULE_INT ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2529:1: (lv_value_0_0= RULE_INT )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2584:1: (lv_value_0_0= RULE_INT )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2585:3: lv_value_0_0= RULE_INT
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2529:1: (lv_value_0_0= RULE_INT )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2530:3: lv_value_0_0= RULE_INT
             {
-            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerLiteral5910); if (state.failed) return current;
+            lv_value_0_0=(Token)match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleIntegerLiteral5800); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               			newLeafNode(lv_value_0_0, grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0()); 
@@ -7092,7 +6948,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleNameRef"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2609:1: entryRuleNameRef returns [EObject current=null] : iv_ruleNameRef= ruleNameRef EOF ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2554:1: entryRuleNameRef returns [EObject current=null] : iv_ruleNameRef= ruleNameRef EOF ;
     public final EObject entryRuleNameRef() throws RecognitionException {
         EObject current = null;
 
@@ -7100,13 +6956,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2610:2: (iv_ruleNameRef= ruleNameRef EOF )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2611:2: iv_ruleNameRef= ruleNameRef EOF
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2555:2: (iv_ruleNameRef= ruleNameRef EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2556:2: iv_ruleNameRef= ruleNameRef EOF
             {
             if ( state.backtracking==0 ) {
                newCompositeNode(grammarAccess.getNameRefRule()); 
             }
-            pushFollow(FOLLOW_ruleNameRef_in_entryRuleNameRef5950);
+            pushFollow(FOLLOW_ruleNameRef_in_entryRuleNameRef5840);
             iv_ruleNameRef=ruleNameRef();
 
             state._fsp--;
@@ -7114,7 +6970,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             if ( state.backtracking==0 ) {
                current =iv_ruleNameRef; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleNameRef5960); if (state.failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleNameRef5850); if (state.failed) return current;
 
             }
 
@@ -7132,7 +6988,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleNameRef"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2618:1: ruleNameRef returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2563:1: ruleNameRef returns [EObject current=null] : ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* ) ;
     public final EObject ruleNameRef() throws RecognitionException {
         EObject current = null;
 
@@ -7143,17 +6999,17 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
          enterRule(); 
             
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2621:28: ( ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2622:1: ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2566:28: ( ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2567:1: ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2622:1: ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2622:2: ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2567:1: ( ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )* )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2567:2: ( (otherlv_0= RULE_ID ) ) ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )*
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2622:2: ( (otherlv_0= RULE_ID ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2623:1: (otherlv_0= RULE_ID )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2567:2: ( (otherlv_0= RULE_ID ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2568:1: (otherlv_0= RULE_ID )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2623:1: (otherlv_0= RULE_ID )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2624:3: otherlv_0= RULE_ID
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2568:1: (otherlv_0= RULE_ID )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2569:3: otherlv_0= RULE_ID
             {
             if ( state.backtracking==0 ) {
 
@@ -7162,7 +7018,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
               	        }
                       
             }
-            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameRef6005); if (state.failed) return current;
+            otherlv_0=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameRef5895); if (state.failed) return current;
             if ( state.backtracking==0 ) {
 
               		newLeafNode(otherlv_0, grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_0_0()); 
@@ -7174,7 +7030,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:2: ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )*
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:2: ( ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) ) )*
             loop33:
             do {
                 int alt33=2;
@@ -7187,13 +7043,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
                 switch (alt33) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:3: ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:3: ( ( () '.' ( ( RULE_ID ) ) ) )=> ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2642:6: ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2642:7: () otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2587:6: ( () otherlv_2= '.' ( (otherlv_3= RULE_ID ) ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2587:7: () otherlv_2= '.' ( (otherlv_3= RULE_ID ) )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2642:7: ()
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2643:5: 
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2587:7: ()
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2588:5: 
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -7205,17 +7061,17 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
             	    }
 
-            	    otherlv_2=(Token)match(input,55,FOLLOW_55_in_ruleNameRef6051); if (state.failed) return current;
+            	    otherlv_2=(Token)match(input,55,FOLLOW_55_in_ruleNameRef5941); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	          	newLeafNode(otherlv_2, grammarAccess.getNameRefAccess().getFullStopKeyword_1_0_1());
             	          
             	    }
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2652:1: ( (otherlv_3= RULE_ID ) )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2653:1: (otherlv_3= RULE_ID )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2597:1: ( (otherlv_3= RULE_ID ) )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2598:1: (otherlv_3= RULE_ID )
             	    {
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2653:1: (otherlv_3= RULE_ID )
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2654:3: otherlv_3= RULE_ID
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2598:1: (otherlv_3= RULE_ID )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2599:3: otherlv_3= RULE_ID
             	    {
             	    if ( state.backtracking==0 ) {
 
@@ -7224,7 +7080,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
             	      	        }
             	              
             	    }
-            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameRef6071); if (state.failed) return current;
+            	    otherlv_3=(Token)match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleNameRef5961); if (state.failed) return current;
             	    if ( state.backtracking==0 ) {
 
             	      		newLeafNode(otherlv_3, grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); 
@@ -7270,8 +7126,370 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleNameRef"
 
 
+    // $ANTLR start "entryRuleSwitchExpression"
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2618:1: entryRuleSwitchExpression returns [EObject current=null] : iv_ruleSwitchExpression= ruleSwitchExpression EOF ;
+    public final EObject entryRuleSwitchExpression() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleSwitchExpression = null;
+
+
+        try {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2619:2: (iv_ruleSwitchExpression= ruleSwitchExpression EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2620:2: iv_ruleSwitchExpression= ruleSwitchExpression EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getSwitchExpressionRule()); 
+            }
+            pushFollow(FOLLOW_ruleSwitchExpression_in_entryRuleSwitchExpression6000);
+            iv_ruleSwitchExpression=ruleSwitchExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleSwitchExpression; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSwitchExpression6010); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleSwitchExpression"
+
+
+    // $ANTLR start "ruleSwitchExpression"
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2627:1: ruleSwitchExpression returns [EObject current=null] : (otherlv_0= 'switch' otherlv_1= '{' ( (lv_cases_2_0= ruleCaseExpression ) )* otherlv_3= 'else' otherlv_4= ':' ( (lv_default_5_0= ruleExpression ) ) otherlv_6= '}' ) ;
+    public final EObject ruleSwitchExpression() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_0=null;
+        Token otherlv_1=null;
+        Token otherlv_3=null;
+        Token otherlv_4=null;
+        Token otherlv_6=null;
+        EObject lv_cases_2_0 = null;
+
+        EObject lv_default_5_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2630:28: ( (otherlv_0= 'switch' otherlv_1= '{' ( (lv_cases_2_0= ruleCaseExpression ) )* otherlv_3= 'else' otherlv_4= ':' ( (lv_default_5_0= ruleExpression ) ) otherlv_6= '}' ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2631:1: (otherlv_0= 'switch' otherlv_1= '{' ( (lv_cases_2_0= ruleCaseExpression ) )* otherlv_3= 'else' otherlv_4= ':' ( (lv_default_5_0= ruleExpression ) ) otherlv_6= '}' )
+            {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2631:1: (otherlv_0= 'switch' otherlv_1= '{' ( (lv_cases_2_0= ruleCaseExpression ) )* otherlv_3= 'else' otherlv_4= ':' ( (lv_default_5_0= ruleExpression ) ) otherlv_6= '}' )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2631:3: otherlv_0= 'switch' otherlv_1= '{' ( (lv_cases_2_0= ruleCaseExpression ) )* otherlv_3= 'else' otherlv_4= ':' ( (lv_default_5_0= ruleExpression ) ) otherlv_6= '}'
+            {
+            otherlv_0=(Token)match(input,39,FOLLOW_39_in_ruleSwitchExpression6047); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_0, grammarAccess.getSwitchExpressionAccess().getSwitchKeyword_0());
+                  
+            }
+            otherlv_1=(Token)match(input,16,FOLLOW_16_in_ruleSwitchExpression6059); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_1, grammarAccess.getSwitchExpressionAccess().getLeftCurlyBracketKeyword_1());
+                  
+            }
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2639:1: ( (lv_cases_2_0= ruleCaseExpression ) )*
+            loop34:
+            do {
+                int alt34=2;
+                int LA34_0 = input.LA(1);
+
+                if ( ((LA34_0>=RULE_ID && LA34_0<=RULE_INT)||LA34_0==23||LA34_0==39||LA34_0==49||(LA34_0>=52 && LA34_0<=54)) ) {
+                    alt34=1;
+                }
+
+
+                switch (alt34) {
+            	case 1 :
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2640:1: (lv_cases_2_0= ruleCaseExpression )
+            	    {
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2640:1: (lv_cases_2_0= ruleCaseExpression )
+            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2641:3: lv_cases_2_0= ruleCaseExpression
+            	    {
+            	    if ( state.backtracking==0 ) {
+            	       
+            	      	        newCompositeNode(grammarAccess.getSwitchExpressionAccess().getCasesCaseExpressionParserRuleCall_2_0()); 
+            	      	    
+            	    }
+            	    pushFollow(FOLLOW_ruleCaseExpression_in_ruleSwitchExpression6080);
+            	    lv_cases_2_0=ruleCaseExpression();
+
+            	    state._fsp--;
+            	    if (state.failed) return current;
+            	    if ( state.backtracking==0 ) {
+
+            	      	        if (current==null) {
+            	      	            current = createModelElementForParent(grammarAccess.getSwitchExpressionRule());
+            	      	        }
+            	             		add(
+            	             			current, 
+            	             			"cases",
+            	              		lv_cases_2_0, 
+            	              		"CaseExpression");
+            	      	        afterParserOrEnumRuleCall();
+            	      	    
+            	    }
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop34;
+                }
+            } while (true);
+
+            otherlv_3=(Token)match(input,38,FOLLOW_38_in_ruleSwitchExpression6093); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_3, grammarAccess.getSwitchExpressionAccess().getElseKeyword_3());
+                  
+            }
+            otherlv_4=(Token)match(input,30,FOLLOW_30_in_ruleSwitchExpression6105); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_4, grammarAccess.getSwitchExpressionAccess().getColonKeyword_4());
+                  
+            }
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2665:1: ( (lv_default_5_0= ruleExpression ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2666:1: (lv_default_5_0= ruleExpression )
+            {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2666:1: (lv_default_5_0= ruleExpression )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2667:3: lv_default_5_0= ruleExpression
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getSwitchExpressionAccess().getDefaultExpressionParserRuleCall_5_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleExpression_in_ruleSwitchExpression6126);
+            lv_default_5_0=ruleExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getSwitchExpressionRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"default",
+                      		lv_default_5_0, 
+                      		"Expression");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
+
+            }
+
+
+            }
+
+            otherlv_6=(Token)match(input,18,FOLLOW_18_in_ruleSwitchExpression6138); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_6, grammarAccess.getSwitchExpressionAccess().getRightCurlyBracketKeyword_6());
+                  
+            }
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleSwitchExpression"
+
+
+    // $ANTLR start "entryRuleCaseExpression"
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2695:1: entryRuleCaseExpression returns [EObject current=null] : iv_ruleCaseExpression= ruleCaseExpression EOF ;
+    public final EObject entryRuleCaseExpression() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleCaseExpression = null;
+
+
+        try {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2696:2: (iv_ruleCaseExpression= ruleCaseExpression EOF )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2697:2: iv_ruleCaseExpression= ruleCaseExpression EOF
+            {
+            if ( state.backtracking==0 ) {
+               newCompositeNode(grammarAccess.getCaseExpressionRule()); 
+            }
+            pushFollow(FOLLOW_ruleCaseExpression_in_entryRuleCaseExpression6174);
+            iv_ruleCaseExpression=ruleCaseExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+               current =iv_ruleCaseExpression; 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleCaseExpression6184); if (state.failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleCaseExpression"
+
+
+    // $ANTLR start "ruleCaseExpression"
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2704:1: ruleCaseExpression returns [EObject current=null] : ( ( (lv_condition_0_0= ruleLogicalOr ) ) otherlv_1= ':' ( (lv_case_2_0= ruleExpression ) ) ) ;
+    public final EObject ruleCaseExpression() throws RecognitionException {
+        EObject current = null;
+
+        Token otherlv_1=null;
+        EObject lv_condition_0_0 = null;
+
+        EObject lv_case_2_0 = null;
+
+
+         enterRule(); 
+            
+        try {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2707:28: ( ( ( (lv_condition_0_0= ruleLogicalOr ) ) otherlv_1= ':' ( (lv_case_2_0= ruleExpression ) ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2708:1: ( ( (lv_condition_0_0= ruleLogicalOr ) ) otherlv_1= ':' ( (lv_case_2_0= ruleExpression ) ) )
+            {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2708:1: ( ( (lv_condition_0_0= ruleLogicalOr ) ) otherlv_1= ':' ( (lv_case_2_0= ruleExpression ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2708:2: ( (lv_condition_0_0= ruleLogicalOr ) ) otherlv_1= ':' ( (lv_case_2_0= ruleExpression ) )
+            {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2708:2: ( (lv_condition_0_0= ruleLogicalOr ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2709:1: (lv_condition_0_0= ruleLogicalOr )
+            {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2709:1: (lv_condition_0_0= ruleLogicalOr )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2710:3: lv_condition_0_0= ruleLogicalOr
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_0_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleLogicalOr_in_ruleCaseExpression6230);
+            lv_condition_0_0=ruleLogicalOr();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getCaseExpressionRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"condition",
+                      		lv_condition_0_0, 
+                      		"LogicalOr");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
+
+            }
+
+
+            }
+
+            otherlv_1=(Token)match(input,30,FOLLOW_30_in_ruleCaseExpression6242); if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+                  	newLeafNode(otherlv_1, grammarAccess.getCaseExpressionAccess().getColonKeyword_1());
+                  
+            }
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2730:1: ( (lv_case_2_0= ruleExpression ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2731:1: (lv_case_2_0= ruleExpression )
+            {
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2731:1: (lv_case_2_0= ruleExpression )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2732:3: lv_case_2_0= ruleExpression
+            {
+            if ( state.backtracking==0 ) {
+               
+              	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_2_0()); 
+              	    
+            }
+            pushFollow(FOLLOW_ruleExpression_in_ruleCaseExpression6263);
+            lv_case_2_0=ruleExpression();
+
+            state._fsp--;
+            if (state.failed) return current;
+            if ( state.backtracking==0 ) {
+
+              	        if (current==null) {
+              	            current = createModelElementForParent(grammarAccess.getCaseExpressionRule());
+              	        }
+                     		set(
+                     			current, 
+                     			"case",
+                      		lv_case_2_0, 
+                      		"Expression");
+              	        afterParserOrEnumRuleCall();
+              	    
+            }
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+            if ( state.backtracking==0 ) {
+               leaveRule(); 
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleCaseExpression"
+
+
     // $ANTLR start "ruleBaseTypeEnum"
-    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2673:1: ruleBaseTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) ) ;
+    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2756:1: ruleBaseTypeEnum returns [Enumerator current=null] : ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) ) ;
     public final Enumerator ruleBaseTypeEnum() throws RecognitionException {
         Enumerator current = null;
 
@@ -7280,34 +7498,34 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
          enterRule(); 
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2675:28: ( ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2676:1: ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2758:28: ( ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) ) )
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2759:1: ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2676:1: ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) )
-            int alt34=2;
-            int LA34_0 = input.LA(1);
+            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2759:1: ( (enumLiteral_0= 'Integer' ) | (enumLiteral_1= 'Boolean' ) )
+            int alt35=2;
+            int LA35_0 = input.LA(1);
 
-            if ( (LA34_0==56) ) {
-                alt34=1;
+            if ( (LA35_0==56) ) {
+                alt35=1;
             }
-            else if ( (LA34_0==57) ) {
-                alt34=2;
+            else if ( (LA35_0==57) ) {
+                alt35=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 34, 0, input);
+                    new NoViableAltException("", 35, 0, input);
 
                 throw nvae;
             }
-            switch (alt34) {
+            switch (alt35) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2676:2: (enumLiteral_0= 'Integer' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2759:2: (enumLiteral_0= 'Integer' )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2676:2: (enumLiteral_0= 'Integer' )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2676:4: enumLiteral_0= 'Integer'
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2759:2: (enumLiteral_0= 'Integer' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2759:4: enumLiteral_0= 'Integer'
                     {
-                    enumLiteral_0=(Token)match(input,56,FOLLOW_56_in_ruleBaseTypeEnum6124); if (state.failed) return current;
+                    enumLiteral_0=(Token)match(input,56,FOLLOW_56_in_ruleBaseTypeEnum6313); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getBaseTypeEnumAccess().getINTEGEREnumLiteralDeclaration_0().getEnumLiteral().getInstance();
@@ -7321,12 +7539,12 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2682:6: (enumLiteral_1= 'Boolean' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2765:6: (enumLiteral_1= 'Boolean' )
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2682:6: (enumLiteral_1= 'Boolean' )
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2682:8: enumLiteral_1= 'Boolean'
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2765:6: (enumLiteral_1= 'Boolean' )
+                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2765:8: enumLiteral_1= 'Boolean'
                     {
-                    enumLiteral_1=(Token)match(input,57,FOLLOW_57_in_ruleBaseTypeEnum6141); if (state.failed) return current;
+                    enumLiteral_1=(Token)match(input,57,FOLLOW_57_in_ruleBaseTypeEnum6330); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
                               current = grammarAccess.getBaseTypeEnumAccess().getBOOLEANEnumLiteralDeclaration_1().getEnumLiteral().getInstance();
@@ -7388,37 +7606,37 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred3_InternalAltarica
     public final void synpred3_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:2: ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:3: ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:2: ( ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:3: ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:3: ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:4: () ( ( 'or' ) ) ( ( ruleLogicalAnd ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:3: ( () ( ( 'or' ) ) ( ( ruleLogicalAnd ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:4: () ( ( 'or' ) ) ( ( ruleLogicalAnd ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1811:4: ()
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1812:1: 
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1746:4: ()
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1747:1: 
         {
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1812:2: ( ( 'or' ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1813:1: ( 'or' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1747:2: ( ( 'or' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1748:1: ( 'or' )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1813:1: ( 'or' )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1814:2: 'or'
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1748:1: ( 'or' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1749:2: 'or'
         {
-        match(input,40,FOLLOW_40_in_synpred3_InternalAltarica3998); if (state.failed) return ;
+        match(input,40,FOLLOW_40_in_synpred3_InternalAltarica3861); if (state.failed) return ;
 
         }
 
 
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1818:2: ( ( ruleLogicalAnd ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1819:1: ( ruleLogicalAnd )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1753:2: ( ( ruleLogicalAnd ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1754:1: ( ruleLogicalAnd )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1819:1: ( ruleLogicalAnd )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1820:1: ruleLogicalAnd
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1754:1: ( ruleLogicalAnd )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1755:1: ruleLogicalAnd
         {
-        pushFollow(FOLLOW_ruleLogicalAnd_in_synpred3_InternalAltarica4011);
+        pushFollow(FOLLOW_ruleLogicalAnd_in_synpred3_InternalAltarica3874);
         ruleLogicalAnd();
 
         state._fsp--;
@@ -7439,37 +7657,37 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred4_InternalAltarica
     public final void synpred4_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:2: ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:3: ( () ( ( 'and' ) ) ( ( ruleRelation ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:2: ( ( () ( ( 'and' ) ) ( ( ruleRelation ) ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:3: ( () ( ( 'and' ) ) ( ( ruleRelation ) ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:3: ( () ( ( 'and' ) ) ( ( ruleRelation ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:4: () ( ( 'and' ) ) ( ( ruleRelation ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:3: ( () ( ( 'and' ) ) ( ( ruleRelation ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:4: () ( ( 'and' ) ) ( ( ruleRelation ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1891:4: ()
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1892:1: 
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1826:4: ()
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1827:1: 
         {
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1892:2: ( ( 'and' ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1893:1: ( 'and' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1827:2: ( ( 'and' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1828:1: ( 'and' )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1893:1: ( 'and' )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1894:2: 'and'
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1828:1: ( 'and' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1829:2: 'and'
         {
-        match(input,41,FOLLOW_41_in_synpred4_InternalAltarica4187); if (state.failed) return ;
+        match(input,41,FOLLOW_41_in_synpred4_InternalAltarica4050); if (state.failed) return ;
 
         }
 
 
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1898:2: ( ( ruleRelation ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1899:1: ( ruleRelation )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1833:2: ( ( ruleRelation ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1834:1: ( ruleRelation )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1899:1: ( ruleRelation )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1900:1: ruleRelation
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1834:1: ( ruleRelation )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1835:1: ruleRelation
         {
-        pushFollow(FOLLOW_ruleRelation_in_synpred4_InternalAltarica4200);
+        pushFollow(FOLLOW_ruleRelation_in_synpred4_InternalAltarica4063);
         ruleRelation();
 
         state._fsp--;
@@ -7490,22 +7708,22 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred5_InternalAltarica
     public final void synpred5_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:2: ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:3: ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:2: ( ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:3: ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:3: ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:4: () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:3: ( () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:4: () ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) ) ( ( ruleAddition ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1971:4: ()
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1972:1: 
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1906:4: ()
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1907:1: 
         {
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1972:2: ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1973:1: ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1907:2: ( ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1908:1: ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1973:1: ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1974:1: ( '==' | '!=' | '<' | '<=' | '>=' | '>' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1908:1: ( ( '==' | '!=' | '<' | '<=' | '>=' | '>' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1909:1: ( '==' | '!=' | '<' | '<=' | '>=' | '>' )
         {
         if ( (input.LA(1)>=42 && input.LA(1)<=47) ) {
             input.consume();
@@ -7523,13 +7741,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1996:2: ( ( ruleAddition ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1997:1: ( ruleAddition )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1931:2: ( ( ruleAddition ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1932:1: ( ruleAddition )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1997:1: ( ruleAddition )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1998:1: ruleAddition
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1932:1: ( ruleAddition )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1933:1: ruleAddition
         {
-        pushFollow(FOLLOW_ruleAddition_in_synpred5_InternalAltarica4464);
+        pushFollow(FOLLOW_ruleAddition_in_synpred5_InternalAltarica4327);
         ruleAddition();
 
         state._fsp--;
@@ -7550,22 +7768,22 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred6_InternalAltarica
     public final void synpred6_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:2: ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:3: ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:2: ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:3: ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:3: ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:4: () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:3: ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:4: () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2132:4: ()
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2133:1: 
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2067:4: ()
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2068:1: 
         {
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2133:2: ( ( ( '+' | '-' ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2134:1: ( ( '+' | '-' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2068:2: ( ( ( '+' | '-' ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2069:1: ( ( '+' | '-' ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2134:1: ( ( '+' | '-' ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2135:1: ( '+' | '-' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2069:1: ( ( '+' | '-' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2070:1: ( '+' | '-' )
         {
         if ( (input.LA(1)>=48 && input.LA(1)<=49) ) {
             input.consume();
@@ -7583,13 +7801,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2145:2: ( ( ruleMultiplication ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2146:1: ( ruleMultiplication )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2080:2: ( ( ruleMultiplication ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2081:1: ( ruleMultiplication )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2146:1: ( ruleMultiplication )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2147:1: ruleMultiplication
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2081:1: ( ruleMultiplication )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2082:1: ruleMultiplication
         {
-        pushFollow(FOLLOW_ruleMultiplication_in_synpred6_InternalAltarica4822);
+        pushFollow(FOLLOW_ruleMultiplication_in_synpred6_InternalAltarica4685);
         ruleMultiplication();
 
         state._fsp--;
@@ -7610,22 +7828,22 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred7_InternalAltarica
     public final void synpred7_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:2: ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:3: ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:2: ( ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:3: ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:3: ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:4: () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:3: ( () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:4: () ( ( ( '*' | '/' ) ) ) ( ( ruleNeg ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2233:4: ()
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2234:1: 
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2168:4: ()
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2169:1: 
         {
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2234:2: ( ( ( '*' | '/' ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2235:1: ( ( '*' | '/' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2169:2: ( ( ( '*' | '/' ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2170:1: ( ( '*' | '/' ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2235:1: ( ( '*' | '/' ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2236:1: ( '*' | '/' )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2170:1: ( ( '*' | '/' ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2171:1: ( '*' | '/' )
         {
         if ( (input.LA(1)>=50 && input.LA(1)<=51) ) {
             input.consume();
@@ -7643,13 +7861,13 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
         }
 
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2246:2: ( ( ruleNeg ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2247:1: ( ruleNeg )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2181:2: ( ( ruleNeg ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2182:1: ( ruleNeg )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2247:1: ( ruleNeg )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2248:1: ruleNeg
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2182:1: ( ruleNeg )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2183:1: ruleNeg
         {
-        pushFollow(FOLLOW_ruleNeg_in_synpred7_InternalAltarica5064);
+        pushFollow(FOLLOW_ruleNeg_in_synpred7_InternalAltarica4927);
         ruleNeg();
 
         state._fsp--;
@@ -7670,25 +7888,25 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred10_InternalAltarica
     public final void synpred10_InternalAltarica_fragment() throws RecognitionException {   
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:3: ( ( () '.' ( ( RULE_ID ) ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:4: ( () '.' ( ( RULE_ID ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:3: ( ( () '.' ( ( RULE_ID ) ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:4: ( () '.' ( ( RULE_ID ) ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:4: ( () '.' ( ( RULE_ID ) ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:5: () '.' ( ( RULE_ID ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:4: ( () '.' ( ( RULE_ID ) ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:5: () '.' ( ( RULE_ID ) )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2635:5: ()
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2636:1: 
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2580:5: ()
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2581:1: 
         {
         }
 
-        match(input,55,FOLLOW_55_in_synpred10_InternalAltarica6021); if (state.failed) return ;
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2637:1: ( ( RULE_ID ) )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2638:1: ( RULE_ID )
+        match(input,55,FOLLOW_55_in_synpred10_InternalAltarica5911); if (state.failed) return ;
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2582:1: ( ( RULE_ID ) )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2583:1: ( RULE_ID )
         {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2638:1: ( RULE_ID )
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2639:2: RULE_ID
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2583:1: ( RULE_ID )
+        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2584:2: RULE_ID
         {
-        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred10_InternalAltarica6029); if (state.failed) return ;
+        match(input,RULE_ID,FOLLOW_RULE_ID_in_synpred10_InternalAltarica5919); if (state.failed) return ;
 
         }
 
@@ -7819,6 +8037,126 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     }
 
 
+    protected DFA27 dfa27 = new DFA27(this);
+    static final String DFA27_eotS =
+        "\34\uffff";
+    static final String DFA27_eofS =
+        "\1\1\33\uffff";
+    static final String DFA27_minS =
+        "\1\4\21\uffff\1\0\11\uffff";
+    static final String DFA27_maxS =
+        "\1\66\21\uffff\1\0\11\uffff";
+    static final String DFA27_acceptS =
+        "\1\uffff\1\2\31\uffff\1\1";
+    static final String DFA27_specialS =
+        "\1\0\21\uffff\1\1\11\uffff}>";
+    static final String[] DFA27_transitionS = {
+            "\3\1\12\uffff\2\1\4\uffff\3\1\4\uffff\1\1\2\uffff\1\1\3\uffff\13\1\1\33\1\22\2\uffff\3\1",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\1\uffff",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
+    };
+
+    static final short[] DFA27_eot = DFA.unpackEncodedString(DFA27_eotS);
+    static final short[] DFA27_eof = DFA.unpackEncodedString(DFA27_eofS);
+    static final char[] DFA27_min = DFA.unpackEncodedStringToUnsignedChars(DFA27_minS);
+    static final char[] DFA27_max = DFA.unpackEncodedStringToUnsignedChars(DFA27_maxS);
+    static final short[] DFA27_accept = DFA.unpackEncodedString(DFA27_acceptS);
+    static final short[] DFA27_special = DFA.unpackEncodedString(DFA27_specialS);
+    static final short[][] DFA27_transition;
+
+    static {
+        int numStates = DFA27_transitionS.length;
+        DFA27_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA27_transition[i] = DFA.unpackEncodedString(DFA27_transitionS[i]);
+        }
+    }
+
+    class DFA27 extends DFA {
+
+        public DFA27(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 27;
+            this.eot = DFA27_eot;
+            this.eof = DFA27_eof;
+            this.min = DFA27_min;
+            this.max = DFA27_max;
+            this.accept = DFA27_accept;
+            this.special = DFA27_special;
+            this.transition = DFA27_transition;
+        }
+        public String getDescription() {
+            return "()* loopback of 2067:1: ( ( ( () ( ( ( '+' | '-' ) ) ) ( ( ruleMultiplication ) ) ) )=> ( () ( ( (lv_op_2_1= '+' | lv_op_2_2= '-' ) ) ) ( (lv_right_3_0= ruleMultiplication ) ) ) )*";
+        }
+        public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
+            TokenStream input = (TokenStream)_input;
+        	int _s = s;
+            switch ( s ) {
+                    case 0 : 
+                        int LA27_0 = input.LA(1);
+
+                         
+                        int index27_0 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (LA27_0==EOF||(LA27_0>=RULE_ID && LA27_0<=RULE_INT)||(LA27_0>=17 && LA27_0<=18)||(LA27_0>=23 && LA27_0<=25)||LA27_0==30||LA27_0==33||(LA27_0>=37 && LA27_0<=47)||(LA27_0>=52 && LA27_0<=54)) ) {s = 1;}
+
+                        else if ( (LA27_0==49) ) {s = 18;}
+
+                        else if ( (LA27_0==48) && (synpred6_InternalAltarica())) {s = 27;}
+
+                         
+                        input.seek(index27_0);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
+                        int LA27_18 = input.LA(1);
+
+                         
+                        int index27_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred6_InternalAltarica()) ) {s = 27;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index27_18);
+                        if ( s>=0 ) return s;
+                        break;
+            }
+            if (state.backtracking>0) {state.failed=true; return -1;}
+            NoViableAltException nvae =
+                new NoViableAltException(getDescription(), 27, _s, input);
+            error(nvae);
+            throw nvae;
+        }
+    }
  
 
     public static final BitSet FOLLOW_ruleModel_in_entryRuleModel75 = new BitSet(new long[]{0x0000000000000000L});
@@ -7879,7 +8217,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleAttribute_in_entryRuleAttribute1504 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAttribute1514 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleAttribute1565 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleAttribute1582 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_26_in_ruleAttribute1582 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleAttribute1603 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleEventDeclaration_in_entryRuleEventDeclaration1639 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleEventDeclaration1649 = new BitSet(new long[]{0x0000000000000002L});
@@ -7896,7 +8234,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_28_in_ruleParameterDeclaration1905 = new BitSet(new long[]{0x0300000000000010L});
     public static final BitSet FOLLOW_ruleType_in_ruleParameterDeclaration1926 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleParameterDeclaration1943 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleParameterDeclaration1960 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_26_in_ruleParameterDeclaration1960 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleParameterDeclaration1981 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleParameterDeclaration1993 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleObserverDeclaration_in_entryRuleObserverDeclaration2029 = new BitSet(new long[]{0x0000000000000000L});
@@ -7904,23 +8242,23 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_29_in_ruleObserverDeclaration2085 = new BitSet(new long[]{0x0300000000000010L});
     public static final BitSet FOLLOW_ruleType_in_ruleObserverDeclaration2106 = new BitSet(new long[]{0x0000000000000010L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleObserverDeclaration2123 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_26_in_ruleObserverDeclaration2140 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_26_in_ruleObserverDeclaration2140 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleObserverDeclaration2161 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleObserverDeclaration2173 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleLabeledTransition_in_entryRuleLabeledTransition2209 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLabeledTransition2219 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNameRef_in_ruleLabeledTransition2265 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleLabeledTransition2277 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_30_in_ruleLabeledTransition2277 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleTransitionAnd_in_ruleLabeledTransition2298 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTransitionAnd_in_entryRuleTransitionAnd2334 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTransitionAnd2344 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTransitionOr_in_ruleTransitionAnd2391 = new BitSet(new long[]{0x0000000080000002L});
-    public static final BitSet FOLLOW_31_in_ruleTransitionAnd2412 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_31_in_ruleTransitionAnd2412 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleTransitionOr_in_ruleTransitionAnd2433 = new BitSet(new long[]{0x0000000080000002L});
     public static final BitSet FOLLOW_ruleTransitionOr_in_entryRuleTransitionOr2471 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTransitionOr2481 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleTransition_in_ruleTransitionOr2528 = new BitSet(new long[]{0x0000000100000002L});
-    public static final BitSet FOLLOW_32_in_ruleTransitionOr2549 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_32_in_ruleTransitionOr2549 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleTransition_in_ruleTransitionOr2570 = new BitSet(new long[]{0x0000000100000002L});
     public static final BitSet FOLLOW_ruleTransition_in_entryRuleTransition2608 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleTransition2618 = new BitSet(new long[]{0x0000000000000002L});
@@ -7941,7 +8279,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleAssignment_in_entryRuleAssignment3046 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleAssignment3056 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNameRef_in_ruleAssignment3111 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_35_in_ruleAssignment3123 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_35_in_ruleAssignment3123 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleAssignment3144 = new BitSet(new long[]{0x0000000002000000L});
     public static final BitSet FOLLOW_25_in_ruleAssignment3156 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlock_in_entryRuleBlock3192 = new BitSet(new long[]{0x0000000000000000L});
@@ -7951,7 +8289,7 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_18_in_ruleBlock3282 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleConditional_in_entryRuleConditional3318 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleConditional3328 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_36_in_ruleConditional3374 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_36_in_ruleConditional3374 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleConditional3395 = new BitSet(new long[]{0x0000002000000000L});
     public static final BitSet FOLLOW_37_in_ruleConditional3407 = new BitSet(new long[]{0x0000009400010010L});
     public static final BitSet FOLLOW_ruleInstruction_in_ruleConditional3428 = new BitSet(new long[]{0x0000004002000000L});
@@ -7961,99 +8299,108 @@ public class InternalAltaricaParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleSwitch_in_entryRuleSwitch3521 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSwitch3531 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_39_in_ruleSwitch3568 = new BitSet(new long[]{0x0000000000010000L});
-    public static final BitSet FOLLOW_16_in_ruleSwitch3580 = new BitSet(new long[]{0x0072004000800070L});
-    public static final BitSet FOLLOW_ruleCaseExpression_in_ruleSwitch3601 = new BitSet(new long[]{0x0072004000800070L});
+    public static final BitSet FOLLOW_16_in_ruleSwitch3580 = new BitSet(new long[]{0x007200C000800070L});
+    public static final BitSet FOLLOW_ruleCaseExpression_in_ruleSwitch3601 = new BitSet(new long[]{0x007200C000800070L});
     public static final BitSet FOLLOW_38_in_ruleSwitch3614 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleSwitch3626 = new BitSet(new long[]{0x0072000000800070L});
+    public static final BitSet FOLLOW_30_in_ruleSwitch3626 = new BitSet(new long[]{0x0072008000800070L});
     public static final BitSet FOLLOW_ruleExpression_in_ruleSwitch3647 = new BitSet(new long[]{0x0000000000040000L});
     public static final BitSet FOLLOW_18_in_ruleSwitch3659 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleCaseExpression_in_entryRuleCaseExpression3695 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleCaseExpression3705 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleCaseExpression3751 = new BitSet(new long[]{0x0000000040000000L});
-    public static final BitSet FOLLOW_30_in_ruleCaseExpression3763 = new BitSet(new long[]{0x0000009400010010L});
-    public static final BitSet FOLLOW_ruleInstruction_in_ruleCaseExpression3784 = new BitSet(new long[]{0x0000000000020000L});
-    public static final BitSet FOLLOW_17_in_ruleCaseExpression3796 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression3832 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleExpression3842 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLogicalOr_in_ruleExpression3888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLogicalOr_in_entryRuleLogicalOr3922 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLogicalOr3932 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleLogicalAnd_in_ruleLogicalOr3979 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_40_in_ruleLogicalOr4038 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleLogicalAnd_in_ruleLogicalOr4072 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_ruleLogicalAnd_in_entryRuleLogicalAnd4111 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleLogicalAnd4121 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelation_in_ruleLogicalAnd4168 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_41_in_ruleLogicalAnd4227 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleRelation_in_ruleLogicalAnd4261 = new BitSet(new long[]{0x0000020000000002L});
-    public static final BitSet FOLLOW_ruleRelation_in_entryRuleRelation4300 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRelation4310 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAddition_in_ruleRelation4357 = new BitSet(new long[]{0x0000FC0000000002L});
-    public static final BitSet FOLLOW_42_in_ruleRelation4493 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_43_in_ruleRelation4522 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_44_in_ruleRelation4551 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_45_in_ruleRelation4580 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_46_in_ruleRelation4609 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_47_in_ruleRelation4638 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleAddition_in_ruleRelation4675 = new BitSet(new long[]{0x0000FC0000000002L});
-    public static final BitSet FOLLOW_ruleAddition_in_entryRuleAddition4714 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAddition4724 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplication_in_ruleAddition4771 = new BitSet(new long[]{0x0003000000000002L});
-    public static final BitSet FOLLOW_48_in_ruleAddition4851 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_49_in_ruleAddition4880 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleMultiplication_in_ruleAddition4917 = new BitSet(new long[]{0x0003000000000002L});
-    public static final BitSet FOLLOW_ruleMultiplication_in_entryRuleMultiplication4956 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplication4966 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNeg_in_ruleMultiplication5013 = new BitSet(new long[]{0x000C000000000002L});
-    public static final BitSet FOLLOW_50_in_ruleMultiplication5093 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_51_in_ruleMultiplication5122 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleNeg_in_ruleMultiplication5159 = new BitSet(new long[]{0x000C000000000002L});
-    public static final BitSet FOLLOW_ruleNeg_in_entryRuleNeg5198 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNeg5208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_52_in_ruleNeg5263 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleAtom_in_ruleNeg5285 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_49_in_ruleNeg5322 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleAtom_in_ruleNeg5344 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAtom_in_ruleNeg5373 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleAtom_in_entryRuleAtom5408 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleAtom5418 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleAtom5465 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleAtom5492 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_ruleAtom5519 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNameRef_in_ruleAtom5546 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_23_in_ruleAtom5564 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleExpression_in_ruleAtom5586 = new BitSet(new long[]{0x0000000001000000L});
-    public static final BitSet FOLLOW_24_in_ruleAtom5597 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral5634 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral5644 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_53_in_ruleBooleanLiteral5688 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_54_in_ruleBooleanLiteral5717 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5768 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral5778 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral5819 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral5859 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteral5869 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerLiteral5910 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNameRef_in_entryRuleNameRef5950 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleNameRef5960 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNameRef6005 = new BitSet(new long[]{0x0080000000000002L});
-    public static final BitSet FOLLOW_55_in_ruleNameRef6051 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleNameRef6071 = new BitSet(new long[]{0x0080000000000002L});
-    public static final BitSet FOLLOW_56_in_ruleBaseTypeEnum6124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_57_in_ruleBaseTypeEnum6141 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_entryRuleExpression3695 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleExpression3705 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogicalOr_in_ruleExpression3751 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogicalOr_in_entryRuleLogicalOr3785 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLogicalOr3795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogicalAnd_in_ruleLogicalOr3842 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_40_in_ruleLogicalOr3901 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleLogicalAnd_in_ruleLogicalOr3935 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_ruleLogicalAnd_in_entryRuleLogicalAnd3974 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleLogicalAnd3984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelation_in_ruleLogicalAnd4031 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_41_in_ruleLogicalAnd4090 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleRelation_in_ruleLogicalAnd4124 = new BitSet(new long[]{0x0000020000000002L});
+    public static final BitSet FOLLOW_ruleRelation_in_entryRuleRelation4163 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelation4173 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAddition_in_ruleRelation4220 = new BitSet(new long[]{0x0000FC0000000002L});
+    public static final BitSet FOLLOW_42_in_ruleRelation4356 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_43_in_ruleRelation4385 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_44_in_ruleRelation4414 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_45_in_ruleRelation4443 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_46_in_ruleRelation4472 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_47_in_ruleRelation4501 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleAddition_in_ruleRelation4538 = new BitSet(new long[]{0x0000FC0000000002L});
+    public static final BitSet FOLLOW_ruleAddition_in_entryRuleAddition4577 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAddition4587 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplication_in_ruleAddition4634 = new BitSet(new long[]{0x0003000000000002L});
+    public static final BitSet FOLLOW_48_in_ruleAddition4714 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_49_in_ruleAddition4743 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleMultiplication_in_ruleAddition4780 = new BitSet(new long[]{0x0003000000000002L});
+    public static final BitSet FOLLOW_ruleMultiplication_in_entryRuleMultiplication4819 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleMultiplication4829 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNeg_in_ruleMultiplication4876 = new BitSet(new long[]{0x000C000000000002L});
+    public static final BitSet FOLLOW_50_in_ruleMultiplication4956 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_51_in_ruleMultiplication4985 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleNeg_in_ruleMultiplication5022 = new BitSet(new long[]{0x000C000000000002L});
+    public static final BitSet FOLLOW_ruleNeg_in_entryRuleNeg5061 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNeg5071 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_52_in_ruleNeg5126 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleAtom_in_ruleNeg5148 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_49_in_ruleNeg5185 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleAtom_in_ruleNeg5207 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAtom_in_ruleNeg5236 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleAtom_in_entryRuleAtom5271 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleAtom5281 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_ruleAtom5328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_ruleAtom5355 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_ruleAtom5382 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNameRef_in_ruleAtom5409 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSwitchExpression_in_ruleAtom5436 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_23_in_ruleAtom5454 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleAtom5476 = new BitSet(new long[]{0x0000000001000000L});
+    public static final BitSet FOLLOW_24_in_ruleAtom5487 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBooleanLiteral_in_entryRuleBooleanLiteral5524 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBooleanLiteral5534 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_53_in_ruleBooleanLiteral5578 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_54_in_ruleBooleanLiteral5607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleStringLiteral_in_entryRuleStringLiteral5658 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleStringLiteral5668 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_ruleStringLiteral5709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleIntegerLiteral_in_entryRuleIntegerLiteral5749 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleIntegerLiteral5759 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleIntegerLiteral5800 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNameRef_in_entryRuleNameRef5840 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleNameRef5850 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNameRef5895 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_55_in_ruleNameRef5941 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleNameRef5961 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_ruleSwitchExpression_in_entryRuleSwitchExpression6000 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSwitchExpression6010 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_39_in_ruleSwitchExpression6047 = new BitSet(new long[]{0x0000000000010000L});
+    public static final BitSet FOLLOW_16_in_ruleSwitchExpression6059 = new BitSet(new long[]{0x007200C000800070L});
+    public static final BitSet FOLLOW_ruleCaseExpression_in_ruleSwitchExpression6080 = new BitSet(new long[]{0x007200C000800070L});
+    public static final BitSet FOLLOW_38_in_ruleSwitchExpression6093 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleSwitchExpression6105 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleSwitchExpression6126 = new BitSet(new long[]{0x0000000000040000L});
+    public static final BitSet FOLLOW_18_in_ruleSwitchExpression6138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleCaseExpression_in_entryRuleCaseExpression6174 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleCaseExpression6184 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleLogicalOr_in_ruleCaseExpression6230 = new BitSet(new long[]{0x0000000040000000L});
+    public static final BitSet FOLLOW_30_in_ruleCaseExpression6242 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleExpression_in_ruleCaseExpression6263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_56_in_ruleBaseTypeEnum6313 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_57_in_ruleBaseTypeEnum6330 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBaseType_in_synpred1_InternalAltarica632 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_38_in_synpred2_InternalAltarica3441 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_40_in_synpred3_InternalAltarica3998 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleLogicalAnd_in_synpred3_InternalAltarica4011 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_41_in_synpred4_InternalAltarica4187 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleRelation_in_synpred4_InternalAltarica4200 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred5_InternalAltarica4375 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleAddition_in_synpred5_InternalAltarica4464 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred6_InternalAltarica4789 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleMultiplication_in_synpred6_InternalAltarica4822 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_set_in_synpred7_InternalAltarica5031 = new BitSet(new long[]{0x0072000000800070L});
-    public static final BitSet FOLLOW_ruleNeg_in_synpred7_InternalAltarica5064 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_55_in_synpred10_InternalAltarica6021 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_RULE_ID_in_synpred10_InternalAltarica6029 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_40_in_synpred3_InternalAltarica3861 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleLogicalAnd_in_synpred3_InternalAltarica3874 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_41_in_synpred4_InternalAltarica4050 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleRelation_in_synpred4_InternalAltarica4063 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred5_InternalAltarica4238 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleAddition_in_synpred5_InternalAltarica4327 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred6_InternalAltarica4652 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleMultiplication_in_synpred6_InternalAltarica4685 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_set_in_synpred7_InternalAltarica4894 = new BitSet(new long[]{0x0072008000800070L});
+    public static final BitSet FOLLOW_ruleNeg_in_synpred7_InternalAltarica4927 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_55_in_synpred10_InternalAltarica5911 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_RULE_ID_in_synpred10_InternalAltarica5919 = new BitSet(new long[]{0x0000000000000002L});
 
 }

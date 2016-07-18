@@ -320,43 +320,6 @@ public interface AltaricaPackage extends EPackage
   int INSTRUCTION_FEATURE_COUNT = 2;
 
   /**
-   * The meta object id for the '{@link org.osate.altarica.altarica.impl.CaseExpressionImpl <em>Case Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.osate.altarica.altarica.impl.CaseExpressionImpl
-   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getCaseExpression()
-   * @generated
-   */
-  int CASE_EXPRESSION = 10;
-
-  /**
-   * The feature id for the '<em><b>Condition</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_EXPRESSION__CONDITION = 0;
-
-  /**
-   * The feature id for the '<em><b>Then</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_EXPRESSION__THEN = 1;
-
-  /**
-   * The number of structural features of the '<em>Case Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int CASE_EXPRESSION_FEATURE_COUNT = 2;
-
-  /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -364,7 +327,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 11;
+  int EXPRESSION = 10;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -383,7 +346,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARBoolean()
    * @generated
    */
-  int AR_BOOLEAN = 12;
+  int AR_BOOLEAN = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -411,7 +374,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARString()
    * @generated
    */
-  int AR_STRING = 13;
+  int AR_STRING = 12;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -439,7 +402,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARInteger()
    * @generated
    */
-  int AR_INTEGER = 14;
+  int AR_INTEGER = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -467,7 +430,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNameRef()
    * @generated
    */
-  int NAME_REF = 15;
+  int NAME_REF = 14;
 
   /**
    * The feature id for the '<em><b>Variable</b></em>' reference.
@@ -497,6 +460,80 @@ public interface AltaricaPackage extends EPackage
   int NAME_REF_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
 
   /**
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.SwitchExpressionImpl <em>Switch Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.altarica.altarica.impl.SwitchExpressionImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSwitchExpression()
+   * @generated
+   */
+  int SWITCH_EXPRESSION = 15;
+
+  /**
+   * The feature id for the '<em><b>Cases</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_EXPRESSION__CASES = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Default</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_EXPRESSION__DEFAULT = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Switch Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SWITCH_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.CaseExpressionImpl <em>Case Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.altarica.altarica.impl.CaseExpressionImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getCaseExpression()
+   * @generated
+   */
+  int CASE_EXPRESSION = 16;
+
+  /**
+   * The feature id for the '<em><b>Condition</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CASE_EXPRESSION__CONDITION = 0;
+
+  /**
+   * The feature id for the '<em><b>Case</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CASE_EXPRESSION__CASE = 1;
+
+  /**
+   * The number of structural features of the '<em>Case Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CASE_EXPRESSION_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.DomainImpl <em>Domain</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -504,7 +541,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getDomain()
    * @generated
    */
-  int DOMAIN = 16;
+  int DOMAIN = 17;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -541,7 +578,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSymbolicConstant()
    * @generated
    */
-  int SYMBOLIC_CONSTANT = 17;
+  int SYMBOLIC_CONSTANT = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -569,7 +606,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNode()
    * @generated
    */
-  int NODE = 18;
+  int NODE = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -624,7 +661,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 19;
+  int VARIABLE = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -670,7 +707,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 20;
+  int ATTRIBUTE = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -707,7 +744,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 21;
+  int EVENT = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -744,7 +781,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 22;
+  int PARAMETER = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -790,7 +827,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getObserver()
    * @generated
    */
-  int OBSERVER = 23;
+  int OBSERVER = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -836,7 +873,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getTransitionAnd()
    * @generated
    */
-  int TRANSITION_AND = 24;
+  int TRANSITION_AND = 25;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -873,7 +910,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getTransitionOr()
    * @generated
    */
-  int TRANSITION_OR = 25;
+  int TRANSITION_OR = 26;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -910,7 +947,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 26;
+  int TRANSITION = 27;
 
   /**
    * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -947,7 +984,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSkip()
    * @generated
    */
-  int SKIP = 27;
+  int SKIP = 28;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -984,7 +1021,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 28;
+  int ASSIGNMENT = 29;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1039,7 +1076,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 29;
+  int BLOCK = 30;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1085,7 +1122,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getConditional()
    * @generated
    */
-  int CONDITIONAL = 30;
+  int CONDITIONAL = 31;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1140,7 +1177,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalOr()
    * @generated
    */
-  int LOGICAL_OR = 31;
+  int LOGICAL_OR = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1186,7 +1223,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalAnd()
    * @generated
    */
-  int LOGICAL_AND = 32;
+  int LOGICAL_AND = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1232,7 +1269,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEqual()
    * @generated
    */
-  int EQUAL = 33;
+  int EQUAL = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1278,7 +1315,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 34;
+  int ADDITION = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1324,7 +1361,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 35;
+  int MULTIPLICATION = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1370,7 +1407,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 36;
+  int NOT = 37;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1398,7 +1435,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 37;
+  int MINUS = 38;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1426,7 +1463,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBaseTypeEnum()
    * @generated
    */
-  int BASE_TYPE_ENUM = 38;
+  int BASE_TYPE_ENUM = 39;
 
 
   /**
@@ -1618,38 +1655,6 @@ public interface AltaricaPackage extends EPackage
   EReference getInstruction_Else();
 
   /**
-   * Returns the meta object for class '{@link org.osate.altarica.altarica.CaseExpression <em>Case Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Case Expression</em>'.
-   * @see org.osate.altarica.altarica.CaseExpression
-   * @generated
-   */
-  EClass getCaseExpression();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.CaseExpression#getCondition <em>Condition</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Condition</em>'.
-   * @see org.osate.altarica.altarica.CaseExpression#getCondition()
-   * @see #getCaseExpression()
-   * @generated
-   */
-  EReference getCaseExpression_Condition();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.CaseExpression#getThen <em>Then</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Then</em>'.
-   * @see org.osate.altarica.altarica.CaseExpression#getThen()
-   * @see #getCaseExpression()
-   * @generated
-   */
-  EReference getCaseExpression_Then();
-
-  /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1753,6 +1758,70 @@ public interface AltaricaPackage extends EPackage
    * @generated
    */
   EReference getNameRef_Nested();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.SwitchExpression <em>Switch Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Switch Expression</em>'.
+   * @see org.osate.altarica.altarica.SwitchExpression
+   * @generated
+   */
+  EClass getSwitchExpression();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.SwitchExpression#getCases <em>Cases</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Cases</em>'.
+   * @see org.osate.altarica.altarica.SwitchExpression#getCases()
+   * @see #getSwitchExpression()
+   * @generated
+   */
+  EReference getSwitchExpression_Cases();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.SwitchExpression#getDefault <em>Default</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Default</em>'.
+   * @see org.osate.altarica.altarica.SwitchExpression#getDefault()
+   * @see #getSwitchExpression()
+   * @generated
+   */
+  EReference getSwitchExpression_Default();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.CaseExpression <em>Case Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Case Expression</em>'.
+   * @see org.osate.altarica.altarica.CaseExpression
+   * @generated
+   */
+  EClass getCaseExpression();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.CaseExpression#getCondition <em>Condition</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Condition</em>'.
+   * @see org.osate.altarica.altarica.CaseExpression#getCondition()
+   * @see #getCaseExpression()
+   * @generated
+   */
+  EReference getCaseExpression_Condition();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.osate.altarica.altarica.CaseExpression#getCase <em>Case</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Case</em>'.
+   * @see org.osate.altarica.altarica.CaseExpression#getCase()
+   * @see #getCaseExpression()
+   * @generated
+   */
+  EReference getCaseExpression_Case();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Domain <em>Domain</em>}'.
@@ -2612,32 +2681,6 @@ public interface AltaricaPackage extends EPackage
     EReference INSTRUCTION__ELSE = eINSTANCE.getInstruction_Else();
 
     /**
-     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.CaseExpressionImpl <em>Case Expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.osate.altarica.altarica.impl.CaseExpressionImpl
-     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getCaseExpression()
-     * @generated
-     */
-    EClass CASE_EXPRESSION = eINSTANCE.getCaseExpression();
-
-    /**
-     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CASE_EXPRESSION__CONDITION = eINSTANCE.getCaseExpression_Condition();
-
-    /**
-     * The meta object literal for the '<em><b>Then</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference CASE_EXPRESSION__THEN = eINSTANCE.getCaseExpression_Then();
-
-    /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.ExpressionImpl <em>Expression</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2726,6 +2769,58 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EReference NAME_REF__NESTED = eINSTANCE.getNameRef_Nested();
+
+    /**
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.SwitchExpressionImpl <em>Switch Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.altarica.altarica.impl.SwitchExpressionImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSwitchExpression()
+     * @generated
+     */
+    EClass SWITCH_EXPRESSION = eINSTANCE.getSwitchExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Cases</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH_EXPRESSION__CASES = eINSTANCE.getSwitchExpression_Cases();
+
+    /**
+     * The meta object literal for the '<em><b>Default</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SWITCH_EXPRESSION__DEFAULT = eINSTANCE.getSwitchExpression_Default();
+
+    /**
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.CaseExpressionImpl <em>Case Expression</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.altarica.altarica.impl.CaseExpressionImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getCaseExpression()
+     * @generated
+     */
+    EClass CASE_EXPRESSION = eINSTANCE.getCaseExpression();
+
+    /**
+     * The meta object literal for the '<em><b>Condition</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CASE_EXPRESSION__CONDITION = eINSTANCE.getCaseExpression_Condition();
+
+    /**
+     * The meta object literal for the '<em><b>Case</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CASE_EXPRESSION__CASE = eINSTANCE.getCaseExpression_Case();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.DomainImpl <em>Domain</em>}' class.

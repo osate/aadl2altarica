@@ -44,6 +44,7 @@ import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
 import org.osate.altarica.altarica.Parameter;
 import org.osate.altarica.altarica.Skip;
+import org.osate.altarica.altarica.SwitchExpression;
 import org.osate.altarica.altarica.SymbolicConstant;
 import org.osate.altarica.altarica.Transition;
 import org.osate.altarica.altarica.TransitionAnd;
@@ -141,6 +142,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case AltaricaPackage.SKIP:
 				sequence_Skip(context, (Skip) semanticObject); 
 				return; 
+			case AltaricaPackage.SWITCH_EXPRESSION:
+				sequence_SwitchExpression(context, (SwitchExpression) semanticObject); 
+				return; 
 			case AltaricaPackage.SYMBOLIC_CONSTANT:
 				sequence_SymbolicConstant(context, (SymbolicConstant) semanticObject); 
 				return; 
@@ -233,19 +237,19 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     (condition=Expression then=Instruction)
+	 *     (condition=LogicalOr case=Expression)
 	 */
 	protected void sequence_CaseExpression(EObject context, CaseExpression semanticObject) {
 		if(errorAcceptor != null) {
 			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CONDITION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CONDITION));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__THEN) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__THEN));
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CASE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CASE));
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCaseExpressionAccess().getConditionExpressionParserRuleCall_0_0(), semanticObject.getCondition());
-		feeder.accept(grammarAccess.getCaseExpressionAccess().getThenInstructionParserRuleCall_2_0(), semanticObject.getThen());
+		feeder.accept(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_0_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_2_0(), semanticObject.getCase());
 		feeder.finish();
 	}
 	
@@ -526,6 +530,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     (cases+=CaseExpression* default=Expression)
+	 */
+	protected void sequence_SwitchExpression(EObject context, SwitchExpression semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

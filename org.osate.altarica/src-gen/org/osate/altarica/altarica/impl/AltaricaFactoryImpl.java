@@ -75,12 +75,13 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.LABELED_TRANSITION: return createLabeledTransition();
       case AltaricaPackage.TRANSITION_EXPRESSION: return createTransitionExpression();
       case AltaricaPackage.INSTRUCTION: return createInstruction();
-      case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
       case AltaricaPackage.EXPRESSION: return createExpression();
       case AltaricaPackage.AR_BOOLEAN: return createARBoolean();
       case AltaricaPackage.AR_STRING: return createARString();
       case AltaricaPackage.AR_INTEGER: return createARInteger();
       case AltaricaPackage.NAME_REF: return createNameRef();
+      case AltaricaPackage.SWITCH_EXPRESSION: return createSwitchExpression();
+      case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
       case AltaricaPackage.DOMAIN: return createDomain();
       case AltaricaPackage.SYMBOLIC_CONSTANT: return createSymbolicConstant();
       case AltaricaPackage.NODE: return createNode();
@@ -257,17 +258,6 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CaseExpression createCaseExpression()
-  {
-    CaseExpressionImpl caseExpression = new CaseExpressionImpl();
-    return caseExpression;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public Expression createExpression()
   {
     ExpressionImpl expression = new ExpressionImpl();
@@ -316,6 +306,28 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     NameRefImpl nameRef = new NameRefImpl();
     return nameRef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SwitchExpression createSwitchExpression()
+  {
+    SwitchExpressionImpl switchExpression = new SwitchExpressionImpl();
+    return switchExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CaseExpression createCaseExpression()
+  {
+    CaseExpressionImpl caseExpression = new CaseExpressionImpl();
+    return caseExpression;
   }
 
   /**

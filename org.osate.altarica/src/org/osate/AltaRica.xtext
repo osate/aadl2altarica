@@ -138,9 +138,6 @@ Switch returns Instruction:
 		else=Expression
 	'}';
 
-CaseExpression:
-	condition=Expression ':' then=Instruction ',';
-
 // ========== Expressions ==========
 
 Expression:
@@ -174,7 +171,7 @@ Neg returns Expression:
 ;
 
 Atom returns Expression:
-	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | '(' Expression ')'
+	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | '(' Expression ')'
 ;
 
 BooleanLiteral returns ARBoolean:
@@ -189,6 +186,16 @@ IntegerLiteral returns ARInteger:
 NameRef:
 	variable=[NamedElement] =>({NameRef.nested=current} '.' variable=[NamedElement])*;
 
+SwitchExpression:
+	'switch' '{' 
+		cases+=CaseExpression*
+	'else' ':'
+		default=Expression
+	'}';
+
+CaseExpression:
+	condition=LogicalOr ':' case=Expression
+;
 //===== Terminals
 
 terminal fragment ALPHA: 'a'..'z'|'A'..'Z';

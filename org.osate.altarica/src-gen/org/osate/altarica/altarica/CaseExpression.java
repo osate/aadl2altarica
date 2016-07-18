@@ -14,7 +14,7 @@ import org.eclipse.emf.ecore.EObject;
  * </p>
  * <ul>
  *   <li>{@link org.osate.altarica.altarica.CaseExpression#getCondition <em>Condition</em>}</li>
- *   <li>{@link org.osate.altarica.altarica.CaseExpression#getThen <em>Then</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.CaseExpression#getCase <em>Case</em>}</li>
  * </ul>
  *
  * @see org.osate.altarica.altarica.AltaricaPackage#getCaseExpression()
@@ -50,29 +50,29 @@ public interface CaseExpression extends EObject
   void setCondition(Expression value);
 
   /**
-   * Returns the value of the '<em><b>Then</b></em>' containment reference.
+   * Returns the value of the '<em><b>Case</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Then</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Case</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Then</em>' containment reference.
-   * @see #setThen(Instruction)
-   * @see org.osate.altarica.altarica.AltaricaPackage#getCaseExpression_Then()
+   * @return the value of the '<em>Case</em>' containment reference.
+   * @see #setCase(Expression)
+   * @see org.osate.altarica.altarica.AltaricaPackage#getCaseExpression_Case()
    * @model containment="true"
    * @generated
    */
-  Instruction getThen();
+  Expression getCase();
 
   /**
-   * Sets the value of the '{@link org.osate.altarica.altarica.CaseExpression#getThen <em>Then</em>}' containment reference.
+   * Sets the value of the '{@link org.osate.altarica.altarica.CaseExpression#getCase <em>Case</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Then</em>' containment reference.
-   * @see #getThen()
+   * @param value the new value of the '<em>Case</em>' containment reference.
+   * @see #getCase()
    * @generated
    */
-  void setThen(Instruction value);
+  void setCase(Expression value);
 
 } // CaseExpression

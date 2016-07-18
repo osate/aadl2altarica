@@ -125,11 +125,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createInstructionAdapter();
       }
       @Override
-      public Adapter caseCaseExpression(CaseExpression object)
-      {
-        return createCaseExpressionAdapter();
-      }
-      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
@@ -153,6 +148,16 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseNameRef(NameRef object)
       {
         return createNameRefAdapter();
+      }
+      @Override
+      public Adapter caseSwitchExpression(SwitchExpression object)
+      {
+        return createSwitchExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCaseExpression(CaseExpression object)
+      {
+        return createCaseExpressionAdapter();
       }
       @Override
       public Adapter caseDomain(Domain object)
@@ -437,21 +442,6 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.CaseExpression <em>Case Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.osate.altarica.altarica.CaseExpression
-   * @generated
-   */
-  public Adapter createCaseExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
    * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Expression <em>Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -522,6 +512,36 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createNameRefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.SwitchExpression <em>Switch Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.SwitchExpression
+   * @generated
+   */
+  public Adapter createSwitchExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.CaseExpression <em>Case Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.CaseExpression
+   * @generated
+   */
+  public Adapter createCaseExpressionAdapter()
   {
     return null;
   }

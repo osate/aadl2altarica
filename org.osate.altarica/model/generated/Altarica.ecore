@@ -34,12 +34,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="else" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CaseExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
-        containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="then" eType="#//Instruction"
-        containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
   <eClassifiers xsi:type="ecore:EClass" name="ARBoolean" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -53,6 +47,18 @@
   <eClassifiers xsi:type="ecore:EClass" name="NameRef" eSuperTypes="#//Expression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//NamedElement"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="nested" eType="#//NameRef"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SwitchExpression" eSuperTypes="#//Expression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="cases" upperBound="-1"
+        eType="#//CaseExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="default" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CaseExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//Expression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="case" eType="#//Expression"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Domain" eSuperTypes="#//NamedElement">

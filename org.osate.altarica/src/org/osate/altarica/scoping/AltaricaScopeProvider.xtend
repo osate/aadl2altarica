@@ -9,6 +9,7 @@ import org.eclipse.xtext.scoping.Scopes
 import org.eclipse.xtext.scoping.impl.AbstractDeclarativeScopeProvider
 import org.osate.altarica.altarica.Assignment
 import org.osate.altarica.altarica.Attribute
+import org.osate.altarica.altarica.CaseExpression
 import org.osate.altarica.altarica.Domain
 import org.osate.altarica.altarica.Equal
 import org.osate.altarica.altarica.NameRef
@@ -18,6 +19,7 @@ import org.osate.altarica.altarica.Transition
 import org.osate.altarica.altarica.Variable
 
 import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
+import org.osate.altarica.altarica.SwitchExpression
 
 /**
  * This class contains custom scoping description.
@@ -35,6 +37,10 @@ class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 			domainOfEqual(owner as Equal)
 		} else if (owner instanceof Assignment && (owner as Assignment).value == context && owner.getContainerOfType(Transition) != null) {
 			domainOfAssignment(owner as Assignment)
+		} else if (owner instanceof SwitchExpression) {
+			domainOfAssignment(owner.eContainer as Assignment)
+		} else if (owner instanceof CaseExpression) {
+			domainOfAssignment(owner.eContainer.eContainer as Assignment)
 		} else {
 			val nested = context.nested
 			if (nested == null) {
