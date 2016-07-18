@@ -602,8 +602,44 @@ lazy rule BaseType {
 }
 
 --- Create assertions from out propagations
+--- for now, no condition is allowed, the propagated token must be a leaf token!
 helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
-	Sequence{};
+	let props: Sequence(EMV2!ErrorPropagation) = self.outProp2propConds.getKeys()->asSequence() in
+	if props.isEmpty() then
+		Sequence{}
+	else
+		props->collect(prop |
+			let propConds: Sequence(EMV2!OutgoingPropagationCondition) = self.outProp2propConds.get(prop) in
+			thisModule.OutPropAssignment(self, prop, propConds)
+		)
+	endif.debug('int asserts for ' + self.getName());
+
+lazy rule OutPropAssignment {
+	from
+		ci: AADL!ComponentInstance,
+		prop: EMV2!ErrorPropagation,
+		propConds: Set(EMV2!OutgoingPropagationCondition)
+	to
+		i: AR!Assignment (
+			variable <- thisModule.OutFlow(ci, prop).ref(),
+			value <- s
+		),
+		s: AR!SwitchExpression (
+			cases <- propConds->collect(propCond | thisModule.CaseExpression(ci, propCond))->asSequence(),
+			default <- prop.noError.ref()
+		)
+}
+
+lazy rule CaseExpression {
+	from
+		ci: AADL!ComponentInstance,
+		propCond: EMV2!OutgoingPropagationCondition
+	to
+		c: AR!CaseExpression (
+			condition <- thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, propCond.state)),
+			case <- propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first()).ref()
+		)
+}
 
 --- Create external assertions from error propagation paths (at same level as connection, or at top level for bindings)
 helper context AADL!ComponentInstance def: externalAssertions(): Sequence(AR!Instruction) =

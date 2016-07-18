@@ -50,6 +50,14 @@ helper context AADL2!Classifier def: errorTransitions(): Collection(EMV2!ErrorBe
 		'getAllErrorBehaviorTransitions', Sequence{self}
 	);
 
+helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection(EMV2!OutgoingPropagationCondition) =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getAllOutgoingPropagationConditions', Sequence{self}
+	);
+
+helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Set(EMV2!OutgoingPropagationCondition)) =
+	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing);
+
 helper context EMV2!ErrorPropagation def: name(): String =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getPropagationName', Sequence{self}
