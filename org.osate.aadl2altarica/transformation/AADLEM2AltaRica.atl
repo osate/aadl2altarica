@@ -542,9 +542,6 @@ helper def: allNoError(flows: Sequence(AR!Variable)): AR!Expression =
 		thisModule.And(exp, thisModule.allNoError(flows -> tail()))
 	endif;
 	
-helper context Sequence(OclAny) def: tail(): Sequence(OclAny) =
-	self.subSequence(2, self -> size());
-
 lazy rule Or {
 	from
 		left: AR!Expression,
