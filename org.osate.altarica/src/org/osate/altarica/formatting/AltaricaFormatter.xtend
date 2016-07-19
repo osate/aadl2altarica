@@ -50,11 +50,11 @@ class AltaricaFormatter extends AbstractDeclarativeFormatter {
 		]
 		findKeywordPairs("{", "}").forEach [ pair |
 			c.setIndentationIncrement().after(pair.first)
-			c.setNoSpace().after(pair.first)
-			c.setLinewrap(0, 0, 1).after(pair.first)
+			//c.setNoSpace().after(pair.first)
+			c.setLinewrap(1, 1, 1).after(pair.first)
 			c.setIndentationDecrement().before(pair.second)
-			c.setNoSpace().before(pair.second)
-			c.setLinewrap(0, 0, 1).before(pair.second)
+			//c.setNoSpace().before(pair.second)
+			c.setLinewrap(1, 1, 1).before(pair.second)
 			c.setLinewrap(1, 1, 2).after(pair.second)
 		]
 		findKeywords(",").forEach [ comma |
@@ -93,6 +93,11 @@ class AltaricaFormatter extends AbstractDeclarativeFormatter {
 		c.setLinewrap.after(classAccess.nameIDTerminalRuleCall_2_0)
 		c.indentInClass(classAccess.classKeyword_1, classAccess.endKeyword_6)
 		c.setLinewrap(1,2,2).after(classAccess.endKeyword_6)
+		
+		c.setLinewrap(1,1,1).after(switchAccess.leftCurlyBracketKeyword_1)
+		c.setLinewrap(1,1,1).before(caseExpressionRule)
+		c.setLinewrap(1,1,1).after(caseExpressionRule)
+		c.setLinewrap(1,1,1).after(switchAccess.elseExpressionParserRuleCall_5_0)
 	}
 
 	protected def indentSection(FormattingConfig c, Keyword keyword) {
