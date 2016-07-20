@@ -328,8 +328,10 @@ unique lazy rule FlowDomain {
 helper def: domainCount: Integer = 0;
 
 --- Create the symbols for the domain of the error propagation
+-- TODO
+-- don't get leaf tokens for {typeset_name}
 helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
-	self.leafTokens() -> collect(t | self.getSymbol(t));
+	self.leafTokens().debug('leaf tokens for ' + self.name()) -> collect(t | self.getSymbol(t));
 	
 helper context EMV2!ErrorPropagation def: getSymbol(token: EMV2!TypeToken): AR!SymbolicConstant =
 	thisModule.SymbolicConstant(self, token.name());
@@ -612,6 +614,10 @@ lazy rule OutPropAssignment {
 		)
 }
 
+-- TODO
+-- must be <= 1 in propagation in condition
+-- create filter if in propagation has type tokens
+-- what if in propagation is split into several flow vars?
 lazy rule CaseExpression {
 	from
 		ci: AADL!ComponentInstance,
@@ -623,7 +629,10 @@ lazy rule CaseExpression {
 				if not propCond.typeToken.oclIsUndefined() then
 					propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first())
 				else
-					propCond.condition
+					let condElem: EMV2!ConditionElement = propCond.condition.conditionElements->first() in
+					let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
+					let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = ci, prop = inProp}) in
+					inFlows->at(1)
 				endif.ref()
 		)
 }

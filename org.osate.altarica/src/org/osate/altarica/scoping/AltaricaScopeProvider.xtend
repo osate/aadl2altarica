@@ -20,6 +20,7 @@ import org.osate.altarica.altarica.Variable
 
 import static extension org.eclipse.xtext.EcoreUtil2.getContainerOfType
 import org.osate.altarica.altarica.SwitchExpression
+import org.eclipse.xtext.EcoreUtil2
 
 /**
  * This class contains custom scoping description.
@@ -40,7 +41,7 @@ class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 		} else if (owner instanceof SwitchExpression) {
 			domainOfAssignment(owner.eContainer as Assignment)
 		} else if (owner instanceof CaseExpression) {
-			domainOfAssignment(owner.eContainer.eContainer as Assignment)
+			Scopes.scopeFor(owner.getContainerOfType(Node).declarations, domainOfAssignment(owner.eContainer.eContainer as Assignment))
 		} else {
 			val nested = context.nested
 			if (nested == null) {
