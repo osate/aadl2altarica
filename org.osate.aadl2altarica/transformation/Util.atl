@@ -86,7 +86,7 @@ helper context EMV2!TypeSet def: leafTypeTokens(useTypes: Sequence(EMV2!ErrorMod
 		'generateAllLeafTypeTokens', Sequence{self, useTypes}
 	);
 
-helper context EMV2!ErrorBehaviorTransition def: conditionElements: EMV2!ErrorPropagation =
+helper context EMV2!ConditionExpression def: conditionElements: EMV2!ErrorPropagation =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllConditionElementsFromConditionExpression', Sequence{self}
 	);

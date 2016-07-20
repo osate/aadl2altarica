@@ -417,9 +417,9 @@ lazy rule PropagationTransition {
 }
 
 helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehaviorTransition): AR!Expression =
-	let condElems: Sequence(EMV2!ConditionElement) = et.conditionElements.debug('@') in
-	let inProps: EMV2!ErrorPropagation = condElems->getInProps().debug('A') in
-	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations()->removeAll(inProps).debug('B') in
+	let condElems: Sequence(EMV2!ConditionElement) = et.condition.conditionElements in
+	let inProps: EMV2!ErrorPropagation = condElems->getInProps() in
+	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations()->removeAll(inProps) in
 	let inPropGuard: AR!Expression = self.inPropGuard(condElems) in
 	let propGuard: AR!Expression =
 		if otherProps.isEmpty() then
