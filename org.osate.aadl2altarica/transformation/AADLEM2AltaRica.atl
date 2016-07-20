@@ -407,7 +407,7 @@ lazy rule PropagationTransition {
 			expression <- te
 		),
 		te: AR!Transition (
-			guard <- ci.guardExpression_(et),
+			guard <- ci.guardExpression(et),
 			action <- a
 		),
 		a: AR!Assignment (
@@ -416,7 +416,7 @@ lazy rule PropagationTransition {
 		)
 }
 
-helper context AADL!ComponentInstance def: guardExpression_(et: EMV2!ErrorBehaviorTransition): AR!Expression =
+helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehaviorTransition): AR!Expression =
 	let condElems: Sequence(EMV2!ConditionElement) = et.conditionElements.debug('@') in
 	let inProps: EMV2!ErrorPropagation = condElems->getInProps().debug('A') in
 	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations()->removeAll(inProps).debug('B') in
@@ -459,24 +459,6 @@ helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!
 		exp
 	else
 		thisModule.And(exp, self.inPropGuard(condElems->tail()))
-	endif;
-
-helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehaviorTransition): AR!Expression =
-	let condElem: EMV2!ConditionElement = et.condition in
-	let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
-	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations() -> excluding(inProp) in
-	let inPropGuard: AR!Expression = self.inPropGuard(condElem) in
-	let propGuard: AR!Expression =
-		if otherProps.isEmpty() then
-			inPropGuard
-		else
-			thisModule.And(inPropGuard, self.allNoError(otherProps))
-		endif in
-	if et.source.oclIsUndefined() then
-		propGuard
-	else
-		let stateGuard: AR!Expression = thisModule.Equal(thisModule.State(self), thisModule.StateSymbol(self.classifier, et.source)) in
-		thisModule.And(stateGuard, propGuard)
 	endif;
 
 --- Create a guard expression fragment from an in propagation
@@ -637,7 +619,12 @@ lazy rule CaseExpression {
 	to
 		c: AR!CaseExpression (
 			condition <- thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, propCond.state)),
-			case <- propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first()).ref()
+			case <- 
+				if not propCond.typeToken.oclIsUndefined() then
+					propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first())
+				else
+					propCond.condition
+				endif.ref()
 		)
 }
 
