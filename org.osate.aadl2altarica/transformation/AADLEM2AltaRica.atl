@@ -360,6 +360,7 @@ unique lazy rule NoError {
 helper context EMV2!ConditionExpression def: isSingleEvent(): Boolean =
 	self.oclIsTypeOf(EMV2!ConditionElement) and self.constraint.oclIsUndefined() and self.qualifiedErrorPropagationReference.emv2Target.namedElement.oclIsTypeOf(EMV2!ErrorEvent);
 
+-- TODO better filtering of valid transitions
 helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTransition) =
 	let transitions: Collection(EMV2!ErrorBehaviorTransition) = self.classifier.errorTransitions() in
 	let handled_events: Collection(EMV2!ErrorBehaviorTransition) = 
@@ -368,7 +369,7 @@ helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTra
 		) in
 	let handled_props: Collection(EMV2!ErrorBehaviorTransition) =
 		transitions -> select(t |
-			not (t.source.oclIsUndefined() or t.target.oclIsUndefined()) and not t.condition.isSingleEvent()
+			not (t.target.oclIsUndefined()) and not t.condition.isSingleEvent()
 		)
 	in
 		handled_events -> collect(t | thisModule.EventTransition(self, t))
@@ -587,6 +588,7 @@ lazy rule BaseType {
 
 --- Create assertions from out propagations
 --- for now, no condition is allowed, the propagated token must be a leaf token!
+-- TODO add filter expression (for voter example w/o states)
 helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
 	let props: Sequence(EMV2!ErrorPropagation) = self.outProp2propConds.getKeys()->asSequence() in
 	if props.isEmpty() then
