@@ -332,7 +332,12 @@ helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicC
 	self.leafTokens().debug('leaf tokens for ' + self.name()) -> collect(t | self.getSymbol(t));
 	
 helper context EMV2!ErrorPropagation def: getSymbol(token: EMV2!TypeToken): AR!SymbolicConstant =
-	thisModule.SymbolicConstant(self, token.name());
+	let name: String = token.name() in
+	if name = '' then
+		thisModule.NoError(thisModule.FlowDomain(self))
+	else
+		thisModule.SymbolicConstant(self, name)
+	endif;
 	
 unique lazy rule SymbolicConstant {
 	from
@@ -349,7 +354,7 @@ unique lazy rule NoError {
 		domain: AR!Domain
 	to
 		noError: AR!SymbolicConstant (
-			name <- 'no_error'
+			name <- 'noerror'
 		)
 }
 
@@ -483,13 +488,28 @@ helper context AADL!ComponentInstance def: inPropGuard(condElem: EMV2!ConditionE
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = inProp}) in
 	condElem.orOfFlows(inFlows);
 
+-- ip{t1, t2, ... => f_i == t1 or f_i == t2 or ...  OK
+-- ip             => f_i != noerror                 OK
+-- ip{noerror}    => f_i == noerror                 OK
 helper context EMV2!ConditionElement def: orOfFlows(flows: Sequence(AR!Variable)): AR!Expression =
 	let head: AR!Variable = flows->at(1) in
-	let constants: Sequence(AR!SymbolicConstant) = 
-		self.leafTokens()
-		->collect(t | head.constant(t))
-		->select(c | not c.oclIsUndefined()) in
-	let exp: AR!Expression = head.orOfConstants(constants) in
+	let exp: AR!Expression = 
+			if self.isNoErrorCondition() then
+				-- ip{noerror}
+			  thisModule.Equal(head, head.noError)
+			else
+				let constants: Sequence(AR!SymbolicConstant) = 
+						self.leafTokens()
+						->collect(t | head.constant(t))
+						->select(c | not c.oclIsUndefined()) in
+				if constants->isEmpty() then
+					-- ip
+					thisModule.NotEqual(head, head.noError) 
+				else 
+					-- ip{t1, t2, ...}
+					head.orOfConstants(constants) 
+				endif
+			endif in
 	if flows->size() = 1 then
 		exp
 	else
@@ -501,22 +521,18 @@ helper context EMV2!ConditionElement def: orOfFlows(flows: Sequence(AR!Variable)
 		endif
 	endif;
 
+-- assumes constants is not empty
 helper context AR!Variable def: orOfConstants(constants: Sequence(AR!SymbolicConstant)): AR!Expression =
-	if constants->isEmpty() then
-		let flow: AR!Variable = self in
-		thisModule.NotEqual(self, flow.noError) 
-	else 
-		let head: AR!SymbolicConstant = constants->at(1) in
-		let exp: AR!Expression = thisModule.Equal(self, head) in
-		if constants->size() <= 1 then
-			exp
+	let head: AR!SymbolicConstant = constants->at(1) in
+	let exp: AR!Expression = thisModule.Equal(self, head) in
+	if constants->size() <= 1 then
+		exp
+	else
+		let tailExp: AR!Expression = self.orOfConstants(constants->tail()) in
+		if exp.oclIsUndefined() then
+			tailExp
 		else
-			let tailExp: AR!Expression = self.orOfConstants(constants->tail()) in
-			if exp.oclIsUndefined() then
-				tailExp
-			else
-				thisModule.Or(exp, tailExp)
-			endif
+			thisModule.Or(exp, tailExp)
 		endif
 	endif;
 
@@ -646,7 +662,7 @@ lazy rule CaseExpression {
 --					thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, propCond.state))
 --				endif,
 			condition <- ci.caseCondition(propCond),
-			case <- 
+			case <-
 				if not propCond.typeToken.oclIsUndefined() then
 					propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first())
 				else

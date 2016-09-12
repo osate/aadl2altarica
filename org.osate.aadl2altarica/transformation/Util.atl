@@ -112,6 +112,13 @@ helper context EMV2!ConditionElement def: namedElement: AADL2!NamedElement =
 		'getErrorModelElement', Sequence{self}
 	);
 
+helper context EMV2!ConditionElement def: isNoErrorCondition(): Boolean =
+	if self.constraint.oclIsUndefined() then
+		false
+	else
+		let tokens: Sequence(EMV2!TypeToken) = self.constraint.typeTokens in
+		not tokens->isEmpty() and tokens->at(1).noError
+	endif;
 
 helper context EMV2!ConditionElement def: leafTokens(): Sequence(EMV2!TypeToken) =
 	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
