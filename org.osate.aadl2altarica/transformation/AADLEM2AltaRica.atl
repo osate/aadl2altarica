@@ -328,8 +328,6 @@ unique lazy rule FlowDomain {
 helper def: domainCount: Integer = 0;
 
 --- Create the symbols for the domain of the error propagation
--- TODO
--- don't get leaf tokens for {typeset_name}
 helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
 	self.leafTokens().debug('leaf tokens for ' + self.name()) -> collect(t | self.getSymbol(t));
 	
@@ -365,11 +363,11 @@ helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTra
 	let transitions: Collection(EMV2!ErrorBehaviorTransition) = self.classifier.errorTransitions() in
 	let handled_events: Collection(EMV2!ErrorBehaviorTransition) = 
 		transitions -> select(t |
-			not (t.source.oclIsUndefined() or t.target.oclIsUndefined()) and t.condition.isSingleEvent()
+			not t.target.oclIsUndefined() and t.condition.isSingleEvent()
 		) in
 	let handled_props: Collection(EMV2!ErrorBehaviorTransition) =
 		transitions -> select(t |
-			not (t.target.oclIsUndefined()) and not t.condition.isSingleEvent()
+			not t.target.oclIsUndefined() and not t.condition.isSingleEvent()
 		)
 	in
 		handled_events -> collect(t | thisModule.EventTransition(self, t))
@@ -389,7 +387,12 @@ lazy rule EventTransition {
 			expression <- te
 		),
 		te: AR!Transition (
-			guard <- thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, et.source)),
+			guard <- 
+				if et.source.oclIsUndefined() then
+					thisModule.ARBoolean(true)
+				else
+					thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, et.source))
+				endif,
 			action <- a
 		),
 		a: AR!Assignment (
@@ -398,6 +401,14 @@ lazy rule EventTransition {
 		)
 }
 
+lazy rule ARBoolean {
+	from
+		val: Boolean
+	to
+		b: AR!ARBoolean (
+			value <- val.toString()
+		)
+}
 
 --- Create a state transition which is caused by an incoming error propagation
 lazy rule PropagationTransition {
@@ -421,6 +432,10 @@ lazy rule PropagationTransition {
 
 helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehaviorTransition): AR!Expression =
 	let condElems: Sequence(EMV2!ConditionElement) = et.condition.conditionElements in
+	let source: Sequence(EMV2!ErrorBehaviorState) = if et.source.oclIsUndefined() then Sequence{} else Sequence{et.source} endif in
+	self.condition(source, condElems);
+
+helper context AADL!ComponentInstance def: condition(source: Sequence(EMV2!ErrorBehaviorState), condElems: Sequence(EMV2!ConditionElement)): AR!Expression =
 	let inProps: EMV2!ErrorPropagation = condElems->getInProps() in
 	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations()->removeAll(inProps) in
 	let inPropGuard: AR!Expression = self.inPropGuard(condElems) in
@@ -430,14 +445,14 @@ helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehavio
 		else
 			thisModule.And(inPropGuard, self.allNoError(otherProps))
 		endif in
-	if et.source.oclIsUndefined() then
+	if source.isEmpty() then
 		propGuard
 	else
-		let stateGuard: AR!Expression = thisModule.Equal(thisModule.State(self), thisModule.StateSymbol(self.classifier, et.source)) in
+		let stateGuard: AR!Expression = thisModule.Equal(thisModule.State(self), thisModule.StateSymbol(self.classifier, source->at(1))) in
 		thisModule.And(stateGuard, propGuard)
 	endif;
 
-helper context Sequence(EMV2!ConditionElement) def: getErrorEvent(): EMV2!ErrorEvent =
+	helper context Sequence(EMV2!ConditionElement) def: getErrorEvent(): EMV2!ErrorEvent =
 	let events: Sequence(EMV2!ErrorEvent) = 
 			self->collect(ce | ce.getErrorEvent())->select(e | not e.oclIsUndefined()) in
 	if events.isEmpty() then
@@ -447,21 +462,19 @@ helper context Sequence(EMV2!ConditionElement) def: getErrorEvent(): EMV2!ErrorE
 	endif;
 
 helper context Sequence(EMV2!ConditionElement) def: getInProps(): Sequence(EMV2!ErrorPropagation) =
-	let inProps: Sequence(EMV2!ErrorPropagation) = 
-			self->collect(ce | ce.getErrorPropagation())->select(p | not p.oclIsUndefined()) in
-	if inProps.isEmpty() then
-		OclUndefined
-	else
-		inProps
-	endif;
+	self->collect(ce | ce.getErrorPropagation())->select(p | not p.oclIsUndefined());
 
 helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!ConditionElement)): AR!Expression =
-	let head: EMV2!ConditionElement = condElems->at(1) in
-	let exp: AR!Expression = self.inPropGuard(head) in
-	if condElems->size() = 1 then
-		exp
+	if condElems.isEmpty() then
+		thisModule.ARBoolean(true)
 	else
-		thisModule.And(exp, self.inPropGuard(condElems->tail()))
+		let head: EMV2!ConditionElement = condElems->at(1) in
+		let exp: AR!Expression = self.inPropGuard(head) in
+		if condElems->size() = 1 then
+			exp
+		else
+			thisModule.And(exp, self.inPropGuard(condElems->tail()))
+		endif
 	endif;
 
 --- Create a guard expression fragment from an in propagation
@@ -626,7 +639,13 @@ lazy rule CaseExpression {
 		propCond: EMV2!OutgoingPropagationCondition
 	to
 		c: AR!CaseExpression (
-			condition <- thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, propCond.state)),
+--			condition <- 
+--				if propCond.state.oclIsUndefined() then
+--					thisModule.ARBoolean(true)
+--				else
+--					thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, propCond.state))
+--				endif,
+			condition <- ci.caseCondition(propCond),
 			case <- 
 				if not propCond.typeToken.oclIsUndefined() then
 					propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first())
@@ -639,7 +658,21 @@ lazy rule CaseExpression {
 		)
 }
 
---- Create external assertions from error propagation paths (at same level as connection, or at top level for bindings)
+helper context AADL!ComponentInstance def: caseCondition(pc: EMV2!OutgoingPropagationCondition): AR!Expression =
+	if pc.condition.oclIsUndefined() then
+		if pc.state.oclIsUndefined() then
+			thisModule.ARBoolean(true)
+		else
+			thisModule.Equal(thisModule.State(self), thisModule.StateSymbol(self.classifier, pc.state))
+		endif
+	else
+		let condElems: Sequence(EMV2!ConditionElement) = pc.condition.conditionElements in
+		let source: Sequence(EMV2!ErrorBehaviorState) = 
+			if pc.state.oclIsUndefined() then Sequence{} else Sequence{pc.state} endif in
+		self.condition(source, condElems)
+	endif;
+
+	--- Create external assertions from error propagation paths (at same level as connection, or at top level for bindings)
 helper context AADL!ComponentInstance def: externalAssertions(): Sequence(AR!Instruction) =
 	if thisModule.ci2paths.getKeys() -> includes(self) then 
 		thisModule.ci2paths.get(self) -> select(pp | not pp.isConnectionBindingPath()) -> collect(pp | pp.makeAssertion())

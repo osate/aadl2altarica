@@ -186,4 +186,10 @@ helper context AADL2!NamedElement def: altaRicaName(): String =
 helper context AADL2!NamedElement def: indexedName(index: Integer): String =
 	self.altaRicaName() + '_' + index.toString();
 
+helper context EMV2!FeatureorPPReference def: altaRicaName(): String =
+	let
+		name: String = self.featureorPP.name
+	in
+		if self.next.oclIsUndefined() then name else name + '_' + self.next.altaRicaName() endif;
+
 helper def: int: AR!BaseTypeEnum = #"Integer";
