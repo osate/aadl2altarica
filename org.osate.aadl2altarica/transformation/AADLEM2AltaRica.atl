@@ -123,9 +123,11 @@ unique lazy rule ImmediateEvent {
 			value <- 0
 		)
 }
--- states
--- TODO: handle typed error states
 
+
+--- Transform EMV2 error states to an AR variable
+--- The varable 's domain represents the error states, initial value is the constant for the initial state
+--- LIMITATION: no typed error states
 helper context AADL!ComponentInstance def: states(): Sequence(AR!Variable) =
 	let state: AR!Variable = thisModule.State(self) in
 	if state.oclIsUndefined() then 
@@ -159,6 +161,8 @@ helper context AADL2!ComponentClassifier def: initialState(): AR!SymbolicConstan
 --- Workaround for typo in EMV2 grammar
 helper context EMV2!ErrorBehaviorState def: isInitial(): Boolean = self.isIntial();
 
+--- Create a domain type for the error state variable of a component instance
+--- References the domain of the instantiated component classifier
 lazy rule StateDomainType {
 	from
 		ci: AADL!ComponentInstance
@@ -168,10 +172,7 @@ lazy rule StateDomainType {
 		)
 }
 
--- map to keep track of type tokens in domains
---helper def: domain2tokens: Map(AR!Domain, Set(EMV2!TypeToken)) = Map{};
-
---- doc
+--- Create a domain from the error states of a classifier
 unique lazy rule StateDomain {
 	from
 		c: AADL!ComponentClassifier
@@ -190,10 +191,11 @@ unique lazy rule StateDomain {
 	}
 }
 	
---- Create the symbols for the domain of the error propagation
+--- Create the symbols for the state domain
 helper context AADL2!ComponentClassifier def: createSymbols(): Sequence(AR!SymbolicConstant) =
 	self.errorStates() -> collect(s | thisModule.StateSymbol(self, s));
 
+--- Create a state symbol
 unique lazy rule StateSymbol {
 	from
 		c: AADL2!ComponentClassifier,
@@ -364,6 +366,8 @@ helper context EMV2!ConditionExpression def: isSingleEvent(): Boolean =
 	self.oclIsTypeOf(EMV2!ConditionElement) and self.constraint.oclIsUndefined() and self.qualifiedErrorPropagationReference.emv2Target.namedElement.oclIsTypeOf(EMV2!ErrorEvent);
 
 -- TODO better filtering of valid transitions
+-- LIMITATIONS
+-- - dst=same is not supported
 helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTransition) =
 	let transitions: Collection(EMV2!ErrorBehaviorTransition) = self.classifier.errorTransitions() in
 	let handled_events: Collection(EMV2!ErrorBehaviorTransition) = 
@@ -615,7 +619,7 @@ lazy rule BaseType {
 		)
 }
 
---- Create assertions from out propagations
+--- Create assertions from out propagation conditions
 --- for now, no condition is allowed, the propagated token must be a leaf token!
 -- TODO add filter expression (for voter example w/o states)
 helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Instruction) =
@@ -688,7 +692,8 @@ helper context AADL!ComponentInstance def: caseCondition(pc: EMV2!OutgoingPropag
 		self.condition(source, condElems)
 	endif;
 
-	--- Create external assertions from error propagation paths (at same level as connection, or at top level for bindings)
+
+--- Create external assertions from error propagation paths (at same level as connection, or at top level for bindings)
 helper context AADL!ComponentInstance def: externalAssertions(): Sequence(AR!Instruction) =
 	if thisModule.ci2paths.getKeys() -> includes(self) then 
 		thisModule.ci2paths.get(self) -> select(pp | not pp.isConnectionBindingPath()) -> collect(pp | pp.makeAssertion())
