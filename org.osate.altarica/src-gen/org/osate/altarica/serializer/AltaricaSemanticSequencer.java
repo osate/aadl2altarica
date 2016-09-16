@@ -17,7 +17,7 @@ import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.osate.altarica.altarica.ARBoolean;
-import org.osate.altarica.altarica.ARInteger;
+import org.osate.altarica.altarica.ARNumber;
 import org.osate.altarica.altarica.ARString;
 import org.osate.altarica.altarica.Addition;
 import org.osate.altarica.altarica.AltaricaPackage;
@@ -30,6 +30,7 @@ import org.osate.altarica.altarica.Conditional;
 import org.osate.altarica.altarica.Domain;
 import org.osate.altarica.altarica.Equal;
 import org.osate.altarica.altarica.Event;
+import org.osate.altarica.altarica.FunctionCall;
 import org.osate.altarica.altarica.Instruction;
 import org.osate.altarica.altarica.LabeledTransition;
 import org.osate.altarica.altarica.LogicalAnd;
@@ -64,8 +65,8 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case AltaricaPackage.AR_BOOLEAN:
 				sequence_BooleanLiteral(context, (ARBoolean) semanticObject); 
 				return; 
-			case AltaricaPackage.AR_INTEGER:
-				sequence_IntegerLiteral(context, (ARInteger) semanticObject); 
+			case AltaricaPackage.AR_NUMBER:
+				sequence_NumberLiteral(context, (ARNumber) semanticObject); 
 				return; 
 			case AltaricaPackage.AR_STRING:
 				sequence_StringLiteral(context, (ARString) semanticObject); 
@@ -99,6 +100,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				return; 
 			case AltaricaPackage.EVENT:
 				sequence_EventDeclaration(context, (Event) semanticObject); 
+				return; 
+			case AltaricaPackage.FUNCTION_CALL:
+				sequence_FunctionCall(context, (FunctionCall) semanticObject); 
 				return; 
 			case AltaricaPackage.INSTRUCTION:
 				sequence_Switch(context, (Instruction) semanticObject); 
@@ -292,17 +296,10 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     value=INT
+	 *     ((name='exponential' | name='constant') (parameters+=Expression parameters+=Expression*)?)
 	 */
-	protected void sequence_IntegerLiteral(EObject context, ARInteger semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.AR_INTEGER__VALUE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.AR_INTEGER__VALUE));
-		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getIntegerLiteralAccess().getValueINTTerminalRuleCall_0(), semanticObject.getValue());
-		feeder.finish();
+	protected void sequence_FunctionCall(EObject context, FunctionCall semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
@@ -440,6 +437,22 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
 		feeder.accept(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_0_2_0(), semanticObject.getExpression());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Constraint:
+	 *     value=NUMBER
+	 */
+	protected void sequence_NumberLiteral(EObject context, ARNumber semanticObject) {
+		if(errorAcceptor != null) {
+			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.AR_NUMBER__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.AR_NUMBER__VALUE));
+		}
+		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
+		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueNUMBERTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	

@@ -169,11 +169,11 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case AltaricaPackage.AR_INTEGER:
+      case AltaricaPackage.AR_NUMBER:
       {
-        ARInteger arInteger = (ARInteger)theEObject;
-        T result = caseARInteger(arInteger);
-        if (result == null) result = caseExpression(arInteger);
+        ARNumber arNumber = (ARNumber)theEObject;
+        T result = caseARNumber(arNumber);
+        if (result == null) result = caseExpression(arNumber);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -392,6 +392,14 @@ public class AltaricaSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case AltaricaPackage.FUNCTION_CALL:
+      {
+        FunctionCall functionCall = (FunctionCall)theEObject;
+        T result = caseFunctionCall(functionCall);
+        if (result == null) result = caseExpression(functionCall);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       default: return defaultCase(theEObject);
     }
   }
@@ -605,17 +613,17 @@ public class AltaricaSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>AR Integer</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>AR Number</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>AR Integer</em>'.
+   * @return the result of interpreting the object as an instance of '<em>AR Number</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseARInteger(ARInteger object)
+  public T caseARNumber(ARNumber object)
   {
     return null;
   }
@@ -1016,6 +1024,22 @@ public class AltaricaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseMinus(Minus object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Function Call</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Function Call</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseFunctionCall(FunctionCall object)
   {
     return null;
   }

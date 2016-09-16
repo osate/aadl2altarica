@@ -1294,19 +1294,20 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBooleanLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cIntegerLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cNameRefParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSwitchExpressionParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final Group cGroup_5 = (Group)cAlternatives.eContents().get(5);
-		private final Keyword cLeftParenthesisKeyword_5_0 = (Keyword)cGroup_5.eContents().get(0);
-		private final RuleCall cExpressionParserRuleCall_5_1 = (RuleCall)cGroup_5.eContents().get(1);
-		private final Keyword cRightParenthesisKeyword_5_2 = (Keyword)cGroup_5.eContents().get(2);
+		private final RuleCall cNumberLiteralParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cFunctionCallParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cNameRefParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSwitchExpressionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final Group cGroup_6 = (Group)cAlternatives.eContents().get(6);
+		private final Keyword cLeftParenthesisKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
+		private final RuleCall cExpressionParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
+		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		
 		//Atom returns Expression:
-		//	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | "(" Expression ")";
+		//	BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | "(" Expression ")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | "(" Expression ")"
+		//BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | "(" Expression ")"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BooleanLiteral
@@ -1315,26 +1316,29 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//StringLiteral
 		public RuleCall getStringLiteralParserRuleCall_1() { return cStringLiteralParserRuleCall_1; }
 
-		//IntegerLiteral
-		public RuleCall getIntegerLiteralParserRuleCall_2() { return cIntegerLiteralParserRuleCall_2; }
+		//NumberLiteral
+		public RuleCall getNumberLiteralParserRuleCall_2() { return cNumberLiteralParserRuleCall_2; }
+
+		//FunctionCall
+		public RuleCall getFunctionCallParserRuleCall_3() { return cFunctionCallParserRuleCall_3; }
 
 		//NameRef
-		public RuleCall getNameRefParserRuleCall_3() { return cNameRefParserRuleCall_3; }
+		public RuleCall getNameRefParserRuleCall_4() { return cNameRefParserRuleCall_4; }
 
 		//SwitchExpression
-		public RuleCall getSwitchExpressionParserRuleCall_4() { return cSwitchExpressionParserRuleCall_4; }
+		public RuleCall getSwitchExpressionParserRuleCall_5() { return cSwitchExpressionParserRuleCall_5; }
 
 		//"(" Expression ")"
-		public Group getGroup_5() { return cGroup_5; }
+		public Group getGroup_6() { return cGroup_6; }
 
 		//"("
-		public Keyword getLeftParenthesisKeyword_5_0() { return cLeftParenthesisKeyword_5_0; }
+		public Keyword getLeftParenthesisKeyword_6_0() { return cLeftParenthesisKeyword_6_0; }
 
 		//Expression
-		public RuleCall getExpressionParserRuleCall_5_1() { return cExpressionParserRuleCall_5_1; }
+		public RuleCall getExpressionParserRuleCall_6_1() { return cExpressionParserRuleCall_6_1; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_5_2() { return cRightParenthesisKeyword_5_2; }
+		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
 	}
 
 	public class BooleanLiteralElements extends AbstractParserRuleElementFinder {
@@ -1377,20 +1381,20 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getValueSTRINGTerminalRuleCall_0() { return cValueSTRINGTerminalRuleCall_0; }
 	}
 
-	public class IntegerLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "IntegerLiteral");
+	public class NumberLiteralElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueINTTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueNUMBERTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//IntegerLiteral returns ARInteger:
-		//	value=INT;
+		//NumberLiteral returns ARNumber:
+		//	value=NUMBER;
 		@Override public ParserRule getRule() { return rule; }
 
-		//value=INT
+		//value=NUMBER
 		public Assignment getValueAssignment() { return cValueAssignment; }
 
-		//INT
-		public RuleCall getValueINTTerminalRuleCall_0() { return cValueINTTerminalRuleCall_0; }
+		//NUMBER
+		public RuleCall getValueNUMBERTerminalRuleCall_0() { return cValueNUMBERTerminalRuleCall_0; }
 	}
 
 	public class NameRefElements extends AbstractParserRuleElementFinder {
@@ -1524,6 +1528,74 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getCaseExpressionParserRuleCall_2_0() { return cCaseExpressionParserRuleCall_2_0; }
 	}
+
+	public class FunctionCallElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionCall");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cFunctionCallAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cNameAlternatives_1_0 = (Alternatives)cNameAssignment_1.eContents().get(0);
+		private final Keyword cNameExponentialKeyword_1_0_0 = (Keyword)cNameAlternatives_1_0.eContents().get(0);
+		private final Keyword cNameConstantKeyword_1_0_1 = (Keyword)cNameAlternatives_1_0.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Assignment cParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
+		private final RuleCall cParametersExpressionParserRuleCall_3_0_0 = (RuleCall)cParametersAssignment_3_0.eContents().get(0);
+		private final Group cGroup_3_1 = (Group)cGroup_3.eContents().get(1);
+		private final Keyword cCommaKeyword_3_1_0 = (Keyword)cGroup_3_1.eContents().get(0);
+		private final Assignment cParametersAssignment_3_1_1 = (Assignment)cGroup_3_1.eContents().get(1);
+		private final RuleCall cParametersExpressionParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
+		
+		//FunctionCall returns Expression:
+		//	{FunctionCall} name=("exponential" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
+		@Override public ParserRule getRule() { return rule; }
+
+		//{FunctionCall} name=("exponential" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)? ")"
+		public Group getGroup() { return cGroup; }
+
+		//{FunctionCall}
+		public Action getFunctionCallAction_0() { return cFunctionCallAction_0; }
+
+		//name=("exponential" | "constant")
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+
+		//"exponential" | "constant"
+		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
+
+		//"exponential"
+		public Keyword getNameExponentialKeyword_1_0_0() { return cNameExponentialKeyword_1_0_0; }
+
+		//"constant"
+		public Keyword getNameConstantKeyword_1_0_1() { return cNameConstantKeyword_1_0_1; }
+
+		//"("
+		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
+
+		//(parameters+=Expression ("," parameters+=Expression)*)?
+		public Group getGroup_3() { return cGroup_3; }
+
+		//parameters+=Expression
+		public Assignment getParametersAssignment_3_0() { return cParametersAssignment_3_0; }
+
+		//Expression
+		public RuleCall getParametersExpressionParserRuleCall_3_0_0() { return cParametersExpressionParserRuleCall_3_0_0; }
+
+		//("," parameters+=Expression)*
+		public Group getGroup_3_1() { return cGroup_3_1; }
+
+		//","
+		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
+
+		//parameters+=Expression
+		public Assignment getParametersAssignment_3_1_1() { return cParametersAssignment_3_1_1; }
+
+		//Expression
+		public RuleCall getParametersExpressionParserRuleCall_3_1_1_0() { return cParametersExpressionParserRuleCall_3_1_1_0; }
+
+		//")"
+		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
+	}
 	
 	
 	public class BaseTypeEnumElements extends AbstractEnumRuleElementFinder {
@@ -1589,16 +1661,19 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	private final AtomElements pAtom;
 	private final BooleanLiteralElements pBooleanLiteral;
 	private final StringLiteralElements pStringLiteral;
-	private final IntegerLiteralElements pIntegerLiteral;
+	private final NumberLiteralElements pNumberLiteral;
 	private final NameRefElements pNameRef;
 	private final SwitchExpressionElements pSwitchExpression;
 	private final CaseExpressionElements pCaseExpression;
+	private final FunctionCallElements pFunctionCall;
 	private final TerminalRule tALPHA;
 	private final TerminalRule tDIGIT;
 	private final TerminalRule tREGULAR_ID;
 	private final TerminalRule tSTRING_ID;
 	private final TerminalRule tID;
 	private final TerminalRule tSTRING;
+	private final TerminalRule tNUMBER;
+	private final TerminalRule tINT;
 	
 	private final Grammar grammar;
 
@@ -1644,16 +1719,19 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pAtom = new AtomElements();
 		this.pBooleanLiteral = new BooleanLiteralElements();
 		this.pStringLiteral = new StringLiteralElements();
-		this.pIntegerLiteral = new IntegerLiteralElements();
+		this.pNumberLiteral = new NumberLiteralElements();
 		this.pNameRef = new NameRefElements();
 		this.pSwitchExpression = new SwitchExpressionElements();
 		this.pCaseExpression = new CaseExpressionElements();
+		this.pFunctionCall = new FunctionCallElements();
 		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ALPHA");
 		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DIGIT");
 		this.tREGULAR_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "REGULAR_ID");
 		this.tSTRING_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING_ID");
 		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
 		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -2010,7 +2088,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Atom returns Expression:
-	//	BooleanLiteral | StringLiteral | IntegerLiteral | NameRef | SwitchExpression | "(" Expression ")";
+	//	BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | "(" Expression ")";
 	public AtomElements getAtomAccess() {
 		return pAtom;
 	}
@@ -2039,14 +2117,14 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getStringLiteralAccess().getRule();
 	}
 
-	//IntegerLiteral returns ARInteger:
-	//	value=INT;
-	public IntegerLiteralElements getIntegerLiteralAccess() {
-		return pIntegerLiteral;
+	//NumberLiteral returns ARNumber:
+	//	value=NUMBER;
+	public NumberLiteralElements getNumberLiteralAccess() {
+		return pNumberLiteral;
 	}
 	
-	public ParserRule getIntegerLiteralRule() {
-		return getIntegerLiteralAccess().getRule();
+	public ParserRule getNumberLiteralRule() {
+		return getNumberLiteralAccess().getRule();
 	}
 
 	//NameRef:
@@ -2077,6 +2155,16 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getCaseExpressionRule() {
 		return getCaseExpressionAccess().getRule();
+	}
+
+	//FunctionCall returns Expression:
+	//	{FunctionCall} name=("exponential" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
+	public FunctionCallElements getFunctionCallAccess() {
+		return pFunctionCall;
+	}
+	
+	public ParserRule getFunctionCallRule() {
+		return getFunctionCallAccess().getRule();
 	}
 
 	////===== Terminals
@@ -2117,10 +2205,16 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return tSTRING;
 	} 
 
+	//terminal NUMBER returns ecore::EDouble:
+	//	DIGIT+ ("." DIGIT+)? (("e" | "E") ("+" | "-")? DIGIT+)?;
+	public TerminalRule getNUMBERRule() {
+		return tNUMBER;
+	} 
+
 	//terminal INT returns ecore::EInt:
-	//	"0".."9"+;
+	//	"_@_this has been deactivated_";
 	public TerminalRule getINTRule() {
-		return gaTerminals.getINTRule();
+		return tINT;
 	} 
 
 	//terminal ML_COMMENT:

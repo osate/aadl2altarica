@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.osate.altarica.altarica.ARBoolean;
-import org.osate.altarica.altarica.ARInteger;
+import org.osate.altarica.altarica.ARNumber;
 import org.osate.altarica.altarica.ARString;
 import org.osate.altarica.altarica.AbstractDeclaration;
 import org.osate.altarica.altarica.Addition;
@@ -29,6 +29,7 @@ import org.osate.altarica.altarica.Domain;
 import org.osate.altarica.altarica.Equal;
 import org.osate.altarica.altarica.Event;
 import org.osate.altarica.altarica.Expression;
+import org.osate.altarica.altarica.FunctionCall;
 import org.osate.altarica.altarica.Instruction;
 import org.osate.altarica.altarica.LabeledTransition;
 import org.osate.altarica.altarica.LogicalAnd;
@@ -157,7 +158,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass arIntegerEClass = null;
+  private EClass arNumberEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -333,6 +334,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass minusEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass functionCallEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -639,9 +647,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getARInteger()
+  public EClass getARNumber()
   {
-    return arIntegerEClass;
+    return arNumberEClass;
   }
 
   /**
@@ -649,9 +657,9 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getARInteger_Value()
+  public EAttribute getARNumber_Value()
   {
-    return (EAttribute)arIntegerEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)arNumberEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1369,6 +1377,36 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getFunctionCall()
+  {
+    return functionCallEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getFunctionCall_Name()
+  {
+    return (EAttribute)functionCallEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getFunctionCall_Parameters()
+  {
+    return (EReference)functionCallEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EEnum getBaseTypeEnum()
   {
     return baseTypeEnumEEnum;
@@ -1440,8 +1478,8 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     arStringEClass = createEClass(AR_STRING);
     createEAttribute(arStringEClass, AR_STRING__VALUE);
 
-    arIntegerEClass = createEClass(AR_INTEGER);
-    createEAttribute(arIntegerEClass, AR_INTEGER__VALUE);
+    arNumberEClass = createEClass(AR_NUMBER);
+    createEAttribute(arNumberEClass, AR_NUMBER__VALUE);
 
     nameRefEClass = createEClass(NAME_REF);
     createEReference(nameRefEClass, NAME_REF__VARIABLE);
@@ -1539,6 +1577,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     minusEClass = createEClass(MINUS);
     createEReference(minusEClass, MINUS__EXPRESSION);
 
+    functionCallEClass = createEClass(FUNCTION_CALL);
+    createEAttribute(functionCallEClass, FUNCTION_CALL__NAME);
+    createEReference(functionCallEClass, FUNCTION_CALL__PARAMETERS);
+
     // Create enums
     baseTypeEnumEEnum = createEEnum(BASE_TYPE_ENUM);
   }
@@ -1578,7 +1620,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     namedTypeEClass.getESuperTypes().add(this.getType());
     arBooleanEClass.getESuperTypes().add(this.getExpression());
     arStringEClass.getESuperTypes().add(this.getExpression());
-    arIntegerEClass.getESuperTypes().add(this.getExpression());
+    arNumberEClass.getESuperTypes().add(this.getExpression());
     nameRefEClass.getESuperTypes().add(this.getExpression());
     switchExpressionEClass.getESuperTypes().add(this.getExpression());
     domainEClass.getESuperTypes().add(this.getNamedElement());
@@ -1603,6 +1645,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     multiplicationEClass.getESuperTypes().add(this.getExpression());
     notEClass.getESuperTypes().add(this.getExpression());
     minusEClass.getESuperTypes().add(this.getExpression());
+    functionCallEClass.getESuperTypes().add(this.getExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1641,8 +1684,8 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEClass(arStringEClass, ARString.class, "ARString", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getARString_Value(), ecorePackage.getEString(), "value", null, 0, 1, ARString.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(arIntegerEClass, ARInteger.class, "ARInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getARInteger_Value(), ecorePackage.getEInt(), "value", null, 0, 1, ARInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(arNumberEClass, ARNumber.class, "ARNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getARNumber_Value(), ecorePackage.getEDouble(), "value", null, 0, 1, ARNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(nameRefEClass, NameRef.class, "NameRef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getNameRef_Variable(), this.getNamedElement(), null, "variable", null, 0, 1, NameRef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1739,6 +1782,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     initEClass(minusEClass, Minus.class, "Minus", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMinus_Expression(), this.getExpression(), null, "expression", null, 0, 1, Minus.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(functionCallEClass, FunctionCall.class, "FunctionCall", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getFunctionCall_Name(), ecorePackage.getEString(), "name", null, 0, 1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getFunctionCall_Parameters(), this.getExpression(), null, "parameters", null, 0, -1, FunctionCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
     initEEnum(baseTypeEnumEEnum, BaseTypeEnum.class, "BaseTypeEnum");

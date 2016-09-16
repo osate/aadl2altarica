@@ -395,14 +395,14 @@ public interface AltaricaPackage extends EPackage
   int AR_STRING_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.osate.altarica.altarica.impl.ARIntegerImpl <em>AR Integer</em>}' class.
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.ARNumberImpl <em>AR Number</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.osate.altarica.altarica.impl.ARIntegerImpl
-   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARInteger()
+   * @see org.osate.altarica.altarica.impl.ARNumberImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARNumber()
    * @generated
    */
-  int AR_INTEGER = 13;
+  int AR_NUMBER = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -411,16 +411,16 @@ public interface AltaricaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int AR_INTEGER__VALUE = EXPRESSION_FEATURE_COUNT + 0;
+  int AR_NUMBER__VALUE = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>AR Integer</em>' class.
+   * The number of structural features of the '<em>AR Number</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int AR_INTEGER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int AR_NUMBER_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.NameRefImpl <em>Name Ref</em>}' class.
@@ -1456,6 +1456,43 @@ public interface AltaricaPackage extends EPackage
   int MINUS_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.FunctionCallImpl <em>Function Call</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.altarica.altarica.impl.FunctionCallImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getFunctionCall()
+   * @generated
+   */
+  int FUNCTION_CALL = 39;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL__NAME = EXPRESSION_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Parameters</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL__PARAMETERS = EXPRESSION_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Function Call</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int FUNCTION_CALL_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.osate.altarica.altarica.BaseTypeEnum <em>Base Type Enum</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1463,7 +1500,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBaseTypeEnum()
    * @generated
    */
-  int BASE_TYPE_ENUM = 39;
+  int BASE_TYPE_ENUM = 40;
 
 
   /**
@@ -1707,25 +1744,25 @@ public interface AltaricaPackage extends EPackage
   EAttribute getARString_Value();
 
   /**
-   * Returns the meta object for class '{@link org.osate.altarica.altarica.ARInteger <em>AR Integer</em>}'.
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.ARNumber <em>AR Number</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>AR Integer</em>'.
-   * @see org.osate.altarica.altarica.ARInteger
+   * @return the meta object for class '<em>AR Number</em>'.
+   * @see org.osate.altarica.altarica.ARNumber
    * @generated
    */
-  EClass getARInteger();
+  EClass getARNumber();
 
   /**
-   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.ARInteger#getValue <em>Value</em>}'.
+   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.ARNumber#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Value</em>'.
-   * @see org.osate.altarica.altarica.ARInteger#getValue()
-   * @see #getARInteger()
+   * @see org.osate.altarica.altarica.ARNumber#getValue()
+   * @see #getARNumber()
    * @generated
    */
-  EAttribute getARInteger_Value();
+  EAttribute getARNumber_Value();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.NameRef <em>Name Ref</em>}'.
@@ -2484,6 +2521,38 @@ public interface AltaricaPackage extends EPackage
   EReference getMinus_Expression();
 
   /**
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.FunctionCall <em>Function Call</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Function Call</em>'.
+   * @see org.osate.altarica.altarica.FunctionCall
+   * @generated
+   */
+  EClass getFunctionCall();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.FunctionCall#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see org.osate.altarica.altarica.FunctionCall#getName()
+   * @see #getFunctionCall()
+   * @generated
+   */
+  EAttribute getFunctionCall_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.FunctionCall#getParameters <em>Parameters</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Parameters</em>'.
+   * @see org.osate.altarica.altarica.FunctionCall#getParameters()
+   * @see #getFunctionCall()
+   * @generated
+   */
+  EReference getFunctionCall_Parameters();
+
+  /**
    * Returns the meta object for enum '{@link org.osate.altarica.altarica.BaseTypeEnum <em>Base Type Enum</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2727,14 +2796,14 @@ public interface AltaricaPackage extends EPackage
     EAttribute AR_STRING__VALUE = eINSTANCE.getARString_Value();
 
     /**
-     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.ARIntegerImpl <em>AR Integer</em>}' class.
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.ARNumberImpl <em>AR Number</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.osate.altarica.altarica.impl.ARIntegerImpl
-     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARInteger()
+     * @see org.osate.altarica.altarica.impl.ARNumberImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getARNumber()
      * @generated
      */
-    EClass AR_INTEGER = eINSTANCE.getARInteger();
+    EClass AR_NUMBER = eINSTANCE.getARNumber();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
@@ -2742,7 +2811,7 @@ public interface AltaricaPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute AR_INTEGER__VALUE = eINSTANCE.getARInteger_Value();
+    EAttribute AR_NUMBER__VALUE = eINSTANCE.getARNumber_Value();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.NameRefImpl <em>Name Ref</em>}' class.
@@ -3361,6 +3430,32 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EReference MINUS__EXPRESSION = eINSTANCE.getMinus_Expression();
+
+    /**
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.FunctionCallImpl <em>Function Call</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.altarica.altarica.impl.FunctionCallImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getFunctionCall()
+     * @generated
+     */
+    EClass FUNCTION_CALL = eINSTANCE.getFunctionCall();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute FUNCTION_CALL__NAME = eINSTANCE.getFunctionCall_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Parameters</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference FUNCTION_CALL__PARAMETERS = eINSTANCE.getFunctionCall_Parameters();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.BaseTypeEnum <em>Base Type Enum</em>}' enum.

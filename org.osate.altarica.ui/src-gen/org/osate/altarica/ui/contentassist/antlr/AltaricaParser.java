@@ -47,6 +47,7 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNegAccess().getAlternatives(), "rule__Neg__Alternatives");
 					put(grammarAccess.getAtomAccess().getAlternatives(), "rule__Atom__Alternatives");
 					put(grammarAccess.getBooleanLiteralAccess().getValueAlternatives_0(), "rule__BooleanLiteral__ValueAlternatives_0");
+					put(grammarAccess.getFunctionCallAccess().getNameAlternatives_1_0(), "rule__FunctionCall__NameAlternatives_1_0");
 					put(grammarAccess.getBaseTypeEnumAccess().getAlternatives(), "rule__BaseTypeEnum__Alternatives");
 					put(grammarAccess.getDomainAccess().getGroup(), "rule__Domain__Group__0");
 					put(grammarAccess.getDomainAccess().getGroup_4(), "rule__Domain__Group_4__0");
@@ -93,12 +94,15 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMultiplicationAccess().getGroup_1_0(), "rule__Multiplication__Group_1_0__0");
 					put(grammarAccess.getNegAccess().getGroup_0(), "rule__Neg__Group_0__0");
 					put(grammarAccess.getNegAccess().getGroup_1(), "rule__Neg__Group_1__0");
-					put(grammarAccess.getAtomAccess().getGroup_5(), "rule__Atom__Group_5__0");
+					put(grammarAccess.getAtomAccess().getGroup_6(), "rule__Atom__Group_6__0");
 					put(grammarAccess.getNameRefAccess().getGroup(), "rule__NameRef__Group__0");
 					put(grammarAccess.getNameRefAccess().getGroup_1(), "rule__NameRef__Group_1__0");
 					put(grammarAccess.getNameRefAccess().getGroup_1_0(), "rule__NameRef__Group_1_0__0");
 					put(grammarAccess.getSwitchExpressionAccess().getGroup(), "rule__SwitchExpression__Group__0");
 					put(grammarAccess.getCaseExpressionAccess().getGroup(), "rule__CaseExpression__Group__0");
+					put(grammarAccess.getFunctionCallAccess().getGroup(), "rule__FunctionCall__Group__0");
+					put(grammarAccess.getFunctionCallAccess().getGroup_3(), "rule__FunctionCall__Group_3__0");
+					put(grammarAccess.getFunctionCallAccess().getGroup_3_1(), "rule__FunctionCall__Group_3_1__0");
 					put(grammarAccess.getModelAccess().getDeclarationsAssignment(), "rule__Model__DeclarationsAssignment");
 					put(grammarAccess.getDomainAccess().getNameAssignment_2(), "rule__Domain__NameAssignment_2");
 					put(grammarAccess.getDomainAccess().getConstantsAssignment_4_0(), "rule__Domain__ConstantsAssignment_4_0");
@@ -153,13 +157,16 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNegAccess().getExpressionAssignment_1_2(), "rule__Neg__ExpressionAssignment_1_2");
 					put(grammarAccess.getBooleanLiteralAccess().getValueAssignment(), "rule__BooleanLiteral__ValueAssignment");
 					put(grammarAccess.getStringLiteralAccess().getValueAssignment(), "rule__StringLiteral__ValueAssignment");
-					put(grammarAccess.getIntegerLiteralAccess().getValueAssignment(), "rule__IntegerLiteral__ValueAssignment");
+					put(grammarAccess.getNumberLiteralAccess().getValueAssignment(), "rule__NumberLiteral__ValueAssignment");
 					put(grammarAccess.getNameRefAccess().getVariableAssignment_0(), "rule__NameRef__VariableAssignment_0");
 					put(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2(), "rule__NameRef__VariableAssignment_1_0_2");
 					put(grammarAccess.getSwitchExpressionAccess().getCasesAssignment_2(), "rule__SwitchExpression__CasesAssignment_2");
 					put(grammarAccess.getSwitchExpressionAccess().getDefaultAssignment_5(), "rule__SwitchExpression__DefaultAssignment_5");
 					put(grammarAccess.getCaseExpressionAccess().getConditionAssignment_0(), "rule__CaseExpression__ConditionAssignment_0");
 					put(grammarAccess.getCaseExpressionAccess().getCaseAssignment_2(), "rule__CaseExpression__CaseAssignment_2");
+					put(grammarAccess.getFunctionCallAccess().getNameAssignment_1(), "rule__FunctionCall__NameAssignment_1");
+					put(grammarAccess.getFunctionCallAccess().getParametersAssignment_3_0(), "rule__FunctionCall__ParametersAssignment_3_0");
+					put(grammarAccess.getFunctionCallAccess().getParametersAssignment_3_1_1(), "rule__FunctionCall__ParametersAssignment_3_1_1");
 				}
 			};
 		}

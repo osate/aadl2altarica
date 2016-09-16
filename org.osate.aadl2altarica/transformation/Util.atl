@@ -58,6 +58,28 @@ helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection
 helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Set(EMV2!OutgoingPropagationCondition)) =
 	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing);
 
+helper context AADL!ComponentInstance def: occurrenceDistribution(event:EMV2!ErrorBehaviorEvent): TupleType(name: String, lambda: Real) =
+	let pas: Sequence(EMV2!EMV2PropertyAssociation) = 
+			"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Properties".refInvokeStaticOperation(
+				'getOccurrenceDistributionProperty', Sequence{self, event, OclUndefined}
+			) in
+	if pas->isEmpty() then
+		Tuple{name = '', lambda = 0.0}
+ 	else
+ 		let pa: EMV2!EMV2PropertyAssociation = pas->at(1) in
+		Tuple{name = pa.occurrenceName(), lambda = pa.occurrenceValue()}
+ 	endif;
+
+helper context EMV2!EMV2PropertyAssociation def: occurrenceName(): String =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Properties".refInvokeStaticOperation(
+		'getOccurrenceType', Sequence{self}
+	);
+	
+helper context EMV2!EMV2PropertyAssociation def: occurrenceValue(): Real =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Properties".refInvokeStaticOperation(
+		'getOccurrenceValue', Sequence{self}
+	);
+	
 helper context EMV2!ErrorPropagation def: name(): String =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getPropagationName', Sequence{self}
@@ -187,16 +209,26 @@ helper context String def: normalizeId(): String =
 helper context String def: quoted(): String =
 	'"' + self + '"';
 
-helper context AADL2!NamedElement def: altaRicaName(): String =
-	self.name().normalizeId();
-
 helper context AADL2!NamedElement def: indexedName(index: Integer): String =
 	self.altaRicaName() + '_' + index.toString();
 
+helper context AADL2!NamedElement def: altaRicaName(): String =
+	self.name().normalizeId();
+
+helper context EMV2!ErrorPropagation def: altaRicaName(): String =
+	let ref: EMV2!FeatureorPPReference = self.featureorPPRef in
+	if ref.oclIsUndefined() then
+		super.altaRicaName()
+	else
+		ref.altaRicaName()
+	endif;
+
 helper context EMV2!FeatureorPPReference def: altaRicaName(): String =
-	let
-		name: String = self.featureorPP.name
-	in
-		if self.next.oclIsUndefined() then name else name + '_' + self.next.altaRicaName() endif;
+	let name: String = self.featureorPP.name in
+	if self.next.oclIsUndefined() then 
+		name
+	else
+		name + '_' + self.next.altaRicaName()
+	endif;
 
 helper def: int: AR!BaseTypeEnum = #"Integer";

@@ -20,14 +20,14 @@ import org.osate.altarica.services.AltaricaGrammarAccess;
 public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 
 	protected AltaricaGrammarAccess grammarAccess;
-	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_5_0_a;
-	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_5_0_p;
+	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_6_0_a;
+	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_6_0_p;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (AltaricaGrammarAccess) access;
-		match_Atom_LeftParenthesisKeyword_5_0_a = new TokenAlias(true, true, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_5_0());
-		match_Atom_LeftParenthesisKeyword_5_0_p = new TokenAlias(true, false, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_5_0());
+		match_Atom_LeftParenthesisKeyword_6_0_a = new TokenAlias(true, true, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_6_0());
+		match_Atom_LeftParenthesisKeyword_6_0_p = new TokenAlias(true, false, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_6_0());
 	}
 	
 	@Override
@@ -42,10 +42,10 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 		List<INode> transitionNodes = collectNodes(fromNode, toNode);
 		for (AbstractElementAlias syntax : transition.getAmbiguousSyntaxes()) {
 			List<INode> syntaxNodes = getNodesFor(transitionNodes, syntax);
-			if(match_Atom_LeftParenthesisKeyword_5_0_a.equals(syntax))
-				emit_Atom_LeftParenthesisKeyword_5_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
-			else if(match_Atom_LeftParenthesisKeyword_5_0_p.equals(syntax))
-				emit_Atom_LeftParenthesisKeyword_5_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			if(match_Atom_LeftParenthesisKeyword_6_0_a.equals(syntax))
+				emit_Atom_LeftParenthesisKeyword_6_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if(match_Atom_LeftParenthesisKeyword_6_0_p.equals(syntax))
+				emit_Atom_LeftParenthesisKeyword_6_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -59,9 +59,11 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'not' expression=Atom
 	 *     (rule start) (ambiguity) 'switch' '{' 'else' ':' default=Expression
 	 *     (rule start) (ambiguity) 'switch' '{' cases+=CaseExpression
+	 *     (rule start) (ambiguity) name='constant'
+	 *     (rule start) (ambiguity) name='exponential'
 	 *     (rule start) (ambiguity) value='false'
 	 *     (rule start) (ambiguity) value='true'
-	 *     (rule start) (ambiguity) value=INT
+	 *     (rule start) (ambiguity) value=NUMBER
 	 *     (rule start) (ambiguity) value=STRING
 	 *     (rule start) (ambiguity) variable=[NamedElement|ID]
 	 *     (rule start) (ambiguity) {Addition.left=}
@@ -71,7 +73,7 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {Multiplication.left=}
 	 *     (rule start) (ambiguity) {NameRef.nested=}
 	 */
-	protected void emit_Atom_LeftParenthesisKeyword_5_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Atom_LeftParenthesisKeyword_6_0_a(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
@@ -88,7 +90,7 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {LogicalOr.left=}
 	 *     (rule start) (ambiguity) {Multiplication.left=}
 	 */
-	protected void emit_Atom_LeftParenthesisKeyword_5_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+	protected void emit_Atom_LeftParenthesisKeyword_6_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	

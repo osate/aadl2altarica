@@ -140,9 +140,9 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
         return createARStringAdapter();
       }
       @Override
-      public Adapter caseARInteger(ARInteger object)
+      public Adapter caseARNumber(ARNumber object)
       {
-        return createARIntegerAdapter();
+        return createARNumberAdapter();
       }
       @Override
       public Adapter caseNameRef(NameRef object)
@@ -268,6 +268,11 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMinus(Minus object)
       {
         return createMinusAdapter();
+      }
+      @Override
+      public Adapter caseFunctionCall(FunctionCall object)
+      {
+        return createFunctionCallAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -487,16 +492,16 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.ARInteger <em>AR Integer</em>}'.
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.ARNumber <em>AR Number</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.osate.altarica.altarica.ARInteger
+   * @see org.osate.altarica.altarica.ARNumber
    * @generated
    */
-  public Adapter createARIntegerAdapter()
+  public Adapter createARNumberAdapter()
   {
     return null;
   }
@@ -872,6 +877,21 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMinusAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.FunctionCall <em>Function Call</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.FunctionCall
+   * @generated
+   */
+  public Adapter createFunctionCallAdapter()
   {
     return null;
   }

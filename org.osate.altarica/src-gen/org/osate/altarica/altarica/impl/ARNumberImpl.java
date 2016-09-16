@@ -8,23 +8,23 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.osate.altarica.altarica.ARInteger;
+import org.osate.altarica.altarica.ARNumber;
 import org.osate.altarica.altarica.AltaricaPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>AR Integer</b></em>'.
+ * An implementation of the model object '<em><b>AR Number</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.osate.altarica.altarica.impl.ARIntegerImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.osate.altarica.altarica.impl.ARNumberImpl#getValue <em>Value</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ARIntegerImpl extends ExpressionImpl implements ARInteger
+public class ARNumberImpl extends ExpressionImpl implements ARNumber
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -34,7 +34,7 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final double VALUE_EDEFAULT = 0.0;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -44,14 +44,14 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
+  protected double value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ARIntegerImpl()
+  protected ARNumberImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
   @Override
   protected EClass eStaticClass()
   {
-    return AltaricaPackage.Literals.AR_INTEGER;
+    return AltaricaPackage.Literals.AR_NUMBER;
   }
 
   /**
@@ -72,7 +72,7 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public double getValue()
   {
     return value;
   }
@@ -82,12 +82,12 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public void setValue(double newValue)
   {
-    int oldValue = value;
+    double oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.AR_INTEGER__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, AltaricaPackage.AR_NUMBER__VALUE, oldValue, value));
   }
 
   /**
@@ -100,7 +100,7 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
   {
     switch (featureID)
     {
-      case AltaricaPackage.AR_INTEGER__VALUE:
+      case AltaricaPackage.AR_NUMBER__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -116,8 +116,8 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
   {
     switch (featureID)
     {
-      case AltaricaPackage.AR_INTEGER__VALUE:
-        setValue((Integer)newValue);
+      case AltaricaPackage.AR_NUMBER__VALUE:
+        setValue((Double)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -133,7 +133,7 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
   {
     switch (featureID)
     {
-      case AltaricaPackage.AR_INTEGER__VALUE:
+      case AltaricaPackage.AR_NUMBER__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -150,7 +150,7 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
   {
     switch (featureID)
     {
-      case AltaricaPackage.AR_INTEGER__VALUE:
+      case AltaricaPackage.AR_NUMBER__VALUE:
         return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -173,4 +173,4 @@ public class ARIntegerImpl extends ExpressionImpl implements ARInteger
     return result.toString();
   }
 
-} //ARIntegerImpl
+} //ARNumberImpl

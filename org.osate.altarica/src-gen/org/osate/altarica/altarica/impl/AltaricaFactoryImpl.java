@@ -78,7 +78,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.EXPRESSION: return createExpression();
       case AltaricaPackage.AR_BOOLEAN: return createARBoolean();
       case AltaricaPackage.AR_STRING: return createARString();
-      case AltaricaPackage.AR_INTEGER: return createARInteger();
+      case AltaricaPackage.AR_NUMBER: return createARNumber();
       case AltaricaPackage.NAME_REF: return createNameRef();
       case AltaricaPackage.SWITCH_EXPRESSION: return createSwitchExpression();
       case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
@@ -104,6 +104,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.MULTIPLICATION: return createMultiplication();
       case AltaricaPackage.NOT: return createNot();
       case AltaricaPackage.MINUS: return createMinus();
+      case AltaricaPackage.FUNCTION_CALL: return createFunctionCall();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -291,10 +292,10 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public ARInteger createARInteger()
+  public ARNumber createARNumber()
   {
-    ARIntegerImpl arInteger = new ARIntegerImpl();
-    return arInteger;
+    ARNumberImpl arNumber = new ARNumberImpl();
+    return arNumber;
   }
 
   /**
@@ -570,6 +571,17 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     MinusImpl minus = new MinusImpl();
     return minus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public FunctionCall createFunctionCall()
+  {
+    FunctionCallImpl functionCall = new FunctionCallImpl();
+    return functionCall;
   }
 
   /**

@@ -140,13 +140,13 @@ public interface AltaricaFactory extends EFactory
   ARString createARString();
 
   /**
-   * Returns a new object of class '<em>AR Integer</em>'.
+   * Returns a new object of class '<em>AR Number</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>AR Integer</em>'.
+   * @return a new object of class '<em>AR Number</em>'.
    * @generated
    */
-  ARInteger createARInteger();
+  ARNumber createARNumber();
 
   /**
    * Returns a new object of class '<em>Name Ref</em>'.
@@ -372,6 +372,15 @@ public interface AltaricaFactory extends EFactory
    * @generated
    */
   Minus createMinus();
+
+  /**
+   * Returns a new object of class '<em>Function Call</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Function Call</em>'.
+   * @generated
+   */
+  FunctionCall createFunctionCall();
 
   /**
    * Returns the package supported by this factory.
