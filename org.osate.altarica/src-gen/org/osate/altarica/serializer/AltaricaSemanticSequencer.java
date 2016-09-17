@@ -296,7 +296,7 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     ((name='exponential' | name='constant') (parameters+=Expression parameters+=Expression*)?)
+	 *     ((name='exponential' | name='dirac' | name='constant') (parameters+=Expression parameters+=Expression*)?)
 	 */
 	protected void sequence_FunctionCall(EObject context, FunctionCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

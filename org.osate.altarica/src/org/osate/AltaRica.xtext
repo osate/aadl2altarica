@@ -199,7 +199,8 @@ CaseExpression:
 
 FunctionCall returns Expression:
 	{FunctionCall}
-	name=('exponential' | 'constant') '(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
+	name=('exponential' | 'dirac' | 'constant') 
+	'(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
 ;
 
 //===== Terminals

@@ -111,22 +111,23 @@ unique lazy rule Event {
 helper context AADL!ComponentInstance def: createDelay(e: EMV2!ErrorBehaviorEvent): Sequence(AR!Attribute) =
 	let occurrence: TupleType(name: String, lambda: Real) = self.occurrenceDistribution(e) in
 	if occurrence.name.equalsIgnoreCase('poisson') then
-		Sequence{thisModule.ExponentialDelay(occurrence.lambda)}
+		Sequence{thisModule.Delay('exponential', occurrence.lambda)}
 	else
 		Sequence{}
 	endif;
 --  Sequence{};
 
-lazy rule ExponentialDelay {
+lazy rule Delay {
 	from
+		delayname: String,
 		lambda: Real
 	to
 		delay: AR!Attribute (
 			name <- 'delay',
-			value <- exponential
+			value <- delaytype
 		),
-		exponential: AR!FunctionCall (
-			name <- 'exponential',
+		delaytype: AR!FunctionCall (
+			name <- delayname,
 			parameters <- Sequence{parameter}
 		),
 		parameter: AR!ARNumber (
@@ -140,14 +141,7 @@ unique lazy rule ImmediateEvent {
 	to
 		event: AR!Event (
 			name <- 'error_propagation',
-			attributes <- Sequence{delay}
-		),
-		delay: AR!Attribute (
-			name <- 'delay',
-			value <- zero
-		),
-		zero: AR!ARNumber (
-			value <- 0.0
+			attributes <- Sequence{thisModule.Delay('dirac', 0.0)}
 		)
 }
 

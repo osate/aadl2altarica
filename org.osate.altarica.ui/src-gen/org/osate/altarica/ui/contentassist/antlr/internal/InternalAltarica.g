@@ -1517,11 +1517,19 @@ rule__FunctionCall__NameAlternatives_1_0
 )
 
     |(
-{ before(grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_1()); }
+{ before(grammarAccess.getFunctionCallAccess().getNameDiracKeyword_1_0_1()); }
+
+	'dirac' 
+
+{ after(grammarAccess.getFunctionCallAccess().getNameDiracKeyword_1_0_1()); }
+)
+
+    |(
+{ before(grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_2()); }
 
 	'constant' 
 
-{ after(grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_1()); }
+{ after(grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_2()); }
 )
 
 ;

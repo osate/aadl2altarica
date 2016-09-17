@@ -60,6 +60,7 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) 'switch' '{' 'else' ':' default=Expression
 	 *     (rule start) (ambiguity) 'switch' '{' cases+=CaseExpression
 	 *     (rule start) (ambiguity) name='constant'
+	 *     (rule start) (ambiguity) name='dirac'
 	 *     (rule start) (ambiguity) name='exponential'
 	 *     (rule start) (ambiguity) value='false'
 	 *     (rule start) (ambiguity) value='true'

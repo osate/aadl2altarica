@@ -2797,9 +2797,9 @@ ruleFunctionCall returns [EObject current=null]
        		setWithLastConsumed($current, "name", lv_name_1_1, null);
 	    }
 
-    |		lv_name_1_2=	'constant' 
+    |		lv_name_1_2=	'dirac' 
     {
-        newLeafNode(lv_name_1_2, grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_1());
+        newLeafNode(lv_name_1_2, grammarAccess.getFunctionCallAccess().getNameDiracKeyword_1_0_1());
     }
  
 	    {
@@ -2807,6 +2807,18 @@ ruleFunctionCall returns [EObject current=null]
 	            $current = createModelElement(grammarAccess.getFunctionCallRule());
 	        }
        		setWithLastConsumed($current, "name", lv_name_1_2, null);
+	    }
+
+    |		lv_name_1_3=	'constant' 
+    {
+        newLeafNode(lv_name_1_3, grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getFunctionCallRule());
+	        }
+       		setWithLastConsumed($current, "name", lv_name_1_3, null);
 	    }
 
 )

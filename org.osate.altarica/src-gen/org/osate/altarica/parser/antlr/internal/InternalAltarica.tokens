@@ -18,12 +18,13 @@
 '=='=43
 '>'=48
 '>='=47
-'Boolean'=60
-'Integer'=59
+'Boolean'=61
+'Integer'=60
 'and'=42
 'assertion'=22
 'class'=20
-'constant'=58
+'constant'=59
+'dirac'=58
 'domain'=16
 'else'=39
 'end'=23
@@ -100,3 +101,4 @@ T__57=57
 T__58=58
 T__59=59
 T__60=60
+T__61=61

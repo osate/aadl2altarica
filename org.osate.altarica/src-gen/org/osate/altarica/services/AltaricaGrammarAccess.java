@@ -1536,7 +1536,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Alternatives cNameAlternatives_1_0 = (Alternatives)cNameAssignment_1.eContents().get(0);
 		private final Keyword cNameExponentialKeyword_1_0_0 = (Keyword)cNameAlternatives_1_0.eContents().get(0);
-		private final Keyword cNameConstantKeyword_1_0_1 = (Keyword)cNameAlternatives_1_0.eContents().get(1);
+		private final Keyword cNameDiracKeyword_1_0_1 = (Keyword)cNameAlternatives_1_0.eContents().get(1);
+		private final Keyword cNameConstantKeyword_1_0_2 = (Keyword)cNameAlternatives_1_0.eContents().get(2);
 		private final Keyword cLeftParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Assignment cParametersAssignment_3_0 = (Assignment)cGroup_3.eContents().get(0);
@@ -1548,26 +1549,31 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//FunctionCall returns Expression:
-		//	{FunctionCall} name=("exponential" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
+		//	{FunctionCall} name=("exponential" | "dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
+		//	")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{FunctionCall} name=("exponential" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)? ")"
+		//{FunctionCall} name=("exponential" | "dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
+		//")"
 		public Group getGroup() { return cGroup; }
 
 		//{FunctionCall}
 		public Action getFunctionCallAction_0() { return cFunctionCallAction_0; }
 
-		//name=("exponential" | "constant")
+		//name=("exponential" | "dirac" | "constant")
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//"exponential" | "constant"
+		//"exponential" | "dirac" | "constant"
 		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
 
 		//"exponential"
 		public Keyword getNameExponentialKeyword_1_0_0() { return cNameExponentialKeyword_1_0_0; }
 
+		//"dirac"
+		public Keyword getNameDiracKeyword_1_0_1() { return cNameDiracKeyword_1_0_1; }
+
 		//"constant"
-		public Keyword getNameConstantKeyword_1_0_1() { return cNameConstantKeyword_1_0_1; }
+		public Keyword getNameConstantKeyword_1_0_2() { return cNameConstantKeyword_1_0_2; }
 
 		//"("
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
@@ -2158,7 +2164,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FunctionCall returns Expression:
-	//	{FunctionCall} name=("exponential" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)? ")";
+	//	{FunctionCall} name=("exponential" | "dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
+	//	")";
 	public FunctionCallElements getFunctionCallAccess() {
 		return pFunctionCall;
 	}
