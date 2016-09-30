@@ -18,6 +18,8 @@ rule SystemInstance {
 		m: AR!Model (
 		)
 	do {
+--		thisModule.componentsToProcess.debug() -> collect(ci | ci.name).debug();
+--		thisModule.analysisModel.printPropagationPaths();
 		thisModule.Node(si);
 	}
 }
@@ -37,7 +39,6 @@ endpoint rule Finish() {
 	do {
 		m.declarations <- 
 				thisModule.domains -> append(thisModule.classes) -> flatten();
---		thisModule.analysisModel.printPropagationPaths();
 		'done'.debug();
 	}
 }
@@ -67,8 +68,12 @@ unique lazy rule Node {
 
 -- the contained node instances
 helper context AADL!ComponentInstance def: subnodes(): Sequence(AR!Variable) =
-	if self.isLeaf then Sequence{}
-	else self.componentInstance -> collect(sub | sub.nodeInstance) endif;
+	let activeSubcomps: Sequence(AADL!ComponentInstance) = self.componentInstance -> select(sub | sub.process) in
+	if activeSubcomps.isEmpty() then
+		Sequence{}
+	else
+		activeSubcomps -> collect(sub | sub.nodeInstance)
+	endif;
 
 -- the node instance in AltaRica corresponding to this component instance in AADL
 helper context AADL!ComponentInstance def: nodeInstance: AR!Variable = thisModule.NodeInstance(self);
@@ -87,7 +92,7 @@ unique lazy rule NodeInstance {
 }
 
 -- events
--- TODO: handle typed error events
+-- LIMITATION: no handling of typed error events
 
 helper context AADL!ComponentInstance def: events(): Sequence(AR!Variable) =
 	let events: Sequence(AR!Variable) = self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event)) in
@@ -103,7 +108,7 @@ unique lazy rule Event {
 		e: EMV2!ErrorBehaviorEvent
 	to
 		event: AR!Event (
-			name <- e.altaRicaName().debug('eventname'),
+			name <- e.altaRicaName(),
 			attributes <- ci.createDelay(e)
 		)
 }
@@ -115,7 +120,6 @@ helper context AADL!ComponentInstance def: createDelay(e: EMV2!ErrorBehaviorEven
 	else
 		Sequence{}
 	endif;
---  Sequence{};
 
 lazy rule Delay {
 	from
@@ -242,7 +246,12 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 			if inProps.isEmpty() then
 				Sequence{}
 			else
-				inProps->collect(iep | thisModule.dst2paths.get(Tuple{io = self, prop = iep}) -> collect(path | thisModule.InFlow(self, path)))
+				let x: Sequence(OclAny) = inProps->collect(iep | thisModule.dst2paths.get(Tuple{io = self, prop = iep}))->flatten() in
+					if (x.oclIsUndefined()) then
+						Sequence{}
+					else
+						x -> collect(path | thisModule.InFlow(self, path))
+					endif
 			endif in
 	outFlows -> append(inFlows);
 
@@ -352,7 +361,7 @@ helper def: domainCount: Integer = 0;
 
 --- Create the symbols for the domain of the error propagation
 helper context EMV2!ErrorPropagation def: createSymbols(): Sequence(AR!SymbolicConstant) =
-	self.leafTokens().debug('leaf tokens for ' + self.name()) -> collect(t | self.getSymbol(t));
+	self.leafTokens() -> collect(t | self.getSymbol(t));
 	
 helper context EMV2!ErrorPropagation def: getSymbol(token: EMV2!TypeToken): AR!SymbolicConstant =
 	let name: String = token.name() in
@@ -652,7 +661,7 @@ helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Ins
 			let propConds: Sequence(EMV2!OutgoingPropagationCondition) = self.outProp2propConds.get(prop) in
 			thisModule.OutPropAssignment(self, prop, propConds)
 		)
-	endif.debug('int asserts for ' + self.getName());
+	endif;
 
 lazy rule OutPropAssignment {
 	from

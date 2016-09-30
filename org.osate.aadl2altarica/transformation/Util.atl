@@ -12,8 +12,8 @@ helper context AADL!ComponentInstance def: classifier: AADL2!ComponentClassifier
 		'getComponentClassifier', Sequence{self, 0, OclUndefined}
 	);
 
-helper context AADL!ComponentInstance def: isLeaf: Boolean =
-	thisModule.emLeafComponents -> contains(self);
+helper context AADL!ComponentInstance def: process: Boolean =
+	thisModule.componentsToProcess -> contains(self);
 
 -- Helpers for EMV2 processing
 
@@ -160,7 +160,20 @@ helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util
 		"#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel".refInvokeStaticOperation(
 			'createAnalysisModel', Sequence{si});
 
--- Component instances that should be processed (leaf components wrt error model)
+-- Component instances that should be processed (vased on leaf components wrt error model)
+helper def: componentsToProcess: Set(AADL!ComponentInstance) =
+	thisModule.emLeafComponents -> iterate(ci; acc: Set(AADL!ComponentInstance) = thisModule.emLeafComponents.asSet() |
+		thisModule.collectParents(ci, acc)
+	);
+
+helper def: collectParents(ci: AADL!ComponentInstance, acc: Set(AADL!ComponentInstance)): Set(AADL!ComponentInstance) =
+	let parent: AADL!ComponentInstance = ci.eContainer() in
+	if parent.oclIsUndefined() or acc -> contains(parent) then
+		acc
+	else
+		thisModule.collectParents(parent, acc -> including(parent))
+	endif;
+
 helper def: emLeafComponents: Sequence(AADL!ComponentInstance) = 
 	thisModule.analysisModel.getSubcomponents();
 
