@@ -6,7 +6,7 @@
     complianceLevel="6.0" copyrightFields="false" editPluginID="org.osate.altarica.edit"
     editorPluginID="org.osate.altarica.editor" runtimeVersion="2.11">
   <genPackages prefix="Altarica" basePackage="org.osate.altarica" disposableProviderFactory="true"
-      fileExtensions="altarica" ecorePackage="Altarica.ecore#/">
+      fileExtensions="alt" ecorePackage="Altarica.ecore#/">
     <genEnums typeSafeEnumCompatible="false" ecoreEnum="Altarica.ecore#//BaseTypeEnum">
       <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//BaseTypeEnum/INTEGER"/>
       <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//BaseTypeEnum/BOOLEAN"/>

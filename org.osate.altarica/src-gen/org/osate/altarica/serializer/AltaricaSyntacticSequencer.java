@@ -57,10 +57,10 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 * This ambiguous syntax occurs at:
 	 *     (rule start) (ambiguity) '-' expression=Atom
 	 *     (rule start) (ambiguity) 'not' expression=Atom
-	 *     (rule start) (ambiguity) 'switch' '{' 'else' ':' default=Expression
+	 *     (rule start) (ambiguity) 'switch' '{' 'default' ':' default=Expression
 	 *     (rule start) (ambiguity) 'switch' '{' cases+=CaseExpression
+	 *     (rule start) (ambiguity) name='Dirac'
 	 *     (rule start) (ambiguity) name='constant'
-	 *     (rule start) (ambiguity) name='dirac'
 	 *     (rule start) (ambiguity) name='exponential'
 	 *     (rule start) (ambiguity) value='false'
 	 *     (rule start) (ambiguity) value='true'

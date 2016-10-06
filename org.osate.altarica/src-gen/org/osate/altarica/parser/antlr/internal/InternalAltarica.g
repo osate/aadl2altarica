@@ -2664,9 +2664,9 @@ ruleSwitchExpression returns [EObject current=null]
 	    }
 
 )
-)*	otherlv_3='else' 
+)*	otherlv_3='default' 
     {
-    	newLeafNode(otherlv_3, grammarAccess.getSwitchExpressionAccess().getElseKeyword_3());
+    	newLeafNode(otherlv_3, grammarAccess.getSwitchExpressionAccess().getDefaultKeyword_3());
     }
 	otherlv_4=':' 
     {
@@ -2715,41 +2715,45 @@ ruleCaseExpression returns [EObject current=null]
     @init { enterRule(); 
     }
     @after { leaveRule(); }:
-((
+(	otherlv_0='case' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getCaseExpressionAccess().getCaseKeyword_0());
+    }
+(
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_0_0()); 
+	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_1_0()); 
 	    }
-		lv_condition_0_0=ruleLogicalOr		{
+		lv_condition_1_0=ruleLogicalOr		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCaseExpressionRule());
 	        }
        		set(
        			$current, 
        			"condition",
-        		lv_condition_0_0, 
+        		lv_condition_1_0, 
         		"LogicalOr");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-)	otherlv_1=':' 
+)	otherlv_2=':' 
     {
-    	newLeafNode(otherlv_1, grammarAccess.getCaseExpressionAccess().getColonKeyword_1());
+    	newLeafNode(otherlv_2, grammarAccess.getCaseExpressionAccess().getColonKeyword_2());
     }
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_2_0()); 
+	        newCompositeNode(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_3_0()); 
 	    }
-		lv_case_2_0=ruleExpression		{
+		lv_case_3_0=ruleExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getCaseExpressionRule());
 	        }
        		set(
        			$current, 
        			"case",
-        		lv_case_2_0, 
+        		lv_case_3_0, 
         		"Expression");
 	        afterParserOrEnumRuleCall();
 	    }
@@ -2797,7 +2801,7 @@ ruleFunctionCall returns [EObject current=null]
        		setWithLastConsumed($current, "name", lv_name_1_1, null);
 	    }
 
-    |		lv_name_1_2=	'dirac' 
+    |		lv_name_1_2=	'Dirac' 
     {
         newLeafNode(lv_name_1_2, grammarAccess.getFunctionCallAccess().getNameDiracKeyword_1_0_1());
     }

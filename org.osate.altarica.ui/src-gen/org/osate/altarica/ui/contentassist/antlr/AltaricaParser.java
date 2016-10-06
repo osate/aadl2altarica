@@ -162,8 +162,8 @@ public class AltaricaParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2(), "rule__NameRef__VariableAssignment_1_0_2");
 					put(grammarAccess.getSwitchExpressionAccess().getCasesAssignment_2(), "rule__SwitchExpression__CasesAssignment_2");
 					put(grammarAccess.getSwitchExpressionAccess().getDefaultAssignment_5(), "rule__SwitchExpression__DefaultAssignment_5");
-					put(grammarAccess.getCaseExpressionAccess().getConditionAssignment_0(), "rule__CaseExpression__ConditionAssignment_0");
-					put(grammarAccess.getCaseExpressionAccess().getCaseAssignment_2(), "rule__CaseExpression__CaseAssignment_2");
+					put(grammarAccess.getCaseExpressionAccess().getConditionAssignment_1(), "rule__CaseExpression__ConditionAssignment_1");
+					put(grammarAccess.getCaseExpressionAccess().getCaseAssignment_3(), "rule__CaseExpression__CaseAssignment_3");
 					put(grammarAccess.getFunctionCallAccess().getNameAssignment_1(), "rule__FunctionCall__NameAssignment_1");
 					put(grammarAccess.getFunctionCallAccess().getParametersAssignment_3_0(), "rule__FunctionCall__ParametersAssignment_3_0");
 					put(grammarAccess.getFunctionCallAccess().getParametersAssignment_3_1_1(), "rule__FunctionCall__ParametersAssignment_3_1_1");

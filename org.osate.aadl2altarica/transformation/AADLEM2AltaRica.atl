@@ -145,7 +145,7 @@ unique lazy rule ImmediateEvent {
 	to
 		event: AR!Event (
 			name <- 'error_propagation',
-			attributes <- Sequence{thisModule.Delay('dirac', 0.0)}
+			attributes <- Sequence{thisModule.Delay('Dirac', 0.0)}
 		)
 }
 

@@ -252,8 +252,8 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 		}
 		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
 		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_0_0(), semanticObject.getCondition());
-		feeder.accept(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_2_0(), semanticObject.getCase());
+		feeder.accept(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_1_0(), semanticObject.getCondition());
+		feeder.accept(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_3_0(), semanticObject.getCase());
 		feeder.finish();
 	}
 	
@@ -296,7 +296,7 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Constraint:
-	 *     ((name='exponential' | name='dirac' | name='constant') (parameters+=Expression parameters+=Expression*)?)
+	 *     ((name='exponential' | name='Dirac' | name='constant') (parameters+=Expression parameters+=Expression*)?)
 	 */
 	protected void sequence_FunctionCall(EObject context, FunctionCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);

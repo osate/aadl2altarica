@@ -1456,17 +1456,17 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cCasesAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cCasesCaseExpressionParserRuleCall_2_0 = (RuleCall)cCasesAssignment_2.eContents().get(0);
-		private final Keyword cElseKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Keyword cDefaultKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		private final Keyword cColonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		private final Assignment cDefaultAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cDefaultExpressionParserRuleCall_5_0 = (RuleCall)cDefaultAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//SwitchExpression:
-		//	"switch" "{" cases+=CaseExpression* "else" ":" default=Expression "}";
+		//	"switch" "{" cases+=CaseExpression* "default" ":" default=Expression "}";
 		@Override public ParserRule getRule() { return rule; }
 
-		//"switch" "{" cases+=CaseExpression* "else" ":" default=Expression "}"
+		//"switch" "{" cases+=CaseExpression* "default" ":" default=Expression "}"
 		public Group getGroup() { return cGroup; }
 
 		//"switch"
@@ -1481,8 +1481,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//CaseExpression
 		public RuleCall getCasesCaseExpressionParserRuleCall_2_0() { return cCasesCaseExpressionParserRuleCall_2_0; }
 
-		//"else"
-		public Keyword getElseKeyword_3() { return cElseKeyword_3; }
+		//"default"
+		public Keyword getDefaultKeyword_3() { return cDefaultKeyword_3; }
 
 		//":"
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
@@ -1500,33 +1500,37 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	public class CaseExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CaseExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cConditionAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cConditionLogicalOrParserRuleCall_0_0 = (RuleCall)cConditionAssignment_0.eContents().get(0);
-		private final Keyword cColonKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cCaseAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cCaseExpressionParserRuleCall_2_0 = (RuleCall)cCaseAssignment_2.eContents().get(0);
+		private final Keyword cCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cConditionLogicalOrParserRuleCall_1_0 = (RuleCall)cConditionAssignment_1.eContents().get(0);
+		private final Keyword cColonKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Assignment cCaseAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cCaseExpressionParserRuleCall_3_0 = (RuleCall)cCaseAssignment_3.eContents().get(0);
 		
 		//CaseExpression:
-		//	condition=LogicalOr ":" case=Expression;
+		//	"case" condition=LogicalOr ":" case=Expression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//condition=LogicalOr ":" case=Expression
+		//"case" condition=LogicalOr ":" case=Expression
 		public Group getGroup() { return cGroup; }
 
+		//"case"
+		public Keyword getCaseKeyword_0() { return cCaseKeyword_0; }
+
 		//condition=LogicalOr
-		public Assignment getConditionAssignment_0() { return cConditionAssignment_0; }
+		public Assignment getConditionAssignment_1() { return cConditionAssignment_1; }
 
 		//LogicalOr
-		public RuleCall getConditionLogicalOrParserRuleCall_0_0() { return cConditionLogicalOrParserRuleCall_0_0; }
+		public RuleCall getConditionLogicalOrParserRuleCall_1_0() { return cConditionLogicalOrParserRuleCall_1_0; }
 
 		//":"
-		public Keyword getColonKeyword_1() { return cColonKeyword_1; }
+		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//case=Expression
-		public Assignment getCaseAssignment_2() { return cCaseAssignment_2; }
+		public Assignment getCaseAssignment_3() { return cCaseAssignment_3; }
 
 		//Expression
-		public RuleCall getCaseExpressionParserRuleCall_2_0() { return cCaseExpressionParserRuleCall_2_0; }
+		public RuleCall getCaseExpressionParserRuleCall_3_0() { return cCaseExpressionParserRuleCall_3_0; }
 	}
 
 	public class FunctionCallElements extends AbstractParserRuleElementFinder {
@@ -1549,27 +1553,27 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
 		//FunctionCall returns Expression:
-		//	{FunctionCall} name=("exponential" | "dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
+		//	{FunctionCall} name=("exponential" | "Dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
 		//	")";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{FunctionCall} name=("exponential" | "dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
+		//{FunctionCall} name=("exponential" | "Dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
 		//")"
 		public Group getGroup() { return cGroup; }
 
 		//{FunctionCall}
 		public Action getFunctionCallAction_0() { return cFunctionCallAction_0; }
 
-		//name=("exponential" | "dirac" | "constant")
+		//name=("exponential" | "Dirac" | "constant")
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//"exponential" | "dirac" | "constant"
+		//"exponential" | "Dirac" | "constant"
 		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
 
 		//"exponential"
 		public Keyword getNameExponentialKeyword_1_0_0() { return cNameExponentialKeyword_1_0_0; }
 
-		//"dirac"
+		//"Dirac"
 		public Keyword getNameDiracKeyword_1_0_1() { return cNameDiracKeyword_1_0_1; }
 
 		//"constant"
@@ -2144,7 +2148,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SwitchExpression:
-	//	"switch" "{" cases+=CaseExpression* "else" ":" default=Expression "}";
+	//	"switch" "{" cases+=CaseExpression* "default" ":" default=Expression "}";
 	public SwitchExpressionElements getSwitchExpressionAccess() {
 		return pSwitchExpression;
 	}
@@ -2154,7 +2158,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CaseExpression:
-	//	condition=LogicalOr ":" case=Expression;
+	//	"case" condition=LogicalOr ":" case=Expression;
 	public CaseExpressionElements getCaseExpressionAccess() {
 		return pCaseExpression;
 	}
@@ -2164,7 +2168,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//FunctionCall returns Expression:
-	//	{FunctionCall} name=("exponential" | "dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
+	//	{FunctionCall} name=("exponential" | "Dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
 	//	")";
 	public FunctionCallElements getFunctionCallAccess() {
 		return pFunctionCall;

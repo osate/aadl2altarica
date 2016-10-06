@@ -19,12 +19,14 @@
 '>'=21
 '>='=20
 'Boolean'=32
+'Dirac'=29
 'Integer'=31
-'and'=61
+'and'=63
 'assertion'=40
+'case'=61
 'class'=37
 'constant'=30
-'dirac'=29
+'default'=60
 'domain'=33
 'else'=56
 'end'=38
@@ -34,7 +36,7 @@
 'if'=54
 'not'=58
 'observer'=47
-'or'=60
+'or'=62
 'parameter'=46
 'skip'=52
 'switch'=57
@@ -102,3 +104,5 @@ T__58=58
 T__59=59
 T__60=60
 T__61=61
+T__62=62
+T__63=63
