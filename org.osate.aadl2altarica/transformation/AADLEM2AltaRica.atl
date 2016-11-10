@@ -37,10 +37,8 @@ endpoint rule Finish() {
 			-> any(o | o.oclIsKindOf(AADL!SystemInstance)).resolve();
 	}
 	do {
-		m.declarations <-
-		    let head: AR!Node = thisModule.classes -> at(1) in
-				let tail: Sequence(AR!Node) = thisModule.classes -> excluding(head) in
-				thisModule.domains -> append(tail) -> append(head) -> flatten();
+		m.declarations <- 
+				thisModule.domains -> append(thisModule.classes) -> flatten();
 		'done'.debug();
 	}
 }
@@ -63,7 +61,7 @@ unique lazy rule Node {
 			assertions <- ci.internalAssertions() -> append(ci.externalAssertions()) -> flatten()
 		)
 	do {
-		thisModule.classes <:= thisModule.classes -> append(node);
+		thisModule.classes <:= thisModule.classes -> prepend(node);
 		node;
 	}
 }
