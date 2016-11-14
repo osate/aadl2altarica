@@ -764,7 +764,7 @@ lazy rule NameRef {
 					if parent = upto then		
 						owner.nodeInstance.ref()
 					else
-						thisModule.NameRef(owner.nodeInstance, parent)
+						thisModule.NameRef(owner.nodeInstance, parent, upto)
 					endif
 		)
 }
