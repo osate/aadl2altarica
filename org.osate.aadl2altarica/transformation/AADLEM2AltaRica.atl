@@ -250,7 +250,13 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 					if (x.oclIsUndefined()) then
 						Sequence{}
 					else
-						x -> collect(path | thisModule.InFlow(self, path))
+						x -> iterate(path; acc: Sequence(AR!Variable) = Sequence{} |
+								if path.oclIsUndefined() then
+									acc
+								else
+									acc -> append(thisModule.InFlow(self, path))
+								endif
+							)
 					endif
 			endif in
 	outFlows -> append(inFlows);
