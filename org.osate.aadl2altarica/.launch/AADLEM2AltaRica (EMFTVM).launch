@@ -9,7 +9,7 @@
 <mapAttribute key="Inout Models Output Locations"/>
 <mapAttribute key="Input Model Options"/>
 <mapAttribute key="Input Models">
-<mapEntry key="IN" value="platform:/resource/LargeExamplesforEMV2TR/instances/FG_System_pkg_FGS_threestate_Instance.aaxl2"/>
+<mapEntry key="IN" value="platform:/resource/UAV case study V0/instances/UAV_Functional_Quadcopter_FunctionalView_i_Instance.aaxl2"/>
 </mapAttribute>
 <mapAttribute key="Metamodel Options"/>
 <mapAttribute key="Metamodels">

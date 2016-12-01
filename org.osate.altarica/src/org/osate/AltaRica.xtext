@@ -1,3 +1,21 @@
+/**
+ * AADL to AltaRica Translator
+ * 
+ * Copyright 2016 Carnegie Mellon University. All Rights Reserved.
+ * 
+ * NO WARRANTY. THIS CARNEGIE MELLON UNIVERSITY AND SOFTWARE ENGINEERING INSTITUTE
+ * MATERIAL IS FURNISHED ON AN "AS-IS" BASIS. CARNEGIE MELLON UNIVERSITY MAKES NO
+ * WARRANTIES OF ANY KIND, EITHER EXPRESSED OR IMPLIED, AS TO ANY MATTER INCLUDING,
+ * BUT NOT LIMITED TO, WARRANTY OF FITNESS FOR PURPOSE OR MERCHANTABILITY,
+ * EXCLUSIVITY, OR RESULTS OBTAINED FROM USE OF THE MATERIAL. CARNEGIE MELLON
+ * UNIVERSITY DOES NOT MAKE ANY WARRANTY OF ANY KIND WITH RESPECT TO FREEDOM FROM
+ * PATENT, TRADEMARK, OR COPYRIGHT INFRINGEMENT.
+ * 
+ *  Released under a Eclipse Public License - v1.0-style license,
+ *  please see license.txt or contact permission@sei.cmu.edu for full terms.
+ * 
+ * DM16-0114
+ */
 grammar org.osate.altarica.Altarica with org.eclipse.xtext.common.Terminals
 
 generate altarica "http://osate.org/Altarica/2.1"
@@ -9,6 +27,8 @@ Model:
 
 AbstractDeclaration:
 	Domain | Class;
+
+// Domains ===============================================================
 
 Domain returns NamedElement:
 	{Domain}
@@ -31,7 +51,7 @@ NamedType:
 	ref=[NamedElement|ID]
 ;
 
-// ========== Classes ==========
+// Classes ===============================================================
 
 Class returns NamedElement:
 	{Node}
@@ -48,7 +68,7 @@ Class returns NamedElement:
 	'end'
 ;
 
-// ========== Declarations ==========
+// Declarations ==========================================================
 
 Declaration:
 	VariableDeclaration | EventDeclaration | ParameterDeclaration | ObserverDeclaration
@@ -89,7 +109,7 @@ ObserverDeclaration returns NamedElement:
 	';'
 ;
 
-// ========== Transitions ==========
+// Transitions ===========================================================
 
 LabeledTransition:
 	event=NameRef ":" expression=TransitionAnd
@@ -105,7 +125,7 @@ Transition returns TransitionExpression:
 	{Transition} guard=Expression '->' action=Instruction
 ;
 
-// ========== Instructions ==========
+// Instructions
 
 Instruction:
 	Skip | Assignment | Block | Conditional | Switch
@@ -138,7 +158,7 @@ Switch returns Instruction:
 		else=Expression
 	'}';
 
-// ========== Expressions ==========
+// Expressions ===========================================================
 
 Expression:
 	LogicalOr
@@ -203,7 +223,7 @@ FunctionCall returns Expression:
 	'(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
 ;
 
-//===== Terminals
+// Terminals =============================================================
 
 terminal fragment ALPHA: 'a'..'z'|'A'..'Z';
 

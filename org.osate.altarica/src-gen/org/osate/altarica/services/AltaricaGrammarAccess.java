@@ -71,6 +71,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConstantsSymbolicConstantParserRuleCall_4_1_1_0 = (RuleCall)cConstantsAssignment_4_1_1.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
+		//// Domains ===============================================================
 		//Domain returns NamedElement:
 		//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}";
 		@Override public ParserRule getRule() { return rule; }
@@ -217,7 +218,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cAssertionsInstructionParserRuleCall_5_1_0 = (RuleCall)cAssertionsAssignment_5_1.eContents().get(0);
 		private final Keyword cEndKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//// ========== Classes ==========
+		//// Classes ===============================================================
 		//Class returns NamedElement:
 		//	{Node} "class" name=ID declarations+=Declaration* ("transition" transitions+=LabeledTransition+)? ("assertion"
 		//	assertions+=Instruction+)? "end";
@@ -281,7 +282,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParameterDeclarationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cObserverDeclarationParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
-		//// ========== Declarations ==========
+		//// Declarations ==========================================================
 		//Declaration:
 		//	VariableDeclaration | EventDeclaration | ParameterDeclaration | ObserverDeclaration;
 		@Override public ParserRule getRule() { return rule; }
@@ -591,7 +592,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cExpressionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cExpressionTransitionAndParserRuleCall_2_0 = (RuleCall)cExpressionAssignment_2.eContents().get(0);
 		
-		//// ========== Transitions ==========
+		//// Transitions ===========================================================
 		//LabeledTransition:
 		//	event=NameRef ":" expression=TransitionAnd;
 		@Override public ParserRule getRule() { return rule; }
@@ -732,7 +733,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cConditionalParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cSwitchParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
-		//// ========== Instructions ==========
+		//// Instructions
 		//Instruction:
 		//	Skip | Assignment | Block | Conditional | Switch;
 		@Override public ParserRule getRule() { return rule; }
@@ -964,7 +965,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
 		private final RuleCall cLogicalOrParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
-		//// ========== Expressions ==========
+		//// Expressions ===========================================================
 		//Expression:
 		//	LogicalOr;
 		@Override public ParserRule getRule() { return rule; }
@@ -1791,6 +1792,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getAbstractDeclarationAccess().getRule();
 	}
 
+	//// Domains ===============================================================
 	//Domain returns NamedElement:
 	//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}";
 	public DomainElements getDomainAccess() {
@@ -1851,7 +1853,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getNamedTypeAccess().getRule();
 	}
 
-	//// ========== Classes ==========
+	//// Classes ===============================================================
 	//Class returns NamedElement:
 	//	{Node} "class" name=ID declarations+=Declaration* ("transition" transitions+=LabeledTransition+)? ("assertion"
 	//	assertions+=Instruction+)? "end";
@@ -1863,7 +1865,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getClassAccess().getRule();
 	}
 
-	//// ========== Declarations ==========
+	//// Declarations ==========================================================
 	//Declaration:
 	//	VariableDeclaration | EventDeclaration | ParameterDeclaration | ObserverDeclaration;
 	public DeclarationElements getDeclarationAccess() {
@@ -1924,7 +1926,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getObserverDeclarationAccess().getRule();
 	}
 
-	//// ========== Transitions ==========
+	//// Transitions ===========================================================
 	//LabeledTransition:
 	//	event=NameRef ":" expression=TransitionAnd;
 	public LabeledTransitionElements getLabeledTransitionAccess() {
@@ -1965,7 +1967,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionAccess().getRule();
 	}
 
-	//// ========== Instructions ==========
+	//// Instructions
 	//Instruction:
 	//	Skip | Assignment | Block | Conditional | Switch;
 	public InstructionElements getInstructionAccess() {
@@ -2026,7 +2028,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getSwitchAccess().getRule();
 	}
 
-	//// ========== Expressions ==========
+	//// Expressions ===========================================================
 	//Expression:
 	//	LogicalOr;
 	public ExpressionElements getExpressionAccess() {
@@ -2178,7 +2180,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionCallAccess().getRule();
 	}
 
-	////===== Terminals
+	//// Terminals =============================================================
 	//terminal fragment ALPHA:
 	//	"a".."z" | "A".."Z";
 	public TerminalRule getALPHARule() {
