@@ -702,22 +702,12 @@ lazy rule OutPropAssignment {
 		)
 }
 
--- TODO
--- must be <= 1 in propagation in condition
--- create filter if in propagation has type tokens
--- what if in propagation is split into several flow vars?
 lazy rule CaseExpression {
 	from
 		ci: AADL!ComponentInstance,
 		propCond: EMV2!OutgoingPropagationCondition
 	to
 		c: AR!CaseExpression (
---			condition <- 
---				if propCond.state.oclIsUndefined() then
---					thisModule.ARBoolean(true)
---				else
---					thisModule.Equal(thisModule.State(ci), thisModule.StateSymbol(ci.classifier, propCond.state))
---				endif,
 			condition <- ci.caseCondition(propCond),
 			case <-
 				if not propCond.typeToken.oclIsUndefined() then
