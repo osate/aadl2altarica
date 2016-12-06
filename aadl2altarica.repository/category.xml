@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature id="org.osate.altarica.sdk">
+      <category name="aadl2altarica"/>
+   </feature>
+   <feature id="org.eclipse.m2m.atl">
+      <category name="atl"/>
+   </feature>
+   <feature id="org.eclipse.m2m.atl.emftvm">
+      <category name="atl"/>
+   </feature>
+   <category-def name="aadl2altarica" label="AADL with EMV2 to AltaRica Translator"/>
+   <category-def name="emftvm" label="Atlas Transformation Language"/>
+</site>

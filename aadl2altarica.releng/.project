@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>aadl2altarica.releng</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+	</buildSpec>
+	<natures>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>parent-pom.xml</name>
+			<type>1</type>
+			<location>/home/lw/git/aadl/altarica/pom.xml</location>
+		</link>
+	</linkedResources>
+</projectDescription>

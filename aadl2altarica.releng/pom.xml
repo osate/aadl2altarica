@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.osate</groupId>
+		<artifactId>aadl2altarica.parent</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	<groupId>org.osate</groupId>
+	<artifactId>aadl2altarica.modules</artifactId>
+	<version>1.0.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<modules>
+		<module>..</module>
+		<module>../org.osate.aadl2altarica</module>
+		<module>../org.osate.altarica</module>
+		<module>../org.osate.altarica.ui</module>
+		<module>../org.osate.altarica.sdk</module>
+		<module>../aadl2altarica.repository</module>
+	</modules>
+
+</project>
