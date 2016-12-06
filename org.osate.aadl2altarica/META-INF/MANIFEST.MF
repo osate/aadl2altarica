@@ -21,5 +21,5 @@ Require-Bundle: org.eclipse.ui,
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: CMU/SEI
-Bundle-ClassPath: .
-
+Bundle-ClassPath: aadl2ar.jar
+Eclipse-BundleShape: dir
