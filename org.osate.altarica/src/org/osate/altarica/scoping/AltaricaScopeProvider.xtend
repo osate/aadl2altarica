@@ -98,7 +98,7 @@ class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 	}
 
 	def domainOfAssignment(Assignment assign) {
-		val variable = (assign.variable as NameRef).variable as Variable
+		val variable = assign.variable.variable as Variable
 		val type = variable.type as NamedType
 		val domain = type.ref as Domain
 		Scopes.scopeFor(domain.constants)
