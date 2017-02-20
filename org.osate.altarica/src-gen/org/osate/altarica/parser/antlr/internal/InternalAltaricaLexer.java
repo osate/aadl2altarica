@@ -85,15 +85,15 @@ public class InternalAltaricaLexer extends Lexer {
         super(input,state);
 
     }
-    public String getGrammarFileName() { return "../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g"; }
+    public String getGrammarFileName() { return "InternalAltarica.g"; }
 
     // $ANTLR start "T__16"
     public final void mT__16() throws RecognitionException {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:11:7: ( 'domain' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:11:9: 'domain'
+            // InternalAltarica.g:11:7: ( 'domain' )
+            // InternalAltarica.g:11:9: 'domain'
             {
             match("domain"); 
 
@@ -113,8 +113,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:12:7: ( '{' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:12:9: '{'
+            // InternalAltarica.g:12:7: ( '{' )
+            // InternalAltarica.g:12:9: '{'
             {
             match('{'); 
 
@@ -133,8 +133,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:13:7: ( ',' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:13:9: ','
+            // InternalAltarica.g:13:7: ( ',' )
+            // InternalAltarica.g:13:9: ','
             {
             match(','); 
 
@@ -153,8 +153,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:14:7: ( '}' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:14:9: '}'
+            // InternalAltarica.g:14:7: ( '}' )
+            // InternalAltarica.g:14:9: '}'
             {
             match('}'); 
 
@@ -173,8 +173,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:15:7: ( 'class' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:15:9: 'class'
+            // InternalAltarica.g:15:7: ( 'class' )
+            // InternalAltarica.g:15:9: 'class'
             {
             match("class"); 
 
@@ -194,8 +194,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:16:7: ( 'transition' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:16:9: 'transition'
+            // InternalAltarica.g:16:7: ( 'transition' )
+            // InternalAltarica.g:16:9: 'transition'
             {
             match("transition"); 
 
@@ -215,8 +215,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:17:7: ( 'assertion' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:17:9: 'assertion'
+            // InternalAltarica.g:17:7: ( 'assertion' )
+            // InternalAltarica.g:17:9: 'assertion'
             {
             match("assertion"); 
 
@@ -236,8 +236,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:18:7: ( 'end' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:18:9: 'end'
+            // InternalAltarica.g:18:7: ( 'end' )
+            // InternalAltarica.g:18:9: 'end'
             {
             match("end"); 
 
@@ -257,8 +257,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:19:7: ( '(' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:19:9: '('
+            // InternalAltarica.g:19:7: ( '(' )
+            // InternalAltarica.g:19:9: '('
             {
             match('('); 
 
@@ -277,8 +277,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:20:7: ( ')' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:20:9: ')'
+            // InternalAltarica.g:20:7: ( ')' )
+            // InternalAltarica.g:20:9: ')'
             {
             match(')'); 
 
@@ -297,8 +297,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:21:7: ( ';' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:21:9: ';'
+            // InternalAltarica.g:21:7: ( ';' )
+            // InternalAltarica.g:21:9: ';'
             {
             match(';'); 
 
@@ -317,8 +317,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:22:7: ( '=' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:22:9: '='
+            // InternalAltarica.g:22:7: ( '=' )
+            // InternalAltarica.g:22:9: '='
             {
             match('='); 
 
@@ -337,8 +337,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:23:7: ( 'event' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:23:9: 'event'
+            // InternalAltarica.g:23:7: ( 'event' )
+            // InternalAltarica.g:23:9: 'event'
             {
             match("event"); 
 
@@ -358,8 +358,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:24:7: ( 'parameter' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:24:9: 'parameter'
+            // InternalAltarica.g:24:7: ( 'parameter' )
+            // InternalAltarica.g:24:9: 'parameter'
             {
             match("parameter"); 
 
@@ -379,8 +379,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:25:7: ( 'observer' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:25:9: 'observer'
+            // InternalAltarica.g:25:7: ( 'observer' )
+            // InternalAltarica.g:25:9: 'observer'
             {
             match("observer"); 
 
@@ -400,8 +400,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:26:7: ( ':' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:26:9: ':'
+            // InternalAltarica.g:26:7: ( ':' )
+            // InternalAltarica.g:26:9: ':'
             {
             match(':'); 
 
@@ -420,8 +420,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:27:7: ( '&' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:27:9: '&'
+            // InternalAltarica.g:27:7: ( '&' )
+            // InternalAltarica.g:27:9: '&'
             {
             match('&'); 
 
@@ -440,8 +440,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:28:7: ( '|' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:28:9: '|'
+            // InternalAltarica.g:28:7: ( '|' )
+            // InternalAltarica.g:28:9: '|'
             {
             match('|'); 
 
@@ -460,8 +460,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:29:7: ( '->' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:29:9: '->'
+            // InternalAltarica.g:29:7: ( '->' )
+            // InternalAltarica.g:29:9: '->'
             {
             match("->"); 
 
@@ -481,8 +481,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:30:7: ( 'skip' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:30:9: 'skip'
+            // InternalAltarica.g:30:7: ( 'skip' )
+            // InternalAltarica.g:30:9: 'skip'
             {
             match("skip"); 
 
@@ -502,8 +502,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:31:7: ( ':=' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:31:9: ':='
+            // InternalAltarica.g:31:7: ( ':=' )
+            // InternalAltarica.g:31:9: ':='
             {
             match(":="); 
 
@@ -523,8 +523,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:32:7: ( 'if' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:32:9: 'if'
+            // InternalAltarica.g:32:7: ( 'if' )
+            // InternalAltarica.g:32:9: 'if'
             {
             match("if"); 
 
@@ -544,8 +544,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:33:7: ( 'then' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:33:9: 'then'
+            // InternalAltarica.g:33:7: ( 'then' )
+            // InternalAltarica.g:33:9: 'then'
             {
             match("then"); 
 
@@ -565,8 +565,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:34:7: ( 'else' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:34:9: 'else'
+            // InternalAltarica.g:34:7: ( 'else' )
+            // InternalAltarica.g:34:9: 'else'
             {
             match("else"); 
 
@@ -586,8 +586,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:35:7: ( 'switch' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:35:9: 'switch'
+            // InternalAltarica.g:35:7: ( 'switch' )
+            // InternalAltarica.g:35:9: 'switch'
             {
             match("switch"); 
 
@@ -607,8 +607,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:36:7: ( 'or' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:36:9: 'or'
+            // InternalAltarica.g:36:7: ( 'or' )
+            // InternalAltarica.g:36:9: 'or'
             {
             match("or"); 
 
@@ -628,8 +628,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:37:7: ( 'and' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:37:9: 'and'
+            // InternalAltarica.g:37:7: ( 'and' )
+            // InternalAltarica.g:37:9: 'and'
             {
             match("and"); 
 
@@ -649,8 +649,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:38:7: ( '==' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:38:9: '=='
+            // InternalAltarica.g:38:7: ( '==' )
+            // InternalAltarica.g:38:9: '=='
             {
             match("=="); 
 
@@ -670,8 +670,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:39:7: ( '!=' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:39:9: '!='
+            // InternalAltarica.g:39:7: ( '!=' )
+            // InternalAltarica.g:39:9: '!='
             {
             match("!="); 
 
@@ -691,8 +691,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:40:7: ( '<' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:40:9: '<'
+            // InternalAltarica.g:40:7: ( '<' )
+            // InternalAltarica.g:40:9: '<'
             {
             match('<'); 
 
@@ -711,8 +711,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:41:7: ( '<=' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:41:9: '<='
+            // InternalAltarica.g:41:7: ( '<=' )
+            // InternalAltarica.g:41:9: '<='
             {
             match("<="); 
 
@@ -732,8 +732,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:42:7: ( '>=' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:42:9: '>='
+            // InternalAltarica.g:42:7: ( '>=' )
+            // InternalAltarica.g:42:9: '>='
             {
             match(">="); 
 
@@ -753,8 +753,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:43:7: ( '>' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:43:9: '>'
+            // InternalAltarica.g:43:7: ( '>' )
+            // InternalAltarica.g:43:9: '>'
             {
             match('>'); 
 
@@ -773,8 +773,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:44:7: ( '+' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:44:9: '+'
+            // InternalAltarica.g:44:7: ( '+' )
+            // InternalAltarica.g:44:9: '+'
             {
             match('+'); 
 
@@ -793,8 +793,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:45:7: ( '-' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:45:9: '-'
+            // InternalAltarica.g:45:7: ( '-' )
+            // InternalAltarica.g:45:9: '-'
             {
             match('-'); 
 
@@ -813,8 +813,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:46:7: ( '*' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:46:9: '*'
+            // InternalAltarica.g:46:7: ( '*' )
+            // InternalAltarica.g:46:9: '*'
             {
             match('*'); 
 
@@ -833,8 +833,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:47:7: ( '/' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:47:9: '/'
+            // InternalAltarica.g:47:7: ( '/' )
+            // InternalAltarica.g:47:9: '/'
             {
             match('/'); 
 
@@ -853,8 +853,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:48:7: ( 'not' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:48:9: 'not'
+            // InternalAltarica.g:48:7: ( 'not' )
+            // InternalAltarica.g:48:9: 'not'
             {
             match("not"); 
 
@@ -874,8 +874,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:49:7: ( 'true' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:49:9: 'true'
+            // InternalAltarica.g:49:7: ( 'true' )
+            // InternalAltarica.g:49:9: 'true'
             {
             match("true"); 
 
@@ -895,8 +895,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:50:7: ( 'false' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:50:9: 'false'
+            // InternalAltarica.g:50:7: ( 'false' )
+            // InternalAltarica.g:50:9: 'false'
             {
             match("false"); 
 
@@ -916,8 +916,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:51:7: ( '.' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:51:9: '.'
+            // InternalAltarica.g:51:7: ( '.' )
+            // InternalAltarica.g:51:9: '.'
             {
             match('.'); 
 
@@ -936,8 +936,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:52:7: ( 'default' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:52:9: 'default'
+            // InternalAltarica.g:52:7: ( 'default' )
+            // InternalAltarica.g:52:9: 'default'
             {
             match("default"); 
 
@@ -957,8 +957,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:53:7: ( 'case' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:53:9: 'case'
+            // InternalAltarica.g:53:7: ( 'case' )
+            // InternalAltarica.g:53:9: 'case'
             {
             match("case"); 
 
@@ -978,8 +978,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:54:7: ( 'exponential' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:54:9: 'exponential'
+            // InternalAltarica.g:54:7: ( 'exponential' )
+            // InternalAltarica.g:54:9: 'exponential'
             {
             match("exponential"); 
 
@@ -999,8 +999,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:55:7: ( 'Dirac' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:55:9: 'Dirac'
+            // InternalAltarica.g:55:7: ( 'Dirac' )
+            // InternalAltarica.g:55:9: 'Dirac'
             {
             match("Dirac"); 
 
@@ -1020,8 +1020,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:56:7: ( 'constant' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:56:9: 'constant'
+            // InternalAltarica.g:56:7: ( 'constant' )
+            // InternalAltarica.g:56:9: 'constant'
             {
             match("constant"); 
 
@@ -1041,8 +1041,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:57:7: ( 'Integer' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:57:9: 'Integer'
+            // InternalAltarica.g:57:7: ( 'Integer' )
+            // InternalAltarica.g:57:9: 'Integer'
             {
             match("Integer"); 
 
@@ -1062,8 +1062,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:58:7: ( 'Boolean' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:58:9: 'Boolean'
+            // InternalAltarica.g:58:7: ( 'Boolean' )
+            // InternalAltarica.g:58:9: 'Boolean'
             {
             match("Boolean"); 
 
@@ -1081,8 +1081,8 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_ALPHA"
     public final void mRULE_ALPHA() throws RecognitionException {
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2905:21: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2905:23: ( 'a' .. 'z' | 'A' .. 'Z' )
+            // InternalAltarica.g:2905:21: ( ( 'a' .. 'z' | 'A' .. 'Z' ) )
+            // InternalAltarica.g:2905:23: ( 'a' .. 'z' | 'A' .. 'Z' )
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1105,8 +1105,8 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_DIGIT"
     public final void mRULE_DIGIT() throws RecognitionException {
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2907:21: ( '0' .. '9' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2907:23: '0' .. '9'
+            // InternalAltarica.g:2907:21: ( '0' .. '9' )
+            // InternalAltarica.g:2907:23: '0' .. '9'
             {
             matchRange('0','9'); 
 
@@ -1121,8 +1121,8 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_REGULAR_ID"
     public final void mRULE_REGULAR_ID() throws RecognitionException {
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2909:26: ( ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )* )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2909:28: ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )*
+            // InternalAltarica.g:2909:26: ( ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )* )
+            // InternalAltarica.g:2909:28: ( RULE_ALPHA | '_' ) ( RULE_ALPHA | '_' | RULE_DIGIT )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -1133,7 +1133,7 @@ public class InternalAltaricaLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2909:45: ( RULE_ALPHA | '_' | RULE_DIGIT )*
+            // InternalAltarica.g:2909:45: ( RULE_ALPHA | '_' | RULE_DIGIT )*
             loop1:
             do {
                 int alt1=2;
@@ -1146,7 +1146,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:
+            	    // InternalAltarica.g:
             	    {
             	    if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
@@ -1178,11 +1178,11 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR start "RULE_STRING_ID"
     public final void mRULE_STRING_ID() throws RecognitionException {
         try {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2911:25: ( '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\'' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2911:27: '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\''
+            // InternalAltarica.g:2911:25: ( '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\'' )
+            // InternalAltarica.g:2911:27: '\\'' ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )* '\\''
             {
             match('\''); 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2911:32: ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )*
+            // InternalAltarica.g:2911:32: ( RULE_ALPHA | RULE_DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-' | '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_' )*
             loop2:
             do {
                 int alt2=2;
@@ -1195,7 +1195,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:
+            	    // InternalAltarica.g:
             	    {
             	    if ( input.LA(1)=='!'||(input.LA(1)>='#' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='_')||(input.LA(1)>='a' && input.LA(1)<='~') ) {
             	        input.consume();
@@ -1230,10 +1230,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2913:9: ( ( RULE_REGULAR_ID | RULE_STRING_ID ) )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2913:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
+            // InternalAltarica.g:2913:9: ( ( RULE_REGULAR_ID | RULE_STRING_ID ) )
+            // InternalAltarica.g:2913:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2913:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
+            // InternalAltarica.g:2913:11: ( RULE_REGULAR_ID | RULE_STRING_ID )
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -1251,14 +1251,14 @@ public class InternalAltaricaLexer extends Lexer {
             }
             switch (alt3) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2913:12: RULE_REGULAR_ID
+                    // InternalAltarica.g:2913:12: RULE_REGULAR_ID
                     {
                     mRULE_REGULAR_ID(); 
 
                     }
                     break;
                 case 2 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2913:28: RULE_STRING_ID
+                    // InternalAltarica.g:2913:28: RULE_STRING_ID
                     {
                     mRULE_STRING_ID(); 
 
@@ -1283,11 +1283,11 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2915:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2915:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"'
+            // InternalAltarica.g:2915:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"' )
+            // InternalAltarica.g:2915:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )* '\"'
             {
             match('\"'); 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2915:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
+            // InternalAltarica.g:2915:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\\'' ) ) )*
             loop4:
             do {
                 int alt4=3;
@@ -1312,7 +1312,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt4) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2915:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
+            	    // InternalAltarica.g:2915:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | 'u' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||(input.LA(1)>='t' && input.LA(1)<='u') ) {
@@ -1328,7 +1328,7 @@ public class InternalAltaricaLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2915:65: ~ ( ( '\\\\' | '\\'' ) )
+            	    // InternalAltarica.g:2915:65: ~ ( ( '\\\\' | '\\'' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1365,10 +1365,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_NUMBER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:13: ( ( RULE_DIGIT )+ ( '.' ( RULE_DIGIT )+ )? ( ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+ )? )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:15: ( RULE_DIGIT )+ ( '.' ( RULE_DIGIT )+ )? ( ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+ )?
+            // InternalAltarica.g:2917:13: ( ( RULE_DIGIT )+ ( '.' ( RULE_DIGIT )+ )? ( ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+ )? )
+            // InternalAltarica.g:2917:15: ( RULE_DIGIT )+ ( '.' ( RULE_DIGIT )+ )? ( ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+ )?
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:15: ( RULE_DIGIT )+
+            // InternalAltarica.g:2917:15: ( RULE_DIGIT )+
             int cnt5=0;
             loop5:
             do {
@@ -1382,7 +1382,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:15: RULE_DIGIT
+            	    // InternalAltarica.g:2917:15: RULE_DIGIT
             	    {
             	    mRULE_DIGIT(); 
 
@@ -1398,7 +1398,7 @@ public class InternalAltaricaLexer extends Lexer {
                 cnt5++;
             } while (true);
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:27: ( '.' ( RULE_DIGIT )+ )?
+            // InternalAltarica.g:2917:27: ( '.' ( RULE_DIGIT )+ )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -1407,10 +1407,10 @@ public class InternalAltaricaLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:28: '.' ( RULE_DIGIT )+
+                    // InternalAltarica.g:2917:28: '.' ( RULE_DIGIT )+
                     {
                     match('.'); 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:32: ( RULE_DIGIT )+
+                    // InternalAltarica.g:2917:32: ( RULE_DIGIT )+
                     int cnt6=0;
                     loop6:
                     do {
@@ -1424,7 +1424,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                         switch (alt6) {
                     	case 1 :
-                    	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:32: RULE_DIGIT
+                    	    // InternalAltarica.g:2917:32: RULE_DIGIT
                     	    {
                     	    mRULE_DIGIT(); 
 
@@ -1446,7 +1446,7 @@ public class InternalAltaricaLexer extends Lexer {
 
             }
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:46: ( ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+ )?
+            // InternalAltarica.g:2917:46: ( ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+ )?
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -1455,7 +1455,7 @@ public class InternalAltaricaLexer extends Lexer {
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:47: ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+
+                    // InternalAltarica.g:2917:47: ( 'e' | 'E' ) ( '+' | '-' )? ( RULE_DIGIT )+
                     {
                     if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                         input.consume();
@@ -1466,7 +1466,7 @@ public class InternalAltaricaLexer extends Lexer {
                         recover(mse);
                         throw mse;}
 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:57: ( '+' | '-' )?
+                    // InternalAltarica.g:2917:57: ( '+' | '-' )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -1475,7 +1475,7 @@ public class InternalAltaricaLexer extends Lexer {
                     }
                     switch (alt8) {
                         case 1 :
-                            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:
+                            // InternalAltarica.g:
                             {
                             if ( input.LA(1)=='+'||input.LA(1)=='-' ) {
                                 input.consume();
@@ -1492,7 +1492,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                     }
 
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:68: ( RULE_DIGIT )+
+                    // InternalAltarica.g:2917:68: ( RULE_DIGIT )+
                     int cnt9=0;
                     loop9:
                     do {
@@ -1506,7 +1506,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                         switch (alt9) {
                     	case 1 :
-                    	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2917:68: RULE_DIGIT
+                    	    // InternalAltarica.g:2917:68: RULE_DIGIT
                     	    {
                     	    mRULE_DIGIT(); 
 
@@ -1544,8 +1544,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2919:10: ( '_@_this has been deactivated_' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2919:12: '_@_this has been deactivated_'
+            // InternalAltarica.g:2919:10: ( '_@_this has been deactivated_' )
+            // InternalAltarica.g:2919:12: '_@_this has been deactivated_'
             {
             match("_@_this has been deactivated_"); 
 
@@ -1565,12 +1565,12 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2921:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2921:19: '/*' ( options {greedy=false; } : . )* '*/'
+            // InternalAltarica.g:2921:17: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // InternalAltarica.g:2921:19: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2921:24: ( options {greedy=false; } : . )*
+            // InternalAltarica.g:2921:24: ( options {greedy=false; } : . )*
             loop11:
             do {
                 int alt11=2;
@@ -1595,7 +1595,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt11) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2921:52: .
+            	    // InternalAltarica.g:2921:52: .
             	    {
             	    matchAny(); 
 
@@ -1625,12 +1625,12 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // InternalAltarica.g:2923:17: ( '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // InternalAltarica.g:2923:19: '//' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match("//"); 
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:24: (~ ( ( '\\n' | '\\r' ) ) )*
+            // InternalAltarica.g:2923:24: (~ ( ( '\\n' | '\\r' ) ) )*
             loop12:
             do {
                 int alt12=2;
@@ -1643,7 +1643,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:24: ~ ( ( '\\n' | '\\r' ) )
+            	    // InternalAltarica.g:2923:24: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -1663,7 +1663,7 @@ public class InternalAltaricaLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:40: ( ( '\\r' )? '\\n' )?
+            // InternalAltarica.g:2923:40: ( ( '\\r' )? '\\n' )?
             int alt14=2;
             int LA14_0 = input.LA(1);
 
@@ -1672,9 +1672,9 @@ public class InternalAltaricaLexer extends Lexer {
             }
             switch (alt14) {
                 case 1 :
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:41: ( '\\r' )? '\\n'
+                    // InternalAltarica.g:2923:41: ( '\\r' )? '\\n'
                     {
-                    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:41: ( '\\r' )?
+                    // InternalAltarica.g:2923:41: ( '\\r' )?
                     int alt13=2;
                     int LA13_0 = input.LA(1);
 
@@ -1683,7 +1683,7 @@ public class InternalAltaricaLexer extends Lexer {
                     }
                     switch (alt13) {
                         case 1 :
-                            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2923:41: '\\r'
+                            // InternalAltarica.g:2923:41: '\\r'
                             {
                             match('\r'); 
 
@@ -1715,10 +1715,10 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2925:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2925:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAltarica.g:2925:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // InternalAltarica.g:2925:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2925:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // InternalAltarica.g:2925:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt15=0;
             loop15:
             do {
@@ -1732,7 +1732,7 @@ public class InternalAltaricaLexer extends Lexer {
 
                 switch (alt15) {
             	case 1 :
-            	    // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:
+            	    // InternalAltarica.g:
             	    {
             	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
@@ -1772,8 +1772,8 @@ public class InternalAltaricaLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2927:16: ( . )
-            // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:2927:18: .
+            // InternalAltarica.g:2927:16: ( . )
+            // InternalAltarica.g:2927:18: .
             {
             matchAny(); 
 
@@ -1788,397 +1788,397 @@ public class InternalAltaricaLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:8: ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | RULE_ID | RULE_STRING | RULE_NUMBER | RULE_INT | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
+        // InternalAltarica.g:1:8: ( T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | RULE_ID | RULE_STRING | RULE_NUMBER | RULE_INT | RULE_ML_COMMENT | RULE_SL_COMMENT | RULE_WS | RULE_ANY_OTHER )
         int alt16=56;
         alt16 = dfa16.predict(input);
         switch (alt16) {
             case 1 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:10: T__16
+                // InternalAltarica.g:1:10: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
             case 2 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:16: T__17
+                // InternalAltarica.g:1:16: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
             case 3 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:22: T__18
+                // InternalAltarica.g:1:22: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
             case 4 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:28: T__19
+                // InternalAltarica.g:1:28: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
             case 5 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:34: T__20
+                // InternalAltarica.g:1:34: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
             case 6 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:40: T__21
+                // InternalAltarica.g:1:40: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
             case 7 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:46: T__22
+                // InternalAltarica.g:1:46: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
             case 8 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:52: T__23
+                // InternalAltarica.g:1:52: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
             case 9 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:58: T__24
+                // InternalAltarica.g:1:58: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
             case 10 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:64: T__25
+                // InternalAltarica.g:1:64: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
             case 11 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:70: T__26
+                // InternalAltarica.g:1:70: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
             case 12 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:76: T__27
+                // InternalAltarica.g:1:76: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
             case 13 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:82: T__28
+                // InternalAltarica.g:1:82: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
             case 14 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:88: T__29
+                // InternalAltarica.g:1:88: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
             case 15 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:94: T__30
+                // InternalAltarica.g:1:94: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
             case 16 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:100: T__31
+                // InternalAltarica.g:1:100: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
             case 17 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:106: T__32
+                // InternalAltarica.g:1:106: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
             case 18 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:112: T__33
+                // InternalAltarica.g:1:112: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
             case 19 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:118: T__34
+                // InternalAltarica.g:1:118: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
             case 20 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:124: T__35
+                // InternalAltarica.g:1:124: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
             case 21 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:130: T__36
+                // InternalAltarica.g:1:130: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
             case 22 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:136: T__37
+                // InternalAltarica.g:1:136: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
             case 23 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:142: T__38
+                // InternalAltarica.g:1:142: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
             case 24 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:148: T__39
+                // InternalAltarica.g:1:148: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
             case 25 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:154: T__40
+                // InternalAltarica.g:1:154: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
             case 26 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:160: T__41
+                // InternalAltarica.g:1:160: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
             case 27 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:166: T__42
+                // InternalAltarica.g:1:166: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
             case 28 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:172: T__43
+                // InternalAltarica.g:1:172: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
             case 29 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:178: T__44
+                // InternalAltarica.g:1:178: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
             case 30 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:184: T__45
+                // InternalAltarica.g:1:184: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
             case 31 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:190: T__46
+                // InternalAltarica.g:1:190: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
             case 32 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:196: T__47
+                // InternalAltarica.g:1:196: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
             case 33 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:202: T__48
+                // InternalAltarica.g:1:202: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
             case 34 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:208: T__49
+                // InternalAltarica.g:1:208: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
             case 35 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:214: T__50
+                // InternalAltarica.g:1:214: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
             case 36 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:220: T__51
+                // InternalAltarica.g:1:220: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
             case 37 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:226: T__52
+                // InternalAltarica.g:1:226: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
             case 38 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:232: T__53
+                // InternalAltarica.g:1:232: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
             case 39 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:238: T__54
+                // InternalAltarica.g:1:238: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
             case 40 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:244: T__55
+                // InternalAltarica.g:1:244: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
             case 41 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:250: T__56
+                // InternalAltarica.g:1:250: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
             case 42 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:256: T__57
+                // InternalAltarica.g:1:256: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
             case 43 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:262: T__58
+                // InternalAltarica.g:1:262: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
             case 44 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:268: T__59
+                // InternalAltarica.g:1:268: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
             case 45 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:274: T__60
+                // InternalAltarica.g:1:274: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
             case 46 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:280: T__61
+                // InternalAltarica.g:1:280: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
             case 47 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:286: T__62
+                // InternalAltarica.g:1:286: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
             case 48 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:292: T__63
+                // InternalAltarica.g:1:292: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
             case 49 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:298: RULE_ID
+                // InternalAltarica.g:1:298: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 50 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:306: RULE_STRING
+                // InternalAltarica.g:1:306: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 51 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:318: RULE_NUMBER
+                // InternalAltarica.g:1:318: RULE_NUMBER
                 {
                 mRULE_NUMBER(); 
 
                 }
                 break;
             case 52 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:330: RULE_INT
+                // InternalAltarica.g:1:330: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 53 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:339: RULE_ML_COMMENT
+                // InternalAltarica.g:1:339: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 54 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:355: RULE_SL_COMMENT
+                // InternalAltarica.g:1:355: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 55 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:371: RULE_WS
+                // InternalAltarica.g:1:371: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 56 :
-                // ../org.osate.altarica/src-gen/org/osate/altarica/parser/antlr/internal/InternalAltarica.g:1:379: RULE_ANY_OTHER
+                // InternalAltarica.g:1:379: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 

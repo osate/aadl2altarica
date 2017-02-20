@@ -4,17 +4,15 @@
 package org.osate.altarica.serializer;
 
 import com.google.inject.Inject;
-import com.google.inject.Provider;
+import java.util.Set;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.serializer.acceptor.ISemanticSequenceAcceptor;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.xtext.Action;
+import org.eclipse.xtext.Parameter;
+import org.eclipse.xtext.ParserRule;
+import org.eclipse.xtext.serializer.ISerializationContext;
 import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
-import org.eclipse.xtext.serializer.diagnostic.ISemanticSequencerDiagnosticProvider;
-import org.eclipse.xtext.serializer.diagnostic.ISerializationDiagnostic.Acceptor;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.GenericSequencer;
-import org.eclipse.xtext.serializer.sequencer.ISemanticNodeProvider.INodesForEObjectProvider;
-import org.eclipse.xtext.serializer.sequencer.ISemanticSequencer;
-import org.eclipse.xtext.serializer.sequencer.ITransientValueService;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.osate.altarica.altarica.ARBoolean;
 import org.osate.altarica.altarica.ARNumber;
@@ -43,7 +41,6 @@ import org.osate.altarica.altarica.NamedType;
 import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
-import org.osate.altarica.altarica.Parameter;
 import org.osate.altarica.altarica.Skip;
 import org.osate.altarica.altarica.SwitchExpression;
 import org.osate.altarica.altarica.SymbolicConstant;
@@ -60,8 +57,13 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	private AltaricaGrammarAccess grammarAccess;
 	
 	@Override
-	public void createSequence(EObject context, EObject semanticObject) {
-		if(semanticObject.eClass().getEPackage() == AltaricaPackage.eINSTANCE) switch(semanticObject.eClass().getClassifierID()) {
+	public void sequence(ISerializationContext context, EObject semanticObject) {
+		EPackage epackage = semanticObject.eClass().getEPackage();
+		ParserRule rule = context.getParserRule();
+		Action action = context.getAssignedAction();
+		Set<Parameter> parameters = context.getEnabledBooleanParameters();
+		if (epackage == AltaricaPackage.eINSTANCE)
+			switch (semanticObject.eClass().getClassifierID()) {
 			case AltaricaPackage.AR_BOOLEAN:
 				sequence_BooleanLiteral(context, (ARBoolean) semanticObject); 
 				return; 
@@ -141,7 +143,7 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				sequence_ObserverDeclaration(context, (Observer) semanticObject); 
 				return; 
 			case AltaricaPackage.PARAMETER:
-				sequence_ParameterDeclaration(context, (Parameter) semanticObject); 
+				sequence_ParameterDeclaration(context, (org.osate.altarica.altarica.Parameter) semanticObject); 
 				return; 
 			case AltaricaPackage.SKIP:
 				sequence_Skip(context, (Skip) semanticObject); 
@@ -165,40 +167,71 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				sequence_VariableDeclaration(context, (Variable) semanticObject); 
 				return; 
 			}
-		if (errorAcceptor != null) errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
+		if (errorAcceptor != null)
+			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Addition
+	 *     LogicalOr returns Addition
+	 *     LogicalOr.LogicalOr_1_0_0 returns Addition
+	 *     LogicalAnd returns Addition
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns Addition
+	 *     Relation returns Addition
+	 *     Relation.Equal_1_0_0 returns Addition
+	 *     Addition returns Addition
+	 *     Addition.Addition_1_0_0 returns Addition
+	 *     Multiplication returns Addition
+	 *     Multiplication.Multiplication_1_0_0 returns Addition
+	 *     Neg returns Addition
+	 *     Atom returns Addition
+	 *
 	 * Constraint:
 	 *     (left=Addition_Addition_1_0_0 (op='+' | op='-') right=Multiplication)
 	 */
-	protected void sequence_Addition(EObject context, Addition semanticObject) {
+	protected void sequence_Addition(ISerializationContext context, Addition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Instruction returns Assignment
+	 *     Assignment returns Assignment
+	 *
 	 * Constraint:
 	 *     (variable=NameRef value=Expression)
 	 */
-	protected void sequence_Assignment(EObject context, Assignment semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Assignment(ISerializationContext context, Assignment semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.ASSIGNMENT__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.ASSIGNMENT__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.ASSIGNMENT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.ASSIGNMENT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getAssignmentAccess().getVariableNameRefParserRuleCall_1_0(), semanticObject.getVariable());
+		feeder.accept(grammarAccess.getAssignmentAccess().getValueExpressionParserRuleCall_3_0(), semanticObject.getValue());
+		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Attribute returns Attribute
+	 *
 	 * Constraint:
 	 *     (name=ID value=Expression)
 	 */
-	protected void sequence_Attribute(EObject context, Attribute semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+	protected void sequence_Attribute(ISerializationContext context, Attribute semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.ATTRIBUTE__VALUE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.ATTRIBUTE__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.ATTRIBUTE__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getAttributeAccess().getValueExpressionParserRuleCall_3_0(), semanticObject.getValue());
 		feeder.finish();
@@ -206,52 +239,77 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Type returns BaseType
+	 *     BaseType returns BaseType
+	 *
 	 * Constraint:
 	 *     name=BaseTypeEnum
 	 */
-	protected void sequence_BaseType(EObject context, BaseType semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.BASE_TYPE__NAME) == ValueTransient.YES)
+	protected void sequence_BaseType(ISerializationContext context, BaseType semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.BASE_TYPE__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.BASE_TYPE__NAME));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getBaseTypeAccess().getNameBaseTypeEnumEnumRuleCall_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Instruction returns Block
+	 *     Block returns Block
+	 *
 	 * Constraint:
 	 *     instructions+=Instruction+
 	 */
-	protected void sequence_Block(EObject context, Block semanticObject) {
+	protected void sequence_Block(ISerializationContext context, Block semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns ARBoolean
+	 *     LogicalOr returns ARBoolean
+	 *     LogicalOr.LogicalOr_1_0_0 returns ARBoolean
+	 *     LogicalAnd returns ARBoolean
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns ARBoolean
+	 *     Relation returns ARBoolean
+	 *     Relation.Equal_1_0_0 returns ARBoolean
+	 *     Addition returns ARBoolean
+	 *     Addition.Addition_1_0_0 returns ARBoolean
+	 *     Multiplication returns ARBoolean
+	 *     Multiplication.Multiplication_1_0_0 returns ARBoolean
+	 *     Neg returns ARBoolean
+	 *     Atom returns ARBoolean
+	 *     BooleanLiteral returns ARBoolean
+	 *
 	 * Constraint:
 	 *     (value='true' | value='false')
 	 */
-	protected void sequence_BooleanLiteral(EObject context, ARBoolean semanticObject) {
+	protected void sequence_BooleanLiteral(ISerializationContext context, ARBoolean semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     CaseExpression returns CaseExpression
+	 *
 	 * Constraint:
 	 *     (condition=LogicalOr case=Expression)
 	 */
-	protected void sequence_CaseExpression(EObject context, CaseExpression semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CONDITION) == ValueTransient.YES)
+	protected void sequence_CaseExpression(ISerializationContext context, CaseExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CONDITION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CONDITION));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CASE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CASE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.CASE_EXPRESSION__CASE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_1_0(), semanticObject.getCondition());
 		feeder.accept(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_3_0(), semanticObject.getCase());
 		feeder.finish();
@@ -259,63 +317,97 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     AbstractDeclaration returns Node
+	 *     Class returns Node
+	 *
 	 * Constraint:
 	 *     (name=ID declarations+=Declaration* transitions+=LabeledTransition* assertions+=Instruction*)
 	 */
-	protected void sequence_Class(EObject context, Node semanticObject) {
+	protected void sequence_Class(ISerializationContext context, Node semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Instruction returns Conditional
+	 *     Conditional returns Conditional
+	 *
 	 * Constraint:
 	 *     (condition=Expression then=Instruction else=Instruction?)
 	 */
-	protected void sequence_Conditional(EObject context, Conditional semanticObject) {
+	protected void sequence_Conditional(ISerializationContext context, Conditional semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     AbstractDeclaration returns Domain
+	 *     Domain returns Domain
+	 *
 	 * Constraint:
 	 *     (name=ID (constants+=SymbolicConstant constants+=SymbolicConstant*)?)
 	 */
-	protected void sequence_Domain(EObject context, Domain semanticObject) {
+	protected void sequence_Domain(ISerializationContext context, Domain semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Declaration returns Event
+	 *     EventDeclaration returns Event
+	 *
 	 * Constraint:
 	 *     (name=ID (attributes+=Attribute attributes+=Attribute*)?)
 	 */
-	protected void sequence_EventDeclaration(EObject context, Event semanticObject) {
+	protected void sequence_EventDeclaration(ISerializationContext context, Event semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns FunctionCall
+	 *     LogicalOr returns FunctionCall
+	 *     LogicalOr.LogicalOr_1_0_0 returns FunctionCall
+	 *     LogicalAnd returns FunctionCall
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns FunctionCall
+	 *     Relation returns FunctionCall
+	 *     Relation.Equal_1_0_0 returns FunctionCall
+	 *     Addition returns FunctionCall
+	 *     Addition.Addition_1_0_0 returns FunctionCall
+	 *     Multiplication returns FunctionCall
+	 *     Multiplication.Multiplication_1_0_0 returns FunctionCall
+	 *     Neg returns FunctionCall
+	 *     Atom returns FunctionCall
+	 *     FunctionCall returns FunctionCall
+	 *
 	 * Constraint:
 	 *     ((name='exponential' | name='Dirac' | name='constant') (parameters+=Expression parameters+=Expression*)?)
 	 */
-	protected void sequence_FunctionCall(EObject context, FunctionCall semanticObject) {
+	protected void sequence_FunctionCall(ISerializationContext context, FunctionCall semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     LabeledTransition returns LabeledTransition
+	 *
 	 * Constraint:
 	 *     (event=NameRef expression=TransitionAnd)
 	 */
-	protected void sequence_LabeledTransition(EObject context, LabeledTransition semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LABELED_TRANSITION__EVENT) == ValueTransient.YES)
+	protected void sequence_LabeledTransition(ISerializationContext context, LabeledTransition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LABELED_TRANSITION__EVENT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LABELED_TRANSITION__EVENT));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LABELED_TRANSITION__EXPRESSION) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LABELED_TRANSITION__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LABELED_TRANSITION__EXPRESSION));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLabeledTransitionAccess().getEventNameRefParserRuleCall_0_0(), semanticObject.getEvent());
 		feeder.accept(grammarAccess.getLabeledTransitionAccess().getExpressionTransitionAndParserRuleCall_2_0(), semanticObject.getExpression());
 		feeder.finish();
@@ -323,20 +415,34 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns LogicalAnd
+	 *     LogicalOr returns LogicalAnd
+	 *     LogicalOr.LogicalOr_1_0_0 returns LogicalAnd
+	 *     LogicalAnd returns LogicalAnd
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns LogicalAnd
+	 *     Relation returns LogicalAnd
+	 *     Relation.Equal_1_0_0 returns LogicalAnd
+	 *     Addition returns LogicalAnd
+	 *     Addition.Addition_1_0_0 returns LogicalAnd
+	 *     Multiplication returns LogicalAnd
+	 *     Multiplication.Multiplication_1_0_0 returns LogicalAnd
+	 *     Neg returns LogicalAnd
+	 *     Atom returns LogicalAnd
+	 *
 	 * Constraint:
 	 *     (left=LogicalAnd_LogicalAnd_1_0_0 op='and' right=Relation)
 	 */
-	protected void sequence_LogicalAnd(EObject context, LogicalAnd semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__LEFT) == ValueTransient.YES)
+	protected void sequence_LogicalAnd(ISerializationContext context, LogicalAnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__LEFT));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__OP) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__OP) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__OP));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0(), semanticObject.getRight());
@@ -345,20 +451,34 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns LogicalOr
+	 *     LogicalOr returns LogicalOr
+	 *     LogicalOr.LogicalOr_1_0_0 returns LogicalOr
+	 *     LogicalAnd returns LogicalOr
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns LogicalOr
+	 *     Relation returns LogicalOr
+	 *     Relation.Equal_1_0_0 returns LogicalOr
+	 *     Addition returns LogicalOr
+	 *     Addition.Addition_1_0_0 returns LogicalOr
+	 *     Multiplication returns LogicalOr
+	 *     Multiplication.Multiplication_1_0_0 returns LogicalOr
+	 *     Neg returns LogicalOr
+	 *     Atom returns LogicalOr
+	 *
 	 * Constraint:
 	 *     (left=LogicalOr_LogicalOr_1_0_0 op='or' right=LogicalAnd)
 	 */
-	protected void sequence_LogicalOr(EObject context, LogicalOr semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__LEFT) == ValueTransient.YES)
+	protected void sequence_LogicalOr(ISerializationContext context, LogicalOr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__LEFT));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__OP) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__OP) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__OP));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0(), semanticObject.getOp());
 		feeder.accept(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0(), semanticObject.getRight());
@@ -367,111 +487,195 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Model returns Model
+	 *
 	 * Constraint:
-	 *     declarations+=AbstractDeclaration*
+	 *     declarations+=AbstractDeclaration+
 	 */
-	protected void sequence_Model(EObject context, Model semanticObject) {
+	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Multiplication
+	 *     LogicalOr returns Multiplication
+	 *     LogicalOr.LogicalOr_1_0_0 returns Multiplication
+	 *     LogicalAnd returns Multiplication
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns Multiplication
+	 *     Relation returns Multiplication
+	 *     Relation.Equal_1_0_0 returns Multiplication
+	 *     Addition returns Multiplication
+	 *     Addition.Addition_1_0_0 returns Multiplication
+	 *     Multiplication returns Multiplication
+	 *     Multiplication.Multiplication_1_0_0 returns Multiplication
+	 *     Neg returns Multiplication
+	 *     Atom returns Multiplication
+	 *
 	 * Constraint:
 	 *     (left=Multiplication_Multiplication_1_0_0 (op='*' | op='/') right=Neg)
 	 */
-	protected void sequence_Multiplication(EObject context, Multiplication semanticObject) {
+	protected void sequence_Multiplication(ISerializationContext context, Multiplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns NameRef
+	 *     LogicalOr returns NameRef
+	 *     LogicalOr.LogicalOr_1_0_0 returns NameRef
+	 *     LogicalAnd returns NameRef
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns NameRef
+	 *     Relation returns NameRef
+	 *     Relation.Equal_1_0_0 returns NameRef
+	 *     Addition returns NameRef
+	 *     Addition.Addition_1_0_0 returns NameRef
+	 *     Multiplication returns NameRef
+	 *     Multiplication.Multiplication_1_0_0 returns NameRef
+	 *     Neg returns NameRef
+	 *     Atom returns NameRef
+	 *     NameRef returns NameRef
+	 *     NameRef.NameRef_1_0_0 returns NameRef
+	 *
 	 * Constraint:
-	 *     ((nested=NameRef_NameRef_1_0_0 variable=[NamedElement|ID]) | variable=[NamedElement|ID])
+	 *     (variable=[NamedElement|ID] | (nested=NameRef_NameRef_1_0_0 variable=[NamedElement|ID]))
 	 */
-	protected void sequence_NameRef(EObject context, NameRef semanticObject) {
+	protected void sequence_NameRef(ISerializationContext context, NameRef semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Type returns NamedType
+	 *     NamedType returns NamedType
+	 *
 	 * Constraint:
 	 *     ref=[NamedElement|ID]
 	 */
-	protected void sequence_NamedType(EObject context, NamedType semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_TYPE__REF) == ValueTransient.YES)
+	protected void sequence_NamedType(ISerializationContext context, NamedType semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_TYPE__REF) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_TYPE__REF));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
-		feeder.accept(grammarAccess.getNamedTypeAccess().getRefNamedElementIDTerminalRuleCall_0_1(), semanticObject.getRef());
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNamedTypeAccess().getRefNamedElementIDTerminalRuleCall_0_1(), semanticObject.eGet(AltaricaPackage.Literals.NAMED_TYPE__REF, false));
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Minus
+	 *     LogicalOr returns Minus
+	 *     LogicalOr.LogicalOr_1_0_0 returns Minus
+	 *     LogicalAnd returns Minus
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns Minus
+	 *     Relation returns Minus
+	 *     Relation.Equal_1_0_0 returns Minus
+	 *     Addition returns Minus
+	 *     Addition.Addition_1_0_0 returns Minus
+	 *     Multiplication returns Minus
+	 *     Multiplication.Multiplication_1_0_0 returns Minus
+	 *     Neg returns Minus
+	 *     Atom returns Minus
+	 *
 	 * Constraint:
 	 *     expression=Atom
 	 */
-	protected void sequence_Neg(EObject context, Minus semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.MINUS__EXPRESSION) == ValueTransient.YES)
+	protected void sequence_Neg(ISerializationContext context, Minus semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.MINUS__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.MINUS__EXPRESSION));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_1_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Not
+	 *     LogicalOr returns Not
+	 *     LogicalOr.LogicalOr_1_0_0 returns Not
+	 *     LogicalAnd returns Not
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns Not
+	 *     Relation returns Not
+	 *     Relation.Equal_1_0_0 returns Not
+	 *     Addition returns Not
+	 *     Addition.Addition_1_0_0 returns Not
+	 *     Multiplication returns Not
+	 *     Multiplication.Multiplication_1_0_0 returns Not
+	 *     Neg returns Not
+	 *     Atom returns Not
+	 *
 	 * Constraint:
 	 *     expression=Atom
 	 */
-	protected void sequence_Neg(EObject context, Not semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NOT__EXPRESSION) == ValueTransient.YES)
+	protected void sequence_Neg(ISerializationContext context, Not semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NOT__EXPRESSION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NOT__EXPRESSION));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_0_2_0(), semanticObject.getExpression());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns ARNumber
+	 *     LogicalOr returns ARNumber
+	 *     LogicalOr.LogicalOr_1_0_0 returns ARNumber
+	 *     LogicalAnd returns ARNumber
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns ARNumber
+	 *     Relation returns ARNumber
+	 *     Relation.Equal_1_0_0 returns ARNumber
+	 *     Addition returns ARNumber
+	 *     Addition.Addition_1_0_0 returns ARNumber
+	 *     Multiplication returns ARNumber
+	 *     Multiplication.Multiplication_1_0_0 returns ARNumber
+	 *     Neg returns ARNumber
+	 *     Atom returns ARNumber
+	 *     NumberLiteral returns ARNumber
+	 *
 	 * Constraint:
 	 *     value=NUMBER
 	 */
-	protected void sequence_NumberLiteral(EObject context, ARNumber semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.AR_NUMBER__VALUE) == ValueTransient.YES)
+	protected void sequence_NumberLiteral(ISerializationContext context, ARNumber semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.AR_NUMBER__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.AR_NUMBER__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getNumberLiteralAccess().getValueNUMBERTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Declaration returns Observer
+	 *     ObserverDeclaration returns Observer
+	 *
 	 * Constraint:
 	 *     (type=Type name=ID value=Expression)
 	 */
-	protected void sequence_ObserverDeclaration(EObject context, Observer semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.OBSERVER__TYPE) == ValueTransient.YES)
+	protected void sequence_ObserverDeclaration(ISerializationContext context, Observer semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.OBSERVER__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.OBSERVER__TYPE));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.OBSERVER__VALUE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.OBSERVER__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.OBSERVER__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getObserverDeclarationAccess().getTypeTypeParserRuleCall_2_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getObserverDeclarationAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getObserverDeclarationAccess().getValueExpressionParserRuleCall_5_0(), semanticObject.getValue());
@@ -480,20 +684,23 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Declaration returns Parameter
+	 *     ParameterDeclaration returns Parameter
+	 *
 	 * Constraint:
 	 *     (type=Type name=ID value=Expression)
 	 */
-	protected void sequence_ParameterDeclaration(EObject context, Parameter semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
+	protected void sequence_ParameterDeclaration(ISerializationContext context, org.osate.altarica.altarica.Parameter semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.PARAMETER__TYPE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.PARAMETER__TYPE));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.PARAMETER__VALUE) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.PARAMETER__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.PARAMETER__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getParameterDeclarationAccess().getTypeTypeParserRuleCall_2_0(), semanticObject.getType());
 		feeder.accept(grammarAccess.getParameterDeclarationAccess().getNameIDTerminalRuleCall_3_0(), semanticObject.getName());
 		feeder.accept(grammarAccess.getParameterDeclarationAccess().getValueExpressionParserRuleCall_5_0(), semanticObject.getValue());
@@ -502,6 +709,21 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns Equal
+	 *     LogicalOr returns Equal
+	 *     LogicalOr.LogicalOr_1_0_0 returns Equal
+	 *     LogicalAnd returns Equal
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns Equal
+	 *     Relation returns Equal
+	 *     Relation.Equal_1_0_0 returns Equal
+	 *     Addition returns Equal
+	 *     Addition.Addition_1_0_0 returns Equal
+	 *     Multiplication returns Equal
+	 *     Multiplication.Multiplication_1_0_0 returns Equal
+	 *     Neg returns Equal
+	 *     Atom returns Equal
+	 *
 	 * Constraint:
 	 *     (
 	 *         left=Relation_Equal_1_0_0 
@@ -516,83 +738,127 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *         right=Addition
 	 *     )
 	 */
-	protected void sequence_Relation(EObject context, Equal semanticObject) {
+	protected void sequence_Relation(ISerializationContext context, Equal semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Instruction returns Skip
+	 *     Skip returns Skip
+	 *
 	 * Constraint:
 	 *     {Skip}
 	 */
-	protected void sequence_Skip(EObject context, Skip semanticObject) {
+	protected void sequence_Skip(ISerializationContext context, Skip semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns ARString
+	 *     LogicalOr returns ARString
+	 *     LogicalOr.LogicalOr_1_0_0 returns ARString
+	 *     LogicalAnd returns ARString
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns ARString
+	 *     Relation returns ARString
+	 *     Relation.Equal_1_0_0 returns ARString
+	 *     Addition returns ARString
+	 *     Addition.Addition_1_0_0 returns ARString
+	 *     Multiplication returns ARString
+	 *     Multiplication.Multiplication_1_0_0 returns ARString
+	 *     Neg returns ARString
+	 *     Atom returns ARString
+	 *     StringLiteral returns ARString
+	 *
 	 * Constraint:
 	 *     value=STRING
 	 */
-	protected void sequence_StringLiteral(EObject context, ARString semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.AR_STRING__VALUE) == ValueTransient.YES)
+	protected void sequence_StringLiteral(ISerializationContext context, ARString semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.AR_STRING__VALUE) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.AR_STRING__VALUE));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Expression returns SwitchExpression
+	 *     LogicalOr returns SwitchExpression
+	 *     LogicalOr.LogicalOr_1_0_0 returns SwitchExpression
+	 *     LogicalAnd returns SwitchExpression
+	 *     LogicalAnd.LogicalAnd_1_0_0 returns SwitchExpression
+	 *     Relation returns SwitchExpression
+	 *     Relation.Equal_1_0_0 returns SwitchExpression
+	 *     Addition returns SwitchExpression
+	 *     Addition.Addition_1_0_0 returns SwitchExpression
+	 *     Multiplication returns SwitchExpression
+	 *     Multiplication.Multiplication_1_0_0 returns SwitchExpression
+	 *     Neg returns SwitchExpression
+	 *     Atom returns SwitchExpression
+	 *     SwitchExpression returns SwitchExpression
+	 *
 	 * Constraint:
 	 *     (cases+=CaseExpression* default=Expression)
 	 */
-	protected void sequence_SwitchExpression(EObject context, SwitchExpression semanticObject) {
+	protected void sequence_SwitchExpression(ISerializationContext context, SwitchExpression semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     Instruction returns Instruction
+	 *     Switch returns Instruction
+	 *
 	 * Constraint:
 	 *     (cases+=CaseExpression* else=Expression)
 	 */
-	protected void sequence_Switch(EObject context, Instruction semanticObject) {
+	protected void sequence_Switch(ISerializationContext context, Instruction semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     SymbolicConstant returns SymbolicConstant
+	 *
 	 * Constraint:
 	 *     name=ID
 	 */
-	protected void sequence_SymbolicConstant(EObject context, SymbolicConstant semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
+	protected void sequence_SymbolicConstant(ISerializationContext context, SymbolicConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.NAMED_ELEMENT__NAME));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getSymbolicConstantAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
 		feeder.finish();
 	}
 	
 	
 	/**
+	 * Contexts:
+	 *     TransitionAnd returns TransitionAnd
+	 *     TransitionAnd.TransitionAnd_1_0 returns TransitionAnd
+	 *
 	 * Constraint:
 	 *     (left=TransitionAnd_TransitionAnd_1_0 right=TransitionOr)
 	 */
-	protected void sequence_TransitionAnd(EObject context, TransitionAnd semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_AND__LEFT) == ValueTransient.YES)
+	protected void sequence_TransitionAnd(ISerializationContext context, TransitionAnd semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_AND__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.TRANSITION_AND__LEFT));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_AND__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_AND__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.TRANSITION_AND__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTransitionAndAccess().getTransitionAndLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getTransitionAndAccess().getRightTransitionOrParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
@@ -600,18 +866,23 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     TransitionAnd returns TransitionOr
+	 *     TransitionAnd.TransitionAnd_1_0 returns TransitionOr
+	 *     TransitionOr returns TransitionOr
+	 *     TransitionOr.TransitionOr_1_0 returns TransitionOr
+	 *
 	 * Constraint:
 	 *     (left=TransitionOr_TransitionOr_1_0 right=Transition)
 	 */
-	protected void sequence_TransitionOr(EObject context, TransitionOr semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_OR__LEFT) == ValueTransient.YES)
+	protected void sequence_TransitionOr(ISerializationContext context, TransitionOr semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_OR__LEFT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.TRANSITION_OR__LEFT));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_OR__RIGHT) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION_OR__RIGHT) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.TRANSITION_OR__RIGHT));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTransitionOrAccess().getTransitionOrLeftAction_1_0(), semanticObject.getLeft());
 		feeder.accept(grammarAccess.getTransitionOrAccess().getRightTransitionParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
@@ -619,18 +890,24 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     TransitionAnd returns Transition
+	 *     TransitionAnd.TransitionAnd_1_0 returns Transition
+	 *     TransitionOr returns Transition
+	 *     TransitionOr.TransitionOr_1_0 returns Transition
+	 *     Transition returns Transition
+	 *
 	 * Constraint:
 	 *     (guard=Expression action=Instruction)
 	 */
-	protected void sequence_Transition(EObject context, Transition semanticObject) {
-		if(errorAcceptor != null) {
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION__GUARD) == ValueTransient.YES)
+	protected void sequence_Transition(ISerializationContext context, Transition semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION__GUARD) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.TRANSITION__GUARD));
-			if(transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION__ACTION) == ValueTransient.YES)
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.TRANSITION__ACTION) == ValueTransient.YES)
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.TRANSITION__ACTION));
 		}
-		INodesForEObjectProvider nodes = createNodeProvider(semanticObject);
-		SequenceFeeder feeder = createSequencerFeeder(semanticObject, nodes);
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
 		feeder.accept(grammarAccess.getTransitionAccess().getGuardExpressionParserRuleCall_1_0(), semanticObject.getGuard());
 		feeder.accept(grammarAccess.getTransitionAccess().getActionInstructionParserRuleCall_3_0(), semanticObject.getAction());
 		feeder.finish();
@@ -638,10 +915,16 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	
 	/**
+	 * Contexts:
+	 *     Declaration returns Variable
+	 *     VariableDeclaration returns Variable
+	 *
 	 * Constraint:
 	 *     (type=Type name=ID (attributes+=Attribute attributes+=Attribute*)?)
 	 */
-	protected void sequence_VariableDeclaration(EObject context, Variable semanticObject) {
+	protected void sequence_VariableDeclaration(ISerializationContext context, Variable semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
+	
+	
 }

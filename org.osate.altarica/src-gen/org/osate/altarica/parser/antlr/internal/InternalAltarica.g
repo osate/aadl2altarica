@@ -91,7 +91,7 @@ ruleModel returns [EObject current=null]
        			$current, 
        			"declarations",
         		lv_declarations_0_0, 
-        		"AbstractDeclaration");
+        		"org.osate.altarica.Altarica.AbstractDeclaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -181,7 +181,7 @@ ruleDomain returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -202,7 +202,7 @@ ruleDomain returns [EObject current=null]
        			$current, 
        			"constants",
         		lv_constants_4_0, 
-        		"SymbolicConstant");
+        		"org.osate.altarica.Altarica.SymbolicConstant");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -224,7 +224,7 @@ ruleDomain returns [EObject current=null]
        			$current, 
        			"constants",
         		lv_constants_6_0, 
-        		"SymbolicConstant");
+        		"org.osate.altarica.Altarica.SymbolicConstant");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -274,7 +274,7 @@ ruleSymbolicConstant returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -352,7 +352,7 @@ ruleBaseType returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_0_0, 
-        		"BaseTypeEnum");
+        		"org.osate.altarica.Altarica.BaseTypeEnum");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -436,7 +436,7 @@ ruleClass returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -453,7 +453,7 @@ ruleClass returns [EObject current=null]
        			$current, 
        			"declarations",
         		lv_declarations_3_0, 
-        		"Declaration");
+        		"org.osate.altarica.Altarica.Declaration");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -475,7 +475,7 @@ ruleClass returns [EObject current=null]
        			$current, 
        			"transitions",
         		lv_transitions_5_0, 
-        		"LabeledTransition");
+        		"org.osate.altarica.Altarica.LabeledTransition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -497,7 +497,7 @@ ruleClass returns [EObject current=null]
        			$current, 
        			"assertions",
         		lv_assertions_7_0, 
-        		"Instruction");
+        		"org.osate.altarica.Altarica.Instruction");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -606,7 +606,7 @@ ruleVariableDeclaration returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_1_0, 
-        		"Type");
+        		"org.osate.altarica.Altarica.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -625,7 +625,7 @@ ruleVariableDeclaration returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -646,7 +646,7 @@ ruleVariableDeclaration returns [EObject current=null]
        			$current, 
        			"attributes",
         		lv_attributes_4_0, 
-        		"Attribute");
+        		"org.osate.altarica.Altarica.Attribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -668,7 +668,7 @@ ruleVariableDeclaration returns [EObject current=null]
        			$current, 
        			"attributes",
         		lv_attributes_6_0, 
-        		"Attribute");
+        		"org.osate.altarica.Altarica.Attribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -722,7 +722,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_1_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -743,7 +743,7 @@ ruleAttribute returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_3_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -793,7 +793,7 @@ ruleEventDeclaration returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_2_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -814,7 +814,7 @@ ruleEventDeclaration returns [EObject current=null]
        			$current, 
        			"attributes",
         		lv_attributes_4_0, 
-        		"Attribute");
+        		"org.osate.altarica.Altarica.Attribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -836,7 +836,7 @@ ruleEventDeclaration returns [EObject current=null]
        			$current, 
        			"attributes",
         		lv_attributes_6_0, 
-        		"Attribute");
+        		"org.osate.altarica.Altarica.Attribute");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -893,7 +893,7 @@ ruleParameterDeclaration returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_2_0, 
-        		"Type");
+        		"org.osate.altarica.Altarica.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -912,7 +912,7 @@ ruleParameterDeclaration returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -933,7 +933,7 @@ ruleParameterDeclaration returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_5_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -986,7 +986,7 @@ ruleObserverDeclaration returns [EObject current=null]
        			$current, 
        			"type",
         		lv_type_2_0, 
-        		"Type");
+        		"org.osate.altarica.Altarica.Type");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1005,7 +1005,7 @@ ruleObserverDeclaration returns [EObject current=null]
        			$current, 
        			"name",
         		lv_name_3_0, 
-        		"ID");
+        		"org.osate.altarica.Altarica.ID");
 	    }
 
 )
@@ -1026,7 +1026,7 @@ ruleObserverDeclaration returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_5_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1069,7 +1069,7 @@ ruleLabeledTransition returns [EObject current=null]
        			$current, 
        			"event",
         		lv_event_0_0, 
-        		"NameRef");
+        		"org.osate.altarica.Altarica.NameRef");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1091,7 +1091,7 @@ ruleLabeledTransition returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_2_0, 
-        		"TransitionAnd");
+        		"org.osate.altarica.Altarica.TransitionAnd");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1149,7 +1149,7 @@ ruleTransitionAnd returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"TransitionOr");
+        		"org.osate.altarica.Altarica.TransitionOr");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1207,7 +1207,7 @@ ruleTransitionOr returns [EObject current=null]
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Transition");
+        		"org.osate.altarica.Altarica.Transition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1252,7 +1252,7 @@ ruleTransition returns [EObject current=null]
        			$current, 
        			"guard",
         		lv_guard_1_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1274,7 +1274,7 @@ ruleTransition returns [EObject current=null]
        			$current, 
        			"action",
         		lv_action_3_0, 
-        		"Instruction");
+        		"org.osate.altarica.Altarica.Instruction");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1424,7 +1424,7 @@ ruleAssignment returns [EObject current=null]
        			$current, 
        			"variable",
         		lv_variable_1_0, 
-        		"NameRef");
+        		"org.osate.altarica.Altarica.NameRef");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1446,7 +1446,7 @@ ruleAssignment returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_3_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1499,7 +1499,7 @@ ruleBlock returns [EObject current=null]
        			$current, 
        			"instructions",
         		lv_instructions_2_0, 
-        		"Instruction");
+        		"org.osate.altarica.Altarica.Instruction");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1552,7 +1552,7 @@ ruleConditional returns [EObject current=null]
        			$current, 
        			"condition",
         		lv_condition_2_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1574,7 +1574,7 @@ ruleConditional returns [EObject current=null]
        			$current, 
        			"then",
         		lv_then_4_0, 
-        		"Instruction");
+        		"org.osate.altarica.Altarica.Instruction");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1597,7 +1597,7 @@ ruleConditional returns [EObject current=null]
        			$current, 
        			"else",
         		lv_else_6_0, 
-        		"Instruction");
+        		"org.osate.altarica.Altarica.Instruction");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1648,7 +1648,7 @@ ruleSwitch returns [EObject current=null]
        			$current, 
        			"cases",
         		lv_cases_2_0, 
-        		"CaseExpression");
+        		"org.osate.altarica.Altarica.CaseExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1674,7 +1674,7 @@ ruleSwitch returns [EObject current=null]
        			$current, 
        			"else",
         		lv_else_5_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1788,7 +1788,7 @@ ruleLogicalAnd
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"LogicalAnd");
+        		"org.osate.altarica.Altarica.LogicalAnd");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -1868,7 +1868,7 @@ ruleRelation
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Relation");
+        		"org.osate.altarica.Altarica.Relation");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2029,7 +2029,7 @@ ruleAddition
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Addition");
+        		"org.osate.altarica.Altarica.Addition");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2130,7 +2130,7 @@ ruleMultiplication
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Multiplication");
+        		"org.osate.altarica.Altarica.Multiplication");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2231,7 +2231,7 @@ ruleNeg
        			$current, 
        			"right",
         		lv_right_3_0, 
-        		"Neg");
+        		"org.osate.altarica.Altarica.Neg");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2281,7 +2281,7 @@ ruleNeg returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_2_0, 
-        		"Atom");
+        		"org.osate.altarica.Altarica.Atom");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2311,7 +2311,7 @@ ruleNeg returns [EObject current=null]
        			$current, 
        			"expression",
         		lv_expression_5_0, 
-        		"Atom");
+        		"org.osate.altarica.Altarica.Atom");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2510,7 +2510,7 @@ ruleStringLiteral returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_0_0, 
-        		"STRING");
+        		"org.osate.altarica.Altarica.STRING");
 	    }
 
 )
@@ -2549,7 +2549,7 @@ ruleNumberLiteral returns [EObject current=null]
        			$current, 
        			"value",
         		lv_value_0_0, 
-        		"NUMBER");
+        		"org.osate.altarica.Altarica.NUMBER");
 	    }
 
 )
@@ -2659,7 +2659,7 @@ ruleSwitchExpression returns [EObject current=null]
        			$current, 
        			"cases",
         		lv_cases_2_0, 
-        		"CaseExpression");
+        		"org.osate.altarica.Altarica.CaseExpression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2685,7 +2685,7 @@ ruleSwitchExpression returns [EObject current=null]
        			$current, 
        			"default",
         		lv_default_5_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2732,7 +2732,7 @@ ruleCaseExpression returns [EObject current=null]
        			$current, 
        			"condition",
         		lv_condition_1_0, 
-        		"LogicalOr");
+        		"org.osate.altarica.Altarica.LogicalOr");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2754,7 +2754,7 @@ ruleCaseExpression returns [EObject current=null]
        			$current, 
        			"case",
         		lv_case_3_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2845,7 +2845,7 @@ ruleFunctionCall returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_3_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
@@ -2867,7 +2867,7 @@ ruleFunctionCall returns [EObject current=null]
        			$current, 
        			"parameters",
         		lv_parameters_5_0, 
-        		"Expression");
+        		"org.osate.altarica.Altarica.Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 

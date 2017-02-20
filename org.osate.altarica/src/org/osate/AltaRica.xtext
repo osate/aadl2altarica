@@ -236,14 +236,18 @@ terminal fragment STRING_ID: "'" (
 		| '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_'
 	)*  "'";
 
+
+@Override
 terminal ID:
 	REGULAR_ID | STRING_ID;
 
+@Override
 terminal STRING: 
 	'"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* '"';
 	
 terminal NUMBER returns ecore::EDouble:
 	DIGIT+ ('.' DIGIT+)? (('e' | 'E') ('+' | '-')? DIGIT+)?;
 	
+@Override
 terminal INT returns ecore::EInt: '_@_this has been deactivated_';
 

@@ -19,7 +19,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Model");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Model");
 		private final Assignment cDeclarationsAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cDeclarationsAbstractDeclarationParserRuleCall_0 = (RuleCall)cDeclarationsAssignment.eContents().get(0);
 		
@@ -35,7 +35,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class AbstractDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "AbstractDeclaration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.AbstractDeclaration");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cDomainParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cClassParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -55,7 +55,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class DomainElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Domain");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Domain");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cDomainAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cDomainKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -72,17 +72,18 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
 		//// Domains ===============================================================
-		//Domain returns NamedElement:
-		//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}";
+		//Domain NamedElement:
+		//	{Domain}
+		//	'domain' name=ID '{' (constants+=SymbolicConstant (',' constants+=SymbolicConstant)*)? '}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}"
+		//{Domain} 'domain' name=ID '{' (constants+=SymbolicConstant (',' constants+=SymbolicConstant)*)? '}'
 		public Group getGroup() { return cGroup; }
 
 		//{Domain}
 		public Action getDomainAction_0() { return cDomainAction_0; }
 
-		//"domain"
+		//'domain'
 		public Keyword getDomainKeyword_1() { return cDomainKeyword_1; }
 
 		//name=ID
@@ -91,10 +92,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_3() { return cLeftCurlyBracketKeyword_3; }
 
-		//(constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)?
+		//(constants+=SymbolicConstant (',' constants+=SymbolicConstant)*)?
 		public Group getGroup_4() { return cGroup_4; }
 
 		//constants+=SymbolicConstant
@@ -103,10 +104,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//SymbolicConstant
 		public RuleCall getConstantsSymbolicConstantParserRuleCall_4_0_0() { return cConstantsSymbolicConstantParserRuleCall_4_0_0; }
 
-		//("," constants+=SymbolicConstant)*
+		//(',' constants+=SymbolicConstant)*
 		public Group getGroup_4_1() { return cGroup_4_1; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
 
 		//constants+=SymbolicConstant
@@ -115,18 +116,18 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//SymbolicConstant
 		public RuleCall getConstantsSymbolicConstantParserRuleCall_4_1_1_0() { return cConstantsSymbolicConstantParserRuleCall_4_1_1_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_5() { return cRightCurlyBracketKeyword_5; }
 	}
 
 	public class SymbolicConstantElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SymbolicConstant");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.SymbolicConstant");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSymbolicConstantAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
 		
-		//SymbolicConstant returns NamedElement:
+		//SymbolicConstant NamedElement:
 		//	{SymbolicConstant} name=ID;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -144,13 +145,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class TypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Type");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Type");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBaseTypeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cNamedTypeParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
 		//Type:
-		//	BaseType | NamedType;
+		//	=> BaseType | NamedType;
 		@Override public ParserRule getRule() { return rule; }
 
 		//=> BaseType | NamedType
@@ -164,7 +165,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class BaseTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BaseType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.BaseType");
 		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cNameBaseTypeEnumEnumRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
 		
@@ -180,7 +181,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class NamedTypeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NamedType");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.NamedType");
 		private final Assignment cRefAssignment = (Assignment)rule.eContents().get(1);
 		private final CrossReference cRefNamedElementCrossReference_0 = (CrossReference)cRefAssignment.eContents().get(0);
 		private final RuleCall cRefNamedElementIDTerminalRuleCall_0_1 = (RuleCall)cRefNamedElementCrossReference_0.eContents().get(1);
@@ -200,7 +201,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class ClassElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Class");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Class");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cNodeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cClassKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -219,19 +220,23 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEndKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//// Classes ===============================================================
-		//Class returns NamedElement:
-		//	{Node} "class" name=ID declarations+=Declaration* ("transition" transitions+=LabeledTransition+)? ("assertion"
-		//	assertions+=Instruction+)? "end";
+		//Class NamedElement:
+		//	{Node}
+		//	'class' name=ID
+		//	declarations+=Declaration* ('transition'
+		//	transitions+=LabeledTransition+)? ('assertion'
+		//	assertions+=Instruction+)?
+		//	'end';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Node} "class" name=ID declarations+=Declaration* ("transition" transitions+=LabeledTransition+)? ("assertion"
-		//assertions+=Instruction+)? "end"
+		//{Node} 'class' name=ID declarations+=Declaration* ('transition' transitions+=LabeledTransition+)? ('assertion'
+		//assertions+=Instruction+)? 'end'
 		public Group getGroup() { return cGroup; }
 
 		//{Node}
 		public Action getNodeAction_0() { return cNodeAction_0; }
 
-		//"class"
+		//'class'
 		public Keyword getClassKeyword_1() { return cClassKeyword_1; }
 
 		//name=ID
@@ -246,10 +251,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Declaration
 		public RuleCall getDeclarationsDeclarationParserRuleCall_3_0() { return cDeclarationsDeclarationParserRuleCall_3_0; }
 
-		//("transition" transitions+=LabeledTransition+)?
+		//('transition' transitions+=LabeledTransition+)?
 		public Group getGroup_4() { return cGroup_4; }
 
-		//"transition"
+		//'transition'
 		public Keyword getTransitionKeyword_4_0() { return cTransitionKeyword_4_0; }
 
 		//transitions+=LabeledTransition+
@@ -258,10 +263,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//LabeledTransition
 		public RuleCall getTransitionsLabeledTransitionParserRuleCall_4_1_0() { return cTransitionsLabeledTransitionParserRuleCall_4_1_0; }
 
-		//("assertion" assertions+=Instruction+)?
+		//('assertion' assertions+=Instruction+)?
 		public Group getGroup_5() { return cGroup_5; }
 
-		//"assertion"
+		//'assertion'
 		public Keyword getAssertionKeyword_5_0() { return cAssertionKeyword_5_0; }
 
 		//assertions+=Instruction+
@@ -270,12 +275,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Instruction
 		public RuleCall getAssertionsInstructionParserRuleCall_5_1_0() { return cAssertionsInstructionParserRuleCall_5_1_0; }
 
-		//"end"
+		//'end'
 		public Keyword getEndKeyword_6() { return cEndKeyword_6; }
 	}
 
 	public class DeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Declaration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Declaration");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cVariableDeclarationParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cEventDeclarationParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -304,7 +309,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class VariableDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "VariableDeclaration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.VariableDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cVariableAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cTypeAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -322,11 +327,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//VariableDeclaration returns NamedElement:
-		//	{Variable} type=Type name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";";
+		//VariableDeclaration NamedElement:
+		//	{Variable} type=Type name=ID ('(' attributes+=Attribute (',' attributes+=Attribute)* ')')?
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Variable} type=Type name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";"
+		//{Variable} type=Type name=ID ('(' attributes+=Attribute (',' attributes+=Attribute)* ')')? ';'
 		public Group getGroup() { return cGroup; }
 
 		//{Variable}
@@ -344,10 +350,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//("(" attributes+=Attribute ("," attributes+=Attribute)* ")")?
+		//('(' attributes+=Attribute (',' attributes+=Attribute)* ')')?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 
 		//attributes+=Attribute
@@ -356,10 +362,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributesAttributeParserRuleCall_3_1_0() { return cAttributesAttributeParserRuleCall_3_1_0; }
 
-		//("," attributes+=Attribute)*
+		//(',' attributes+=Attribute)*
 		public Group getGroup_3_2() { return cGroup_3_2; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
 
 		//attributes+=Attribute
@@ -368,15 +374,15 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributesAttributeParserRuleCall_3_2_1_0() { return cAttributesAttributeParserRuleCall_3_2_1_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
 
-		//";"
+		//';'
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class AttributeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Attribute");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Attribute");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAttributeAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -385,7 +391,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cValueExpressionParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		
-		//Attribute returns NamedElement:
+		//Attribute NamedElement:
 		//	{Attribute} name=ID "=" value=Expression;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -412,7 +418,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class EventDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "EventDeclaration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.EventDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cEventAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cEventKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -429,17 +435,19 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightParenthesisKeyword_3_3 = (Keyword)cGroup_3.eContents().get(3);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//EventDeclaration returns NamedElement:
-		//	{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";";
+		//EventDeclaration NamedElement:
+		//	{Event}
+		//	'event' name=ID ('(' attributes+=Attribute (',' attributes+=Attribute)* ')')?
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";"
+		//{Event} 'event' name=ID ('(' attributes+=Attribute (',' attributes+=Attribute)* ')')? ';'
 		public Group getGroup() { return cGroup; }
 
 		//{Event}
 		public Action getEventAction_0() { return cEventAction_0; }
 
-		//"event"
+		//'event'
 		public Keyword getEventKeyword_1() { return cEventKeyword_1; }
 
 		//name=ID
@@ -448,10 +456,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_2_0() { return cNameIDTerminalRuleCall_2_0; }
 
-		//("(" attributes+=Attribute ("," attributes+=Attribute)* ")")?
+		//('(' attributes+=Attribute (',' attributes+=Attribute)* ')')?
 		public Group getGroup_3() { return cGroup_3; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_3_0() { return cLeftParenthesisKeyword_3_0; }
 
 		//attributes+=Attribute
@@ -460,10 +468,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributesAttributeParserRuleCall_3_1_0() { return cAttributesAttributeParserRuleCall_3_1_0; }
 
-		//("," attributes+=Attribute)*
+		//(',' attributes+=Attribute)*
 		public Group getGroup_3_2() { return cGroup_3_2; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_3_2_0() { return cCommaKeyword_3_2_0; }
 
 		//attributes+=Attribute
@@ -472,15 +480,15 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Attribute
 		public RuleCall getAttributesAttributeParserRuleCall_3_2_1_0() { return cAttributesAttributeParserRuleCall_3_2_1_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_3_3() { return cRightParenthesisKeyword_3_3; }
 
-		//";"
+		//';'
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class ParameterDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ParameterDeclaration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.ParameterDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cParameterAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cParameterKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -493,17 +501,19 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueExpressionParserRuleCall_5_0 = (RuleCall)cValueAssignment_5.eContents().get(0);
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//ParameterDeclaration returns NamedElement:
-		//	{Parameter} "parameter" type=Type name=ID "=" value=Expression ";";
+		//ParameterDeclaration NamedElement:
+		//	{Parameter}
+		//	'parameter' type=Type name=ID '=' value=Expression
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Parameter} "parameter" type=Type name=ID "=" value=Expression ";"
+		//{Parameter} 'parameter' type=Type name=ID '=' value=Expression ';'
 		public Group getGroup() { return cGroup; }
 
 		//{Parameter}
 		public Action getParameterAction_0() { return cParameterAction_0; }
 
-		//"parameter"
+		//'parameter'
 		public Keyword getParameterKeyword_1() { return cParameterKeyword_1; }
 
 		//type=Type
@@ -518,7 +528,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
-		//"="
+		//'='
 		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
 
 		//value=Expression
@@ -527,12 +537,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getValueExpressionParserRuleCall_5_0() { return cValueExpressionParserRuleCall_5_0; }
 
-		//";"
+		//';'
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class ObserverDeclarationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ObserverDeclaration");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.ObserverDeclaration");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cObserverAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cObserverKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -545,17 +555,19 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueExpressionParserRuleCall_5_0 = (RuleCall)cValueAssignment_5.eContents().get(0);
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//ObserverDeclaration returns NamedElement:
-		//	{Observer} "observer" type=Type name=ID "=" value=Expression ";";
+		//ObserverDeclaration NamedElement:
+		//	{Observer}
+		//	'observer' type=Type name=ID '=' value=Expression
+		//	';';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Observer} "observer" type=Type name=ID "=" value=Expression ";"
+		//{Observer} 'observer' type=Type name=ID '=' value=Expression ';'
 		public Group getGroup() { return cGroup; }
 
 		//{Observer}
 		public Action getObserverAction_0() { return cObserverAction_0; }
 
-		//"observer"
+		//'observer'
 		public Keyword getObserverKeyword_1() { return cObserverKeyword_1; }
 
 		//type=Type
@@ -570,7 +582,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_3_0() { return cNameIDTerminalRuleCall_3_0; }
 
-		//"="
+		//'='
 		public Keyword getEqualsSignKeyword_4() { return cEqualsSignKeyword_4; }
 
 		//value=Expression
@@ -579,12 +591,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getValueExpressionParserRuleCall_5_0() { return cValueExpressionParserRuleCall_5_0; }
 
-		//";"
+		//';'
 		public Keyword getSemicolonKeyword_6() { return cSemicolonKeyword_6; }
 	}
 
 	public class LabeledTransitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LabeledTransition");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.LabeledTransition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cEventAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cEventNameRefParserRuleCall_0_0 = (RuleCall)cEventAssignment_0.eContents().get(0);
@@ -617,7 +629,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class TransitionAndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TransitionAnd");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.TransitionAnd");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cTransitionOrParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -626,23 +638,23 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightTransitionOrParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//TransitionAnd returns TransitionExpression:
-		//	TransitionOr ({TransitionAnd.left=current} "&" right=TransitionOr)*;
+		//TransitionAnd TransitionExpression:
+		//	TransitionOr ({TransitionAnd.left=current} '&' right=TransitionOr)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//TransitionOr ({TransitionAnd.left=current} "&" right=TransitionOr)*
+		//TransitionOr ({TransitionAnd.left=current} '&' right=TransitionOr)*
 		public Group getGroup() { return cGroup; }
 
 		//TransitionOr
 		public RuleCall getTransitionOrParserRuleCall_0() { return cTransitionOrParserRuleCall_0; }
 
-		//({TransitionAnd.left=current} "&" right=TransitionOr)*
+		//({TransitionAnd.left=current} '&' right=TransitionOr)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{TransitionAnd.left=current}
 		public Action getTransitionAndLeftAction_1_0() { return cTransitionAndLeftAction_1_0; }
 
-		//"&"
+		//'&'
 		public Keyword getAmpersandKeyword_1_1() { return cAmpersandKeyword_1_1; }
 
 		//right=TransitionOr
@@ -653,7 +665,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class TransitionOrElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "TransitionOr");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.TransitionOr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cTransitionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -662,23 +674,23 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
 		private final RuleCall cRightTransitionParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
 		
-		//TransitionOr returns TransitionExpression:
-		//	Transition ({TransitionOr.left=current} "|" right=Transition)*;
+		//TransitionOr TransitionExpression:
+		//	Transition ({TransitionOr.left=current} '|' right=Transition)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Transition ({TransitionOr.left=current} "|" right=Transition)*
+		//Transition ({TransitionOr.left=current} '|' right=Transition)*
 		public Group getGroup() { return cGroup; }
 
 		//Transition
 		public RuleCall getTransitionParserRuleCall_0() { return cTransitionParserRuleCall_0; }
 
-		//({TransitionOr.left=current} "|" right=Transition)*
+		//({TransitionOr.left=current} '|' right=Transition)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{TransitionOr.left=current}
 		public Action getTransitionOrLeftAction_1_0() { return cTransitionOrLeftAction_1_0; }
 
-		//"|"
+		//'|'
 		public Keyword getVerticalLineKeyword_1_1() { return cVerticalLineKeyword_1_1; }
 
 		//right=Transition
@@ -689,7 +701,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class TransitionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Transition");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Transition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cTransitionAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cGuardAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -698,11 +710,11 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cActionAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cActionInstructionParserRuleCall_3_0 = (RuleCall)cActionAssignment_3.eContents().get(0);
 		
-		//Transition returns TransitionExpression:
-		//	{Transition} guard=Expression "->" action=Instruction;
+		//Transition TransitionExpression:
+		//	{Transition} guard=Expression '->' action=Instruction;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Transition} guard=Expression "->" action=Instruction
+		//{Transition} guard=Expression '->' action=Instruction
 		public Group getGroup() { return cGroup; }
 
 		//{Transition}
@@ -714,7 +726,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getGuardExpressionParserRuleCall_1_0() { return cGuardExpressionParserRuleCall_1_0; }
 
-		//"->"
+		//'->'
 		public Keyword getHyphenMinusGreaterThanSignKeyword_2() { return cHyphenMinusGreaterThanSignKeyword_2; }
 
 		//action=Instruction
@@ -725,7 +737,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class InstructionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Instruction");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Instruction");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSkipParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cAssignmentParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -758,31 +770,32 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class SkipElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Skip");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Skip");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cSkipAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cSkipKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Keyword cSemicolonKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
-		//Skip returns Instruction:
-		//	{Skip} "skip" ";";
+		//Skip Instruction:
+		//	{Skip}
+		//	'skip' ';';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Skip} "skip" ";"
+		//{Skip} 'skip' ';'
 		public Group getGroup() { return cGroup; }
 
 		//{Skip}
 		public Action getSkipAction_0() { return cSkipAction_0; }
 
-		//"skip"
+		//'skip'
 		public Keyword getSkipKeyword_1() { return cSkipKeyword_1; }
 
-		//";"
+		//';'
 		public Keyword getSemicolonKeyword_2() { return cSemicolonKeyword_2; }
 	}
 
 	public class AssignmentElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Assignment");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Assignment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cAssignmentAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cVariableAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -792,11 +805,11 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueExpressionParserRuleCall_3_0 = (RuleCall)cValueAssignment_3.eContents().get(0);
 		private final Keyword cSemicolonKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//Assignment returns Instruction:
-		//	{Assignment} variable=NameRef ":=" value=Expression ";";
+		//Assignment Instruction:
+		//	{Assignment} variable=NameRef ':=' value=Expression ';';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Assignment} variable=NameRef ":=" value=Expression ";"
+		//{Assignment} variable=NameRef ':=' value=Expression ';'
 		public Group getGroup() { return cGroup; }
 
 		//{Assignment}
@@ -808,7 +821,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//NameRef
 		public RuleCall getVariableNameRefParserRuleCall_1_0() { return cVariableNameRefParserRuleCall_1_0; }
 
-		//":="
+		//':='
 		public Keyword getColonEqualsSignKeyword_2() { return cColonEqualsSignKeyword_2; }
 
 		//value=Expression
@@ -817,12 +830,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getValueExpressionParserRuleCall_3_0() { return cValueExpressionParserRuleCall_3_0; }
 
-		//";"
+		//';'
 		public Keyword getSemicolonKeyword_4() { return cSemicolonKeyword_4; }
 	}
 
 	public class BlockElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Block");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Block");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cBlockAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -830,17 +843,18 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cInstructionsInstructionParserRuleCall_2_0 = (RuleCall)cInstructionsAssignment_2.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//Block returns Instruction:
-		//	{Block} "{" instructions+=Instruction+ "}";
+		//Block Instruction:
+		//	{Block}
+		//	'{' instructions+=Instruction+ '}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Block} "{" instructions+=Instruction+ "}"
+		//{Block} '{' instructions+=Instruction+ '}'
 		public Group getGroup() { return cGroup; }
 
 		//{Block}
 		public Action getBlockAction_0() { return cBlockAction_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//instructions+=Instruction+
@@ -849,12 +863,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Instruction
 		public RuleCall getInstructionsInstructionParserRuleCall_2_0() { return cInstructionsInstructionParserRuleCall_2_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_3() { return cRightCurlyBracketKeyword_3; }
 	}
 
 	public class ConditionalElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Conditional");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Conditional");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cConditionalAction_0 = (Action)cGroup.eContents().get(0);
 		private final Keyword cIfKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -869,17 +883,18 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElseInstructionParserRuleCall_5_1_0 = (RuleCall)cElseAssignment_5_1.eContents().get(0);
 		private final Keyword cSemicolonKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Conditional returns Instruction:
-		//	{Conditional} "if" condition=Expression "then" then=Instruction ("else" else=Instruction)? ";";
+		//Conditional Instruction:
+		//	{Conditional}
+		//	'if' condition=Expression 'then' then=Instruction (=> 'else' else=Instruction)? ";";
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Conditional} "if" condition=Expression "then" then=Instruction ("else" else=Instruction)? ";"
+		//{Conditional} 'if' condition=Expression 'then' then=Instruction (=> 'else' else=Instruction)? ";"
 		public Group getGroup() { return cGroup; }
 
 		//{Conditional}
 		public Action getConditionalAction_0() { return cConditionalAction_0; }
 
-		//"if"
+		//'if'
 		public Keyword getIfKeyword_1() { return cIfKeyword_1; }
 
 		//condition=Expression
@@ -888,7 +903,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getConditionExpressionParserRuleCall_2_0() { return cConditionExpressionParserRuleCall_2_0; }
 
-		//"then"
+		//'then'
 		public Keyword getThenKeyword_3() { return cThenKeyword_3; }
 
 		//then=Instruction
@@ -897,10 +912,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Instruction
 		public RuleCall getThenInstructionParserRuleCall_4_0() { return cThenInstructionParserRuleCall_4_0; }
 
-		//(=> "else" else=Instruction)?
+		//(=> 'else' else=Instruction)?
 		public Group getGroup_5() { return cGroup_5; }
 
-		//=> "else"
+		//=> 'else'
 		public Keyword getElseKeyword_5_0() { return cElseKeyword_5_0; }
 
 		//else=Instruction
@@ -914,7 +929,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class SwitchElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Switch");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Switch");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSwitchKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -926,17 +941,21 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cElseExpressionParserRuleCall_5_0 = (RuleCall)cElseAssignment_5.eContents().get(0);
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
-		//Switch returns Instruction:
-		//	"switch" "{" cases+=CaseExpression* "else" ":" else=Expression "}";
+		//Switch Instruction:
+		//	'switch' '{'
+		//	cases+=CaseExpression*
+		//	'else' ':'
+		//	else=Expression
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"switch" "{" cases+=CaseExpression* "else" ":" else=Expression "}"
+		//'switch' '{' cases+=CaseExpression* 'else' ':' else=Expression '}'
 		public Group getGroup() { return cGroup; }
 
-		//"switch"
+		//'switch'
 		public Keyword getSwitchKeyword_0() { return cSwitchKeyword_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//cases+=CaseExpression*
@@ -945,10 +964,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//CaseExpression
 		public RuleCall getCasesCaseExpressionParserRuleCall_2_0() { return cCasesCaseExpressionParserRuleCall_2_0; }
 
-		//"else"
+		//'else'
 		public Keyword getElseKeyword_3() { return cElseKeyword_3; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 
 		//else=Expression
@@ -957,12 +976,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getElseExpressionParserRuleCall_5_0() { return cElseExpressionParserRuleCall_5_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class ExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Expression");
 		private final RuleCall cLogicalOrParserRuleCall = (RuleCall)rule.eContents().get(1);
 		
 		//// Expressions ===========================================================
@@ -975,7 +994,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class LogicalOrElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LogicalOr");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.LogicalOr");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cLogicalAndParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -986,29 +1005,29 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cRightLogicalAndParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
-		//LogicalOr returns Expression:
-		//	LogicalAnd => ({LogicalOr.left=current} op="or" right=LogicalAnd)*;
+		//LogicalOr Expression:
+		//	LogicalAnd => ({LogicalOr.left=current} op='or' right=LogicalAnd)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//LogicalAnd => ({LogicalOr.left=current} op="or" right=LogicalAnd)*
+		//LogicalAnd => ({LogicalOr.left=current} op='or' right=LogicalAnd)*
 		public Group getGroup() { return cGroup; }
 
 		//LogicalAnd
 		public RuleCall getLogicalAndParserRuleCall_0() { return cLogicalAndParserRuleCall_0; }
 
-		//=> ({LogicalOr.left=current} op="or" right=LogicalAnd)*
+		//=> ({LogicalOr.left=current} op='or' right=LogicalAnd)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{LogicalOr.left=current} op="or" right=LogicalAnd
+		//{LogicalOr.left=current} op='or' right=LogicalAnd
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{LogicalOr.left=current}
 		public Action getLogicalOrLeftAction_1_0_0() { return cLogicalOrLeftAction_1_0_0; }
 
-		//op="or"
+		//op='or'
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"or"
+		//'or'
 		public Keyword getOpOrKeyword_1_0_1_0() { return cOpOrKeyword_1_0_1_0; }
 
 		//right=LogicalAnd
@@ -1019,7 +1038,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class LogicalAndElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LogicalAnd");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.LogicalAnd");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cRelationParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1030,29 +1049,29 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cRightRelationParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
-		//LogicalAnd returns Expression:
-		//	Relation => ({LogicalAnd.left=current} op="and" right=Relation)*;
+		//LogicalAnd Expression:
+		//	Relation => ({LogicalAnd.left=current} op='and' right=Relation)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Relation => ({LogicalAnd.left=current} op="and" right=Relation)*
+		//Relation => ({LogicalAnd.left=current} op='and' right=Relation)*
 		public Group getGroup() { return cGroup; }
 
 		//Relation
 		public RuleCall getRelationParserRuleCall_0() { return cRelationParserRuleCall_0; }
 
-		//=> ({LogicalAnd.left=current} op="and" right=Relation)*
+		//=> ({LogicalAnd.left=current} op='and' right=Relation)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{LogicalAnd.left=current} op="and" right=Relation
+		//{LogicalAnd.left=current} op='and' right=Relation
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{LogicalAnd.left=current}
 		public Action getLogicalAndLeftAction_1_0_0() { return cLogicalAndLeftAction_1_0_0; }
 
-		//op="and"
+		//op='and'
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"and"
+		//'and'
 		public Keyword getOpAndKeyword_1_0_1_0() { return cOpAndKeyword_1_0_1_0; }
 
 		//right=Relation
@@ -1063,7 +1082,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class RelationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Relation");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Relation");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cAdditionParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1080,47 +1099,47 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cRightAdditionParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
-		//Relation returns Expression:
-		//	Addition => ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*;
+		//Relation Expression:
+		//	Addition => ({Equal.left=current} op=('==' | '!=' | '<' | '<=' | '>=' | '>') right=Addition)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Addition => ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*
+		//Addition => ({Equal.left=current} op=('==' | '!=' | '<' | '<=' | '>=' | '>') right=Addition)*
 		public Group getGroup() { return cGroup; }
 
 		//Addition
 		public RuleCall getAdditionParserRuleCall_0() { return cAdditionParserRuleCall_0; }
 
-		//=> ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*
+		//=> ({Equal.left=current} op=('==' | '!=' | '<' | '<=' | '>=' | '>') right=Addition)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition
+		//{Equal.left=current} op=('==' | '!=' | '<' | '<=' | '>=' | '>') right=Addition
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{Equal.left=current}
 		public Action getEqualLeftAction_1_0_0() { return cEqualLeftAction_1_0_0; }
 
-		//op=("==" | "!=" | "<" | "<=" | ">=" | ">")
+		//op=('==' | '!=' | '<' | '<=' | '>=' | '>')
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"==" | "!=" | "<" | "<=" | ">=" | ">"
+		//('==' | '!=' | '<' | '<=' | '>=' | '>')
 		public Alternatives getOpAlternatives_1_0_1_0() { return cOpAlternatives_1_0_1_0; }
 
-		//"=="
+		//'=='
 		public Keyword getOpEqualsSignEqualsSignKeyword_1_0_1_0_0() { return cOpEqualsSignEqualsSignKeyword_1_0_1_0_0; }
 
-		//"!="
+		//'!='
 		public Keyword getOpExclamationMarkEqualsSignKeyword_1_0_1_0_1() { return cOpExclamationMarkEqualsSignKeyword_1_0_1_0_1; }
 
-		//"<"
+		//'<'
 		public Keyword getOpLessThanSignKeyword_1_0_1_0_2() { return cOpLessThanSignKeyword_1_0_1_0_2; }
 
-		//"<="
+		//'<='
 		public Keyword getOpLessThanSignEqualsSignKeyword_1_0_1_0_3() { return cOpLessThanSignEqualsSignKeyword_1_0_1_0_3; }
 
-		//">="
+		//'>='
 		public Keyword getOpGreaterThanSignEqualsSignKeyword_1_0_1_0_4() { return cOpGreaterThanSignEqualsSignKeyword_1_0_1_0_4; }
 
-		//">"
+		//'>'
 		public Keyword getOpGreaterThanSignKeyword_1_0_1_0_5() { return cOpGreaterThanSignKeyword_1_0_1_0_5; }
 
 		//right=Addition
@@ -1131,7 +1150,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class AdditionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Addition");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Addition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cMultiplicationParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1144,35 +1163,35 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cRightMultiplicationParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
-		//Addition returns Expression:
-		//	Multiplication => ({Addition.left=current} op=("+" | "-") right=Multiplication)*;
+		//Addition Expression:
+		//	Multiplication => ({Addition.left=current} op=('+' | '-') right=Multiplication)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Multiplication => ({Addition.left=current} op=("+" | "-") right=Multiplication)*
+		//Multiplication => ({Addition.left=current} op=('+' | '-') right=Multiplication)*
 		public Group getGroup() { return cGroup; }
 
 		//Multiplication
 		public RuleCall getMultiplicationParserRuleCall_0() { return cMultiplicationParserRuleCall_0; }
 
-		//=> ({Addition.left=current} op=("+" | "-") right=Multiplication)*
+		//=> ({Addition.left=current} op=('+' | '-') right=Multiplication)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{Addition.left=current} op=("+" | "-") right=Multiplication
+		//{Addition.left=current} op=('+' | '-') right=Multiplication
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{Addition.left=current}
 		public Action getAdditionLeftAction_1_0_0() { return cAdditionLeftAction_1_0_0; }
 
-		//op=("+" | "-")
+		//op=('+' | '-')
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"+" | "-"
+		//('+' | '-')
 		public Alternatives getOpAlternatives_1_0_1_0() { return cOpAlternatives_1_0_1_0; }
 
-		//"+"
+		//'+'
 		public Keyword getOpPlusSignKeyword_1_0_1_0_0() { return cOpPlusSignKeyword_1_0_1_0_0; }
 
-		//"-"
+		//'-'
 		public Keyword getOpHyphenMinusKeyword_1_0_1_0_1() { return cOpHyphenMinusKeyword_1_0_1_0_1; }
 
 		//right=Multiplication
@@ -1183,7 +1202,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class MultiplicationElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Multiplication");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Multiplication");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cNegParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
@@ -1196,35 +1215,35 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRightAssignment_1_0_2 = (Assignment)cGroup_1_0.eContents().get(2);
 		private final RuleCall cRightNegParserRuleCall_1_0_2_0 = (RuleCall)cRightAssignment_1_0_2.eContents().get(0);
 		
-		//Multiplication returns Expression:
-		//	Neg => ({Multiplication.left=current} op=("*" | "/") right=Neg)*;
+		//Multiplication Expression:
+		//	Neg => ({Multiplication.left=current} op=('*' | '/') right=Neg)*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//Neg => ({Multiplication.left=current} op=("*" | "/") right=Neg)*
+		//Neg => ({Multiplication.left=current} op=('*' | '/') right=Neg)*
 		public Group getGroup() { return cGroup; }
 
 		//Neg
 		public RuleCall getNegParserRuleCall_0() { return cNegParserRuleCall_0; }
 
-		//=> ({Multiplication.left=current} op=("*" | "/") right=Neg)*
+		//=> ({Multiplication.left=current} op=('*' | '/') right=Neg)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{Multiplication.left=current} op=("*" | "/") right=Neg
+		//{Multiplication.left=current} op=('*' | '/') right=Neg
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{Multiplication.left=current}
 		public Action getMultiplicationLeftAction_1_0_0() { return cMultiplicationLeftAction_1_0_0; }
 
-		//op=("*" | "/")
+		//op=('*' | '/')
 		public Assignment getOpAssignment_1_0_1() { return cOpAssignment_1_0_1; }
 
-		//"*" | "/"
+		//('*' | '/')
 		public Alternatives getOpAlternatives_1_0_1_0() { return cOpAlternatives_1_0_1_0; }
 
-		//"*"
+		//'*'
 		public Keyword getOpAsteriskKeyword_1_0_1_0_0() { return cOpAsteriskKeyword_1_0_1_0_0; }
 
-		//"/"
+		//'/'
 		public Keyword getOpSolidusKeyword_1_0_1_0_1() { return cOpSolidusKeyword_1_0_1_0_1; }
 
 		//right=Neg
@@ -1235,7 +1254,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class NegElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Neg");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Neg");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Group cGroup_0 = (Group)cAlternatives.eContents().get(0);
 		private final Action cNotAction_0_0 = (Action)cGroup_0.eContents().get(0);
@@ -1249,20 +1268,22 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionAtomParserRuleCall_1_2_0 = (RuleCall)cExpressionAssignment_1_2.eContents().get(0);
 		private final RuleCall cAtomParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
-		//Neg returns Expression:
-		//	{Not} => "not" expression=Atom | {Minus} => "-" expression=Atom | Atom;
+		//Neg Expression:
+		//	{Not} => 'not' expression=Atom
+		//	| {Minus} => '-' expression=Atom
+		//	| Atom;
 		@Override public ParserRule getRule() { return rule; }
 
-		//{Not} => "not" expression=Atom | {Minus} => "-" expression=Atom | Atom
+		//{Not} => 'not' expression=Atom | {Minus} => '-' expression=Atom | Atom
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//{Not} => "not" expression=Atom
+		//{Not} => 'not' expression=Atom
 		public Group getGroup_0() { return cGroup_0; }
 
 		//{Not}
 		public Action getNotAction_0_0() { return cNotAction_0_0; }
 
-		//=> "not"
+		//=> 'not'
 		public Keyword getNotKeyword_0_1() { return cNotKeyword_0_1; }
 
 		//expression=Atom
@@ -1271,13 +1292,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Atom
 		public RuleCall getExpressionAtomParserRuleCall_0_2_0() { return cExpressionAtomParserRuleCall_0_2_0; }
 
-		//{Minus} => "-" expression=Atom
+		//{Minus} => '-' expression=Atom
 		public Group getGroup_1() { return cGroup_1; }
 
 		//{Minus}
 		public Action getMinusAction_1_0() { return cMinusAction_1_0; }
 
-		//=> "-"
+		//=> '-'
 		public Keyword getHyphenMinusKeyword_1_1() { return cHyphenMinusKeyword_1_1; }
 
 		//expression=Atom
@@ -1291,7 +1312,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class AtomElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Atom");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.Atom");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cBooleanLiteralParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cStringLiteralParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
@@ -1304,11 +1325,11 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cExpressionParserRuleCall_6_1 = (RuleCall)cGroup_6.eContents().get(1);
 		private final Keyword cRightParenthesisKeyword_6_2 = (Keyword)cGroup_6.eContents().get(2);
 		
-		//Atom returns Expression:
-		//	BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | "(" Expression ")";
+		//Atom Expression:
+		//	BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | '(' Expression ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | "(" Expression ")"
+		//BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | '(' Expression ')'
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//BooleanLiteral
@@ -1329,49 +1350,49 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//SwitchExpression
 		public RuleCall getSwitchExpressionParserRuleCall_5() { return cSwitchExpressionParserRuleCall_5; }
 
-		//"(" Expression ")"
+		//'(' Expression ')'
 		public Group getGroup_6() { return cGroup_6; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_6_0() { return cLeftParenthesisKeyword_6_0; }
 
 		//Expression
 		public RuleCall getExpressionParserRuleCall_6_1() { return cExpressionParserRuleCall_6_1; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_6_2() { return cRightParenthesisKeyword_6_2; }
 	}
 
 	public class BooleanLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BooleanLiteral");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.BooleanLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
 		private final Keyword cValueTrueKeyword_0_0 = (Keyword)cValueAlternatives_0.eContents().get(0);
 		private final Keyword cValueFalseKeyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
 		
-		//BooleanLiteral returns ARBoolean:
-		//	value=("true" | "false");
+		//BooleanLiteral ARBoolean:
+		//	value=('true' | 'false');
 		@Override public ParserRule getRule() { return rule; }
 
-		//value=("true" | "false")
+		//value=('true' | 'false')
 		public Assignment getValueAssignment() { return cValueAssignment; }
 
-		//"true" | "false"
+		//('true' | 'false')
 		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
 
-		//"true"
+		//'true'
 		public Keyword getValueTrueKeyword_0_0() { return cValueTrueKeyword_0_0; }
 
-		//"false"
+		//'false'
 		public Keyword getValueFalseKeyword_0_1() { return cValueFalseKeyword_0_1; }
 	}
 
 	public class StringLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StringLiteral");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.StringLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValueSTRINGTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//StringLiteral returns ARString:
+		//StringLiteral ARString:
 		//	value=STRING;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -1383,11 +1404,11 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class NumberLiteralElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NumberLiteral");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.NumberLiteral");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final RuleCall cValueNUMBERTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
-		//NumberLiteral returns ARNumber:
+		//NumberLiteral ARNumber:
 		//	value=NUMBER;
 		@Override public ParserRule getRule() { return rule; }
 
@@ -1399,7 +1420,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class NameRefElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NameRef");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.NameRef");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final CrossReference cVariableNamedElementCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
@@ -1413,10 +1434,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cVariableNamedElementIDTerminalRuleCall_1_0_2_0_1 = (RuleCall)cVariableNamedElementCrossReference_1_0_2_0.eContents().get(1);
 		
 		//NameRef:
-		//	variable=[NamedElement] => ({NameRef.nested=current} "." variable=[NamedElement])*;
+		//	variable=[NamedElement] => ({NameRef.nested=current} '.' variable=[NamedElement])*;
 		@Override public ParserRule getRule() { return rule; }
 
-		//variable=[NamedElement] => ({NameRef.nested=current} "." variable=[NamedElement])*
+		//variable=[NamedElement] => ({NameRef.nested=current} '.' variable=[NamedElement])*
 		public Group getGroup() { return cGroup; }
 
 		//variable=[NamedElement]
@@ -1428,16 +1449,16 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getVariableNamedElementIDTerminalRuleCall_0_0_1() { return cVariableNamedElementIDTerminalRuleCall_0_0_1; }
 
-		//=> ({NameRef.nested=current} "." variable=[NamedElement])*
+		//=> ({NameRef.nested=current} '.' variable=[NamedElement])*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//{NameRef.nested=current} "." variable=[NamedElement]
+		//{NameRef.nested=current} '.' variable=[NamedElement]
 		public Group getGroup_1_0() { return cGroup_1_0; }
 
 		//{NameRef.nested=current}
 		public Action getNameRefNestedAction_1_0_0() { return cNameRefNestedAction_1_0_0; }
 
-		//"."
+		//'.'
 		public Keyword getFullStopKeyword_1_0_1() { return cFullStopKeyword_1_0_1; }
 
 		//variable=[NamedElement]
@@ -1451,7 +1472,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class SwitchExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SwitchExpression");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.SwitchExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cSwitchKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cLeftCurlyBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -1464,16 +1485,20 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cRightCurlyBracketKeyword_6 = (Keyword)cGroup.eContents().get(6);
 		
 		//SwitchExpression:
-		//	"switch" "{" cases+=CaseExpression* "default" ":" default=Expression "}";
+		//	'switch' '{'
+		//	cases+=CaseExpression*
+		//	'default' ':'
+		//	default=Expression
+		//	'}';
 		@Override public ParserRule getRule() { return rule; }
 
-		//"switch" "{" cases+=CaseExpression* "default" ":" default=Expression "}"
+		//'switch' '{' cases+=CaseExpression* 'default' ':' default=Expression '}'
 		public Group getGroup() { return cGroup; }
 
-		//"switch"
+		//'switch'
 		public Keyword getSwitchKeyword_0() { return cSwitchKeyword_0; }
 
-		//"{"
+		//'{'
 		public Keyword getLeftCurlyBracketKeyword_1() { return cLeftCurlyBracketKeyword_1; }
 
 		//cases+=CaseExpression*
@@ -1482,10 +1507,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//CaseExpression
 		public RuleCall getCasesCaseExpressionParserRuleCall_2_0() { return cCasesCaseExpressionParserRuleCall_2_0; }
 
-		//"default"
+		//'default'
 		public Keyword getDefaultKeyword_3() { return cDefaultKeyword_3; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_4() { return cColonKeyword_4; }
 
 		//default=Expression
@@ -1494,12 +1519,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getDefaultExpressionParserRuleCall_5_0() { return cDefaultExpressionParserRuleCall_5_0; }
 
-		//"}"
+		//'}'
 		public Keyword getRightCurlyBracketKeyword_6() { return cRightCurlyBracketKeyword_6; }
 	}
 
 	public class CaseExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "CaseExpression");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.CaseExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cCaseKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cConditionAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1509,13 +1534,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCaseExpressionParserRuleCall_3_0 = (RuleCall)cCaseAssignment_3.eContents().get(0);
 		
 		//CaseExpression:
-		//	"case" condition=LogicalOr ":" case=Expression;
+		//	'case' condition=LogicalOr ':' case=Expression;
 		@Override public ParserRule getRule() { return rule; }
 
-		//"case" condition=LogicalOr ":" case=Expression
+		//'case' condition=LogicalOr ':' case=Expression
 		public Group getGroup() { return cGroup; }
 
-		//"case"
+		//'case'
 		public Keyword getCaseKeyword_0() { return cCaseKeyword_0; }
 
 		//condition=LogicalOr
@@ -1524,7 +1549,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//LogicalOr
 		public RuleCall getConditionLogicalOrParserRuleCall_1_0() { return cConditionLogicalOrParserRuleCall_1_0; }
 
-		//":"
+		//':'
 		public Keyword getColonKeyword_2() { return cColonKeyword_2; }
 
 		//case=Expression
@@ -1535,7 +1560,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	public class FunctionCallElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "FunctionCall");
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.FunctionCall");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Action cFunctionCallAction_0 = (Action)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
@@ -1553,37 +1578,37 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cParametersExpressionParserRuleCall_3_1_1_0 = (RuleCall)cParametersAssignment_3_1_1.eContents().get(0);
 		private final Keyword cRightParenthesisKeyword_4 = (Keyword)cGroup.eContents().get(4);
 		
-		//FunctionCall returns Expression:
-		//	{FunctionCall} name=("exponential" | "Dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
-		//	")";
+		//FunctionCall Expression:
+		//	{FunctionCall} name=('exponential' | 'Dirac' | 'constant')
+		//	'(' (parameters+=Expression (',' parameters+=Expression)*)? ')';
 		@Override public ParserRule getRule() { return rule; }
 
-		//{FunctionCall} name=("exponential" | "Dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
-		//")"
+		//{FunctionCall} name=('exponential' | 'Dirac' | 'constant') '(' (parameters+=Expression (',' parameters+=Expression)*)?
+		//')'
 		public Group getGroup() { return cGroup; }
 
 		//{FunctionCall}
 		public Action getFunctionCallAction_0() { return cFunctionCallAction_0; }
 
-		//name=("exponential" | "Dirac" | "constant")
+		//name=('exponential' | 'Dirac' | 'constant')
 		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
 
-		//"exponential" | "Dirac" | "constant"
+		//('exponential' | 'Dirac' | 'constant')
 		public Alternatives getNameAlternatives_1_0() { return cNameAlternatives_1_0; }
 
-		//"exponential"
+		//'exponential'
 		public Keyword getNameExponentialKeyword_1_0_0() { return cNameExponentialKeyword_1_0_0; }
 
-		//"Dirac"
+		//'Dirac'
 		public Keyword getNameDiracKeyword_1_0_1() { return cNameDiracKeyword_1_0_1; }
 
-		//"constant"
+		//'constant'
 		public Keyword getNameConstantKeyword_1_0_2() { return cNameConstantKeyword_1_0_2; }
 
-		//"("
+		//'('
 		public Keyword getLeftParenthesisKeyword_2() { return cLeftParenthesisKeyword_2; }
 
-		//(parameters+=Expression ("," parameters+=Expression)*)?
+		//(parameters+=Expression (',' parameters+=Expression)*)?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//parameters+=Expression
@@ -1592,10 +1617,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getParametersExpressionParserRuleCall_3_0_0() { return cParametersExpressionParserRuleCall_3_0_0; }
 
-		//("," parameters+=Expression)*
+		//(',' parameters+=Expression)*
 		public Group getGroup_3_1() { return cGroup_3_1; }
 
-		//","
+		//','
 		public Keyword getCommaKeyword_3_1_0() { return cCommaKeyword_3_1_0; }
 
 		//parameters+=Expression
@@ -1604,13 +1629,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		//Expression
 		public RuleCall getParametersExpressionParserRuleCall_3_1_1_0() { return cParametersExpressionParserRuleCall_3_1_1_0; }
 
-		//")"
+		//')'
 		public Keyword getRightParenthesisKeyword_4() { return cRightParenthesisKeyword_4; }
 	}
 	
 	
 	public class BaseTypeEnumElements extends AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "BaseTypeEnum");
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.BaseTypeEnum");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final EnumLiteralDeclaration cINTEGEREnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
 		private final Keyword cINTEGERIntegerKeyword_0_0 = (Keyword)cINTEGEREnumLiteralDeclaration_0.eContents().get(0);
@@ -1618,22 +1643,22 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cBOOLEANBooleanKeyword_1_0 = (Keyword)cBOOLEANEnumLiteralDeclaration_1.eContents().get(0);
 		
 		//enum BaseTypeEnum:
-		//	INTEGER="Integer" | BOOLEAN="Boolean";
+		//	INTEGER='Integer' | BOOLEAN='Boolean';
 		public EnumRule getRule() { return rule; }
 
-		//INTEGER="Integer" | BOOLEAN="Boolean"
+		//INTEGER='Integer' | BOOLEAN='Boolean'
 		public Alternatives getAlternatives() { return cAlternatives; }
 
-		//INTEGER="Integer"
+		//INTEGER='Integer'
 		public EnumLiteralDeclaration getINTEGEREnumLiteralDeclaration_0() { return cINTEGEREnumLiteralDeclaration_0; }
 
-		//"Integer"
+		//'Integer'
 		public Keyword getINTEGERIntegerKeyword_0_0() { return cINTEGERIntegerKeyword_0_0; }
 
-		//BOOLEAN="Boolean"
+		//BOOLEAN='Boolean'
 		public EnumLiteralDeclaration getBOOLEANEnumLiteralDeclaration_1() { return cBOOLEANEnumLiteralDeclaration_1; }
 
-		//"Boolean"
+		//'Boolean'
 		public Keyword getBOOLEANBooleanKeyword_1_0() { return cBOOLEANBooleanKeyword_1_0; }
 	}
 	
@@ -1643,7 +1668,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	private final SymbolicConstantElements pSymbolicConstant;
 	private final TypeElements pType;
 	private final BaseTypeElements pBaseType;
-	private final BaseTypeEnumElements unknownRuleBaseTypeEnum;
+	private final BaseTypeEnumElements eBaseTypeEnum;
 	private final NamedTypeElements pNamedType;
 	private final ClassElements pClass;
 	private final DeclarationElements pDeclaration;
@@ -1701,7 +1726,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSymbolicConstant = new SymbolicConstantElements();
 		this.pType = new TypeElements();
 		this.pBaseType = new BaseTypeElements();
-		this.unknownRuleBaseTypeEnum = new BaseTypeEnumElements();
+		this.eBaseTypeEnum = new BaseTypeEnumElements();
 		this.pNamedType = new NamedTypeElements();
 		this.pClass = new ClassElements();
 		this.pDeclaration = new DeclarationElements();
@@ -1735,14 +1760,14 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		this.pSwitchExpression = new SwitchExpressionElements();
 		this.pCaseExpression = new CaseExpressionElements();
 		this.pFunctionCall = new FunctionCallElements();
-		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ALPHA");
-		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DIGIT");
-		this.tREGULAR_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "REGULAR_ID");
-		this.tSTRING_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING_ID");
-		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID");
-		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING");
-		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "NUMBER");
-		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT");
+		this.tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.ALPHA");
+		this.tDIGIT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.DIGIT");
+		this.tREGULAR_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.REGULAR_ID");
+		this.tSTRING_ID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.STRING_ID");
+		this.tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.ID");
+		this.tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.STRING");
+		this.tNUMBER = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.NUMBER");
+		this.tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.osate.altarica.Altarica.INT");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1793,8 +1818,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Domains ===============================================================
-	//Domain returns NamedElement:
-	//	{Domain} "domain" name=ID "{" (constants+=SymbolicConstant ("," constants+=SymbolicConstant)*)? "}";
+	//Domain NamedElement:
+	//	{Domain}
+	//	'domain' name=ID '{' (constants+=SymbolicConstant (',' constants+=SymbolicConstant)*)? '}';
 	public DomainElements getDomainAccess() {
 		return pDomain;
 	}
@@ -1803,7 +1829,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getDomainAccess().getRule();
 	}
 
-	//SymbolicConstant returns NamedElement:
+	//SymbolicConstant NamedElement:
 	//	{SymbolicConstant} name=ID;
 	public SymbolicConstantElements getSymbolicConstantAccess() {
 		return pSymbolicConstant;
@@ -1814,7 +1840,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Type:
-	//	BaseType | NamedType;
+	//	=> BaseType | NamedType;
 	public TypeElements getTypeAccess() {
 		return pType;
 	}
@@ -1834,9 +1860,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//enum BaseTypeEnum:
-	//	INTEGER="Integer" | BOOLEAN="Boolean";
+	//	INTEGER='Integer' | BOOLEAN='Boolean';
 	public BaseTypeEnumElements getBaseTypeEnumAccess() {
-		return unknownRuleBaseTypeEnum;
+		return eBaseTypeEnum;
 	}
 	
 	public EnumRule getBaseTypeEnumRule() {
@@ -1854,9 +1880,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Classes ===============================================================
-	//Class returns NamedElement:
-	//	{Node} "class" name=ID declarations+=Declaration* ("transition" transitions+=LabeledTransition+)? ("assertion"
-	//	assertions+=Instruction+)? "end";
+	//Class NamedElement:
+	//	{Node}
+	//	'class' name=ID
+	//	declarations+=Declaration* ('transition'
+	//	transitions+=LabeledTransition+)? ('assertion'
+	//	assertions+=Instruction+)?
+	//	'end';
 	public ClassElements getClassAccess() {
 		return pClass;
 	}
@@ -1876,8 +1906,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getDeclarationAccess().getRule();
 	}
 
-	//VariableDeclaration returns NamedElement:
-	//	{Variable} type=Type name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";";
+	//VariableDeclaration NamedElement:
+	//	{Variable} type=Type name=ID ('(' attributes+=Attribute (',' attributes+=Attribute)* ')')?
+	//	';';
 	public VariableDeclarationElements getVariableDeclarationAccess() {
 		return pVariableDeclaration;
 	}
@@ -1886,7 +1917,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getVariableDeclarationAccess().getRule();
 	}
 
-	//Attribute returns NamedElement:
+	//Attribute NamedElement:
 	//	{Attribute} name=ID "=" value=Expression;
 	public AttributeElements getAttributeAccess() {
 		return pAttribute;
@@ -1896,8 +1927,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getAttributeAccess().getRule();
 	}
 
-	//EventDeclaration returns NamedElement:
-	//	{Event} "event" name=ID ("(" attributes+=Attribute ("," attributes+=Attribute)* ")")? ";";
+	//EventDeclaration NamedElement:
+	//	{Event}
+	//	'event' name=ID ('(' attributes+=Attribute (',' attributes+=Attribute)* ')')?
+	//	';';
 	public EventDeclarationElements getEventDeclarationAccess() {
 		return pEventDeclaration;
 	}
@@ -1906,8 +1939,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getEventDeclarationAccess().getRule();
 	}
 
-	//ParameterDeclaration returns NamedElement:
-	//	{Parameter} "parameter" type=Type name=ID "=" value=Expression ";";
+	//ParameterDeclaration NamedElement:
+	//	{Parameter}
+	//	'parameter' type=Type name=ID '=' value=Expression
+	//	';';
 	public ParameterDeclarationElements getParameterDeclarationAccess() {
 		return pParameterDeclaration;
 	}
@@ -1916,8 +1951,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getParameterDeclarationAccess().getRule();
 	}
 
-	//ObserverDeclaration returns NamedElement:
-	//	{Observer} "observer" type=Type name=ID "=" value=Expression ";";
+	//ObserverDeclaration NamedElement:
+	//	{Observer}
+	//	'observer' type=Type name=ID '=' value=Expression
+	//	';';
 	public ObserverDeclarationElements getObserverDeclarationAccess() {
 		return pObserverDeclaration;
 	}
@@ -1937,8 +1974,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getLabeledTransitionAccess().getRule();
 	}
 
-	//TransitionAnd returns TransitionExpression:
-	//	TransitionOr ({TransitionAnd.left=current} "&" right=TransitionOr)*;
+	//TransitionAnd TransitionExpression:
+	//	TransitionOr ({TransitionAnd.left=current} '&' right=TransitionOr)*;
 	public TransitionAndElements getTransitionAndAccess() {
 		return pTransitionAnd;
 	}
@@ -1947,8 +1984,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionAndAccess().getRule();
 	}
 
-	//TransitionOr returns TransitionExpression:
-	//	Transition ({TransitionOr.left=current} "|" right=Transition)*;
+	//TransitionOr TransitionExpression:
+	//	Transition ({TransitionOr.left=current} '|' right=Transition)*;
 	public TransitionOrElements getTransitionOrAccess() {
 		return pTransitionOr;
 	}
@@ -1957,8 +1994,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getTransitionOrAccess().getRule();
 	}
 
-	//Transition returns TransitionExpression:
-	//	{Transition} guard=Expression "->" action=Instruction;
+	//Transition TransitionExpression:
+	//	{Transition} guard=Expression '->' action=Instruction;
 	public TransitionElements getTransitionAccess() {
 		return pTransition;
 	}
@@ -1978,8 +2015,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getInstructionAccess().getRule();
 	}
 
-	//Skip returns Instruction:
-	//	{Skip} "skip" ";";
+	//Skip Instruction:
+	//	{Skip}
+	//	'skip' ';';
 	public SkipElements getSkipAccess() {
 		return pSkip;
 	}
@@ -1988,8 +2026,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getSkipAccess().getRule();
 	}
 
-	//Assignment returns Instruction:
-	//	{Assignment} variable=NameRef ":=" value=Expression ";";
+	//Assignment Instruction:
+	//	{Assignment} variable=NameRef ':=' value=Expression ';';
 	public AssignmentElements getAssignmentAccess() {
 		return pAssignment;
 	}
@@ -1998,8 +2036,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getAssignmentAccess().getRule();
 	}
 
-	//Block returns Instruction:
-	//	{Block} "{" instructions+=Instruction+ "}";
+	//Block Instruction:
+	//	{Block}
+	//	'{' instructions+=Instruction+ '}';
 	public BlockElements getBlockAccess() {
 		return pBlock;
 	}
@@ -2008,8 +2047,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getBlockAccess().getRule();
 	}
 
-	//Conditional returns Instruction:
-	//	{Conditional} "if" condition=Expression "then" then=Instruction ("else" else=Instruction)? ";";
+	//Conditional Instruction:
+	//	{Conditional}
+	//	'if' condition=Expression 'then' then=Instruction (=> 'else' else=Instruction)? ";";
 	public ConditionalElements getConditionalAccess() {
 		return pConditional;
 	}
@@ -2018,8 +2058,12 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getConditionalAccess().getRule();
 	}
 
-	//Switch returns Instruction:
-	//	"switch" "{" cases+=CaseExpression* "else" ":" else=Expression "}";
+	//Switch Instruction:
+	//	'switch' '{'
+	//	cases+=CaseExpression*
+	//	'else' ':'
+	//	else=Expression
+	//	'}';
 	public SwitchElements getSwitchAccess() {
 		return pSwitch;
 	}
@@ -2039,8 +2083,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getExpressionAccess().getRule();
 	}
 
-	//LogicalOr returns Expression:
-	//	LogicalAnd => ({LogicalOr.left=current} op="or" right=LogicalAnd)*;
+	//LogicalOr Expression:
+	//	LogicalAnd => ({LogicalOr.left=current} op='or' right=LogicalAnd)*;
 	public LogicalOrElements getLogicalOrAccess() {
 		return pLogicalOr;
 	}
@@ -2049,8 +2093,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getLogicalOrAccess().getRule();
 	}
 
-	//LogicalAnd returns Expression:
-	//	Relation => ({LogicalAnd.left=current} op="and" right=Relation)*;
+	//LogicalAnd Expression:
+	//	Relation => ({LogicalAnd.left=current} op='and' right=Relation)*;
 	public LogicalAndElements getLogicalAndAccess() {
 		return pLogicalAnd;
 	}
@@ -2059,8 +2103,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getLogicalAndAccess().getRule();
 	}
 
-	//Relation returns Expression:
-	//	Addition => ({Equal.left=current} op=("==" | "!=" | "<" | "<=" | ">=" | ">") right=Addition)*;
+	//Relation Expression:
+	//	Addition => ({Equal.left=current} op=('==' | '!=' | '<' | '<=' | '>=' | '>') right=Addition)*;
 	public RelationElements getRelationAccess() {
 		return pRelation;
 	}
@@ -2069,8 +2113,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getRelationAccess().getRule();
 	}
 
-	//Addition returns Expression:
-	//	Multiplication => ({Addition.left=current} op=("+" | "-") right=Multiplication)*;
+	//Addition Expression:
+	//	Multiplication => ({Addition.left=current} op=('+' | '-') right=Multiplication)*;
 	public AdditionElements getAdditionAccess() {
 		return pAddition;
 	}
@@ -2079,8 +2123,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getAdditionAccess().getRule();
 	}
 
-	//Multiplication returns Expression:
-	//	Neg => ({Multiplication.left=current} op=("*" | "/") right=Neg)*;
+	//Multiplication Expression:
+	//	Neg => ({Multiplication.left=current} op=('*' | '/') right=Neg)*;
 	public MultiplicationElements getMultiplicationAccess() {
 		return pMultiplication;
 	}
@@ -2089,8 +2133,10 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getMultiplicationAccess().getRule();
 	}
 
-	//Neg returns Expression:
-	//	{Not} => "not" expression=Atom | {Minus} => "-" expression=Atom | Atom;
+	//Neg Expression:
+	//	{Not} => 'not' expression=Atom
+	//	| {Minus} => '-' expression=Atom
+	//	| Atom;
 	public NegElements getNegAccess() {
 		return pNeg;
 	}
@@ -2099,8 +2145,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getNegAccess().getRule();
 	}
 
-	//Atom returns Expression:
-	//	BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | "(" Expression ")";
+	//Atom Expression:
+	//	BooleanLiteral | StringLiteral | NumberLiteral | FunctionCall | NameRef | SwitchExpression | '(' Expression ')';
 	public AtomElements getAtomAccess() {
 		return pAtom;
 	}
@@ -2109,8 +2155,8 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getAtomAccess().getRule();
 	}
 
-	//BooleanLiteral returns ARBoolean:
-	//	value=("true" | "false");
+	//BooleanLiteral ARBoolean:
+	//	value=('true' | 'false');
 	public BooleanLiteralElements getBooleanLiteralAccess() {
 		return pBooleanLiteral;
 	}
@@ -2119,7 +2165,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getBooleanLiteralAccess().getRule();
 	}
 
-	//StringLiteral returns ARString:
+	//StringLiteral ARString:
 	//	value=STRING;
 	public StringLiteralElements getStringLiteralAccess() {
 		return pStringLiteral;
@@ -2129,7 +2175,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getStringLiteralAccess().getRule();
 	}
 
-	//NumberLiteral returns ARNumber:
+	//NumberLiteral ARNumber:
 	//	value=NUMBER;
 	public NumberLiteralElements getNumberLiteralAccess() {
 		return pNumberLiteral;
@@ -2140,7 +2186,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NameRef:
-	//	variable=[NamedElement] => ({NameRef.nested=current} "." variable=[NamedElement])*;
+	//	variable=[NamedElement] => ({NameRef.nested=current} '.' variable=[NamedElement])*;
 	public NameRefElements getNameRefAccess() {
 		return pNameRef;
 	}
@@ -2150,7 +2196,11 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SwitchExpression:
-	//	"switch" "{" cases+=CaseExpression* "default" ":" default=Expression "}";
+	//	'switch' '{'
+	//	cases+=CaseExpression*
+	//	'default' ':'
+	//	default=Expression
+	//	'}';
 	public SwitchExpressionElements getSwitchExpressionAccess() {
 		return pSwitchExpression;
 	}
@@ -2160,7 +2210,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CaseExpression:
-	//	"case" condition=LogicalOr ":" case=Expression;
+	//	'case' condition=LogicalOr ':' case=Expression;
 	public CaseExpressionElements getCaseExpressionAccess() {
 		return pCaseExpression;
 	}
@@ -2169,9 +2219,9 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getCaseExpressionAccess().getRule();
 	}
 
-	//FunctionCall returns Expression:
-	//	{FunctionCall} name=("exponential" | "Dirac" | "constant") "(" (parameters+=Expression ("," parameters+=Expression)*)?
-	//	")";
+	//FunctionCall Expression:
+	//	{FunctionCall} name=('exponential' | 'Dirac' | 'constant')
+	//	'(' (parameters+=Expression (',' parameters+=Expression)*)? ')';
 	public FunctionCallElements getFunctionCallAccess() {
 		return pFunctionCall;
 	}
@@ -2180,70 +2230,69 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return getFunctionCallAccess().getRule();
 	}
 
-	//// Terminals =============================================================
 	//terminal fragment ALPHA:
-	//	"a".."z" | "A".."Z";
+	//	'a'..'z' | 'A'..'Z';
 	public TerminalRule getALPHARule() {
 		return tALPHA;
 	} 
 
 	//terminal fragment DIGIT:
-	//	"0".."9";
+	//	'0'..'9';
 	public TerminalRule getDIGITRule() {
 		return tDIGIT;
 	} 
 
 	//terminal fragment REGULAR_ID:
-	//	(ALPHA | "_") (ALPHA | "_" | DIGIT)*;
+	//	(ALPHA | '_') (ALPHA | '_' | DIGIT)*;
 	public TerminalRule getREGULAR_IDRule() {
 		return tREGULAR_ID;
 	} 
 
 	//terminal fragment STRING_ID:
-	//	"\'" (ALPHA | DIGIT | "!" | "#" | "$" | "%" | "&" | "(" | ")" | "*" | "+" | "," | "-" | "." | "/" | ":" | ";" | "<" |
-	//	">" | "=" | "?" | "@" | "[" | "]" | "^" | "{" | "}" | "|" | "~" | "_")* "\'";
+	//	"'" (ALPHA | DIGIT | '!' | '#' | '$' | '%' | '&' | '(' | ')' | '*' | '+' | ',' | '-'
+	//	| '.' | '/' | ':' | ';' | '<' | '>' | '=' | '?' | '@' | '[' | ']' | '^' | '{' | '}' | '|' | '~' | '_')* "'";
 	public TerminalRule getSTRING_IDRule() {
 		return tSTRING_ID;
 	} 
 
-	//terminal ID:
+	//@ Overrides terminal ID:
 	//	REGULAR_ID | STRING_ID;
 	public TerminalRule getIDRule() {
 		return tID;
 	} 
 
-	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "u" | "\"" | "\'" | "\\") | !("\\" | "\'"))* "\"";
+	//@ Overrides terminal STRING:
+	//	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | "'"))* '"';
 	public TerminalRule getSTRINGRule() {
 		return tSTRING;
 	} 
 
 	//terminal NUMBER returns ecore::EDouble:
-	//	DIGIT+ ("." DIGIT+)? (("e" | "E") ("+" | "-")? DIGIT+)?;
+	//	DIGIT+ ('.' DIGIT+)? (('e' | 'E') ('+' | '-')? DIGIT+)?;
 	public TerminalRule getNUMBERRule() {
 		return tNUMBER;
 	} 
 
-	//terminal INT returns ecore::EInt:
-	//	"_@_this has been deactivated_";
+	//@ Overrides terminal INT returns ecore::EInt:
+	//	'_@_this has been deactivated_';
 	public TerminalRule getINTRule() {
 		return tINT;
 	} 
 
 	//terminal ML_COMMENT:
-	//	"/ *"->"* /";
+	//	'/*'->'*/';
 	public TerminalRule getML_COMMENTRule() {
 		return gaTerminals.getML_COMMENTRule();
 	} 
 
 	//terminal SL_COMMENT:
-	//	"//" !("\n" | "\r")* ("\r"? "\n")?;
+	//	'//' !('\n' | '\r')* ('\r'? '\n')?;
 	public TerminalRule getSL_COMMENTRule() {
 		return gaTerminals.getSL_COMMENTRule();
 	} 
 
 	//terminal WS:
-	//	(" " | "\t" | "\r" | "\n")+;
+	//	' ' | '\t' | '\r' | '\n'+;
 	public TerminalRule getWSRule() {
 		return gaTerminals.getWSRule();
 	} 
