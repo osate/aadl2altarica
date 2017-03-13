@@ -2255,13 +2255,13 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return tSTRING_ID;
 	} 
 
-	//@ Overrides terminal ID:
+	//@ Override terminal ID:
 	//	REGULAR_ID | STRING_ID;
 	public TerminalRule getIDRule() {
 		return tID;
 	} 
 
-	//@ Overrides terminal STRING:
+	//@ Override terminal STRING:
 	//	'"' ('\\' ('b' | 't' | 'n' | 'f' | 'r' | 'u' | '"' | "'" | '\\') | !('\\' | "'"))* '"';
 	public TerminalRule getSTRINGRule() {
 		return tSTRING;
@@ -2273,7 +2273,7 @@ public class AltaricaGrammarAccess extends AbstractGrammarElementFinder {
 		return tNUMBER;
 	} 
 
-	//@ Overrides terminal INT returns ecore::EInt:
+	//@ Override terminal INT returns ecore::EInt:
 	//	'_@_this has been deactivated_';
 	public TerminalRule getINTRule() {
 		return tINT;
