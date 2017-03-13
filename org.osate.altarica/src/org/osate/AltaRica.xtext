@@ -23,7 +23,13 @@ generate altarica "http://osate.org/Altarica/2.1"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 Model:
-	declarations+=AbstractDeclaration*;
+	{Model}
+	('transformation' 'issues' '{'
+		errors+=Error*
+		'}'
+	)?
+	declarations+=AbstractDeclaration*
+;
 
 AbstractDeclaration:
 	Domain | Class;
@@ -165,23 +171,23 @@ Expression:
 ;
 	
 LogicalOr returns Expression:
-	LogicalAnd =>({LogicalOr.left=current} op='or' right=LogicalAnd)*
+	LogicalAnd ({LogicalOr.left=current} op='or' right=LogicalAnd)*
 ;
 
 LogicalAnd returns Expression:
-	Relation =>({LogicalAnd.left=current} op='and' right=Relation)*
+	Relation ({LogicalAnd.left=current} op='and' right=Relation)*
 ;
 
 Relation returns Expression:
-	Addition =>({Equal.left=current} op=('=='|'!=' | '<' | '<=' | '>=' | '>') right=Addition)*
+	Addition ({Equal.left=current} op=('=='|'!=' | '<' | '<=' | '>=' | '>') right=Addition)*
 ;
 
 Addition returns Expression:
-	Multiplication =>({Addition.left=current} op=('+' | '-') right=Multiplication)*
+	Multiplication ({Addition.left=current} op=('+' | '-') right=Multiplication)*
 ;
 
 Multiplication returns Expression:
-	Neg =>({Multiplication.left=current} op=('*' | '/') right=Neg)*
+	Neg ({Multiplication.left=current} op=('*' | '/') right=Neg)*
 ;
 
 Neg returns Expression:
@@ -223,6 +229,19 @@ FunctionCall returns Expression:
 	'(' (parameters+=Expression (',' parameters+=Expression)*)? ')'
 ;
 
+// Transformation errors =================================================
+
+enum Severity:
+	ERROR='error' | WARNING='warning'
+;
+
+Error:
+	severity=Severity
+	message=STRING
+	';'
+;
+
+
 // Terminals =============================================================
 
 terminal fragment ALPHA: 'a'..'z'|'A'..'Z';
@@ -243,7 +262,7 @@ terminal ID:
 
 @Override
 terminal STRING: 
-	'"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|"'"|'\\') | !('\\'|"'") )* '"';
+	'"' ( '\\'('b'|'t'|'n'|'f'|'r'|'u'|'"'|'\\') | !('\\'|'"') )* '"';
 	
 terminal NUMBER returns ecore::EDouble:
 	DIGIT+ ('.' DIGIT+)? (('e' | 'E') ('+' | '-')? DIGIT+)?;

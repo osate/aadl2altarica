@@ -59,6 +59,7 @@ import org.osate.altarica.altarica.Node;
 import org.osate.altarica.altarica.Not;
 import org.osate.altarica.altarica.Observer;
 import org.osate.altarica.altarica.Parameter;
+import org.osate.altarica.altarica.Severity;
 import org.osate.altarica.altarica.Skip;
 import org.osate.altarica.altarica.SwitchExpression;
 import org.osate.altarica.altarica.SymbolicConstant;
@@ -195,6 +196,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * @generated
    */
   private EClass caseExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass errorEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -365,6 +373,13 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
   private EEnum baseTypeEnumEEnum = null;
 
   /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum severityEEnum = null;
+
+  /**
    * Creates an instance of the model <b>Package</b>, registered with
    * {@link org.eclipse.emf.ecore.EPackage.Registry EPackage.Registry} by the package
    * package URI value.
@@ -442,9 +457,19 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getModel_Declarations()
+  public EReference getModel_Errors()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModel_Declarations()
+  {
+    return (EReference)modelEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -765,6 +790,36 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
   public EReference getCaseExpression_Case()
   {
     return (EReference)caseExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getError()
+  {
+    return errorEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getError_Severity()
+  {
+    return (EAttribute)errorEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getError_Message()
+  {
+    return (EAttribute)errorEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1432,6 +1487,16 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EEnum getSeverity()
+  {
+    return severityEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public AltaricaFactory getAltaricaFactory()
   {
     return (AltaricaFactory)getEFactoryInstance();
@@ -1458,6 +1523,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
+    createEReference(modelEClass, MODEL__ERRORS);
     createEReference(modelEClass, MODEL__DECLARATIONS);
 
     abstractDeclarationEClass = createEClass(ABSTRACT_DECLARATION);
@@ -1507,6 +1573,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     caseExpressionEClass = createEClass(CASE_EXPRESSION);
     createEReference(caseExpressionEClass, CASE_EXPRESSION__CONDITION);
     createEReference(caseExpressionEClass, CASE_EXPRESSION__CASE);
+
+    errorEClass = createEClass(ERROR);
+    createEAttribute(errorEClass, ERROR__SEVERITY);
+    createEAttribute(errorEClass, ERROR__MESSAGE);
 
     domainEClass = createEClass(DOMAIN);
     createEReference(domainEClass, DOMAIN__CONSTANTS);
@@ -1598,6 +1668,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     // Create enums
     baseTypeEnumEEnum = createEEnum(BASE_TYPE_ENUM);
+    severityEEnum = createEEnum(SEVERITY);
   }
 
   /**
@@ -1664,6 +1735,7 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModel_Errors(), this.getError(), null, "errors", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getModel_Declarations(), this.getAbstractDeclaration(), null, "declarations", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(abstractDeclarationEClass, AbstractDeclaration.class, "AbstractDeclaration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1713,6 +1785,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEClass(caseExpressionEClass, CaseExpression.class, "CaseExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getCaseExpression_Condition(), this.getExpression(), null, "condition", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getCaseExpression_Case(), this.getExpression(), null, "case", null, 0, 1, CaseExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(errorEClass, org.osate.altarica.altarica.Error.class, "Error", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getError_Severity(), this.getSeverity(), "severity", null, 0, 1, org.osate.altarica.altarica.Error.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getError_Message(), ecorePackage.getEString(), "message", null, 0, 1, org.osate.altarica.altarica.Error.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(domainEClass, Domain.class, "Domain", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getDomain_Constants(), this.getNamedElement(), null, "constants", null, 0, -1, Domain.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1806,6 +1882,10 @@ public class AltaricaPackageImpl extends EPackageImpl implements AltaricaPackage
     initEEnum(baseTypeEnumEEnum, BaseTypeEnum.class, "BaseTypeEnum");
     addEEnumLiteral(baseTypeEnumEEnum, BaseTypeEnum.INTEGER);
     addEEnumLiteral(baseTypeEnumEEnum, BaseTypeEnum.BOOLEAN);
+
+    initEEnum(severityEEnum, Severity.class, "Severity");
+    addEEnumLiteral(severityEEnum, Severity.ERROR);
+    addEEnumLiteral(severityEEnum, Severity.WARNING);
 
     // Create resource
     createResource(eNS_URI);

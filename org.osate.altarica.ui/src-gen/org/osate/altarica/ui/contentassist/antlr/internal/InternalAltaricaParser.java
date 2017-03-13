@@ -23,7 +23,7 @@ import java.util.HashMap;
 @SuppressWarnings("all")
 public class InternalAltaricaParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_NUMBER", "RULE_ALPHA", "RULE_DIGIT", "RULE_REGULAR_ID", "RULE_STRING_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'=='", "'!='", "'<'", "'<='", "'>='", "'>'", "'+'", "'-'", "'*'", "'/'", "'true'", "'false'", "'exponential'", "'Dirac'", "'constant'", "'Integer'", "'Boolean'", "'domain'", "'{'", "'}'", "','", "'class'", "'end'", "'transition'", "'assertion'", "';'", "'('", "')'", "'='", "'event'", "'parameter'", "'observer'", "':'", "'&'", "'|'", "'->'", "'skip'", "':='", "'if'", "'then'", "'else'", "'switch'", "'not'", "'.'", "'default'", "'case'", "'or'", "'and'"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_ID", "RULE_STRING", "RULE_NUMBER", "RULE_ALPHA", "RULE_DIGIT", "RULE_REGULAR_ID", "RULE_STRING_ID", "RULE_INT", "RULE_ML_COMMENT", "RULE_SL_COMMENT", "RULE_WS", "RULE_ANY_OTHER", "'=='", "'!='", "'<'", "'<='", "'>='", "'>'", "'+'", "'-'", "'*'", "'/'", "'true'", "'false'", "'exponential'", "'Dirac'", "'constant'", "'Integer'", "'Boolean'", "'error'", "'warning'", "'transformation'", "'issues'", "'{'", "'}'", "'domain'", "','", "'class'", "'end'", "'transition'", "'assertion'", "';'", "'('", "')'", "'='", "'event'", "'parameter'", "'observer'", "':'", "'&'", "'|'", "'->'", "'skip'", "':='", "'if'", "'then'", "'else'", "'switch'", "'not'", "'.'", "'default'", "'case'", "'or'", "'and'"
     };
     public static final int T__50=50;
     public static final int T__19=19;
@@ -49,15 +49,19 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     public static final int RULE_INT=11;
     public static final int T__29=29;
     public static final int T__22=22;
+    public static final int T__66=66;
     public static final int RULE_ML_COMMENT=12;
     public static final int T__23=23;
+    public static final int T__67=67;
     public static final int T__24=24;
     public static final int T__25=25;
     public static final int RULE_REGULAR_ID=9;
     public static final int T__62=62;
     public static final int T__63=63;
     public static final int T__20=20;
+    public static final int T__64=64;
     public static final int T__21=21;
+    public static final int T__65=65;
     public static final int RULE_ALPHA=7;
     public static final int RULE_STRING=5;
     public static final int RULE_SL_COMMENT=13;
@@ -159,52 +163,34 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "ruleModel"
-    // InternalAltarica.g:70:1: ruleModel : ( ( rule__Model__DeclarationsAssignment )* ) ;
+    // InternalAltarica.g:70:1: ruleModel : ( ( rule__Model__Group__0 ) ) ;
     public final void ruleModel() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:74:2: ( ( ( rule__Model__DeclarationsAssignment )* ) )
-            // InternalAltarica.g:75:1: ( ( rule__Model__DeclarationsAssignment )* )
+            // InternalAltarica.g:74:2: ( ( ( rule__Model__Group__0 ) ) )
+            // InternalAltarica.g:75:1: ( ( rule__Model__Group__0 ) )
             {
-            // InternalAltarica.g:75:1: ( ( rule__Model__DeclarationsAssignment )* )
-            // InternalAltarica.g:76:1: ( rule__Model__DeclarationsAssignment )*
+            // InternalAltarica.g:75:1: ( ( rule__Model__Group__0 ) )
+            // InternalAltarica.g:76:1: ( rule__Model__Group__0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getModelAccess().getDeclarationsAssignment()); 
+               before(grammarAccess.getModelAccess().getGroup()); 
             }
-            // InternalAltarica.g:77:1: ( rule__Model__DeclarationsAssignment )*
-            loop1:
-            do {
-                int alt1=2;
-                int LA1_0 = input.LA(1);
+            // InternalAltarica.g:77:1: ( rule__Model__Group__0 )
+            // InternalAltarica.g:77:2: rule__Model__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Model__Group__0();
 
-                if ( (LA1_0==33||LA1_0==37) ) {
-                    alt1=1;
-                }
+            state._fsp--;
+            if (state.failed) return ;
 
-
-                switch (alt1) {
-            	case 1 :
-            	    // InternalAltarica.g:77:2: rule__Model__DeclarationsAssignment
-            	    {
-            	    pushFollow(FOLLOW_3);
-            	    rule__Model__DeclarationsAssignment();
-
-            	    state._fsp--;
-            	    if (state.failed) return ;
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop1;
-                }
-            } while (true);
+            }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getModelAccess().getDeclarationsAssignment()); 
+               after(grammarAccess.getModelAccess().getGroup()); 
             }
 
             }
@@ -3451,24 +3437,109 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "ruleFunctionCall"
 
 
+    // $ANTLR start "entryRuleError"
+    // InternalAltarica.g:1153:1: entryRuleError : ruleError EOF ;
+    public final void entryRuleError() throws RecognitionException {
+        try {
+            // InternalAltarica.g:1154:1: ( ruleError EOF )
+            // InternalAltarica.g:1155:1: ruleError EOF
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorRule()); 
+            }
+            pushFollow(FOLLOW_1);
+            ruleError();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorRule()); 
+            }
+            match(input,EOF,FOLLOW_2); if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end "entryRuleError"
+
+
+    // $ANTLR start "ruleError"
+    // InternalAltarica.g:1162:1: ruleError : ( ( rule__Error__Group__0 ) ) ;
+    public final void ruleError() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1166:2: ( ( ( rule__Error__Group__0 ) ) )
+            // InternalAltarica.g:1167:1: ( ( rule__Error__Group__0 ) )
+            {
+            // InternalAltarica.g:1167:1: ( ( rule__Error__Group__0 ) )
+            // InternalAltarica.g:1168:1: ( rule__Error__Group__0 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorAccess().getGroup()); 
+            }
+            // InternalAltarica.g:1169:1: ( rule__Error__Group__0 )
+            // InternalAltarica.g:1169:2: rule__Error__Group__0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Error__Group__0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorAccess().getGroup()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleError"
+
+
     // $ANTLR start "ruleBaseTypeEnum"
-    // InternalAltarica.g:1154:1: ruleBaseTypeEnum : ( ( rule__BaseTypeEnum__Alternatives ) ) ;
+    // InternalAltarica.g:1182:1: ruleBaseTypeEnum : ( ( rule__BaseTypeEnum__Alternatives ) ) ;
     public final void ruleBaseTypeEnum() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1158:1: ( ( ( rule__BaseTypeEnum__Alternatives ) ) )
-            // InternalAltarica.g:1159:1: ( ( rule__BaseTypeEnum__Alternatives ) )
+            // InternalAltarica.g:1186:1: ( ( ( rule__BaseTypeEnum__Alternatives ) ) )
+            // InternalAltarica.g:1187:1: ( ( rule__BaseTypeEnum__Alternatives ) )
             {
-            // InternalAltarica.g:1159:1: ( ( rule__BaseTypeEnum__Alternatives ) )
-            // InternalAltarica.g:1160:1: ( rule__BaseTypeEnum__Alternatives )
+            // InternalAltarica.g:1187:1: ( ( rule__BaseTypeEnum__Alternatives ) )
+            // InternalAltarica.g:1188:1: ( rule__BaseTypeEnum__Alternatives )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseTypeEnumAccess().getAlternatives()); 
             }
-            // InternalAltarica.g:1161:1: ( rule__BaseTypeEnum__Alternatives )
-            // InternalAltarica.g:1161:2: rule__BaseTypeEnum__Alternatives
+            // InternalAltarica.g:1189:1: ( rule__BaseTypeEnum__Alternatives )
+            // InternalAltarica.g:1189:2: rule__BaseTypeEnum__Alternatives
             {
             pushFollow(FOLLOW_2);
             rule__BaseTypeEnum__Alternatives();
@@ -3502,36 +3573,87 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "ruleBaseTypeEnum"
 
 
+    // $ANTLR start "ruleSeverity"
+    // InternalAltarica.g:1201:1: ruleSeverity : ( ( rule__Severity__Alternatives ) ) ;
+    public final void ruleSeverity() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1205:1: ( ( ( rule__Severity__Alternatives ) ) )
+            // InternalAltarica.g:1206:1: ( ( rule__Severity__Alternatives ) )
+            {
+            // InternalAltarica.g:1206:1: ( ( rule__Severity__Alternatives ) )
+            // InternalAltarica.g:1207:1: ( rule__Severity__Alternatives )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getSeverityAccess().getAlternatives()); 
+            }
+            // InternalAltarica.g:1208:1: ( rule__Severity__Alternatives )
+            // InternalAltarica.g:1208:2: rule__Severity__Alternatives
+            {
+            pushFollow(FOLLOW_2);
+            rule__Severity__Alternatives();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getSeverityAccess().getAlternatives()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "ruleSeverity"
+
+
     // $ANTLR start "rule__AbstractDeclaration__Alternatives"
-    // InternalAltarica.g:1172:1: rule__AbstractDeclaration__Alternatives : ( ( ruleDomain ) | ( ruleClass ) );
+    // InternalAltarica.g:1219:1: rule__AbstractDeclaration__Alternatives : ( ( ruleDomain ) | ( ruleClass ) );
     public final void rule__AbstractDeclaration__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1176:1: ( ( ruleDomain ) | ( ruleClass ) )
-            int alt2=2;
-            int LA2_0 = input.LA(1);
+            // InternalAltarica.g:1223:1: ( ( ruleDomain ) | ( ruleClass ) )
+            int alt1=2;
+            int LA1_0 = input.LA(1);
 
-            if ( (LA2_0==33) ) {
-                alt2=1;
+            if ( (LA1_0==39) ) {
+                alt1=1;
             }
-            else if ( (LA2_0==37) ) {
-                alt2=2;
+            else if ( (LA1_0==41) ) {
+                alt1=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 2, 0, input);
+                    new NoViableAltException("", 1, 0, input);
 
                 throw nvae;
             }
-            switch (alt2) {
+            switch (alt1) {
                 case 1 :
-                    // InternalAltarica.g:1177:1: ( ruleDomain )
+                    // InternalAltarica.g:1224:1: ( ruleDomain )
                     {
-                    // InternalAltarica.g:1177:1: ( ruleDomain )
-                    // InternalAltarica.g:1178:1: ruleDomain
+                    // InternalAltarica.g:1224:1: ( ruleDomain )
+                    // InternalAltarica.g:1225:1: ruleDomain
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAbstractDeclarationAccess().getDomainParserRuleCall_0()); 
@@ -3551,10 +3673,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1183:6: ( ruleClass )
+                    // InternalAltarica.g:1230:6: ( ruleClass )
                     {
-                    // InternalAltarica.g:1183:6: ( ruleClass )
-                    // InternalAltarica.g:1184:1: ruleClass
+                    // InternalAltarica.g:1230:6: ( ruleClass )
+                    // InternalAltarica.g:1231:1: ruleClass
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAbstractDeclarationAccess().getClassParserRuleCall_1()); 
@@ -3591,41 +3713,41 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Type__Alternatives"
-    // InternalAltarica.g:1194:1: rule__Type__Alternatives : ( ( ( ruleBaseType ) ) | ( ruleNamedType ) );
+    // InternalAltarica.g:1241:1: rule__Type__Alternatives : ( ( ( ruleBaseType ) ) | ( ruleNamedType ) );
     public final void rule__Type__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1198:1: ( ( ( ruleBaseType ) ) | ( ruleNamedType ) )
-            int alt3=2;
-            int LA3_0 = input.LA(1);
+            // InternalAltarica.g:1245:1: ( ( ( ruleBaseType ) ) | ( ruleNamedType ) )
+            int alt2=2;
+            int LA2_0 = input.LA(1);
 
-            if ( ((LA3_0>=31 && LA3_0<=32)) ) {
-                alt3=1;
+            if ( ((LA2_0>=31 && LA2_0<=32)) ) {
+                alt2=1;
             }
-            else if ( (LA3_0==RULE_ID) ) {
-                alt3=2;
+            else if ( (LA2_0==RULE_ID) ) {
+                alt2=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 3, 0, input);
+                    new NoViableAltException("", 2, 0, input);
 
                 throw nvae;
             }
-            switch (alt3) {
+            switch (alt2) {
                 case 1 :
-                    // InternalAltarica.g:1199:1: ( ( ruleBaseType ) )
+                    // InternalAltarica.g:1246:1: ( ( ruleBaseType ) )
                     {
-                    // InternalAltarica.g:1199:1: ( ( ruleBaseType ) )
-                    // InternalAltarica.g:1200:1: ( ruleBaseType )
+                    // InternalAltarica.g:1246:1: ( ( ruleBaseType ) )
+                    // InternalAltarica.g:1247:1: ( ruleBaseType )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getTypeAccess().getBaseTypeParserRuleCall_0()); 
                     }
-                    // InternalAltarica.g:1201:1: ( ruleBaseType )
-                    // InternalAltarica.g:1201:3: ruleBaseType
+                    // InternalAltarica.g:1248:1: ( ruleBaseType )
+                    // InternalAltarica.g:1248:3: ruleBaseType
                     {
                     pushFollow(FOLLOW_2);
                     ruleBaseType();
@@ -3645,10 +3767,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1205:6: ( ruleNamedType )
+                    // InternalAltarica.g:1252:6: ( ruleNamedType )
                     {
-                    // InternalAltarica.g:1205:6: ( ruleNamedType )
-                    // InternalAltarica.g:1206:1: ruleNamedType
+                    // InternalAltarica.g:1252:6: ( ruleNamedType )
+                    // InternalAltarica.g:1253:1: ruleNamedType
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getTypeAccess().getNamedTypeParserRuleCall_1()); 
@@ -3685,51 +3807,51 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Declaration__Alternatives"
-    // InternalAltarica.g:1216:1: rule__Declaration__Alternatives : ( ( ruleVariableDeclaration ) | ( ruleEventDeclaration ) | ( ruleParameterDeclaration ) | ( ruleObserverDeclaration ) );
+    // InternalAltarica.g:1263:1: rule__Declaration__Alternatives : ( ( ruleVariableDeclaration ) | ( ruleEventDeclaration ) | ( ruleParameterDeclaration ) | ( ruleObserverDeclaration ) );
     public final void rule__Declaration__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1220:1: ( ( ruleVariableDeclaration ) | ( ruleEventDeclaration ) | ( ruleParameterDeclaration ) | ( ruleObserverDeclaration ) )
-            int alt4=4;
+            // InternalAltarica.g:1267:1: ( ( ruleVariableDeclaration ) | ( ruleEventDeclaration ) | ( ruleParameterDeclaration ) | ( ruleObserverDeclaration ) )
+            int alt3=4;
             switch ( input.LA(1) ) {
             case RULE_ID:
             case 31:
             case 32:
                 {
-                alt4=1;
+                alt3=1;
                 }
                 break;
-            case 45:
+            case 49:
                 {
-                alt4=2;
+                alt3=2;
                 }
                 break;
-            case 46:
+            case 50:
                 {
-                alt4=3;
+                alt3=3;
                 }
                 break;
-            case 47:
+            case 51:
                 {
-                alt4=4;
+                alt3=4;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 4, 0, input);
+                    new NoViableAltException("", 3, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt4) {
+            switch (alt3) {
                 case 1 :
-                    // InternalAltarica.g:1221:1: ( ruleVariableDeclaration )
+                    // InternalAltarica.g:1268:1: ( ruleVariableDeclaration )
                     {
-                    // InternalAltarica.g:1221:1: ( ruleVariableDeclaration )
-                    // InternalAltarica.g:1222:1: ruleVariableDeclaration
+                    // InternalAltarica.g:1268:1: ( ruleVariableDeclaration )
+                    // InternalAltarica.g:1269:1: ruleVariableDeclaration
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getDeclarationAccess().getVariableDeclarationParserRuleCall_0()); 
@@ -3749,10 +3871,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1227:6: ( ruleEventDeclaration )
+                    // InternalAltarica.g:1274:6: ( ruleEventDeclaration )
                     {
-                    // InternalAltarica.g:1227:6: ( ruleEventDeclaration )
-                    // InternalAltarica.g:1228:1: ruleEventDeclaration
+                    // InternalAltarica.g:1274:6: ( ruleEventDeclaration )
+                    // InternalAltarica.g:1275:1: ruleEventDeclaration
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getDeclarationAccess().getEventDeclarationParserRuleCall_1()); 
@@ -3772,10 +3894,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalAltarica.g:1233:6: ( ruleParameterDeclaration )
+                    // InternalAltarica.g:1280:6: ( ruleParameterDeclaration )
                     {
-                    // InternalAltarica.g:1233:6: ( ruleParameterDeclaration )
-                    // InternalAltarica.g:1234:1: ruleParameterDeclaration
+                    // InternalAltarica.g:1280:6: ( ruleParameterDeclaration )
+                    // InternalAltarica.g:1281:1: ruleParameterDeclaration
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getDeclarationAccess().getParameterDeclarationParserRuleCall_2()); 
@@ -3795,10 +3917,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // InternalAltarica.g:1239:6: ( ruleObserverDeclaration )
+                    // InternalAltarica.g:1286:6: ( ruleObserverDeclaration )
                     {
-                    // InternalAltarica.g:1239:6: ( ruleObserverDeclaration )
-                    // InternalAltarica.g:1240:1: ruleObserverDeclaration
+                    // InternalAltarica.g:1286:6: ( ruleObserverDeclaration )
+                    // InternalAltarica.g:1287:1: ruleObserverDeclaration
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getDeclarationAccess().getObserverDeclarationParserRuleCall_3()); 
@@ -3835,54 +3957,54 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Instruction__Alternatives"
-    // InternalAltarica.g:1250:1: rule__Instruction__Alternatives : ( ( ruleSkip ) | ( ruleAssignment ) | ( ruleBlock ) | ( ruleConditional ) | ( ruleSwitch ) );
+    // InternalAltarica.g:1297:1: rule__Instruction__Alternatives : ( ( ruleSkip ) | ( ruleAssignment ) | ( ruleBlock ) | ( ruleConditional ) | ( ruleSwitch ) );
     public final void rule__Instruction__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1254:1: ( ( ruleSkip ) | ( ruleAssignment ) | ( ruleBlock ) | ( ruleConditional ) | ( ruleSwitch ) )
-            int alt5=5;
+            // InternalAltarica.g:1301:1: ( ( ruleSkip ) | ( ruleAssignment ) | ( ruleBlock ) | ( ruleConditional ) | ( ruleSwitch ) )
+            int alt4=5;
             switch ( input.LA(1) ) {
-            case 52:
+            case 56:
                 {
-                alt5=1;
+                alt4=1;
                 }
                 break;
             case RULE_ID:
                 {
-                alt5=2;
+                alt4=2;
                 }
                 break;
-            case 34:
+            case 37:
                 {
-                alt5=3;
+                alt4=3;
                 }
                 break;
-            case 54:
+            case 58:
                 {
-                alt5=4;
+                alt4=4;
                 }
                 break;
-            case 57:
+            case 61:
                 {
-                alt5=5;
+                alt4=5;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 5, 0, input);
+                    new NoViableAltException("", 4, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt5) {
+            switch (alt4) {
                 case 1 :
-                    // InternalAltarica.g:1255:1: ( ruleSkip )
+                    // InternalAltarica.g:1302:1: ( ruleSkip )
                     {
-                    // InternalAltarica.g:1255:1: ( ruleSkip )
-                    // InternalAltarica.g:1256:1: ruleSkip
+                    // InternalAltarica.g:1302:1: ( ruleSkip )
+                    // InternalAltarica.g:1303:1: ruleSkip
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getInstructionAccess().getSkipParserRuleCall_0()); 
@@ -3902,10 +4024,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1261:6: ( ruleAssignment )
+                    // InternalAltarica.g:1308:6: ( ruleAssignment )
                     {
-                    // InternalAltarica.g:1261:6: ( ruleAssignment )
-                    // InternalAltarica.g:1262:1: ruleAssignment
+                    // InternalAltarica.g:1308:6: ( ruleAssignment )
+                    // InternalAltarica.g:1309:1: ruleAssignment
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getInstructionAccess().getAssignmentParserRuleCall_1()); 
@@ -3925,10 +4047,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalAltarica.g:1267:6: ( ruleBlock )
+                    // InternalAltarica.g:1314:6: ( ruleBlock )
                     {
-                    // InternalAltarica.g:1267:6: ( ruleBlock )
-                    // InternalAltarica.g:1268:1: ruleBlock
+                    // InternalAltarica.g:1314:6: ( ruleBlock )
+                    // InternalAltarica.g:1315:1: ruleBlock
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getInstructionAccess().getBlockParserRuleCall_2()); 
@@ -3948,10 +4070,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // InternalAltarica.g:1273:6: ( ruleConditional )
+                    // InternalAltarica.g:1320:6: ( ruleConditional )
                     {
-                    // InternalAltarica.g:1273:6: ( ruleConditional )
-                    // InternalAltarica.g:1274:1: ruleConditional
+                    // InternalAltarica.g:1320:6: ( ruleConditional )
+                    // InternalAltarica.g:1321:1: ruleConditional
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getInstructionAccess().getConditionalParserRuleCall_3()); 
@@ -3971,10 +4093,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 5 :
-                    // InternalAltarica.g:1279:6: ( ruleSwitch )
+                    // InternalAltarica.g:1326:6: ( ruleSwitch )
                     {
-                    // InternalAltarica.g:1279:6: ( ruleSwitch )
-                    // InternalAltarica.g:1280:1: ruleSwitch
+                    // InternalAltarica.g:1326:6: ( ruleSwitch )
+                    // InternalAltarica.g:1327:1: ruleSwitch
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getInstructionAccess().getSwitchParserRuleCall_4()); 
@@ -4010,67 +4132,67 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Instruction__Alternatives"
 
 
-    // $ANTLR start "rule__Relation__OpAlternatives_1_0_1_0"
-    // InternalAltarica.g:1290:1: rule__Relation__OpAlternatives_1_0_1_0 : ( ( '==' ) | ( '!=' ) | ( '<' ) | ( '<=' ) | ( '>=' ) | ( '>' ) );
-    public final void rule__Relation__OpAlternatives_1_0_1_0() throws RecognitionException {
+    // $ANTLR start "rule__Relation__OpAlternatives_1_1_0"
+    // InternalAltarica.g:1337:1: rule__Relation__OpAlternatives_1_1_0 : ( ( '==' ) | ( '!=' ) | ( '<' ) | ( '<=' ) | ( '>=' ) | ( '>' ) );
+    public final void rule__Relation__OpAlternatives_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1294:1: ( ( '==' ) | ( '!=' ) | ( '<' ) | ( '<=' ) | ( '>=' ) | ( '>' ) )
-            int alt6=6;
+            // InternalAltarica.g:1341:1: ( ( '==' ) | ( '!=' ) | ( '<' ) | ( '<=' ) | ( '>=' ) | ( '>' ) )
+            int alt5=6;
             switch ( input.LA(1) ) {
             case 16:
                 {
-                alt6=1;
+                alt5=1;
                 }
                 break;
             case 17:
                 {
-                alt6=2;
+                alt5=2;
                 }
                 break;
             case 18:
                 {
-                alt6=3;
+                alt5=3;
                 }
                 break;
             case 19:
                 {
-                alt6=4;
+                alt5=4;
                 }
                 break;
             case 20:
                 {
-                alt6=5;
+                alt5=5;
                 }
                 break;
             case 21:
                 {
-                alt6=6;
+                alt5=6;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 6, 0, input);
+                    new NoViableAltException("", 5, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt6) {
+            switch (alt5) {
                 case 1 :
-                    // InternalAltarica.g:1295:1: ( '==' )
+                    // InternalAltarica.g:1342:1: ( '==' )
                     {
-                    // InternalAltarica.g:1295:1: ( '==' )
-                    // InternalAltarica.g:1296:1: '=='
+                    // InternalAltarica.g:1342:1: ( '==' )
+                    // InternalAltarica.g:1343:1: '=='
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getRelationAccess().getOpEqualsSignEqualsSignKeyword_1_0_1_0_0()); 
+                       before(grammarAccess.getRelationAccess().getOpEqualsSignEqualsSignKeyword_1_1_0_0()); 
                     }
                     match(input,16,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getRelationAccess().getOpEqualsSignEqualsSignKeyword_1_0_1_0_0()); 
+                       after(grammarAccess.getRelationAccess().getOpEqualsSignEqualsSignKeyword_1_1_0_0()); 
                     }
 
                     }
@@ -4079,17 +4201,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1303:6: ( '!=' )
+                    // InternalAltarica.g:1350:6: ( '!=' )
                     {
-                    // InternalAltarica.g:1303:6: ( '!=' )
-                    // InternalAltarica.g:1304:1: '!='
+                    // InternalAltarica.g:1350:6: ( '!=' )
+                    // InternalAltarica.g:1351:1: '!='
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getRelationAccess().getOpExclamationMarkEqualsSignKeyword_1_0_1_0_1()); 
+                       before(grammarAccess.getRelationAccess().getOpExclamationMarkEqualsSignKeyword_1_1_0_1()); 
                     }
                     match(input,17,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getRelationAccess().getOpExclamationMarkEqualsSignKeyword_1_0_1_0_1()); 
+                       after(grammarAccess.getRelationAccess().getOpExclamationMarkEqualsSignKeyword_1_1_0_1()); 
                     }
 
                     }
@@ -4098,17 +4220,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalAltarica.g:1311:6: ( '<' )
+                    // InternalAltarica.g:1358:6: ( '<' )
                     {
-                    // InternalAltarica.g:1311:6: ( '<' )
-                    // InternalAltarica.g:1312:1: '<'
+                    // InternalAltarica.g:1358:6: ( '<' )
+                    // InternalAltarica.g:1359:1: '<'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getRelationAccess().getOpLessThanSignKeyword_1_0_1_0_2()); 
+                       before(grammarAccess.getRelationAccess().getOpLessThanSignKeyword_1_1_0_2()); 
                     }
                     match(input,18,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getRelationAccess().getOpLessThanSignKeyword_1_0_1_0_2()); 
+                       after(grammarAccess.getRelationAccess().getOpLessThanSignKeyword_1_1_0_2()); 
                     }
 
                     }
@@ -4117,17 +4239,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // InternalAltarica.g:1319:6: ( '<=' )
+                    // InternalAltarica.g:1366:6: ( '<=' )
                     {
-                    // InternalAltarica.g:1319:6: ( '<=' )
-                    // InternalAltarica.g:1320:1: '<='
+                    // InternalAltarica.g:1366:6: ( '<=' )
+                    // InternalAltarica.g:1367:1: '<='
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getRelationAccess().getOpLessThanSignEqualsSignKeyword_1_0_1_0_3()); 
+                       before(grammarAccess.getRelationAccess().getOpLessThanSignEqualsSignKeyword_1_1_0_3()); 
                     }
                     match(input,19,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getRelationAccess().getOpLessThanSignEqualsSignKeyword_1_0_1_0_3()); 
+                       after(grammarAccess.getRelationAccess().getOpLessThanSignEqualsSignKeyword_1_1_0_3()); 
                     }
 
                     }
@@ -4136,17 +4258,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 5 :
-                    // InternalAltarica.g:1327:6: ( '>=' )
+                    // InternalAltarica.g:1374:6: ( '>=' )
                     {
-                    // InternalAltarica.g:1327:6: ( '>=' )
-                    // InternalAltarica.g:1328:1: '>='
+                    // InternalAltarica.g:1374:6: ( '>=' )
+                    // InternalAltarica.g:1375:1: '>='
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getRelationAccess().getOpGreaterThanSignEqualsSignKeyword_1_0_1_0_4()); 
+                       before(grammarAccess.getRelationAccess().getOpGreaterThanSignEqualsSignKeyword_1_1_0_4()); 
                     }
                     match(input,20,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getRelationAccess().getOpGreaterThanSignEqualsSignKeyword_1_0_1_0_4()); 
+                       after(grammarAccess.getRelationAccess().getOpGreaterThanSignEqualsSignKeyword_1_1_0_4()); 
                     }
 
                     }
@@ -4155,17 +4277,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 6 :
-                    // InternalAltarica.g:1335:6: ( '>' )
+                    // InternalAltarica.g:1382:6: ( '>' )
                     {
-                    // InternalAltarica.g:1335:6: ( '>' )
-                    // InternalAltarica.g:1336:1: '>'
+                    // InternalAltarica.g:1382:6: ( '>' )
+                    // InternalAltarica.g:1383:1: '>'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getRelationAccess().getOpGreaterThanSignKeyword_1_0_1_0_5()); 
+                       before(grammarAccess.getRelationAccess().getOpGreaterThanSignKeyword_1_1_0_5()); 
                     }
                     match(input,21,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getRelationAccess().getOpGreaterThanSignKeyword_1_0_1_0_5()); 
+                       after(grammarAccess.getRelationAccess().getOpGreaterThanSignKeyword_1_1_0_5()); 
                     }
 
                     }
@@ -4187,24 +4309,104 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__OpAlternatives_1_0_1_0"
+    // $ANTLR end "rule__Relation__OpAlternatives_1_1_0"
 
 
-    // $ANTLR start "rule__Addition__OpAlternatives_1_0_1_0"
-    // InternalAltarica.g:1348:1: rule__Addition__OpAlternatives_1_0_1_0 : ( ( '+' ) | ( '-' ) );
-    public final void rule__Addition__OpAlternatives_1_0_1_0() throws RecognitionException {
+    // $ANTLR start "rule__Addition__OpAlternatives_1_1_0"
+    // InternalAltarica.g:1395:1: rule__Addition__OpAlternatives_1_1_0 : ( ( '+' ) | ( '-' ) );
+    public final void rule__Addition__OpAlternatives_1_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1352:1: ( ( '+' ) | ( '-' ) )
+            // InternalAltarica.g:1399:1: ( ( '+' ) | ( '-' ) )
+            int alt6=2;
+            int LA6_0 = input.LA(1);
+
+            if ( (LA6_0==22) ) {
+                alt6=1;
+            }
+            else if ( (LA6_0==23) ) {
+                alt6=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return ;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 6, 0, input);
+
+                throw nvae;
+            }
+            switch (alt6) {
+                case 1 :
+                    // InternalAltarica.g:1400:1: ( '+' )
+                    {
+                    // InternalAltarica.g:1400:1: ( '+' )
+                    // InternalAltarica.g:1401:1: '+'
+                    {
+                    if ( state.backtracking==0 ) {
+                       before(grammarAccess.getAdditionAccess().getOpPlusSignKeyword_1_1_0_0()); 
+                    }
+                    match(input,22,FOLLOW_2); if (state.failed) return ;
+                    if ( state.backtracking==0 ) {
+                       after(grammarAccess.getAdditionAccess().getOpPlusSignKeyword_1_1_0_0()); 
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalAltarica.g:1408:6: ( '-' )
+                    {
+                    // InternalAltarica.g:1408:6: ( '-' )
+                    // InternalAltarica.g:1409:1: '-'
+                    {
+                    if ( state.backtracking==0 ) {
+                       before(grammarAccess.getAdditionAccess().getOpHyphenMinusKeyword_1_1_0_1()); 
+                    }
+                    match(input,23,FOLLOW_2); if (state.failed) return ;
+                    if ( state.backtracking==0 ) {
+                       after(grammarAccess.getAdditionAccess().getOpHyphenMinusKeyword_1_1_0_1()); 
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Addition__OpAlternatives_1_1_0"
+
+
+    // $ANTLR start "rule__Multiplication__OpAlternatives_1_1_0"
+    // InternalAltarica.g:1421:1: rule__Multiplication__OpAlternatives_1_1_0 : ( ( '*' ) | ( '/' ) );
+    public final void rule__Multiplication__OpAlternatives_1_1_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1425:1: ( ( '*' ) | ( '/' ) )
             int alt7=2;
             int LA7_0 = input.LA(1);
 
-            if ( (LA7_0==22) ) {
+            if ( (LA7_0==24) ) {
                 alt7=1;
             }
-            else if ( (LA7_0==23) ) {
+            else if ( (LA7_0==25) ) {
                 alt7=2;
             }
             else {
@@ -4216,97 +4418,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
             switch (alt7) {
                 case 1 :
-                    // InternalAltarica.g:1353:1: ( '+' )
+                    // InternalAltarica.g:1426:1: ( '*' )
                     {
-                    // InternalAltarica.g:1353:1: ( '+' )
-                    // InternalAltarica.g:1354:1: '+'
-                    {
-                    if ( state.backtracking==0 ) {
-                       before(grammarAccess.getAdditionAccess().getOpPlusSignKeyword_1_0_1_0_0()); 
-                    }
-                    match(input,22,FOLLOW_2); if (state.failed) return ;
-                    if ( state.backtracking==0 ) {
-                       after(grammarAccess.getAdditionAccess().getOpPlusSignKeyword_1_0_1_0_0()); 
-                    }
-
-                    }
-
-
-                    }
-                    break;
-                case 2 :
-                    // InternalAltarica.g:1361:6: ( '-' )
-                    {
-                    // InternalAltarica.g:1361:6: ( '-' )
-                    // InternalAltarica.g:1362:1: '-'
+                    // InternalAltarica.g:1426:1: ( '*' )
+                    // InternalAltarica.g:1427:1: '*'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getAdditionAccess().getOpHyphenMinusKeyword_1_0_1_0_1()); 
-                    }
-                    match(input,23,FOLLOW_2); if (state.failed) return ;
-                    if ( state.backtracking==0 ) {
-                       after(grammarAccess.getAdditionAccess().getOpHyphenMinusKeyword_1_0_1_0_1()); 
-                    }
-
-                    }
-
-
-                    }
-                    break;
-
-            }
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Addition__OpAlternatives_1_0_1_0"
-
-
-    // $ANTLR start "rule__Multiplication__OpAlternatives_1_0_1_0"
-    // InternalAltarica.g:1374:1: rule__Multiplication__OpAlternatives_1_0_1_0 : ( ( '*' ) | ( '/' ) );
-    public final void rule__Multiplication__OpAlternatives_1_0_1_0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:1378:1: ( ( '*' ) | ( '/' ) )
-            int alt8=2;
-            int LA8_0 = input.LA(1);
-
-            if ( (LA8_0==24) ) {
-                alt8=1;
-            }
-            else if ( (LA8_0==25) ) {
-                alt8=2;
-            }
-            else {
-                if (state.backtracking>0) {state.failed=true; return ;}
-                NoViableAltException nvae =
-                    new NoViableAltException("", 8, 0, input);
-
-                throw nvae;
-            }
-            switch (alt8) {
-                case 1 :
-                    // InternalAltarica.g:1379:1: ( '*' )
-                    {
-                    // InternalAltarica.g:1379:1: ( '*' )
-                    // InternalAltarica.g:1380:1: '*'
-                    {
-                    if ( state.backtracking==0 ) {
-                       before(grammarAccess.getMultiplicationAccess().getOpAsteriskKeyword_1_0_1_0_0()); 
+                       before(grammarAccess.getMultiplicationAccess().getOpAsteriskKeyword_1_1_0_0()); 
                     }
                     match(input,24,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getMultiplicationAccess().getOpAsteriskKeyword_1_0_1_0_0()); 
+                       after(grammarAccess.getMultiplicationAccess().getOpAsteriskKeyword_1_1_0_0()); 
                     }
 
                     }
@@ -4315,17 +4437,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1387:6: ( '/' )
+                    // InternalAltarica.g:1434:6: ( '/' )
                     {
-                    // InternalAltarica.g:1387:6: ( '/' )
-                    // InternalAltarica.g:1388:1: '/'
+                    // InternalAltarica.g:1434:6: ( '/' )
+                    // InternalAltarica.g:1435:1: '/'
                     {
                     if ( state.backtracking==0 ) {
-                       before(grammarAccess.getMultiplicationAccess().getOpSolidusKeyword_1_0_1_0_1()); 
+                       before(grammarAccess.getMultiplicationAccess().getOpSolidusKeyword_1_1_0_1()); 
                     }
                     match(input,25,FOLLOW_2); if (state.failed) return ;
                     if ( state.backtracking==0 ) {
-                       after(grammarAccess.getMultiplicationAccess().getOpSolidusKeyword_1_0_1_0_1()); 
+                       after(grammarAccess.getMultiplicationAccess().getOpSolidusKeyword_1_1_0_1()); 
                     }
 
                     }
@@ -4347,27 +4469,27 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__OpAlternatives_1_0_1_0"
+    // $ANTLR end "rule__Multiplication__OpAlternatives_1_1_0"
 
 
     // $ANTLR start "rule__Neg__Alternatives"
-    // InternalAltarica.g:1400:1: rule__Neg__Alternatives : ( ( ( rule__Neg__Group_0__0 ) ) | ( ( rule__Neg__Group_1__0 ) ) | ( ruleAtom ) );
+    // InternalAltarica.g:1447:1: rule__Neg__Alternatives : ( ( ( rule__Neg__Group_0__0 ) ) | ( ( rule__Neg__Group_1__0 ) ) | ( ruleAtom ) );
     public final void rule__Neg__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1404:1: ( ( ( rule__Neg__Group_0__0 ) ) | ( ( rule__Neg__Group_1__0 ) ) | ( ruleAtom ) )
-            int alt9=3;
+            // InternalAltarica.g:1451:1: ( ( ( rule__Neg__Group_0__0 ) ) | ( ( rule__Neg__Group_1__0 ) ) | ( ruleAtom ) )
+            int alt8=3;
             switch ( input.LA(1) ) {
-            case 58:
+            case 62:
                 {
-                alt9=1;
+                alt8=1;
                 }
                 break;
             case 23:
                 {
-                alt9=2;
+                alt8=2;
                 }
                 break;
             case RULE_ID:
@@ -4378,32 +4500,32 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             case 28:
             case 29:
             case 30:
-            case 42:
-            case 57:
+            case 46:
+            case 61:
                 {
-                alt9=3;
+                alt8=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 9, 0, input);
+                    new NoViableAltException("", 8, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt9) {
+            switch (alt8) {
                 case 1 :
-                    // InternalAltarica.g:1405:1: ( ( rule__Neg__Group_0__0 ) )
+                    // InternalAltarica.g:1452:1: ( ( rule__Neg__Group_0__0 ) )
                     {
-                    // InternalAltarica.g:1405:1: ( ( rule__Neg__Group_0__0 ) )
-                    // InternalAltarica.g:1406:1: ( rule__Neg__Group_0__0 )
+                    // InternalAltarica.g:1452:1: ( ( rule__Neg__Group_0__0 ) )
+                    // InternalAltarica.g:1453:1: ( rule__Neg__Group_0__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getNegAccess().getGroup_0()); 
                     }
-                    // InternalAltarica.g:1407:1: ( rule__Neg__Group_0__0 )
-                    // InternalAltarica.g:1407:2: rule__Neg__Group_0__0
+                    // InternalAltarica.g:1454:1: ( rule__Neg__Group_0__0 )
+                    // InternalAltarica.g:1454:2: rule__Neg__Group_0__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Neg__Group_0__0();
@@ -4423,16 +4545,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1411:6: ( ( rule__Neg__Group_1__0 ) )
+                    // InternalAltarica.g:1458:6: ( ( rule__Neg__Group_1__0 ) )
                     {
-                    // InternalAltarica.g:1411:6: ( ( rule__Neg__Group_1__0 ) )
-                    // InternalAltarica.g:1412:1: ( rule__Neg__Group_1__0 )
+                    // InternalAltarica.g:1458:6: ( ( rule__Neg__Group_1__0 ) )
+                    // InternalAltarica.g:1459:1: ( rule__Neg__Group_1__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getNegAccess().getGroup_1()); 
                     }
-                    // InternalAltarica.g:1413:1: ( rule__Neg__Group_1__0 )
-                    // InternalAltarica.g:1413:2: rule__Neg__Group_1__0
+                    // InternalAltarica.g:1460:1: ( rule__Neg__Group_1__0 )
+                    // InternalAltarica.g:1460:2: rule__Neg__Group_1__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Neg__Group_1__0();
@@ -4452,10 +4574,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalAltarica.g:1417:6: ( ruleAtom )
+                    // InternalAltarica.g:1464:6: ( ruleAtom )
                     {
-                    // InternalAltarica.g:1417:6: ( ruleAtom )
-                    // InternalAltarica.g:1418:1: ruleAtom
+                    // InternalAltarica.g:1464:6: ( ruleAtom )
+                    // InternalAltarica.g:1465:1: ruleAtom
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getNegAccess().getAtomParserRuleCall_2()); 
@@ -4492,67 +4614,67 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Alternatives"
-    // InternalAltarica.g:1428:1: rule__Atom__Alternatives : ( ( ruleBooleanLiteral ) | ( ruleStringLiteral ) | ( ruleNumberLiteral ) | ( ruleFunctionCall ) | ( ruleNameRef ) | ( ruleSwitchExpression ) | ( ( rule__Atom__Group_6__0 ) ) );
+    // InternalAltarica.g:1475:1: rule__Atom__Alternatives : ( ( ruleBooleanLiteral ) | ( ruleStringLiteral ) | ( ruleNumberLiteral ) | ( ruleFunctionCall ) | ( ruleNameRef ) | ( ruleSwitchExpression ) | ( ( rule__Atom__Group_6__0 ) ) );
     public final void rule__Atom__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1432:1: ( ( ruleBooleanLiteral ) | ( ruleStringLiteral ) | ( ruleNumberLiteral ) | ( ruleFunctionCall ) | ( ruleNameRef ) | ( ruleSwitchExpression ) | ( ( rule__Atom__Group_6__0 ) ) )
-            int alt10=7;
+            // InternalAltarica.g:1479:1: ( ( ruleBooleanLiteral ) | ( ruleStringLiteral ) | ( ruleNumberLiteral ) | ( ruleFunctionCall ) | ( ruleNameRef ) | ( ruleSwitchExpression ) | ( ( rule__Atom__Group_6__0 ) ) )
+            int alt9=7;
             switch ( input.LA(1) ) {
             case 26:
             case 27:
                 {
-                alt10=1;
+                alt9=1;
                 }
                 break;
             case RULE_STRING:
                 {
-                alt10=2;
+                alt9=2;
                 }
                 break;
             case RULE_NUMBER:
                 {
-                alt10=3;
+                alt9=3;
                 }
                 break;
             case 28:
             case 29:
             case 30:
                 {
-                alt10=4;
+                alt9=4;
                 }
                 break;
             case RULE_ID:
                 {
-                alt10=5;
+                alt9=5;
                 }
                 break;
-            case 57:
+            case 61:
                 {
-                alt10=6;
+                alt9=6;
                 }
                 break;
-            case 42:
+            case 46:
                 {
-                alt10=7;
+                alt9=7;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 10, 0, input);
+                    new NoViableAltException("", 9, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt10) {
+            switch (alt9) {
                 case 1 :
-                    // InternalAltarica.g:1433:1: ( ruleBooleanLiteral )
+                    // InternalAltarica.g:1480:1: ( ruleBooleanLiteral )
                     {
-                    // InternalAltarica.g:1433:1: ( ruleBooleanLiteral )
-                    // InternalAltarica.g:1434:1: ruleBooleanLiteral
+                    // InternalAltarica.g:1480:1: ( ruleBooleanLiteral )
+                    // InternalAltarica.g:1481:1: ruleBooleanLiteral
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getBooleanLiteralParserRuleCall_0()); 
@@ -4572,10 +4694,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1439:6: ( ruleStringLiteral )
+                    // InternalAltarica.g:1486:6: ( ruleStringLiteral )
                     {
-                    // InternalAltarica.g:1439:6: ( ruleStringLiteral )
-                    // InternalAltarica.g:1440:1: ruleStringLiteral
+                    // InternalAltarica.g:1486:6: ( ruleStringLiteral )
+                    // InternalAltarica.g:1487:1: ruleStringLiteral
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getStringLiteralParserRuleCall_1()); 
@@ -4595,10 +4717,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalAltarica.g:1445:6: ( ruleNumberLiteral )
+                    // InternalAltarica.g:1492:6: ( ruleNumberLiteral )
                     {
-                    // InternalAltarica.g:1445:6: ( ruleNumberLiteral )
-                    // InternalAltarica.g:1446:1: ruleNumberLiteral
+                    // InternalAltarica.g:1492:6: ( ruleNumberLiteral )
+                    // InternalAltarica.g:1493:1: ruleNumberLiteral
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getNumberLiteralParserRuleCall_2()); 
@@ -4618,10 +4740,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // InternalAltarica.g:1451:6: ( ruleFunctionCall )
+                    // InternalAltarica.g:1498:6: ( ruleFunctionCall )
                     {
-                    // InternalAltarica.g:1451:6: ( ruleFunctionCall )
-                    // InternalAltarica.g:1452:1: ruleFunctionCall
+                    // InternalAltarica.g:1498:6: ( ruleFunctionCall )
+                    // InternalAltarica.g:1499:1: ruleFunctionCall
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getFunctionCallParserRuleCall_3()); 
@@ -4641,10 +4763,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 5 :
-                    // InternalAltarica.g:1457:6: ( ruleNameRef )
+                    // InternalAltarica.g:1504:6: ( ruleNameRef )
                     {
-                    // InternalAltarica.g:1457:6: ( ruleNameRef )
-                    // InternalAltarica.g:1458:1: ruleNameRef
+                    // InternalAltarica.g:1504:6: ( ruleNameRef )
+                    // InternalAltarica.g:1505:1: ruleNameRef
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getNameRefParserRuleCall_4()); 
@@ -4664,10 +4786,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 6 :
-                    // InternalAltarica.g:1463:6: ( ruleSwitchExpression )
+                    // InternalAltarica.g:1510:6: ( ruleSwitchExpression )
                     {
-                    // InternalAltarica.g:1463:6: ( ruleSwitchExpression )
-                    // InternalAltarica.g:1464:1: ruleSwitchExpression
+                    // InternalAltarica.g:1510:6: ( ruleSwitchExpression )
+                    // InternalAltarica.g:1511:1: ruleSwitchExpression
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getSwitchExpressionParserRuleCall_5()); 
@@ -4687,16 +4809,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 7 :
-                    // InternalAltarica.g:1469:6: ( ( rule__Atom__Group_6__0 ) )
+                    // InternalAltarica.g:1516:6: ( ( rule__Atom__Group_6__0 ) )
                     {
-                    // InternalAltarica.g:1469:6: ( ( rule__Atom__Group_6__0 ) )
-                    // InternalAltarica.g:1470:1: ( rule__Atom__Group_6__0 )
+                    // InternalAltarica.g:1516:6: ( ( rule__Atom__Group_6__0 ) )
+                    // InternalAltarica.g:1517:1: ( rule__Atom__Group_6__0 )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getAtomAccess().getGroup_6()); 
                     }
-                    // InternalAltarica.g:1471:1: ( rule__Atom__Group_6__0 )
-                    // InternalAltarica.g:1471:2: rule__Atom__Group_6__0
+                    // InternalAltarica.g:1518:1: ( rule__Atom__Group_6__0 )
+                    // InternalAltarica.g:1518:2: rule__Atom__Group_6__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Atom__Group_6__0();
@@ -4733,35 +4855,35 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__BooleanLiteral__ValueAlternatives_0"
-    // InternalAltarica.g:1480:1: rule__BooleanLiteral__ValueAlternatives_0 : ( ( 'true' ) | ( 'false' ) );
+    // InternalAltarica.g:1527:1: rule__BooleanLiteral__ValueAlternatives_0 : ( ( 'true' ) | ( 'false' ) );
     public final void rule__BooleanLiteral__ValueAlternatives_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1484:1: ( ( 'true' ) | ( 'false' ) )
-            int alt11=2;
-            int LA11_0 = input.LA(1);
+            // InternalAltarica.g:1531:1: ( ( 'true' ) | ( 'false' ) )
+            int alt10=2;
+            int LA10_0 = input.LA(1);
 
-            if ( (LA11_0==26) ) {
-                alt11=1;
+            if ( (LA10_0==26) ) {
+                alt10=1;
             }
-            else if ( (LA11_0==27) ) {
-                alt11=2;
+            else if ( (LA10_0==27) ) {
+                alt10=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 11, 0, input);
+                    new NoViableAltException("", 10, 0, input);
 
                 throw nvae;
             }
-            switch (alt11) {
+            switch (alt10) {
                 case 1 :
-                    // InternalAltarica.g:1485:1: ( 'true' )
+                    // InternalAltarica.g:1532:1: ( 'true' )
                     {
-                    // InternalAltarica.g:1485:1: ( 'true' )
-                    // InternalAltarica.g:1486:1: 'true'
+                    // InternalAltarica.g:1532:1: ( 'true' )
+                    // InternalAltarica.g:1533:1: 'true'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBooleanLiteralAccess().getValueTrueKeyword_0_0()); 
@@ -4777,10 +4899,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1493:6: ( 'false' )
+                    // InternalAltarica.g:1540:6: ( 'false' )
                     {
-                    // InternalAltarica.g:1493:6: ( 'false' )
-                    // InternalAltarica.g:1494:1: 'false'
+                    // InternalAltarica.g:1540:6: ( 'false' )
+                    // InternalAltarica.g:1541:1: 'false'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBooleanLiteralAccess().getValueFalseKeyword_0_1()); 
@@ -4813,44 +4935,44 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__NameAlternatives_1_0"
-    // InternalAltarica.g:1506:1: rule__FunctionCall__NameAlternatives_1_0 : ( ( 'exponential' ) | ( 'Dirac' ) | ( 'constant' ) );
+    // InternalAltarica.g:1553:1: rule__FunctionCall__NameAlternatives_1_0 : ( ( 'exponential' ) | ( 'Dirac' ) | ( 'constant' ) );
     public final void rule__FunctionCall__NameAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1510:1: ( ( 'exponential' ) | ( 'Dirac' ) | ( 'constant' ) )
-            int alt12=3;
+            // InternalAltarica.g:1557:1: ( ( 'exponential' ) | ( 'Dirac' ) | ( 'constant' ) )
+            int alt11=3;
             switch ( input.LA(1) ) {
             case 28:
                 {
-                alt12=1;
+                alt11=1;
                 }
                 break;
             case 29:
                 {
-                alt12=2;
+                alt11=2;
                 }
                 break;
             case 30:
                 {
-                alt12=3;
+                alt11=3;
                 }
                 break;
             default:
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 12, 0, input);
+                    new NoViableAltException("", 11, 0, input);
 
                 throw nvae;
             }
 
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // InternalAltarica.g:1511:1: ( 'exponential' )
+                    // InternalAltarica.g:1558:1: ( 'exponential' )
                     {
-                    // InternalAltarica.g:1511:1: ( 'exponential' )
-                    // InternalAltarica.g:1512:1: 'exponential'
+                    // InternalAltarica.g:1558:1: ( 'exponential' )
+                    // InternalAltarica.g:1559:1: 'exponential'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getFunctionCallAccess().getNameExponentialKeyword_1_0_0()); 
@@ -4866,10 +4988,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1519:6: ( 'Dirac' )
+                    // InternalAltarica.g:1566:6: ( 'Dirac' )
                     {
-                    // InternalAltarica.g:1519:6: ( 'Dirac' )
-                    // InternalAltarica.g:1520:1: 'Dirac'
+                    // InternalAltarica.g:1566:6: ( 'Dirac' )
+                    // InternalAltarica.g:1567:1: 'Dirac'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getFunctionCallAccess().getNameDiracKeyword_1_0_1()); 
@@ -4885,10 +5007,10 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // InternalAltarica.g:1527:6: ( 'constant' )
+                    // InternalAltarica.g:1574:6: ( 'constant' )
                     {
-                    // InternalAltarica.g:1527:6: ( 'constant' )
-                    // InternalAltarica.g:1528:1: 'constant'
+                    // InternalAltarica.g:1574:6: ( 'constant' )
+                    // InternalAltarica.g:1575:1: 'constant'
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getFunctionCallAccess().getNameConstantKeyword_1_0_2()); 
@@ -4921,41 +5043,41 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__BaseTypeEnum__Alternatives"
-    // InternalAltarica.g:1540:1: rule__BaseTypeEnum__Alternatives : ( ( ( 'Integer' ) ) | ( ( 'Boolean' ) ) );
+    // InternalAltarica.g:1587:1: rule__BaseTypeEnum__Alternatives : ( ( ( 'Integer' ) ) | ( ( 'Boolean' ) ) );
     public final void rule__BaseTypeEnum__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1544:1: ( ( ( 'Integer' ) ) | ( ( 'Boolean' ) ) )
-            int alt13=2;
-            int LA13_0 = input.LA(1);
+            // InternalAltarica.g:1591:1: ( ( ( 'Integer' ) ) | ( ( 'Boolean' ) ) )
+            int alt12=2;
+            int LA12_0 = input.LA(1);
 
-            if ( (LA13_0==31) ) {
-                alt13=1;
+            if ( (LA12_0==31) ) {
+                alt12=1;
             }
-            else if ( (LA13_0==32) ) {
-                alt13=2;
+            else if ( (LA12_0==32) ) {
+                alt12=2;
             }
             else {
                 if (state.backtracking>0) {state.failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("", 13, 0, input);
+                    new NoViableAltException("", 12, 0, input);
 
                 throw nvae;
             }
-            switch (alt13) {
+            switch (alt12) {
                 case 1 :
-                    // InternalAltarica.g:1545:1: ( ( 'Integer' ) )
+                    // InternalAltarica.g:1592:1: ( ( 'Integer' ) )
                     {
-                    // InternalAltarica.g:1545:1: ( ( 'Integer' ) )
-                    // InternalAltarica.g:1546:1: ( 'Integer' )
+                    // InternalAltarica.g:1592:1: ( ( 'Integer' ) )
+                    // InternalAltarica.g:1593:1: ( 'Integer' )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBaseTypeEnumAccess().getINTEGEREnumLiteralDeclaration_0()); 
                     }
-                    // InternalAltarica.g:1547:1: ( 'Integer' )
-                    // InternalAltarica.g:1547:3: 'Integer'
+                    // InternalAltarica.g:1594:1: ( 'Integer' )
+                    // InternalAltarica.g:1594:3: 'Integer'
                     {
                     match(input,31,FOLLOW_2); if (state.failed) return ;
 
@@ -4971,16 +5093,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 2 :
-                    // InternalAltarica.g:1552:6: ( ( 'Boolean' ) )
+                    // InternalAltarica.g:1599:6: ( ( 'Boolean' ) )
                     {
-                    // InternalAltarica.g:1552:6: ( ( 'Boolean' ) )
-                    // InternalAltarica.g:1553:1: ( 'Boolean' )
+                    // InternalAltarica.g:1599:6: ( ( 'Boolean' ) )
+                    // InternalAltarica.g:1600:1: ( 'Boolean' )
                     {
                     if ( state.backtracking==0 ) {
                        before(grammarAccess.getBaseTypeEnumAccess().getBOOLEANEnumLiteralDeclaration_1()); 
                     }
-                    // InternalAltarica.g:1554:1: ( 'Boolean' )
-                    // InternalAltarica.g:1554:3: 'Boolean'
+                    // InternalAltarica.g:1601:1: ( 'Boolean' )
+                    // InternalAltarica.g:1601:3: 'Boolean'
                     {
                     match(input,32,FOLLOW_2); if (state.failed) return ;
 
@@ -5012,17 +5134,808 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__BaseTypeEnum__Alternatives"
 
 
+    // $ANTLR start "rule__Severity__Alternatives"
+    // InternalAltarica.g:1611:1: rule__Severity__Alternatives : ( ( ( 'error' ) ) | ( ( 'warning' ) ) );
+    public final void rule__Severity__Alternatives() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1615:1: ( ( ( 'error' ) ) | ( ( 'warning' ) ) )
+            int alt13=2;
+            int LA13_0 = input.LA(1);
+
+            if ( (LA13_0==33) ) {
+                alt13=1;
+            }
+            else if ( (LA13_0==34) ) {
+                alt13=2;
+            }
+            else {
+                if (state.backtracking>0) {state.failed=true; return ;}
+                NoViableAltException nvae =
+                    new NoViableAltException("", 13, 0, input);
+
+                throw nvae;
+            }
+            switch (alt13) {
+                case 1 :
+                    // InternalAltarica.g:1616:1: ( ( 'error' ) )
+                    {
+                    // InternalAltarica.g:1616:1: ( ( 'error' ) )
+                    // InternalAltarica.g:1617:1: ( 'error' )
+                    {
+                    if ( state.backtracking==0 ) {
+                       before(grammarAccess.getSeverityAccess().getERROREnumLiteralDeclaration_0()); 
+                    }
+                    // InternalAltarica.g:1618:1: ( 'error' )
+                    // InternalAltarica.g:1618:3: 'error'
+                    {
+                    match(input,33,FOLLOW_2); if (state.failed) return ;
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+                       after(grammarAccess.getSeverityAccess().getERROREnumLiteralDeclaration_0()); 
+                    }
+
+                    }
+
+
+                    }
+                    break;
+                case 2 :
+                    // InternalAltarica.g:1623:6: ( ( 'warning' ) )
+                    {
+                    // InternalAltarica.g:1623:6: ( ( 'warning' ) )
+                    // InternalAltarica.g:1624:1: ( 'warning' )
+                    {
+                    if ( state.backtracking==0 ) {
+                       before(grammarAccess.getSeverityAccess().getWARNINGEnumLiteralDeclaration_1()); 
+                    }
+                    // InternalAltarica.g:1625:1: ( 'warning' )
+                    // InternalAltarica.g:1625:3: 'warning'
+                    {
+                    match(input,34,FOLLOW_2); if (state.failed) return ;
+
+                    }
+
+                    if ( state.backtracking==0 ) {
+                       after(grammarAccess.getSeverityAccess().getWARNINGEnumLiteralDeclaration_1()); 
+                    }
+
+                    }
+
+
+                    }
+                    break;
+
+            }
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Severity__Alternatives"
+
+
+    // $ANTLR start "rule__Model__Group__0"
+    // InternalAltarica.g:1637:1: rule__Model__Group__0 : rule__Model__Group__0__Impl rule__Model__Group__1 ;
+    public final void rule__Model__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1641:1: ( rule__Model__Group__0__Impl rule__Model__Group__1 )
+            // InternalAltarica.g:1642:2: rule__Model__Group__0__Impl rule__Model__Group__1
+            {
+            pushFollow(FOLLOW_3);
+            rule__Model__Group__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Model__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__0"
+
+
+    // $ANTLR start "rule__Model__Group__0__Impl"
+    // InternalAltarica.g:1649:1: rule__Model__Group__0__Impl : ( () ) ;
+    public final void rule__Model__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1653:1: ( ( () ) )
+            // InternalAltarica.g:1654:1: ( () )
+            {
+            // InternalAltarica.g:1654:1: ( () )
+            // InternalAltarica.g:1655:1: ()
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getModelAction_0()); 
+            }
+            // InternalAltarica.g:1656:1: ()
+            // InternalAltarica.g:1658:1: 
+            {
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getModelAction_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Model__Group__1"
+    // InternalAltarica.g:1668:1: rule__Model__Group__1 : rule__Model__Group__1__Impl rule__Model__Group__2 ;
+    public final void rule__Model__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1672:1: ( rule__Model__Group__1__Impl rule__Model__Group__2 )
+            // InternalAltarica.g:1673:2: rule__Model__Group__1__Impl rule__Model__Group__2
+            {
+            pushFollow(FOLLOW_3);
+            rule__Model__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Model__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__1"
+
+
+    // $ANTLR start "rule__Model__Group__1__Impl"
+    // InternalAltarica.g:1680:1: rule__Model__Group__1__Impl : ( ( rule__Model__Group_1__0 )? ) ;
+    public final void rule__Model__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1684:1: ( ( ( rule__Model__Group_1__0 )? ) )
+            // InternalAltarica.g:1685:1: ( ( rule__Model__Group_1__0 )? )
+            {
+            // InternalAltarica.g:1685:1: ( ( rule__Model__Group_1__0 )? )
+            // InternalAltarica.g:1686:1: ( rule__Model__Group_1__0 )?
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getGroup_1()); 
+            }
+            // InternalAltarica.g:1687:1: ( rule__Model__Group_1__0 )?
+            int alt14=2;
+            int LA14_0 = input.LA(1);
+
+            if ( (LA14_0==35) ) {
+                alt14=1;
+            }
+            switch (alt14) {
+                case 1 :
+                    // InternalAltarica.g:1687:2: rule__Model__Group_1__0
+                    {
+                    pushFollow(FOLLOW_2);
+                    rule__Model__Group_1__0();
+
+                    state._fsp--;
+                    if (state.failed) return ;
+
+                    }
+                    break;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getGroup_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Model__Group__2"
+    // InternalAltarica.g:1697:1: rule__Model__Group__2 : rule__Model__Group__2__Impl ;
+    public final void rule__Model__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1701:1: ( rule__Model__Group__2__Impl )
+            // InternalAltarica.g:1702:2: rule__Model__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Model__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__2"
+
+
+    // $ANTLR start "rule__Model__Group__2__Impl"
+    // InternalAltarica.g:1708:1: rule__Model__Group__2__Impl : ( ( rule__Model__DeclarationsAssignment_2 )* ) ;
+    public final void rule__Model__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1712:1: ( ( ( rule__Model__DeclarationsAssignment_2 )* ) )
+            // InternalAltarica.g:1713:1: ( ( rule__Model__DeclarationsAssignment_2 )* )
+            {
+            // InternalAltarica.g:1713:1: ( ( rule__Model__DeclarationsAssignment_2 )* )
+            // InternalAltarica.g:1714:1: ( rule__Model__DeclarationsAssignment_2 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getDeclarationsAssignment_2()); 
+            }
+            // InternalAltarica.g:1715:1: ( rule__Model__DeclarationsAssignment_2 )*
+            loop15:
+            do {
+                int alt15=2;
+                int LA15_0 = input.LA(1);
+
+                if ( (LA15_0==39||LA15_0==41) ) {
+                    alt15=1;
+                }
+
+
+                switch (alt15) {
+            	case 1 :
+            	    // InternalAltarica.g:1715:2: rule__Model__DeclarationsAssignment_2
+            	    {
+            	    pushFollow(FOLLOW_4);
+            	    rule__Model__DeclarationsAssignment_2();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop15;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getDeclarationsAssignment_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Model__Group_1__0"
+    // InternalAltarica.g:1731:1: rule__Model__Group_1__0 : rule__Model__Group_1__0__Impl rule__Model__Group_1__1 ;
+    public final void rule__Model__Group_1__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1735:1: ( rule__Model__Group_1__0__Impl rule__Model__Group_1__1 )
+            // InternalAltarica.g:1736:2: rule__Model__Group_1__0__Impl rule__Model__Group_1__1
+            {
+            pushFollow(FOLLOW_5);
+            rule__Model__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Model__Group_1__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__0"
+
+
+    // $ANTLR start "rule__Model__Group_1__0__Impl"
+    // InternalAltarica.g:1743:1: rule__Model__Group_1__0__Impl : ( 'transformation' ) ;
+    public final void rule__Model__Group_1__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1747:1: ( ( 'transformation' ) )
+            // InternalAltarica.g:1748:1: ( 'transformation' )
+            {
+            // InternalAltarica.g:1748:1: ( 'transformation' )
+            // InternalAltarica.g:1749:1: 'transformation'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getTransformationKeyword_1_0()); 
+            }
+            match(input,35,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getTransformationKeyword_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__0__Impl"
+
+
+    // $ANTLR start "rule__Model__Group_1__1"
+    // InternalAltarica.g:1762:1: rule__Model__Group_1__1 : rule__Model__Group_1__1__Impl rule__Model__Group_1__2 ;
+    public final void rule__Model__Group_1__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1766:1: ( rule__Model__Group_1__1__Impl rule__Model__Group_1__2 )
+            // InternalAltarica.g:1767:2: rule__Model__Group_1__1__Impl rule__Model__Group_1__2
+            {
+            pushFollow(FOLLOW_6);
+            rule__Model__Group_1__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Model__Group_1__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__1"
+
+
+    // $ANTLR start "rule__Model__Group_1__1__Impl"
+    // InternalAltarica.g:1774:1: rule__Model__Group_1__1__Impl : ( 'issues' ) ;
+    public final void rule__Model__Group_1__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1778:1: ( ( 'issues' ) )
+            // InternalAltarica.g:1779:1: ( 'issues' )
+            {
+            // InternalAltarica.g:1779:1: ( 'issues' )
+            // InternalAltarica.g:1780:1: 'issues'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getIssuesKeyword_1_1()); 
+            }
+            match(input,36,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getIssuesKeyword_1_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__1__Impl"
+
+
+    // $ANTLR start "rule__Model__Group_1__2"
+    // InternalAltarica.g:1793:1: rule__Model__Group_1__2 : rule__Model__Group_1__2__Impl rule__Model__Group_1__3 ;
+    public final void rule__Model__Group_1__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1797:1: ( rule__Model__Group_1__2__Impl rule__Model__Group_1__3 )
+            // InternalAltarica.g:1798:2: rule__Model__Group_1__2__Impl rule__Model__Group_1__3
+            {
+            pushFollow(FOLLOW_7);
+            rule__Model__Group_1__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Model__Group_1__3();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__2"
+
+
+    // $ANTLR start "rule__Model__Group_1__2__Impl"
+    // InternalAltarica.g:1805:1: rule__Model__Group_1__2__Impl : ( '{' ) ;
+    public final void rule__Model__Group_1__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1809:1: ( ( '{' ) )
+            // InternalAltarica.g:1810:1: ( '{' )
+            {
+            // InternalAltarica.g:1810:1: ( '{' )
+            // InternalAltarica.g:1811:1: '{'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2()); 
+            }
+            match(input,37,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__2__Impl"
+
+
+    // $ANTLR start "rule__Model__Group_1__3"
+    // InternalAltarica.g:1824:1: rule__Model__Group_1__3 : rule__Model__Group_1__3__Impl rule__Model__Group_1__4 ;
+    public final void rule__Model__Group_1__3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1828:1: ( rule__Model__Group_1__3__Impl rule__Model__Group_1__4 )
+            // InternalAltarica.g:1829:2: rule__Model__Group_1__3__Impl rule__Model__Group_1__4
+            {
+            pushFollow(FOLLOW_7);
+            rule__Model__Group_1__3__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Model__Group_1__4();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__3"
+
+
+    // $ANTLR start "rule__Model__Group_1__3__Impl"
+    // InternalAltarica.g:1836:1: rule__Model__Group_1__3__Impl : ( ( rule__Model__ErrorsAssignment_1_3 )* ) ;
+    public final void rule__Model__Group_1__3__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1840:1: ( ( ( rule__Model__ErrorsAssignment_1_3 )* ) )
+            // InternalAltarica.g:1841:1: ( ( rule__Model__ErrorsAssignment_1_3 )* )
+            {
+            // InternalAltarica.g:1841:1: ( ( rule__Model__ErrorsAssignment_1_3 )* )
+            // InternalAltarica.g:1842:1: ( rule__Model__ErrorsAssignment_1_3 )*
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getErrorsAssignment_1_3()); 
+            }
+            // InternalAltarica.g:1843:1: ( rule__Model__ErrorsAssignment_1_3 )*
+            loop16:
+            do {
+                int alt16=2;
+                int LA16_0 = input.LA(1);
+
+                if ( ((LA16_0>=33 && LA16_0<=34)) ) {
+                    alt16=1;
+                }
+
+
+                switch (alt16) {
+            	case 1 :
+            	    // InternalAltarica.g:1843:2: rule__Model__ErrorsAssignment_1_3
+            	    {
+            	    pushFollow(FOLLOW_8);
+            	    rule__Model__ErrorsAssignment_1_3();
+
+            	    state._fsp--;
+            	    if (state.failed) return ;
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop16;
+                }
+            } while (true);
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getErrorsAssignment_1_3()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__3__Impl"
+
+
+    // $ANTLR start "rule__Model__Group_1__4"
+    // InternalAltarica.g:1853:1: rule__Model__Group_1__4 : rule__Model__Group_1__4__Impl ;
+    public final void rule__Model__Group_1__4() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1857:1: ( rule__Model__Group_1__4__Impl )
+            // InternalAltarica.g:1858:2: rule__Model__Group_1__4__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Model__Group_1__4__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__4"
+
+
+    // $ANTLR start "rule__Model__Group_1__4__Impl"
+    // InternalAltarica.g:1864:1: rule__Model__Group_1__4__Impl : ( '}' ) ;
+    public final void rule__Model__Group_1__4__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:1868:1: ( ( '}' ) )
+            // InternalAltarica.g:1869:1: ( '}' )
+            {
+            // InternalAltarica.g:1869:1: ( '}' )
+            // InternalAltarica.g:1870:1: '}'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_4()); 
+            }
+            match(input,38,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_4()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__Group_1__4__Impl"
+
+
     // $ANTLR start "rule__Domain__Group__0"
-    // InternalAltarica.g:1566:1: rule__Domain__Group__0 : rule__Domain__Group__0__Impl rule__Domain__Group__1 ;
+    // InternalAltarica.g:1893:1: rule__Domain__Group__0 : rule__Domain__Group__0__Impl rule__Domain__Group__1 ;
     public final void rule__Domain__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1570:1: ( rule__Domain__Group__0__Impl rule__Domain__Group__1 )
-            // InternalAltarica.g:1571:2: rule__Domain__Group__0__Impl rule__Domain__Group__1
+            // InternalAltarica.g:1897:1: ( rule__Domain__Group__0__Impl rule__Domain__Group__1 )
+            // InternalAltarica.g:1898:2: rule__Domain__Group__0__Impl rule__Domain__Group__1
             {
-            pushFollow(FOLLOW_4);
+            pushFollow(FOLLOW_9);
             rule__Domain__Group__0__Impl();
 
             state._fsp--;
@@ -5051,23 +5964,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__0__Impl"
-    // InternalAltarica.g:1578:1: rule__Domain__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:1905:1: rule__Domain__Group__0__Impl : ( () ) ;
     public final void rule__Domain__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1582:1: ( ( () ) )
-            // InternalAltarica.g:1583:1: ( () )
+            // InternalAltarica.g:1909:1: ( ( () ) )
+            // InternalAltarica.g:1910:1: ( () )
             {
-            // InternalAltarica.g:1583:1: ( () )
-            // InternalAltarica.g:1584:1: ()
+            // InternalAltarica.g:1910:1: ( () )
+            // InternalAltarica.g:1911:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getDomainAction_0()); 
             }
-            // InternalAltarica.g:1585:1: ()
-            // InternalAltarica.g:1587:1: 
+            // InternalAltarica.g:1912:1: ()
+            // InternalAltarica.g:1914:1: 
             {
             }
 
@@ -5092,16 +6005,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__1"
-    // InternalAltarica.g:1597:1: rule__Domain__Group__1 : rule__Domain__Group__1__Impl rule__Domain__Group__2 ;
+    // InternalAltarica.g:1924:1: rule__Domain__Group__1 : rule__Domain__Group__1__Impl rule__Domain__Group__2 ;
     public final void rule__Domain__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1601:1: ( rule__Domain__Group__1__Impl rule__Domain__Group__2 )
-            // InternalAltarica.g:1602:2: rule__Domain__Group__1__Impl rule__Domain__Group__2
+            // InternalAltarica.g:1928:1: ( rule__Domain__Group__1__Impl rule__Domain__Group__2 )
+            // InternalAltarica.g:1929:2: rule__Domain__Group__1__Impl rule__Domain__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Domain__Group__1__Impl();
 
             state._fsp--;
@@ -5130,22 +6043,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__1__Impl"
-    // InternalAltarica.g:1609:1: rule__Domain__Group__1__Impl : ( 'domain' ) ;
+    // InternalAltarica.g:1936:1: rule__Domain__Group__1__Impl : ( 'domain' ) ;
     public final void rule__Domain__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1613:1: ( ( 'domain' ) )
-            // InternalAltarica.g:1614:1: ( 'domain' )
+            // InternalAltarica.g:1940:1: ( ( 'domain' ) )
+            // InternalAltarica.g:1941:1: ( 'domain' )
             {
-            // InternalAltarica.g:1614:1: ( 'domain' )
-            // InternalAltarica.g:1615:1: 'domain'
+            // InternalAltarica.g:1941:1: ( 'domain' )
+            // InternalAltarica.g:1942:1: 'domain'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getDomainKeyword_1()); 
             }
-            match(input,33,FOLLOW_2); if (state.failed) return ;
+            match(input,39,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDomainAccess().getDomainKeyword_1()); 
             }
@@ -5171,14 +6084,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__2"
-    // InternalAltarica.g:1628:1: rule__Domain__Group__2 : rule__Domain__Group__2__Impl rule__Domain__Group__3 ;
+    // InternalAltarica.g:1955:1: rule__Domain__Group__2 : rule__Domain__Group__2__Impl rule__Domain__Group__3 ;
     public final void rule__Domain__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1632:1: ( rule__Domain__Group__2__Impl rule__Domain__Group__3 )
-            // InternalAltarica.g:1633:2: rule__Domain__Group__2__Impl rule__Domain__Group__3
+            // InternalAltarica.g:1959:1: ( rule__Domain__Group__2__Impl rule__Domain__Group__3 )
+            // InternalAltarica.g:1960:2: rule__Domain__Group__2__Impl rule__Domain__Group__3
             {
             pushFollow(FOLLOW_6);
             rule__Domain__Group__2__Impl();
@@ -5209,23 +6122,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__2__Impl"
-    // InternalAltarica.g:1640:1: rule__Domain__Group__2__Impl : ( ( rule__Domain__NameAssignment_2 ) ) ;
+    // InternalAltarica.g:1967:1: rule__Domain__Group__2__Impl : ( ( rule__Domain__NameAssignment_2 ) ) ;
     public final void rule__Domain__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1644:1: ( ( ( rule__Domain__NameAssignment_2 ) ) )
-            // InternalAltarica.g:1645:1: ( ( rule__Domain__NameAssignment_2 ) )
+            // InternalAltarica.g:1971:1: ( ( ( rule__Domain__NameAssignment_2 ) ) )
+            // InternalAltarica.g:1972:1: ( ( rule__Domain__NameAssignment_2 ) )
             {
-            // InternalAltarica.g:1645:1: ( ( rule__Domain__NameAssignment_2 ) )
-            // InternalAltarica.g:1646:1: ( rule__Domain__NameAssignment_2 )
+            // InternalAltarica.g:1972:1: ( ( rule__Domain__NameAssignment_2 ) )
+            // InternalAltarica.g:1973:1: ( rule__Domain__NameAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getNameAssignment_2()); 
             }
-            // InternalAltarica.g:1647:1: ( rule__Domain__NameAssignment_2 )
-            // InternalAltarica.g:1647:2: rule__Domain__NameAssignment_2
+            // InternalAltarica.g:1974:1: ( rule__Domain__NameAssignment_2 )
+            // InternalAltarica.g:1974:2: rule__Domain__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Domain__NameAssignment_2();
@@ -5260,16 +6173,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__3"
-    // InternalAltarica.g:1657:1: rule__Domain__Group__3 : rule__Domain__Group__3__Impl rule__Domain__Group__4 ;
+    // InternalAltarica.g:1984:1: rule__Domain__Group__3 : rule__Domain__Group__3__Impl rule__Domain__Group__4 ;
     public final void rule__Domain__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1661:1: ( rule__Domain__Group__3__Impl rule__Domain__Group__4 )
-            // InternalAltarica.g:1662:2: rule__Domain__Group__3__Impl rule__Domain__Group__4
+            // InternalAltarica.g:1988:1: ( rule__Domain__Group__3__Impl rule__Domain__Group__4 )
+            // InternalAltarica.g:1989:2: rule__Domain__Group__3__Impl rule__Domain__Group__4
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_11);
             rule__Domain__Group__3__Impl();
 
             state._fsp--;
@@ -5298,22 +6211,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__3__Impl"
-    // InternalAltarica.g:1669:1: rule__Domain__Group__3__Impl : ( '{' ) ;
+    // InternalAltarica.g:1996:1: rule__Domain__Group__3__Impl : ( '{' ) ;
     public final void rule__Domain__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1673:1: ( ( '{' ) )
-            // InternalAltarica.g:1674:1: ( '{' )
+            // InternalAltarica.g:2000:1: ( ( '{' ) )
+            // InternalAltarica.g:2001:1: ( '{' )
             {
-            // InternalAltarica.g:1674:1: ( '{' )
-            // InternalAltarica.g:1675:1: '{'
+            // InternalAltarica.g:2001:1: ( '{' )
+            // InternalAltarica.g:2002:1: '{'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getLeftCurlyBracketKeyword_3()); 
             }
-            match(input,34,FOLLOW_2); if (state.failed) return ;
+            match(input,37,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDomainAccess().getLeftCurlyBracketKeyword_3()); 
             }
@@ -5339,16 +6252,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__4"
-    // InternalAltarica.g:1688:1: rule__Domain__Group__4 : rule__Domain__Group__4__Impl rule__Domain__Group__5 ;
+    // InternalAltarica.g:2015:1: rule__Domain__Group__4 : rule__Domain__Group__4__Impl rule__Domain__Group__5 ;
     public final void rule__Domain__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1692:1: ( rule__Domain__Group__4__Impl rule__Domain__Group__5 )
-            // InternalAltarica.g:1693:2: rule__Domain__Group__4__Impl rule__Domain__Group__5
+            // InternalAltarica.g:2019:1: ( rule__Domain__Group__4__Impl rule__Domain__Group__5 )
+            // InternalAltarica.g:2020:2: rule__Domain__Group__4__Impl rule__Domain__Group__5
             {
-            pushFollow(FOLLOW_7);
+            pushFollow(FOLLOW_11);
             rule__Domain__Group__4__Impl();
 
             state._fsp--;
@@ -5377,31 +6290,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__4__Impl"
-    // InternalAltarica.g:1700:1: rule__Domain__Group__4__Impl : ( ( rule__Domain__Group_4__0 )? ) ;
+    // InternalAltarica.g:2027:1: rule__Domain__Group__4__Impl : ( ( rule__Domain__Group_4__0 )? ) ;
     public final void rule__Domain__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1704:1: ( ( ( rule__Domain__Group_4__0 )? ) )
-            // InternalAltarica.g:1705:1: ( ( rule__Domain__Group_4__0 )? )
+            // InternalAltarica.g:2031:1: ( ( ( rule__Domain__Group_4__0 )? ) )
+            // InternalAltarica.g:2032:1: ( ( rule__Domain__Group_4__0 )? )
             {
-            // InternalAltarica.g:1705:1: ( ( rule__Domain__Group_4__0 )? )
-            // InternalAltarica.g:1706:1: ( rule__Domain__Group_4__0 )?
+            // InternalAltarica.g:2032:1: ( ( rule__Domain__Group_4__0 )? )
+            // InternalAltarica.g:2033:1: ( rule__Domain__Group_4__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getGroup_4()); 
             }
-            // InternalAltarica.g:1707:1: ( rule__Domain__Group_4__0 )?
-            int alt14=2;
-            int LA14_0 = input.LA(1);
+            // InternalAltarica.g:2034:1: ( rule__Domain__Group_4__0 )?
+            int alt17=2;
+            int LA17_0 = input.LA(1);
 
-            if ( (LA14_0==RULE_ID) ) {
-                alt14=1;
+            if ( (LA17_0==RULE_ID) ) {
+                alt17=1;
             }
-            switch (alt14) {
+            switch (alt17) {
                 case 1 :
-                    // InternalAltarica.g:1707:2: rule__Domain__Group_4__0
+                    // InternalAltarica.g:2034:2: rule__Domain__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Domain__Group_4__0();
@@ -5439,14 +6352,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__5"
-    // InternalAltarica.g:1717:1: rule__Domain__Group__5 : rule__Domain__Group__5__Impl ;
+    // InternalAltarica.g:2044:1: rule__Domain__Group__5 : rule__Domain__Group__5__Impl ;
     public final void rule__Domain__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1721:1: ( rule__Domain__Group__5__Impl )
-            // InternalAltarica.g:1722:2: rule__Domain__Group__5__Impl
+            // InternalAltarica.g:2048:1: ( rule__Domain__Group__5__Impl )
+            // InternalAltarica.g:2049:2: rule__Domain__Group__5__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Domain__Group__5__Impl();
@@ -5472,22 +6385,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group__5__Impl"
-    // InternalAltarica.g:1728:1: rule__Domain__Group__5__Impl : ( '}' ) ;
+    // InternalAltarica.g:2055:1: rule__Domain__Group__5__Impl : ( '}' ) ;
     public final void rule__Domain__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1732:1: ( ( '}' ) )
-            // InternalAltarica.g:1733:1: ( '}' )
+            // InternalAltarica.g:2059:1: ( ( '}' ) )
+            // InternalAltarica.g:2060:1: ( '}' )
             {
-            // InternalAltarica.g:1733:1: ( '}' )
-            // InternalAltarica.g:1734:1: '}'
+            // InternalAltarica.g:2060:1: ( '}' )
+            // InternalAltarica.g:2061:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_5()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            match(input,38,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDomainAccess().getRightCurlyBracketKeyword_5()); 
             }
@@ -5513,16 +6426,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4__0"
-    // InternalAltarica.g:1759:1: rule__Domain__Group_4__0 : rule__Domain__Group_4__0__Impl rule__Domain__Group_4__1 ;
+    // InternalAltarica.g:2086:1: rule__Domain__Group_4__0 : rule__Domain__Group_4__0__Impl rule__Domain__Group_4__1 ;
     public final void rule__Domain__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1763:1: ( rule__Domain__Group_4__0__Impl rule__Domain__Group_4__1 )
-            // InternalAltarica.g:1764:2: rule__Domain__Group_4__0__Impl rule__Domain__Group_4__1
+            // InternalAltarica.g:2090:1: ( rule__Domain__Group_4__0__Impl rule__Domain__Group_4__1 )
+            // InternalAltarica.g:2091:2: rule__Domain__Group_4__0__Impl rule__Domain__Group_4__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_12);
             rule__Domain__Group_4__0__Impl();
 
             state._fsp--;
@@ -5551,23 +6464,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4__0__Impl"
-    // InternalAltarica.g:1771:1: rule__Domain__Group_4__0__Impl : ( ( rule__Domain__ConstantsAssignment_4_0 ) ) ;
+    // InternalAltarica.g:2098:1: rule__Domain__Group_4__0__Impl : ( ( rule__Domain__ConstantsAssignment_4_0 ) ) ;
     public final void rule__Domain__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1775:1: ( ( ( rule__Domain__ConstantsAssignment_4_0 ) ) )
-            // InternalAltarica.g:1776:1: ( ( rule__Domain__ConstantsAssignment_4_0 ) )
+            // InternalAltarica.g:2102:1: ( ( ( rule__Domain__ConstantsAssignment_4_0 ) ) )
+            // InternalAltarica.g:2103:1: ( ( rule__Domain__ConstantsAssignment_4_0 ) )
             {
-            // InternalAltarica.g:1776:1: ( ( rule__Domain__ConstantsAssignment_4_0 ) )
-            // InternalAltarica.g:1777:1: ( rule__Domain__ConstantsAssignment_4_0 )
+            // InternalAltarica.g:2103:1: ( ( rule__Domain__ConstantsAssignment_4_0 ) )
+            // InternalAltarica.g:2104:1: ( rule__Domain__ConstantsAssignment_4_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getConstantsAssignment_4_0()); 
             }
-            // InternalAltarica.g:1778:1: ( rule__Domain__ConstantsAssignment_4_0 )
-            // InternalAltarica.g:1778:2: rule__Domain__ConstantsAssignment_4_0
+            // InternalAltarica.g:2105:1: ( rule__Domain__ConstantsAssignment_4_0 )
+            // InternalAltarica.g:2105:2: rule__Domain__ConstantsAssignment_4_0
             {
             pushFollow(FOLLOW_2);
             rule__Domain__ConstantsAssignment_4_0();
@@ -5602,14 +6515,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4__1"
-    // InternalAltarica.g:1788:1: rule__Domain__Group_4__1 : rule__Domain__Group_4__1__Impl ;
+    // InternalAltarica.g:2115:1: rule__Domain__Group_4__1 : rule__Domain__Group_4__1__Impl ;
     public final void rule__Domain__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1792:1: ( rule__Domain__Group_4__1__Impl )
-            // InternalAltarica.g:1793:2: rule__Domain__Group_4__1__Impl
+            // InternalAltarica.g:2119:1: ( rule__Domain__Group_4__1__Impl )
+            // InternalAltarica.g:2120:2: rule__Domain__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Domain__Group_4__1__Impl();
@@ -5635,37 +6548,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4__1__Impl"
-    // InternalAltarica.g:1799:1: rule__Domain__Group_4__1__Impl : ( ( rule__Domain__Group_4_1__0 )* ) ;
+    // InternalAltarica.g:2126:1: rule__Domain__Group_4__1__Impl : ( ( rule__Domain__Group_4_1__0 )* ) ;
     public final void rule__Domain__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1803:1: ( ( ( rule__Domain__Group_4_1__0 )* ) )
-            // InternalAltarica.g:1804:1: ( ( rule__Domain__Group_4_1__0 )* )
+            // InternalAltarica.g:2130:1: ( ( ( rule__Domain__Group_4_1__0 )* ) )
+            // InternalAltarica.g:2131:1: ( ( rule__Domain__Group_4_1__0 )* )
             {
-            // InternalAltarica.g:1804:1: ( ( rule__Domain__Group_4_1__0 )* )
-            // InternalAltarica.g:1805:1: ( rule__Domain__Group_4_1__0 )*
+            // InternalAltarica.g:2131:1: ( ( rule__Domain__Group_4_1__0 )* )
+            // InternalAltarica.g:2132:1: ( rule__Domain__Group_4_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getGroup_4_1()); 
             }
-            // InternalAltarica.g:1806:1: ( rule__Domain__Group_4_1__0 )*
-            loop15:
+            // InternalAltarica.g:2133:1: ( rule__Domain__Group_4_1__0 )*
+            loop18:
             do {
-                int alt15=2;
-                int LA15_0 = input.LA(1);
+                int alt18=2;
+                int LA18_0 = input.LA(1);
 
-                if ( (LA15_0==36) ) {
-                    alt15=1;
+                if ( (LA18_0==40) ) {
+                    alt18=1;
                 }
 
 
-                switch (alt15) {
+                switch (alt18) {
             	case 1 :
-            	    // InternalAltarica.g:1806:2: rule__Domain__Group_4_1__0
+            	    // InternalAltarica.g:2133:2: rule__Domain__Group_4_1__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_13);
             	    rule__Domain__Group_4_1__0();
 
             	    state._fsp--;
@@ -5675,7 +6588,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop15;
+            	    break loop18;
                 }
             } while (true);
 
@@ -5704,16 +6617,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4_1__0"
-    // InternalAltarica.g:1820:1: rule__Domain__Group_4_1__0 : rule__Domain__Group_4_1__0__Impl rule__Domain__Group_4_1__1 ;
+    // InternalAltarica.g:2147:1: rule__Domain__Group_4_1__0 : rule__Domain__Group_4_1__0__Impl rule__Domain__Group_4_1__1 ;
     public final void rule__Domain__Group_4_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1824:1: ( rule__Domain__Group_4_1__0__Impl rule__Domain__Group_4_1__1 )
-            // InternalAltarica.g:1825:2: rule__Domain__Group_4_1__0__Impl rule__Domain__Group_4_1__1
+            // InternalAltarica.g:2151:1: ( rule__Domain__Group_4_1__0__Impl rule__Domain__Group_4_1__1 )
+            // InternalAltarica.g:2152:2: rule__Domain__Group_4_1__0__Impl rule__Domain__Group_4_1__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Domain__Group_4_1__0__Impl();
 
             state._fsp--;
@@ -5742,22 +6655,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4_1__0__Impl"
-    // InternalAltarica.g:1832:1: rule__Domain__Group_4_1__0__Impl : ( ',' ) ;
+    // InternalAltarica.g:2159:1: rule__Domain__Group_4_1__0__Impl : ( ',' ) ;
     public final void rule__Domain__Group_4_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1836:1: ( ( ',' ) )
-            // InternalAltarica.g:1837:1: ( ',' )
+            // InternalAltarica.g:2163:1: ( ( ',' ) )
+            // InternalAltarica.g:2164:1: ( ',' )
             {
-            // InternalAltarica.g:1837:1: ( ',' )
-            // InternalAltarica.g:1838:1: ','
+            // InternalAltarica.g:2164:1: ( ',' )
+            // InternalAltarica.g:2165:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getCommaKeyword_4_1_0()); 
             }
-            match(input,36,FOLLOW_2); if (state.failed) return ;
+            match(input,40,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getDomainAccess().getCommaKeyword_4_1_0()); 
             }
@@ -5783,14 +6696,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4_1__1"
-    // InternalAltarica.g:1851:1: rule__Domain__Group_4_1__1 : rule__Domain__Group_4_1__1__Impl ;
+    // InternalAltarica.g:2178:1: rule__Domain__Group_4_1__1 : rule__Domain__Group_4_1__1__Impl ;
     public final void rule__Domain__Group_4_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1855:1: ( rule__Domain__Group_4_1__1__Impl )
-            // InternalAltarica.g:1856:2: rule__Domain__Group_4_1__1__Impl
+            // InternalAltarica.g:2182:1: ( rule__Domain__Group_4_1__1__Impl )
+            // InternalAltarica.g:2183:2: rule__Domain__Group_4_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Domain__Group_4_1__1__Impl();
@@ -5816,23 +6729,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__Group_4_1__1__Impl"
-    // InternalAltarica.g:1862:1: rule__Domain__Group_4_1__1__Impl : ( ( rule__Domain__ConstantsAssignment_4_1_1 ) ) ;
+    // InternalAltarica.g:2189:1: rule__Domain__Group_4_1__1__Impl : ( ( rule__Domain__ConstantsAssignment_4_1_1 ) ) ;
     public final void rule__Domain__Group_4_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1866:1: ( ( ( rule__Domain__ConstantsAssignment_4_1_1 ) ) )
-            // InternalAltarica.g:1867:1: ( ( rule__Domain__ConstantsAssignment_4_1_1 ) )
+            // InternalAltarica.g:2193:1: ( ( ( rule__Domain__ConstantsAssignment_4_1_1 ) ) )
+            // InternalAltarica.g:2194:1: ( ( rule__Domain__ConstantsAssignment_4_1_1 ) )
             {
-            // InternalAltarica.g:1867:1: ( ( rule__Domain__ConstantsAssignment_4_1_1 ) )
-            // InternalAltarica.g:1868:1: ( rule__Domain__ConstantsAssignment_4_1_1 )
+            // InternalAltarica.g:2194:1: ( ( rule__Domain__ConstantsAssignment_4_1_1 ) )
+            // InternalAltarica.g:2195:1: ( rule__Domain__ConstantsAssignment_4_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getConstantsAssignment_4_1_1()); 
             }
-            // InternalAltarica.g:1869:1: ( rule__Domain__ConstantsAssignment_4_1_1 )
-            // InternalAltarica.g:1869:2: rule__Domain__ConstantsAssignment_4_1_1
+            // InternalAltarica.g:2196:1: ( rule__Domain__ConstantsAssignment_4_1_1 )
+            // InternalAltarica.g:2196:2: rule__Domain__ConstantsAssignment_4_1_1
             {
             pushFollow(FOLLOW_2);
             rule__Domain__ConstantsAssignment_4_1_1();
@@ -5867,16 +6780,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SymbolicConstant__Group__0"
-    // InternalAltarica.g:1883:1: rule__SymbolicConstant__Group__0 : rule__SymbolicConstant__Group__0__Impl rule__SymbolicConstant__Group__1 ;
+    // InternalAltarica.g:2210:1: rule__SymbolicConstant__Group__0 : rule__SymbolicConstant__Group__0__Impl rule__SymbolicConstant__Group__1 ;
     public final void rule__SymbolicConstant__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1887:1: ( rule__SymbolicConstant__Group__0__Impl rule__SymbolicConstant__Group__1 )
-            // InternalAltarica.g:1888:2: rule__SymbolicConstant__Group__0__Impl rule__SymbolicConstant__Group__1
+            // InternalAltarica.g:2214:1: ( rule__SymbolicConstant__Group__0__Impl rule__SymbolicConstant__Group__1 )
+            // InternalAltarica.g:2215:2: rule__SymbolicConstant__Group__0__Impl rule__SymbolicConstant__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__SymbolicConstant__Group__0__Impl();
 
             state._fsp--;
@@ -5905,23 +6818,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SymbolicConstant__Group__0__Impl"
-    // InternalAltarica.g:1895:1: rule__SymbolicConstant__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:2222:1: rule__SymbolicConstant__Group__0__Impl : ( () ) ;
     public final void rule__SymbolicConstant__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1899:1: ( ( () ) )
-            // InternalAltarica.g:1900:1: ( () )
+            // InternalAltarica.g:2226:1: ( ( () ) )
+            // InternalAltarica.g:2227:1: ( () )
             {
-            // InternalAltarica.g:1900:1: ( () )
-            // InternalAltarica.g:1901:1: ()
+            // InternalAltarica.g:2227:1: ( () )
+            // InternalAltarica.g:2228:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSymbolicConstantAccess().getSymbolicConstantAction_0()); 
             }
-            // InternalAltarica.g:1902:1: ()
-            // InternalAltarica.g:1904:1: 
+            // InternalAltarica.g:2229:1: ()
+            // InternalAltarica.g:2231:1: 
             {
             }
 
@@ -5946,14 +6859,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SymbolicConstant__Group__1"
-    // InternalAltarica.g:1914:1: rule__SymbolicConstant__Group__1 : rule__SymbolicConstant__Group__1__Impl ;
+    // InternalAltarica.g:2241:1: rule__SymbolicConstant__Group__1 : rule__SymbolicConstant__Group__1__Impl ;
     public final void rule__SymbolicConstant__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1918:1: ( rule__SymbolicConstant__Group__1__Impl )
-            // InternalAltarica.g:1919:2: rule__SymbolicConstant__Group__1__Impl
+            // InternalAltarica.g:2245:1: ( rule__SymbolicConstant__Group__1__Impl )
+            // InternalAltarica.g:2246:2: rule__SymbolicConstant__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SymbolicConstant__Group__1__Impl();
@@ -5979,23 +6892,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SymbolicConstant__Group__1__Impl"
-    // InternalAltarica.g:1925:1: rule__SymbolicConstant__Group__1__Impl : ( ( rule__SymbolicConstant__NameAssignment_1 ) ) ;
+    // InternalAltarica.g:2252:1: rule__SymbolicConstant__Group__1__Impl : ( ( rule__SymbolicConstant__NameAssignment_1 ) ) ;
     public final void rule__SymbolicConstant__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1929:1: ( ( ( rule__SymbolicConstant__NameAssignment_1 ) ) )
-            // InternalAltarica.g:1930:1: ( ( rule__SymbolicConstant__NameAssignment_1 ) )
+            // InternalAltarica.g:2256:1: ( ( ( rule__SymbolicConstant__NameAssignment_1 ) ) )
+            // InternalAltarica.g:2257:1: ( ( rule__SymbolicConstant__NameAssignment_1 ) )
             {
-            // InternalAltarica.g:1930:1: ( ( rule__SymbolicConstant__NameAssignment_1 ) )
-            // InternalAltarica.g:1931:1: ( rule__SymbolicConstant__NameAssignment_1 )
+            // InternalAltarica.g:2257:1: ( ( rule__SymbolicConstant__NameAssignment_1 ) )
+            // InternalAltarica.g:2258:1: ( rule__SymbolicConstant__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSymbolicConstantAccess().getNameAssignment_1()); 
             }
-            // InternalAltarica.g:1932:1: ( rule__SymbolicConstant__NameAssignment_1 )
-            // InternalAltarica.g:1932:2: rule__SymbolicConstant__NameAssignment_1
+            // InternalAltarica.g:2259:1: ( rule__SymbolicConstant__NameAssignment_1 )
+            // InternalAltarica.g:2259:2: rule__SymbolicConstant__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__SymbolicConstant__NameAssignment_1();
@@ -6030,16 +6943,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__0"
-    // InternalAltarica.g:1946:1: rule__Class__Group__0 : rule__Class__Group__0__Impl rule__Class__Group__1 ;
+    // InternalAltarica.g:2273:1: rule__Class__Group__0 : rule__Class__Group__0__Impl rule__Class__Group__1 ;
     public final void rule__Class__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1950:1: ( rule__Class__Group__0__Impl rule__Class__Group__1 )
-            // InternalAltarica.g:1951:2: rule__Class__Group__0__Impl rule__Class__Group__1
+            // InternalAltarica.g:2277:1: ( rule__Class__Group__0__Impl rule__Class__Group__1 )
+            // InternalAltarica.g:2278:2: rule__Class__Group__0__Impl rule__Class__Group__1
             {
-            pushFollow(FOLLOW_10);
+            pushFollow(FOLLOW_14);
             rule__Class__Group__0__Impl();
 
             state._fsp--;
@@ -6068,23 +6981,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__0__Impl"
-    // InternalAltarica.g:1958:1: rule__Class__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:2285:1: rule__Class__Group__0__Impl : ( () ) ;
     public final void rule__Class__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1962:1: ( ( () ) )
-            // InternalAltarica.g:1963:1: ( () )
+            // InternalAltarica.g:2289:1: ( ( () ) )
+            // InternalAltarica.g:2290:1: ( () )
             {
-            // InternalAltarica.g:1963:1: ( () )
-            // InternalAltarica.g:1964:1: ()
+            // InternalAltarica.g:2290:1: ( () )
+            // InternalAltarica.g:2291:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getNodeAction_0()); 
             }
-            // InternalAltarica.g:1965:1: ()
-            // InternalAltarica.g:1967:1: 
+            // InternalAltarica.g:2292:1: ()
+            // InternalAltarica.g:2294:1: 
             {
             }
 
@@ -6109,16 +7022,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__1"
-    // InternalAltarica.g:1977:1: rule__Class__Group__1 : rule__Class__Group__1__Impl rule__Class__Group__2 ;
+    // InternalAltarica.g:2304:1: rule__Class__Group__1 : rule__Class__Group__1__Impl rule__Class__Group__2 ;
     public final void rule__Class__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1981:1: ( rule__Class__Group__1__Impl rule__Class__Group__2 )
-            // InternalAltarica.g:1982:2: rule__Class__Group__1__Impl rule__Class__Group__2
+            // InternalAltarica.g:2308:1: ( rule__Class__Group__1__Impl rule__Class__Group__2 )
+            // InternalAltarica.g:2309:2: rule__Class__Group__1__Impl rule__Class__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Class__Group__1__Impl();
 
             state._fsp--;
@@ -6147,22 +7060,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__1__Impl"
-    // InternalAltarica.g:1989:1: rule__Class__Group__1__Impl : ( 'class' ) ;
+    // InternalAltarica.g:2316:1: rule__Class__Group__1__Impl : ( 'class' ) ;
     public final void rule__Class__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:1993:1: ( ( 'class' ) )
-            // InternalAltarica.g:1994:1: ( 'class' )
+            // InternalAltarica.g:2320:1: ( ( 'class' ) )
+            // InternalAltarica.g:2321:1: ( 'class' )
             {
-            // InternalAltarica.g:1994:1: ( 'class' )
-            // InternalAltarica.g:1995:1: 'class'
+            // InternalAltarica.g:2321:1: ( 'class' )
+            // InternalAltarica.g:2322:1: 'class'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getClassKeyword_1()); 
             }
-            match(input,37,FOLLOW_2); if (state.failed) return ;
+            match(input,41,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getClassKeyword_1()); 
             }
@@ -6188,16 +7101,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__2"
-    // InternalAltarica.g:2008:1: rule__Class__Group__2 : rule__Class__Group__2__Impl rule__Class__Group__3 ;
+    // InternalAltarica.g:2335:1: rule__Class__Group__2 : rule__Class__Group__2__Impl rule__Class__Group__3 ;
     public final void rule__Class__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2012:1: ( rule__Class__Group__2__Impl rule__Class__Group__3 )
-            // InternalAltarica.g:2013:2: rule__Class__Group__2__Impl rule__Class__Group__3
+            // InternalAltarica.g:2339:1: ( rule__Class__Group__2__Impl rule__Class__Group__3 )
+            // InternalAltarica.g:2340:2: rule__Class__Group__2__Impl rule__Class__Group__3
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Class__Group__2__Impl();
 
             state._fsp--;
@@ -6226,23 +7139,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__2__Impl"
-    // InternalAltarica.g:2020:1: rule__Class__Group__2__Impl : ( ( rule__Class__NameAssignment_2 ) ) ;
+    // InternalAltarica.g:2347:1: rule__Class__Group__2__Impl : ( ( rule__Class__NameAssignment_2 ) ) ;
     public final void rule__Class__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2024:1: ( ( ( rule__Class__NameAssignment_2 ) ) )
-            // InternalAltarica.g:2025:1: ( ( rule__Class__NameAssignment_2 ) )
+            // InternalAltarica.g:2351:1: ( ( ( rule__Class__NameAssignment_2 ) ) )
+            // InternalAltarica.g:2352:1: ( ( rule__Class__NameAssignment_2 ) )
             {
-            // InternalAltarica.g:2025:1: ( ( rule__Class__NameAssignment_2 ) )
-            // InternalAltarica.g:2026:1: ( rule__Class__NameAssignment_2 )
+            // InternalAltarica.g:2352:1: ( ( rule__Class__NameAssignment_2 ) )
+            // InternalAltarica.g:2353:1: ( rule__Class__NameAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getNameAssignment_2()); 
             }
-            // InternalAltarica.g:2027:1: ( rule__Class__NameAssignment_2 )
-            // InternalAltarica.g:2027:2: rule__Class__NameAssignment_2
+            // InternalAltarica.g:2354:1: ( rule__Class__NameAssignment_2 )
+            // InternalAltarica.g:2354:2: rule__Class__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Class__NameAssignment_2();
@@ -6277,16 +7190,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__3"
-    // InternalAltarica.g:2037:1: rule__Class__Group__3 : rule__Class__Group__3__Impl rule__Class__Group__4 ;
+    // InternalAltarica.g:2364:1: rule__Class__Group__3 : rule__Class__Group__3__Impl rule__Class__Group__4 ;
     public final void rule__Class__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2041:1: ( rule__Class__Group__3__Impl rule__Class__Group__4 )
-            // InternalAltarica.g:2042:2: rule__Class__Group__3__Impl rule__Class__Group__4
+            // InternalAltarica.g:2368:1: ( rule__Class__Group__3__Impl rule__Class__Group__4 )
+            // InternalAltarica.g:2369:2: rule__Class__Group__3__Impl rule__Class__Group__4
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Class__Group__3__Impl();
 
             state._fsp--;
@@ -6315,37 +7228,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__3__Impl"
-    // InternalAltarica.g:2049:1: rule__Class__Group__3__Impl : ( ( rule__Class__DeclarationsAssignment_3 )* ) ;
+    // InternalAltarica.g:2376:1: rule__Class__Group__3__Impl : ( ( rule__Class__DeclarationsAssignment_3 )* ) ;
     public final void rule__Class__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2053:1: ( ( ( rule__Class__DeclarationsAssignment_3 )* ) )
-            // InternalAltarica.g:2054:1: ( ( rule__Class__DeclarationsAssignment_3 )* )
+            // InternalAltarica.g:2380:1: ( ( ( rule__Class__DeclarationsAssignment_3 )* ) )
+            // InternalAltarica.g:2381:1: ( ( rule__Class__DeclarationsAssignment_3 )* )
             {
-            // InternalAltarica.g:2054:1: ( ( rule__Class__DeclarationsAssignment_3 )* )
-            // InternalAltarica.g:2055:1: ( rule__Class__DeclarationsAssignment_3 )*
+            // InternalAltarica.g:2381:1: ( ( rule__Class__DeclarationsAssignment_3 )* )
+            // InternalAltarica.g:2382:1: ( rule__Class__DeclarationsAssignment_3 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getDeclarationsAssignment_3()); 
             }
-            // InternalAltarica.g:2056:1: ( rule__Class__DeclarationsAssignment_3 )*
-            loop16:
+            // InternalAltarica.g:2383:1: ( rule__Class__DeclarationsAssignment_3 )*
+            loop19:
             do {
-                int alt16=2;
-                int LA16_0 = input.LA(1);
+                int alt19=2;
+                int LA19_0 = input.LA(1);
 
-                if ( (LA16_0==RULE_ID||(LA16_0>=31 && LA16_0<=32)||(LA16_0>=45 && LA16_0<=47)) ) {
-                    alt16=1;
+                if ( (LA19_0==RULE_ID||(LA19_0>=31 && LA19_0<=32)||(LA19_0>=49 && LA19_0<=51)) ) {
+                    alt19=1;
                 }
 
 
-                switch (alt16) {
+                switch (alt19) {
             	case 1 :
-            	    // InternalAltarica.g:2056:2: rule__Class__DeclarationsAssignment_3
+            	    // InternalAltarica.g:2383:2: rule__Class__DeclarationsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_12);
+            	    pushFollow(FOLLOW_16);
             	    rule__Class__DeclarationsAssignment_3();
 
             	    state._fsp--;
@@ -6355,7 +7268,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop16;
+            	    break loop19;
                 }
             } while (true);
 
@@ -6384,16 +7297,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__4"
-    // InternalAltarica.g:2066:1: rule__Class__Group__4 : rule__Class__Group__4__Impl rule__Class__Group__5 ;
+    // InternalAltarica.g:2393:1: rule__Class__Group__4 : rule__Class__Group__4__Impl rule__Class__Group__5 ;
     public final void rule__Class__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2070:1: ( rule__Class__Group__4__Impl rule__Class__Group__5 )
-            // InternalAltarica.g:2071:2: rule__Class__Group__4__Impl rule__Class__Group__5
+            // InternalAltarica.g:2397:1: ( rule__Class__Group__4__Impl rule__Class__Group__5 )
+            // InternalAltarica.g:2398:2: rule__Class__Group__4__Impl rule__Class__Group__5
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Class__Group__4__Impl();
 
             state._fsp--;
@@ -6422,31 +7335,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__4__Impl"
-    // InternalAltarica.g:2078:1: rule__Class__Group__4__Impl : ( ( rule__Class__Group_4__0 )? ) ;
+    // InternalAltarica.g:2405:1: rule__Class__Group__4__Impl : ( ( rule__Class__Group_4__0 )? ) ;
     public final void rule__Class__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2082:1: ( ( ( rule__Class__Group_4__0 )? ) )
-            // InternalAltarica.g:2083:1: ( ( rule__Class__Group_4__0 )? )
+            // InternalAltarica.g:2409:1: ( ( ( rule__Class__Group_4__0 )? ) )
+            // InternalAltarica.g:2410:1: ( ( rule__Class__Group_4__0 )? )
             {
-            // InternalAltarica.g:2083:1: ( ( rule__Class__Group_4__0 )? )
-            // InternalAltarica.g:2084:1: ( rule__Class__Group_4__0 )?
+            // InternalAltarica.g:2410:1: ( ( rule__Class__Group_4__0 )? )
+            // InternalAltarica.g:2411:1: ( rule__Class__Group_4__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getGroup_4()); 
             }
-            // InternalAltarica.g:2085:1: ( rule__Class__Group_4__0 )?
-            int alt17=2;
-            int LA17_0 = input.LA(1);
+            // InternalAltarica.g:2412:1: ( rule__Class__Group_4__0 )?
+            int alt20=2;
+            int LA20_0 = input.LA(1);
 
-            if ( (LA17_0==39) ) {
-                alt17=1;
+            if ( (LA20_0==43) ) {
+                alt20=1;
             }
-            switch (alt17) {
+            switch (alt20) {
                 case 1 :
-                    // InternalAltarica.g:2085:2: rule__Class__Group_4__0
+                    // InternalAltarica.g:2412:2: rule__Class__Group_4__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Class__Group_4__0();
@@ -6484,16 +7397,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__5"
-    // InternalAltarica.g:2095:1: rule__Class__Group__5 : rule__Class__Group__5__Impl rule__Class__Group__6 ;
+    // InternalAltarica.g:2422:1: rule__Class__Group__5 : rule__Class__Group__5__Impl rule__Class__Group__6 ;
     public final void rule__Class__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2099:1: ( rule__Class__Group__5__Impl rule__Class__Group__6 )
-            // InternalAltarica.g:2100:2: rule__Class__Group__5__Impl rule__Class__Group__6
+            // InternalAltarica.g:2426:1: ( rule__Class__Group__5__Impl rule__Class__Group__6 )
+            // InternalAltarica.g:2427:2: rule__Class__Group__5__Impl rule__Class__Group__6
             {
-            pushFollow(FOLLOW_11);
+            pushFollow(FOLLOW_15);
             rule__Class__Group__5__Impl();
 
             state._fsp--;
@@ -6522,31 +7435,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__5__Impl"
-    // InternalAltarica.g:2107:1: rule__Class__Group__5__Impl : ( ( rule__Class__Group_5__0 )? ) ;
+    // InternalAltarica.g:2434:1: rule__Class__Group__5__Impl : ( ( rule__Class__Group_5__0 )? ) ;
     public final void rule__Class__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2111:1: ( ( ( rule__Class__Group_5__0 )? ) )
-            // InternalAltarica.g:2112:1: ( ( rule__Class__Group_5__0 )? )
+            // InternalAltarica.g:2438:1: ( ( ( rule__Class__Group_5__0 )? ) )
+            // InternalAltarica.g:2439:1: ( ( rule__Class__Group_5__0 )? )
             {
-            // InternalAltarica.g:2112:1: ( ( rule__Class__Group_5__0 )? )
-            // InternalAltarica.g:2113:1: ( rule__Class__Group_5__0 )?
+            // InternalAltarica.g:2439:1: ( ( rule__Class__Group_5__0 )? )
+            // InternalAltarica.g:2440:1: ( rule__Class__Group_5__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getGroup_5()); 
             }
-            // InternalAltarica.g:2114:1: ( rule__Class__Group_5__0 )?
-            int alt18=2;
-            int LA18_0 = input.LA(1);
+            // InternalAltarica.g:2441:1: ( rule__Class__Group_5__0 )?
+            int alt21=2;
+            int LA21_0 = input.LA(1);
 
-            if ( (LA18_0==40) ) {
-                alt18=1;
+            if ( (LA21_0==44) ) {
+                alt21=1;
             }
-            switch (alt18) {
+            switch (alt21) {
                 case 1 :
-                    // InternalAltarica.g:2114:2: rule__Class__Group_5__0
+                    // InternalAltarica.g:2441:2: rule__Class__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Class__Group_5__0();
@@ -6584,14 +7497,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__6"
-    // InternalAltarica.g:2124:1: rule__Class__Group__6 : rule__Class__Group__6__Impl ;
+    // InternalAltarica.g:2451:1: rule__Class__Group__6 : rule__Class__Group__6__Impl ;
     public final void rule__Class__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2128:1: ( rule__Class__Group__6__Impl )
-            // InternalAltarica.g:2129:2: rule__Class__Group__6__Impl
+            // InternalAltarica.g:2455:1: ( rule__Class__Group__6__Impl )
+            // InternalAltarica.g:2456:2: rule__Class__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Class__Group__6__Impl();
@@ -6617,22 +7530,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group__6__Impl"
-    // InternalAltarica.g:2135:1: rule__Class__Group__6__Impl : ( 'end' ) ;
+    // InternalAltarica.g:2462:1: rule__Class__Group__6__Impl : ( 'end' ) ;
     public final void rule__Class__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2139:1: ( ( 'end' ) )
-            // InternalAltarica.g:2140:1: ( 'end' )
+            // InternalAltarica.g:2466:1: ( ( 'end' ) )
+            // InternalAltarica.g:2467:1: ( 'end' )
             {
-            // InternalAltarica.g:2140:1: ( 'end' )
-            // InternalAltarica.g:2141:1: 'end'
+            // InternalAltarica.g:2467:1: ( 'end' )
+            // InternalAltarica.g:2468:1: 'end'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getEndKeyword_6()); 
             }
-            match(input,38,FOLLOW_2); if (state.failed) return ;
+            match(input,42,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getEndKeyword_6()); 
             }
@@ -6658,16 +7571,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_4__0"
-    // InternalAltarica.g:2168:1: rule__Class__Group_4__0 : rule__Class__Group_4__0__Impl rule__Class__Group_4__1 ;
+    // InternalAltarica.g:2495:1: rule__Class__Group_4__0 : rule__Class__Group_4__0__Impl rule__Class__Group_4__1 ;
     public final void rule__Class__Group_4__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2172:1: ( rule__Class__Group_4__0__Impl rule__Class__Group_4__1 )
-            // InternalAltarica.g:2173:2: rule__Class__Group_4__0__Impl rule__Class__Group_4__1
+            // InternalAltarica.g:2499:1: ( rule__Class__Group_4__0__Impl rule__Class__Group_4__1 )
+            // InternalAltarica.g:2500:2: rule__Class__Group_4__0__Impl rule__Class__Group_4__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Class__Group_4__0__Impl();
 
             state._fsp--;
@@ -6696,22 +7609,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_4__0__Impl"
-    // InternalAltarica.g:2180:1: rule__Class__Group_4__0__Impl : ( 'transition' ) ;
+    // InternalAltarica.g:2507:1: rule__Class__Group_4__0__Impl : ( 'transition' ) ;
     public final void rule__Class__Group_4__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2184:1: ( ( 'transition' ) )
-            // InternalAltarica.g:2185:1: ( 'transition' )
+            // InternalAltarica.g:2511:1: ( ( 'transition' ) )
+            // InternalAltarica.g:2512:1: ( 'transition' )
             {
-            // InternalAltarica.g:2185:1: ( 'transition' )
-            // InternalAltarica.g:2186:1: 'transition'
+            // InternalAltarica.g:2512:1: ( 'transition' )
+            // InternalAltarica.g:2513:1: 'transition'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getTransitionKeyword_4_0()); 
             }
-            match(input,39,FOLLOW_2); if (state.failed) return ;
+            match(input,43,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getTransitionKeyword_4_0()); 
             }
@@ -6737,14 +7650,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_4__1"
-    // InternalAltarica.g:2199:1: rule__Class__Group_4__1 : rule__Class__Group_4__1__Impl ;
+    // InternalAltarica.g:2526:1: rule__Class__Group_4__1 : rule__Class__Group_4__1__Impl ;
     public final void rule__Class__Group_4__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2203:1: ( rule__Class__Group_4__1__Impl )
-            // InternalAltarica.g:2204:2: rule__Class__Group_4__1__Impl
+            // InternalAltarica.g:2530:1: ( rule__Class__Group_4__1__Impl )
+            // InternalAltarica.g:2531:2: rule__Class__Group_4__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Class__Group_4__1__Impl();
@@ -6770,28 +7683,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_4__1__Impl"
-    // InternalAltarica.g:2210:1: rule__Class__Group_4__1__Impl : ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) ) ;
+    // InternalAltarica.g:2537:1: rule__Class__Group_4__1__Impl : ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) ) ;
     public final void rule__Class__Group_4__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2214:1: ( ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) ) )
-            // InternalAltarica.g:2215:1: ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) )
+            // InternalAltarica.g:2541:1: ( ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) ) )
+            // InternalAltarica.g:2542:1: ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) )
             {
-            // InternalAltarica.g:2215:1: ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) )
-            // InternalAltarica.g:2216:1: ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* )
+            // InternalAltarica.g:2542:1: ( ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* ) )
+            // InternalAltarica.g:2543:1: ( ( rule__Class__TransitionsAssignment_4_1 ) ) ( ( rule__Class__TransitionsAssignment_4_1 )* )
             {
-            // InternalAltarica.g:2216:1: ( ( rule__Class__TransitionsAssignment_4_1 ) )
-            // InternalAltarica.g:2217:1: ( rule__Class__TransitionsAssignment_4_1 )
+            // InternalAltarica.g:2543:1: ( ( rule__Class__TransitionsAssignment_4_1 ) )
+            // InternalAltarica.g:2544:1: ( rule__Class__TransitionsAssignment_4_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getTransitionsAssignment_4_1()); 
             }
-            // InternalAltarica.g:2218:1: ( rule__Class__TransitionsAssignment_4_1 )
-            // InternalAltarica.g:2218:2: rule__Class__TransitionsAssignment_4_1
+            // InternalAltarica.g:2545:1: ( rule__Class__TransitionsAssignment_4_1 )
+            // InternalAltarica.g:2545:2: rule__Class__TransitionsAssignment_4_1
             {
-            pushFollow(FOLLOW_13);
+            pushFollow(FOLLOW_17);
             rule__Class__TransitionsAssignment_4_1();
 
             state._fsp--;
@@ -6805,28 +7718,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // InternalAltarica.g:2221:1: ( ( rule__Class__TransitionsAssignment_4_1 )* )
-            // InternalAltarica.g:2222:1: ( rule__Class__TransitionsAssignment_4_1 )*
+            // InternalAltarica.g:2548:1: ( ( rule__Class__TransitionsAssignment_4_1 )* )
+            // InternalAltarica.g:2549:1: ( rule__Class__TransitionsAssignment_4_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getTransitionsAssignment_4_1()); 
             }
-            // InternalAltarica.g:2223:1: ( rule__Class__TransitionsAssignment_4_1 )*
-            loop19:
+            // InternalAltarica.g:2550:1: ( rule__Class__TransitionsAssignment_4_1 )*
+            loop22:
             do {
-                int alt19=2;
-                int LA19_0 = input.LA(1);
+                int alt22=2;
+                int LA22_0 = input.LA(1);
 
-                if ( (LA19_0==RULE_ID) ) {
-                    alt19=1;
+                if ( (LA22_0==RULE_ID) ) {
+                    alt22=1;
                 }
 
 
-                switch (alt19) {
+                switch (alt22) {
             	case 1 :
-            	    // InternalAltarica.g:2223:2: rule__Class__TransitionsAssignment_4_1
+            	    // InternalAltarica.g:2550:2: rule__Class__TransitionsAssignment_4_1
             	    {
-            	    pushFollow(FOLLOW_13);
+            	    pushFollow(FOLLOW_17);
             	    rule__Class__TransitionsAssignment_4_1();
 
             	    state._fsp--;
@@ -6836,7 +7749,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop19;
+            	    break loop22;
                 }
             } while (true);
 
@@ -6868,16 +7781,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_5__0"
-    // InternalAltarica.g:2238:1: rule__Class__Group_5__0 : rule__Class__Group_5__0__Impl rule__Class__Group_5__1 ;
+    // InternalAltarica.g:2565:1: rule__Class__Group_5__0 : rule__Class__Group_5__0__Impl rule__Class__Group_5__1 ;
     public final void rule__Class__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2242:1: ( rule__Class__Group_5__0__Impl rule__Class__Group_5__1 )
-            // InternalAltarica.g:2243:2: rule__Class__Group_5__0__Impl rule__Class__Group_5__1
+            // InternalAltarica.g:2569:1: ( rule__Class__Group_5__0__Impl rule__Class__Group_5__1 )
+            // InternalAltarica.g:2570:2: rule__Class__Group_5__0__Impl rule__Class__Group_5__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_18);
             rule__Class__Group_5__0__Impl();
 
             state._fsp--;
@@ -6906,22 +7819,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_5__0__Impl"
-    // InternalAltarica.g:2250:1: rule__Class__Group_5__0__Impl : ( 'assertion' ) ;
+    // InternalAltarica.g:2577:1: rule__Class__Group_5__0__Impl : ( 'assertion' ) ;
     public final void rule__Class__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2254:1: ( ( 'assertion' ) )
-            // InternalAltarica.g:2255:1: ( 'assertion' )
+            // InternalAltarica.g:2581:1: ( ( 'assertion' ) )
+            // InternalAltarica.g:2582:1: ( 'assertion' )
             {
-            // InternalAltarica.g:2255:1: ( 'assertion' )
-            // InternalAltarica.g:2256:1: 'assertion'
+            // InternalAltarica.g:2582:1: ( 'assertion' )
+            // InternalAltarica.g:2583:1: 'assertion'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getAssertionKeyword_5_0()); 
             }
-            match(input,40,FOLLOW_2); if (state.failed) return ;
+            match(input,44,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getClassAccess().getAssertionKeyword_5_0()); 
             }
@@ -6947,14 +7860,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_5__1"
-    // InternalAltarica.g:2269:1: rule__Class__Group_5__1 : rule__Class__Group_5__1__Impl ;
+    // InternalAltarica.g:2596:1: rule__Class__Group_5__1 : rule__Class__Group_5__1__Impl ;
     public final void rule__Class__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2273:1: ( rule__Class__Group_5__1__Impl )
-            // InternalAltarica.g:2274:2: rule__Class__Group_5__1__Impl
+            // InternalAltarica.g:2600:1: ( rule__Class__Group_5__1__Impl )
+            // InternalAltarica.g:2601:2: rule__Class__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Class__Group_5__1__Impl();
@@ -6980,28 +7893,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__Group_5__1__Impl"
-    // InternalAltarica.g:2280:1: rule__Class__Group_5__1__Impl : ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) ) ;
+    // InternalAltarica.g:2607:1: rule__Class__Group_5__1__Impl : ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) ) ;
     public final void rule__Class__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2284:1: ( ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) ) )
-            // InternalAltarica.g:2285:1: ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) )
+            // InternalAltarica.g:2611:1: ( ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) ) )
+            // InternalAltarica.g:2612:1: ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) )
             {
-            // InternalAltarica.g:2285:1: ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) )
-            // InternalAltarica.g:2286:1: ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* )
+            // InternalAltarica.g:2612:1: ( ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* ) )
+            // InternalAltarica.g:2613:1: ( ( rule__Class__AssertionsAssignment_5_1 ) ) ( ( rule__Class__AssertionsAssignment_5_1 )* )
             {
-            // InternalAltarica.g:2286:1: ( ( rule__Class__AssertionsAssignment_5_1 ) )
-            // InternalAltarica.g:2287:1: ( rule__Class__AssertionsAssignment_5_1 )
+            // InternalAltarica.g:2613:1: ( ( rule__Class__AssertionsAssignment_5_1 ) )
+            // InternalAltarica.g:2614:1: ( rule__Class__AssertionsAssignment_5_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getAssertionsAssignment_5_1()); 
             }
-            // InternalAltarica.g:2288:1: ( rule__Class__AssertionsAssignment_5_1 )
-            // InternalAltarica.g:2288:2: rule__Class__AssertionsAssignment_5_1
+            // InternalAltarica.g:2615:1: ( rule__Class__AssertionsAssignment_5_1 )
+            // InternalAltarica.g:2615:2: rule__Class__AssertionsAssignment_5_1
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_19);
             rule__Class__AssertionsAssignment_5_1();
 
             state._fsp--;
@@ -7015,28 +7928,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // InternalAltarica.g:2291:1: ( ( rule__Class__AssertionsAssignment_5_1 )* )
-            // InternalAltarica.g:2292:1: ( rule__Class__AssertionsAssignment_5_1 )*
+            // InternalAltarica.g:2618:1: ( ( rule__Class__AssertionsAssignment_5_1 )* )
+            // InternalAltarica.g:2619:1: ( rule__Class__AssertionsAssignment_5_1 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getAssertionsAssignment_5_1()); 
             }
-            // InternalAltarica.g:2293:1: ( rule__Class__AssertionsAssignment_5_1 )*
-            loop20:
+            // InternalAltarica.g:2620:1: ( rule__Class__AssertionsAssignment_5_1 )*
+            loop23:
             do {
-                int alt20=2;
-                int LA20_0 = input.LA(1);
+                int alt23=2;
+                int LA23_0 = input.LA(1);
 
-                if ( (LA20_0==RULE_ID||LA20_0==34||LA20_0==52||LA20_0==54||LA20_0==57) ) {
-                    alt20=1;
+                if ( (LA23_0==RULE_ID||LA23_0==37||LA23_0==56||LA23_0==58||LA23_0==61) ) {
+                    alt23=1;
                 }
 
 
-                switch (alt20) {
+                switch (alt23) {
             	case 1 :
-            	    // InternalAltarica.g:2293:2: rule__Class__AssertionsAssignment_5_1
+            	    // InternalAltarica.g:2620:2: rule__Class__AssertionsAssignment_5_1
             	    {
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_19);
             	    rule__Class__AssertionsAssignment_5_1();
 
             	    state._fsp--;
@@ -7046,7 +7959,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop20;
+            	    break loop23;
                 }
             } while (true);
 
@@ -7078,16 +7991,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__0"
-    // InternalAltarica.g:2308:1: rule__VariableDeclaration__Group__0 : rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 ;
+    // InternalAltarica.g:2635:1: rule__VariableDeclaration__Group__0 : rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 ;
     public final void rule__VariableDeclaration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2312:1: ( rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 )
-            // InternalAltarica.g:2313:2: rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1
+            // InternalAltarica.g:2639:1: ( rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1 )
+            // InternalAltarica.g:2640:2: rule__VariableDeclaration__Group__0__Impl rule__VariableDeclaration__Group__1
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_20);
             rule__VariableDeclaration__Group__0__Impl();
 
             state._fsp--;
@@ -7116,23 +8029,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__0__Impl"
-    // InternalAltarica.g:2320:1: rule__VariableDeclaration__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:2647:1: rule__VariableDeclaration__Group__0__Impl : ( () ) ;
     public final void rule__VariableDeclaration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2324:1: ( ( () ) )
-            // InternalAltarica.g:2325:1: ( () )
+            // InternalAltarica.g:2651:1: ( ( () ) )
+            // InternalAltarica.g:2652:1: ( () )
             {
-            // InternalAltarica.g:2325:1: ( () )
-            // InternalAltarica.g:2326:1: ()
+            // InternalAltarica.g:2652:1: ( () )
+            // InternalAltarica.g:2653:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getVariableAction_0()); 
             }
-            // InternalAltarica.g:2327:1: ()
-            // InternalAltarica.g:2329:1: 
+            // InternalAltarica.g:2654:1: ()
+            // InternalAltarica.g:2656:1: 
             {
             }
 
@@ -7157,16 +8070,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__1"
-    // InternalAltarica.g:2339:1: rule__VariableDeclaration__Group__1 : rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 ;
+    // InternalAltarica.g:2666:1: rule__VariableDeclaration__Group__1 : rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 ;
     public final void rule__VariableDeclaration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2343:1: ( rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 )
-            // InternalAltarica.g:2344:2: rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2
+            // InternalAltarica.g:2670:1: ( rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2 )
+            // InternalAltarica.g:2671:2: rule__VariableDeclaration__Group__1__Impl rule__VariableDeclaration__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__VariableDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -7195,23 +8108,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__1__Impl"
-    // InternalAltarica.g:2351:1: rule__VariableDeclaration__Group__1__Impl : ( ( rule__VariableDeclaration__TypeAssignment_1 ) ) ;
+    // InternalAltarica.g:2678:1: rule__VariableDeclaration__Group__1__Impl : ( ( rule__VariableDeclaration__TypeAssignment_1 ) ) ;
     public final void rule__VariableDeclaration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2355:1: ( ( ( rule__VariableDeclaration__TypeAssignment_1 ) ) )
-            // InternalAltarica.g:2356:1: ( ( rule__VariableDeclaration__TypeAssignment_1 ) )
+            // InternalAltarica.g:2682:1: ( ( ( rule__VariableDeclaration__TypeAssignment_1 ) ) )
+            // InternalAltarica.g:2683:1: ( ( rule__VariableDeclaration__TypeAssignment_1 ) )
             {
-            // InternalAltarica.g:2356:1: ( ( rule__VariableDeclaration__TypeAssignment_1 ) )
-            // InternalAltarica.g:2357:1: ( rule__VariableDeclaration__TypeAssignment_1 )
+            // InternalAltarica.g:2683:1: ( ( rule__VariableDeclaration__TypeAssignment_1 ) )
+            // InternalAltarica.g:2684:1: ( rule__VariableDeclaration__TypeAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getTypeAssignment_1()); 
             }
-            // InternalAltarica.g:2358:1: ( rule__VariableDeclaration__TypeAssignment_1 )
-            // InternalAltarica.g:2358:2: rule__VariableDeclaration__TypeAssignment_1
+            // InternalAltarica.g:2685:1: ( rule__VariableDeclaration__TypeAssignment_1 )
+            // InternalAltarica.g:2685:2: rule__VariableDeclaration__TypeAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__TypeAssignment_1();
@@ -7246,16 +8159,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__2"
-    // InternalAltarica.g:2368:1: rule__VariableDeclaration__Group__2 : rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 ;
+    // InternalAltarica.g:2695:1: rule__VariableDeclaration__Group__2 : rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 ;
     public final void rule__VariableDeclaration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2372:1: ( rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 )
-            // InternalAltarica.g:2373:2: rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3
+            // InternalAltarica.g:2699:1: ( rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3 )
+            // InternalAltarica.g:2700:2: rule__VariableDeclaration__Group__2__Impl rule__VariableDeclaration__Group__3
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_21);
             rule__VariableDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -7284,23 +8197,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__2__Impl"
-    // InternalAltarica.g:2380:1: rule__VariableDeclaration__Group__2__Impl : ( ( rule__VariableDeclaration__NameAssignment_2 ) ) ;
+    // InternalAltarica.g:2707:1: rule__VariableDeclaration__Group__2__Impl : ( ( rule__VariableDeclaration__NameAssignment_2 ) ) ;
     public final void rule__VariableDeclaration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2384:1: ( ( ( rule__VariableDeclaration__NameAssignment_2 ) ) )
-            // InternalAltarica.g:2385:1: ( ( rule__VariableDeclaration__NameAssignment_2 ) )
+            // InternalAltarica.g:2711:1: ( ( ( rule__VariableDeclaration__NameAssignment_2 ) ) )
+            // InternalAltarica.g:2712:1: ( ( rule__VariableDeclaration__NameAssignment_2 ) )
             {
-            // InternalAltarica.g:2385:1: ( ( rule__VariableDeclaration__NameAssignment_2 ) )
-            // InternalAltarica.g:2386:1: ( rule__VariableDeclaration__NameAssignment_2 )
+            // InternalAltarica.g:2712:1: ( ( rule__VariableDeclaration__NameAssignment_2 ) )
+            // InternalAltarica.g:2713:1: ( rule__VariableDeclaration__NameAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getNameAssignment_2()); 
             }
-            // InternalAltarica.g:2387:1: ( rule__VariableDeclaration__NameAssignment_2 )
-            // InternalAltarica.g:2387:2: rule__VariableDeclaration__NameAssignment_2
+            // InternalAltarica.g:2714:1: ( rule__VariableDeclaration__NameAssignment_2 )
+            // InternalAltarica.g:2714:2: rule__VariableDeclaration__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__NameAssignment_2();
@@ -7335,16 +8248,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__3"
-    // InternalAltarica.g:2397:1: rule__VariableDeclaration__Group__3 : rule__VariableDeclaration__Group__3__Impl rule__VariableDeclaration__Group__4 ;
+    // InternalAltarica.g:2724:1: rule__VariableDeclaration__Group__3 : rule__VariableDeclaration__Group__3__Impl rule__VariableDeclaration__Group__4 ;
     public final void rule__VariableDeclaration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2401:1: ( rule__VariableDeclaration__Group__3__Impl rule__VariableDeclaration__Group__4 )
-            // InternalAltarica.g:2402:2: rule__VariableDeclaration__Group__3__Impl rule__VariableDeclaration__Group__4
+            // InternalAltarica.g:2728:1: ( rule__VariableDeclaration__Group__3__Impl rule__VariableDeclaration__Group__4 )
+            // InternalAltarica.g:2729:2: rule__VariableDeclaration__Group__3__Impl rule__VariableDeclaration__Group__4
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_21);
             rule__VariableDeclaration__Group__3__Impl();
 
             state._fsp--;
@@ -7373,31 +8286,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__3__Impl"
-    // InternalAltarica.g:2409:1: rule__VariableDeclaration__Group__3__Impl : ( ( rule__VariableDeclaration__Group_3__0 )? ) ;
+    // InternalAltarica.g:2736:1: rule__VariableDeclaration__Group__3__Impl : ( ( rule__VariableDeclaration__Group_3__0 )? ) ;
     public final void rule__VariableDeclaration__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2413:1: ( ( ( rule__VariableDeclaration__Group_3__0 )? ) )
-            // InternalAltarica.g:2414:1: ( ( rule__VariableDeclaration__Group_3__0 )? )
+            // InternalAltarica.g:2740:1: ( ( ( rule__VariableDeclaration__Group_3__0 )? ) )
+            // InternalAltarica.g:2741:1: ( ( rule__VariableDeclaration__Group_3__0 )? )
             {
-            // InternalAltarica.g:2414:1: ( ( rule__VariableDeclaration__Group_3__0 )? )
-            // InternalAltarica.g:2415:1: ( rule__VariableDeclaration__Group_3__0 )?
+            // InternalAltarica.g:2741:1: ( ( rule__VariableDeclaration__Group_3__0 )? )
+            // InternalAltarica.g:2742:1: ( rule__VariableDeclaration__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getGroup_3()); 
             }
-            // InternalAltarica.g:2416:1: ( rule__VariableDeclaration__Group_3__0 )?
-            int alt21=2;
-            int LA21_0 = input.LA(1);
+            // InternalAltarica.g:2743:1: ( rule__VariableDeclaration__Group_3__0 )?
+            int alt24=2;
+            int LA24_0 = input.LA(1);
 
-            if ( (LA21_0==42) ) {
-                alt21=1;
+            if ( (LA24_0==46) ) {
+                alt24=1;
             }
-            switch (alt21) {
+            switch (alt24) {
                 case 1 :
-                    // InternalAltarica.g:2416:2: rule__VariableDeclaration__Group_3__0
+                    // InternalAltarica.g:2743:2: rule__VariableDeclaration__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__VariableDeclaration__Group_3__0();
@@ -7435,14 +8348,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__4"
-    // InternalAltarica.g:2426:1: rule__VariableDeclaration__Group__4 : rule__VariableDeclaration__Group__4__Impl ;
+    // InternalAltarica.g:2753:1: rule__VariableDeclaration__Group__4 : rule__VariableDeclaration__Group__4__Impl ;
     public final void rule__VariableDeclaration__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2430:1: ( rule__VariableDeclaration__Group__4__Impl )
-            // InternalAltarica.g:2431:2: rule__VariableDeclaration__Group__4__Impl
+            // InternalAltarica.g:2757:1: ( rule__VariableDeclaration__Group__4__Impl )
+            // InternalAltarica.g:2758:2: rule__VariableDeclaration__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__Group__4__Impl();
@@ -7468,22 +8381,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group__4__Impl"
-    // InternalAltarica.g:2437:1: rule__VariableDeclaration__Group__4__Impl : ( ';' ) ;
+    // InternalAltarica.g:2764:1: rule__VariableDeclaration__Group__4__Impl : ( ';' ) ;
     public final void rule__VariableDeclaration__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2441:1: ( ( ';' ) )
-            // InternalAltarica.g:2442:1: ( ';' )
+            // InternalAltarica.g:2768:1: ( ( ';' ) )
+            // InternalAltarica.g:2769:1: ( ';' )
             {
-            // InternalAltarica.g:2442:1: ( ';' )
-            // InternalAltarica.g:2443:1: ';'
+            // InternalAltarica.g:2769:1: ( ';' )
+            // InternalAltarica.g:2770:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getSemicolonKeyword_4()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getVariableDeclarationAccess().getSemicolonKeyword_4()); 
             }
@@ -7509,16 +8422,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__0"
-    // InternalAltarica.g:2466:1: rule__VariableDeclaration__Group_3__0 : rule__VariableDeclaration__Group_3__0__Impl rule__VariableDeclaration__Group_3__1 ;
+    // InternalAltarica.g:2793:1: rule__VariableDeclaration__Group_3__0 : rule__VariableDeclaration__Group_3__0__Impl rule__VariableDeclaration__Group_3__1 ;
     public final void rule__VariableDeclaration__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2470:1: ( rule__VariableDeclaration__Group_3__0__Impl rule__VariableDeclaration__Group_3__1 )
-            // InternalAltarica.g:2471:2: rule__VariableDeclaration__Group_3__0__Impl rule__VariableDeclaration__Group_3__1
+            // InternalAltarica.g:2797:1: ( rule__VariableDeclaration__Group_3__0__Impl rule__VariableDeclaration__Group_3__1 )
+            // InternalAltarica.g:2798:2: rule__VariableDeclaration__Group_3__0__Impl rule__VariableDeclaration__Group_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__VariableDeclaration__Group_3__0__Impl();
 
             state._fsp--;
@@ -7547,22 +8460,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__0__Impl"
-    // InternalAltarica.g:2478:1: rule__VariableDeclaration__Group_3__0__Impl : ( '(' ) ;
+    // InternalAltarica.g:2805:1: rule__VariableDeclaration__Group_3__0__Impl : ( '(' ) ;
     public final void rule__VariableDeclaration__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2482:1: ( ( '(' ) )
-            // InternalAltarica.g:2483:1: ( '(' )
+            // InternalAltarica.g:2809:1: ( ( '(' ) )
+            // InternalAltarica.g:2810:1: ( '(' )
             {
-            // InternalAltarica.g:2483:1: ( '(' )
-            // InternalAltarica.g:2484:1: '('
+            // InternalAltarica.g:2810:1: ( '(' )
+            // InternalAltarica.g:2811:1: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getLeftParenthesisKeyword_3_0()); 
             }
-            match(input,42,FOLLOW_2); if (state.failed) return ;
+            match(input,46,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getVariableDeclarationAccess().getLeftParenthesisKeyword_3_0()); 
             }
@@ -7588,16 +8501,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__1"
-    // InternalAltarica.g:2497:1: rule__VariableDeclaration__Group_3__1 : rule__VariableDeclaration__Group_3__1__Impl rule__VariableDeclaration__Group_3__2 ;
+    // InternalAltarica.g:2824:1: rule__VariableDeclaration__Group_3__1 : rule__VariableDeclaration__Group_3__1__Impl rule__VariableDeclaration__Group_3__2 ;
     public final void rule__VariableDeclaration__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2501:1: ( rule__VariableDeclaration__Group_3__1__Impl rule__VariableDeclaration__Group_3__2 )
-            // InternalAltarica.g:2502:2: rule__VariableDeclaration__Group_3__1__Impl rule__VariableDeclaration__Group_3__2
+            // InternalAltarica.g:2828:1: ( rule__VariableDeclaration__Group_3__1__Impl rule__VariableDeclaration__Group_3__2 )
+            // InternalAltarica.g:2829:2: rule__VariableDeclaration__Group_3__1__Impl rule__VariableDeclaration__Group_3__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_22);
             rule__VariableDeclaration__Group_3__1__Impl();
 
             state._fsp--;
@@ -7626,23 +8539,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__1__Impl"
-    // InternalAltarica.g:2509:1: rule__VariableDeclaration__Group_3__1__Impl : ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) ) ;
+    // InternalAltarica.g:2836:1: rule__VariableDeclaration__Group_3__1__Impl : ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) ) ;
     public final void rule__VariableDeclaration__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2513:1: ( ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) ) )
-            // InternalAltarica.g:2514:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) )
+            // InternalAltarica.g:2840:1: ( ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) ) )
+            // InternalAltarica.g:2841:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) )
             {
-            // InternalAltarica.g:2514:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) )
-            // InternalAltarica.g:2515:1: ( rule__VariableDeclaration__AttributesAssignment_3_1 )
+            // InternalAltarica.g:2841:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_1 ) )
+            // InternalAltarica.g:2842:1: ( rule__VariableDeclaration__AttributesAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getAttributesAssignment_3_1()); 
             }
-            // InternalAltarica.g:2516:1: ( rule__VariableDeclaration__AttributesAssignment_3_1 )
-            // InternalAltarica.g:2516:2: rule__VariableDeclaration__AttributesAssignment_3_1
+            // InternalAltarica.g:2843:1: ( rule__VariableDeclaration__AttributesAssignment_3_1 )
+            // InternalAltarica.g:2843:2: rule__VariableDeclaration__AttributesAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__AttributesAssignment_3_1();
@@ -7677,16 +8590,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__2"
-    // InternalAltarica.g:2526:1: rule__VariableDeclaration__Group_3__2 : rule__VariableDeclaration__Group_3__2__Impl rule__VariableDeclaration__Group_3__3 ;
+    // InternalAltarica.g:2853:1: rule__VariableDeclaration__Group_3__2 : rule__VariableDeclaration__Group_3__2__Impl rule__VariableDeclaration__Group_3__3 ;
     public final void rule__VariableDeclaration__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2530:1: ( rule__VariableDeclaration__Group_3__2__Impl rule__VariableDeclaration__Group_3__3 )
-            // InternalAltarica.g:2531:2: rule__VariableDeclaration__Group_3__2__Impl rule__VariableDeclaration__Group_3__3
+            // InternalAltarica.g:2857:1: ( rule__VariableDeclaration__Group_3__2__Impl rule__VariableDeclaration__Group_3__3 )
+            // InternalAltarica.g:2858:2: rule__VariableDeclaration__Group_3__2__Impl rule__VariableDeclaration__Group_3__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_22);
             rule__VariableDeclaration__Group_3__2__Impl();
 
             state._fsp--;
@@ -7715,37 +8628,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__2__Impl"
-    // InternalAltarica.g:2538:1: rule__VariableDeclaration__Group_3__2__Impl : ( ( rule__VariableDeclaration__Group_3_2__0 )* ) ;
+    // InternalAltarica.g:2865:1: rule__VariableDeclaration__Group_3__2__Impl : ( ( rule__VariableDeclaration__Group_3_2__0 )* ) ;
     public final void rule__VariableDeclaration__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2542:1: ( ( ( rule__VariableDeclaration__Group_3_2__0 )* ) )
-            // InternalAltarica.g:2543:1: ( ( rule__VariableDeclaration__Group_3_2__0 )* )
+            // InternalAltarica.g:2869:1: ( ( ( rule__VariableDeclaration__Group_3_2__0 )* ) )
+            // InternalAltarica.g:2870:1: ( ( rule__VariableDeclaration__Group_3_2__0 )* )
             {
-            // InternalAltarica.g:2543:1: ( ( rule__VariableDeclaration__Group_3_2__0 )* )
-            // InternalAltarica.g:2544:1: ( rule__VariableDeclaration__Group_3_2__0 )*
+            // InternalAltarica.g:2870:1: ( ( rule__VariableDeclaration__Group_3_2__0 )* )
+            // InternalAltarica.g:2871:1: ( rule__VariableDeclaration__Group_3_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getGroup_3_2()); 
             }
-            // InternalAltarica.g:2545:1: ( rule__VariableDeclaration__Group_3_2__0 )*
-            loop22:
+            // InternalAltarica.g:2872:1: ( rule__VariableDeclaration__Group_3_2__0 )*
+            loop25:
             do {
-                int alt22=2;
-                int LA22_0 = input.LA(1);
+                int alt25=2;
+                int LA25_0 = input.LA(1);
 
-                if ( (LA22_0==36) ) {
-                    alt22=1;
+                if ( (LA25_0==40) ) {
+                    alt25=1;
                 }
 
 
-                switch (alt22) {
+                switch (alt25) {
             	case 1 :
-            	    // InternalAltarica.g:2545:2: rule__VariableDeclaration__Group_3_2__0
+            	    // InternalAltarica.g:2872:2: rule__VariableDeclaration__Group_3_2__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_13);
             	    rule__VariableDeclaration__Group_3_2__0();
 
             	    state._fsp--;
@@ -7755,7 +8668,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop22;
+            	    break loop25;
                 }
             } while (true);
 
@@ -7784,14 +8697,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__3"
-    // InternalAltarica.g:2555:1: rule__VariableDeclaration__Group_3__3 : rule__VariableDeclaration__Group_3__3__Impl ;
+    // InternalAltarica.g:2882:1: rule__VariableDeclaration__Group_3__3 : rule__VariableDeclaration__Group_3__3__Impl ;
     public final void rule__VariableDeclaration__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2559:1: ( rule__VariableDeclaration__Group_3__3__Impl )
-            // InternalAltarica.g:2560:2: rule__VariableDeclaration__Group_3__3__Impl
+            // InternalAltarica.g:2886:1: ( rule__VariableDeclaration__Group_3__3__Impl )
+            // InternalAltarica.g:2887:2: rule__VariableDeclaration__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__Group_3__3__Impl();
@@ -7817,22 +8730,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3__3__Impl"
-    // InternalAltarica.g:2566:1: rule__VariableDeclaration__Group_3__3__Impl : ( ')' ) ;
+    // InternalAltarica.g:2893:1: rule__VariableDeclaration__Group_3__3__Impl : ( ')' ) ;
     public final void rule__VariableDeclaration__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2570:1: ( ( ')' ) )
-            // InternalAltarica.g:2571:1: ( ')' )
+            // InternalAltarica.g:2897:1: ( ( ')' ) )
+            // InternalAltarica.g:2898:1: ( ')' )
             {
-            // InternalAltarica.g:2571:1: ( ')' )
-            // InternalAltarica.g:2572:1: ')'
+            // InternalAltarica.g:2898:1: ( ')' )
+            // InternalAltarica.g:2899:1: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getRightParenthesisKeyword_3_3()); 
             }
-            match(input,43,FOLLOW_2); if (state.failed) return ;
+            match(input,47,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getVariableDeclarationAccess().getRightParenthesisKeyword_3_3()); 
             }
@@ -7858,16 +8771,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3_2__0"
-    // InternalAltarica.g:2593:1: rule__VariableDeclaration__Group_3_2__0 : rule__VariableDeclaration__Group_3_2__0__Impl rule__VariableDeclaration__Group_3_2__1 ;
+    // InternalAltarica.g:2920:1: rule__VariableDeclaration__Group_3_2__0 : rule__VariableDeclaration__Group_3_2__0__Impl rule__VariableDeclaration__Group_3_2__1 ;
     public final void rule__VariableDeclaration__Group_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2597:1: ( rule__VariableDeclaration__Group_3_2__0__Impl rule__VariableDeclaration__Group_3_2__1 )
-            // InternalAltarica.g:2598:2: rule__VariableDeclaration__Group_3_2__0__Impl rule__VariableDeclaration__Group_3_2__1
+            // InternalAltarica.g:2924:1: ( rule__VariableDeclaration__Group_3_2__0__Impl rule__VariableDeclaration__Group_3_2__1 )
+            // InternalAltarica.g:2925:2: rule__VariableDeclaration__Group_3_2__0__Impl rule__VariableDeclaration__Group_3_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__VariableDeclaration__Group_3_2__0__Impl();
 
             state._fsp--;
@@ -7896,22 +8809,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3_2__0__Impl"
-    // InternalAltarica.g:2605:1: rule__VariableDeclaration__Group_3_2__0__Impl : ( ',' ) ;
+    // InternalAltarica.g:2932:1: rule__VariableDeclaration__Group_3_2__0__Impl : ( ',' ) ;
     public final void rule__VariableDeclaration__Group_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2609:1: ( ( ',' ) )
-            // InternalAltarica.g:2610:1: ( ',' )
+            // InternalAltarica.g:2936:1: ( ( ',' ) )
+            // InternalAltarica.g:2937:1: ( ',' )
             {
-            // InternalAltarica.g:2610:1: ( ',' )
-            // InternalAltarica.g:2611:1: ','
+            // InternalAltarica.g:2937:1: ( ',' )
+            // InternalAltarica.g:2938:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getCommaKeyword_3_2_0()); 
             }
-            match(input,36,FOLLOW_2); if (state.failed) return ;
+            match(input,40,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getVariableDeclarationAccess().getCommaKeyword_3_2_0()); 
             }
@@ -7937,14 +8850,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3_2__1"
-    // InternalAltarica.g:2624:1: rule__VariableDeclaration__Group_3_2__1 : rule__VariableDeclaration__Group_3_2__1__Impl ;
+    // InternalAltarica.g:2951:1: rule__VariableDeclaration__Group_3_2__1 : rule__VariableDeclaration__Group_3_2__1__Impl ;
     public final void rule__VariableDeclaration__Group_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2628:1: ( rule__VariableDeclaration__Group_3_2__1__Impl )
-            // InternalAltarica.g:2629:2: rule__VariableDeclaration__Group_3_2__1__Impl
+            // InternalAltarica.g:2955:1: ( rule__VariableDeclaration__Group_3_2__1__Impl )
+            // InternalAltarica.g:2956:2: rule__VariableDeclaration__Group_3_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__Group_3_2__1__Impl();
@@ -7970,23 +8883,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__Group_3_2__1__Impl"
-    // InternalAltarica.g:2635:1: rule__VariableDeclaration__Group_3_2__1__Impl : ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) ) ;
+    // InternalAltarica.g:2962:1: rule__VariableDeclaration__Group_3_2__1__Impl : ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) ) ;
     public final void rule__VariableDeclaration__Group_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2639:1: ( ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) ) )
-            // InternalAltarica.g:2640:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) )
+            // InternalAltarica.g:2966:1: ( ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) ) )
+            // InternalAltarica.g:2967:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) )
             {
-            // InternalAltarica.g:2640:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) )
-            // InternalAltarica.g:2641:1: ( rule__VariableDeclaration__AttributesAssignment_3_2_1 )
+            // InternalAltarica.g:2967:1: ( ( rule__VariableDeclaration__AttributesAssignment_3_2_1 ) )
+            // InternalAltarica.g:2968:1: ( rule__VariableDeclaration__AttributesAssignment_3_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getAttributesAssignment_3_2_1()); 
             }
-            // InternalAltarica.g:2642:1: ( rule__VariableDeclaration__AttributesAssignment_3_2_1 )
-            // InternalAltarica.g:2642:2: rule__VariableDeclaration__AttributesAssignment_3_2_1
+            // InternalAltarica.g:2969:1: ( rule__VariableDeclaration__AttributesAssignment_3_2_1 )
+            // InternalAltarica.g:2969:2: rule__VariableDeclaration__AttributesAssignment_3_2_1
             {
             pushFollow(FOLLOW_2);
             rule__VariableDeclaration__AttributesAssignment_3_2_1();
@@ -8021,16 +8934,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__0"
-    // InternalAltarica.g:2656:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
+    // InternalAltarica.g:2983:1: rule__Attribute__Group__0 : rule__Attribute__Group__0__Impl rule__Attribute__Group__1 ;
     public final void rule__Attribute__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2660:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
-            // InternalAltarica.g:2661:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
+            // InternalAltarica.g:2987:1: ( rule__Attribute__Group__0__Impl rule__Attribute__Group__1 )
+            // InternalAltarica.g:2988:2: rule__Attribute__Group__0__Impl rule__Attribute__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Attribute__Group__0__Impl();
 
             state._fsp--;
@@ -8059,23 +8972,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__0__Impl"
-    // InternalAltarica.g:2668:1: rule__Attribute__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:2995:1: rule__Attribute__Group__0__Impl : ( () ) ;
     public final void rule__Attribute__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2672:1: ( ( () ) )
-            // InternalAltarica.g:2673:1: ( () )
+            // InternalAltarica.g:2999:1: ( ( () ) )
+            // InternalAltarica.g:3000:1: ( () )
             {
-            // InternalAltarica.g:2673:1: ( () )
-            // InternalAltarica.g:2674:1: ()
+            // InternalAltarica.g:3000:1: ( () )
+            // InternalAltarica.g:3001:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getAttributeAction_0()); 
             }
-            // InternalAltarica.g:2675:1: ()
-            // InternalAltarica.g:2677:1: 
+            // InternalAltarica.g:3002:1: ()
+            // InternalAltarica.g:3004:1: 
             {
             }
 
@@ -8100,16 +9013,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__1"
-    // InternalAltarica.g:2687:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
+    // InternalAltarica.g:3014:1: rule__Attribute__Group__1 : rule__Attribute__Group__1__Impl rule__Attribute__Group__2 ;
     public final void rule__Attribute__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2691:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
-            // InternalAltarica.g:2692:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
+            // InternalAltarica.g:3018:1: ( rule__Attribute__Group__1__Impl rule__Attribute__Group__2 )
+            // InternalAltarica.g:3019:2: rule__Attribute__Group__1__Impl rule__Attribute__Group__2
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_23);
             rule__Attribute__Group__1__Impl();
 
             state._fsp--;
@@ -8138,23 +9051,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__1__Impl"
-    // InternalAltarica.g:2699:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__NameAssignment_1 ) ) ;
+    // InternalAltarica.g:3026:1: rule__Attribute__Group__1__Impl : ( ( rule__Attribute__NameAssignment_1 ) ) ;
     public final void rule__Attribute__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2703:1: ( ( ( rule__Attribute__NameAssignment_1 ) ) )
-            // InternalAltarica.g:2704:1: ( ( rule__Attribute__NameAssignment_1 ) )
+            // InternalAltarica.g:3030:1: ( ( ( rule__Attribute__NameAssignment_1 ) ) )
+            // InternalAltarica.g:3031:1: ( ( rule__Attribute__NameAssignment_1 ) )
             {
-            // InternalAltarica.g:2704:1: ( ( rule__Attribute__NameAssignment_1 ) )
-            // InternalAltarica.g:2705:1: ( rule__Attribute__NameAssignment_1 )
+            // InternalAltarica.g:3031:1: ( ( rule__Attribute__NameAssignment_1 ) )
+            // InternalAltarica.g:3032:1: ( rule__Attribute__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getNameAssignment_1()); 
             }
-            // InternalAltarica.g:2706:1: ( rule__Attribute__NameAssignment_1 )
-            // InternalAltarica.g:2706:2: rule__Attribute__NameAssignment_1
+            // InternalAltarica.g:3033:1: ( rule__Attribute__NameAssignment_1 )
+            // InternalAltarica.g:3033:2: rule__Attribute__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__NameAssignment_1();
@@ -8189,16 +9102,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__2"
-    // InternalAltarica.g:2716:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl rule__Attribute__Group__3 ;
+    // InternalAltarica.g:3043:1: rule__Attribute__Group__2 : rule__Attribute__Group__2__Impl rule__Attribute__Group__3 ;
     public final void rule__Attribute__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2720:1: ( rule__Attribute__Group__2__Impl rule__Attribute__Group__3 )
-            // InternalAltarica.g:2721:2: rule__Attribute__Group__2__Impl rule__Attribute__Group__3
+            // InternalAltarica.g:3047:1: ( rule__Attribute__Group__2__Impl rule__Attribute__Group__3 )
+            // InternalAltarica.g:3048:2: rule__Attribute__Group__2__Impl rule__Attribute__Group__3
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Attribute__Group__2__Impl();
 
             state._fsp--;
@@ -8227,22 +9140,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__2__Impl"
-    // InternalAltarica.g:2728:1: rule__Attribute__Group__2__Impl : ( '=' ) ;
+    // InternalAltarica.g:3055:1: rule__Attribute__Group__2__Impl : ( '=' ) ;
     public final void rule__Attribute__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2732:1: ( ( '=' ) )
-            // InternalAltarica.g:2733:1: ( '=' )
+            // InternalAltarica.g:3059:1: ( ( '=' ) )
+            // InternalAltarica.g:3060:1: ( '=' )
             {
-            // InternalAltarica.g:2733:1: ( '=' )
-            // InternalAltarica.g:2734:1: '='
+            // InternalAltarica.g:3060:1: ( '=' )
+            // InternalAltarica.g:3061:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getEqualsSignKeyword_2()); 
             }
-            match(input,44,FOLLOW_2); if (state.failed) return ;
+            match(input,48,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAttributeAccess().getEqualsSignKeyword_2()); 
             }
@@ -8268,14 +9181,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__3"
-    // InternalAltarica.g:2747:1: rule__Attribute__Group__3 : rule__Attribute__Group__3__Impl ;
+    // InternalAltarica.g:3074:1: rule__Attribute__Group__3 : rule__Attribute__Group__3__Impl ;
     public final void rule__Attribute__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2751:1: ( rule__Attribute__Group__3__Impl )
-            // InternalAltarica.g:2752:2: rule__Attribute__Group__3__Impl
+            // InternalAltarica.g:3078:1: ( rule__Attribute__Group__3__Impl )
+            // InternalAltarica.g:3079:2: rule__Attribute__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__Group__3__Impl();
@@ -8301,23 +9214,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__Group__3__Impl"
-    // InternalAltarica.g:2758:1: rule__Attribute__Group__3__Impl : ( ( rule__Attribute__ValueAssignment_3 ) ) ;
+    // InternalAltarica.g:3085:1: rule__Attribute__Group__3__Impl : ( ( rule__Attribute__ValueAssignment_3 ) ) ;
     public final void rule__Attribute__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2762:1: ( ( ( rule__Attribute__ValueAssignment_3 ) ) )
-            // InternalAltarica.g:2763:1: ( ( rule__Attribute__ValueAssignment_3 ) )
+            // InternalAltarica.g:3089:1: ( ( ( rule__Attribute__ValueAssignment_3 ) ) )
+            // InternalAltarica.g:3090:1: ( ( rule__Attribute__ValueAssignment_3 ) )
             {
-            // InternalAltarica.g:2763:1: ( ( rule__Attribute__ValueAssignment_3 ) )
-            // InternalAltarica.g:2764:1: ( rule__Attribute__ValueAssignment_3 )
+            // InternalAltarica.g:3090:1: ( ( rule__Attribute__ValueAssignment_3 ) )
+            // InternalAltarica.g:3091:1: ( rule__Attribute__ValueAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getValueAssignment_3()); 
             }
-            // InternalAltarica.g:2765:1: ( rule__Attribute__ValueAssignment_3 )
-            // InternalAltarica.g:2765:2: rule__Attribute__ValueAssignment_3
+            // InternalAltarica.g:3092:1: ( rule__Attribute__ValueAssignment_3 )
+            // InternalAltarica.g:3092:2: rule__Attribute__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Attribute__ValueAssignment_3();
@@ -8352,16 +9265,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__0"
-    // InternalAltarica.g:2783:1: rule__EventDeclaration__Group__0 : rule__EventDeclaration__Group__0__Impl rule__EventDeclaration__Group__1 ;
+    // InternalAltarica.g:3110:1: rule__EventDeclaration__Group__0 : rule__EventDeclaration__Group__0__Impl rule__EventDeclaration__Group__1 ;
     public final void rule__EventDeclaration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2787:1: ( rule__EventDeclaration__Group__0__Impl rule__EventDeclaration__Group__1 )
-            // InternalAltarica.g:2788:2: rule__EventDeclaration__Group__0__Impl rule__EventDeclaration__Group__1
+            // InternalAltarica.g:3114:1: ( rule__EventDeclaration__Group__0__Impl rule__EventDeclaration__Group__1 )
+            // InternalAltarica.g:3115:2: rule__EventDeclaration__Group__0__Impl rule__EventDeclaration__Group__1
             {
-            pushFollow(FOLLOW_21);
+            pushFollow(FOLLOW_25);
             rule__EventDeclaration__Group__0__Impl();
 
             state._fsp--;
@@ -8390,23 +9303,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__0__Impl"
-    // InternalAltarica.g:2795:1: rule__EventDeclaration__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:3122:1: rule__EventDeclaration__Group__0__Impl : ( () ) ;
     public final void rule__EventDeclaration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2799:1: ( ( () ) )
-            // InternalAltarica.g:2800:1: ( () )
+            // InternalAltarica.g:3126:1: ( ( () ) )
+            // InternalAltarica.g:3127:1: ( () )
             {
-            // InternalAltarica.g:2800:1: ( () )
-            // InternalAltarica.g:2801:1: ()
+            // InternalAltarica.g:3127:1: ( () )
+            // InternalAltarica.g:3128:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getEventAction_0()); 
             }
-            // InternalAltarica.g:2802:1: ()
-            // InternalAltarica.g:2804:1: 
+            // InternalAltarica.g:3129:1: ()
+            // InternalAltarica.g:3131:1: 
             {
             }
 
@@ -8431,16 +9344,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__1"
-    // InternalAltarica.g:2814:1: rule__EventDeclaration__Group__1 : rule__EventDeclaration__Group__1__Impl rule__EventDeclaration__Group__2 ;
+    // InternalAltarica.g:3141:1: rule__EventDeclaration__Group__1 : rule__EventDeclaration__Group__1__Impl rule__EventDeclaration__Group__2 ;
     public final void rule__EventDeclaration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2818:1: ( rule__EventDeclaration__Group__1__Impl rule__EventDeclaration__Group__2 )
-            // InternalAltarica.g:2819:2: rule__EventDeclaration__Group__1__Impl rule__EventDeclaration__Group__2
+            // InternalAltarica.g:3145:1: ( rule__EventDeclaration__Group__1__Impl rule__EventDeclaration__Group__2 )
+            // InternalAltarica.g:3146:2: rule__EventDeclaration__Group__1__Impl rule__EventDeclaration__Group__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__EventDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -8469,22 +9382,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__1__Impl"
-    // InternalAltarica.g:2826:1: rule__EventDeclaration__Group__1__Impl : ( 'event' ) ;
+    // InternalAltarica.g:3153:1: rule__EventDeclaration__Group__1__Impl : ( 'event' ) ;
     public final void rule__EventDeclaration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2830:1: ( ( 'event' ) )
-            // InternalAltarica.g:2831:1: ( 'event' )
+            // InternalAltarica.g:3157:1: ( ( 'event' ) )
+            // InternalAltarica.g:3158:1: ( 'event' )
             {
-            // InternalAltarica.g:2831:1: ( 'event' )
-            // InternalAltarica.g:2832:1: 'event'
+            // InternalAltarica.g:3158:1: ( 'event' )
+            // InternalAltarica.g:3159:1: 'event'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getEventKeyword_1()); 
             }
-            match(input,45,FOLLOW_2); if (state.failed) return ;
+            match(input,49,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEventDeclarationAccess().getEventKeyword_1()); 
             }
@@ -8510,16 +9423,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__2"
-    // InternalAltarica.g:2845:1: rule__EventDeclaration__Group__2 : rule__EventDeclaration__Group__2__Impl rule__EventDeclaration__Group__3 ;
+    // InternalAltarica.g:3172:1: rule__EventDeclaration__Group__2 : rule__EventDeclaration__Group__2__Impl rule__EventDeclaration__Group__3 ;
     public final void rule__EventDeclaration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2849:1: ( rule__EventDeclaration__Group__2__Impl rule__EventDeclaration__Group__3 )
-            // InternalAltarica.g:2850:2: rule__EventDeclaration__Group__2__Impl rule__EventDeclaration__Group__3
+            // InternalAltarica.g:3176:1: ( rule__EventDeclaration__Group__2__Impl rule__EventDeclaration__Group__3 )
+            // InternalAltarica.g:3177:2: rule__EventDeclaration__Group__2__Impl rule__EventDeclaration__Group__3
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_21);
             rule__EventDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -8548,23 +9461,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__2__Impl"
-    // InternalAltarica.g:2857:1: rule__EventDeclaration__Group__2__Impl : ( ( rule__EventDeclaration__NameAssignment_2 ) ) ;
+    // InternalAltarica.g:3184:1: rule__EventDeclaration__Group__2__Impl : ( ( rule__EventDeclaration__NameAssignment_2 ) ) ;
     public final void rule__EventDeclaration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2861:1: ( ( ( rule__EventDeclaration__NameAssignment_2 ) ) )
-            // InternalAltarica.g:2862:1: ( ( rule__EventDeclaration__NameAssignment_2 ) )
+            // InternalAltarica.g:3188:1: ( ( ( rule__EventDeclaration__NameAssignment_2 ) ) )
+            // InternalAltarica.g:3189:1: ( ( rule__EventDeclaration__NameAssignment_2 ) )
             {
-            // InternalAltarica.g:2862:1: ( ( rule__EventDeclaration__NameAssignment_2 ) )
-            // InternalAltarica.g:2863:1: ( rule__EventDeclaration__NameAssignment_2 )
+            // InternalAltarica.g:3189:1: ( ( rule__EventDeclaration__NameAssignment_2 ) )
+            // InternalAltarica.g:3190:1: ( rule__EventDeclaration__NameAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getNameAssignment_2()); 
             }
-            // InternalAltarica.g:2864:1: ( rule__EventDeclaration__NameAssignment_2 )
-            // InternalAltarica.g:2864:2: rule__EventDeclaration__NameAssignment_2
+            // InternalAltarica.g:3191:1: ( rule__EventDeclaration__NameAssignment_2 )
+            // InternalAltarica.g:3191:2: rule__EventDeclaration__NameAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__EventDeclaration__NameAssignment_2();
@@ -8599,16 +9512,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__3"
-    // InternalAltarica.g:2874:1: rule__EventDeclaration__Group__3 : rule__EventDeclaration__Group__3__Impl rule__EventDeclaration__Group__4 ;
+    // InternalAltarica.g:3201:1: rule__EventDeclaration__Group__3 : rule__EventDeclaration__Group__3__Impl rule__EventDeclaration__Group__4 ;
     public final void rule__EventDeclaration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2878:1: ( rule__EventDeclaration__Group__3__Impl rule__EventDeclaration__Group__4 )
-            // InternalAltarica.g:2879:2: rule__EventDeclaration__Group__3__Impl rule__EventDeclaration__Group__4
+            // InternalAltarica.g:3205:1: ( rule__EventDeclaration__Group__3__Impl rule__EventDeclaration__Group__4 )
+            // InternalAltarica.g:3206:2: rule__EventDeclaration__Group__3__Impl rule__EventDeclaration__Group__4
             {
-            pushFollow(FOLLOW_17);
+            pushFollow(FOLLOW_21);
             rule__EventDeclaration__Group__3__Impl();
 
             state._fsp--;
@@ -8637,31 +9550,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__3__Impl"
-    // InternalAltarica.g:2886:1: rule__EventDeclaration__Group__3__Impl : ( ( rule__EventDeclaration__Group_3__0 )? ) ;
+    // InternalAltarica.g:3213:1: rule__EventDeclaration__Group__3__Impl : ( ( rule__EventDeclaration__Group_3__0 )? ) ;
     public final void rule__EventDeclaration__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2890:1: ( ( ( rule__EventDeclaration__Group_3__0 )? ) )
-            // InternalAltarica.g:2891:1: ( ( rule__EventDeclaration__Group_3__0 )? )
+            // InternalAltarica.g:3217:1: ( ( ( rule__EventDeclaration__Group_3__0 )? ) )
+            // InternalAltarica.g:3218:1: ( ( rule__EventDeclaration__Group_3__0 )? )
             {
-            // InternalAltarica.g:2891:1: ( ( rule__EventDeclaration__Group_3__0 )? )
-            // InternalAltarica.g:2892:1: ( rule__EventDeclaration__Group_3__0 )?
+            // InternalAltarica.g:3218:1: ( ( rule__EventDeclaration__Group_3__0 )? )
+            // InternalAltarica.g:3219:1: ( rule__EventDeclaration__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getGroup_3()); 
             }
-            // InternalAltarica.g:2893:1: ( rule__EventDeclaration__Group_3__0 )?
-            int alt23=2;
-            int LA23_0 = input.LA(1);
+            // InternalAltarica.g:3220:1: ( rule__EventDeclaration__Group_3__0 )?
+            int alt26=2;
+            int LA26_0 = input.LA(1);
 
-            if ( (LA23_0==42) ) {
-                alt23=1;
+            if ( (LA26_0==46) ) {
+                alt26=1;
             }
-            switch (alt23) {
+            switch (alt26) {
                 case 1 :
-                    // InternalAltarica.g:2893:2: rule__EventDeclaration__Group_3__0
+                    // InternalAltarica.g:3220:2: rule__EventDeclaration__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__EventDeclaration__Group_3__0();
@@ -8699,14 +9612,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__4"
-    // InternalAltarica.g:2903:1: rule__EventDeclaration__Group__4 : rule__EventDeclaration__Group__4__Impl ;
+    // InternalAltarica.g:3230:1: rule__EventDeclaration__Group__4 : rule__EventDeclaration__Group__4__Impl ;
     public final void rule__EventDeclaration__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2907:1: ( rule__EventDeclaration__Group__4__Impl )
-            // InternalAltarica.g:2908:2: rule__EventDeclaration__Group__4__Impl
+            // InternalAltarica.g:3234:1: ( rule__EventDeclaration__Group__4__Impl )
+            // InternalAltarica.g:3235:2: rule__EventDeclaration__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EventDeclaration__Group__4__Impl();
@@ -8732,22 +9645,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group__4__Impl"
-    // InternalAltarica.g:2914:1: rule__EventDeclaration__Group__4__Impl : ( ';' ) ;
+    // InternalAltarica.g:3241:1: rule__EventDeclaration__Group__4__Impl : ( ';' ) ;
     public final void rule__EventDeclaration__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2918:1: ( ( ';' ) )
-            // InternalAltarica.g:2919:1: ( ';' )
+            // InternalAltarica.g:3245:1: ( ( ';' ) )
+            // InternalAltarica.g:3246:1: ( ';' )
             {
-            // InternalAltarica.g:2919:1: ( ';' )
-            // InternalAltarica.g:2920:1: ';'
+            // InternalAltarica.g:3246:1: ( ';' )
+            // InternalAltarica.g:3247:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getSemicolonKeyword_4()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEventDeclarationAccess().getSemicolonKeyword_4()); 
             }
@@ -8773,16 +9686,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__0"
-    // InternalAltarica.g:2943:1: rule__EventDeclaration__Group_3__0 : rule__EventDeclaration__Group_3__0__Impl rule__EventDeclaration__Group_3__1 ;
+    // InternalAltarica.g:3270:1: rule__EventDeclaration__Group_3__0 : rule__EventDeclaration__Group_3__0__Impl rule__EventDeclaration__Group_3__1 ;
     public final void rule__EventDeclaration__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2947:1: ( rule__EventDeclaration__Group_3__0__Impl rule__EventDeclaration__Group_3__1 )
-            // InternalAltarica.g:2948:2: rule__EventDeclaration__Group_3__0__Impl rule__EventDeclaration__Group_3__1
+            // InternalAltarica.g:3274:1: ( rule__EventDeclaration__Group_3__0__Impl rule__EventDeclaration__Group_3__1 )
+            // InternalAltarica.g:3275:2: rule__EventDeclaration__Group_3__0__Impl rule__EventDeclaration__Group_3__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__EventDeclaration__Group_3__0__Impl();
 
             state._fsp--;
@@ -8811,22 +9724,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__0__Impl"
-    // InternalAltarica.g:2955:1: rule__EventDeclaration__Group_3__0__Impl : ( '(' ) ;
+    // InternalAltarica.g:3282:1: rule__EventDeclaration__Group_3__0__Impl : ( '(' ) ;
     public final void rule__EventDeclaration__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2959:1: ( ( '(' ) )
-            // InternalAltarica.g:2960:1: ( '(' )
+            // InternalAltarica.g:3286:1: ( ( '(' ) )
+            // InternalAltarica.g:3287:1: ( '(' )
             {
-            // InternalAltarica.g:2960:1: ( '(' )
-            // InternalAltarica.g:2961:1: '('
+            // InternalAltarica.g:3287:1: ( '(' )
+            // InternalAltarica.g:3288:1: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getLeftParenthesisKeyword_3_0()); 
             }
-            match(input,42,FOLLOW_2); if (state.failed) return ;
+            match(input,46,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEventDeclarationAccess().getLeftParenthesisKeyword_3_0()); 
             }
@@ -8852,16 +9765,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__1"
-    // InternalAltarica.g:2974:1: rule__EventDeclaration__Group_3__1 : rule__EventDeclaration__Group_3__1__Impl rule__EventDeclaration__Group_3__2 ;
+    // InternalAltarica.g:3301:1: rule__EventDeclaration__Group_3__1 : rule__EventDeclaration__Group_3__1__Impl rule__EventDeclaration__Group_3__2 ;
     public final void rule__EventDeclaration__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2978:1: ( rule__EventDeclaration__Group_3__1__Impl rule__EventDeclaration__Group_3__2 )
-            // InternalAltarica.g:2979:2: rule__EventDeclaration__Group_3__1__Impl rule__EventDeclaration__Group_3__2
+            // InternalAltarica.g:3305:1: ( rule__EventDeclaration__Group_3__1__Impl rule__EventDeclaration__Group_3__2 )
+            // InternalAltarica.g:3306:2: rule__EventDeclaration__Group_3__1__Impl rule__EventDeclaration__Group_3__2
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_22);
             rule__EventDeclaration__Group_3__1__Impl();
 
             state._fsp--;
@@ -8890,23 +9803,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__1__Impl"
-    // InternalAltarica.g:2986:1: rule__EventDeclaration__Group_3__1__Impl : ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) ) ;
+    // InternalAltarica.g:3313:1: rule__EventDeclaration__Group_3__1__Impl : ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) ) ;
     public final void rule__EventDeclaration__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:2990:1: ( ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) ) )
-            // InternalAltarica.g:2991:1: ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) )
+            // InternalAltarica.g:3317:1: ( ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) ) )
+            // InternalAltarica.g:3318:1: ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) )
             {
-            // InternalAltarica.g:2991:1: ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) )
-            // InternalAltarica.g:2992:1: ( rule__EventDeclaration__AttributesAssignment_3_1 )
+            // InternalAltarica.g:3318:1: ( ( rule__EventDeclaration__AttributesAssignment_3_1 ) )
+            // InternalAltarica.g:3319:1: ( rule__EventDeclaration__AttributesAssignment_3_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getAttributesAssignment_3_1()); 
             }
-            // InternalAltarica.g:2993:1: ( rule__EventDeclaration__AttributesAssignment_3_1 )
-            // InternalAltarica.g:2993:2: rule__EventDeclaration__AttributesAssignment_3_1
+            // InternalAltarica.g:3320:1: ( rule__EventDeclaration__AttributesAssignment_3_1 )
+            // InternalAltarica.g:3320:2: rule__EventDeclaration__AttributesAssignment_3_1
             {
             pushFollow(FOLLOW_2);
             rule__EventDeclaration__AttributesAssignment_3_1();
@@ -8941,16 +9854,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__2"
-    // InternalAltarica.g:3003:1: rule__EventDeclaration__Group_3__2 : rule__EventDeclaration__Group_3__2__Impl rule__EventDeclaration__Group_3__3 ;
+    // InternalAltarica.g:3330:1: rule__EventDeclaration__Group_3__2 : rule__EventDeclaration__Group_3__2__Impl rule__EventDeclaration__Group_3__3 ;
     public final void rule__EventDeclaration__Group_3__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3007:1: ( rule__EventDeclaration__Group_3__2__Impl rule__EventDeclaration__Group_3__3 )
-            // InternalAltarica.g:3008:2: rule__EventDeclaration__Group_3__2__Impl rule__EventDeclaration__Group_3__3
+            // InternalAltarica.g:3334:1: ( rule__EventDeclaration__Group_3__2__Impl rule__EventDeclaration__Group_3__3 )
+            // InternalAltarica.g:3335:2: rule__EventDeclaration__Group_3__2__Impl rule__EventDeclaration__Group_3__3
             {
-            pushFollow(FOLLOW_18);
+            pushFollow(FOLLOW_22);
             rule__EventDeclaration__Group_3__2__Impl();
 
             state._fsp--;
@@ -8979,37 +9892,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__2__Impl"
-    // InternalAltarica.g:3015:1: rule__EventDeclaration__Group_3__2__Impl : ( ( rule__EventDeclaration__Group_3_2__0 )* ) ;
+    // InternalAltarica.g:3342:1: rule__EventDeclaration__Group_3__2__Impl : ( ( rule__EventDeclaration__Group_3_2__0 )* ) ;
     public final void rule__EventDeclaration__Group_3__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3019:1: ( ( ( rule__EventDeclaration__Group_3_2__0 )* ) )
-            // InternalAltarica.g:3020:1: ( ( rule__EventDeclaration__Group_3_2__0 )* )
+            // InternalAltarica.g:3346:1: ( ( ( rule__EventDeclaration__Group_3_2__0 )* ) )
+            // InternalAltarica.g:3347:1: ( ( rule__EventDeclaration__Group_3_2__0 )* )
             {
-            // InternalAltarica.g:3020:1: ( ( rule__EventDeclaration__Group_3_2__0 )* )
-            // InternalAltarica.g:3021:1: ( rule__EventDeclaration__Group_3_2__0 )*
+            // InternalAltarica.g:3347:1: ( ( rule__EventDeclaration__Group_3_2__0 )* )
+            // InternalAltarica.g:3348:1: ( rule__EventDeclaration__Group_3_2__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getGroup_3_2()); 
             }
-            // InternalAltarica.g:3022:1: ( rule__EventDeclaration__Group_3_2__0 )*
-            loop24:
+            // InternalAltarica.g:3349:1: ( rule__EventDeclaration__Group_3_2__0 )*
+            loop27:
             do {
-                int alt24=2;
-                int LA24_0 = input.LA(1);
+                int alt27=2;
+                int LA27_0 = input.LA(1);
 
-                if ( (LA24_0==36) ) {
-                    alt24=1;
+                if ( (LA27_0==40) ) {
+                    alt27=1;
                 }
 
 
-                switch (alt24) {
+                switch (alt27) {
             	case 1 :
-            	    // InternalAltarica.g:3022:2: rule__EventDeclaration__Group_3_2__0
+            	    // InternalAltarica.g:3349:2: rule__EventDeclaration__Group_3_2__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_13);
             	    rule__EventDeclaration__Group_3_2__0();
 
             	    state._fsp--;
@@ -9019,7 +9932,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop24;
+            	    break loop27;
                 }
             } while (true);
 
@@ -9048,14 +9961,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__3"
-    // InternalAltarica.g:3032:1: rule__EventDeclaration__Group_3__3 : rule__EventDeclaration__Group_3__3__Impl ;
+    // InternalAltarica.g:3359:1: rule__EventDeclaration__Group_3__3 : rule__EventDeclaration__Group_3__3__Impl ;
     public final void rule__EventDeclaration__Group_3__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3036:1: ( rule__EventDeclaration__Group_3__3__Impl )
-            // InternalAltarica.g:3037:2: rule__EventDeclaration__Group_3__3__Impl
+            // InternalAltarica.g:3363:1: ( rule__EventDeclaration__Group_3__3__Impl )
+            // InternalAltarica.g:3364:2: rule__EventDeclaration__Group_3__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EventDeclaration__Group_3__3__Impl();
@@ -9081,22 +9994,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3__3__Impl"
-    // InternalAltarica.g:3043:1: rule__EventDeclaration__Group_3__3__Impl : ( ')' ) ;
+    // InternalAltarica.g:3370:1: rule__EventDeclaration__Group_3__3__Impl : ( ')' ) ;
     public final void rule__EventDeclaration__Group_3__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3047:1: ( ( ')' ) )
-            // InternalAltarica.g:3048:1: ( ')' )
+            // InternalAltarica.g:3374:1: ( ( ')' ) )
+            // InternalAltarica.g:3375:1: ( ')' )
             {
-            // InternalAltarica.g:3048:1: ( ')' )
-            // InternalAltarica.g:3049:1: ')'
+            // InternalAltarica.g:3375:1: ( ')' )
+            // InternalAltarica.g:3376:1: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getRightParenthesisKeyword_3_3()); 
             }
-            match(input,43,FOLLOW_2); if (state.failed) return ;
+            match(input,47,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEventDeclarationAccess().getRightParenthesisKeyword_3_3()); 
             }
@@ -9122,16 +10035,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3_2__0"
-    // InternalAltarica.g:3070:1: rule__EventDeclaration__Group_3_2__0 : rule__EventDeclaration__Group_3_2__0__Impl rule__EventDeclaration__Group_3_2__1 ;
+    // InternalAltarica.g:3397:1: rule__EventDeclaration__Group_3_2__0 : rule__EventDeclaration__Group_3_2__0__Impl rule__EventDeclaration__Group_3_2__1 ;
     public final void rule__EventDeclaration__Group_3_2__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3074:1: ( rule__EventDeclaration__Group_3_2__0__Impl rule__EventDeclaration__Group_3_2__1 )
-            // InternalAltarica.g:3075:2: rule__EventDeclaration__Group_3_2__0__Impl rule__EventDeclaration__Group_3_2__1
+            // InternalAltarica.g:3401:1: ( rule__EventDeclaration__Group_3_2__0__Impl rule__EventDeclaration__Group_3_2__1 )
+            // InternalAltarica.g:3402:2: rule__EventDeclaration__Group_3_2__0__Impl rule__EventDeclaration__Group_3_2__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__EventDeclaration__Group_3_2__0__Impl();
 
             state._fsp--;
@@ -9160,22 +10073,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3_2__0__Impl"
-    // InternalAltarica.g:3082:1: rule__EventDeclaration__Group_3_2__0__Impl : ( ',' ) ;
+    // InternalAltarica.g:3409:1: rule__EventDeclaration__Group_3_2__0__Impl : ( ',' ) ;
     public final void rule__EventDeclaration__Group_3_2__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3086:1: ( ( ',' ) )
-            // InternalAltarica.g:3087:1: ( ',' )
+            // InternalAltarica.g:3413:1: ( ( ',' ) )
+            // InternalAltarica.g:3414:1: ( ',' )
             {
-            // InternalAltarica.g:3087:1: ( ',' )
-            // InternalAltarica.g:3088:1: ','
+            // InternalAltarica.g:3414:1: ( ',' )
+            // InternalAltarica.g:3415:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getCommaKeyword_3_2_0()); 
             }
-            match(input,36,FOLLOW_2); if (state.failed) return ;
+            match(input,40,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getEventDeclarationAccess().getCommaKeyword_3_2_0()); 
             }
@@ -9201,14 +10114,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3_2__1"
-    // InternalAltarica.g:3101:1: rule__EventDeclaration__Group_3_2__1 : rule__EventDeclaration__Group_3_2__1__Impl ;
+    // InternalAltarica.g:3428:1: rule__EventDeclaration__Group_3_2__1 : rule__EventDeclaration__Group_3_2__1__Impl ;
     public final void rule__EventDeclaration__Group_3_2__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3105:1: ( rule__EventDeclaration__Group_3_2__1__Impl )
-            // InternalAltarica.g:3106:2: rule__EventDeclaration__Group_3_2__1__Impl
+            // InternalAltarica.g:3432:1: ( rule__EventDeclaration__Group_3_2__1__Impl )
+            // InternalAltarica.g:3433:2: rule__EventDeclaration__Group_3_2__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__EventDeclaration__Group_3_2__1__Impl();
@@ -9234,23 +10147,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__Group_3_2__1__Impl"
-    // InternalAltarica.g:3112:1: rule__EventDeclaration__Group_3_2__1__Impl : ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) ) ;
+    // InternalAltarica.g:3439:1: rule__EventDeclaration__Group_3_2__1__Impl : ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) ) ;
     public final void rule__EventDeclaration__Group_3_2__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3116:1: ( ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) ) )
-            // InternalAltarica.g:3117:1: ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) )
+            // InternalAltarica.g:3443:1: ( ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) ) )
+            // InternalAltarica.g:3444:1: ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) )
             {
-            // InternalAltarica.g:3117:1: ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) )
-            // InternalAltarica.g:3118:1: ( rule__EventDeclaration__AttributesAssignment_3_2_1 )
+            // InternalAltarica.g:3444:1: ( ( rule__EventDeclaration__AttributesAssignment_3_2_1 ) )
+            // InternalAltarica.g:3445:1: ( rule__EventDeclaration__AttributesAssignment_3_2_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getAttributesAssignment_3_2_1()); 
             }
-            // InternalAltarica.g:3119:1: ( rule__EventDeclaration__AttributesAssignment_3_2_1 )
-            // InternalAltarica.g:3119:2: rule__EventDeclaration__AttributesAssignment_3_2_1
+            // InternalAltarica.g:3446:1: ( rule__EventDeclaration__AttributesAssignment_3_2_1 )
+            // InternalAltarica.g:3446:2: rule__EventDeclaration__AttributesAssignment_3_2_1
             {
             pushFollow(FOLLOW_2);
             rule__EventDeclaration__AttributesAssignment_3_2_1();
@@ -9285,16 +10198,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__0"
-    // InternalAltarica.g:3133:1: rule__ParameterDeclaration__Group__0 : rule__ParameterDeclaration__Group__0__Impl rule__ParameterDeclaration__Group__1 ;
+    // InternalAltarica.g:3460:1: rule__ParameterDeclaration__Group__0 : rule__ParameterDeclaration__Group__0__Impl rule__ParameterDeclaration__Group__1 ;
     public final void rule__ParameterDeclaration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3137:1: ( rule__ParameterDeclaration__Group__0__Impl rule__ParameterDeclaration__Group__1 )
-            // InternalAltarica.g:3138:2: rule__ParameterDeclaration__Group__0__Impl rule__ParameterDeclaration__Group__1
+            // InternalAltarica.g:3464:1: ( rule__ParameterDeclaration__Group__0__Impl rule__ParameterDeclaration__Group__1 )
+            // InternalAltarica.g:3465:2: rule__ParameterDeclaration__Group__0__Impl rule__ParameterDeclaration__Group__1
             {
-            pushFollow(FOLLOW_22);
+            pushFollow(FOLLOW_26);
             rule__ParameterDeclaration__Group__0__Impl();
 
             state._fsp--;
@@ -9323,23 +10236,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__0__Impl"
-    // InternalAltarica.g:3145:1: rule__ParameterDeclaration__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:3472:1: rule__ParameterDeclaration__Group__0__Impl : ( () ) ;
     public final void rule__ParameterDeclaration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3149:1: ( ( () ) )
-            // InternalAltarica.g:3150:1: ( () )
+            // InternalAltarica.g:3476:1: ( ( () ) )
+            // InternalAltarica.g:3477:1: ( () )
             {
-            // InternalAltarica.g:3150:1: ( () )
-            // InternalAltarica.g:3151:1: ()
+            // InternalAltarica.g:3477:1: ( () )
+            // InternalAltarica.g:3478:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getParameterAction_0()); 
             }
-            // InternalAltarica.g:3152:1: ()
-            // InternalAltarica.g:3154:1: 
+            // InternalAltarica.g:3479:1: ()
+            // InternalAltarica.g:3481:1: 
             {
             }
 
@@ -9364,16 +10277,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__1"
-    // InternalAltarica.g:3164:1: rule__ParameterDeclaration__Group__1 : rule__ParameterDeclaration__Group__1__Impl rule__ParameterDeclaration__Group__2 ;
+    // InternalAltarica.g:3491:1: rule__ParameterDeclaration__Group__1 : rule__ParameterDeclaration__Group__1__Impl rule__ParameterDeclaration__Group__2 ;
     public final void rule__ParameterDeclaration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3168:1: ( rule__ParameterDeclaration__Group__1__Impl rule__ParameterDeclaration__Group__2 )
-            // InternalAltarica.g:3169:2: rule__ParameterDeclaration__Group__1__Impl rule__ParameterDeclaration__Group__2
+            // InternalAltarica.g:3495:1: ( rule__ParameterDeclaration__Group__1__Impl rule__ParameterDeclaration__Group__2 )
+            // InternalAltarica.g:3496:2: rule__ParameterDeclaration__Group__1__Impl rule__ParameterDeclaration__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_20);
             rule__ParameterDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -9402,22 +10315,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__1__Impl"
-    // InternalAltarica.g:3176:1: rule__ParameterDeclaration__Group__1__Impl : ( 'parameter' ) ;
+    // InternalAltarica.g:3503:1: rule__ParameterDeclaration__Group__1__Impl : ( 'parameter' ) ;
     public final void rule__ParameterDeclaration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3180:1: ( ( 'parameter' ) )
-            // InternalAltarica.g:3181:1: ( 'parameter' )
+            // InternalAltarica.g:3507:1: ( ( 'parameter' ) )
+            // InternalAltarica.g:3508:1: ( 'parameter' )
             {
-            // InternalAltarica.g:3181:1: ( 'parameter' )
-            // InternalAltarica.g:3182:1: 'parameter'
+            // InternalAltarica.g:3508:1: ( 'parameter' )
+            // InternalAltarica.g:3509:1: 'parameter'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getParameterKeyword_1()); 
             }
-            match(input,46,FOLLOW_2); if (state.failed) return ;
+            match(input,50,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getParameterDeclarationAccess().getParameterKeyword_1()); 
             }
@@ -9443,16 +10356,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__2"
-    // InternalAltarica.g:3195:1: rule__ParameterDeclaration__Group__2 : rule__ParameterDeclaration__Group__2__Impl rule__ParameterDeclaration__Group__3 ;
+    // InternalAltarica.g:3522:1: rule__ParameterDeclaration__Group__2 : rule__ParameterDeclaration__Group__2__Impl rule__ParameterDeclaration__Group__3 ;
     public final void rule__ParameterDeclaration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3199:1: ( rule__ParameterDeclaration__Group__2__Impl rule__ParameterDeclaration__Group__3 )
-            // InternalAltarica.g:3200:2: rule__ParameterDeclaration__Group__2__Impl rule__ParameterDeclaration__Group__3
+            // InternalAltarica.g:3526:1: ( rule__ParameterDeclaration__Group__2__Impl rule__ParameterDeclaration__Group__3 )
+            // InternalAltarica.g:3527:2: rule__ParameterDeclaration__Group__2__Impl rule__ParameterDeclaration__Group__3
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__ParameterDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -9481,23 +10394,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__2__Impl"
-    // InternalAltarica.g:3207:1: rule__ParameterDeclaration__Group__2__Impl : ( ( rule__ParameterDeclaration__TypeAssignment_2 ) ) ;
+    // InternalAltarica.g:3534:1: rule__ParameterDeclaration__Group__2__Impl : ( ( rule__ParameterDeclaration__TypeAssignment_2 ) ) ;
     public final void rule__ParameterDeclaration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3211:1: ( ( ( rule__ParameterDeclaration__TypeAssignment_2 ) ) )
-            // InternalAltarica.g:3212:1: ( ( rule__ParameterDeclaration__TypeAssignment_2 ) )
+            // InternalAltarica.g:3538:1: ( ( ( rule__ParameterDeclaration__TypeAssignment_2 ) ) )
+            // InternalAltarica.g:3539:1: ( ( rule__ParameterDeclaration__TypeAssignment_2 ) )
             {
-            // InternalAltarica.g:3212:1: ( ( rule__ParameterDeclaration__TypeAssignment_2 ) )
-            // InternalAltarica.g:3213:1: ( rule__ParameterDeclaration__TypeAssignment_2 )
+            // InternalAltarica.g:3539:1: ( ( rule__ParameterDeclaration__TypeAssignment_2 ) )
+            // InternalAltarica.g:3540:1: ( rule__ParameterDeclaration__TypeAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getTypeAssignment_2()); 
             }
-            // InternalAltarica.g:3214:1: ( rule__ParameterDeclaration__TypeAssignment_2 )
-            // InternalAltarica.g:3214:2: rule__ParameterDeclaration__TypeAssignment_2
+            // InternalAltarica.g:3541:1: ( rule__ParameterDeclaration__TypeAssignment_2 )
+            // InternalAltarica.g:3541:2: rule__ParameterDeclaration__TypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ParameterDeclaration__TypeAssignment_2();
@@ -9532,16 +10445,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__3"
-    // InternalAltarica.g:3224:1: rule__ParameterDeclaration__Group__3 : rule__ParameterDeclaration__Group__3__Impl rule__ParameterDeclaration__Group__4 ;
+    // InternalAltarica.g:3551:1: rule__ParameterDeclaration__Group__3 : rule__ParameterDeclaration__Group__3__Impl rule__ParameterDeclaration__Group__4 ;
     public final void rule__ParameterDeclaration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3228:1: ( rule__ParameterDeclaration__Group__3__Impl rule__ParameterDeclaration__Group__4 )
-            // InternalAltarica.g:3229:2: rule__ParameterDeclaration__Group__3__Impl rule__ParameterDeclaration__Group__4
+            // InternalAltarica.g:3555:1: ( rule__ParameterDeclaration__Group__3__Impl rule__ParameterDeclaration__Group__4 )
+            // InternalAltarica.g:3556:2: rule__ParameterDeclaration__Group__3__Impl rule__ParameterDeclaration__Group__4
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_23);
             rule__ParameterDeclaration__Group__3__Impl();
 
             state._fsp--;
@@ -9570,23 +10483,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__3__Impl"
-    // InternalAltarica.g:3236:1: rule__ParameterDeclaration__Group__3__Impl : ( ( rule__ParameterDeclaration__NameAssignment_3 ) ) ;
+    // InternalAltarica.g:3563:1: rule__ParameterDeclaration__Group__3__Impl : ( ( rule__ParameterDeclaration__NameAssignment_3 ) ) ;
     public final void rule__ParameterDeclaration__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3240:1: ( ( ( rule__ParameterDeclaration__NameAssignment_3 ) ) )
-            // InternalAltarica.g:3241:1: ( ( rule__ParameterDeclaration__NameAssignment_3 ) )
+            // InternalAltarica.g:3567:1: ( ( ( rule__ParameterDeclaration__NameAssignment_3 ) ) )
+            // InternalAltarica.g:3568:1: ( ( rule__ParameterDeclaration__NameAssignment_3 ) )
             {
-            // InternalAltarica.g:3241:1: ( ( rule__ParameterDeclaration__NameAssignment_3 ) )
-            // InternalAltarica.g:3242:1: ( rule__ParameterDeclaration__NameAssignment_3 )
+            // InternalAltarica.g:3568:1: ( ( rule__ParameterDeclaration__NameAssignment_3 ) )
+            // InternalAltarica.g:3569:1: ( rule__ParameterDeclaration__NameAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getNameAssignment_3()); 
             }
-            // InternalAltarica.g:3243:1: ( rule__ParameterDeclaration__NameAssignment_3 )
-            // InternalAltarica.g:3243:2: rule__ParameterDeclaration__NameAssignment_3
+            // InternalAltarica.g:3570:1: ( rule__ParameterDeclaration__NameAssignment_3 )
+            // InternalAltarica.g:3570:2: rule__ParameterDeclaration__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__ParameterDeclaration__NameAssignment_3();
@@ -9621,16 +10534,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__4"
-    // InternalAltarica.g:3253:1: rule__ParameterDeclaration__Group__4 : rule__ParameterDeclaration__Group__4__Impl rule__ParameterDeclaration__Group__5 ;
+    // InternalAltarica.g:3580:1: rule__ParameterDeclaration__Group__4 : rule__ParameterDeclaration__Group__4__Impl rule__ParameterDeclaration__Group__5 ;
     public final void rule__ParameterDeclaration__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3257:1: ( rule__ParameterDeclaration__Group__4__Impl rule__ParameterDeclaration__Group__5 )
-            // InternalAltarica.g:3258:2: rule__ParameterDeclaration__Group__4__Impl rule__ParameterDeclaration__Group__5
+            // InternalAltarica.g:3584:1: ( rule__ParameterDeclaration__Group__4__Impl rule__ParameterDeclaration__Group__5 )
+            // InternalAltarica.g:3585:2: rule__ParameterDeclaration__Group__4__Impl rule__ParameterDeclaration__Group__5
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__ParameterDeclaration__Group__4__Impl();
 
             state._fsp--;
@@ -9659,22 +10572,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__4__Impl"
-    // InternalAltarica.g:3265:1: rule__ParameterDeclaration__Group__4__Impl : ( '=' ) ;
+    // InternalAltarica.g:3592:1: rule__ParameterDeclaration__Group__4__Impl : ( '=' ) ;
     public final void rule__ParameterDeclaration__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3269:1: ( ( '=' ) )
-            // InternalAltarica.g:3270:1: ( '=' )
+            // InternalAltarica.g:3596:1: ( ( '=' ) )
+            // InternalAltarica.g:3597:1: ( '=' )
             {
-            // InternalAltarica.g:3270:1: ( '=' )
-            // InternalAltarica.g:3271:1: '='
+            // InternalAltarica.g:3597:1: ( '=' )
+            // InternalAltarica.g:3598:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getEqualsSignKeyword_4()); 
             }
-            match(input,44,FOLLOW_2); if (state.failed) return ;
+            match(input,48,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getParameterDeclarationAccess().getEqualsSignKeyword_4()); 
             }
@@ -9700,16 +10613,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__5"
-    // InternalAltarica.g:3284:1: rule__ParameterDeclaration__Group__5 : rule__ParameterDeclaration__Group__5__Impl rule__ParameterDeclaration__Group__6 ;
+    // InternalAltarica.g:3611:1: rule__ParameterDeclaration__Group__5 : rule__ParameterDeclaration__Group__5__Impl rule__ParameterDeclaration__Group__6 ;
     public final void rule__ParameterDeclaration__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3288:1: ( rule__ParameterDeclaration__Group__5__Impl rule__ParameterDeclaration__Group__6 )
-            // InternalAltarica.g:3289:2: rule__ParameterDeclaration__Group__5__Impl rule__ParameterDeclaration__Group__6
+            // InternalAltarica.g:3615:1: ( rule__ParameterDeclaration__Group__5__Impl rule__ParameterDeclaration__Group__6 )
+            // InternalAltarica.g:3616:2: rule__ParameterDeclaration__Group__5__Impl rule__ParameterDeclaration__Group__6
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_27);
             rule__ParameterDeclaration__Group__5__Impl();
 
             state._fsp--;
@@ -9738,23 +10651,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__5__Impl"
-    // InternalAltarica.g:3296:1: rule__ParameterDeclaration__Group__5__Impl : ( ( rule__ParameterDeclaration__ValueAssignment_5 ) ) ;
+    // InternalAltarica.g:3623:1: rule__ParameterDeclaration__Group__5__Impl : ( ( rule__ParameterDeclaration__ValueAssignment_5 ) ) ;
     public final void rule__ParameterDeclaration__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3300:1: ( ( ( rule__ParameterDeclaration__ValueAssignment_5 ) ) )
-            // InternalAltarica.g:3301:1: ( ( rule__ParameterDeclaration__ValueAssignment_5 ) )
+            // InternalAltarica.g:3627:1: ( ( ( rule__ParameterDeclaration__ValueAssignment_5 ) ) )
+            // InternalAltarica.g:3628:1: ( ( rule__ParameterDeclaration__ValueAssignment_5 ) )
             {
-            // InternalAltarica.g:3301:1: ( ( rule__ParameterDeclaration__ValueAssignment_5 ) )
-            // InternalAltarica.g:3302:1: ( rule__ParameterDeclaration__ValueAssignment_5 )
+            // InternalAltarica.g:3628:1: ( ( rule__ParameterDeclaration__ValueAssignment_5 ) )
+            // InternalAltarica.g:3629:1: ( rule__ParameterDeclaration__ValueAssignment_5 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getValueAssignment_5()); 
             }
-            // InternalAltarica.g:3303:1: ( rule__ParameterDeclaration__ValueAssignment_5 )
-            // InternalAltarica.g:3303:2: rule__ParameterDeclaration__ValueAssignment_5
+            // InternalAltarica.g:3630:1: ( rule__ParameterDeclaration__ValueAssignment_5 )
+            // InternalAltarica.g:3630:2: rule__ParameterDeclaration__ValueAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__ParameterDeclaration__ValueAssignment_5();
@@ -9789,14 +10702,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__6"
-    // InternalAltarica.g:3313:1: rule__ParameterDeclaration__Group__6 : rule__ParameterDeclaration__Group__6__Impl ;
+    // InternalAltarica.g:3640:1: rule__ParameterDeclaration__Group__6 : rule__ParameterDeclaration__Group__6__Impl ;
     public final void rule__ParameterDeclaration__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3317:1: ( rule__ParameterDeclaration__Group__6__Impl )
-            // InternalAltarica.g:3318:2: rule__ParameterDeclaration__Group__6__Impl
+            // InternalAltarica.g:3644:1: ( rule__ParameterDeclaration__Group__6__Impl )
+            // InternalAltarica.g:3645:2: rule__ParameterDeclaration__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ParameterDeclaration__Group__6__Impl();
@@ -9822,22 +10735,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__Group__6__Impl"
-    // InternalAltarica.g:3324:1: rule__ParameterDeclaration__Group__6__Impl : ( ';' ) ;
+    // InternalAltarica.g:3651:1: rule__ParameterDeclaration__Group__6__Impl : ( ';' ) ;
     public final void rule__ParameterDeclaration__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3328:1: ( ( ';' ) )
-            // InternalAltarica.g:3329:1: ( ';' )
+            // InternalAltarica.g:3655:1: ( ( ';' ) )
+            // InternalAltarica.g:3656:1: ( ';' )
             {
-            // InternalAltarica.g:3329:1: ( ';' )
-            // InternalAltarica.g:3330:1: ';'
+            // InternalAltarica.g:3656:1: ( ';' )
+            // InternalAltarica.g:3657:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getSemicolonKeyword_6()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getParameterDeclarationAccess().getSemicolonKeyword_6()); 
             }
@@ -9863,16 +10776,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__0"
-    // InternalAltarica.g:3357:1: rule__ObserverDeclaration__Group__0 : rule__ObserverDeclaration__Group__0__Impl rule__ObserverDeclaration__Group__1 ;
+    // InternalAltarica.g:3684:1: rule__ObserverDeclaration__Group__0 : rule__ObserverDeclaration__Group__0__Impl rule__ObserverDeclaration__Group__1 ;
     public final void rule__ObserverDeclaration__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3361:1: ( rule__ObserverDeclaration__Group__0__Impl rule__ObserverDeclaration__Group__1 )
-            // InternalAltarica.g:3362:2: rule__ObserverDeclaration__Group__0__Impl rule__ObserverDeclaration__Group__1
+            // InternalAltarica.g:3688:1: ( rule__ObserverDeclaration__Group__0__Impl rule__ObserverDeclaration__Group__1 )
+            // InternalAltarica.g:3689:2: rule__ObserverDeclaration__Group__0__Impl rule__ObserverDeclaration__Group__1
             {
-            pushFollow(FOLLOW_24);
+            pushFollow(FOLLOW_28);
             rule__ObserverDeclaration__Group__0__Impl();
 
             state._fsp--;
@@ -9901,23 +10814,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__0__Impl"
-    // InternalAltarica.g:3369:1: rule__ObserverDeclaration__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:3696:1: rule__ObserverDeclaration__Group__0__Impl : ( () ) ;
     public final void rule__ObserverDeclaration__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3373:1: ( ( () ) )
-            // InternalAltarica.g:3374:1: ( () )
+            // InternalAltarica.g:3700:1: ( ( () ) )
+            // InternalAltarica.g:3701:1: ( () )
             {
-            // InternalAltarica.g:3374:1: ( () )
-            // InternalAltarica.g:3375:1: ()
+            // InternalAltarica.g:3701:1: ( () )
+            // InternalAltarica.g:3702:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getObserverAction_0()); 
             }
-            // InternalAltarica.g:3376:1: ()
-            // InternalAltarica.g:3378:1: 
+            // InternalAltarica.g:3703:1: ()
+            // InternalAltarica.g:3705:1: 
             {
             }
 
@@ -9942,16 +10855,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__1"
-    // InternalAltarica.g:3388:1: rule__ObserverDeclaration__Group__1 : rule__ObserverDeclaration__Group__1__Impl rule__ObserverDeclaration__Group__2 ;
+    // InternalAltarica.g:3715:1: rule__ObserverDeclaration__Group__1 : rule__ObserverDeclaration__Group__1__Impl rule__ObserverDeclaration__Group__2 ;
     public final void rule__ObserverDeclaration__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3392:1: ( rule__ObserverDeclaration__Group__1__Impl rule__ObserverDeclaration__Group__2 )
-            // InternalAltarica.g:3393:2: rule__ObserverDeclaration__Group__1__Impl rule__ObserverDeclaration__Group__2
+            // InternalAltarica.g:3719:1: ( rule__ObserverDeclaration__Group__1__Impl rule__ObserverDeclaration__Group__2 )
+            // InternalAltarica.g:3720:2: rule__ObserverDeclaration__Group__1__Impl rule__ObserverDeclaration__Group__2
             {
-            pushFollow(FOLLOW_16);
+            pushFollow(FOLLOW_20);
             rule__ObserverDeclaration__Group__1__Impl();
 
             state._fsp--;
@@ -9980,22 +10893,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__1__Impl"
-    // InternalAltarica.g:3400:1: rule__ObserverDeclaration__Group__1__Impl : ( 'observer' ) ;
+    // InternalAltarica.g:3727:1: rule__ObserverDeclaration__Group__1__Impl : ( 'observer' ) ;
     public final void rule__ObserverDeclaration__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3404:1: ( ( 'observer' ) )
-            // InternalAltarica.g:3405:1: ( 'observer' )
+            // InternalAltarica.g:3731:1: ( ( 'observer' ) )
+            // InternalAltarica.g:3732:1: ( 'observer' )
             {
-            // InternalAltarica.g:3405:1: ( 'observer' )
-            // InternalAltarica.g:3406:1: 'observer'
+            // InternalAltarica.g:3732:1: ( 'observer' )
+            // InternalAltarica.g:3733:1: 'observer'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getObserverKeyword_1()); 
             }
-            match(input,47,FOLLOW_2); if (state.failed) return ;
+            match(input,51,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getObserverDeclarationAccess().getObserverKeyword_1()); 
             }
@@ -10021,16 +10934,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__2"
-    // InternalAltarica.g:3419:1: rule__ObserverDeclaration__Group__2 : rule__ObserverDeclaration__Group__2__Impl rule__ObserverDeclaration__Group__3 ;
+    // InternalAltarica.g:3746:1: rule__ObserverDeclaration__Group__2 : rule__ObserverDeclaration__Group__2__Impl rule__ObserverDeclaration__Group__3 ;
     public final void rule__ObserverDeclaration__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3423:1: ( rule__ObserverDeclaration__Group__2__Impl rule__ObserverDeclaration__Group__3 )
-            // InternalAltarica.g:3424:2: rule__ObserverDeclaration__Group__2__Impl rule__ObserverDeclaration__Group__3
+            // InternalAltarica.g:3750:1: ( rule__ObserverDeclaration__Group__2__Impl rule__ObserverDeclaration__Group__3 )
+            // InternalAltarica.g:3751:2: rule__ObserverDeclaration__Group__2__Impl rule__ObserverDeclaration__Group__3
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__ObserverDeclaration__Group__2__Impl();
 
             state._fsp--;
@@ -10059,23 +10972,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__2__Impl"
-    // InternalAltarica.g:3431:1: rule__ObserverDeclaration__Group__2__Impl : ( ( rule__ObserverDeclaration__TypeAssignment_2 ) ) ;
+    // InternalAltarica.g:3758:1: rule__ObserverDeclaration__Group__2__Impl : ( ( rule__ObserverDeclaration__TypeAssignment_2 ) ) ;
     public final void rule__ObserverDeclaration__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3435:1: ( ( ( rule__ObserverDeclaration__TypeAssignment_2 ) ) )
-            // InternalAltarica.g:3436:1: ( ( rule__ObserverDeclaration__TypeAssignment_2 ) )
+            // InternalAltarica.g:3762:1: ( ( ( rule__ObserverDeclaration__TypeAssignment_2 ) ) )
+            // InternalAltarica.g:3763:1: ( ( rule__ObserverDeclaration__TypeAssignment_2 ) )
             {
-            // InternalAltarica.g:3436:1: ( ( rule__ObserverDeclaration__TypeAssignment_2 ) )
-            // InternalAltarica.g:3437:1: ( rule__ObserverDeclaration__TypeAssignment_2 )
+            // InternalAltarica.g:3763:1: ( ( rule__ObserverDeclaration__TypeAssignment_2 ) )
+            // InternalAltarica.g:3764:1: ( rule__ObserverDeclaration__TypeAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getTypeAssignment_2()); 
             }
-            // InternalAltarica.g:3438:1: ( rule__ObserverDeclaration__TypeAssignment_2 )
-            // InternalAltarica.g:3438:2: rule__ObserverDeclaration__TypeAssignment_2
+            // InternalAltarica.g:3765:1: ( rule__ObserverDeclaration__TypeAssignment_2 )
+            // InternalAltarica.g:3765:2: rule__ObserverDeclaration__TypeAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__ObserverDeclaration__TypeAssignment_2();
@@ -10110,16 +11023,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__3"
-    // InternalAltarica.g:3448:1: rule__ObserverDeclaration__Group__3 : rule__ObserverDeclaration__Group__3__Impl rule__ObserverDeclaration__Group__4 ;
+    // InternalAltarica.g:3775:1: rule__ObserverDeclaration__Group__3 : rule__ObserverDeclaration__Group__3__Impl rule__ObserverDeclaration__Group__4 ;
     public final void rule__ObserverDeclaration__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3452:1: ( rule__ObserverDeclaration__Group__3__Impl rule__ObserverDeclaration__Group__4 )
-            // InternalAltarica.g:3453:2: rule__ObserverDeclaration__Group__3__Impl rule__ObserverDeclaration__Group__4
+            // InternalAltarica.g:3779:1: ( rule__ObserverDeclaration__Group__3__Impl rule__ObserverDeclaration__Group__4 )
+            // InternalAltarica.g:3780:2: rule__ObserverDeclaration__Group__3__Impl rule__ObserverDeclaration__Group__4
             {
-            pushFollow(FOLLOW_19);
+            pushFollow(FOLLOW_23);
             rule__ObserverDeclaration__Group__3__Impl();
 
             state._fsp--;
@@ -10148,23 +11061,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__3__Impl"
-    // InternalAltarica.g:3460:1: rule__ObserverDeclaration__Group__3__Impl : ( ( rule__ObserverDeclaration__NameAssignment_3 ) ) ;
+    // InternalAltarica.g:3787:1: rule__ObserverDeclaration__Group__3__Impl : ( ( rule__ObserverDeclaration__NameAssignment_3 ) ) ;
     public final void rule__ObserverDeclaration__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3464:1: ( ( ( rule__ObserverDeclaration__NameAssignment_3 ) ) )
-            // InternalAltarica.g:3465:1: ( ( rule__ObserverDeclaration__NameAssignment_3 ) )
+            // InternalAltarica.g:3791:1: ( ( ( rule__ObserverDeclaration__NameAssignment_3 ) ) )
+            // InternalAltarica.g:3792:1: ( ( rule__ObserverDeclaration__NameAssignment_3 ) )
             {
-            // InternalAltarica.g:3465:1: ( ( rule__ObserverDeclaration__NameAssignment_3 ) )
-            // InternalAltarica.g:3466:1: ( rule__ObserverDeclaration__NameAssignment_3 )
+            // InternalAltarica.g:3792:1: ( ( rule__ObserverDeclaration__NameAssignment_3 ) )
+            // InternalAltarica.g:3793:1: ( rule__ObserverDeclaration__NameAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getNameAssignment_3()); 
             }
-            // InternalAltarica.g:3467:1: ( rule__ObserverDeclaration__NameAssignment_3 )
-            // InternalAltarica.g:3467:2: rule__ObserverDeclaration__NameAssignment_3
+            // InternalAltarica.g:3794:1: ( rule__ObserverDeclaration__NameAssignment_3 )
+            // InternalAltarica.g:3794:2: rule__ObserverDeclaration__NameAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__ObserverDeclaration__NameAssignment_3();
@@ -10199,16 +11112,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__4"
-    // InternalAltarica.g:3477:1: rule__ObserverDeclaration__Group__4 : rule__ObserverDeclaration__Group__4__Impl rule__ObserverDeclaration__Group__5 ;
+    // InternalAltarica.g:3804:1: rule__ObserverDeclaration__Group__4 : rule__ObserverDeclaration__Group__4__Impl rule__ObserverDeclaration__Group__5 ;
     public final void rule__ObserverDeclaration__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3481:1: ( rule__ObserverDeclaration__Group__4__Impl rule__ObserverDeclaration__Group__5 )
-            // InternalAltarica.g:3482:2: rule__ObserverDeclaration__Group__4__Impl rule__ObserverDeclaration__Group__5
+            // InternalAltarica.g:3808:1: ( rule__ObserverDeclaration__Group__4__Impl rule__ObserverDeclaration__Group__5 )
+            // InternalAltarica.g:3809:2: rule__ObserverDeclaration__Group__4__Impl rule__ObserverDeclaration__Group__5
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__ObserverDeclaration__Group__4__Impl();
 
             state._fsp--;
@@ -10237,22 +11150,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__4__Impl"
-    // InternalAltarica.g:3489:1: rule__ObserverDeclaration__Group__4__Impl : ( '=' ) ;
+    // InternalAltarica.g:3816:1: rule__ObserverDeclaration__Group__4__Impl : ( '=' ) ;
     public final void rule__ObserverDeclaration__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3493:1: ( ( '=' ) )
-            // InternalAltarica.g:3494:1: ( '=' )
+            // InternalAltarica.g:3820:1: ( ( '=' ) )
+            // InternalAltarica.g:3821:1: ( '=' )
             {
-            // InternalAltarica.g:3494:1: ( '=' )
-            // InternalAltarica.g:3495:1: '='
+            // InternalAltarica.g:3821:1: ( '=' )
+            // InternalAltarica.g:3822:1: '='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getEqualsSignKeyword_4()); 
             }
-            match(input,44,FOLLOW_2); if (state.failed) return ;
+            match(input,48,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getObserverDeclarationAccess().getEqualsSignKeyword_4()); 
             }
@@ -10278,16 +11191,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__5"
-    // InternalAltarica.g:3508:1: rule__ObserverDeclaration__Group__5 : rule__ObserverDeclaration__Group__5__Impl rule__ObserverDeclaration__Group__6 ;
+    // InternalAltarica.g:3835:1: rule__ObserverDeclaration__Group__5 : rule__ObserverDeclaration__Group__5__Impl rule__ObserverDeclaration__Group__6 ;
     public final void rule__ObserverDeclaration__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3512:1: ( rule__ObserverDeclaration__Group__5__Impl rule__ObserverDeclaration__Group__6 )
-            // InternalAltarica.g:3513:2: rule__ObserverDeclaration__Group__5__Impl rule__ObserverDeclaration__Group__6
+            // InternalAltarica.g:3839:1: ( rule__ObserverDeclaration__Group__5__Impl rule__ObserverDeclaration__Group__6 )
+            // InternalAltarica.g:3840:2: rule__ObserverDeclaration__Group__5__Impl rule__ObserverDeclaration__Group__6
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_27);
             rule__ObserverDeclaration__Group__5__Impl();
 
             state._fsp--;
@@ -10316,23 +11229,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__5__Impl"
-    // InternalAltarica.g:3520:1: rule__ObserverDeclaration__Group__5__Impl : ( ( rule__ObserverDeclaration__ValueAssignment_5 ) ) ;
+    // InternalAltarica.g:3847:1: rule__ObserverDeclaration__Group__5__Impl : ( ( rule__ObserverDeclaration__ValueAssignment_5 ) ) ;
     public final void rule__ObserverDeclaration__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3524:1: ( ( ( rule__ObserverDeclaration__ValueAssignment_5 ) ) )
-            // InternalAltarica.g:3525:1: ( ( rule__ObserverDeclaration__ValueAssignment_5 ) )
+            // InternalAltarica.g:3851:1: ( ( ( rule__ObserverDeclaration__ValueAssignment_5 ) ) )
+            // InternalAltarica.g:3852:1: ( ( rule__ObserverDeclaration__ValueAssignment_5 ) )
             {
-            // InternalAltarica.g:3525:1: ( ( rule__ObserverDeclaration__ValueAssignment_5 ) )
-            // InternalAltarica.g:3526:1: ( rule__ObserverDeclaration__ValueAssignment_5 )
+            // InternalAltarica.g:3852:1: ( ( rule__ObserverDeclaration__ValueAssignment_5 ) )
+            // InternalAltarica.g:3853:1: ( rule__ObserverDeclaration__ValueAssignment_5 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getValueAssignment_5()); 
             }
-            // InternalAltarica.g:3527:1: ( rule__ObserverDeclaration__ValueAssignment_5 )
-            // InternalAltarica.g:3527:2: rule__ObserverDeclaration__ValueAssignment_5
+            // InternalAltarica.g:3854:1: ( rule__ObserverDeclaration__ValueAssignment_5 )
+            // InternalAltarica.g:3854:2: rule__ObserverDeclaration__ValueAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__ObserverDeclaration__ValueAssignment_5();
@@ -10367,14 +11280,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__6"
-    // InternalAltarica.g:3537:1: rule__ObserverDeclaration__Group__6 : rule__ObserverDeclaration__Group__6__Impl ;
+    // InternalAltarica.g:3864:1: rule__ObserverDeclaration__Group__6 : rule__ObserverDeclaration__Group__6__Impl ;
     public final void rule__ObserverDeclaration__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3541:1: ( rule__ObserverDeclaration__Group__6__Impl )
-            // InternalAltarica.g:3542:2: rule__ObserverDeclaration__Group__6__Impl
+            // InternalAltarica.g:3868:1: ( rule__ObserverDeclaration__Group__6__Impl )
+            // InternalAltarica.g:3869:2: rule__ObserverDeclaration__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__ObserverDeclaration__Group__6__Impl();
@@ -10400,22 +11313,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__Group__6__Impl"
-    // InternalAltarica.g:3548:1: rule__ObserverDeclaration__Group__6__Impl : ( ';' ) ;
+    // InternalAltarica.g:3875:1: rule__ObserverDeclaration__Group__6__Impl : ( ';' ) ;
     public final void rule__ObserverDeclaration__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3552:1: ( ( ';' ) )
-            // InternalAltarica.g:3553:1: ( ';' )
+            // InternalAltarica.g:3879:1: ( ( ';' ) )
+            // InternalAltarica.g:3880:1: ( ';' )
             {
-            // InternalAltarica.g:3553:1: ( ';' )
-            // InternalAltarica.g:3554:1: ';'
+            // InternalAltarica.g:3880:1: ( ';' )
+            // InternalAltarica.g:3881:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getSemicolonKeyword_6()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getObserverDeclarationAccess().getSemicolonKeyword_6()); 
             }
@@ -10441,16 +11354,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__Group__0"
-    // InternalAltarica.g:3581:1: rule__LabeledTransition__Group__0 : rule__LabeledTransition__Group__0__Impl rule__LabeledTransition__Group__1 ;
+    // InternalAltarica.g:3908:1: rule__LabeledTransition__Group__0 : rule__LabeledTransition__Group__0__Impl rule__LabeledTransition__Group__1 ;
     public final void rule__LabeledTransition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3585:1: ( rule__LabeledTransition__Group__0__Impl rule__LabeledTransition__Group__1 )
-            // InternalAltarica.g:3586:2: rule__LabeledTransition__Group__0__Impl rule__LabeledTransition__Group__1
+            // InternalAltarica.g:3912:1: ( rule__LabeledTransition__Group__0__Impl rule__LabeledTransition__Group__1 )
+            // InternalAltarica.g:3913:2: rule__LabeledTransition__Group__0__Impl rule__LabeledTransition__Group__1
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_29);
             rule__LabeledTransition__Group__0__Impl();
 
             state._fsp--;
@@ -10479,23 +11392,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__Group__0__Impl"
-    // InternalAltarica.g:3593:1: rule__LabeledTransition__Group__0__Impl : ( ( rule__LabeledTransition__EventAssignment_0 ) ) ;
+    // InternalAltarica.g:3920:1: rule__LabeledTransition__Group__0__Impl : ( ( rule__LabeledTransition__EventAssignment_0 ) ) ;
     public final void rule__LabeledTransition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3597:1: ( ( ( rule__LabeledTransition__EventAssignment_0 ) ) )
-            // InternalAltarica.g:3598:1: ( ( rule__LabeledTransition__EventAssignment_0 ) )
+            // InternalAltarica.g:3924:1: ( ( ( rule__LabeledTransition__EventAssignment_0 ) ) )
+            // InternalAltarica.g:3925:1: ( ( rule__LabeledTransition__EventAssignment_0 ) )
             {
-            // InternalAltarica.g:3598:1: ( ( rule__LabeledTransition__EventAssignment_0 ) )
-            // InternalAltarica.g:3599:1: ( rule__LabeledTransition__EventAssignment_0 )
+            // InternalAltarica.g:3925:1: ( ( rule__LabeledTransition__EventAssignment_0 ) )
+            // InternalAltarica.g:3926:1: ( rule__LabeledTransition__EventAssignment_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLabeledTransitionAccess().getEventAssignment_0()); 
             }
-            // InternalAltarica.g:3600:1: ( rule__LabeledTransition__EventAssignment_0 )
-            // InternalAltarica.g:3600:2: rule__LabeledTransition__EventAssignment_0
+            // InternalAltarica.g:3927:1: ( rule__LabeledTransition__EventAssignment_0 )
+            // InternalAltarica.g:3927:2: rule__LabeledTransition__EventAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__LabeledTransition__EventAssignment_0();
@@ -10530,16 +11443,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__Group__1"
-    // InternalAltarica.g:3610:1: rule__LabeledTransition__Group__1 : rule__LabeledTransition__Group__1__Impl rule__LabeledTransition__Group__2 ;
+    // InternalAltarica.g:3937:1: rule__LabeledTransition__Group__1 : rule__LabeledTransition__Group__1__Impl rule__LabeledTransition__Group__2 ;
     public final void rule__LabeledTransition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3614:1: ( rule__LabeledTransition__Group__1__Impl rule__LabeledTransition__Group__2 )
-            // InternalAltarica.g:3615:2: rule__LabeledTransition__Group__1__Impl rule__LabeledTransition__Group__2
+            // InternalAltarica.g:3941:1: ( rule__LabeledTransition__Group__1__Impl rule__LabeledTransition__Group__2 )
+            // InternalAltarica.g:3942:2: rule__LabeledTransition__Group__1__Impl rule__LabeledTransition__Group__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__LabeledTransition__Group__1__Impl();
 
             state._fsp--;
@@ -10568,22 +11481,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__Group__1__Impl"
-    // InternalAltarica.g:3622:1: rule__LabeledTransition__Group__1__Impl : ( ':' ) ;
+    // InternalAltarica.g:3949:1: rule__LabeledTransition__Group__1__Impl : ( ':' ) ;
     public final void rule__LabeledTransition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3626:1: ( ( ':' ) )
-            // InternalAltarica.g:3627:1: ( ':' )
+            // InternalAltarica.g:3953:1: ( ( ':' ) )
+            // InternalAltarica.g:3954:1: ( ':' )
             {
-            // InternalAltarica.g:3627:1: ( ':' )
-            // InternalAltarica.g:3628:1: ':'
+            // InternalAltarica.g:3954:1: ( ':' )
+            // InternalAltarica.g:3955:1: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLabeledTransitionAccess().getColonKeyword_1()); 
             }
-            match(input,48,FOLLOW_2); if (state.failed) return ;
+            match(input,52,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getLabeledTransitionAccess().getColonKeyword_1()); 
             }
@@ -10609,14 +11522,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__Group__2"
-    // InternalAltarica.g:3641:1: rule__LabeledTransition__Group__2 : rule__LabeledTransition__Group__2__Impl ;
+    // InternalAltarica.g:3968:1: rule__LabeledTransition__Group__2 : rule__LabeledTransition__Group__2__Impl ;
     public final void rule__LabeledTransition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3645:1: ( rule__LabeledTransition__Group__2__Impl )
-            // InternalAltarica.g:3646:2: rule__LabeledTransition__Group__2__Impl
+            // InternalAltarica.g:3972:1: ( rule__LabeledTransition__Group__2__Impl )
+            // InternalAltarica.g:3973:2: rule__LabeledTransition__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LabeledTransition__Group__2__Impl();
@@ -10642,23 +11555,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__Group__2__Impl"
-    // InternalAltarica.g:3652:1: rule__LabeledTransition__Group__2__Impl : ( ( rule__LabeledTransition__ExpressionAssignment_2 ) ) ;
+    // InternalAltarica.g:3979:1: rule__LabeledTransition__Group__2__Impl : ( ( rule__LabeledTransition__ExpressionAssignment_2 ) ) ;
     public final void rule__LabeledTransition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3656:1: ( ( ( rule__LabeledTransition__ExpressionAssignment_2 ) ) )
-            // InternalAltarica.g:3657:1: ( ( rule__LabeledTransition__ExpressionAssignment_2 ) )
+            // InternalAltarica.g:3983:1: ( ( ( rule__LabeledTransition__ExpressionAssignment_2 ) ) )
+            // InternalAltarica.g:3984:1: ( ( rule__LabeledTransition__ExpressionAssignment_2 ) )
             {
-            // InternalAltarica.g:3657:1: ( ( rule__LabeledTransition__ExpressionAssignment_2 ) )
-            // InternalAltarica.g:3658:1: ( rule__LabeledTransition__ExpressionAssignment_2 )
+            // InternalAltarica.g:3984:1: ( ( rule__LabeledTransition__ExpressionAssignment_2 ) )
+            // InternalAltarica.g:3985:1: ( rule__LabeledTransition__ExpressionAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLabeledTransitionAccess().getExpressionAssignment_2()); 
             }
-            // InternalAltarica.g:3659:1: ( rule__LabeledTransition__ExpressionAssignment_2 )
-            // InternalAltarica.g:3659:2: rule__LabeledTransition__ExpressionAssignment_2
+            // InternalAltarica.g:3986:1: ( rule__LabeledTransition__ExpressionAssignment_2 )
+            // InternalAltarica.g:3986:2: rule__LabeledTransition__ExpressionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__LabeledTransition__ExpressionAssignment_2();
@@ -10693,16 +11606,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group__0"
-    // InternalAltarica.g:3675:1: rule__TransitionAnd__Group__0 : rule__TransitionAnd__Group__0__Impl rule__TransitionAnd__Group__1 ;
+    // InternalAltarica.g:4002:1: rule__TransitionAnd__Group__0 : rule__TransitionAnd__Group__0__Impl rule__TransitionAnd__Group__1 ;
     public final void rule__TransitionAnd__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3679:1: ( rule__TransitionAnd__Group__0__Impl rule__TransitionAnd__Group__1 )
-            // InternalAltarica.g:3680:2: rule__TransitionAnd__Group__0__Impl rule__TransitionAnd__Group__1
+            // InternalAltarica.g:4006:1: ( rule__TransitionAnd__Group__0__Impl rule__TransitionAnd__Group__1 )
+            // InternalAltarica.g:4007:2: rule__TransitionAnd__Group__0__Impl rule__TransitionAnd__Group__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_30);
             rule__TransitionAnd__Group__0__Impl();
 
             state._fsp--;
@@ -10731,17 +11644,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group__0__Impl"
-    // InternalAltarica.g:3687:1: rule__TransitionAnd__Group__0__Impl : ( ruleTransitionOr ) ;
+    // InternalAltarica.g:4014:1: rule__TransitionAnd__Group__0__Impl : ( ruleTransitionOr ) ;
     public final void rule__TransitionAnd__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3691:1: ( ( ruleTransitionOr ) )
-            // InternalAltarica.g:3692:1: ( ruleTransitionOr )
+            // InternalAltarica.g:4018:1: ( ( ruleTransitionOr ) )
+            // InternalAltarica.g:4019:1: ( ruleTransitionOr )
             {
-            // InternalAltarica.g:3692:1: ( ruleTransitionOr )
-            // InternalAltarica.g:3693:1: ruleTransitionOr
+            // InternalAltarica.g:4019:1: ( ruleTransitionOr )
+            // InternalAltarica.g:4020:1: ruleTransitionOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAndAccess().getTransitionOrParserRuleCall_0()); 
@@ -10776,14 +11689,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group__1"
-    // InternalAltarica.g:3704:1: rule__TransitionAnd__Group__1 : rule__TransitionAnd__Group__1__Impl ;
+    // InternalAltarica.g:4031:1: rule__TransitionAnd__Group__1 : rule__TransitionAnd__Group__1__Impl ;
     public final void rule__TransitionAnd__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3708:1: ( rule__TransitionAnd__Group__1__Impl )
-            // InternalAltarica.g:3709:2: rule__TransitionAnd__Group__1__Impl
+            // InternalAltarica.g:4035:1: ( rule__TransitionAnd__Group__1__Impl )
+            // InternalAltarica.g:4036:2: rule__TransitionAnd__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TransitionAnd__Group__1__Impl();
@@ -10809,37 +11722,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group__1__Impl"
-    // InternalAltarica.g:3715:1: rule__TransitionAnd__Group__1__Impl : ( ( rule__TransitionAnd__Group_1__0 )* ) ;
+    // InternalAltarica.g:4042:1: rule__TransitionAnd__Group__1__Impl : ( ( rule__TransitionAnd__Group_1__0 )* ) ;
     public final void rule__TransitionAnd__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3719:1: ( ( ( rule__TransitionAnd__Group_1__0 )* ) )
-            // InternalAltarica.g:3720:1: ( ( rule__TransitionAnd__Group_1__0 )* )
+            // InternalAltarica.g:4046:1: ( ( ( rule__TransitionAnd__Group_1__0 )* ) )
+            // InternalAltarica.g:4047:1: ( ( rule__TransitionAnd__Group_1__0 )* )
             {
-            // InternalAltarica.g:3720:1: ( ( rule__TransitionAnd__Group_1__0 )* )
-            // InternalAltarica.g:3721:1: ( rule__TransitionAnd__Group_1__0 )*
+            // InternalAltarica.g:4047:1: ( ( rule__TransitionAnd__Group_1__0 )* )
+            // InternalAltarica.g:4048:1: ( rule__TransitionAnd__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAndAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:3722:1: ( rule__TransitionAnd__Group_1__0 )*
-            loop25:
+            // InternalAltarica.g:4049:1: ( rule__TransitionAnd__Group_1__0 )*
+            loop28:
             do {
-                int alt25=2;
-                int LA25_0 = input.LA(1);
+                int alt28=2;
+                int LA28_0 = input.LA(1);
 
-                if ( (LA25_0==49) ) {
-                    alt25=1;
+                if ( (LA28_0==53) ) {
+                    alt28=1;
                 }
 
 
-                switch (alt25) {
+                switch (alt28) {
             	case 1 :
-            	    // InternalAltarica.g:3722:2: rule__TransitionAnd__Group_1__0
+            	    // InternalAltarica.g:4049:2: rule__TransitionAnd__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_27);
+            	    pushFollow(FOLLOW_31);
             	    rule__TransitionAnd__Group_1__0();
 
             	    state._fsp--;
@@ -10849,7 +11762,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop25;
+            	    break loop28;
                 }
             } while (true);
 
@@ -10878,16 +11791,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group_1__0"
-    // InternalAltarica.g:3736:1: rule__TransitionAnd__Group_1__0 : rule__TransitionAnd__Group_1__0__Impl rule__TransitionAnd__Group_1__1 ;
+    // InternalAltarica.g:4063:1: rule__TransitionAnd__Group_1__0 : rule__TransitionAnd__Group_1__0__Impl rule__TransitionAnd__Group_1__1 ;
     public final void rule__TransitionAnd__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3740:1: ( rule__TransitionAnd__Group_1__0__Impl rule__TransitionAnd__Group_1__1 )
-            // InternalAltarica.g:3741:2: rule__TransitionAnd__Group_1__0__Impl rule__TransitionAnd__Group_1__1
+            // InternalAltarica.g:4067:1: ( rule__TransitionAnd__Group_1__0__Impl rule__TransitionAnd__Group_1__1 )
+            // InternalAltarica.g:4068:2: rule__TransitionAnd__Group_1__0__Impl rule__TransitionAnd__Group_1__1
             {
-            pushFollow(FOLLOW_26);
+            pushFollow(FOLLOW_30);
             rule__TransitionAnd__Group_1__0__Impl();
 
             state._fsp--;
@@ -10916,23 +11829,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group_1__0__Impl"
-    // InternalAltarica.g:3748:1: rule__TransitionAnd__Group_1__0__Impl : ( () ) ;
+    // InternalAltarica.g:4075:1: rule__TransitionAnd__Group_1__0__Impl : ( () ) ;
     public final void rule__TransitionAnd__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3752:1: ( ( () ) )
-            // InternalAltarica.g:3753:1: ( () )
+            // InternalAltarica.g:4079:1: ( ( () ) )
+            // InternalAltarica.g:4080:1: ( () )
             {
-            // InternalAltarica.g:3753:1: ( () )
-            // InternalAltarica.g:3754:1: ()
+            // InternalAltarica.g:4080:1: ( () )
+            // InternalAltarica.g:4081:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAndAccess().getTransitionAndLeftAction_1_0()); 
             }
-            // InternalAltarica.g:3755:1: ()
-            // InternalAltarica.g:3757:1: 
+            // InternalAltarica.g:4082:1: ()
+            // InternalAltarica.g:4084:1: 
             {
             }
 
@@ -10957,16 +11870,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group_1__1"
-    // InternalAltarica.g:3767:1: rule__TransitionAnd__Group_1__1 : rule__TransitionAnd__Group_1__1__Impl rule__TransitionAnd__Group_1__2 ;
+    // InternalAltarica.g:4094:1: rule__TransitionAnd__Group_1__1 : rule__TransitionAnd__Group_1__1__Impl rule__TransitionAnd__Group_1__2 ;
     public final void rule__TransitionAnd__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3771:1: ( rule__TransitionAnd__Group_1__1__Impl rule__TransitionAnd__Group_1__2 )
-            // InternalAltarica.g:3772:2: rule__TransitionAnd__Group_1__1__Impl rule__TransitionAnd__Group_1__2
+            // InternalAltarica.g:4098:1: ( rule__TransitionAnd__Group_1__1__Impl rule__TransitionAnd__Group_1__2 )
+            // InternalAltarica.g:4099:2: rule__TransitionAnd__Group_1__1__Impl rule__TransitionAnd__Group_1__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__TransitionAnd__Group_1__1__Impl();
 
             state._fsp--;
@@ -10995,22 +11908,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group_1__1__Impl"
-    // InternalAltarica.g:3779:1: rule__TransitionAnd__Group_1__1__Impl : ( '&' ) ;
+    // InternalAltarica.g:4106:1: rule__TransitionAnd__Group_1__1__Impl : ( '&' ) ;
     public final void rule__TransitionAnd__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3783:1: ( ( '&' ) )
-            // InternalAltarica.g:3784:1: ( '&' )
+            // InternalAltarica.g:4110:1: ( ( '&' ) )
+            // InternalAltarica.g:4111:1: ( '&' )
             {
-            // InternalAltarica.g:3784:1: ( '&' )
-            // InternalAltarica.g:3785:1: '&'
+            // InternalAltarica.g:4111:1: ( '&' )
+            // InternalAltarica.g:4112:1: '&'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAndAccess().getAmpersandKeyword_1_1()); 
             }
-            match(input,49,FOLLOW_2); if (state.failed) return ;
+            match(input,53,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTransitionAndAccess().getAmpersandKeyword_1_1()); 
             }
@@ -11036,14 +11949,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group_1__2"
-    // InternalAltarica.g:3798:1: rule__TransitionAnd__Group_1__2 : rule__TransitionAnd__Group_1__2__Impl ;
+    // InternalAltarica.g:4125:1: rule__TransitionAnd__Group_1__2 : rule__TransitionAnd__Group_1__2__Impl ;
     public final void rule__TransitionAnd__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3802:1: ( rule__TransitionAnd__Group_1__2__Impl )
-            // InternalAltarica.g:3803:2: rule__TransitionAnd__Group_1__2__Impl
+            // InternalAltarica.g:4129:1: ( rule__TransitionAnd__Group_1__2__Impl )
+            // InternalAltarica.g:4130:2: rule__TransitionAnd__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TransitionAnd__Group_1__2__Impl();
@@ -11069,23 +11982,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__Group_1__2__Impl"
-    // InternalAltarica.g:3809:1: rule__TransitionAnd__Group_1__2__Impl : ( ( rule__TransitionAnd__RightAssignment_1_2 ) ) ;
+    // InternalAltarica.g:4136:1: rule__TransitionAnd__Group_1__2__Impl : ( ( rule__TransitionAnd__RightAssignment_1_2 ) ) ;
     public final void rule__TransitionAnd__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3813:1: ( ( ( rule__TransitionAnd__RightAssignment_1_2 ) ) )
-            // InternalAltarica.g:3814:1: ( ( rule__TransitionAnd__RightAssignment_1_2 ) )
+            // InternalAltarica.g:4140:1: ( ( ( rule__TransitionAnd__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:4141:1: ( ( rule__TransitionAnd__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:3814:1: ( ( rule__TransitionAnd__RightAssignment_1_2 ) )
-            // InternalAltarica.g:3815:1: ( rule__TransitionAnd__RightAssignment_1_2 )
+            // InternalAltarica.g:4141:1: ( ( rule__TransitionAnd__RightAssignment_1_2 ) )
+            // InternalAltarica.g:4142:1: ( rule__TransitionAnd__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAndAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:3816:1: ( rule__TransitionAnd__RightAssignment_1_2 )
-            // InternalAltarica.g:3816:2: rule__TransitionAnd__RightAssignment_1_2
+            // InternalAltarica.g:4143:1: ( rule__TransitionAnd__RightAssignment_1_2 )
+            // InternalAltarica.g:4143:2: rule__TransitionAnd__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__TransitionAnd__RightAssignment_1_2();
@@ -11120,16 +12033,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group__0"
-    // InternalAltarica.g:3832:1: rule__TransitionOr__Group__0 : rule__TransitionOr__Group__0__Impl rule__TransitionOr__Group__1 ;
+    // InternalAltarica.g:4159:1: rule__TransitionOr__Group__0 : rule__TransitionOr__Group__0__Impl rule__TransitionOr__Group__1 ;
     public final void rule__TransitionOr__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3836:1: ( rule__TransitionOr__Group__0__Impl rule__TransitionOr__Group__1 )
-            // InternalAltarica.g:3837:2: rule__TransitionOr__Group__0__Impl rule__TransitionOr__Group__1
+            // InternalAltarica.g:4163:1: ( rule__TransitionOr__Group__0__Impl rule__TransitionOr__Group__1 )
+            // InternalAltarica.g:4164:2: rule__TransitionOr__Group__0__Impl rule__TransitionOr__Group__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_32);
             rule__TransitionOr__Group__0__Impl();
 
             state._fsp--;
@@ -11158,17 +12071,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group__0__Impl"
-    // InternalAltarica.g:3844:1: rule__TransitionOr__Group__0__Impl : ( ruleTransition ) ;
+    // InternalAltarica.g:4171:1: rule__TransitionOr__Group__0__Impl : ( ruleTransition ) ;
     public final void rule__TransitionOr__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3848:1: ( ( ruleTransition ) )
-            // InternalAltarica.g:3849:1: ( ruleTransition )
+            // InternalAltarica.g:4175:1: ( ( ruleTransition ) )
+            // InternalAltarica.g:4176:1: ( ruleTransition )
             {
-            // InternalAltarica.g:3849:1: ( ruleTransition )
-            // InternalAltarica.g:3850:1: ruleTransition
+            // InternalAltarica.g:4176:1: ( ruleTransition )
+            // InternalAltarica.g:4177:1: ruleTransition
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionOrAccess().getTransitionParserRuleCall_0()); 
@@ -11203,14 +12116,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group__1"
-    // InternalAltarica.g:3861:1: rule__TransitionOr__Group__1 : rule__TransitionOr__Group__1__Impl ;
+    // InternalAltarica.g:4188:1: rule__TransitionOr__Group__1 : rule__TransitionOr__Group__1__Impl ;
     public final void rule__TransitionOr__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3865:1: ( rule__TransitionOr__Group__1__Impl )
-            // InternalAltarica.g:3866:2: rule__TransitionOr__Group__1__Impl
+            // InternalAltarica.g:4192:1: ( rule__TransitionOr__Group__1__Impl )
+            // InternalAltarica.g:4193:2: rule__TransitionOr__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TransitionOr__Group__1__Impl();
@@ -11236,37 +12149,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group__1__Impl"
-    // InternalAltarica.g:3872:1: rule__TransitionOr__Group__1__Impl : ( ( rule__TransitionOr__Group_1__0 )* ) ;
+    // InternalAltarica.g:4199:1: rule__TransitionOr__Group__1__Impl : ( ( rule__TransitionOr__Group_1__0 )* ) ;
     public final void rule__TransitionOr__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3876:1: ( ( ( rule__TransitionOr__Group_1__0 )* ) )
-            // InternalAltarica.g:3877:1: ( ( rule__TransitionOr__Group_1__0 )* )
+            // InternalAltarica.g:4203:1: ( ( ( rule__TransitionOr__Group_1__0 )* ) )
+            // InternalAltarica.g:4204:1: ( ( rule__TransitionOr__Group_1__0 )* )
             {
-            // InternalAltarica.g:3877:1: ( ( rule__TransitionOr__Group_1__0 )* )
-            // InternalAltarica.g:3878:1: ( rule__TransitionOr__Group_1__0 )*
+            // InternalAltarica.g:4204:1: ( ( rule__TransitionOr__Group_1__0 )* )
+            // InternalAltarica.g:4205:1: ( rule__TransitionOr__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionOrAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:3879:1: ( rule__TransitionOr__Group_1__0 )*
-            loop26:
+            // InternalAltarica.g:4206:1: ( rule__TransitionOr__Group_1__0 )*
+            loop29:
             do {
-                int alt26=2;
-                int LA26_0 = input.LA(1);
+                int alt29=2;
+                int LA29_0 = input.LA(1);
 
-                if ( (LA26_0==50) ) {
-                    alt26=1;
+                if ( (LA29_0==54) ) {
+                    alt29=1;
                 }
 
 
-                switch (alt26) {
+                switch (alt29) {
             	case 1 :
-            	    // InternalAltarica.g:3879:2: rule__TransitionOr__Group_1__0
+            	    // InternalAltarica.g:4206:2: rule__TransitionOr__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_29);
+            	    pushFollow(FOLLOW_33);
             	    rule__TransitionOr__Group_1__0();
 
             	    state._fsp--;
@@ -11276,7 +12189,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop26;
+            	    break loop29;
                 }
             } while (true);
 
@@ -11305,16 +12218,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group_1__0"
-    // InternalAltarica.g:3893:1: rule__TransitionOr__Group_1__0 : rule__TransitionOr__Group_1__0__Impl rule__TransitionOr__Group_1__1 ;
+    // InternalAltarica.g:4220:1: rule__TransitionOr__Group_1__0 : rule__TransitionOr__Group_1__0__Impl rule__TransitionOr__Group_1__1 ;
     public final void rule__TransitionOr__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3897:1: ( rule__TransitionOr__Group_1__0__Impl rule__TransitionOr__Group_1__1 )
-            // InternalAltarica.g:3898:2: rule__TransitionOr__Group_1__0__Impl rule__TransitionOr__Group_1__1
+            // InternalAltarica.g:4224:1: ( rule__TransitionOr__Group_1__0__Impl rule__TransitionOr__Group_1__1 )
+            // InternalAltarica.g:4225:2: rule__TransitionOr__Group_1__0__Impl rule__TransitionOr__Group_1__1
             {
-            pushFollow(FOLLOW_28);
+            pushFollow(FOLLOW_32);
             rule__TransitionOr__Group_1__0__Impl();
 
             state._fsp--;
@@ -11343,23 +12256,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group_1__0__Impl"
-    // InternalAltarica.g:3905:1: rule__TransitionOr__Group_1__0__Impl : ( () ) ;
+    // InternalAltarica.g:4232:1: rule__TransitionOr__Group_1__0__Impl : ( () ) ;
     public final void rule__TransitionOr__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3909:1: ( ( () ) )
-            // InternalAltarica.g:3910:1: ( () )
+            // InternalAltarica.g:4236:1: ( ( () ) )
+            // InternalAltarica.g:4237:1: ( () )
             {
-            // InternalAltarica.g:3910:1: ( () )
-            // InternalAltarica.g:3911:1: ()
+            // InternalAltarica.g:4237:1: ( () )
+            // InternalAltarica.g:4238:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionOrAccess().getTransitionOrLeftAction_1_0()); 
             }
-            // InternalAltarica.g:3912:1: ()
-            // InternalAltarica.g:3914:1: 
+            // InternalAltarica.g:4239:1: ()
+            // InternalAltarica.g:4241:1: 
             {
             }
 
@@ -11384,16 +12297,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group_1__1"
-    // InternalAltarica.g:3924:1: rule__TransitionOr__Group_1__1 : rule__TransitionOr__Group_1__1__Impl rule__TransitionOr__Group_1__2 ;
+    // InternalAltarica.g:4251:1: rule__TransitionOr__Group_1__1 : rule__TransitionOr__Group_1__1__Impl rule__TransitionOr__Group_1__2 ;
     public final void rule__TransitionOr__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3928:1: ( rule__TransitionOr__Group_1__1__Impl rule__TransitionOr__Group_1__2 )
-            // InternalAltarica.g:3929:2: rule__TransitionOr__Group_1__1__Impl rule__TransitionOr__Group_1__2
+            // InternalAltarica.g:4255:1: ( rule__TransitionOr__Group_1__1__Impl rule__TransitionOr__Group_1__2 )
+            // InternalAltarica.g:4256:2: rule__TransitionOr__Group_1__1__Impl rule__TransitionOr__Group_1__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__TransitionOr__Group_1__1__Impl();
 
             state._fsp--;
@@ -11422,22 +12335,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group_1__1__Impl"
-    // InternalAltarica.g:3936:1: rule__TransitionOr__Group_1__1__Impl : ( '|' ) ;
+    // InternalAltarica.g:4263:1: rule__TransitionOr__Group_1__1__Impl : ( '|' ) ;
     public final void rule__TransitionOr__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3940:1: ( ( '|' ) )
-            // InternalAltarica.g:3941:1: ( '|' )
+            // InternalAltarica.g:4267:1: ( ( '|' ) )
+            // InternalAltarica.g:4268:1: ( '|' )
             {
-            // InternalAltarica.g:3941:1: ( '|' )
-            // InternalAltarica.g:3942:1: '|'
+            // InternalAltarica.g:4268:1: ( '|' )
+            // InternalAltarica.g:4269:1: '|'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionOrAccess().getVerticalLineKeyword_1_1()); 
             }
-            match(input,50,FOLLOW_2); if (state.failed) return ;
+            match(input,54,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTransitionOrAccess().getVerticalLineKeyword_1_1()); 
             }
@@ -11463,14 +12376,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group_1__2"
-    // InternalAltarica.g:3955:1: rule__TransitionOr__Group_1__2 : rule__TransitionOr__Group_1__2__Impl ;
+    // InternalAltarica.g:4282:1: rule__TransitionOr__Group_1__2 : rule__TransitionOr__Group_1__2__Impl ;
     public final void rule__TransitionOr__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3959:1: ( rule__TransitionOr__Group_1__2__Impl )
-            // InternalAltarica.g:3960:2: rule__TransitionOr__Group_1__2__Impl
+            // InternalAltarica.g:4286:1: ( rule__TransitionOr__Group_1__2__Impl )
+            // InternalAltarica.g:4287:2: rule__TransitionOr__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__TransitionOr__Group_1__2__Impl();
@@ -11496,23 +12409,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__Group_1__2__Impl"
-    // InternalAltarica.g:3966:1: rule__TransitionOr__Group_1__2__Impl : ( ( rule__TransitionOr__RightAssignment_1_2 ) ) ;
+    // InternalAltarica.g:4293:1: rule__TransitionOr__Group_1__2__Impl : ( ( rule__TransitionOr__RightAssignment_1_2 ) ) ;
     public final void rule__TransitionOr__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3970:1: ( ( ( rule__TransitionOr__RightAssignment_1_2 ) ) )
-            // InternalAltarica.g:3971:1: ( ( rule__TransitionOr__RightAssignment_1_2 ) )
+            // InternalAltarica.g:4297:1: ( ( ( rule__TransitionOr__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:4298:1: ( ( rule__TransitionOr__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:3971:1: ( ( rule__TransitionOr__RightAssignment_1_2 ) )
-            // InternalAltarica.g:3972:1: ( rule__TransitionOr__RightAssignment_1_2 )
+            // InternalAltarica.g:4298:1: ( ( rule__TransitionOr__RightAssignment_1_2 ) )
+            // InternalAltarica.g:4299:1: ( rule__TransitionOr__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionOrAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:3973:1: ( rule__TransitionOr__RightAssignment_1_2 )
-            // InternalAltarica.g:3973:2: rule__TransitionOr__RightAssignment_1_2
+            // InternalAltarica.g:4300:1: ( rule__TransitionOr__RightAssignment_1_2 )
+            // InternalAltarica.g:4300:2: rule__TransitionOr__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__TransitionOr__RightAssignment_1_2();
@@ -11547,16 +12460,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__0"
-    // InternalAltarica.g:3989:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
+    // InternalAltarica.g:4316:1: rule__Transition__Group__0 : rule__Transition__Group__0__Impl rule__Transition__Group__1 ;
     public final void rule__Transition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:3993:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
-            // InternalAltarica.g:3994:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
+            // InternalAltarica.g:4320:1: ( rule__Transition__Group__0__Impl rule__Transition__Group__1 )
+            // InternalAltarica.g:4321:2: rule__Transition__Group__0__Impl rule__Transition__Group__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Transition__Group__0__Impl();
 
             state._fsp--;
@@ -11585,23 +12498,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__0__Impl"
-    // InternalAltarica.g:4001:1: rule__Transition__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:4328:1: rule__Transition__Group__0__Impl : ( () ) ;
     public final void rule__Transition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4005:1: ( ( () ) )
-            // InternalAltarica.g:4006:1: ( () )
+            // InternalAltarica.g:4332:1: ( ( () ) )
+            // InternalAltarica.g:4333:1: ( () )
             {
-            // InternalAltarica.g:4006:1: ( () )
-            // InternalAltarica.g:4007:1: ()
+            // InternalAltarica.g:4333:1: ( () )
+            // InternalAltarica.g:4334:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAccess().getTransitionAction_0()); 
             }
-            // InternalAltarica.g:4008:1: ()
-            // InternalAltarica.g:4010:1: 
+            // InternalAltarica.g:4335:1: ()
+            // InternalAltarica.g:4337:1: 
             {
             }
 
@@ -11626,16 +12539,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__1"
-    // InternalAltarica.g:4020:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
+    // InternalAltarica.g:4347:1: rule__Transition__Group__1 : rule__Transition__Group__1__Impl rule__Transition__Group__2 ;
     public final void rule__Transition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4024:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
-            // InternalAltarica.g:4025:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
+            // InternalAltarica.g:4351:1: ( rule__Transition__Group__1__Impl rule__Transition__Group__2 )
+            // InternalAltarica.g:4352:2: rule__Transition__Group__1__Impl rule__Transition__Group__2
             {
-            pushFollow(FOLLOW_30);
+            pushFollow(FOLLOW_34);
             rule__Transition__Group__1__Impl();
 
             state._fsp--;
@@ -11664,23 +12577,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__1__Impl"
-    // InternalAltarica.g:4032:1: rule__Transition__Group__1__Impl : ( ( rule__Transition__GuardAssignment_1 ) ) ;
+    // InternalAltarica.g:4359:1: rule__Transition__Group__1__Impl : ( ( rule__Transition__GuardAssignment_1 ) ) ;
     public final void rule__Transition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4036:1: ( ( ( rule__Transition__GuardAssignment_1 ) ) )
-            // InternalAltarica.g:4037:1: ( ( rule__Transition__GuardAssignment_1 ) )
+            // InternalAltarica.g:4363:1: ( ( ( rule__Transition__GuardAssignment_1 ) ) )
+            // InternalAltarica.g:4364:1: ( ( rule__Transition__GuardAssignment_1 ) )
             {
-            // InternalAltarica.g:4037:1: ( ( rule__Transition__GuardAssignment_1 ) )
-            // InternalAltarica.g:4038:1: ( rule__Transition__GuardAssignment_1 )
+            // InternalAltarica.g:4364:1: ( ( rule__Transition__GuardAssignment_1 ) )
+            // InternalAltarica.g:4365:1: ( rule__Transition__GuardAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAccess().getGuardAssignment_1()); 
             }
-            // InternalAltarica.g:4039:1: ( rule__Transition__GuardAssignment_1 )
-            // InternalAltarica.g:4039:2: rule__Transition__GuardAssignment_1
+            // InternalAltarica.g:4366:1: ( rule__Transition__GuardAssignment_1 )
+            // InternalAltarica.g:4366:2: rule__Transition__GuardAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Transition__GuardAssignment_1();
@@ -11715,16 +12628,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__2"
-    // InternalAltarica.g:4049:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
+    // InternalAltarica.g:4376:1: rule__Transition__Group__2 : rule__Transition__Group__2__Impl rule__Transition__Group__3 ;
     public final void rule__Transition__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4053:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
-            // InternalAltarica.g:4054:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
+            // InternalAltarica.g:4380:1: ( rule__Transition__Group__2__Impl rule__Transition__Group__3 )
+            // InternalAltarica.g:4381:2: rule__Transition__Group__2__Impl rule__Transition__Group__3
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_18);
             rule__Transition__Group__2__Impl();
 
             state._fsp--;
@@ -11753,22 +12666,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__2__Impl"
-    // InternalAltarica.g:4061:1: rule__Transition__Group__2__Impl : ( '->' ) ;
+    // InternalAltarica.g:4388:1: rule__Transition__Group__2__Impl : ( '->' ) ;
     public final void rule__Transition__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4065:1: ( ( '->' ) )
-            // InternalAltarica.g:4066:1: ( '->' )
+            // InternalAltarica.g:4392:1: ( ( '->' ) )
+            // InternalAltarica.g:4393:1: ( '->' )
             {
-            // InternalAltarica.g:4066:1: ( '->' )
-            // InternalAltarica.g:4067:1: '->'
+            // InternalAltarica.g:4393:1: ( '->' )
+            // InternalAltarica.g:4394:1: '->'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
             }
-            match(input,51,FOLLOW_2); if (state.failed) return ;
+            match(input,55,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getTransitionAccess().getHyphenMinusGreaterThanSignKeyword_2()); 
             }
@@ -11794,14 +12707,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__3"
-    // InternalAltarica.g:4080:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl ;
+    // InternalAltarica.g:4407:1: rule__Transition__Group__3 : rule__Transition__Group__3__Impl ;
     public final void rule__Transition__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4084:1: ( rule__Transition__Group__3__Impl )
-            // InternalAltarica.g:4085:2: rule__Transition__Group__3__Impl
+            // InternalAltarica.g:4411:1: ( rule__Transition__Group__3__Impl )
+            // InternalAltarica.g:4412:2: rule__Transition__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Transition__Group__3__Impl();
@@ -11827,23 +12740,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__Group__3__Impl"
-    // InternalAltarica.g:4091:1: rule__Transition__Group__3__Impl : ( ( rule__Transition__ActionAssignment_3 ) ) ;
+    // InternalAltarica.g:4418:1: rule__Transition__Group__3__Impl : ( ( rule__Transition__ActionAssignment_3 ) ) ;
     public final void rule__Transition__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4095:1: ( ( ( rule__Transition__ActionAssignment_3 ) ) )
-            // InternalAltarica.g:4096:1: ( ( rule__Transition__ActionAssignment_3 ) )
+            // InternalAltarica.g:4422:1: ( ( ( rule__Transition__ActionAssignment_3 ) ) )
+            // InternalAltarica.g:4423:1: ( ( rule__Transition__ActionAssignment_3 ) )
             {
-            // InternalAltarica.g:4096:1: ( ( rule__Transition__ActionAssignment_3 ) )
-            // InternalAltarica.g:4097:1: ( rule__Transition__ActionAssignment_3 )
+            // InternalAltarica.g:4423:1: ( ( rule__Transition__ActionAssignment_3 ) )
+            // InternalAltarica.g:4424:1: ( rule__Transition__ActionAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAccess().getActionAssignment_3()); 
             }
-            // InternalAltarica.g:4098:1: ( rule__Transition__ActionAssignment_3 )
-            // InternalAltarica.g:4098:2: rule__Transition__ActionAssignment_3
+            // InternalAltarica.g:4425:1: ( rule__Transition__ActionAssignment_3 )
+            // InternalAltarica.g:4425:2: rule__Transition__ActionAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Transition__ActionAssignment_3();
@@ -11878,16 +12791,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Skip__Group__0"
-    // InternalAltarica.g:4116:1: rule__Skip__Group__0 : rule__Skip__Group__0__Impl rule__Skip__Group__1 ;
+    // InternalAltarica.g:4443:1: rule__Skip__Group__0 : rule__Skip__Group__0__Impl rule__Skip__Group__1 ;
     public final void rule__Skip__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4120:1: ( rule__Skip__Group__0__Impl rule__Skip__Group__1 )
-            // InternalAltarica.g:4121:2: rule__Skip__Group__0__Impl rule__Skip__Group__1
+            // InternalAltarica.g:4447:1: ( rule__Skip__Group__0__Impl rule__Skip__Group__1 )
+            // InternalAltarica.g:4448:2: rule__Skip__Group__0__Impl rule__Skip__Group__1
             {
-            pushFollow(FOLLOW_31);
+            pushFollow(FOLLOW_35);
             rule__Skip__Group__0__Impl();
 
             state._fsp--;
@@ -11916,23 +12829,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Skip__Group__0__Impl"
-    // InternalAltarica.g:4128:1: rule__Skip__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:4455:1: rule__Skip__Group__0__Impl : ( () ) ;
     public final void rule__Skip__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4132:1: ( ( () ) )
-            // InternalAltarica.g:4133:1: ( () )
+            // InternalAltarica.g:4459:1: ( ( () ) )
+            // InternalAltarica.g:4460:1: ( () )
             {
-            // InternalAltarica.g:4133:1: ( () )
-            // InternalAltarica.g:4134:1: ()
+            // InternalAltarica.g:4460:1: ( () )
+            // InternalAltarica.g:4461:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSkipAccess().getSkipAction_0()); 
             }
-            // InternalAltarica.g:4135:1: ()
-            // InternalAltarica.g:4137:1: 
+            // InternalAltarica.g:4462:1: ()
+            // InternalAltarica.g:4464:1: 
             {
             }
 
@@ -11957,16 +12870,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Skip__Group__1"
-    // InternalAltarica.g:4147:1: rule__Skip__Group__1 : rule__Skip__Group__1__Impl rule__Skip__Group__2 ;
+    // InternalAltarica.g:4474:1: rule__Skip__Group__1 : rule__Skip__Group__1__Impl rule__Skip__Group__2 ;
     public final void rule__Skip__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4151:1: ( rule__Skip__Group__1__Impl rule__Skip__Group__2 )
-            // InternalAltarica.g:4152:2: rule__Skip__Group__1__Impl rule__Skip__Group__2
+            // InternalAltarica.g:4478:1: ( rule__Skip__Group__1__Impl rule__Skip__Group__2 )
+            // InternalAltarica.g:4479:2: rule__Skip__Group__1__Impl rule__Skip__Group__2
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_27);
             rule__Skip__Group__1__Impl();
 
             state._fsp--;
@@ -11995,22 +12908,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Skip__Group__1__Impl"
-    // InternalAltarica.g:4159:1: rule__Skip__Group__1__Impl : ( 'skip' ) ;
+    // InternalAltarica.g:4486:1: rule__Skip__Group__1__Impl : ( 'skip' ) ;
     public final void rule__Skip__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4163:1: ( ( 'skip' ) )
-            // InternalAltarica.g:4164:1: ( 'skip' )
+            // InternalAltarica.g:4490:1: ( ( 'skip' ) )
+            // InternalAltarica.g:4491:1: ( 'skip' )
             {
-            // InternalAltarica.g:4164:1: ( 'skip' )
-            // InternalAltarica.g:4165:1: 'skip'
+            // InternalAltarica.g:4491:1: ( 'skip' )
+            // InternalAltarica.g:4492:1: 'skip'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSkipAccess().getSkipKeyword_1()); 
             }
-            match(input,52,FOLLOW_2); if (state.failed) return ;
+            match(input,56,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSkipAccess().getSkipKeyword_1()); 
             }
@@ -12036,14 +12949,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Skip__Group__2"
-    // InternalAltarica.g:4178:1: rule__Skip__Group__2 : rule__Skip__Group__2__Impl ;
+    // InternalAltarica.g:4505:1: rule__Skip__Group__2 : rule__Skip__Group__2__Impl ;
     public final void rule__Skip__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4182:1: ( rule__Skip__Group__2__Impl )
-            // InternalAltarica.g:4183:2: rule__Skip__Group__2__Impl
+            // InternalAltarica.g:4509:1: ( rule__Skip__Group__2__Impl )
+            // InternalAltarica.g:4510:2: rule__Skip__Group__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Skip__Group__2__Impl();
@@ -12069,22 +12982,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Skip__Group__2__Impl"
-    // InternalAltarica.g:4189:1: rule__Skip__Group__2__Impl : ( ';' ) ;
+    // InternalAltarica.g:4516:1: rule__Skip__Group__2__Impl : ( ';' ) ;
     public final void rule__Skip__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4193:1: ( ( ';' ) )
-            // InternalAltarica.g:4194:1: ( ';' )
+            // InternalAltarica.g:4520:1: ( ( ';' ) )
+            // InternalAltarica.g:4521:1: ( ';' )
             {
-            // InternalAltarica.g:4194:1: ( ';' )
-            // InternalAltarica.g:4195:1: ';'
+            // InternalAltarica.g:4521:1: ( ';' )
+            // InternalAltarica.g:4522:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSkipAccess().getSemicolonKeyword_2()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSkipAccess().getSemicolonKeyword_2()); 
             }
@@ -12110,16 +13023,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__0"
-    // InternalAltarica.g:4214:1: rule__Assignment__Group__0 : rule__Assignment__Group__0__Impl rule__Assignment__Group__1 ;
+    // InternalAltarica.g:4541:1: rule__Assignment__Group__0 : rule__Assignment__Group__0__Impl rule__Assignment__Group__1 ;
     public final void rule__Assignment__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4218:1: ( rule__Assignment__Group__0__Impl rule__Assignment__Group__1 )
-            // InternalAltarica.g:4219:2: rule__Assignment__Group__0__Impl rule__Assignment__Group__1
+            // InternalAltarica.g:4545:1: ( rule__Assignment__Group__0__Impl rule__Assignment__Group__1 )
+            // InternalAltarica.g:4546:2: rule__Assignment__Group__0__Impl rule__Assignment__Group__1
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__Assignment__Group__0__Impl();
 
             state._fsp--;
@@ -12148,23 +13061,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__0__Impl"
-    // InternalAltarica.g:4226:1: rule__Assignment__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:4553:1: rule__Assignment__Group__0__Impl : ( () ) ;
     public final void rule__Assignment__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4230:1: ( ( () ) )
-            // InternalAltarica.g:4231:1: ( () )
+            // InternalAltarica.g:4557:1: ( ( () ) )
+            // InternalAltarica.g:4558:1: ( () )
             {
-            // InternalAltarica.g:4231:1: ( () )
-            // InternalAltarica.g:4232:1: ()
+            // InternalAltarica.g:4558:1: ( () )
+            // InternalAltarica.g:4559:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getAssignmentAction_0()); 
             }
-            // InternalAltarica.g:4233:1: ()
-            // InternalAltarica.g:4235:1: 
+            // InternalAltarica.g:4560:1: ()
+            // InternalAltarica.g:4562:1: 
             {
             }
 
@@ -12189,16 +13102,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__1"
-    // InternalAltarica.g:4245:1: rule__Assignment__Group__1 : rule__Assignment__Group__1__Impl rule__Assignment__Group__2 ;
+    // InternalAltarica.g:4572:1: rule__Assignment__Group__1 : rule__Assignment__Group__1__Impl rule__Assignment__Group__2 ;
     public final void rule__Assignment__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4249:1: ( rule__Assignment__Group__1__Impl rule__Assignment__Group__2 )
-            // InternalAltarica.g:4250:2: rule__Assignment__Group__1__Impl rule__Assignment__Group__2
+            // InternalAltarica.g:4576:1: ( rule__Assignment__Group__1__Impl rule__Assignment__Group__2 )
+            // InternalAltarica.g:4577:2: rule__Assignment__Group__1__Impl rule__Assignment__Group__2
             {
-            pushFollow(FOLLOW_32);
+            pushFollow(FOLLOW_36);
             rule__Assignment__Group__1__Impl();
 
             state._fsp--;
@@ -12227,23 +13140,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__1__Impl"
-    // InternalAltarica.g:4257:1: rule__Assignment__Group__1__Impl : ( ( rule__Assignment__VariableAssignment_1 ) ) ;
+    // InternalAltarica.g:4584:1: rule__Assignment__Group__1__Impl : ( ( rule__Assignment__VariableAssignment_1 ) ) ;
     public final void rule__Assignment__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4261:1: ( ( ( rule__Assignment__VariableAssignment_1 ) ) )
-            // InternalAltarica.g:4262:1: ( ( rule__Assignment__VariableAssignment_1 ) )
+            // InternalAltarica.g:4588:1: ( ( ( rule__Assignment__VariableAssignment_1 ) ) )
+            // InternalAltarica.g:4589:1: ( ( rule__Assignment__VariableAssignment_1 ) )
             {
-            // InternalAltarica.g:4262:1: ( ( rule__Assignment__VariableAssignment_1 ) )
-            // InternalAltarica.g:4263:1: ( rule__Assignment__VariableAssignment_1 )
+            // InternalAltarica.g:4589:1: ( ( rule__Assignment__VariableAssignment_1 ) )
+            // InternalAltarica.g:4590:1: ( rule__Assignment__VariableAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getVariableAssignment_1()); 
             }
-            // InternalAltarica.g:4264:1: ( rule__Assignment__VariableAssignment_1 )
-            // InternalAltarica.g:4264:2: rule__Assignment__VariableAssignment_1
+            // InternalAltarica.g:4591:1: ( rule__Assignment__VariableAssignment_1 )
+            // InternalAltarica.g:4591:2: rule__Assignment__VariableAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__Assignment__VariableAssignment_1();
@@ -12278,16 +13191,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__2"
-    // InternalAltarica.g:4274:1: rule__Assignment__Group__2 : rule__Assignment__Group__2__Impl rule__Assignment__Group__3 ;
+    // InternalAltarica.g:4601:1: rule__Assignment__Group__2 : rule__Assignment__Group__2__Impl rule__Assignment__Group__3 ;
     public final void rule__Assignment__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4278:1: ( rule__Assignment__Group__2__Impl rule__Assignment__Group__3 )
-            // InternalAltarica.g:4279:2: rule__Assignment__Group__2__Impl rule__Assignment__Group__3
+            // InternalAltarica.g:4605:1: ( rule__Assignment__Group__2__Impl rule__Assignment__Group__3 )
+            // InternalAltarica.g:4606:2: rule__Assignment__Group__2__Impl rule__Assignment__Group__3
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Assignment__Group__2__Impl();
 
             state._fsp--;
@@ -12316,22 +13229,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__2__Impl"
-    // InternalAltarica.g:4286:1: rule__Assignment__Group__2__Impl : ( ':=' ) ;
+    // InternalAltarica.g:4613:1: rule__Assignment__Group__2__Impl : ( ':=' ) ;
     public final void rule__Assignment__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4290:1: ( ( ':=' ) )
-            // InternalAltarica.g:4291:1: ( ':=' )
+            // InternalAltarica.g:4617:1: ( ( ':=' ) )
+            // InternalAltarica.g:4618:1: ( ':=' )
             {
-            // InternalAltarica.g:4291:1: ( ':=' )
-            // InternalAltarica.g:4292:1: ':='
+            // InternalAltarica.g:4618:1: ( ':=' )
+            // InternalAltarica.g:4619:1: ':='
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getColonEqualsSignKeyword_2()); 
             }
-            match(input,53,FOLLOW_2); if (state.failed) return ;
+            match(input,57,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssignmentAccess().getColonEqualsSignKeyword_2()); 
             }
@@ -12357,16 +13270,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__3"
-    // InternalAltarica.g:4305:1: rule__Assignment__Group__3 : rule__Assignment__Group__3__Impl rule__Assignment__Group__4 ;
+    // InternalAltarica.g:4632:1: rule__Assignment__Group__3 : rule__Assignment__Group__3__Impl rule__Assignment__Group__4 ;
     public final void rule__Assignment__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4309:1: ( rule__Assignment__Group__3__Impl rule__Assignment__Group__4 )
-            // InternalAltarica.g:4310:2: rule__Assignment__Group__3__Impl rule__Assignment__Group__4
+            // InternalAltarica.g:4636:1: ( rule__Assignment__Group__3__Impl rule__Assignment__Group__4 )
+            // InternalAltarica.g:4637:2: rule__Assignment__Group__3__Impl rule__Assignment__Group__4
             {
-            pushFollow(FOLLOW_23);
+            pushFollow(FOLLOW_27);
             rule__Assignment__Group__3__Impl();
 
             state._fsp--;
@@ -12395,23 +13308,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__3__Impl"
-    // InternalAltarica.g:4317:1: rule__Assignment__Group__3__Impl : ( ( rule__Assignment__ValueAssignment_3 ) ) ;
+    // InternalAltarica.g:4644:1: rule__Assignment__Group__3__Impl : ( ( rule__Assignment__ValueAssignment_3 ) ) ;
     public final void rule__Assignment__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4321:1: ( ( ( rule__Assignment__ValueAssignment_3 ) ) )
-            // InternalAltarica.g:4322:1: ( ( rule__Assignment__ValueAssignment_3 ) )
+            // InternalAltarica.g:4648:1: ( ( ( rule__Assignment__ValueAssignment_3 ) ) )
+            // InternalAltarica.g:4649:1: ( ( rule__Assignment__ValueAssignment_3 ) )
             {
-            // InternalAltarica.g:4322:1: ( ( rule__Assignment__ValueAssignment_3 ) )
-            // InternalAltarica.g:4323:1: ( rule__Assignment__ValueAssignment_3 )
+            // InternalAltarica.g:4649:1: ( ( rule__Assignment__ValueAssignment_3 ) )
+            // InternalAltarica.g:4650:1: ( rule__Assignment__ValueAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getValueAssignment_3()); 
             }
-            // InternalAltarica.g:4324:1: ( rule__Assignment__ValueAssignment_3 )
-            // InternalAltarica.g:4324:2: rule__Assignment__ValueAssignment_3
+            // InternalAltarica.g:4651:1: ( rule__Assignment__ValueAssignment_3 )
+            // InternalAltarica.g:4651:2: rule__Assignment__ValueAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__Assignment__ValueAssignment_3();
@@ -12446,14 +13359,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__4"
-    // InternalAltarica.g:4334:1: rule__Assignment__Group__4 : rule__Assignment__Group__4__Impl ;
+    // InternalAltarica.g:4661:1: rule__Assignment__Group__4 : rule__Assignment__Group__4__Impl ;
     public final void rule__Assignment__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4338:1: ( rule__Assignment__Group__4__Impl )
-            // InternalAltarica.g:4339:2: rule__Assignment__Group__4__Impl
+            // InternalAltarica.g:4665:1: ( rule__Assignment__Group__4__Impl )
+            // InternalAltarica.g:4666:2: rule__Assignment__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Assignment__Group__4__Impl();
@@ -12479,22 +13392,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__Group__4__Impl"
-    // InternalAltarica.g:4345:1: rule__Assignment__Group__4__Impl : ( ';' ) ;
+    // InternalAltarica.g:4672:1: rule__Assignment__Group__4__Impl : ( ';' ) ;
     public final void rule__Assignment__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4349:1: ( ( ';' ) )
-            // InternalAltarica.g:4350:1: ( ';' )
+            // InternalAltarica.g:4676:1: ( ( ';' ) )
+            // InternalAltarica.g:4677:1: ( ';' )
             {
-            // InternalAltarica.g:4350:1: ( ';' )
-            // InternalAltarica.g:4351:1: ';'
+            // InternalAltarica.g:4677:1: ( ';' )
+            // InternalAltarica.g:4678:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getSemicolonKeyword_4()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAssignmentAccess().getSemicolonKeyword_4()); 
             }
@@ -12520,14 +13433,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__0"
-    // InternalAltarica.g:4374:1: rule__Block__Group__0 : rule__Block__Group__0__Impl rule__Block__Group__1 ;
+    // InternalAltarica.g:4701:1: rule__Block__Group__0 : rule__Block__Group__0__Impl rule__Block__Group__1 ;
     public final void rule__Block__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4378:1: ( rule__Block__Group__0__Impl rule__Block__Group__1 )
-            // InternalAltarica.g:4379:2: rule__Block__Group__0__Impl rule__Block__Group__1
+            // InternalAltarica.g:4705:1: ( rule__Block__Group__0__Impl rule__Block__Group__1 )
+            // InternalAltarica.g:4706:2: rule__Block__Group__0__Impl rule__Block__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Block__Group__0__Impl();
@@ -12558,23 +13471,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__0__Impl"
-    // InternalAltarica.g:4386:1: rule__Block__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:4713:1: rule__Block__Group__0__Impl : ( () ) ;
     public final void rule__Block__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4390:1: ( ( () ) )
-            // InternalAltarica.g:4391:1: ( () )
+            // InternalAltarica.g:4717:1: ( ( () ) )
+            // InternalAltarica.g:4718:1: ( () )
             {
-            // InternalAltarica.g:4391:1: ( () )
-            // InternalAltarica.g:4392:1: ()
+            // InternalAltarica.g:4718:1: ( () )
+            // InternalAltarica.g:4719:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBlockAccess().getBlockAction_0()); 
             }
-            // InternalAltarica.g:4393:1: ()
-            // InternalAltarica.g:4395:1: 
+            // InternalAltarica.g:4720:1: ()
+            // InternalAltarica.g:4722:1: 
             {
             }
 
@@ -12599,16 +13512,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__1"
-    // InternalAltarica.g:4405:1: rule__Block__Group__1 : rule__Block__Group__1__Impl rule__Block__Group__2 ;
+    // InternalAltarica.g:4732:1: rule__Block__Group__1 : rule__Block__Group__1__Impl rule__Block__Group__2 ;
     public final void rule__Block__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4409:1: ( rule__Block__Group__1__Impl rule__Block__Group__2 )
-            // InternalAltarica.g:4410:2: rule__Block__Group__1__Impl rule__Block__Group__2
+            // InternalAltarica.g:4736:1: ( rule__Block__Group__1__Impl rule__Block__Group__2 )
+            // InternalAltarica.g:4737:2: rule__Block__Group__1__Impl rule__Block__Group__2
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_18);
             rule__Block__Group__1__Impl();
 
             state._fsp--;
@@ -12637,22 +13550,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__1__Impl"
-    // InternalAltarica.g:4417:1: rule__Block__Group__1__Impl : ( '{' ) ;
+    // InternalAltarica.g:4744:1: rule__Block__Group__1__Impl : ( '{' ) ;
     public final void rule__Block__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4421:1: ( ( '{' ) )
-            // InternalAltarica.g:4422:1: ( '{' )
+            // InternalAltarica.g:4748:1: ( ( '{' ) )
+            // InternalAltarica.g:4749:1: ( '{' )
             {
-            // InternalAltarica.g:4422:1: ( '{' )
-            // InternalAltarica.g:4423:1: '{'
+            // InternalAltarica.g:4749:1: ( '{' )
+            // InternalAltarica.g:4750:1: '{'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBlockAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,34,FOLLOW_2); if (state.failed) return ;
+            match(input,37,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBlockAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -12678,16 +13591,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__2"
-    // InternalAltarica.g:4436:1: rule__Block__Group__2 : rule__Block__Group__2__Impl rule__Block__Group__3 ;
+    // InternalAltarica.g:4763:1: rule__Block__Group__2 : rule__Block__Group__2__Impl rule__Block__Group__3 ;
     public final void rule__Block__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4440:1: ( rule__Block__Group__2__Impl rule__Block__Group__3 )
-            // InternalAltarica.g:4441:2: rule__Block__Group__2__Impl rule__Block__Group__3
+            // InternalAltarica.g:4767:1: ( rule__Block__Group__2__Impl rule__Block__Group__3 )
+            // InternalAltarica.g:4768:2: rule__Block__Group__2__Impl rule__Block__Group__3
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_37);
             rule__Block__Group__2__Impl();
 
             state._fsp--;
@@ -12716,28 +13629,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__2__Impl"
-    // InternalAltarica.g:4448:1: rule__Block__Group__2__Impl : ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) ) ;
+    // InternalAltarica.g:4775:1: rule__Block__Group__2__Impl : ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) ) ;
     public final void rule__Block__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4452:1: ( ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) ) )
-            // InternalAltarica.g:4453:1: ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) )
+            // InternalAltarica.g:4779:1: ( ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) ) )
+            // InternalAltarica.g:4780:1: ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) )
             {
-            // InternalAltarica.g:4453:1: ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) )
-            // InternalAltarica.g:4454:1: ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* )
+            // InternalAltarica.g:4780:1: ( ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* ) )
+            // InternalAltarica.g:4781:1: ( ( rule__Block__InstructionsAssignment_2 ) ) ( ( rule__Block__InstructionsAssignment_2 )* )
             {
-            // InternalAltarica.g:4454:1: ( ( rule__Block__InstructionsAssignment_2 ) )
-            // InternalAltarica.g:4455:1: ( rule__Block__InstructionsAssignment_2 )
+            // InternalAltarica.g:4781:1: ( ( rule__Block__InstructionsAssignment_2 ) )
+            // InternalAltarica.g:4782:1: ( rule__Block__InstructionsAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBlockAccess().getInstructionsAssignment_2()); 
             }
-            // InternalAltarica.g:4456:1: ( rule__Block__InstructionsAssignment_2 )
-            // InternalAltarica.g:4456:2: rule__Block__InstructionsAssignment_2
+            // InternalAltarica.g:4783:1: ( rule__Block__InstructionsAssignment_2 )
+            // InternalAltarica.g:4783:2: rule__Block__InstructionsAssignment_2
             {
-            pushFollow(FOLLOW_15);
+            pushFollow(FOLLOW_19);
             rule__Block__InstructionsAssignment_2();
 
             state._fsp--;
@@ -12751,28 +13664,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-            // InternalAltarica.g:4459:1: ( ( rule__Block__InstructionsAssignment_2 )* )
-            // InternalAltarica.g:4460:1: ( rule__Block__InstructionsAssignment_2 )*
+            // InternalAltarica.g:4786:1: ( ( rule__Block__InstructionsAssignment_2 )* )
+            // InternalAltarica.g:4787:1: ( rule__Block__InstructionsAssignment_2 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBlockAccess().getInstructionsAssignment_2()); 
             }
-            // InternalAltarica.g:4461:1: ( rule__Block__InstructionsAssignment_2 )*
-            loop27:
+            // InternalAltarica.g:4788:1: ( rule__Block__InstructionsAssignment_2 )*
+            loop30:
             do {
-                int alt27=2;
-                int LA27_0 = input.LA(1);
+                int alt30=2;
+                int LA30_0 = input.LA(1);
 
-                if ( (LA27_0==RULE_ID||LA27_0==34||LA27_0==52||LA27_0==54||LA27_0==57) ) {
-                    alt27=1;
+                if ( (LA30_0==RULE_ID||LA30_0==37||LA30_0==56||LA30_0==58||LA30_0==61) ) {
+                    alt30=1;
                 }
 
 
-                switch (alt27) {
+                switch (alt30) {
             	case 1 :
-            	    // InternalAltarica.g:4461:2: rule__Block__InstructionsAssignment_2
+            	    // InternalAltarica.g:4788:2: rule__Block__InstructionsAssignment_2
             	    {
-            	    pushFollow(FOLLOW_15);
+            	    pushFollow(FOLLOW_19);
             	    rule__Block__InstructionsAssignment_2();
 
             	    state._fsp--;
@@ -12782,7 +13695,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop27;
+            	    break loop30;
                 }
             } while (true);
 
@@ -12814,14 +13727,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__3"
-    // InternalAltarica.g:4472:1: rule__Block__Group__3 : rule__Block__Group__3__Impl ;
+    // InternalAltarica.g:4799:1: rule__Block__Group__3 : rule__Block__Group__3__Impl ;
     public final void rule__Block__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4476:1: ( rule__Block__Group__3__Impl )
-            // InternalAltarica.g:4477:2: rule__Block__Group__3__Impl
+            // InternalAltarica.g:4803:1: ( rule__Block__Group__3__Impl )
+            // InternalAltarica.g:4804:2: rule__Block__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Block__Group__3__Impl();
@@ -12847,22 +13760,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__Group__3__Impl"
-    // InternalAltarica.g:4483:1: rule__Block__Group__3__Impl : ( '}' ) ;
+    // InternalAltarica.g:4810:1: rule__Block__Group__3__Impl : ( '}' ) ;
     public final void rule__Block__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4487:1: ( ( '}' ) )
-            // InternalAltarica.g:4488:1: ( '}' )
+            // InternalAltarica.g:4814:1: ( ( '}' ) )
+            // InternalAltarica.g:4815:1: ( '}' )
             {
-            // InternalAltarica.g:4488:1: ( '}' )
-            // InternalAltarica.g:4489:1: '}'
+            // InternalAltarica.g:4815:1: ( '}' )
+            // InternalAltarica.g:4816:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBlockAccess().getRightCurlyBracketKeyword_3()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            match(input,38,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getBlockAccess().getRightCurlyBracketKeyword_3()); 
             }
@@ -12888,16 +13801,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__0"
-    // InternalAltarica.g:4510:1: rule__Conditional__Group__0 : rule__Conditional__Group__0__Impl rule__Conditional__Group__1 ;
+    // InternalAltarica.g:4837:1: rule__Conditional__Group__0 : rule__Conditional__Group__0__Impl rule__Conditional__Group__1 ;
     public final void rule__Conditional__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4514:1: ( rule__Conditional__Group__0__Impl rule__Conditional__Group__1 )
-            // InternalAltarica.g:4515:2: rule__Conditional__Group__0__Impl rule__Conditional__Group__1
+            // InternalAltarica.g:4841:1: ( rule__Conditional__Group__0__Impl rule__Conditional__Group__1 )
+            // InternalAltarica.g:4842:2: rule__Conditional__Group__0__Impl rule__Conditional__Group__1
             {
-            pushFollow(FOLLOW_34);
+            pushFollow(FOLLOW_38);
             rule__Conditional__Group__0__Impl();
 
             state._fsp--;
@@ -12926,23 +13839,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__0__Impl"
-    // InternalAltarica.g:4522:1: rule__Conditional__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:4849:1: rule__Conditional__Group__0__Impl : ( () ) ;
     public final void rule__Conditional__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4526:1: ( ( () ) )
-            // InternalAltarica.g:4527:1: ( () )
+            // InternalAltarica.g:4853:1: ( ( () ) )
+            // InternalAltarica.g:4854:1: ( () )
             {
-            // InternalAltarica.g:4527:1: ( () )
-            // InternalAltarica.g:4528:1: ()
+            // InternalAltarica.g:4854:1: ( () )
+            // InternalAltarica.g:4855:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getConditionalAction_0()); 
             }
-            // InternalAltarica.g:4529:1: ()
-            // InternalAltarica.g:4531:1: 
+            // InternalAltarica.g:4856:1: ()
+            // InternalAltarica.g:4858:1: 
             {
             }
 
@@ -12967,16 +13880,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__1"
-    // InternalAltarica.g:4541:1: rule__Conditional__Group__1 : rule__Conditional__Group__1__Impl rule__Conditional__Group__2 ;
+    // InternalAltarica.g:4868:1: rule__Conditional__Group__1 : rule__Conditional__Group__1__Impl rule__Conditional__Group__2 ;
     public final void rule__Conditional__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4545:1: ( rule__Conditional__Group__1__Impl rule__Conditional__Group__2 )
-            // InternalAltarica.g:4546:2: rule__Conditional__Group__1__Impl rule__Conditional__Group__2
+            // InternalAltarica.g:4872:1: ( rule__Conditional__Group__1__Impl rule__Conditional__Group__2 )
+            // InternalAltarica.g:4873:2: rule__Conditional__Group__1__Impl rule__Conditional__Group__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Conditional__Group__1__Impl();
 
             state._fsp--;
@@ -13005,22 +13918,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__1__Impl"
-    // InternalAltarica.g:4553:1: rule__Conditional__Group__1__Impl : ( 'if' ) ;
+    // InternalAltarica.g:4880:1: rule__Conditional__Group__1__Impl : ( 'if' ) ;
     public final void rule__Conditional__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4557:1: ( ( 'if' ) )
-            // InternalAltarica.g:4558:1: ( 'if' )
+            // InternalAltarica.g:4884:1: ( ( 'if' ) )
+            // InternalAltarica.g:4885:1: ( 'if' )
             {
-            // InternalAltarica.g:4558:1: ( 'if' )
-            // InternalAltarica.g:4559:1: 'if'
+            // InternalAltarica.g:4885:1: ( 'if' )
+            // InternalAltarica.g:4886:1: 'if'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getIfKeyword_1()); 
             }
-            match(input,54,FOLLOW_2); if (state.failed) return ;
+            match(input,58,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getConditionalAccess().getIfKeyword_1()); 
             }
@@ -13046,16 +13959,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__2"
-    // InternalAltarica.g:4572:1: rule__Conditional__Group__2 : rule__Conditional__Group__2__Impl rule__Conditional__Group__3 ;
+    // InternalAltarica.g:4899:1: rule__Conditional__Group__2 : rule__Conditional__Group__2__Impl rule__Conditional__Group__3 ;
     public final void rule__Conditional__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4576:1: ( rule__Conditional__Group__2__Impl rule__Conditional__Group__3 )
-            // InternalAltarica.g:4577:2: rule__Conditional__Group__2__Impl rule__Conditional__Group__3
+            // InternalAltarica.g:4903:1: ( rule__Conditional__Group__2__Impl rule__Conditional__Group__3 )
+            // InternalAltarica.g:4904:2: rule__Conditional__Group__2__Impl rule__Conditional__Group__3
             {
-            pushFollow(FOLLOW_35);
+            pushFollow(FOLLOW_39);
             rule__Conditional__Group__2__Impl();
 
             state._fsp--;
@@ -13084,23 +13997,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__2__Impl"
-    // InternalAltarica.g:4584:1: rule__Conditional__Group__2__Impl : ( ( rule__Conditional__ConditionAssignment_2 ) ) ;
+    // InternalAltarica.g:4911:1: rule__Conditional__Group__2__Impl : ( ( rule__Conditional__ConditionAssignment_2 ) ) ;
     public final void rule__Conditional__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4588:1: ( ( ( rule__Conditional__ConditionAssignment_2 ) ) )
-            // InternalAltarica.g:4589:1: ( ( rule__Conditional__ConditionAssignment_2 ) )
+            // InternalAltarica.g:4915:1: ( ( ( rule__Conditional__ConditionAssignment_2 ) ) )
+            // InternalAltarica.g:4916:1: ( ( rule__Conditional__ConditionAssignment_2 ) )
             {
-            // InternalAltarica.g:4589:1: ( ( rule__Conditional__ConditionAssignment_2 ) )
-            // InternalAltarica.g:4590:1: ( rule__Conditional__ConditionAssignment_2 )
+            // InternalAltarica.g:4916:1: ( ( rule__Conditional__ConditionAssignment_2 ) )
+            // InternalAltarica.g:4917:1: ( rule__Conditional__ConditionAssignment_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getConditionAssignment_2()); 
             }
-            // InternalAltarica.g:4591:1: ( rule__Conditional__ConditionAssignment_2 )
-            // InternalAltarica.g:4591:2: rule__Conditional__ConditionAssignment_2
+            // InternalAltarica.g:4918:1: ( rule__Conditional__ConditionAssignment_2 )
+            // InternalAltarica.g:4918:2: rule__Conditional__ConditionAssignment_2
             {
             pushFollow(FOLLOW_2);
             rule__Conditional__ConditionAssignment_2();
@@ -13135,16 +14048,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__3"
-    // InternalAltarica.g:4601:1: rule__Conditional__Group__3 : rule__Conditional__Group__3__Impl rule__Conditional__Group__4 ;
+    // InternalAltarica.g:4928:1: rule__Conditional__Group__3 : rule__Conditional__Group__3__Impl rule__Conditional__Group__4 ;
     public final void rule__Conditional__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4605:1: ( rule__Conditional__Group__3__Impl rule__Conditional__Group__4 )
-            // InternalAltarica.g:4606:2: rule__Conditional__Group__3__Impl rule__Conditional__Group__4
+            // InternalAltarica.g:4932:1: ( rule__Conditional__Group__3__Impl rule__Conditional__Group__4 )
+            // InternalAltarica.g:4933:2: rule__Conditional__Group__3__Impl rule__Conditional__Group__4
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_18);
             rule__Conditional__Group__3__Impl();
 
             state._fsp--;
@@ -13173,22 +14086,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__3__Impl"
-    // InternalAltarica.g:4613:1: rule__Conditional__Group__3__Impl : ( 'then' ) ;
+    // InternalAltarica.g:4940:1: rule__Conditional__Group__3__Impl : ( 'then' ) ;
     public final void rule__Conditional__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4617:1: ( ( 'then' ) )
-            // InternalAltarica.g:4618:1: ( 'then' )
+            // InternalAltarica.g:4944:1: ( ( 'then' ) )
+            // InternalAltarica.g:4945:1: ( 'then' )
             {
-            // InternalAltarica.g:4618:1: ( 'then' )
-            // InternalAltarica.g:4619:1: 'then'
+            // InternalAltarica.g:4945:1: ( 'then' )
+            // InternalAltarica.g:4946:1: 'then'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getThenKeyword_3()); 
             }
-            match(input,55,FOLLOW_2); if (state.failed) return ;
+            match(input,59,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getConditionalAccess().getThenKeyword_3()); 
             }
@@ -13214,16 +14127,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__4"
-    // InternalAltarica.g:4632:1: rule__Conditional__Group__4 : rule__Conditional__Group__4__Impl rule__Conditional__Group__5 ;
+    // InternalAltarica.g:4959:1: rule__Conditional__Group__4 : rule__Conditional__Group__4__Impl rule__Conditional__Group__5 ;
     public final void rule__Conditional__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4636:1: ( rule__Conditional__Group__4__Impl rule__Conditional__Group__5 )
-            // InternalAltarica.g:4637:2: rule__Conditional__Group__4__Impl rule__Conditional__Group__5
+            // InternalAltarica.g:4963:1: ( rule__Conditional__Group__4__Impl rule__Conditional__Group__5 )
+            // InternalAltarica.g:4964:2: rule__Conditional__Group__4__Impl rule__Conditional__Group__5
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_40);
             rule__Conditional__Group__4__Impl();
 
             state._fsp--;
@@ -13252,23 +14165,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__4__Impl"
-    // InternalAltarica.g:4644:1: rule__Conditional__Group__4__Impl : ( ( rule__Conditional__ThenAssignment_4 ) ) ;
+    // InternalAltarica.g:4971:1: rule__Conditional__Group__4__Impl : ( ( rule__Conditional__ThenAssignment_4 ) ) ;
     public final void rule__Conditional__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4648:1: ( ( ( rule__Conditional__ThenAssignment_4 ) ) )
-            // InternalAltarica.g:4649:1: ( ( rule__Conditional__ThenAssignment_4 ) )
+            // InternalAltarica.g:4975:1: ( ( ( rule__Conditional__ThenAssignment_4 ) ) )
+            // InternalAltarica.g:4976:1: ( ( rule__Conditional__ThenAssignment_4 ) )
             {
-            // InternalAltarica.g:4649:1: ( ( rule__Conditional__ThenAssignment_4 ) )
-            // InternalAltarica.g:4650:1: ( rule__Conditional__ThenAssignment_4 )
+            // InternalAltarica.g:4976:1: ( ( rule__Conditional__ThenAssignment_4 ) )
+            // InternalAltarica.g:4977:1: ( rule__Conditional__ThenAssignment_4 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getThenAssignment_4()); 
             }
-            // InternalAltarica.g:4651:1: ( rule__Conditional__ThenAssignment_4 )
-            // InternalAltarica.g:4651:2: rule__Conditional__ThenAssignment_4
+            // InternalAltarica.g:4978:1: ( rule__Conditional__ThenAssignment_4 )
+            // InternalAltarica.g:4978:2: rule__Conditional__ThenAssignment_4
             {
             pushFollow(FOLLOW_2);
             rule__Conditional__ThenAssignment_4();
@@ -13303,16 +14216,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__5"
-    // InternalAltarica.g:4661:1: rule__Conditional__Group__5 : rule__Conditional__Group__5__Impl rule__Conditional__Group__6 ;
+    // InternalAltarica.g:4988:1: rule__Conditional__Group__5 : rule__Conditional__Group__5__Impl rule__Conditional__Group__6 ;
     public final void rule__Conditional__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4665:1: ( rule__Conditional__Group__5__Impl rule__Conditional__Group__6 )
-            // InternalAltarica.g:4666:2: rule__Conditional__Group__5__Impl rule__Conditional__Group__6
+            // InternalAltarica.g:4992:1: ( rule__Conditional__Group__5__Impl rule__Conditional__Group__6 )
+            // InternalAltarica.g:4993:2: rule__Conditional__Group__5__Impl rule__Conditional__Group__6
             {
-            pushFollow(FOLLOW_36);
+            pushFollow(FOLLOW_40);
             rule__Conditional__Group__5__Impl();
 
             state._fsp--;
@@ -13341,31 +14254,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__5__Impl"
-    // InternalAltarica.g:4673:1: rule__Conditional__Group__5__Impl : ( ( rule__Conditional__Group_5__0 )? ) ;
+    // InternalAltarica.g:5000:1: rule__Conditional__Group__5__Impl : ( ( rule__Conditional__Group_5__0 )? ) ;
     public final void rule__Conditional__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4677:1: ( ( ( rule__Conditional__Group_5__0 )? ) )
-            // InternalAltarica.g:4678:1: ( ( rule__Conditional__Group_5__0 )? )
+            // InternalAltarica.g:5004:1: ( ( ( rule__Conditional__Group_5__0 )? ) )
+            // InternalAltarica.g:5005:1: ( ( rule__Conditional__Group_5__0 )? )
             {
-            // InternalAltarica.g:4678:1: ( ( rule__Conditional__Group_5__0 )? )
-            // InternalAltarica.g:4679:1: ( rule__Conditional__Group_5__0 )?
+            // InternalAltarica.g:5005:1: ( ( rule__Conditional__Group_5__0 )? )
+            // InternalAltarica.g:5006:1: ( rule__Conditional__Group_5__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getGroup_5()); 
             }
-            // InternalAltarica.g:4680:1: ( rule__Conditional__Group_5__0 )?
-            int alt28=2;
-            int LA28_0 = input.LA(1);
+            // InternalAltarica.g:5007:1: ( rule__Conditional__Group_5__0 )?
+            int alt31=2;
+            int LA31_0 = input.LA(1);
 
-            if ( (LA28_0==56) ) {
-                alt28=1;
+            if ( (LA31_0==60) ) {
+                alt31=1;
             }
-            switch (alt28) {
+            switch (alt31) {
                 case 1 :
-                    // InternalAltarica.g:4680:2: rule__Conditional__Group_5__0
+                    // InternalAltarica.g:5007:2: rule__Conditional__Group_5__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__Conditional__Group_5__0();
@@ -13403,14 +14316,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__6"
-    // InternalAltarica.g:4690:1: rule__Conditional__Group__6 : rule__Conditional__Group__6__Impl ;
+    // InternalAltarica.g:5017:1: rule__Conditional__Group__6 : rule__Conditional__Group__6__Impl ;
     public final void rule__Conditional__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4694:1: ( rule__Conditional__Group__6__Impl )
-            // InternalAltarica.g:4695:2: rule__Conditional__Group__6__Impl
+            // InternalAltarica.g:5021:1: ( rule__Conditional__Group__6__Impl )
+            // InternalAltarica.g:5022:2: rule__Conditional__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Conditional__Group__6__Impl();
@@ -13436,22 +14349,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group__6__Impl"
-    // InternalAltarica.g:4701:1: rule__Conditional__Group__6__Impl : ( ';' ) ;
+    // InternalAltarica.g:5028:1: rule__Conditional__Group__6__Impl : ( ';' ) ;
     public final void rule__Conditional__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4705:1: ( ( ';' ) )
-            // InternalAltarica.g:4706:1: ( ';' )
+            // InternalAltarica.g:5032:1: ( ( ';' ) )
+            // InternalAltarica.g:5033:1: ( ';' )
             {
-            // InternalAltarica.g:4706:1: ( ';' )
-            // InternalAltarica.g:4707:1: ';'
+            // InternalAltarica.g:5033:1: ( ';' )
+            // InternalAltarica.g:5034:1: ';'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getSemicolonKeyword_6()); 
             }
-            match(input,41,FOLLOW_2); if (state.failed) return ;
+            match(input,45,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getConditionalAccess().getSemicolonKeyword_6()); 
             }
@@ -13477,16 +14390,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group_5__0"
-    // InternalAltarica.g:4734:1: rule__Conditional__Group_5__0 : rule__Conditional__Group_5__0__Impl rule__Conditional__Group_5__1 ;
+    // InternalAltarica.g:5061:1: rule__Conditional__Group_5__0 : rule__Conditional__Group_5__0__Impl rule__Conditional__Group_5__1 ;
     public final void rule__Conditional__Group_5__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4738:1: ( rule__Conditional__Group_5__0__Impl rule__Conditional__Group_5__1 )
-            // InternalAltarica.g:4739:2: rule__Conditional__Group_5__0__Impl rule__Conditional__Group_5__1
+            // InternalAltarica.g:5065:1: ( rule__Conditional__Group_5__0__Impl rule__Conditional__Group_5__1 )
+            // InternalAltarica.g:5066:2: rule__Conditional__Group_5__0__Impl rule__Conditional__Group_5__1
             {
-            pushFollow(FOLLOW_14);
+            pushFollow(FOLLOW_18);
             rule__Conditional__Group_5__0__Impl();
 
             state._fsp--;
@@ -13515,25 +14428,25 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group_5__0__Impl"
-    // InternalAltarica.g:4746:1: rule__Conditional__Group_5__0__Impl : ( ( 'else' ) ) ;
+    // InternalAltarica.g:5073:1: rule__Conditional__Group_5__0__Impl : ( ( 'else' ) ) ;
     public final void rule__Conditional__Group_5__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4750:1: ( ( ( 'else' ) ) )
-            // InternalAltarica.g:4751:1: ( ( 'else' ) )
+            // InternalAltarica.g:5077:1: ( ( ( 'else' ) ) )
+            // InternalAltarica.g:5078:1: ( ( 'else' ) )
             {
-            // InternalAltarica.g:4751:1: ( ( 'else' ) )
-            // InternalAltarica.g:4752:1: ( 'else' )
+            // InternalAltarica.g:5078:1: ( ( 'else' ) )
+            // InternalAltarica.g:5079:1: ( 'else' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getElseKeyword_5_0()); 
             }
-            // InternalAltarica.g:4753:1: ( 'else' )
-            // InternalAltarica.g:4754:2: 'else'
+            // InternalAltarica.g:5080:1: ( 'else' )
+            // InternalAltarica.g:5081:2: 'else'
             {
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,60,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -13562,14 +14475,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group_5__1"
-    // InternalAltarica.g:4765:1: rule__Conditional__Group_5__1 : rule__Conditional__Group_5__1__Impl ;
+    // InternalAltarica.g:5092:1: rule__Conditional__Group_5__1 : rule__Conditional__Group_5__1__Impl ;
     public final void rule__Conditional__Group_5__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4769:1: ( rule__Conditional__Group_5__1__Impl )
-            // InternalAltarica.g:4770:2: rule__Conditional__Group_5__1__Impl
+            // InternalAltarica.g:5096:1: ( rule__Conditional__Group_5__1__Impl )
+            // InternalAltarica.g:5097:2: rule__Conditional__Group_5__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Conditional__Group_5__1__Impl();
@@ -13595,23 +14508,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__Group_5__1__Impl"
-    // InternalAltarica.g:4776:1: rule__Conditional__Group_5__1__Impl : ( ( rule__Conditional__ElseAssignment_5_1 ) ) ;
+    // InternalAltarica.g:5103:1: rule__Conditional__Group_5__1__Impl : ( ( rule__Conditional__ElseAssignment_5_1 ) ) ;
     public final void rule__Conditional__Group_5__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4780:1: ( ( ( rule__Conditional__ElseAssignment_5_1 ) ) )
-            // InternalAltarica.g:4781:1: ( ( rule__Conditional__ElseAssignment_5_1 ) )
+            // InternalAltarica.g:5107:1: ( ( ( rule__Conditional__ElseAssignment_5_1 ) ) )
+            // InternalAltarica.g:5108:1: ( ( rule__Conditional__ElseAssignment_5_1 ) )
             {
-            // InternalAltarica.g:4781:1: ( ( rule__Conditional__ElseAssignment_5_1 ) )
-            // InternalAltarica.g:4782:1: ( rule__Conditional__ElseAssignment_5_1 )
+            // InternalAltarica.g:5108:1: ( ( rule__Conditional__ElseAssignment_5_1 ) )
+            // InternalAltarica.g:5109:1: ( rule__Conditional__ElseAssignment_5_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getElseAssignment_5_1()); 
             }
-            // InternalAltarica.g:4783:1: ( rule__Conditional__ElseAssignment_5_1 )
-            // InternalAltarica.g:4783:2: rule__Conditional__ElseAssignment_5_1
+            // InternalAltarica.g:5110:1: ( rule__Conditional__ElseAssignment_5_1 )
+            // InternalAltarica.g:5110:2: rule__Conditional__ElseAssignment_5_1
             {
             pushFollow(FOLLOW_2);
             rule__Conditional__ElseAssignment_5_1();
@@ -13646,14 +14559,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__0"
-    // InternalAltarica.g:4797:1: rule__Switch__Group__0 : rule__Switch__Group__0__Impl rule__Switch__Group__1 ;
+    // InternalAltarica.g:5124:1: rule__Switch__Group__0 : rule__Switch__Group__0__Impl rule__Switch__Group__1 ;
     public final void rule__Switch__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4801:1: ( rule__Switch__Group__0__Impl rule__Switch__Group__1 )
-            // InternalAltarica.g:4802:2: rule__Switch__Group__0__Impl rule__Switch__Group__1
+            // InternalAltarica.g:5128:1: ( rule__Switch__Group__0__Impl rule__Switch__Group__1 )
+            // InternalAltarica.g:5129:2: rule__Switch__Group__0__Impl rule__Switch__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__Switch__Group__0__Impl();
@@ -13684,22 +14597,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__0__Impl"
-    // InternalAltarica.g:4809:1: rule__Switch__Group__0__Impl : ( 'switch' ) ;
+    // InternalAltarica.g:5136:1: rule__Switch__Group__0__Impl : ( 'switch' ) ;
     public final void rule__Switch__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4813:1: ( ( 'switch' ) )
-            // InternalAltarica.g:4814:1: ( 'switch' )
+            // InternalAltarica.g:5140:1: ( ( 'switch' ) )
+            // InternalAltarica.g:5141:1: ( 'switch' )
             {
-            // InternalAltarica.g:4814:1: ( 'switch' )
-            // InternalAltarica.g:4815:1: 'switch'
+            // InternalAltarica.g:5141:1: ( 'switch' )
+            // InternalAltarica.g:5142:1: 'switch'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getSwitchKeyword_0()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchAccess().getSwitchKeyword_0()); 
             }
@@ -13725,16 +14638,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__1"
-    // InternalAltarica.g:4828:1: rule__Switch__Group__1 : rule__Switch__Group__1__Impl rule__Switch__Group__2 ;
+    // InternalAltarica.g:5155:1: rule__Switch__Group__1 : rule__Switch__Group__1__Impl rule__Switch__Group__2 ;
     public final void rule__Switch__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4832:1: ( rule__Switch__Group__1__Impl rule__Switch__Group__2 )
-            // InternalAltarica.g:4833:2: rule__Switch__Group__1__Impl rule__Switch__Group__2
+            // InternalAltarica.g:5159:1: ( rule__Switch__Group__1__Impl rule__Switch__Group__2 )
+            // InternalAltarica.g:5160:2: rule__Switch__Group__1__Impl rule__Switch__Group__2
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__Switch__Group__1__Impl();
 
             state._fsp--;
@@ -13763,22 +14676,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__1__Impl"
-    // InternalAltarica.g:4840:1: rule__Switch__Group__1__Impl : ( '{' ) ;
+    // InternalAltarica.g:5167:1: rule__Switch__Group__1__Impl : ( '{' ) ;
     public final void rule__Switch__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4844:1: ( ( '{' ) )
-            // InternalAltarica.g:4845:1: ( '{' )
+            // InternalAltarica.g:5171:1: ( ( '{' ) )
+            // InternalAltarica.g:5172:1: ( '{' )
             {
-            // InternalAltarica.g:4845:1: ( '{' )
-            // InternalAltarica.g:4846:1: '{'
+            // InternalAltarica.g:5172:1: ( '{' )
+            // InternalAltarica.g:5173:1: '{'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,34,FOLLOW_2); if (state.failed) return ;
+            match(input,37,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -13804,16 +14717,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__2"
-    // InternalAltarica.g:4859:1: rule__Switch__Group__2 : rule__Switch__Group__2__Impl rule__Switch__Group__3 ;
+    // InternalAltarica.g:5186:1: rule__Switch__Group__2 : rule__Switch__Group__2__Impl rule__Switch__Group__3 ;
     public final void rule__Switch__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4863:1: ( rule__Switch__Group__2__Impl rule__Switch__Group__3 )
-            // InternalAltarica.g:4864:2: rule__Switch__Group__2__Impl rule__Switch__Group__3
+            // InternalAltarica.g:5190:1: ( rule__Switch__Group__2__Impl rule__Switch__Group__3 )
+            // InternalAltarica.g:5191:2: rule__Switch__Group__2__Impl rule__Switch__Group__3
             {
-            pushFollow(FOLLOW_37);
+            pushFollow(FOLLOW_41);
             rule__Switch__Group__2__Impl();
 
             state._fsp--;
@@ -13842,37 +14755,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__2__Impl"
-    // InternalAltarica.g:4871:1: rule__Switch__Group__2__Impl : ( ( rule__Switch__CasesAssignment_2 )* ) ;
+    // InternalAltarica.g:5198:1: rule__Switch__Group__2__Impl : ( ( rule__Switch__CasesAssignment_2 )* ) ;
     public final void rule__Switch__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4875:1: ( ( ( rule__Switch__CasesAssignment_2 )* ) )
-            // InternalAltarica.g:4876:1: ( ( rule__Switch__CasesAssignment_2 )* )
+            // InternalAltarica.g:5202:1: ( ( ( rule__Switch__CasesAssignment_2 )* ) )
+            // InternalAltarica.g:5203:1: ( ( rule__Switch__CasesAssignment_2 )* )
             {
-            // InternalAltarica.g:4876:1: ( ( rule__Switch__CasesAssignment_2 )* )
-            // InternalAltarica.g:4877:1: ( rule__Switch__CasesAssignment_2 )*
+            // InternalAltarica.g:5203:1: ( ( rule__Switch__CasesAssignment_2 )* )
+            // InternalAltarica.g:5204:1: ( rule__Switch__CasesAssignment_2 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getCasesAssignment_2()); 
             }
-            // InternalAltarica.g:4878:1: ( rule__Switch__CasesAssignment_2 )*
-            loop29:
+            // InternalAltarica.g:5205:1: ( rule__Switch__CasesAssignment_2 )*
+            loop32:
             do {
-                int alt29=2;
-                int LA29_0 = input.LA(1);
+                int alt32=2;
+                int LA32_0 = input.LA(1);
 
-                if ( (LA29_0==61) ) {
-                    alt29=1;
+                if ( (LA32_0==65) ) {
+                    alt32=1;
                 }
 
 
-                switch (alt29) {
+                switch (alt32) {
             	case 1 :
-            	    // InternalAltarica.g:4878:2: rule__Switch__CasesAssignment_2
+            	    // InternalAltarica.g:5205:2: rule__Switch__CasesAssignment_2
             	    {
-            	    pushFollow(FOLLOW_38);
+            	    pushFollow(FOLLOW_42);
             	    rule__Switch__CasesAssignment_2();
 
             	    state._fsp--;
@@ -13882,7 +14795,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop29;
+            	    break loop32;
                 }
             } while (true);
 
@@ -13911,16 +14824,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__3"
-    // InternalAltarica.g:4888:1: rule__Switch__Group__3 : rule__Switch__Group__3__Impl rule__Switch__Group__4 ;
+    // InternalAltarica.g:5215:1: rule__Switch__Group__3 : rule__Switch__Group__3__Impl rule__Switch__Group__4 ;
     public final void rule__Switch__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4892:1: ( rule__Switch__Group__3__Impl rule__Switch__Group__4 )
-            // InternalAltarica.g:4893:2: rule__Switch__Group__3__Impl rule__Switch__Group__4
+            // InternalAltarica.g:5219:1: ( rule__Switch__Group__3__Impl rule__Switch__Group__4 )
+            // InternalAltarica.g:5220:2: rule__Switch__Group__3__Impl rule__Switch__Group__4
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_29);
             rule__Switch__Group__3__Impl();
 
             state._fsp--;
@@ -13949,22 +14862,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__3__Impl"
-    // InternalAltarica.g:4900:1: rule__Switch__Group__3__Impl : ( 'else' ) ;
+    // InternalAltarica.g:5227:1: rule__Switch__Group__3__Impl : ( 'else' ) ;
     public final void rule__Switch__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4904:1: ( ( 'else' ) )
-            // InternalAltarica.g:4905:1: ( 'else' )
+            // InternalAltarica.g:5231:1: ( ( 'else' ) )
+            // InternalAltarica.g:5232:1: ( 'else' )
             {
-            // InternalAltarica.g:4905:1: ( 'else' )
-            // InternalAltarica.g:4906:1: 'else'
+            // InternalAltarica.g:5232:1: ( 'else' )
+            // InternalAltarica.g:5233:1: 'else'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getElseKeyword_3()); 
             }
-            match(input,56,FOLLOW_2); if (state.failed) return ;
+            match(input,60,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchAccess().getElseKeyword_3()); 
             }
@@ -13990,16 +14903,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__4"
-    // InternalAltarica.g:4919:1: rule__Switch__Group__4 : rule__Switch__Group__4__Impl rule__Switch__Group__5 ;
+    // InternalAltarica.g:5246:1: rule__Switch__Group__4 : rule__Switch__Group__4__Impl rule__Switch__Group__5 ;
     public final void rule__Switch__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4923:1: ( rule__Switch__Group__4__Impl rule__Switch__Group__5 )
-            // InternalAltarica.g:4924:2: rule__Switch__Group__4__Impl rule__Switch__Group__5
+            // InternalAltarica.g:5250:1: ( rule__Switch__Group__4__Impl rule__Switch__Group__5 )
+            // InternalAltarica.g:5251:2: rule__Switch__Group__4__Impl rule__Switch__Group__5
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Switch__Group__4__Impl();
 
             state._fsp--;
@@ -14028,22 +14941,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__4__Impl"
-    // InternalAltarica.g:4931:1: rule__Switch__Group__4__Impl : ( ':' ) ;
+    // InternalAltarica.g:5258:1: rule__Switch__Group__4__Impl : ( ':' ) ;
     public final void rule__Switch__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4935:1: ( ( ':' ) )
-            // InternalAltarica.g:4936:1: ( ':' )
+            // InternalAltarica.g:5262:1: ( ( ':' ) )
+            // InternalAltarica.g:5263:1: ( ':' )
             {
-            // InternalAltarica.g:4936:1: ( ':' )
-            // InternalAltarica.g:4937:1: ':'
+            // InternalAltarica.g:5263:1: ( ':' )
+            // InternalAltarica.g:5264:1: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getColonKeyword_4()); 
             }
-            match(input,48,FOLLOW_2); if (state.failed) return ;
+            match(input,52,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchAccess().getColonKeyword_4()); 
             }
@@ -14069,16 +14982,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__5"
-    // InternalAltarica.g:4950:1: rule__Switch__Group__5 : rule__Switch__Group__5__Impl rule__Switch__Group__6 ;
+    // InternalAltarica.g:5277:1: rule__Switch__Group__5 : rule__Switch__Group__5__Impl rule__Switch__Group__6 ;
     public final void rule__Switch__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4954:1: ( rule__Switch__Group__5__Impl rule__Switch__Group__6 )
-            // InternalAltarica.g:4955:2: rule__Switch__Group__5__Impl rule__Switch__Group__6
+            // InternalAltarica.g:5281:1: ( rule__Switch__Group__5__Impl rule__Switch__Group__6 )
+            // InternalAltarica.g:5282:2: rule__Switch__Group__5__Impl rule__Switch__Group__6
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_37);
             rule__Switch__Group__5__Impl();
 
             state._fsp--;
@@ -14107,23 +15020,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__5__Impl"
-    // InternalAltarica.g:4962:1: rule__Switch__Group__5__Impl : ( ( rule__Switch__ElseAssignment_5 ) ) ;
+    // InternalAltarica.g:5289:1: rule__Switch__Group__5__Impl : ( ( rule__Switch__ElseAssignment_5 ) ) ;
     public final void rule__Switch__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4966:1: ( ( ( rule__Switch__ElseAssignment_5 ) ) )
-            // InternalAltarica.g:4967:1: ( ( rule__Switch__ElseAssignment_5 ) )
+            // InternalAltarica.g:5293:1: ( ( ( rule__Switch__ElseAssignment_5 ) ) )
+            // InternalAltarica.g:5294:1: ( ( rule__Switch__ElseAssignment_5 ) )
             {
-            // InternalAltarica.g:4967:1: ( ( rule__Switch__ElseAssignment_5 ) )
-            // InternalAltarica.g:4968:1: ( rule__Switch__ElseAssignment_5 )
+            // InternalAltarica.g:5294:1: ( ( rule__Switch__ElseAssignment_5 ) )
+            // InternalAltarica.g:5295:1: ( rule__Switch__ElseAssignment_5 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getElseAssignment_5()); 
             }
-            // InternalAltarica.g:4969:1: ( rule__Switch__ElseAssignment_5 )
-            // InternalAltarica.g:4969:2: rule__Switch__ElseAssignment_5
+            // InternalAltarica.g:5296:1: ( rule__Switch__ElseAssignment_5 )
+            // InternalAltarica.g:5296:2: rule__Switch__ElseAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__Switch__ElseAssignment_5();
@@ -14158,14 +15071,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__6"
-    // InternalAltarica.g:4979:1: rule__Switch__Group__6 : rule__Switch__Group__6__Impl ;
+    // InternalAltarica.g:5306:1: rule__Switch__Group__6 : rule__Switch__Group__6__Impl ;
     public final void rule__Switch__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4983:1: ( rule__Switch__Group__6__Impl )
-            // InternalAltarica.g:4984:2: rule__Switch__Group__6__Impl
+            // InternalAltarica.g:5310:1: ( rule__Switch__Group__6__Impl )
+            // InternalAltarica.g:5311:2: rule__Switch__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Switch__Group__6__Impl();
@@ -14191,22 +15104,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__Group__6__Impl"
-    // InternalAltarica.g:4990:1: rule__Switch__Group__6__Impl : ( '}' ) ;
+    // InternalAltarica.g:5317:1: rule__Switch__Group__6__Impl : ( '}' ) ;
     public final void rule__Switch__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:4994:1: ( ( '}' ) )
-            // InternalAltarica.g:4995:1: ( '}' )
+            // InternalAltarica.g:5321:1: ( ( '}' ) )
+            // InternalAltarica.g:5322:1: ( '}' )
             {
-            // InternalAltarica.g:4995:1: ( '}' )
-            // InternalAltarica.g:4996:1: '}'
+            // InternalAltarica.g:5322:1: ( '}' )
+            // InternalAltarica.g:5323:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getRightCurlyBracketKeyword_6()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            match(input,38,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchAccess().getRightCurlyBracketKeyword_6()); 
             }
@@ -14232,16 +15145,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalOr__Group__0"
-    // InternalAltarica.g:5023:1: rule__LogicalOr__Group__0 : rule__LogicalOr__Group__0__Impl rule__LogicalOr__Group__1 ;
+    // InternalAltarica.g:5350:1: rule__LogicalOr__Group__0 : rule__LogicalOr__Group__0__Impl rule__LogicalOr__Group__1 ;
     public final void rule__LogicalOr__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5027:1: ( rule__LogicalOr__Group__0__Impl rule__LogicalOr__Group__1 )
-            // InternalAltarica.g:5028:2: rule__LogicalOr__Group__0__Impl rule__LogicalOr__Group__1
+            // InternalAltarica.g:5354:1: ( rule__LogicalOr__Group__0__Impl rule__LogicalOr__Group__1 )
+            // InternalAltarica.g:5355:2: rule__LogicalOr__Group__0__Impl rule__LogicalOr__Group__1
             {
-            pushFollow(FOLLOW_39);
+            pushFollow(FOLLOW_43);
             rule__LogicalOr__Group__0__Impl();
 
             state._fsp--;
@@ -14270,17 +15183,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalOr__Group__0__Impl"
-    // InternalAltarica.g:5035:1: rule__LogicalOr__Group__0__Impl : ( ruleLogicalAnd ) ;
+    // InternalAltarica.g:5362:1: rule__LogicalOr__Group__0__Impl : ( ruleLogicalAnd ) ;
     public final void rule__LogicalOr__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5039:1: ( ( ruleLogicalAnd ) )
-            // InternalAltarica.g:5040:1: ( ruleLogicalAnd )
+            // InternalAltarica.g:5366:1: ( ( ruleLogicalAnd ) )
+            // InternalAltarica.g:5367:1: ( ruleLogicalAnd )
             {
-            // InternalAltarica.g:5040:1: ( ruleLogicalAnd )
-            // InternalAltarica.g:5041:1: ruleLogicalAnd
+            // InternalAltarica.g:5367:1: ( ruleLogicalAnd )
+            // InternalAltarica.g:5368:1: ruleLogicalAnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalOrAccess().getLogicalAndParserRuleCall_0()); 
@@ -14315,14 +15228,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalOr__Group__1"
-    // InternalAltarica.g:5052:1: rule__LogicalOr__Group__1 : rule__LogicalOr__Group__1__Impl ;
+    // InternalAltarica.g:5379:1: rule__LogicalOr__Group__1 : rule__LogicalOr__Group__1__Impl ;
     public final void rule__LogicalOr__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5056:1: ( rule__LogicalOr__Group__1__Impl )
-            // InternalAltarica.g:5057:2: rule__LogicalOr__Group__1__Impl
+            // InternalAltarica.g:5383:1: ( rule__LogicalOr__Group__1__Impl )
+            // InternalAltarica.g:5384:2: rule__LogicalOr__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LogicalOr__Group__1__Impl();
@@ -14348,37 +15261,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalOr__Group__1__Impl"
-    // InternalAltarica.g:5063:1: rule__LogicalOr__Group__1__Impl : ( ( rule__LogicalOr__Group_1__0 )* ) ;
+    // InternalAltarica.g:5390:1: rule__LogicalOr__Group__1__Impl : ( ( rule__LogicalOr__Group_1__0 )* ) ;
     public final void rule__LogicalOr__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5067:1: ( ( ( rule__LogicalOr__Group_1__0 )* ) )
-            // InternalAltarica.g:5068:1: ( ( rule__LogicalOr__Group_1__0 )* )
+            // InternalAltarica.g:5394:1: ( ( ( rule__LogicalOr__Group_1__0 )* ) )
+            // InternalAltarica.g:5395:1: ( ( rule__LogicalOr__Group_1__0 )* )
             {
-            // InternalAltarica.g:5068:1: ( ( rule__LogicalOr__Group_1__0 )* )
-            // InternalAltarica.g:5069:1: ( rule__LogicalOr__Group_1__0 )*
+            // InternalAltarica.g:5395:1: ( ( rule__LogicalOr__Group_1__0 )* )
+            // InternalAltarica.g:5396:1: ( rule__LogicalOr__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalOrAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:5070:1: ( rule__LogicalOr__Group_1__0 )*
-            loop30:
+            // InternalAltarica.g:5397:1: ( rule__LogicalOr__Group_1__0 )*
+            loop33:
             do {
-                int alt30=2;
-                int LA30_0 = input.LA(1);
+                int alt33=2;
+                int LA33_0 = input.LA(1);
 
-                if ( (LA30_0==62) ) {
-                    alt30=1;
+                if ( (LA33_0==66) ) {
+                    alt33=1;
                 }
 
 
-                switch (alt30) {
+                switch (alt33) {
             	case 1 :
-            	    // InternalAltarica.g:5070:2: rule__LogicalOr__Group_1__0
+            	    // InternalAltarica.g:5397:2: rule__LogicalOr__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_40);
+            	    pushFollow(FOLLOW_44);
             	    rule__LogicalOr__Group_1__0();
 
             	    state._fsp--;
@@ -14388,7 +15301,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop30;
+            	    break loop33;
                 }
             } while (true);
 
@@ -14417,17 +15330,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalOr__Group_1__0"
-    // InternalAltarica.g:5084:1: rule__LogicalOr__Group_1__0 : rule__LogicalOr__Group_1__0__Impl ;
+    // InternalAltarica.g:5411:1: rule__LogicalOr__Group_1__0 : rule__LogicalOr__Group_1__0__Impl rule__LogicalOr__Group_1__1 ;
     public final void rule__LogicalOr__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5088:1: ( rule__LogicalOr__Group_1__0__Impl )
-            // InternalAltarica.g:5089:2: rule__LogicalOr__Group_1__0__Impl
+            // InternalAltarica.g:5415:1: ( rule__LogicalOr__Group_1__0__Impl rule__LogicalOr__Group_1__1 )
+            // InternalAltarica.g:5416:2: rule__LogicalOr__Group_1__0__Impl rule__LogicalOr__Group_1__1
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_43);
             rule__LogicalOr__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__LogicalOr__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14450,34 +15368,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalOr__Group_1__0__Impl"
-    // InternalAltarica.g:5095:1: rule__LogicalOr__Group_1__0__Impl : ( ( rule__LogicalOr__Group_1_0__0 ) ) ;
+    // InternalAltarica.g:5423:1: rule__LogicalOr__Group_1__0__Impl : ( () ) ;
     public final void rule__LogicalOr__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5099:1: ( ( ( rule__LogicalOr__Group_1_0__0 ) ) )
-            // InternalAltarica.g:5100:1: ( ( rule__LogicalOr__Group_1_0__0 ) )
+            // InternalAltarica.g:5427:1: ( ( () ) )
+            // InternalAltarica.g:5428:1: ( () )
             {
-            // InternalAltarica.g:5100:1: ( ( rule__LogicalOr__Group_1_0__0 ) )
-            // InternalAltarica.g:5101:1: ( rule__LogicalOr__Group_1_0__0 )
+            // InternalAltarica.g:5428:1: ( () )
+            // InternalAltarica.g:5429:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getGroup_1_0()); 
+               before(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0()); 
             }
-            // InternalAltarica.g:5102:1: ( rule__LogicalOr__Group_1_0__0 )
-            // InternalAltarica.g:5102:2: rule__LogicalOr__Group_1_0__0
+            // InternalAltarica.g:5430:1: ()
+            // InternalAltarica.g:5432:1: 
             {
-            pushFollow(FOLLOW_2);
-            rule__LogicalOr__Group_1_0__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getGroup_1_0()); 
+               after(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0()); 
             }
 
             }
@@ -14485,10 +15397,6 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -14500,23 +15408,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__LogicalOr__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__LogicalOr__Group_1_0__0"
-    // InternalAltarica.g:5114:1: rule__LogicalOr__Group_1_0__0 : rule__LogicalOr__Group_1_0__0__Impl rule__LogicalOr__Group_1_0__1 ;
-    public final void rule__LogicalOr__Group_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__LogicalOr__Group_1__1"
+    // InternalAltarica.g:5442:1: rule__LogicalOr__Group_1__1 : rule__LogicalOr__Group_1__1__Impl rule__LogicalOr__Group_1__2 ;
+    public final void rule__LogicalOr__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5118:1: ( rule__LogicalOr__Group_1_0__0__Impl rule__LogicalOr__Group_1_0__1 )
-            // InternalAltarica.g:5119:2: rule__LogicalOr__Group_1_0__0__Impl rule__LogicalOr__Group_1_0__1
+            // InternalAltarica.g:5446:1: ( rule__LogicalOr__Group_1__1__Impl rule__LogicalOr__Group_1__2 )
+            // InternalAltarica.g:5447:2: rule__LogicalOr__Group_1__1__Impl rule__LogicalOr__Group_1__2
             {
-            pushFollow(FOLLOW_39);
-            rule__LogicalOr__Group_1_0__0__Impl();
+            pushFollow(FOLLOW_24);
+            rule__LogicalOr__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__LogicalOr__Group_1_0__1();
+            rule__LogicalOr__Group_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14535,109 +15443,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalOr__Group_1_0__0"
+    // $ANTLR end "rule__LogicalOr__Group_1__1"
 
 
-    // $ANTLR start "rule__LogicalOr__Group_1_0__0__Impl"
-    // InternalAltarica.g:5126:1: rule__LogicalOr__Group_1_0__0__Impl : ( () ) ;
-    public final void rule__LogicalOr__Group_1_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5130:1: ( ( () ) )
-            // InternalAltarica.g:5131:1: ( () )
-            {
-            // InternalAltarica.g:5131:1: ( () )
-            // InternalAltarica.g:5132:1: ()
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0_0()); 
-            }
-            // InternalAltarica.g:5133:1: ()
-            // InternalAltarica.g:5135:1: 
-            {
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LogicalOr__Group_1_0__0__Impl"
-
-
-    // $ANTLR start "rule__LogicalOr__Group_1_0__1"
-    // InternalAltarica.g:5145:1: rule__LogicalOr__Group_1_0__1 : rule__LogicalOr__Group_1_0__1__Impl rule__LogicalOr__Group_1_0__2 ;
-    public final void rule__LogicalOr__Group_1_0__1() throws RecognitionException {
+    // $ANTLR start "rule__LogicalOr__Group_1__1__Impl"
+    // InternalAltarica.g:5454:1: rule__LogicalOr__Group_1__1__Impl : ( ( rule__LogicalOr__OpAssignment_1_1 ) ) ;
+    public final void rule__LogicalOr__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5149:1: ( rule__LogicalOr__Group_1_0__1__Impl rule__LogicalOr__Group_1_0__2 )
-            // InternalAltarica.g:5150:2: rule__LogicalOr__Group_1_0__1__Impl rule__LogicalOr__Group_1_0__2
+            // InternalAltarica.g:5458:1: ( ( ( rule__LogicalOr__OpAssignment_1_1 ) ) )
+            // InternalAltarica.g:5459:1: ( ( rule__LogicalOr__OpAssignment_1_1 ) )
             {
-            pushFollow(FOLLOW_20);
-            rule__LogicalOr__Group_1_0__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__LogicalOr__Group_1_0__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LogicalOr__Group_1_0__1"
-
-
-    // $ANTLR start "rule__LogicalOr__Group_1_0__1__Impl"
-    // InternalAltarica.g:5157:1: rule__LogicalOr__Group_1_0__1__Impl : ( ( rule__LogicalOr__OpAssignment_1_0_1 ) ) ;
-    public final void rule__LogicalOr__Group_1_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5161:1: ( ( ( rule__LogicalOr__OpAssignment_1_0_1 ) ) )
-            // InternalAltarica.g:5162:1: ( ( rule__LogicalOr__OpAssignment_1_0_1 ) )
-            {
-            // InternalAltarica.g:5162:1: ( ( rule__LogicalOr__OpAssignment_1_0_1 ) )
-            // InternalAltarica.g:5163:1: ( rule__LogicalOr__OpAssignment_1_0_1 )
+            // InternalAltarica.g:5459:1: ( ( rule__LogicalOr__OpAssignment_1_1 ) )
+            // InternalAltarica.g:5460:1: ( rule__LogicalOr__OpAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getOpAssignment_1_0_1()); 
+               before(grammarAccess.getLogicalOrAccess().getOpAssignment_1_1()); 
             }
-            // InternalAltarica.g:5164:1: ( rule__LogicalOr__OpAssignment_1_0_1 )
-            // InternalAltarica.g:5164:2: rule__LogicalOr__OpAssignment_1_0_1
+            // InternalAltarica.g:5461:1: ( rule__LogicalOr__OpAssignment_1_1 )
+            // InternalAltarica.g:5461:2: rule__LogicalOr__OpAssignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__LogicalOr__OpAssignment_1_0_1();
+            rule__LogicalOr__OpAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14645,7 +15474,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getOpAssignment_1_0_1()); 
+               after(grammarAccess.getLogicalOrAccess().getOpAssignment_1_1()); 
             }
 
             }
@@ -14665,21 +15494,21 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalOr__Group_1_0__1__Impl"
+    // $ANTLR end "rule__LogicalOr__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__LogicalOr__Group_1_0__2"
-    // InternalAltarica.g:5174:1: rule__LogicalOr__Group_1_0__2 : rule__LogicalOr__Group_1_0__2__Impl ;
-    public final void rule__LogicalOr__Group_1_0__2() throws RecognitionException {
+    // $ANTLR start "rule__LogicalOr__Group_1__2"
+    // InternalAltarica.g:5471:1: rule__LogicalOr__Group_1__2 : rule__LogicalOr__Group_1__2__Impl ;
+    public final void rule__LogicalOr__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5178:1: ( rule__LogicalOr__Group_1_0__2__Impl )
-            // InternalAltarica.g:5179:2: rule__LogicalOr__Group_1_0__2__Impl
+            // InternalAltarica.g:5475:1: ( rule__LogicalOr__Group_1__2__Impl )
+            // InternalAltarica.g:5476:2: rule__LogicalOr__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__LogicalOr__Group_1_0__2__Impl();
+            rule__LogicalOr__Group_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14698,30 +15527,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalOr__Group_1_0__2"
+    // $ANTLR end "rule__LogicalOr__Group_1__2"
 
 
-    // $ANTLR start "rule__LogicalOr__Group_1_0__2__Impl"
-    // InternalAltarica.g:5185:1: rule__LogicalOr__Group_1_0__2__Impl : ( ( rule__LogicalOr__RightAssignment_1_0_2 ) ) ;
-    public final void rule__LogicalOr__Group_1_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__LogicalOr__Group_1__2__Impl"
+    // InternalAltarica.g:5482:1: rule__LogicalOr__Group_1__2__Impl : ( ( rule__LogicalOr__RightAssignment_1_2 ) ) ;
+    public final void rule__LogicalOr__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5189:1: ( ( ( rule__LogicalOr__RightAssignment_1_0_2 ) ) )
-            // InternalAltarica.g:5190:1: ( ( rule__LogicalOr__RightAssignment_1_0_2 ) )
+            // InternalAltarica.g:5486:1: ( ( ( rule__LogicalOr__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:5487:1: ( ( rule__LogicalOr__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:5190:1: ( ( rule__LogicalOr__RightAssignment_1_0_2 ) )
-            // InternalAltarica.g:5191:1: ( rule__LogicalOr__RightAssignment_1_0_2 )
+            // InternalAltarica.g:5487:1: ( ( rule__LogicalOr__RightAssignment_1_2 ) )
+            // InternalAltarica.g:5488:1: ( rule__LogicalOr__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getRightAssignment_1_0_2()); 
+               before(grammarAccess.getLogicalOrAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:5192:1: ( rule__LogicalOr__RightAssignment_1_0_2 )
-            // InternalAltarica.g:5192:2: rule__LogicalOr__RightAssignment_1_0_2
+            // InternalAltarica.g:5489:1: ( rule__LogicalOr__RightAssignment_1_2 )
+            // InternalAltarica.g:5489:2: rule__LogicalOr__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__LogicalOr__RightAssignment_1_0_2();
+            rule__LogicalOr__RightAssignment_1_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14729,7 +15558,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getRightAssignment_1_0_2()); 
+               after(grammarAccess.getLogicalOrAccess().getRightAssignment_1_2()); 
             }
 
             }
@@ -14749,20 +15578,20 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalOr__Group_1_0__2__Impl"
+    // $ANTLR end "rule__LogicalOr__Group_1__2__Impl"
 
 
     // $ANTLR start "rule__LogicalAnd__Group__0"
-    // InternalAltarica.g:5208:1: rule__LogicalAnd__Group__0 : rule__LogicalAnd__Group__0__Impl rule__LogicalAnd__Group__1 ;
+    // InternalAltarica.g:5505:1: rule__LogicalAnd__Group__0 : rule__LogicalAnd__Group__0__Impl rule__LogicalAnd__Group__1 ;
     public final void rule__LogicalAnd__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5212:1: ( rule__LogicalAnd__Group__0__Impl rule__LogicalAnd__Group__1 )
-            // InternalAltarica.g:5213:2: rule__LogicalAnd__Group__0__Impl rule__LogicalAnd__Group__1
+            // InternalAltarica.g:5509:1: ( rule__LogicalAnd__Group__0__Impl rule__LogicalAnd__Group__1 )
+            // InternalAltarica.g:5510:2: rule__LogicalAnd__Group__0__Impl rule__LogicalAnd__Group__1
             {
-            pushFollow(FOLLOW_41);
+            pushFollow(FOLLOW_45);
             rule__LogicalAnd__Group__0__Impl();
 
             state._fsp--;
@@ -14791,17 +15620,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalAnd__Group__0__Impl"
-    // InternalAltarica.g:5220:1: rule__LogicalAnd__Group__0__Impl : ( ruleRelation ) ;
+    // InternalAltarica.g:5517:1: rule__LogicalAnd__Group__0__Impl : ( ruleRelation ) ;
     public final void rule__LogicalAnd__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5224:1: ( ( ruleRelation ) )
-            // InternalAltarica.g:5225:1: ( ruleRelation )
+            // InternalAltarica.g:5521:1: ( ( ruleRelation ) )
+            // InternalAltarica.g:5522:1: ( ruleRelation )
             {
-            // InternalAltarica.g:5225:1: ( ruleRelation )
-            // InternalAltarica.g:5226:1: ruleRelation
+            // InternalAltarica.g:5522:1: ( ruleRelation )
+            // InternalAltarica.g:5523:1: ruleRelation
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalAndAccess().getRelationParserRuleCall_0()); 
@@ -14836,14 +15665,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalAnd__Group__1"
-    // InternalAltarica.g:5237:1: rule__LogicalAnd__Group__1 : rule__LogicalAnd__Group__1__Impl ;
+    // InternalAltarica.g:5534:1: rule__LogicalAnd__Group__1 : rule__LogicalAnd__Group__1__Impl ;
     public final void rule__LogicalAnd__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5241:1: ( rule__LogicalAnd__Group__1__Impl )
-            // InternalAltarica.g:5242:2: rule__LogicalAnd__Group__1__Impl
+            // InternalAltarica.g:5538:1: ( rule__LogicalAnd__Group__1__Impl )
+            // InternalAltarica.g:5539:2: rule__LogicalAnd__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__LogicalAnd__Group__1__Impl();
@@ -14869,37 +15698,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalAnd__Group__1__Impl"
-    // InternalAltarica.g:5248:1: rule__LogicalAnd__Group__1__Impl : ( ( rule__LogicalAnd__Group_1__0 )* ) ;
+    // InternalAltarica.g:5545:1: rule__LogicalAnd__Group__1__Impl : ( ( rule__LogicalAnd__Group_1__0 )* ) ;
     public final void rule__LogicalAnd__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5252:1: ( ( ( rule__LogicalAnd__Group_1__0 )* ) )
-            // InternalAltarica.g:5253:1: ( ( rule__LogicalAnd__Group_1__0 )* )
+            // InternalAltarica.g:5549:1: ( ( ( rule__LogicalAnd__Group_1__0 )* ) )
+            // InternalAltarica.g:5550:1: ( ( rule__LogicalAnd__Group_1__0 )* )
             {
-            // InternalAltarica.g:5253:1: ( ( rule__LogicalAnd__Group_1__0 )* )
-            // InternalAltarica.g:5254:1: ( rule__LogicalAnd__Group_1__0 )*
+            // InternalAltarica.g:5550:1: ( ( rule__LogicalAnd__Group_1__0 )* )
+            // InternalAltarica.g:5551:1: ( rule__LogicalAnd__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLogicalAndAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:5255:1: ( rule__LogicalAnd__Group_1__0 )*
-            loop31:
+            // InternalAltarica.g:5552:1: ( rule__LogicalAnd__Group_1__0 )*
+            loop34:
             do {
-                int alt31=2;
-                int LA31_0 = input.LA(1);
+                int alt34=2;
+                int LA34_0 = input.LA(1);
 
-                if ( (LA31_0==63) ) {
-                    alt31=1;
+                if ( (LA34_0==67) ) {
+                    alt34=1;
                 }
 
 
-                switch (alt31) {
+                switch (alt34) {
             	case 1 :
-            	    // InternalAltarica.g:5255:2: rule__LogicalAnd__Group_1__0
+            	    // InternalAltarica.g:5552:2: rule__LogicalAnd__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_42);
+            	    pushFollow(FOLLOW_46);
             	    rule__LogicalAnd__Group_1__0();
 
             	    state._fsp--;
@@ -14909,7 +15738,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop31;
+            	    break loop34;
                 }
             } while (true);
 
@@ -14938,17 +15767,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalAnd__Group_1__0"
-    // InternalAltarica.g:5269:1: rule__LogicalAnd__Group_1__0 : rule__LogicalAnd__Group_1__0__Impl ;
+    // InternalAltarica.g:5566:1: rule__LogicalAnd__Group_1__0 : rule__LogicalAnd__Group_1__0__Impl rule__LogicalAnd__Group_1__1 ;
     public final void rule__LogicalAnd__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5273:1: ( rule__LogicalAnd__Group_1__0__Impl )
-            // InternalAltarica.g:5274:2: rule__LogicalAnd__Group_1__0__Impl
+            // InternalAltarica.g:5570:1: ( rule__LogicalAnd__Group_1__0__Impl rule__LogicalAnd__Group_1__1 )
+            // InternalAltarica.g:5571:2: rule__LogicalAnd__Group_1__0__Impl rule__LogicalAnd__Group_1__1
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_45);
             rule__LogicalAnd__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__LogicalAnd__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -14971,34 +15805,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LogicalAnd__Group_1__0__Impl"
-    // InternalAltarica.g:5280:1: rule__LogicalAnd__Group_1__0__Impl : ( ( rule__LogicalAnd__Group_1_0__0 ) ) ;
+    // InternalAltarica.g:5578:1: rule__LogicalAnd__Group_1__0__Impl : ( () ) ;
     public final void rule__LogicalAnd__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5284:1: ( ( ( rule__LogicalAnd__Group_1_0__0 ) ) )
-            // InternalAltarica.g:5285:1: ( ( rule__LogicalAnd__Group_1_0__0 ) )
+            // InternalAltarica.g:5582:1: ( ( () ) )
+            // InternalAltarica.g:5583:1: ( () )
             {
-            // InternalAltarica.g:5285:1: ( ( rule__LogicalAnd__Group_1_0__0 ) )
-            // InternalAltarica.g:5286:1: ( rule__LogicalAnd__Group_1_0__0 )
+            // InternalAltarica.g:5583:1: ( () )
+            // InternalAltarica.g:5584:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getGroup_1_0()); 
+               before(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0()); 
             }
-            // InternalAltarica.g:5287:1: ( rule__LogicalAnd__Group_1_0__0 )
-            // InternalAltarica.g:5287:2: rule__LogicalAnd__Group_1_0__0
+            // InternalAltarica.g:5585:1: ()
+            // InternalAltarica.g:5587:1: 
             {
-            pushFollow(FOLLOW_2);
-            rule__LogicalAnd__Group_1_0__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getGroup_1_0()); 
+               after(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0()); 
             }
 
             }
@@ -15006,10 +15834,6 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -15021,23 +15845,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__LogicalAnd__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__LogicalAnd__Group_1_0__0"
-    // InternalAltarica.g:5299:1: rule__LogicalAnd__Group_1_0__0 : rule__LogicalAnd__Group_1_0__0__Impl rule__LogicalAnd__Group_1_0__1 ;
-    public final void rule__LogicalAnd__Group_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__LogicalAnd__Group_1__1"
+    // InternalAltarica.g:5597:1: rule__LogicalAnd__Group_1__1 : rule__LogicalAnd__Group_1__1__Impl rule__LogicalAnd__Group_1__2 ;
+    public final void rule__LogicalAnd__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5303:1: ( rule__LogicalAnd__Group_1_0__0__Impl rule__LogicalAnd__Group_1_0__1 )
-            // InternalAltarica.g:5304:2: rule__LogicalAnd__Group_1_0__0__Impl rule__LogicalAnd__Group_1_0__1
+            // InternalAltarica.g:5601:1: ( rule__LogicalAnd__Group_1__1__Impl rule__LogicalAnd__Group_1__2 )
+            // InternalAltarica.g:5602:2: rule__LogicalAnd__Group_1__1__Impl rule__LogicalAnd__Group_1__2
             {
-            pushFollow(FOLLOW_41);
-            rule__LogicalAnd__Group_1_0__0__Impl();
+            pushFollow(FOLLOW_24);
+            rule__LogicalAnd__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__LogicalAnd__Group_1_0__1();
+            rule__LogicalAnd__Group_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15056,109 +15880,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalAnd__Group_1_0__0"
+    // $ANTLR end "rule__LogicalAnd__Group_1__1"
 
 
-    // $ANTLR start "rule__LogicalAnd__Group_1_0__0__Impl"
-    // InternalAltarica.g:5311:1: rule__LogicalAnd__Group_1_0__0__Impl : ( () ) ;
-    public final void rule__LogicalAnd__Group_1_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5315:1: ( ( () ) )
-            // InternalAltarica.g:5316:1: ( () )
-            {
-            // InternalAltarica.g:5316:1: ( () )
-            // InternalAltarica.g:5317:1: ()
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0_0()); 
-            }
-            // InternalAltarica.g:5318:1: ()
-            // InternalAltarica.g:5320:1: 
-            {
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LogicalAnd__Group_1_0__0__Impl"
-
-
-    // $ANTLR start "rule__LogicalAnd__Group_1_0__1"
-    // InternalAltarica.g:5330:1: rule__LogicalAnd__Group_1_0__1 : rule__LogicalAnd__Group_1_0__1__Impl rule__LogicalAnd__Group_1_0__2 ;
-    public final void rule__LogicalAnd__Group_1_0__1() throws RecognitionException {
+    // $ANTLR start "rule__LogicalAnd__Group_1__1__Impl"
+    // InternalAltarica.g:5609:1: rule__LogicalAnd__Group_1__1__Impl : ( ( rule__LogicalAnd__OpAssignment_1_1 ) ) ;
+    public final void rule__LogicalAnd__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5334:1: ( rule__LogicalAnd__Group_1_0__1__Impl rule__LogicalAnd__Group_1_0__2 )
-            // InternalAltarica.g:5335:2: rule__LogicalAnd__Group_1_0__1__Impl rule__LogicalAnd__Group_1_0__2
+            // InternalAltarica.g:5613:1: ( ( ( rule__LogicalAnd__OpAssignment_1_1 ) ) )
+            // InternalAltarica.g:5614:1: ( ( rule__LogicalAnd__OpAssignment_1_1 ) )
             {
-            pushFollow(FOLLOW_20);
-            rule__LogicalAnd__Group_1_0__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__LogicalAnd__Group_1_0__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__LogicalAnd__Group_1_0__1"
-
-
-    // $ANTLR start "rule__LogicalAnd__Group_1_0__1__Impl"
-    // InternalAltarica.g:5342:1: rule__LogicalAnd__Group_1_0__1__Impl : ( ( rule__LogicalAnd__OpAssignment_1_0_1 ) ) ;
-    public final void rule__LogicalAnd__Group_1_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5346:1: ( ( ( rule__LogicalAnd__OpAssignment_1_0_1 ) ) )
-            // InternalAltarica.g:5347:1: ( ( rule__LogicalAnd__OpAssignment_1_0_1 ) )
-            {
-            // InternalAltarica.g:5347:1: ( ( rule__LogicalAnd__OpAssignment_1_0_1 ) )
-            // InternalAltarica.g:5348:1: ( rule__LogicalAnd__OpAssignment_1_0_1 )
+            // InternalAltarica.g:5614:1: ( ( rule__LogicalAnd__OpAssignment_1_1 ) )
+            // InternalAltarica.g:5615:1: ( rule__LogicalAnd__OpAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getOpAssignment_1_0_1()); 
+               before(grammarAccess.getLogicalAndAccess().getOpAssignment_1_1()); 
             }
-            // InternalAltarica.g:5349:1: ( rule__LogicalAnd__OpAssignment_1_0_1 )
-            // InternalAltarica.g:5349:2: rule__LogicalAnd__OpAssignment_1_0_1
+            // InternalAltarica.g:5616:1: ( rule__LogicalAnd__OpAssignment_1_1 )
+            // InternalAltarica.g:5616:2: rule__LogicalAnd__OpAssignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__LogicalAnd__OpAssignment_1_0_1();
+            rule__LogicalAnd__OpAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15166,7 +15911,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getOpAssignment_1_0_1()); 
+               after(grammarAccess.getLogicalAndAccess().getOpAssignment_1_1()); 
             }
 
             }
@@ -15186,21 +15931,21 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalAnd__Group_1_0__1__Impl"
+    // $ANTLR end "rule__LogicalAnd__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__LogicalAnd__Group_1_0__2"
-    // InternalAltarica.g:5359:1: rule__LogicalAnd__Group_1_0__2 : rule__LogicalAnd__Group_1_0__2__Impl ;
-    public final void rule__LogicalAnd__Group_1_0__2() throws RecognitionException {
+    // $ANTLR start "rule__LogicalAnd__Group_1__2"
+    // InternalAltarica.g:5626:1: rule__LogicalAnd__Group_1__2 : rule__LogicalAnd__Group_1__2__Impl ;
+    public final void rule__LogicalAnd__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5363:1: ( rule__LogicalAnd__Group_1_0__2__Impl )
-            // InternalAltarica.g:5364:2: rule__LogicalAnd__Group_1_0__2__Impl
+            // InternalAltarica.g:5630:1: ( rule__LogicalAnd__Group_1__2__Impl )
+            // InternalAltarica.g:5631:2: rule__LogicalAnd__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__LogicalAnd__Group_1_0__2__Impl();
+            rule__LogicalAnd__Group_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15219,30 +15964,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalAnd__Group_1_0__2"
+    // $ANTLR end "rule__LogicalAnd__Group_1__2"
 
 
-    // $ANTLR start "rule__LogicalAnd__Group_1_0__2__Impl"
-    // InternalAltarica.g:5370:1: rule__LogicalAnd__Group_1_0__2__Impl : ( ( rule__LogicalAnd__RightAssignment_1_0_2 ) ) ;
-    public final void rule__LogicalAnd__Group_1_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__LogicalAnd__Group_1__2__Impl"
+    // InternalAltarica.g:5637:1: rule__LogicalAnd__Group_1__2__Impl : ( ( rule__LogicalAnd__RightAssignment_1_2 ) ) ;
+    public final void rule__LogicalAnd__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5374:1: ( ( ( rule__LogicalAnd__RightAssignment_1_0_2 ) ) )
-            // InternalAltarica.g:5375:1: ( ( rule__LogicalAnd__RightAssignment_1_0_2 ) )
+            // InternalAltarica.g:5641:1: ( ( ( rule__LogicalAnd__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:5642:1: ( ( rule__LogicalAnd__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:5375:1: ( ( rule__LogicalAnd__RightAssignment_1_0_2 ) )
-            // InternalAltarica.g:5376:1: ( rule__LogicalAnd__RightAssignment_1_0_2 )
+            // InternalAltarica.g:5642:1: ( ( rule__LogicalAnd__RightAssignment_1_2 ) )
+            // InternalAltarica.g:5643:1: ( rule__LogicalAnd__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getRightAssignment_1_0_2()); 
+               before(grammarAccess.getLogicalAndAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:5377:1: ( rule__LogicalAnd__RightAssignment_1_0_2 )
-            // InternalAltarica.g:5377:2: rule__LogicalAnd__RightAssignment_1_0_2
+            // InternalAltarica.g:5644:1: ( rule__LogicalAnd__RightAssignment_1_2 )
+            // InternalAltarica.g:5644:2: rule__LogicalAnd__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__LogicalAnd__RightAssignment_1_0_2();
+            rule__LogicalAnd__RightAssignment_1_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15250,7 +15995,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getRightAssignment_1_0_2()); 
+               after(grammarAccess.getLogicalAndAccess().getRightAssignment_1_2()); 
             }
 
             }
@@ -15270,20 +16015,20 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalAnd__Group_1_0__2__Impl"
+    // $ANTLR end "rule__LogicalAnd__Group_1__2__Impl"
 
 
     // $ANTLR start "rule__Relation__Group__0"
-    // InternalAltarica.g:5393:1: rule__Relation__Group__0 : rule__Relation__Group__0__Impl rule__Relation__Group__1 ;
+    // InternalAltarica.g:5660:1: rule__Relation__Group__0 : rule__Relation__Group__0__Impl rule__Relation__Group__1 ;
     public final void rule__Relation__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5397:1: ( rule__Relation__Group__0__Impl rule__Relation__Group__1 )
-            // InternalAltarica.g:5398:2: rule__Relation__Group__0__Impl rule__Relation__Group__1
+            // InternalAltarica.g:5664:1: ( rule__Relation__Group__0__Impl rule__Relation__Group__1 )
+            // InternalAltarica.g:5665:2: rule__Relation__Group__0__Impl rule__Relation__Group__1
             {
-            pushFollow(FOLLOW_43);
+            pushFollow(FOLLOW_47);
             rule__Relation__Group__0__Impl();
 
             state._fsp--;
@@ -15312,17 +16057,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Relation__Group__0__Impl"
-    // InternalAltarica.g:5405:1: rule__Relation__Group__0__Impl : ( ruleAddition ) ;
+    // InternalAltarica.g:5672:1: rule__Relation__Group__0__Impl : ( ruleAddition ) ;
     public final void rule__Relation__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5409:1: ( ( ruleAddition ) )
-            // InternalAltarica.g:5410:1: ( ruleAddition )
+            // InternalAltarica.g:5676:1: ( ( ruleAddition ) )
+            // InternalAltarica.g:5677:1: ( ruleAddition )
             {
-            // InternalAltarica.g:5410:1: ( ruleAddition )
-            // InternalAltarica.g:5411:1: ruleAddition
+            // InternalAltarica.g:5677:1: ( ruleAddition )
+            // InternalAltarica.g:5678:1: ruleAddition
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRelationAccess().getAdditionParserRuleCall_0()); 
@@ -15357,14 +16102,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Relation__Group__1"
-    // InternalAltarica.g:5422:1: rule__Relation__Group__1 : rule__Relation__Group__1__Impl ;
+    // InternalAltarica.g:5689:1: rule__Relation__Group__1 : rule__Relation__Group__1__Impl ;
     public final void rule__Relation__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5426:1: ( rule__Relation__Group__1__Impl )
-            // InternalAltarica.g:5427:2: rule__Relation__Group__1__Impl
+            // InternalAltarica.g:5693:1: ( rule__Relation__Group__1__Impl )
+            // InternalAltarica.g:5694:2: rule__Relation__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Relation__Group__1__Impl();
@@ -15390,37 +16135,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Relation__Group__1__Impl"
-    // InternalAltarica.g:5433:1: rule__Relation__Group__1__Impl : ( ( rule__Relation__Group_1__0 )* ) ;
+    // InternalAltarica.g:5700:1: rule__Relation__Group__1__Impl : ( ( rule__Relation__Group_1__0 )* ) ;
     public final void rule__Relation__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5437:1: ( ( ( rule__Relation__Group_1__0 )* ) )
-            // InternalAltarica.g:5438:1: ( ( rule__Relation__Group_1__0 )* )
+            // InternalAltarica.g:5704:1: ( ( ( rule__Relation__Group_1__0 )* ) )
+            // InternalAltarica.g:5705:1: ( ( rule__Relation__Group_1__0 )* )
             {
-            // InternalAltarica.g:5438:1: ( ( rule__Relation__Group_1__0 )* )
-            // InternalAltarica.g:5439:1: ( rule__Relation__Group_1__0 )*
+            // InternalAltarica.g:5705:1: ( ( rule__Relation__Group_1__0 )* )
+            // InternalAltarica.g:5706:1: ( rule__Relation__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getRelationAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:5440:1: ( rule__Relation__Group_1__0 )*
-            loop32:
+            // InternalAltarica.g:5707:1: ( rule__Relation__Group_1__0 )*
+            loop35:
             do {
-                int alt32=2;
-                int LA32_0 = input.LA(1);
+                int alt35=2;
+                int LA35_0 = input.LA(1);
 
-                if ( ((LA32_0>=16 && LA32_0<=21)) ) {
-                    alt32=1;
+                if ( ((LA35_0>=16 && LA35_0<=21)) ) {
+                    alt35=1;
                 }
 
 
-                switch (alt32) {
+                switch (alt35) {
             	case 1 :
-            	    // InternalAltarica.g:5440:2: rule__Relation__Group_1__0
+            	    // InternalAltarica.g:5707:2: rule__Relation__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_44);
+            	    pushFollow(FOLLOW_48);
             	    rule__Relation__Group_1__0();
 
             	    state._fsp--;
@@ -15430,7 +16175,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop32;
+            	    break loop35;
                 }
             } while (true);
 
@@ -15459,17 +16204,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Relation__Group_1__0"
-    // InternalAltarica.g:5454:1: rule__Relation__Group_1__0 : rule__Relation__Group_1__0__Impl ;
+    // InternalAltarica.g:5721:1: rule__Relation__Group_1__0 : rule__Relation__Group_1__0__Impl rule__Relation__Group_1__1 ;
     public final void rule__Relation__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5458:1: ( rule__Relation__Group_1__0__Impl )
-            // InternalAltarica.g:5459:2: rule__Relation__Group_1__0__Impl
+            // InternalAltarica.g:5725:1: ( rule__Relation__Group_1__0__Impl rule__Relation__Group_1__1 )
+            // InternalAltarica.g:5726:2: rule__Relation__Group_1__0__Impl rule__Relation__Group_1__1
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_47);
             rule__Relation__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Relation__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15492,34 +16242,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Relation__Group_1__0__Impl"
-    // InternalAltarica.g:5465:1: rule__Relation__Group_1__0__Impl : ( ( rule__Relation__Group_1_0__0 ) ) ;
+    // InternalAltarica.g:5733:1: rule__Relation__Group_1__0__Impl : ( () ) ;
     public final void rule__Relation__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5469:1: ( ( ( rule__Relation__Group_1_0__0 ) ) )
-            // InternalAltarica.g:5470:1: ( ( rule__Relation__Group_1_0__0 ) )
+            // InternalAltarica.g:5737:1: ( ( () ) )
+            // InternalAltarica.g:5738:1: ( () )
             {
-            // InternalAltarica.g:5470:1: ( ( rule__Relation__Group_1_0__0 ) )
-            // InternalAltarica.g:5471:1: ( rule__Relation__Group_1_0__0 )
+            // InternalAltarica.g:5738:1: ( () )
+            // InternalAltarica.g:5739:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRelationAccess().getGroup_1_0()); 
+               before(grammarAccess.getRelationAccess().getEqualLeftAction_1_0()); 
             }
-            // InternalAltarica.g:5472:1: ( rule__Relation__Group_1_0__0 )
-            // InternalAltarica.g:5472:2: rule__Relation__Group_1_0__0
+            // InternalAltarica.g:5740:1: ()
+            // InternalAltarica.g:5742:1: 
             {
-            pushFollow(FOLLOW_2);
-            rule__Relation__Group_1_0__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRelationAccess().getGroup_1_0()); 
+               after(grammarAccess.getRelationAccess().getEqualLeftAction_1_0()); 
             }
 
             }
@@ -15527,10 +16271,6 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -15542,23 +16282,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Relation__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__Relation__Group_1_0__0"
-    // InternalAltarica.g:5484:1: rule__Relation__Group_1_0__0 : rule__Relation__Group_1_0__0__Impl rule__Relation__Group_1_0__1 ;
-    public final void rule__Relation__Group_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__Relation__Group_1__1"
+    // InternalAltarica.g:5752:1: rule__Relation__Group_1__1 : rule__Relation__Group_1__1__Impl rule__Relation__Group_1__2 ;
+    public final void rule__Relation__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5488:1: ( rule__Relation__Group_1_0__0__Impl rule__Relation__Group_1_0__1 )
-            // InternalAltarica.g:5489:2: rule__Relation__Group_1_0__0__Impl rule__Relation__Group_1_0__1
+            // InternalAltarica.g:5756:1: ( rule__Relation__Group_1__1__Impl rule__Relation__Group_1__2 )
+            // InternalAltarica.g:5757:2: rule__Relation__Group_1__1__Impl rule__Relation__Group_1__2
             {
-            pushFollow(FOLLOW_43);
-            rule__Relation__Group_1_0__0__Impl();
+            pushFollow(FOLLOW_24);
+            rule__Relation__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__Relation__Group_1_0__1();
+            rule__Relation__Group_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15577,109 +16317,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__Group_1_0__0"
+    // $ANTLR end "rule__Relation__Group_1__1"
 
 
-    // $ANTLR start "rule__Relation__Group_1_0__0__Impl"
-    // InternalAltarica.g:5496:1: rule__Relation__Group_1_0__0__Impl : ( () ) ;
-    public final void rule__Relation__Group_1_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5500:1: ( ( () ) )
-            // InternalAltarica.g:5501:1: ( () )
-            {
-            // InternalAltarica.g:5501:1: ( () )
-            // InternalAltarica.g:5502:1: ()
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getRelationAccess().getEqualLeftAction_1_0_0()); 
-            }
-            // InternalAltarica.g:5503:1: ()
-            // InternalAltarica.g:5505:1: 
-            {
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getRelationAccess().getEqualLeftAction_1_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Relation__Group_1_0__0__Impl"
-
-
-    // $ANTLR start "rule__Relation__Group_1_0__1"
-    // InternalAltarica.g:5515:1: rule__Relation__Group_1_0__1 : rule__Relation__Group_1_0__1__Impl rule__Relation__Group_1_0__2 ;
-    public final void rule__Relation__Group_1_0__1() throws RecognitionException {
+    // $ANTLR start "rule__Relation__Group_1__1__Impl"
+    // InternalAltarica.g:5764:1: rule__Relation__Group_1__1__Impl : ( ( rule__Relation__OpAssignment_1_1 ) ) ;
+    public final void rule__Relation__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5519:1: ( rule__Relation__Group_1_0__1__Impl rule__Relation__Group_1_0__2 )
-            // InternalAltarica.g:5520:2: rule__Relation__Group_1_0__1__Impl rule__Relation__Group_1_0__2
+            // InternalAltarica.g:5768:1: ( ( ( rule__Relation__OpAssignment_1_1 ) ) )
+            // InternalAltarica.g:5769:1: ( ( rule__Relation__OpAssignment_1_1 ) )
             {
-            pushFollow(FOLLOW_20);
-            rule__Relation__Group_1_0__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__Relation__Group_1_0__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Relation__Group_1_0__1"
-
-
-    // $ANTLR start "rule__Relation__Group_1_0__1__Impl"
-    // InternalAltarica.g:5527:1: rule__Relation__Group_1_0__1__Impl : ( ( rule__Relation__OpAssignment_1_0_1 ) ) ;
-    public final void rule__Relation__Group_1_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5531:1: ( ( ( rule__Relation__OpAssignment_1_0_1 ) ) )
-            // InternalAltarica.g:5532:1: ( ( rule__Relation__OpAssignment_1_0_1 ) )
-            {
-            // InternalAltarica.g:5532:1: ( ( rule__Relation__OpAssignment_1_0_1 ) )
-            // InternalAltarica.g:5533:1: ( rule__Relation__OpAssignment_1_0_1 )
+            // InternalAltarica.g:5769:1: ( ( rule__Relation__OpAssignment_1_1 ) )
+            // InternalAltarica.g:5770:1: ( rule__Relation__OpAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRelationAccess().getOpAssignment_1_0_1()); 
+               before(grammarAccess.getRelationAccess().getOpAssignment_1_1()); 
             }
-            // InternalAltarica.g:5534:1: ( rule__Relation__OpAssignment_1_0_1 )
-            // InternalAltarica.g:5534:2: rule__Relation__OpAssignment_1_0_1
+            // InternalAltarica.g:5771:1: ( rule__Relation__OpAssignment_1_1 )
+            // InternalAltarica.g:5771:2: rule__Relation__OpAssignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__Relation__OpAssignment_1_0_1();
+            rule__Relation__OpAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15687,7 +16348,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRelationAccess().getOpAssignment_1_0_1()); 
+               after(grammarAccess.getRelationAccess().getOpAssignment_1_1()); 
             }
 
             }
@@ -15707,21 +16368,21 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__Group_1_0__1__Impl"
+    // $ANTLR end "rule__Relation__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__Relation__Group_1_0__2"
-    // InternalAltarica.g:5544:1: rule__Relation__Group_1_0__2 : rule__Relation__Group_1_0__2__Impl ;
-    public final void rule__Relation__Group_1_0__2() throws RecognitionException {
+    // $ANTLR start "rule__Relation__Group_1__2"
+    // InternalAltarica.g:5781:1: rule__Relation__Group_1__2 : rule__Relation__Group_1__2__Impl ;
+    public final void rule__Relation__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5548:1: ( rule__Relation__Group_1_0__2__Impl )
-            // InternalAltarica.g:5549:2: rule__Relation__Group_1_0__2__Impl
+            // InternalAltarica.g:5785:1: ( rule__Relation__Group_1__2__Impl )
+            // InternalAltarica.g:5786:2: rule__Relation__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Relation__Group_1_0__2__Impl();
+            rule__Relation__Group_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15740,30 +16401,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__Group_1_0__2"
+    // $ANTLR end "rule__Relation__Group_1__2"
 
 
-    // $ANTLR start "rule__Relation__Group_1_0__2__Impl"
-    // InternalAltarica.g:5555:1: rule__Relation__Group_1_0__2__Impl : ( ( rule__Relation__RightAssignment_1_0_2 ) ) ;
-    public final void rule__Relation__Group_1_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Relation__Group_1__2__Impl"
+    // InternalAltarica.g:5792:1: rule__Relation__Group_1__2__Impl : ( ( rule__Relation__RightAssignment_1_2 ) ) ;
+    public final void rule__Relation__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5559:1: ( ( ( rule__Relation__RightAssignment_1_0_2 ) ) )
-            // InternalAltarica.g:5560:1: ( ( rule__Relation__RightAssignment_1_0_2 ) )
+            // InternalAltarica.g:5796:1: ( ( ( rule__Relation__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:5797:1: ( ( rule__Relation__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:5560:1: ( ( rule__Relation__RightAssignment_1_0_2 ) )
-            // InternalAltarica.g:5561:1: ( rule__Relation__RightAssignment_1_0_2 )
+            // InternalAltarica.g:5797:1: ( ( rule__Relation__RightAssignment_1_2 ) )
+            // InternalAltarica.g:5798:1: ( rule__Relation__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRelationAccess().getRightAssignment_1_0_2()); 
+               before(grammarAccess.getRelationAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:5562:1: ( rule__Relation__RightAssignment_1_0_2 )
-            // InternalAltarica.g:5562:2: rule__Relation__RightAssignment_1_0_2
+            // InternalAltarica.g:5799:1: ( rule__Relation__RightAssignment_1_2 )
+            // InternalAltarica.g:5799:2: rule__Relation__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__Relation__RightAssignment_1_0_2();
+            rule__Relation__RightAssignment_1_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -15771,7 +16432,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRelationAccess().getRightAssignment_1_0_2()); 
+               after(grammarAccess.getRelationAccess().getRightAssignment_1_2()); 
             }
 
             }
@@ -15791,20 +16452,20 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__Group_1_0__2__Impl"
+    // $ANTLR end "rule__Relation__Group_1__2__Impl"
 
 
     // $ANTLR start "rule__Addition__Group__0"
-    // InternalAltarica.g:5578:1: rule__Addition__Group__0 : rule__Addition__Group__0__Impl rule__Addition__Group__1 ;
+    // InternalAltarica.g:5815:1: rule__Addition__Group__0 : rule__Addition__Group__0__Impl rule__Addition__Group__1 ;
     public final void rule__Addition__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5582:1: ( rule__Addition__Group__0__Impl rule__Addition__Group__1 )
-            // InternalAltarica.g:5583:2: rule__Addition__Group__0__Impl rule__Addition__Group__1
+            // InternalAltarica.g:5819:1: ( rule__Addition__Group__0__Impl rule__Addition__Group__1 )
+            // InternalAltarica.g:5820:2: rule__Addition__Group__0__Impl rule__Addition__Group__1
             {
-            pushFollow(FOLLOW_45);
+            pushFollow(FOLLOW_49);
             rule__Addition__Group__0__Impl();
 
             state._fsp--;
@@ -15833,17 +16494,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Addition__Group__0__Impl"
-    // InternalAltarica.g:5590:1: rule__Addition__Group__0__Impl : ( ruleMultiplication ) ;
+    // InternalAltarica.g:5827:1: rule__Addition__Group__0__Impl : ( ruleMultiplication ) ;
     public final void rule__Addition__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5594:1: ( ( ruleMultiplication ) )
-            // InternalAltarica.g:5595:1: ( ruleMultiplication )
+            // InternalAltarica.g:5831:1: ( ( ruleMultiplication ) )
+            // InternalAltarica.g:5832:1: ( ruleMultiplication )
             {
-            // InternalAltarica.g:5595:1: ( ruleMultiplication )
-            // InternalAltarica.g:5596:1: ruleMultiplication
+            // InternalAltarica.g:5832:1: ( ruleMultiplication )
+            // InternalAltarica.g:5833:1: ruleMultiplication
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAdditionAccess().getMultiplicationParserRuleCall_0()); 
@@ -15878,14 +16539,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Addition__Group__1"
-    // InternalAltarica.g:5607:1: rule__Addition__Group__1 : rule__Addition__Group__1__Impl ;
+    // InternalAltarica.g:5844:1: rule__Addition__Group__1 : rule__Addition__Group__1__Impl ;
     public final void rule__Addition__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5611:1: ( rule__Addition__Group__1__Impl )
-            // InternalAltarica.g:5612:2: rule__Addition__Group__1__Impl
+            // InternalAltarica.g:5848:1: ( rule__Addition__Group__1__Impl )
+            // InternalAltarica.g:5849:2: rule__Addition__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Addition__Group__1__Impl();
@@ -15911,37 +16572,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Addition__Group__1__Impl"
-    // InternalAltarica.g:5618:1: rule__Addition__Group__1__Impl : ( ( rule__Addition__Group_1__0 )* ) ;
+    // InternalAltarica.g:5855:1: rule__Addition__Group__1__Impl : ( ( rule__Addition__Group_1__0 )* ) ;
     public final void rule__Addition__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5622:1: ( ( ( rule__Addition__Group_1__0 )* ) )
-            // InternalAltarica.g:5623:1: ( ( rule__Addition__Group_1__0 )* )
+            // InternalAltarica.g:5859:1: ( ( ( rule__Addition__Group_1__0 )* ) )
+            // InternalAltarica.g:5860:1: ( ( rule__Addition__Group_1__0 )* )
             {
-            // InternalAltarica.g:5623:1: ( ( rule__Addition__Group_1__0 )* )
-            // InternalAltarica.g:5624:1: ( rule__Addition__Group_1__0 )*
+            // InternalAltarica.g:5860:1: ( ( rule__Addition__Group_1__0 )* )
+            // InternalAltarica.g:5861:1: ( rule__Addition__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAdditionAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:5625:1: ( rule__Addition__Group_1__0 )*
-            loop33:
+            // InternalAltarica.g:5862:1: ( rule__Addition__Group_1__0 )*
+            loop36:
             do {
-                int alt33=2;
-                int LA33_0 = input.LA(1);
+                int alt36=2;
+                int LA36_0 = input.LA(1);
 
-                if ( ((LA33_0>=22 && LA33_0<=23)) ) {
-                    alt33=1;
+                if ( ((LA36_0>=22 && LA36_0<=23)) ) {
+                    alt36=1;
                 }
 
 
-                switch (alt33) {
+                switch (alt36) {
             	case 1 :
-            	    // InternalAltarica.g:5625:2: rule__Addition__Group_1__0
+            	    // InternalAltarica.g:5862:2: rule__Addition__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_46);
+            	    pushFollow(FOLLOW_50);
             	    rule__Addition__Group_1__0();
 
             	    state._fsp--;
@@ -15951,7 +16612,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop33;
+            	    break loop36;
                 }
             } while (true);
 
@@ -15980,17 +16641,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Addition__Group_1__0"
-    // InternalAltarica.g:5639:1: rule__Addition__Group_1__0 : rule__Addition__Group_1__0__Impl ;
+    // InternalAltarica.g:5876:1: rule__Addition__Group_1__0 : rule__Addition__Group_1__0__Impl rule__Addition__Group_1__1 ;
     public final void rule__Addition__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5643:1: ( rule__Addition__Group_1__0__Impl )
-            // InternalAltarica.g:5644:2: rule__Addition__Group_1__0__Impl
+            // InternalAltarica.g:5880:1: ( rule__Addition__Group_1__0__Impl rule__Addition__Group_1__1 )
+            // InternalAltarica.g:5881:2: rule__Addition__Group_1__0__Impl rule__Addition__Group_1__1
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_49);
             rule__Addition__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Addition__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16013,34 +16679,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Addition__Group_1__0__Impl"
-    // InternalAltarica.g:5650:1: rule__Addition__Group_1__0__Impl : ( ( rule__Addition__Group_1_0__0 ) ) ;
+    // InternalAltarica.g:5888:1: rule__Addition__Group_1__0__Impl : ( () ) ;
     public final void rule__Addition__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5654:1: ( ( ( rule__Addition__Group_1_0__0 ) ) )
-            // InternalAltarica.g:5655:1: ( ( rule__Addition__Group_1_0__0 ) )
+            // InternalAltarica.g:5892:1: ( ( () ) )
+            // InternalAltarica.g:5893:1: ( () )
             {
-            // InternalAltarica.g:5655:1: ( ( rule__Addition__Group_1_0__0 ) )
-            // InternalAltarica.g:5656:1: ( rule__Addition__Group_1_0__0 )
+            // InternalAltarica.g:5893:1: ( () )
+            // InternalAltarica.g:5894:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAdditionAccess().getGroup_1_0()); 
+               before(grammarAccess.getAdditionAccess().getAdditionLeftAction_1_0()); 
             }
-            // InternalAltarica.g:5657:1: ( rule__Addition__Group_1_0__0 )
-            // InternalAltarica.g:5657:2: rule__Addition__Group_1_0__0
+            // InternalAltarica.g:5895:1: ()
+            // InternalAltarica.g:5897:1: 
             {
-            pushFollow(FOLLOW_2);
-            rule__Addition__Group_1_0__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAdditionAccess().getGroup_1_0()); 
+               after(grammarAccess.getAdditionAccess().getAdditionLeftAction_1_0()); 
             }
 
             }
@@ -16048,10 +16708,6 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -16063,23 +16719,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Addition__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__Addition__Group_1_0__0"
-    // InternalAltarica.g:5669:1: rule__Addition__Group_1_0__0 : rule__Addition__Group_1_0__0__Impl rule__Addition__Group_1_0__1 ;
-    public final void rule__Addition__Group_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__Addition__Group_1__1"
+    // InternalAltarica.g:5907:1: rule__Addition__Group_1__1 : rule__Addition__Group_1__1__Impl rule__Addition__Group_1__2 ;
+    public final void rule__Addition__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5673:1: ( rule__Addition__Group_1_0__0__Impl rule__Addition__Group_1_0__1 )
-            // InternalAltarica.g:5674:2: rule__Addition__Group_1_0__0__Impl rule__Addition__Group_1_0__1
+            // InternalAltarica.g:5911:1: ( rule__Addition__Group_1__1__Impl rule__Addition__Group_1__2 )
+            // InternalAltarica.g:5912:2: rule__Addition__Group_1__1__Impl rule__Addition__Group_1__2
             {
-            pushFollow(FOLLOW_45);
-            rule__Addition__Group_1_0__0__Impl();
+            pushFollow(FOLLOW_24);
+            rule__Addition__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__Addition__Group_1_0__1();
+            rule__Addition__Group_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16098,109 +16754,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Addition__Group_1_0__0"
+    // $ANTLR end "rule__Addition__Group_1__1"
 
 
-    // $ANTLR start "rule__Addition__Group_1_0__0__Impl"
-    // InternalAltarica.g:5681:1: rule__Addition__Group_1_0__0__Impl : ( () ) ;
-    public final void rule__Addition__Group_1_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5685:1: ( ( () ) )
-            // InternalAltarica.g:5686:1: ( () )
-            {
-            // InternalAltarica.g:5686:1: ( () )
-            // InternalAltarica.g:5687:1: ()
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getAdditionAccess().getAdditionLeftAction_1_0_0()); 
-            }
-            // InternalAltarica.g:5688:1: ()
-            // InternalAltarica.g:5690:1: 
-            {
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getAdditionAccess().getAdditionLeftAction_1_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Addition__Group_1_0__0__Impl"
-
-
-    // $ANTLR start "rule__Addition__Group_1_0__1"
-    // InternalAltarica.g:5700:1: rule__Addition__Group_1_0__1 : rule__Addition__Group_1_0__1__Impl rule__Addition__Group_1_0__2 ;
-    public final void rule__Addition__Group_1_0__1() throws RecognitionException {
+    // $ANTLR start "rule__Addition__Group_1__1__Impl"
+    // InternalAltarica.g:5919:1: rule__Addition__Group_1__1__Impl : ( ( rule__Addition__OpAssignment_1_1 ) ) ;
+    public final void rule__Addition__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5704:1: ( rule__Addition__Group_1_0__1__Impl rule__Addition__Group_1_0__2 )
-            // InternalAltarica.g:5705:2: rule__Addition__Group_1_0__1__Impl rule__Addition__Group_1_0__2
+            // InternalAltarica.g:5923:1: ( ( ( rule__Addition__OpAssignment_1_1 ) ) )
+            // InternalAltarica.g:5924:1: ( ( rule__Addition__OpAssignment_1_1 ) )
             {
-            pushFollow(FOLLOW_20);
-            rule__Addition__Group_1_0__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__Addition__Group_1_0__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Addition__Group_1_0__1"
-
-
-    // $ANTLR start "rule__Addition__Group_1_0__1__Impl"
-    // InternalAltarica.g:5712:1: rule__Addition__Group_1_0__1__Impl : ( ( rule__Addition__OpAssignment_1_0_1 ) ) ;
-    public final void rule__Addition__Group_1_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5716:1: ( ( ( rule__Addition__OpAssignment_1_0_1 ) ) )
-            // InternalAltarica.g:5717:1: ( ( rule__Addition__OpAssignment_1_0_1 ) )
-            {
-            // InternalAltarica.g:5717:1: ( ( rule__Addition__OpAssignment_1_0_1 ) )
-            // InternalAltarica.g:5718:1: ( rule__Addition__OpAssignment_1_0_1 )
+            // InternalAltarica.g:5924:1: ( ( rule__Addition__OpAssignment_1_1 ) )
+            // InternalAltarica.g:5925:1: ( rule__Addition__OpAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAdditionAccess().getOpAssignment_1_0_1()); 
+               before(grammarAccess.getAdditionAccess().getOpAssignment_1_1()); 
             }
-            // InternalAltarica.g:5719:1: ( rule__Addition__OpAssignment_1_0_1 )
-            // InternalAltarica.g:5719:2: rule__Addition__OpAssignment_1_0_1
+            // InternalAltarica.g:5926:1: ( rule__Addition__OpAssignment_1_1 )
+            // InternalAltarica.g:5926:2: rule__Addition__OpAssignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__Addition__OpAssignment_1_0_1();
+            rule__Addition__OpAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16208,7 +16785,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAdditionAccess().getOpAssignment_1_0_1()); 
+               after(grammarAccess.getAdditionAccess().getOpAssignment_1_1()); 
             }
 
             }
@@ -16228,21 +16805,21 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Addition__Group_1_0__1__Impl"
+    // $ANTLR end "rule__Addition__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__Addition__Group_1_0__2"
-    // InternalAltarica.g:5729:1: rule__Addition__Group_1_0__2 : rule__Addition__Group_1_0__2__Impl ;
-    public final void rule__Addition__Group_1_0__2() throws RecognitionException {
+    // $ANTLR start "rule__Addition__Group_1__2"
+    // InternalAltarica.g:5936:1: rule__Addition__Group_1__2 : rule__Addition__Group_1__2__Impl ;
+    public final void rule__Addition__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5733:1: ( rule__Addition__Group_1_0__2__Impl )
-            // InternalAltarica.g:5734:2: rule__Addition__Group_1_0__2__Impl
+            // InternalAltarica.g:5940:1: ( rule__Addition__Group_1__2__Impl )
+            // InternalAltarica.g:5941:2: rule__Addition__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Addition__Group_1_0__2__Impl();
+            rule__Addition__Group_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16261,30 +16838,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Addition__Group_1_0__2"
+    // $ANTLR end "rule__Addition__Group_1__2"
 
 
-    // $ANTLR start "rule__Addition__Group_1_0__2__Impl"
-    // InternalAltarica.g:5740:1: rule__Addition__Group_1_0__2__Impl : ( ( rule__Addition__RightAssignment_1_0_2 ) ) ;
-    public final void rule__Addition__Group_1_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Addition__Group_1__2__Impl"
+    // InternalAltarica.g:5947:1: rule__Addition__Group_1__2__Impl : ( ( rule__Addition__RightAssignment_1_2 ) ) ;
+    public final void rule__Addition__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5744:1: ( ( ( rule__Addition__RightAssignment_1_0_2 ) ) )
-            // InternalAltarica.g:5745:1: ( ( rule__Addition__RightAssignment_1_0_2 ) )
+            // InternalAltarica.g:5951:1: ( ( ( rule__Addition__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:5952:1: ( ( rule__Addition__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:5745:1: ( ( rule__Addition__RightAssignment_1_0_2 ) )
-            // InternalAltarica.g:5746:1: ( rule__Addition__RightAssignment_1_0_2 )
+            // InternalAltarica.g:5952:1: ( ( rule__Addition__RightAssignment_1_2 ) )
+            // InternalAltarica.g:5953:1: ( rule__Addition__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAdditionAccess().getRightAssignment_1_0_2()); 
+               before(grammarAccess.getAdditionAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:5747:1: ( rule__Addition__RightAssignment_1_0_2 )
-            // InternalAltarica.g:5747:2: rule__Addition__RightAssignment_1_0_2
+            // InternalAltarica.g:5954:1: ( rule__Addition__RightAssignment_1_2 )
+            // InternalAltarica.g:5954:2: rule__Addition__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__Addition__RightAssignment_1_0_2();
+            rule__Addition__RightAssignment_1_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16292,7 +16869,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAdditionAccess().getRightAssignment_1_0_2()); 
+               after(grammarAccess.getAdditionAccess().getRightAssignment_1_2()); 
             }
 
             }
@@ -16312,20 +16889,20 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Addition__Group_1_0__2__Impl"
+    // $ANTLR end "rule__Addition__Group_1__2__Impl"
 
 
     // $ANTLR start "rule__Multiplication__Group__0"
-    // InternalAltarica.g:5763:1: rule__Multiplication__Group__0 : rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1 ;
+    // InternalAltarica.g:5970:1: rule__Multiplication__Group__0 : rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1 ;
     public final void rule__Multiplication__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5767:1: ( rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1 )
-            // InternalAltarica.g:5768:2: rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1
+            // InternalAltarica.g:5974:1: ( rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1 )
+            // InternalAltarica.g:5975:2: rule__Multiplication__Group__0__Impl rule__Multiplication__Group__1
             {
-            pushFollow(FOLLOW_47);
+            pushFollow(FOLLOW_51);
             rule__Multiplication__Group__0__Impl();
 
             state._fsp--;
@@ -16354,17 +16931,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Multiplication__Group__0__Impl"
-    // InternalAltarica.g:5775:1: rule__Multiplication__Group__0__Impl : ( ruleNeg ) ;
+    // InternalAltarica.g:5982:1: rule__Multiplication__Group__0__Impl : ( ruleNeg ) ;
     public final void rule__Multiplication__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5779:1: ( ( ruleNeg ) )
-            // InternalAltarica.g:5780:1: ( ruleNeg )
+            // InternalAltarica.g:5986:1: ( ( ruleNeg ) )
+            // InternalAltarica.g:5987:1: ( ruleNeg )
             {
-            // InternalAltarica.g:5780:1: ( ruleNeg )
-            // InternalAltarica.g:5781:1: ruleNeg
+            // InternalAltarica.g:5987:1: ( ruleNeg )
+            // InternalAltarica.g:5988:1: ruleNeg
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicationAccess().getNegParserRuleCall_0()); 
@@ -16399,14 +16976,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Multiplication__Group__1"
-    // InternalAltarica.g:5792:1: rule__Multiplication__Group__1 : rule__Multiplication__Group__1__Impl ;
+    // InternalAltarica.g:5999:1: rule__Multiplication__Group__1 : rule__Multiplication__Group__1__Impl ;
     public final void rule__Multiplication__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5796:1: ( rule__Multiplication__Group__1__Impl )
-            // InternalAltarica.g:5797:2: rule__Multiplication__Group__1__Impl
+            // InternalAltarica.g:6003:1: ( rule__Multiplication__Group__1__Impl )
+            // InternalAltarica.g:6004:2: rule__Multiplication__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Multiplication__Group__1__Impl();
@@ -16432,37 +17009,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Multiplication__Group__1__Impl"
-    // InternalAltarica.g:5803:1: rule__Multiplication__Group__1__Impl : ( ( rule__Multiplication__Group_1__0 )* ) ;
+    // InternalAltarica.g:6010:1: rule__Multiplication__Group__1__Impl : ( ( rule__Multiplication__Group_1__0 )* ) ;
     public final void rule__Multiplication__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5807:1: ( ( ( rule__Multiplication__Group_1__0 )* ) )
-            // InternalAltarica.g:5808:1: ( ( rule__Multiplication__Group_1__0 )* )
+            // InternalAltarica.g:6014:1: ( ( ( rule__Multiplication__Group_1__0 )* ) )
+            // InternalAltarica.g:6015:1: ( ( rule__Multiplication__Group_1__0 )* )
             {
-            // InternalAltarica.g:5808:1: ( ( rule__Multiplication__Group_1__0 )* )
-            // InternalAltarica.g:5809:1: ( rule__Multiplication__Group_1__0 )*
+            // InternalAltarica.g:6015:1: ( ( rule__Multiplication__Group_1__0 )* )
+            // InternalAltarica.g:6016:1: ( rule__Multiplication__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getMultiplicationAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:5810:1: ( rule__Multiplication__Group_1__0 )*
-            loop34:
+            // InternalAltarica.g:6017:1: ( rule__Multiplication__Group_1__0 )*
+            loop37:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt37=2;
+                int LA37_0 = input.LA(1);
 
-                if ( ((LA34_0>=24 && LA34_0<=25)) ) {
-                    alt34=1;
+                if ( ((LA37_0>=24 && LA37_0<=25)) ) {
+                    alt37=1;
                 }
 
 
-                switch (alt34) {
+                switch (alt37) {
             	case 1 :
-            	    // InternalAltarica.g:5810:2: rule__Multiplication__Group_1__0
+            	    // InternalAltarica.g:6017:2: rule__Multiplication__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_48);
+            	    pushFollow(FOLLOW_52);
             	    rule__Multiplication__Group_1__0();
 
             	    state._fsp--;
@@ -16472,7 +17049,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop37;
                 }
             } while (true);
 
@@ -16501,17 +17078,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Multiplication__Group_1__0"
-    // InternalAltarica.g:5824:1: rule__Multiplication__Group_1__0 : rule__Multiplication__Group_1__0__Impl ;
+    // InternalAltarica.g:6031:1: rule__Multiplication__Group_1__0 : rule__Multiplication__Group_1__0__Impl rule__Multiplication__Group_1__1 ;
     public final void rule__Multiplication__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5828:1: ( rule__Multiplication__Group_1__0__Impl )
-            // InternalAltarica.g:5829:2: rule__Multiplication__Group_1__0__Impl
+            // InternalAltarica.g:6035:1: ( rule__Multiplication__Group_1__0__Impl rule__Multiplication__Group_1__1 )
+            // InternalAltarica.g:6036:2: rule__Multiplication__Group_1__0__Impl rule__Multiplication__Group_1__1
             {
-            pushFollow(FOLLOW_2);
+            pushFollow(FOLLOW_51);
             rule__Multiplication__Group_1__0__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Multiplication__Group_1__1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16534,34 +17116,28 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Multiplication__Group_1__0__Impl"
-    // InternalAltarica.g:5835:1: rule__Multiplication__Group_1__0__Impl : ( ( rule__Multiplication__Group_1_0__0 ) ) ;
+    // InternalAltarica.g:6043:1: rule__Multiplication__Group_1__0__Impl : ( () ) ;
     public final void rule__Multiplication__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5839:1: ( ( ( rule__Multiplication__Group_1_0__0 ) ) )
-            // InternalAltarica.g:5840:1: ( ( rule__Multiplication__Group_1_0__0 ) )
+            // InternalAltarica.g:6047:1: ( ( () ) )
+            // InternalAltarica.g:6048:1: ( () )
             {
-            // InternalAltarica.g:5840:1: ( ( rule__Multiplication__Group_1_0__0 ) )
-            // InternalAltarica.g:5841:1: ( rule__Multiplication__Group_1_0__0 )
+            // InternalAltarica.g:6048:1: ( () )
+            // InternalAltarica.g:6049:1: ()
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicationAccess().getGroup_1_0()); 
+               before(grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0()); 
             }
-            // InternalAltarica.g:5842:1: ( rule__Multiplication__Group_1_0__0 )
-            // InternalAltarica.g:5842:2: rule__Multiplication__Group_1_0__0
+            // InternalAltarica.g:6050:1: ()
+            // InternalAltarica.g:6052:1: 
             {
-            pushFollow(FOLLOW_2);
-            rule__Multiplication__Group_1_0__0();
-
-            state._fsp--;
-            if (state.failed) return ;
-
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicationAccess().getGroup_1_0()); 
+               after(grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0()); 
             }
 
             }
@@ -16569,10 +17145,6 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
             }
 
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
         }
         finally {
 
@@ -16584,23 +17156,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Multiplication__Group_1__0__Impl"
 
 
-    // $ANTLR start "rule__Multiplication__Group_1_0__0"
-    // InternalAltarica.g:5854:1: rule__Multiplication__Group_1_0__0 : rule__Multiplication__Group_1_0__0__Impl rule__Multiplication__Group_1_0__1 ;
-    public final void rule__Multiplication__Group_1_0__0() throws RecognitionException {
+    // $ANTLR start "rule__Multiplication__Group_1__1"
+    // InternalAltarica.g:6062:1: rule__Multiplication__Group_1__1 : rule__Multiplication__Group_1__1__Impl rule__Multiplication__Group_1__2 ;
+    public final void rule__Multiplication__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5858:1: ( rule__Multiplication__Group_1_0__0__Impl rule__Multiplication__Group_1_0__1 )
-            // InternalAltarica.g:5859:2: rule__Multiplication__Group_1_0__0__Impl rule__Multiplication__Group_1_0__1
+            // InternalAltarica.g:6066:1: ( rule__Multiplication__Group_1__1__Impl rule__Multiplication__Group_1__2 )
+            // InternalAltarica.g:6067:2: rule__Multiplication__Group_1__1__Impl rule__Multiplication__Group_1__2
             {
-            pushFollow(FOLLOW_47);
-            rule__Multiplication__Group_1_0__0__Impl();
+            pushFollow(FOLLOW_24);
+            rule__Multiplication__Group_1__1__Impl();
 
             state._fsp--;
             if (state.failed) return ;
             pushFollow(FOLLOW_2);
-            rule__Multiplication__Group_1_0__1();
+            rule__Multiplication__Group_1__2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16619,109 +17191,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__Group_1_0__0"
+    // $ANTLR end "rule__Multiplication__Group_1__1"
 
 
-    // $ANTLR start "rule__Multiplication__Group_1_0__0__Impl"
-    // InternalAltarica.g:5866:1: rule__Multiplication__Group_1_0__0__Impl : ( () ) ;
-    public final void rule__Multiplication__Group_1_0__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5870:1: ( ( () ) )
-            // InternalAltarica.g:5871:1: ( () )
-            {
-            // InternalAltarica.g:5871:1: ( () )
-            // InternalAltarica.g:5872:1: ()
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0_0()); 
-            }
-            // InternalAltarica.g:5873:1: ()
-            // InternalAltarica.g:5875:1: 
-            {
-            }
-
-            if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicationAccess().getMultiplicationLeftAction_1_0_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Multiplication__Group_1_0__0__Impl"
-
-
-    // $ANTLR start "rule__Multiplication__Group_1_0__1"
-    // InternalAltarica.g:5885:1: rule__Multiplication__Group_1_0__1 : rule__Multiplication__Group_1_0__1__Impl rule__Multiplication__Group_1_0__2 ;
-    public final void rule__Multiplication__Group_1_0__1() throws RecognitionException {
+    // $ANTLR start "rule__Multiplication__Group_1__1__Impl"
+    // InternalAltarica.g:6074:1: rule__Multiplication__Group_1__1__Impl : ( ( rule__Multiplication__OpAssignment_1_1 ) ) ;
+    public final void rule__Multiplication__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5889:1: ( rule__Multiplication__Group_1_0__1__Impl rule__Multiplication__Group_1_0__2 )
-            // InternalAltarica.g:5890:2: rule__Multiplication__Group_1_0__1__Impl rule__Multiplication__Group_1_0__2
+            // InternalAltarica.g:6078:1: ( ( ( rule__Multiplication__OpAssignment_1_1 ) ) )
+            // InternalAltarica.g:6079:1: ( ( rule__Multiplication__OpAssignment_1_1 ) )
             {
-            pushFollow(FOLLOW_20);
-            rule__Multiplication__Group_1_0__1__Impl();
-
-            state._fsp--;
-            if (state.failed) return ;
-            pushFollow(FOLLOW_2);
-            rule__Multiplication__Group_1_0__2();
-
-            state._fsp--;
-            if (state.failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end "rule__Multiplication__Group_1_0__1"
-
-
-    // $ANTLR start "rule__Multiplication__Group_1_0__1__Impl"
-    // InternalAltarica.g:5897:1: rule__Multiplication__Group_1_0__1__Impl : ( ( rule__Multiplication__OpAssignment_1_0_1 ) ) ;
-    public final void rule__Multiplication__Group_1_0__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // InternalAltarica.g:5901:1: ( ( ( rule__Multiplication__OpAssignment_1_0_1 ) ) )
-            // InternalAltarica.g:5902:1: ( ( rule__Multiplication__OpAssignment_1_0_1 ) )
-            {
-            // InternalAltarica.g:5902:1: ( ( rule__Multiplication__OpAssignment_1_0_1 ) )
-            // InternalAltarica.g:5903:1: ( rule__Multiplication__OpAssignment_1_0_1 )
+            // InternalAltarica.g:6079:1: ( ( rule__Multiplication__OpAssignment_1_1 ) )
+            // InternalAltarica.g:6080:1: ( rule__Multiplication__OpAssignment_1_1 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicationAccess().getOpAssignment_1_0_1()); 
+               before(grammarAccess.getMultiplicationAccess().getOpAssignment_1_1()); 
             }
-            // InternalAltarica.g:5904:1: ( rule__Multiplication__OpAssignment_1_0_1 )
-            // InternalAltarica.g:5904:2: rule__Multiplication__OpAssignment_1_0_1
+            // InternalAltarica.g:6081:1: ( rule__Multiplication__OpAssignment_1_1 )
+            // InternalAltarica.g:6081:2: rule__Multiplication__OpAssignment_1_1
             {
             pushFollow(FOLLOW_2);
-            rule__Multiplication__OpAssignment_1_0_1();
+            rule__Multiplication__OpAssignment_1_1();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16729,7 +17222,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicationAccess().getOpAssignment_1_0_1()); 
+               after(grammarAccess.getMultiplicationAccess().getOpAssignment_1_1()); 
             }
 
             }
@@ -16749,21 +17242,21 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__Group_1_0__1__Impl"
+    // $ANTLR end "rule__Multiplication__Group_1__1__Impl"
 
 
-    // $ANTLR start "rule__Multiplication__Group_1_0__2"
-    // InternalAltarica.g:5914:1: rule__Multiplication__Group_1_0__2 : rule__Multiplication__Group_1_0__2__Impl ;
-    public final void rule__Multiplication__Group_1_0__2() throws RecognitionException {
+    // $ANTLR start "rule__Multiplication__Group_1__2"
+    // InternalAltarica.g:6091:1: rule__Multiplication__Group_1__2 : rule__Multiplication__Group_1__2__Impl ;
+    public final void rule__Multiplication__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5918:1: ( rule__Multiplication__Group_1_0__2__Impl )
-            // InternalAltarica.g:5919:2: rule__Multiplication__Group_1_0__2__Impl
+            // InternalAltarica.g:6095:1: ( rule__Multiplication__Group_1__2__Impl )
+            // InternalAltarica.g:6096:2: rule__Multiplication__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
-            rule__Multiplication__Group_1_0__2__Impl();
+            rule__Multiplication__Group_1__2__Impl();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16782,30 +17275,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__Group_1_0__2"
+    // $ANTLR end "rule__Multiplication__Group_1__2"
 
 
-    // $ANTLR start "rule__Multiplication__Group_1_0__2__Impl"
-    // InternalAltarica.g:5925:1: rule__Multiplication__Group_1_0__2__Impl : ( ( rule__Multiplication__RightAssignment_1_0_2 ) ) ;
-    public final void rule__Multiplication__Group_1_0__2__Impl() throws RecognitionException {
+    // $ANTLR start "rule__Multiplication__Group_1__2__Impl"
+    // InternalAltarica.g:6102:1: rule__Multiplication__Group_1__2__Impl : ( ( rule__Multiplication__RightAssignment_1_2 ) ) ;
+    public final void rule__Multiplication__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5929:1: ( ( ( rule__Multiplication__RightAssignment_1_0_2 ) ) )
-            // InternalAltarica.g:5930:1: ( ( rule__Multiplication__RightAssignment_1_0_2 ) )
+            // InternalAltarica.g:6106:1: ( ( ( rule__Multiplication__RightAssignment_1_2 ) ) )
+            // InternalAltarica.g:6107:1: ( ( rule__Multiplication__RightAssignment_1_2 ) )
             {
-            // InternalAltarica.g:5930:1: ( ( rule__Multiplication__RightAssignment_1_0_2 ) )
-            // InternalAltarica.g:5931:1: ( rule__Multiplication__RightAssignment_1_0_2 )
+            // InternalAltarica.g:6107:1: ( ( rule__Multiplication__RightAssignment_1_2 ) )
+            // InternalAltarica.g:6108:1: ( rule__Multiplication__RightAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicationAccess().getRightAssignment_1_0_2()); 
+               before(grammarAccess.getMultiplicationAccess().getRightAssignment_1_2()); 
             }
-            // InternalAltarica.g:5932:1: ( rule__Multiplication__RightAssignment_1_0_2 )
-            // InternalAltarica.g:5932:2: rule__Multiplication__RightAssignment_1_0_2
+            // InternalAltarica.g:6109:1: ( rule__Multiplication__RightAssignment_1_2 )
+            // InternalAltarica.g:6109:2: rule__Multiplication__RightAssignment_1_2
             {
             pushFollow(FOLLOW_2);
-            rule__Multiplication__RightAssignment_1_0_2();
+            rule__Multiplication__RightAssignment_1_2();
 
             state._fsp--;
             if (state.failed) return ;
@@ -16813,7 +17306,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicationAccess().getRightAssignment_1_0_2()); 
+               after(grammarAccess.getMultiplicationAccess().getRightAssignment_1_2()); 
             }
 
             }
@@ -16833,20 +17326,20 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__Group_1_0__2__Impl"
+    // $ANTLR end "rule__Multiplication__Group_1__2__Impl"
 
 
     // $ANTLR start "rule__Neg__Group_0__0"
-    // InternalAltarica.g:5948:1: rule__Neg__Group_0__0 : rule__Neg__Group_0__0__Impl rule__Neg__Group_0__1 ;
+    // InternalAltarica.g:6125:1: rule__Neg__Group_0__0 : rule__Neg__Group_0__0__Impl rule__Neg__Group_0__1 ;
     public final void rule__Neg__Group_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5952:1: ( rule__Neg__Group_0__0__Impl rule__Neg__Group_0__1 )
-            // InternalAltarica.g:5953:2: rule__Neg__Group_0__0__Impl rule__Neg__Group_0__1
+            // InternalAltarica.g:6129:1: ( rule__Neg__Group_0__0__Impl rule__Neg__Group_0__1 )
+            // InternalAltarica.g:6130:2: rule__Neg__Group_0__0__Impl rule__Neg__Group_0__1
             {
-            pushFollow(FOLLOW_49);
+            pushFollow(FOLLOW_53);
             rule__Neg__Group_0__0__Impl();
 
             state._fsp--;
@@ -16875,23 +17368,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_0__0__Impl"
-    // InternalAltarica.g:5960:1: rule__Neg__Group_0__0__Impl : ( () ) ;
+    // InternalAltarica.g:6137:1: rule__Neg__Group_0__0__Impl : ( () ) ;
     public final void rule__Neg__Group_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5964:1: ( ( () ) )
-            // InternalAltarica.g:5965:1: ( () )
+            // InternalAltarica.g:6141:1: ( ( () ) )
+            // InternalAltarica.g:6142:1: ( () )
             {
-            // InternalAltarica.g:5965:1: ( () )
-            // InternalAltarica.g:5966:1: ()
+            // InternalAltarica.g:6142:1: ( () )
+            // InternalAltarica.g:6143:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getNotAction_0_0()); 
             }
-            // InternalAltarica.g:5967:1: ()
-            // InternalAltarica.g:5969:1: 
+            // InternalAltarica.g:6144:1: ()
+            // InternalAltarica.g:6146:1: 
             {
             }
 
@@ -16916,16 +17409,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_0__1"
-    // InternalAltarica.g:5979:1: rule__Neg__Group_0__1 : rule__Neg__Group_0__1__Impl rule__Neg__Group_0__2 ;
+    // InternalAltarica.g:6156:1: rule__Neg__Group_0__1 : rule__Neg__Group_0__1__Impl rule__Neg__Group_0__2 ;
     public final void rule__Neg__Group_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5983:1: ( rule__Neg__Group_0__1__Impl rule__Neg__Group_0__2 )
-            // InternalAltarica.g:5984:2: rule__Neg__Group_0__1__Impl rule__Neg__Group_0__2
+            // InternalAltarica.g:6160:1: ( rule__Neg__Group_0__1__Impl rule__Neg__Group_0__2 )
+            // InternalAltarica.g:6161:2: rule__Neg__Group_0__1__Impl rule__Neg__Group_0__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Neg__Group_0__1__Impl();
 
             state._fsp--;
@@ -16954,25 +17447,25 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_0__1__Impl"
-    // InternalAltarica.g:5991:1: rule__Neg__Group_0__1__Impl : ( ( 'not' ) ) ;
+    // InternalAltarica.g:6168:1: rule__Neg__Group_0__1__Impl : ( ( 'not' ) ) ;
     public final void rule__Neg__Group_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:5995:1: ( ( ( 'not' ) ) )
-            // InternalAltarica.g:5996:1: ( ( 'not' ) )
+            // InternalAltarica.g:6172:1: ( ( ( 'not' ) ) )
+            // InternalAltarica.g:6173:1: ( ( 'not' ) )
             {
-            // InternalAltarica.g:5996:1: ( ( 'not' ) )
-            // InternalAltarica.g:5997:1: ( 'not' )
+            // InternalAltarica.g:6173:1: ( ( 'not' ) )
+            // InternalAltarica.g:6174:1: ( 'not' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getNotKeyword_0_1()); 
             }
-            // InternalAltarica.g:5998:1: ( 'not' )
-            // InternalAltarica.g:5999:2: 'not'
+            // InternalAltarica.g:6175:1: ( 'not' )
+            // InternalAltarica.g:6176:2: 'not'
             {
-            match(input,58,FOLLOW_2); if (state.failed) return ;
+            match(input,62,FOLLOW_2); if (state.failed) return ;
 
             }
 
@@ -17001,14 +17494,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_0__2"
-    // InternalAltarica.g:6010:1: rule__Neg__Group_0__2 : rule__Neg__Group_0__2__Impl ;
+    // InternalAltarica.g:6187:1: rule__Neg__Group_0__2 : rule__Neg__Group_0__2__Impl ;
     public final void rule__Neg__Group_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6014:1: ( rule__Neg__Group_0__2__Impl )
-            // InternalAltarica.g:6015:2: rule__Neg__Group_0__2__Impl
+            // InternalAltarica.g:6191:1: ( rule__Neg__Group_0__2__Impl )
+            // InternalAltarica.g:6192:2: rule__Neg__Group_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Neg__Group_0__2__Impl();
@@ -17034,23 +17527,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_0__2__Impl"
-    // InternalAltarica.g:6021:1: rule__Neg__Group_0__2__Impl : ( ( rule__Neg__ExpressionAssignment_0_2 ) ) ;
+    // InternalAltarica.g:6198:1: rule__Neg__Group_0__2__Impl : ( ( rule__Neg__ExpressionAssignment_0_2 ) ) ;
     public final void rule__Neg__Group_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6025:1: ( ( ( rule__Neg__ExpressionAssignment_0_2 ) ) )
-            // InternalAltarica.g:6026:1: ( ( rule__Neg__ExpressionAssignment_0_2 ) )
+            // InternalAltarica.g:6202:1: ( ( ( rule__Neg__ExpressionAssignment_0_2 ) ) )
+            // InternalAltarica.g:6203:1: ( ( rule__Neg__ExpressionAssignment_0_2 ) )
             {
-            // InternalAltarica.g:6026:1: ( ( rule__Neg__ExpressionAssignment_0_2 ) )
-            // InternalAltarica.g:6027:1: ( rule__Neg__ExpressionAssignment_0_2 )
+            // InternalAltarica.g:6203:1: ( ( rule__Neg__ExpressionAssignment_0_2 ) )
+            // InternalAltarica.g:6204:1: ( rule__Neg__ExpressionAssignment_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getExpressionAssignment_0_2()); 
             }
-            // InternalAltarica.g:6028:1: ( rule__Neg__ExpressionAssignment_0_2 )
-            // InternalAltarica.g:6028:2: rule__Neg__ExpressionAssignment_0_2
+            // InternalAltarica.g:6205:1: ( rule__Neg__ExpressionAssignment_0_2 )
+            // InternalAltarica.g:6205:2: rule__Neg__ExpressionAssignment_0_2
             {
             pushFollow(FOLLOW_2);
             rule__Neg__ExpressionAssignment_0_2();
@@ -17085,16 +17578,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_1__0"
-    // InternalAltarica.g:6044:1: rule__Neg__Group_1__0 : rule__Neg__Group_1__0__Impl rule__Neg__Group_1__1 ;
+    // InternalAltarica.g:6221:1: rule__Neg__Group_1__0 : rule__Neg__Group_1__0__Impl rule__Neg__Group_1__1 ;
     public final void rule__Neg__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6048:1: ( rule__Neg__Group_1__0__Impl rule__Neg__Group_1__1 )
-            // InternalAltarica.g:6049:2: rule__Neg__Group_1__0__Impl rule__Neg__Group_1__1
+            // InternalAltarica.g:6225:1: ( rule__Neg__Group_1__0__Impl rule__Neg__Group_1__1 )
+            // InternalAltarica.g:6226:2: rule__Neg__Group_1__0__Impl rule__Neg__Group_1__1
             {
-            pushFollow(FOLLOW_50);
+            pushFollow(FOLLOW_54);
             rule__Neg__Group_1__0__Impl();
 
             state._fsp--;
@@ -17123,23 +17616,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_1__0__Impl"
-    // InternalAltarica.g:6056:1: rule__Neg__Group_1__0__Impl : ( () ) ;
+    // InternalAltarica.g:6233:1: rule__Neg__Group_1__0__Impl : ( () ) ;
     public final void rule__Neg__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6060:1: ( ( () ) )
-            // InternalAltarica.g:6061:1: ( () )
+            // InternalAltarica.g:6237:1: ( ( () ) )
+            // InternalAltarica.g:6238:1: ( () )
             {
-            // InternalAltarica.g:6061:1: ( () )
-            // InternalAltarica.g:6062:1: ()
+            // InternalAltarica.g:6238:1: ( () )
+            // InternalAltarica.g:6239:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getMinusAction_1_0()); 
             }
-            // InternalAltarica.g:6063:1: ()
-            // InternalAltarica.g:6065:1: 
+            // InternalAltarica.g:6240:1: ()
+            // InternalAltarica.g:6242:1: 
             {
             }
 
@@ -17164,16 +17657,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_1__1"
-    // InternalAltarica.g:6075:1: rule__Neg__Group_1__1 : rule__Neg__Group_1__1__Impl rule__Neg__Group_1__2 ;
+    // InternalAltarica.g:6252:1: rule__Neg__Group_1__1 : rule__Neg__Group_1__1__Impl rule__Neg__Group_1__2 ;
     public final void rule__Neg__Group_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6079:1: ( rule__Neg__Group_1__1__Impl rule__Neg__Group_1__2 )
-            // InternalAltarica.g:6080:2: rule__Neg__Group_1__1__Impl rule__Neg__Group_1__2
+            // InternalAltarica.g:6256:1: ( rule__Neg__Group_1__1__Impl rule__Neg__Group_1__2 )
+            // InternalAltarica.g:6257:2: rule__Neg__Group_1__1__Impl rule__Neg__Group_1__2
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Neg__Group_1__1__Impl();
 
             state._fsp--;
@@ -17202,23 +17695,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_1__1__Impl"
-    // InternalAltarica.g:6087:1: rule__Neg__Group_1__1__Impl : ( ( '-' ) ) ;
+    // InternalAltarica.g:6264:1: rule__Neg__Group_1__1__Impl : ( ( '-' ) ) ;
     public final void rule__Neg__Group_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6091:1: ( ( ( '-' ) ) )
-            // InternalAltarica.g:6092:1: ( ( '-' ) )
+            // InternalAltarica.g:6268:1: ( ( ( '-' ) ) )
+            // InternalAltarica.g:6269:1: ( ( '-' ) )
             {
-            // InternalAltarica.g:6092:1: ( ( '-' ) )
-            // InternalAltarica.g:6093:1: ( '-' )
+            // InternalAltarica.g:6269:1: ( ( '-' ) )
+            // InternalAltarica.g:6270:1: ( '-' )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getHyphenMinusKeyword_1_1()); 
             }
-            // InternalAltarica.g:6094:1: ( '-' )
-            // InternalAltarica.g:6095:2: '-'
+            // InternalAltarica.g:6271:1: ( '-' )
+            // InternalAltarica.g:6272:2: '-'
             {
             match(input,23,FOLLOW_2); if (state.failed) return ;
 
@@ -17249,14 +17742,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_1__2"
-    // InternalAltarica.g:6106:1: rule__Neg__Group_1__2 : rule__Neg__Group_1__2__Impl ;
+    // InternalAltarica.g:6283:1: rule__Neg__Group_1__2 : rule__Neg__Group_1__2__Impl ;
     public final void rule__Neg__Group_1__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6110:1: ( rule__Neg__Group_1__2__Impl )
-            // InternalAltarica.g:6111:2: rule__Neg__Group_1__2__Impl
+            // InternalAltarica.g:6287:1: ( rule__Neg__Group_1__2__Impl )
+            // InternalAltarica.g:6288:2: rule__Neg__Group_1__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Neg__Group_1__2__Impl();
@@ -17282,23 +17775,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__Group_1__2__Impl"
-    // InternalAltarica.g:6117:1: rule__Neg__Group_1__2__Impl : ( ( rule__Neg__ExpressionAssignment_1_2 ) ) ;
+    // InternalAltarica.g:6294:1: rule__Neg__Group_1__2__Impl : ( ( rule__Neg__ExpressionAssignment_1_2 ) ) ;
     public final void rule__Neg__Group_1__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6121:1: ( ( ( rule__Neg__ExpressionAssignment_1_2 ) ) )
-            // InternalAltarica.g:6122:1: ( ( rule__Neg__ExpressionAssignment_1_2 ) )
+            // InternalAltarica.g:6298:1: ( ( ( rule__Neg__ExpressionAssignment_1_2 ) ) )
+            // InternalAltarica.g:6299:1: ( ( rule__Neg__ExpressionAssignment_1_2 ) )
             {
-            // InternalAltarica.g:6122:1: ( ( rule__Neg__ExpressionAssignment_1_2 ) )
-            // InternalAltarica.g:6123:1: ( rule__Neg__ExpressionAssignment_1_2 )
+            // InternalAltarica.g:6299:1: ( ( rule__Neg__ExpressionAssignment_1_2 ) )
+            // InternalAltarica.g:6300:1: ( rule__Neg__ExpressionAssignment_1_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getExpressionAssignment_1_2()); 
             }
-            // InternalAltarica.g:6124:1: ( rule__Neg__ExpressionAssignment_1_2 )
-            // InternalAltarica.g:6124:2: rule__Neg__ExpressionAssignment_1_2
+            // InternalAltarica.g:6301:1: ( rule__Neg__ExpressionAssignment_1_2 )
+            // InternalAltarica.g:6301:2: rule__Neg__ExpressionAssignment_1_2
             {
             pushFollow(FOLLOW_2);
             rule__Neg__ExpressionAssignment_1_2();
@@ -17333,16 +17826,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Group_6__0"
-    // InternalAltarica.g:6140:1: rule__Atom__Group_6__0 : rule__Atom__Group_6__0__Impl rule__Atom__Group_6__1 ;
+    // InternalAltarica.g:6317:1: rule__Atom__Group_6__0 : rule__Atom__Group_6__0__Impl rule__Atom__Group_6__1 ;
     public final void rule__Atom__Group_6__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6144:1: ( rule__Atom__Group_6__0__Impl rule__Atom__Group_6__1 )
-            // InternalAltarica.g:6145:2: rule__Atom__Group_6__0__Impl rule__Atom__Group_6__1
+            // InternalAltarica.g:6321:1: ( rule__Atom__Group_6__0__Impl rule__Atom__Group_6__1 )
+            // InternalAltarica.g:6322:2: rule__Atom__Group_6__0__Impl rule__Atom__Group_6__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__Atom__Group_6__0__Impl();
 
             state._fsp--;
@@ -17371,22 +17864,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Group_6__0__Impl"
-    // InternalAltarica.g:6152:1: rule__Atom__Group_6__0__Impl : ( '(' ) ;
+    // InternalAltarica.g:6329:1: rule__Atom__Group_6__0__Impl : ( '(' ) ;
     public final void rule__Atom__Group_6__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6156:1: ( ( '(' ) )
-            // InternalAltarica.g:6157:1: ( '(' )
+            // InternalAltarica.g:6333:1: ( ( '(' ) )
+            // InternalAltarica.g:6334:1: ( '(' )
             {
-            // InternalAltarica.g:6157:1: ( '(' )
-            // InternalAltarica.g:6158:1: '('
+            // InternalAltarica.g:6334:1: ( '(' )
+            // InternalAltarica.g:6335:1: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomAccess().getLeftParenthesisKeyword_6_0()); 
             }
-            match(input,42,FOLLOW_2); if (state.failed) return ;
+            match(input,46,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAtomAccess().getLeftParenthesisKeyword_6_0()); 
             }
@@ -17412,16 +17905,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Group_6__1"
-    // InternalAltarica.g:6171:1: rule__Atom__Group_6__1 : rule__Atom__Group_6__1__Impl rule__Atom__Group_6__2 ;
+    // InternalAltarica.g:6348:1: rule__Atom__Group_6__1 : rule__Atom__Group_6__1__Impl rule__Atom__Group_6__2 ;
     public final void rule__Atom__Group_6__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6175:1: ( rule__Atom__Group_6__1__Impl rule__Atom__Group_6__2 )
-            // InternalAltarica.g:6176:2: rule__Atom__Group_6__1__Impl rule__Atom__Group_6__2
+            // InternalAltarica.g:6352:1: ( rule__Atom__Group_6__1__Impl rule__Atom__Group_6__2 )
+            // InternalAltarica.g:6353:2: rule__Atom__Group_6__1__Impl rule__Atom__Group_6__2
             {
-            pushFollow(FOLLOW_51);
+            pushFollow(FOLLOW_55);
             rule__Atom__Group_6__1__Impl();
 
             state._fsp--;
@@ -17450,17 +17943,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Group_6__1__Impl"
-    // InternalAltarica.g:6183:1: rule__Atom__Group_6__1__Impl : ( ruleExpression ) ;
+    // InternalAltarica.g:6360:1: rule__Atom__Group_6__1__Impl : ( ruleExpression ) ;
     public final void rule__Atom__Group_6__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6187:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:6188:1: ( ruleExpression )
+            // InternalAltarica.g:6364:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:6365:1: ( ruleExpression )
             {
-            // InternalAltarica.g:6188:1: ( ruleExpression )
-            // InternalAltarica.g:6189:1: ruleExpression
+            // InternalAltarica.g:6365:1: ( ruleExpression )
+            // InternalAltarica.g:6366:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomAccess().getExpressionParserRuleCall_6_1()); 
@@ -17495,14 +17988,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Group_6__2"
-    // InternalAltarica.g:6200:1: rule__Atom__Group_6__2 : rule__Atom__Group_6__2__Impl ;
+    // InternalAltarica.g:6377:1: rule__Atom__Group_6__2 : rule__Atom__Group_6__2__Impl ;
     public final void rule__Atom__Group_6__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6204:1: ( rule__Atom__Group_6__2__Impl )
-            // InternalAltarica.g:6205:2: rule__Atom__Group_6__2__Impl
+            // InternalAltarica.g:6381:1: ( rule__Atom__Group_6__2__Impl )
+            // InternalAltarica.g:6382:2: rule__Atom__Group_6__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__Atom__Group_6__2__Impl();
@@ -17528,22 +18021,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Atom__Group_6__2__Impl"
-    // InternalAltarica.g:6211:1: rule__Atom__Group_6__2__Impl : ( ')' ) ;
+    // InternalAltarica.g:6388:1: rule__Atom__Group_6__2__Impl : ( ')' ) ;
     public final void rule__Atom__Group_6__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6215:1: ( ( ')' ) )
-            // InternalAltarica.g:6216:1: ( ')' )
+            // InternalAltarica.g:6392:1: ( ( ')' ) )
+            // InternalAltarica.g:6393:1: ( ')' )
             {
-            // InternalAltarica.g:6216:1: ( ')' )
-            // InternalAltarica.g:6217:1: ')'
+            // InternalAltarica.g:6393:1: ( ')' )
+            // InternalAltarica.g:6394:1: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAtomAccess().getRightParenthesisKeyword_6_2()); 
             }
-            match(input,43,FOLLOW_2); if (state.failed) return ;
+            match(input,47,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getAtomAccess().getRightParenthesisKeyword_6_2()); 
             }
@@ -17569,16 +18062,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group__0"
-    // InternalAltarica.g:6236:1: rule__NameRef__Group__0 : rule__NameRef__Group__0__Impl rule__NameRef__Group__1 ;
+    // InternalAltarica.g:6413:1: rule__NameRef__Group__0 : rule__NameRef__Group__0__Impl rule__NameRef__Group__1 ;
     public final void rule__NameRef__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6240:1: ( rule__NameRef__Group__0__Impl rule__NameRef__Group__1 )
-            // InternalAltarica.g:6241:2: rule__NameRef__Group__0__Impl rule__NameRef__Group__1
+            // InternalAltarica.g:6417:1: ( rule__NameRef__Group__0__Impl rule__NameRef__Group__1 )
+            // InternalAltarica.g:6418:2: rule__NameRef__Group__0__Impl rule__NameRef__Group__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_56);
             rule__NameRef__Group__0__Impl();
 
             state._fsp--;
@@ -17607,23 +18100,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group__0__Impl"
-    // InternalAltarica.g:6248:1: rule__NameRef__Group__0__Impl : ( ( rule__NameRef__VariableAssignment_0 ) ) ;
+    // InternalAltarica.g:6425:1: rule__NameRef__Group__0__Impl : ( ( rule__NameRef__VariableAssignment_0 ) ) ;
     public final void rule__NameRef__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6252:1: ( ( ( rule__NameRef__VariableAssignment_0 ) ) )
-            // InternalAltarica.g:6253:1: ( ( rule__NameRef__VariableAssignment_0 ) )
+            // InternalAltarica.g:6429:1: ( ( ( rule__NameRef__VariableAssignment_0 ) ) )
+            // InternalAltarica.g:6430:1: ( ( rule__NameRef__VariableAssignment_0 ) )
             {
-            // InternalAltarica.g:6253:1: ( ( rule__NameRef__VariableAssignment_0 ) )
-            // InternalAltarica.g:6254:1: ( rule__NameRef__VariableAssignment_0 )
+            // InternalAltarica.g:6430:1: ( ( rule__NameRef__VariableAssignment_0 ) )
+            // InternalAltarica.g:6431:1: ( rule__NameRef__VariableAssignment_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getVariableAssignment_0()); 
             }
-            // InternalAltarica.g:6255:1: ( rule__NameRef__VariableAssignment_0 )
-            // InternalAltarica.g:6255:2: rule__NameRef__VariableAssignment_0
+            // InternalAltarica.g:6432:1: ( rule__NameRef__VariableAssignment_0 )
+            // InternalAltarica.g:6432:2: rule__NameRef__VariableAssignment_0
             {
             pushFollow(FOLLOW_2);
             rule__NameRef__VariableAssignment_0();
@@ -17658,14 +18151,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group__1"
-    // InternalAltarica.g:6265:1: rule__NameRef__Group__1 : rule__NameRef__Group__1__Impl ;
+    // InternalAltarica.g:6442:1: rule__NameRef__Group__1 : rule__NameRef__Group__1__Impl ;
     public final void rule__NameRef__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6269:1: ( rule__NameRef__Group__1__Impl )
-            // InternalAltarica.g:6270:2: rule__NameRef__Group__1__Impl
+            // InternalAltarica.g:6446:1: ( rule__NameRef__Group__1__Impl )
+            // InternalAltarica.g:6447:2: rule__NameRef__Group__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NameRef__Group__1__Impl();
@@ -17691,37 +18184,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group__1__Impl"
-    // InternalAltarica.g:6276:1: rule__NameRef__Group__1__Impl : ( ( rule__NameRef__Group_1__0 )* ) ;
+    // InternalAltarica.g:6453:1: rule__NameRef__Group__1__Impl : ( ( rule__NameRef__Group_1__0 )* ) ;
     public final void rule__NameRef__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6280:1: ( ( ( rule__NameRef__Group_1__0 )* ) )
-            // InternalAltarica.g:6281:1: ( ( rule__NameRef__Group_1__0 )* )
+            // InternalAltarica.g:6457:1: ( ( ( rule__NameRef__Group_1__0 )* ) )
+            // InternalAltarica.g:6458:1: ( ( rule__NameRef__Group_1__0 )* )
             {
-            // InternalAltarica.g:6281:1: ( ( rule__NameRef__Group_1__0 )* )
-            // InternalAltarica.g:6282:1: ( rule__NameRef__Group_1__0 )*
+            // InternalAltarica.g:6458:1: ( ( rule__NameRef__Group_1__0 )* )
+            // InternalAltarica.g:6459:1: ( rule__NameRef__Group_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getGroup_1()); 
             }
-            // InternalAltarica.g:6283:1: ( rule__NameRef__Group_1__0 )*
-            loop35:
+            // InternalAltarica.g:6460:1: ( rule__NameRef__Group_1__0 )*
+            loop38:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt38=2;
+                int LA38_0 = input.LA(1);
 
-                if ( (LA35_0==59) ) {
-                    alt35=1;
+                if ( (LA38_0==63) ) {
+                    alt38=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt38) {
             	case 1 :
-            	    // InternalAltarica.g:6283:2: rule__NameRef__Group_1__0
+            	    // InternalAltarica.g:6460:2: rule__NameRef__Group_1__0
             	    {
-            	    pushFollow(FOLLOW_53);
+            	    pushFollow(FOLLOW_57);
             	    rule__NameRef__Group_1__0();
 
             	    state._fsp--;
@@ -17731,7 +18224,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop38;
                 }
             } while (true);
 
@@ -17760,14 +18253,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1__0"
-    // InternalAltarica.g:6297:1: rule__NameRef__Group_1__0 : rule__NameRef__Group_1__0__Impl ;
+    // InternalAltarica.g:6474:1: rule__NameRef__Group_1__0 : rule__NameRef__Group_1__0__Impl ;
     public final void rule__NameRef__Group_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6301:1: ( rule__NameRef__Group_1__0__Impl )
-            // InternalAltarica.g:6302:2: rule__NameRef__Group_1__0__Impl
+            // InternalAltarica.g:6478:1: ( rule__NameRef__Group_1__0__Impl )
+            // InternalAltarica.g:6479:2: rule__NameRef__Group_1__0__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NameRef__Group_1__0__Impl();
@@ -17793,23 +18286,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1__0__Impl"
-    // InternalAltarica.g:6308:1: rule__NameRef__Group_1__0__Impl : ( ( rule__NameRef__Group_1_0__0 ) ) ;
+    // InternalAltarica.g:6485:1: rule__NameRef__Group_1__0__Impl : ( ( rule__NameRef__Group_1_0__0 ) ) ;
     public final void rule__NameRef__Group_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6312:1: ( ( ( rule__NameRef__Group_1_0__0 ) ) )
-            // InternalAltarica.g:6313:1: ( ( rule__NameRef__Group_1_0__0 ) )
+            // InternalAltarica.g:6489:1: ( ( ( rule__NameRef__Group_1_0__0 ) ) )
+            // InternalAltarica.g:6490:1: ( ( rule__NameRef__Group_1_0__0 ) )
             {
-            // InternalAltarica.g:6313:1: ( ( rule__NameRef__Group_1_0__0 ) )
-            // InternalAltarica.g:6314:1: ( rule__NameRef__Group_1_0__0 )
+            // InternalAltarica.g:6490:1: ( ( rule__NameRef__Group_1_0__0 ) )
+            // InternalAltarica.g:6491:1: ( rule__NameRef__Group_1_0__0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getGroup_1_0()); 
             }
-            // InternalAltarica.g:6315:1: ( rule__NameRef__Group_1_0__0 )
-            // InternalAltarica.g:6315:2: rule__NameRef__Group_1_0__0
+            // InternalAltarica.g:6492:1: ( rule__NameRef__Group_1_0__0 )
+            // InternalAltarica.g:6492:2: rule__NameRef__Group_1_0__0
             {
             pushFollow(FOLLOW_2);
             rule__NameRef__Group_1_0__0();
@@ -17844,16 +18337,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__0"
-    // InternalAltarica.g:6327:1: rule__NameRef__Group_1_0__0 : rule__NameRef__Group_1_0__0__Impl rule__NameRef__Group_1_0__1 ;
+    // InternalAltarica.g:6504:1: rule__NameRef__Group_1_0__0 : rule__NameRef__Group_1_0__0__Impl rule__NameRef__Group_1_0__1 ;
     public final void rule__NameRef__Group_1_0__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6331:1: ( rule__NameRef__Group_1_0__0__Impl rule__NameRef__Group_1_0__1 )
-            // InternalAltarica.g:6332:2: rule__NameRef__Group_1_0__0__Impl rule__NameRef__Group_1_0__1
+            // InternalAltarica.g:6508:1: ( rule__NameRef__Group_1_0__0__Impl rule__NameRef__Group_1_0__1 )
+            // InternalAltarica.g:6509:2: rule__NameRef__Group_1_0__0__Impl rule__NameRef__Group_1_0__1
             {
-            pushFollow(FOLLOW_52);
+            pushFollow(FOLLOW_56);
             rule__NameRef__Group_1_0__0__Impl();
 
             state._fsp--;
@@ -17882,23 +18375,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__0__Impl"
-    // InternalAltarica.g:6339:1: rule__NameRef__Group_1_0__0__Impl : ( () ) ;
+    // InternalAltarica.g:6516:1: rule__NameRef__Group_1_0__0__Impl : ( () ) ;
     public final void rule__NameRef__Group_1_0__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6343:1: ( ( () ) )
-            // InternalAltarica.g:6344:1: ( () )
+            // InternalAltarica.g:6520:1: ( ( () ) )
+            // InternalAltarica.g:6521:1: ( () )
             {
-            // InternalAltarica.g:6344:1: ( () )
-            // InternalAltarica.g:6345:1: ()
+            // InternalAltarica.g:6521:1: ( () )
+            // InternalAltarica.g:6522:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getNameRefNestedAction_1_0_0()); 
             }
-            // InternalAltarica.g:6346:1: ()
-            // InternalAltarica.g:6348:1: 
+            // InternalAltarica.g:6523:1: ()
+            // InternalAltarica.g:6525:1: 
             {
             }
 
@@ -17923,16 +18416,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__1"
-    // InternalAltarica.g:6358:1: rule__NameRef__Group_1_0__1 : rule__NameRef__Group_1_0__1__Impl rule__NameRef__Group_1_0__2 ;
+    // InternalAltarica.g:6535:1: rule__NameRef__Group_1_0__1 : rule__NameRef__Group_1_0__1__Impl rule__NameRef__Group_1_0__2 ;
     public final void rule__NameRef__Group_1_0__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6362:1: ( rule__NameRef__Group_1_0__1__Impl rule__NameRef__Group_1_0__2 )
-            // InternalAltarica.g:6363:2: rule__NameRef__Group_1_0__1__Impl rule__NameRef__Group_1_0__2
+            // InternalAltarica.g:6539:1: ( rule__NameRef__Group_1_0__1__Impl rule__NameRef__Group_1_0__2 )
+            // InternalAltarica.g:6540:2: rule__NameRef__Group_1_0__1__Impl rule__NameRef__Group_1_0__2
             {
-            pushFollow(FOLLOW_5);
+            pushFollow(FOLLOW_10);
             rule__NameRef__Group_1_0__1__Impl();
 
             state._fsp--;
@@ -17961,22 +18454,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__1__Impl"
-    // InternalAltarica.g:6370:1: rule__NameRef__Group_1_0__1__Impl : ( '.' ) ;
+    // InternalAltarica.g:6547:1: rule__NameRef__Group_1_0__1__Impl : ( '.' ) ;
     public final void rule__NameRef__Group_1_0__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6374:1: ( ( '.' ) )
-            // InternalAltarica.g:6375:1: ( '.' )
+            // InternalAltarica.g:6551:1: ( ( '.' ) )
+            // InternalAltarica.g:6552:1: ( '.' )
             {
-            // InternalAltarica.g:6375:1: ( '.' )
-            // InternalAltarica.g:6376:1: '.'
+            // InternalAltarica.g:6552:1: ( '.' )
+            // InternalAltarica.g:6553:1: '.'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getFullStopKeyword_1_0_1()); 
             }
-            match(input,59,FOLLOW_2); if (state.failed) return ;
+            match(input,63,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getNameRefAccess().getFullStopKeyword_1_0_1()); 
             }
@@ -18002,14 +18495,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__2"
-    // InternalAltarica.g:6389:1: rule__NameRef__Group_1_0__2 : rule__NameRef__Group_1_0__2__Impl ;
+    // InternalAltarica.g:6566:1: rule__NameRef__Group_1_0__2 : rule__NameRef__Group_1_0__2__Impl ;
     public final void rule__NameRef__Group_1_0__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6393:1: ( rule__NameRef__Group_1_0__2__Impl )
-            // InternalAltarica.g:6394:2: rule__NameRef__Group_1_0__2__Impl
+            // InternalAltarica.g:6570:1: ( rule__NameRef__Group_1_0__2__Impl )
+            // InternalAltarica.g:6571:2: rule__NameRef__Group_1_0__2__Impl
             {
             pushFollow(FOLLOW_2);
             rule__NameRef__Group_1_0__2__Impl();
@@ -18035,23 +18528,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__Group_1_0__2__Impl"
-    // InternalAltarica.g:6400:1: rule__NameRef__Group_1_0__2__Impl : ( ( rule__NameRef__VariableAssignment_1_0_2 ) ) ;
+    // InternalAltarica.g:6577:1: rule__NameRef__Group_1_0__2__Impl : ( ( rule__NameRef__VariableAssignment_1_0_2 ) ) ;
     public final void rule__NameRef__Group_1_0__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6404:1: ( ( ( rule__NameRef__VariableAssignment_1_0_2 ) ) )
-            // InternalAltarica.g:6405:1: ( ( rule__NameRef__VariableAssignment_1_0_2 ) )
+            // InternalAltarica.g:6581:1: ( ( ( rule__NameRef__VariableAssignment_1_0_2 ) ) )
+            // InternalAltarica.g:6582:1: ( ( rule__NameRef__VariableAssignment_1_0_2 ) )
             {
-            // InternalAltarica.g:6405:1: ( ( rule__NameRef__VariableAssignment_1_0_2 ) )
-            // InternalAltarica.g:6406:1: ( rule__NameRef__VariableAssignment_1_0_2 )
+            // InternalAltarica.g:6582:1: ( ( rule__NameRef__VariableAssignment_1_0_2 ) )
+            // InternalAltarica.g:6583:1: ( rule__NameRef__VariableAssignment_1_0_2 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getVariableAssignment_1_0_2()); 
             }
-            // InternalAltarica.g:6407:1: ( rule__NameRef__VariableAssignment_1_0_2 )
-            // InternalAltarica.g:6407:2: rule__NameRef__VariableAssignment_1_0_2
+            // InternalAltarica.g:6584:1: ( rule__NameRef__VariableAssignment_1_0_2 )
+            // InternalAltarica.g:6584:2: rule__NameRef__VariableAssignment_1_0_2
             {
             pushFollow(FOLLOW_2);
             rule__NameRef__VariableAssignment_1_0_2();
@@ -18086,14 +18579,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__0"
-    // InternalAltarica.g:6423:1: rule__SwitchExpression__Group__0 : rule__SwitchExpression__Group__0__Impl rule__SwitchExpression__Group__1 ;
+    // InternalAltarica.g:6600:1: rule__SwitchExpression__Group__0 : rule__SwitchExpression__Group__0__Impl rule__SwitchExpression__Group__1 ;
     public final void rule__SwitchExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6427:1: ( rule__SwitchExpression__Group__0__Impl rule__SwitchExpression__Group__1 )
-            // InternalAltarica.g:6428:2: rule__SwitchExpression__Group__0__Impl rule__SwitchExpression__Group__1
+            // InternalAltarica.g:6604:1: ( rule__SwitchExpression__Group__0__Impl rule__SwitchExpression__Group__1 )
+            // InternalAltarica.g:6605:2: rule__SwitchExpression__Group__0__Impl rule__SwitchExpression__Group__1
             {
             pushFollow(FOLLOW_6);
             rule__SwitchExpression__Group__0__Impl();
@@ -18124,22 +18617,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__0__Impl"
-    // InternalAltarica.g:6435:1: rule__SwitchExpression__Group__0__Impl : ( 'switch' ) ;
+    // InternalAltarica.g:6612:1: rule__SwitchExpression__Group__0__Impl : ( 'switch' ) ;
     public final void rule__SwitchExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6439:1: ( ( 'switch' ) )
-            // InternalAltarica.g:6440:1: ( 'switch' )
+            // InternalAltarica.g:6616:1: ( ( 'switch' ) )
+            // InternalAltarica.g:6617:1: ( 'switch' )
             {
-            // InternalAltarica.g:6440:1: ( 'switch' )
-            // InternalAltarica.g:6441:1: 'switch'
+            // InternalAltarica.g:6617:1: ( 'switch' )
+            // InternalAltarica.g:6618:1: 'switch'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getSwitchKeyword_0()); 
             }
-            match(input,57,FOLLOW_2); if (state.failed) return ;
+            match(input,61,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchExpressionAccess().getSwitchKeyword_0()); 
             }
@@ -18165,16 +18658,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__1"
-    // InternalAltarica.g:6454:1: rule__SwitchExpression__Group__1 : rule__SwitchExpression__Group__1__Impl rule__SwitchExpression__Group__2 ;
+    // InternalAltarica.g:6631:1: rule__SwitchExpression__Group__1 : rule__SwitchExpression__Group__1__Impl rule__SwitchExpression__Group__2 ;
     public final void rule__SwitchExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6458:1: ( rule__SwitchExpression__Group__1__Impl rule__SwitchExpression__Group__2 )
-            // InternalAltarica.g:6459:2: rule__SwitchExpression__Group__1__Impl rule__SwitchExpression__Group__2
+            // InternalAltarica.g:6635:1: ( rule__SwitchExpression__Group__1__Impl rule__SwitchExpression__Group__2 )
+            // InternalAltarica.g:6636:2: rule__SwitchExpression__Group__1__Impl rule__SwitchExpression__Group__2
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_58);
             rule__SwitchExpression__Group__1__Impl();
 
             state._fsp--;
@@ -18203,22 +18696,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__1__Impl"
-    // InternalAltarica.g:6466:1: rule__SwitchExpression__Group__1__Impl : ( '{' ) ;
+    // InternalAltarica.g:6643:1: rule__SwitchExpression__Group__1__Impl : ( '{' ) ;
     public final void rule__SwitchExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6470:1: ( ( '{' ) )
-            // InternalAltarica.g:6471:1: ( '{' )
+            // InternalAltarica.g:6647:1: ( ( '{' ) )
+            // InternalAltarica.g:6648:1: ( '{' )
             {
-            // InternalAltarica.g:6471:1: ( '{' )
-            // InternalAltarica.g:6472:1: '{'
+            // InternalAltarica.g:6648:1: ( '{' )
+            // InternalAltarica.g:6649:1: '{'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getLeftCurlyBracketKeyword_1()); 
             }
-            match(input,34,FOLLOW_2); if (state.failed) return ;
+            match(input,37,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchExpressionAccess().getLeftCurlyBracketKeyword_1()); 
             }
@@ -18244,16 +18737,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__2"
-    // InternalAltarica.g:6485:1: rule__SwitchExpression__Group__2 : rule__SwitchExpression__Group__2__Impl rule__SwitchExpression__Group__3 ;
+    // InternalAltarica.g:6662:1: rule__SwitchExpression__Group__2 : rule__SwitchExpression__Group__2__Impl rule__SwitchExpression__Group__3 ;
     public final void rule__SwitchExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6489:1: ( rule__SwitchExpression__Group__2__Impl rule__SwitchExpression__Group__3 )
-            // InternalAltarica.g:6490:2: rule__SwitchExpression__Group__2__Impl rule__SwitchExpression__Group__3
+            // InternalAltarica.g:6666:1: ( rule__SwitchExpression__Group__2__Impl rule__SwitchExpression__Group__3 )
+            // InternalAltarica.g:6667:2: rule__SwitchExpression__Group__2__Impl rule__SwitchExpression__Group__3
             {
-            pushFollow(FOLLOW_54);
+            pushFollow(FOLLOW_58);
             rule__SwitchExpression__Group__2__Impl();
 
             state._fsp--;
@@ -18282,37 +18775,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__2__Impl"
-    // InternalAltarica.g:6497:1: rule__SwitchExpression__Group__2__Impl : ( ( rule__SwitchExpression__CasesAssignment_2 )* ) ;
+    // InternalAltarica.g:6674:1: rule__SwitchExpression__Group__2__Impl : ( ( rule__SwitchExpression__CasesAssignment_2 )* ) ;
     public final void rule__SwitchExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6501:1: ( ( ( rule__SwitchExpression__CasesAssignment_2 )* ) )
-            // InternalAltarica.g:6502:1: ( ( rule__SwitchExpression__CasesAssignment_2 )* )
+            // InternalAltarica.g:6678:1: ( ( ( rule__SwitchExpression__CasesAssignment_2 )* ) )
+            // InternalAltarica.g:6679:1: ( ( rule__SwitchExpression__CasesAssignment_2 )* )
             {
-            // InternalAltarica.g:6502:1: ( ( rule__SwitchExpression__CasesAssignment_2 )* )
-            // InternalAltarica.g:6503:1: ( rule__SwitchExpression__CasesAssignment_2 )*
+            // InternalAltarica.g:6679:1: ( ( rule__SwitchExpression__CasesAssignment_2 )* )
+            // InternalAltarica.g:6680:1: ( rule__SwitchExpression__CasesAssignment_2 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getCasesAssignment_2()); 
             }
-            // InternalAltarica.g:6504:1: ( rule__SwitchExpression__CasesAssignment_2 )*
-            loop36:
+            // InternalAltarica.g:6681:1: ( rule__SwitchExpression__CasesAssignment_2 )*
+            loop39:
             do {
-                int alt36=2;
-                int LA36_0 = input.LA(1);
+                int alt39=2;
+                int LA39_0 = input.LA(1);
 
-                if ( (LA36_0==61) ) {
-                    alt36=1;
+                if ( (LA39_0==65) ) {
+                    alt39=1;
                 }
 
 
-                switch (alt36) {
+                switch (alt39) {
             	case 1 :
-            	    // InternalAltarica.g:6504:2: rule__SwitchExpression__CasesAssignment_2
+            	    // InternalAltarica.g:6681:2: rule__SwitchExpression__CasesAssignment_2
             	    {
-            	    pushFollow(FOLLOW_38);
+            	    pushFollow(FOLLOW_42);
             	    rule__SwitchExpression__CasesAssignment_2();
 
             	    state._fsp--;
@@ -18322,7 +18815,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop36;
+            	    break loop39;
                 }
             } while (true);
 
@@ -18351,16 +18844,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__3"
-    // InternalAltarica.g:6514:1: rule__SwitchExpression__Group__3 : rule__SwitchExpression__Group__3__Impl rule__SwitchExpression__Group__4 ;
+    // InternalAltarica.g:6691:1: rule__SwitchExpression__Group__3 : rule__SwitchExpression__Group__3__Impl rule__SwitchExpression__Group__4 ;
     public final void rule__SwitchExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6518:1: ( rule__SwitchExpression__Group__3__Impl rule__SwitchExpression__Group__4 )
-            // InternalAltarica.g:6519:2: rule__SwitchExpression__Group__3__Impl rule__SwitchExpression__Group__4
+            // InternalAltarica.g:6695:1: ( rule__SwitchExpression__Group__3__Impl rule__SwitchExpression__Group__4 )
+            // InternalAltarica.g:6696:2: rule__SwitchExpression__Group__3__Impl rule__SwitchExpression__Group__4
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_29);
             rule__SwitchExpression__Group__3__Impl();
 
             state._fsp--;
@@ -18389,22 +18882,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__3__Impl"
-    // InternalAltarica.g:6526:1: rule__SwitchExpression__Group__3__Impl : ( 'default' ) ;
+    // InternalAltarica.g:6703:1: rule__SwitchExpression__Group__3__Impl : ( 'default' ) ;
     public final void rule__SwitchExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6530:1: ( ( 'default' ) )
-            // InternalAltarica.g:6531:1: ( 'default' )
+            // InternalAltarica.g:6707:1: ( ( 'default' ) )
+            // InternalAltarica.g:6708:1: ( 'default' )
             {
-            // InternalAltarica.g:6531:1: ( 'default' )
-            // InternalAltarica.g:6532:1: 'default'
+            // InternalAltarica.g:6708:1: ( 'default' )
+            // InternalAltarica.g:6709:1: 'default'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getDefaultKeyword_3()); 
             }
-            match(input,60,FOLLOW_2); if (state.failed) return ;
+            match(input,64,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchExpressionAccess().getDefaultKeyword_3()); 
             }
@@ -18430,16 +18923,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__4"
-    // InternalAltarica.g:6545:1: rule__SwitchExpression__Group__4 : rule__SwitchExpression__Group__4__Impl rule__SwitchExpression__Group__5 ;
+    // InternalAltarica.g:6722:1: rule__SwitchExpression__Group__4 : rule__SwitchExpression__Group__4__Impl rule__SwitchExpression__Group__5 ;
     public final void rule__SwitchExpression__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6549:1: ( rule__SwitchExpression__Group__4__Impl rule__SwitchExpression__Group__5 )
-            // InternalAltarica.g:6550:2: rule__SwitchExpression__Group__4__Impl rule__SwitchExpression__Group__5
+            // InternalAltarica.g:6726:1: ( rule__SwitchExpression__Group__4__Impl rule__SwitchExpression__Group__5 )
+            // InternalAltarica.g:6727:2: rule__SwitchExpression__Group__4__Impl rule__SwitchExpression__Group__5
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__SwitchExpression__Group__4__Impl();
 
             state._fsp--;
@@ -18468,22 +18961,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__4__Impl"
-    // InternalAltarica.g:6557:1: rule__SwitchExpression__Group__4__Impl : ( ':' ) ;
+    // InternalAltarica.g:6734:1: rule__SwitchExpression__Group__4__Impl : ( ':' ) ;
     public final void rule__SwitchExpression__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6561:1: ( ( ':' ) )
-            // InternalAltarica.g:6562:1: ( ':' )
+            // InternalAltarica.g:6738:1: ( ( ':' ) )
+            // InternalAltarica.g:6739:1: ( ':' )
             {
-            // InternalAltarica.g:6562:1: ( ':' )
-            // InternalAltarica.g:6563:1: ':'
+            // InternalAltarica.g:6739:1: ( ':' )
+            // InternalAltarica.g:6740:1: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getColonKeyword_4()); 
             }
-            match(input,48,FOLLOW_2); if (state.failed) return ;
+            match(input,52,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchExpressionAccess().getColonKeyword_4()); 
             }
@@ -18509,16 +19002,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__5"
-    // InternalAltarica.g:6576:1: rule__SwitchExpression__Group__5 : rule__SwitchExpression__Group__5__Impl rule__SwitchExpression__Group__6 ;
+    // InternalAltarica.g:6753:1: rule__SwitchExpression__Group__5 : rule__SwitchExpression__Group__5__Impl rule__SwitchExpression__Group__6 ;
     public final void rule__SwitchExpression__Group__5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6580:1: ( rule__SwitchExpression__Group__5__Impl rule__SwitchExpression__Group__6 )
-            // InternalAltarica.g:6581:2: rule__SwitchExpression__Group__5__Impl rule__SwitchExpression__Group__6
+            // InternalAltarica.g:6757:1: ( rule__SwitchExpression__Group__5__Impl rule__SwitchExpression__Group__6 )
+            // InternalAltarica.g:6758:2: rule__SwitchExpression__Group__5__Impl rule__SwitchExpression__Group__6
             {
-            pushFollow(FOLLOW_33);
+            pushFollow(FOLLOW_37);
             rule__SwitchExpression__Group__5__Impl();
 
             state._fsp--;
@@ -18547,23 +19040,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__5__Impl"
-    // InternalAltarica.g:6588:1: rule__SwitchExpression__Group__5__Impl : ( ( rule__SwitchExpression__DefaultAssignment_5 ) ) ;
+    // InternalAltarica.g:6765:1: rule__SwitchExpression__Group__5__Impl : ( ( rule__SwitchExpression__DefaultAssignment_5 ) ) ;
     public final void rule__SwitchExpression__Group__5__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6592:1: ( ( ( rule__SwitchExpression__DefaultAssignment_5 ) ) )
-            // InternalAltarica.g:6593:1: ( ( rule__SwitchExpression__DefaultAssignment_5 ) )
+            // InternalAltarica.g:6769:1: ( ( ( rule__SwitchExpression__DefaultAssignment_5 ) ) )
+            // InternalAltarica.g:6770:1: ( ( rule__SwitchExpression__DefaultAssignment_5 ) )
             {
-            // InternalAltarica.g:6593:1: ( ( rule__SwitchExpression__DefaultAssignment_5 ) )
-            // InternalAltarica.g:6594:1: ( rule__SwitchExpression__DefaultAssignment_5 )
+            // InternalAltarica.g:6770:1: ( ( rule__SwitchExpression__DefaultAssignment_5 ) )
+            // InternalAltarica.g:6771:1: ( rule__SwitchExpression__DefaultAssignment_5 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getDefaultAssignment_5()); 
             }
-            // InternalAltarica.g:6595:1: ( rule__SwitchExpression__DefaultAssignment_5 )
-            // InternalAltarica.g:6595:2: rule__SwitchExpression__DefaultAssignment_5
+            // InternalAltarica.g:6772:1: ( rule__SwitchExpression__DefaultAssignment_5 )
+            // InternalAltarica.g:6772:2: rule__SwitchExpression__DefaultAssignment_5
             {
             pushFollow(FOLLOW_2);
             rule__SwitchExpression__DefaultAssignment_5();
@@ -18598,14 +19091,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__6"
-    // InternalAltarica.g:6605:1: rule__SwitchExpression__Group__6 : rule__SwitchExpression__Group__6__Impl ;
+    // InternalAltarica.g:6782:1: rule__SwitchExpression__Group__6 : rule__SwitchExpression__Group__6__Impl ;
     public final void rule__SwitchExpression__Group__6() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6609:1: ( rule__SwitchExpression__Group__6__Impl )
-            // InternalAltarica.g:6610:2: rule__SwitchExpression__Group__6__Impl
+            // InternalAltarica.g:6786:1: ( rule__SwitchExpression__Group__6__Impl )
+            // InternalAltarica.g:6787:2: rule__SwitchExpression__Group__6__Impl
             {
             pushFollow(FOLLOW_2);
             rule__SwitchExpression__Group__6__Impl();
@@ -18631,22 +19124,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__Group__6__Impl"
-    // InternalAltarica.g:6616:1: rule__SwitchExpression__Group__6__Impl : ( '}' ) ;
+    // InternalAltarica.g:6793:1: rule__SwitchExpression__Group__6__Impl : ( '}' ) ;
     public final void rule__SwitchExpression__Group__6__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6620:1: ( ( '}' ) )
-            // InternalAltarica.g:6621:1: ( '}' )
+            // InternalAltarica.g:6797:1: ( ( '}' ) )
+            // InternalAltarica.g:6798:1: ( '}' )
             {
-            // InternalAltarica.g:6621:1: ( '}' )
-            // InternalAltarica.g:6622:1: '}'
+            // InternalAltarica.g:6798:1: ( '}' )
+            // InternalAltarica.g:6799:1: '}'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getRightCurlyBracketKeyword_6()); 
             }
-            match(input,35,FOLLOW_2); if (state.failed) return ;
+            match(input,38,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getSwitchExpressionAccess().getRightCurlyBracketKeyword_6()); 
             }
@@ -18672,16 +19165,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__0"
-    // InternalAltarica.g:6649:1: rule__CaseExpression__Group__0 : rule__CaseExpression__Group__0__Impl rule__CaseExpression__Group__1 ;
+    // InternalAltarica.g:6826:1: rule__CaseExpression__Group__0 : rule__CaseExpression__Group__0__Impl rule__CaseExpression__Group__1 ;
     public final void rule__CaseExpression__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6653:1: ( rule__CaseExpression__Group__0__Impl rule__CaseExpression__Group__1 )
-            // InternalAltarica.g:6654:2: rule__CaseExpression__Group__0__Impl rule__CaseExpression__Group__1
+            // InternalAltarica.g:6830:1: ( rule__CaseExpression__Group__0__Impl rule__CaseExpression__Group__1 )
+            // InternalAltarica.g:6831:2: rule__CaseExpression__Group__0__Impl rule__CaseExpression__Group__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__CaseExpression__Group__0__Impl();
 
             state._fsp--;
@@ -18710,22 +19203,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__0__Impl"
-    // InternalAltarica.g:6661:1: rule__CaseExpression__Group__0__Impl : ( 'case' ) ;
+    // InternalAltarica.g:6838:1: rule__CaseExpression__Group__0__Impl : ( 'case' ) ;
     public final void rule__CaseExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6665:1: ( ( 'case' ) )
-            // InternalAltarica.g:6666:1: ( 'case' )
+            // InternalAltarica.g:6842:1: ( ( 'case' ) )
+            // InternalAltarica.g:6843:1: ( 'case' )
             {
-            // InternalAltarica.g:6666:1: ( 'case' )
-            // InternalAltarica.g:6667:1: 'case'
+            // InternalAltarica.g:6843:1: ( 'case' )
+            // InternalAltarica.g:6844:1: 'case'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getCaseKeyword_0()); 
             }
-            match(input,61,FOLLOW_2); if (state.failed) return ;
+            match(input,65,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCaseExpressionAccess().getCaseKeyword_0()); 
             }
@@ -18751,16 +19244,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__1"
-    // InternalAltarica.g:6680:1: rule__CaseExpression__Group__1 : rule__CaseExpression__Group__1__Impl rule__CaseExpression__Group__2 ;
+    // InternalAltarica.g:6857:1: rule__CaseExpression__Group__1 : rule__CaseExpression__Group__1__Impl rule__CaseExpression__Group__2 ;
     public final void rule__CaseExpression__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6684:1: ( rule__CaseExpression__Group__1__Impl rule__CaseExpression__Group__2 )
-            // InternalAltarica.g:6685:2: rule__CaseExpression__Group__1__Impl rule__CaseExpression__Group__2
+            // InternalAltarica.g:6861:1: ( rule__CaseExpression__Group__1__Impl rule__CaseExpression__Group__2 )
+            // InternalAltarica.g:6862:2: rule__CaseExpression__Group__1__Impl rule__CaseExpression__Group__2
             {
-            pushFollow(FOLLOW_25);
+            pushFollow(FOLLOW_29);
             rule__CaseExpression__Group__1__Impl();
 
             state._fsp--;
@@ -18789,23 +19282,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__1__Impl"
-    // InternalAltarica.g:6692:1: rule__CaseExpression__Group__1__Impl : ( ( rule__CaseExpression__ConditionAssignment_1 ) ) ;
+    // InternalAltarica.g:6869:1: rule__CaseExpression__Group__1__Impl : ( ( rule__CaseExpression__ConditionAssignment_1 ) ) ;
     public final void rule__CaseExpression__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6696:1: ( ( ( rule__CaseExpression__ConditionAssignment_1 ) ) )
-            // InternalAltarica.g:6697:1: ( ( rule__CaseExpression__ConditionAssignment_1 ) )
+            // InternalAltarica.g:6873:1: ( ( ( rule__CaseExpression__ConditionAssignment_1 ) ) )
+            // InternalAltarica.g:6874:1: ( ( rule__CaseExpression__ConditionAssignment_1 ) )
             {
-            // InternalAltarica.g:6697:1: ( ( rule__CaseExpression__ConditionAssignment_1 ) )
-            // InternalAltarica.g:6698:1: ( rule__CaseExpression__ConditionAssignment_1 )
+            // InternalAltarica.g:6874:1: ( ( rule__CaseExpression__ConditionAssignment_1 ) )
+            // InternalAltarica.g:6875:1: ( rule__CaseExpression__ConditionAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getConditionAssignment_1()); 
             }
-            // InternalAltarica.g:6699:1: ( rule__CaseExpression__ConditionAssignment_1 )
-            // InternalAltarica.g:6699:2: rule__CaseExpression__ConditionAssignment_1
+            // InternalAltarica.g:6876:1: ( rule__CaseExpression__ConditionAssignment_1 )
+            // InternalAltarica.g:6876:2: rule__CaseExpression__ConditionAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__CaseExpression__ConditionAssignment_1();
@@ -18840,16 +19333,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__2"
-    // InternalAltarica.g:6709:1: rule__CaseExpression__Group__2 : rule__CaseExpression__Group__2__Impl rule__CaseExpression__Group__3 ;
+    // InternalAltarica.g:6886:1: rule__CaseExpression__Group__2 : rule__CaseExpression__Group__2__Impl rule__CaseExpression__Group__3 ;
     public final void rule__CaseExpression__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6713:1: ( rule__CaseExpression__Group__2__Impl rule__CaseExpression__Group__3 )
-            // InternalAltarica.g:6714:2: rule__CaseExpression__Group__2__Impl rule__CaseExpression__Group__3
+            // InternalAltarica.g:6890:1: ( rule__CaseExpression__Group__2__Impl rule__CaseExpression__Group__3 )
+            // InternalAltarica.g:6891:2: rule__CaseExpression__Group__2__Impl rule__CaseExpression__Group__3
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__CaseExpression__Group__2__Impl();
 
             state._fsp--;
@@ -18878,22 +19371,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__2__Impl"
-    // InternalAltarica.g:6721:1: rule__CaseExpression__Group__2__Impl : ( ':' ) ;
+    // InternalAltarica.g:6898:1: rule__CaseExpression__Group__2__Impl : ( ':' ) ;
     public final void rule__CaseExpression__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6725:1: ( ( ':' ) )
-            // InternalAltarica.g:6726:1: ( ':' )
+            // InternalAltarica.g:6902:1: ( ( ':' ) )
+            // InternalAltarica.g:6903:1: ( ':' )
             {
-            // InternalAltarica.g:6726:1: ( ':' )
-            // InternalAltarica.g:6727:1: ':'
+            // InternalAltarica.g:6903:1: ( ':' )
+            // InternalAltarica.g:6904:1: ':'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getColonKeyword_2()); 
             }
-            match(input,48,FOLLOW_2); if (state.failed) return ;
+            match(input,52,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getCaseExpressionAccess().getColonKeyword_2()); 
             }
@@ -18919,14 +19412,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__3"
-    // InternalAltarica.g:6740:1: rule__CaseExpression__Group__3 : rule__CaseExpression__Group__3__Impl ;
+    // InternalAltarica.g:6917:1: rule__CaseExpression__Group__3 : rule__CaseExpression__Group__3__Impl ;
     public final void rule__CaseExpression__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6744:1: ( rule__CaseExpression__Group__3__Impl )
-            // InternalAltarica.g:6745:2: rule__CaseExpression__Group__3__Impl
+            // InternalAltarica.g:6921:1: ( rule__CaseExpression__Group__3__Impl )
+            // InternalAltarica.g:6922:2: rule__CaseExpression__Group__3__Impl
             {
             pushFollow(FOLLOW_2);
             rule__CaseExpression__Group__3__Impl();
@@ -18952,23 +19445,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__Group__3__Impl"
-    // InternalAltarica.g:6751:1: rule__CaseExpression__Group__3__Impl : ( ( rule__CaseExpression__CaseAssignment_3 ) ) ;
+    // InternalAltarica.g:6928:1: rule__CaseExpression__Group__3__Impl : ( ( rule__CaseExpression__CaseAssignment_3 ) ) ;
     public final void rule__CaseExpression__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6755:1: ( ( ( rule__CaseExpression__CaseAssignment_3 ) ) )
-            // InternalAltarica.g:6756:1: ( ( rule__CaseExpression__CaseAssignment_3 ) )
+            // InternalAltarica.g:6932:1: ( ( ( rule__CaseExpression__CaseAssignment_3 ) ) )
+            // InternalAltarica.g:6933:1: ( ( rule__CaseExpression__CaseAssignment_3 ) )
             {
-            // InternalAltarica.g:6756:1: ( ( rule__CaseExpression__CaseAssignment_3 ) )
-            // InternalAltarica.g:6757:1: ( rule__CaseExpression__CaseAssignment_3 )
+            // InternalAltarica.g:6933:1: ( ( rule__CaseExpression__CaseAssignment_3 ) )
+            // InternalAltarica.g:6934:1: ( rule__CaseExpression__CaseAssignment_3 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getCaseAssignment_3()); 
             }
-            // InternalAltarica.g:6758:1: ( rule__CaseExpression__CaseAssignment_3 )
-            // InternalAltarica.g:6758:2: rule__CaseExpression__CaseAssignment_3
+            // InternalAltarica.g:6935:1: ( rule__CaseExpression__CaseAssignment_3 )
+            // InternalAltarica.g:6935:2: rule__CaseExpression__CaseAssignment_3
             {
             pushFollow(FOLLOW_2);
             rule__CaseExpression__CaseAssignment_3();
@@ -19003,16 +19496,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__0"
-    // InternalAltarica.g:6776:1: rule__FunctionCall__Group__0 : rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 ;
+    // InternalAltarica.g:6953:1: rule__FunctionCall__Group__0 : rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 ;
     public final void rule__FunctionCall__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6780:1: ( rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 )
-            // InternalAltarica.g:6781:2: rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1
+            // InternalAltarica.g:6957:1: ( rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1 )
+            // InternalAltarica.g:6958:2: rule__FunctionCall__Group__0__Impl rule__FunctionCall__Group__1
             {
-            pushFollow(FOLLOW_55);
+            pushFollow(FOLLOW_59);
             rule__FunctionCall__Group__0__Impl();
 
             state._fsp--;
@@ -19041,23 +19534,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__0__Impl"
-    // InternalAltarica.g:6788:1: rule__FunctionCall__Group__0__Impl : ( () ) ;
+    // InternalAltarica.g:6965:1: rule__FunctionCall__Group__0__Impl : ( () ) ;
     public final void rule__FunctionCall__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6792:1: ( ( () ) )
-            // InternalAltarica.g:6793:1: ( () )
+            // InternalAltarica.g:6969:1: ( ( () ) )
+            // InternalAltarica.g:6970:1: ( () )
             {
-            // InternalAltarica.g:6793:1: ( () )
-            // InternalAltarica.g:6794:1: ()
+            // InternalAltarica.g:6970:1: ( () )
+            // InternalAltarica.g:6971:1: ()
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getFunctionCallAction_0()); 
             }
-            // InternalAltarica.g:6795:1: ()
-            // InternalAltarica.g:6797:1: 
+            // InternalAltarica.g:6972:1: ()
+            // InternalAltarica.g:6974:1: 
             {
             }
 
@@ -19082,16 +19575,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__1"
-    // InternalAltarica.g:6807:1: rule__FunctionCall__Group__1 : rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 ;
+    // InternalAltarica.g:6984:1: rule__FunctionCall__Group__1 : rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 ;
     public final void rule__FunctionCall__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6811:1: ( rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 )
-            // InternalAltarica.g:6812:2: rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2
+            // InternalAltarica.g:6988:1: ( rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2 )
+            // InternalAltarica.g:6989:2: rule__FunctionCall__Group__1__Impl rule__FunctionCall__Group__2
             {
-            pushFollow(FOLLOW_56);
+            pushFollow(FOLLOW_60);
             rule__FunctionCall__Group__1__Impl();
 
             state._fsp--;
@@ -19120,23 +19613,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__1__Impl"
-    // InternalAltarica.g:6819:1: rule__FunctionCall__Group__1__Impl : ( ( rule__FunctionCall__NameAssignment_1 ) ) ;
+    // InternalAltarica.g:6996:1: rule__FunctionCall__Group__1__Impl : ( ( rule__FunctionCall__NameAssignment_1 ) ) ;
     public final void rule__FunctionCall__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6823:1: ( ( ( rule__FunctionCall__NameAssignment_1 ) ) )
-            // InternalAltarica.g:6824:1: ( ( rule__FunctionCall__NameAssignment_1 ) )
+            // InternalAltarica.g:7000:1: ( ( ( rule__FunctionCall__NameAssignment_1 ) ) )
+            // InternalAltarica.g:7001:1: ( ( rule__FunctionCall__NameAssignment_1 ) )
             {
-            // InternalAltarica.g:6824:1: ( ( rule__FunctionCall__NameAssignment_1 ) )
-            // InternalAltarica.g:6825:1: ( rule__FunctionCall__NameAssignment_1 )
+            // InternalAltarica.g:7001:1: ( ( rule__FunctionCall__NameAssignment_1 ) )
+            // InternalAltarica.g:7002:1: ( rule__FunctionCall__NameAssignment_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getNameAssignment_1()); 
             }
-            // InternalAltarica.g:6826:1: ( rule__FunctionCall__NameAssignment_1 )
-            // InternalAltarica.g:6826:2: rule__FunctionCall__NameAssignment_1
+            // InternalAltarica.g:7003:1: ( rule__FunctionCall__NameAssignment_1 )
+            // InternalAltarica.g:7003:2: rule__FunctionCall__NameAssignment_1
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__NameAssignment_1();
@@ -19171,16 +19664,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__2"
-    // InternalAltarica.g:6836:1: rule__FunctionCall__Group__2 : rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 ;
+    // InternalAltarica.g:7013:1: rule__FunctionCall__Group__2 : rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 ;
     public final void rule__FunctionCall__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6840:1: ( rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 )
-            // InternalAltarica.g:6841:2: rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3
+            // InternalAltarica.g:7017:1: ( rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3 )
+            // InternalAltarica.g:7018:2: rule__FunctionCall__Group__2__Impl rule__FunctionCall__Group__3
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_61);
             rule__FunctionCall__Group__2__Impl();
 
             state._fsp--;
@@ -19209,22 +19702,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__2__Impl"
-    // InternalAltarica.g:6848:1: rule__FunctionCall__Group__2__Impl : ( '(' ) ;
+    // InternalAltarica.g:7025:1: rule__FunctionCall__Group__2__Impl : ( '(' ) ;
     public final void rule__FunctionCall__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6852:1: ( ( '(' ) )
-            // InternalAltarica.g:6853:1: ( '(' )
+            // InternalAltarica.g:7029:1: ( ( '(' ) )
+            // InternalAltarica.g:7030:1: ( '(' )
             {
-            // InternalAltarica.g:6853:1: ( '(' )
-            // InternalAltarica.g:6854:1: '('
+            // InternalAltarica.g:7030:1: ( '(' )
+            // InternalAltarica.g:7031:1: '('
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getLeftParenthesisKeyword_2()); 
             }
-            match(input,42,FOLLOW_2); if (state.failed) return ;
+            match(input,46,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFunctionCallAccess().getLeftParenthesisKeyword_2()); 
             }
@@ -19250,16 +19743,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__3"
-    // InternalAltarica.g:6867:1: rule__FunctionCall__Group__3 : rule__FunctionCall__Group__3__Impl rule__FunctionCall__Group__4 ;
+    // InternalAltarica.g:7044:1: rule__FunctionCall__Group__3 : rule__FunctionCall__Group__3__Impl rule__FunctionCall__Group__4 ;
     public final void rule__FunctionCall__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6871:1: ( rule__FunctionCall__Group__3__Impl rule__FunctionCall__Group__4 )
-            // InternalAltarica.g:6872:2: rule__FunctionCall__Group__3__Impl rule__FunctionCall__Group__4
+            // InternalAltarica.g:7048:1: ( rule__FunctionCall__Group__3__Impl rule__FunctionCall__Group__4 )
+            // InternalAltarica.g:7049:2: rule__FunctionCall__Group__3__Impl rule__FunctionCall__Group__4
             {
-            pushFollow(FOLLOW_57);
+            pushFollow(FOLLOW_61);
             rule__FunctionCall__Group__3__Impl();
 
             state._fsp--;
@@ -19288,31 +19781,31 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__3__Impl"
-    // InternalAltarica.g:6879:1: rule__FunctionCall__Group__3__Impl : ( ( rule__FunctionCall__Group_3__0 )? ) ;
+    // InternalAltarica.g:7056:1: rule__FunctionCall__Group__3__Impl : ( ( rule__FunctionCall__Group_3__0 )? ) ;
     public final void rule__FunctionCall__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6883:1: ( ( ( rule__FunctionCall__Group_3__0 )? ) )
-            // InternalAltarica.g:6884:1: ( ( rule__FunctionCall__Group_3__0 )? )
+            // InternalAltarica.g:7060:1: ( ( ( rule__FunctionCall__Group_3__0 )? ) )
+            // InternalAltarica.g:7061:1: ( ( rule__FunctionCall__Group_3__0 )? )
             {
-            // InternalAltarica.g:6884:1: ( ( rule__FunctionCall__Group_3__0 )? )
-            // InternalAltarica.g:6885:1: ( rule__FunctionCall__Group_3__0 )?
+            // InternalAltarica.g:7061:1: ( ( rule__FunctionCall__Group_3__0 )? )
+            // InternalAltarica.g:7062:1: ( rule__FunctionCall__Group_3__0 )?
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getGroup_3()); 
             }
-            // InternalAltarica.g:6886:1: ( rule__FunctionCall__Group_3__0 )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            // InternalAltarica.g:7063:1: ( rule__FunctionCall__Group_3__0 )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
 
-            if ( ((LA37_0>=RULE_ID && LA37_0<=RULE_NUMBER)||LA37_0==23||(LA37_0>=26 && LA37_0<=30)||LA37_0==42||(LA37_0>=57 && LA37_0<=58)) ) {
-                alt37=1;
+            if ( ((LA40_0>=RULE_ID && LA40_0<=RULE_NUMBER)||LA40_0==23||(LA40_0>=26 && LA40_0<=30)||LA40_0==46||(LA40_0>=61 && LA40_0<=62)) ) {
+                alt40=1;
             }
-            switch (alt37) {
+            switch (alt40) {
                 case 1 :
-                    // InternalAltarica.g:6886:2: rule__FunctionCall__Group_3__0
+                    // InternalAltarica.g:7063:2: rule__FunctionCall__Group_3__0
                     {
                     pushFollow(FOLLOW_2);
                     rule__FunctionCall__Group_3__0();
@@ -19350,14 +19843,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__4"
-    // InternalAltarica.g:6896:1: rule__FunctionCall__Group__4 : rule__FunctionCall__Group__4__Impl ;
+    // InternalAltarica.g:7073:1: rule__FunctionCall__Group__4 : rule__FunctionCall__Group__4__Impl ;
     public final void rule__FunctionCall__Group__4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6900:1: ( rule__FunctionCall__Group__4__Impl )
-            // InternalAltarica.g:6901:2: rule__FunctionCall__Group__4__Impl
+            // InternalAltarica.g:7077:1: ( rule__FunctionCall__Group__4__Impl )
+            // InternalAltarica.g:7078:2: rule__FunctionCall__Group__4__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group__4__Impl();
@@ -19383,22 +19876,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group__4__Impl"
-    // InternalAltarica.g:6907:1: rule__FunctionCall__Group__4__Impl : ( ')' ) ;
+    // InternalAltarica.g:7084:1: rule__FunctionCall__Group__4__Impl : ( ')' ) ;
     public final void rule__FunctionCall__Group__4__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6911:1: ( ( ')' ) )
-            // InternalAltarica.g:6912:1: ( ')' )
+            // InternalAltarica.g:7088:1: ( ( ')' ) )
+            // InternalAltarica.g:7089:1: ( ')' )
             {
-            // InternalAltarica.g:6912:1: ( ')' )
-            // InternalAltarica.g:6913:1: ')'
+            // InternalAltarica.g:7089:1: ( ')' )
+            // InternalAltarica.g:7090:1: ')'
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getRightParenthesisKeyword_4()); 
             }
-            match(input,43,FOLLOW_2); if (state.failed) return ;
+            match(input,47,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFunctionCallAccess().getRightParenthesisKeyword_4()); 
             }
@@ -19424,16 +19917,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3__0"
-    // InternalAltarica.g:6936:1: rule__FunctionCall__Group_3__0 : rule__FunctionCall__Group_3__0__Impl rule__FunctionCall__Group_3__1 ;
+    // InternalAltarica.g:7113:1: rule__FunctionCall__Group_3__0 : rule__FunctionCall__Group_3__0__Impl rule__FunctionCall__Group_3__1 ;
     public final void rule__FunctionCall__Group_3__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6940:1: ( rule__FunctionCall__Group_3__0__Impl rule__FunctionCall__Group_3__1 )
-            // InternalAltarica.g:6941:2: rule__FunctionCall__Group_3__0__Impl rule__FunctionCall__Group_3__1
+            // InternalAltarica.g:7117:1: ( rule__FunctionCall__Group_3__0__Impl rule__FunctionCall__Group_3__1 )
+            // InternalAltarica.g:7118:2: rule__FunctionCall__Group_3__0__Impl rule__FunctionCall__Group_3__1
             {
-            pushFollow(FOLLOW_8);
+            pushFollow(FOLLOW_12);
             rule__FunctionCall__Group_3__0__Impl();
 
             state._fsp--;
@@ -19462,23 +19955,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3__0__Impl"
-    // InternalAltarica.g:6948:1: rule__FunctionCall__Group_3__0__Impl : ( ( rule__FunctionCall__ParametersAssignment_3_0 ) ) ;
+    // InternalAltarica.g:7125:1: rule__FunctionCall__Group_3__0__Impl : ( ( rule__FunctionCall__ParametersAssignment_3_0 ) ) ;
     public final void rule__FunctionCall__Group_3__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6952:1: ( ( ( rule__FunctionCall__ParametersAssignment_3_0 ) ) )
-            // InternalAltarica.g:6953:1: ( ( rule__FunctionCall__ParametersAssignment_3_0 ) )
+            // InternalAltarica.g:7129:1: ( ( ( rule__FunctionCall__ParametersAssignment_3_0 ) ) )
+            // InternalAltarica.g:7130:1: ( ( rule__FunctionCall__ParametersAssignment_3_0 ) )
             {
-            // InternalAltarica.g:6953:1: ( ( rule__FunctionCall__ParametersAssignment_3_0 ) )
-            // InternalAltarica.g:6954:1: ( rule__FunctionCall__ParametersAssignment_3_0 )
+            // InternalAltarica.g:7130:1: ( ( rule__FunctionCall__ParametersAssignment_3_0 ) )
+            // InternalAltarica.g:7131:1: ( rule__FunctionCall__ParametersAssignment_3_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getParametersAssignment_3_0()); 
             }
-            // InternalAltarica.g:6955:1: ( rule__FunctionCall__ParametersAssignment_3_0 )
-            // InternalAltarica.g:6955:2: rule__FunctionCall__ParametersAssignment_3_0
+            // InternalAltarica.g:7132:1: ( rule__FunctionCall__ParametersAssignment_3_0 )
+            // InternalAltarica.g:7132:2: rule__FunctionCall__ParametersAssignment_3_0
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__ParametersAssignment_3_0();
@@ -19513,14 +20006,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3__1"
-    // InternalAltarica.g:6965:1: rule__FunctionCall__Group_3__1 : rule__FunctionCall__Group_3__1__Impl ;
+    // InternalAltarica.g:7142:1: rule__FunctionCall__Group_3__1 : rule__FunctionCall__Group_3__1__Impl ;
     public final void rule__FunctionCall__Group_3__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6969:1: ( rule__FunctionCall__Group_3__1__Impl )
-            // InternalAltarica.g:6970:2: rule__FunctionCall__Group_3__1__Impl
+            // InternalAltarica.g:7146:1: ( rule__FunctionCall__Group_3__1__Impl )
+            // InternalAltarica.g:7147:2: rule__FunctionCall__Group_3__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group_3__1__Impl();
@@ -19546,37 +20039,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3__1__Impl"
-    // InternalAltarica.g:6976:1: rule__FunctionCall__Group_3__1__Impl : ( ( rule__FunctionCall__Group_3_1__0 )* ) ;
+    // InternalAltarica.g:7153:1: rule__FunctionCall__Group_3__1__Impl : ( ( rule__FunctionCall__Group_3_1__0 )* ) ;
     public final void rule__FunctionCall__Group_3__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:6980:1: ( ( ( rule__FunctionCall__Group_3_1__0 )* ) )
-            // InternalAltarica.g:6981:1: ( ( rule__FunctionCall__Group_3_1__0 )* )
+            // InternalAltarica.g:7157:1: ( ( ( rule__FunctionCall__Group_3_1__0 )* ) )
+            // InternalAltarica.g:7158:1: ( ( rule__FunctionCall__Group_3_1__0 )* )
             {
-            // InternalAltarica.g:6981:1: ( ( rule__FunctionCall__Group_3_1__0 )* )
-            // InternalAltarica.g:6982:1: ( rule__FunctionCall__Group_3_1__0 )*
+            // InternalAltarica.g:7158:1: ( ( rule__FunctionCall__Group_3_1__0 )* )
+            // InternalAltarica.g:7159:1: ( rule__FunctionCall__Group_3_1__0 )*
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getGroup_3_1()); 
             }
-            // InternalAltarica.g:6983:1: ( rule__FunctionCall__Group_3_1__0 )*
-            loop38:
+            // InternalAltarica.g:7160:1: ( rule__FunctionCall__Group_3_1__0 )*
+            loop41:
             do {
-                int alt38=2;
-                int LA38_0 = input.LA(1);
+                int alt41=2;
+                int LA41_0 = input.LA(1);
 
-                if ( (LA38_0==36) ) {
-                    alt38=1;
+                if ( (LA41_0==40) ) {
+                    alt41=1;
                 }
 
 
-                switch (alt38) {
+                switch (alt41) {
             	case 1 :
-            	    // InternalAltarica.g:6983:2: rule__FunctionCall__Group_3_1__0
+            	    // InternalAltarica.g:7160:2: rule__FunctionCall__Group_3_1__0
             	    {
-            	    pushFollow(FOLLOW_9);
+            	    pushFollow(FOLLOW_13);
             	    rule__FunctionCall__Group_3_1__0();
 
             	    state._fsp--;
@@ -19586,7 +20079,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop38;
+            	    break loop41;
                 }
             } while (true);
 
@@ -19615,16 +20108,16 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3_1__0"
-    // InternalAltarica.g:6997:1: rule__FunctionCall__Group_3_1__0 : rule__FunctionCall__Group_3_1__0__Impl rule__FunctionCall__Group_3_1__1 ;
+    // InternalAltarica.g:7174:1: rule__FunctionCall__Group_3_1__0 : rule__FunctionCall__Group_3_1__0__Impl rule__FunctionCall__Group_3_1__1 ;
     public final void rule__FunctionCall__Group_3_1__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7001:1: ( rule__FunctionCall__Group_3_1__0__Impl rule__FunctionCall__Group_3_1__1 )
-            // InternalAltarica.g:7002:2: rule__FunctionCall__Group_3_1__0__Impl rule__FunctionCall__Group_3_1__1
+            // InternalAltarica.g:7178:1: ( rule__FunctionCall__Group_3_1__0__Impl rule__FunctionCall__Group_3_1__1 )
+            // InternalAltarica.g:7179:2: rule__FunctionCall__Group_3_1__0__Impl rule__FunctionCall__Group_3_1__1
             {
-            pushFollow(FOLLOW_20);
+            pushFollow(FOLLOW_24);
             rule__FunctionCall__Group_3_1__0__Impl();
 
             state._fsp--;
@@ -19653,22 +20146,22 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3_1__0__Impl"
-    // InternalAltarica.g:7009:1: rule__FunctionCall__Group_3_1__0__Impl : ( ',' ) ;
+    // InternalAltarica.g:7186:1: rule__FunctionCall__Group_3_1__0__Impl : ( ',' ) ;
     public final void rule__FunctionCall__Group_3_1__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7013:1: ( ( ',' ) )
-            // InternalAltarica.g:7014:1: ( ',' )
+            // InternalAltarica.g:7190:1: ( ( ',' ) )
+            // InternalAltarica.g:7191:1: ( ',' )
             {
-            // InternalAltarica.g:7014:1: ( ',' )
-            // InternalAltarica.g:7015:1: ','
+            // InternalAltarica.g:7191:1: ( ',' )
+            // InternalAltarica.g:7192:1: ','
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getCommaKeyword_3_1_0()); 
             }
-            match(input,36,FOLLOW_2); if (state.failed) return ;
+            match(input,40,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
                after(grammarAccess.getFunctionCallAccess().getCommaKeyword_3_1_0()); 
             }
@@ -19694,14 +20187,14 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3_1__1"
-    // InternalAltarica.g:7028:1: rule__FunctionCall__Group_3_1__1 : rule__FunctionCall__Group_3_1__1__Impl ;
+    // InternalAltarica.g:7205:1: rule__FunctionCall__Group_3_1__1 : rule__FunctionCall__Group_3_1__1__Impl ;
     public final void rule__FunctionCall__Group_3_1__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7032:1: ( rule__FunctionCall__Group_3_1__1__Impl )
-            // InternalAltarica.g:7033:2: rule__FunctionCall__Group_3_1__1__Impl
+            // InternalAltarica.g:7209:1: ( rule__FunctionCall__Group_3_1__1__Impl )
+            // InternalAltarica.g:7210:2: rule__FunctionCall__Group_3_1__1__Impl
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__Group_3_1__1__Impl();
@@ -19727,23 +20220,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__Group_3_1__1__Impl"
-    // InternalAltarica.g:7039:1: rule__FunctionCall__Group_3_1__1__Impl : ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) ) ;
+    // InternalAltarica.g:7216:1: rule__FunctionCall__Group_3_1__1__Impl : ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) ) ;
     public final void rule__FunctionCall__Group_3_1__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7043:1: ( ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) ) )
-            // InternalAltarica.g:7044:1: ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) )
+            // InternalAltarica.g:7220:1: ( ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) ) )
+            // InternalAltarica.g:7221:1: ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) )
             {
-            // InternalAltarica.g:7044:1: ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) )
-            // InternalAltarica.g:7045:1: ( rule__FunctionCall__ParametersAssignment_3_1_1 )
+            // InternalAltarica.g:7221:1: ( ( rule__FunctionCall__ParametersAssignment_3_1_1 ) )
+            // InternalAltarica.g:7222:1: ( rule__FunctionCall__ParametersAssignment_3_1_1 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getParametersAssignment_3_1_1()); 
             }
-            // InternalAltarica.g:7046:1: ( rule__FunctionCall__ParametersAssignment_3_1_1 )
-            // InternalAltarica.g:7046:2: rule__FunctionCall__ParametersAssignment_3_1_1
+            // InternalAltarica.g:7223:1: ( rule__FunctionCall__ParametersAssignment_3_1_1 )
+            // InternalAltarica.g:7223:2: rule__FunctionCall__ParametersAssignment_3_1_1
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__ParametersAssignment_3_1_1();
@@ -19777,29 +20270,73 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__FunctionCall__Group_3_1__1__Impl"
 
 
-    // $ANTLR start "rule__Model__DeclarationsAssignment"
-    // InternalAltarica.g:7061:1: rule__Model__DeclarationsAssignment : ( ruleAbstractDeclaration ) ;
-    public final void rule__Model__DeclarationsAssignment() throws RecognitionException {
+    // $ANTLR start "rule__Error__Group__0"
+    // InternalAltarica.g:7237:1: rule__Error__Group__0 : rule__Error__Group__0__Impl rule__Error__Group__1 ;
+    public final void rule__Error__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7065:1: ( ( ruleAbstractDeclaration ) )
-            // InternalAltarica.g:7066:1: ( ruleAbstractDeclaration )
+            // InternalAltarica.g:7241:1: ( rule__Error__Group__0__Impl rule__Error__Group__1 )
+            // InternalAltarica.g:7242:2: rule__Error__Group__0__Impl rule__Error__Group__1
             {
-            // InternalAltarica.g:7066:1: ( ruleAbstractDeclaration )
-            // InternalAltarica.g:7067:1: ruleAbstractDeclaration
-            {
-            if ( state.backtracking==0 ) {
-               before(grammarAccess.getModelAccess().getDeclarationsAbstractDeclarationParserRuleCall_0()); 
-            }
-            pushFollow(FOLLOW_2);
-            ruleAbstractDeclaration();
+            pushFollow(FOLLOW_62);
+            rule__Error__Group__0__Impl();
 
             state._fsp--;
             if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Error__Group__1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__Group__0"
+
+
+    // $ANTLR start "rule__Error__Group__0__Impl"
+    // InternalAltarica.g:7249:1: rule__Error__Group__0__Impl : ( ( rule__Error__SeverityAssignment_0 ) ) ;
+    public final void rule__Error__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7253:1: ( ( ( rule__Error__SeverityAssignment_0 ) ) )
+            // InternalAltarica.g:7254:1: ( ( rule__Error__SeverityAssignment_0 ) )
+            {
+            // InternalAltarica.g:7254:1: ( ( rule__Error__SeverityAssignment_0 ) )
+            // InternalAltarica.g:7255:1: ( rule__Error__SeverityAssignment_0 )
+            {
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getModelAccess().getDeclarationsAbstractDeclarationParserRuleCall_0()); 
+               before(grammarAccess.getErrorAccess().getSeverityAssignment_0()); 
+            }
+            // InternalAltarica.g:7256:1: ( rule__Error__SeverityAssignment_0 )
+            // InternalAltarica.g:7256:2: rule__Error__SeverityAssignment_0
+            {
+            pushFollow(FOLLOW_2);
+            rule__Error__SeverityAssignment_0();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorAccess().getSeverityAssignment_0()); 
             }
 
             }
@@ -19819,21 +20356,274 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Model__DeclarationsAssignment"
+    // $ANTLR end "rule__Error__Group__0__Impl"
+
+
+    // $ANTLR start "rule__Error__Group__1"
+    // InternalAltarica.g:7266:1: rule__Error__Group__1 : rule__Error__Group__1__Impl rule__Error__Group__2 ;
+    public final void rule__Error__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7270:1: ( rule__Error__Group__1__Impl rule__Error__Group__2 )
+            // InternalAltarica.g:7271:2: rule__Error__Group__1__Impl rule__Error__Group__2
+            {
+            pushFollow(FOLLOW_27);
+            rule__Error__Group__1__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+            pushFollow(FOLLOW_2);
+            rule__Error__Group__2();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__Group__1"
+
+
+    // $ANTLR start "rule__Error__Group__1__Impl"
+    // InternalAltarica.g:7278:1: rule__Error__Group__1__Impl : ( ( rule__Error__MessageAssignment_1 ) ) ;
+    public final void rule__Error__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7282:1: ( ( ( rule__Error__MessageAssignment_1 ) ) )
+            // InternalAltarica.g:7283:1: ( ( rule__Error__MessageAssignment_1 ) )
+            {
+            // InternalAltarica.g:7283:1: ( ( rule__Error__MessageAssignment_1 ) )
+            // InternalAltarica.g:7284:1: ( rule__Error__MessageAssignment_1 )
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorAccess().getMessageAssignment_1()); 
+            }
+            // InternalAltarica.g:7285:1: ( rule__Error__MessageAssignment_1 )
+            // InternalAltarica.g:7285:2: rule__Error__MessageAssignment_1
+            {
+            pushFollow(FOLLOW_2);
+            rule__Error__MessageAssignment_1();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorAccess().getMessageAssignment_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__Group__1__Impl"
+
+
+    // $ANTLR start "rule__Error__Group__2"
+    // InternalAltarica.g:7295:1: rule__Error__Group__2 : rule__Error__Group__2__Impl ;
+    public final void rule__Error__Group__2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7299:1: ( rule__Error__Group__2__Impl )
+            // InternalAltarica.g:7300:2: rule__Error__Group__2__Impl
+            {
+            pushFollow(FOLLOW_2);
+            rule__Error__Group__2__Impl();
+
+            state._fsp--;
+            if (state.failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__Group__2"
+
+
+    // $ANTLR start "rule__Error__Group__2__Impl"
+    // InternalAltarica.g:7306:1: rule__Error__Group__2__Impl : ( ';' ) ;
+    public final void rule__Error__Group__2__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7310:1: ( ( ';' ) )
+            // InternalAltarica.g:7311:1: ( ';' )
+            {
+            // InternalAltarica.g:7311:1: ( ';' )
+            // InternalAltarica.g:7312:1: ';'
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorAccess().getSemicolonKeyword_2()); 
+            }
+            match(input,45,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorAccess().getSemicolonKeyword_2()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__Group__2__Impl"
+
+
+    // $ANTLR start "rule__Model__ErrorsAssignment_1_3"
+    // InternalAltarica.g:7332:1: rule__Model__ErrorsAssignment_1_3 : ( ruleError ) ;
+    public final void rule__Model__ErrorsAssignment_1_3() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7336:1: ( ( ruleError ) )
+            // InternalAltarica.g:7337:1: ( ruleError )
+            {
+            // InternalAltarica.g:7337:1: ( ruleError )
+            // InternalAltarica.g:7338:1: ruleError
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getErrorsErrorParserRuleCall_1_3_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleError();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getErrorsErrorParserRuleCall_1_3_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__ErrorsAssignment_1_3"
+
+
+    // $ANTLR start "rule__Model__DeclarationsAssignment_2"
+    // InternalAltarica.g:7347:1: rule__Model__DeclarationsAssignment_2 : ( ruleAbstractDeclaration ) ;
+    public final void rule__Model__DeclarationsAssignment_2() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:7351:1: ( ( ruleAbstractDeclaration ) )
+            // InternalAltarica.g:7352:1: ( ruleAbstractDeclaration )
+            {
+            // InternalAltarica.g:7352:1: ( ruleAbstractDeclaration )
+            // InternalAltarica.g:7353:1: ruleAbstractDeclaration
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getModelAccess().getDeclarationsAbstractDeclarationParserRuleCall_2_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleAbstractDeclaration();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getModelAccess().getDeclarationsAbstractDeclarationParserRuleCall_2_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Model__DeclarationsAssignment_2"
 
 
     // $ANTLR start "rule__Domain__NameAssignment_2"
-    // InternalAltarica.g:7076:1: rule__Domain__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalAltarica.g:7362:1: rule__Domain__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Domain__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7080:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7081:1: ( RULE_ID )
+            // InternalAltarica.g:7366:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7367:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7081:1: ( RULE_ID )
-            // InternalAltarica.g:7082:1: RULE_ID
+            // InternalAltarica.g:7367:1: ( RULE_ID )
+            // InternalAltarica.g:7368:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getNameIDTerminalRuleCall_2_0()); 
@@ -19864,17 +20654,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__ConstantsAssignment_4_0"
-    // InternalAltarica.g:7091:1: rule__Domain__ConstantsAssignment_4_0 : ( ruleSymbolicConstant ) ;
+    // InternalAltarica.g:7377:1: rule__Domain__ConstantsAssignment_4_0 : ( ruleSymbolicConstant ) ;
     public final void rule__Domain__ConstantsAssignment_4_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7095:1: ( ( ruleSymbolicConstant ) )
-            // InternalAltarica.g:7096:1: ( ruleSymbolicConstant )
+            // InternalAltarica.g:7381:1: ( ( ruleSymbolicConstant ) )
+            // InternalAltarica.g:7382:1: ( ruleSymbolicConstant )
             {
-            // InternalAltarica.g:7096:1: ( ruleSymbolicConstant )
-            // InternalAltarica.g:7097:1: ruleSymbolicConstant
+            // InternalAltarica.g:7382:1: ( ruleSymbolicConstant )
+            // InternalAltarica.g:7383:1: ruleSymbolicConstant
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getConstantsSymbolicConstantParserRuleCall_4_0_0()); 
@@ -19909,17 +20699,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Domain__ConstantsAssignment_4_1_1"
-    // InternalAltarica.g:7106:1: rule__Domain__ConstantsAssignment_4_1_1 : ( ruleSymbolicConstant ) ;
+    // InternalAltarica.g:7392:1: rule__Domain__ConstantsAssignment_4_1_1 : ( ruleSymbolicConstant ) ;
     public final void rule__Domain__ConstantsAssignment_4_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7110:1: ( ( ruleSymbolicConstant ) )
-            // InternalAltarica.g:7111:1: ( ruleSymbolicConstant )
+            // InternalAltarica.g:7396:1: ( ( ruleSymbolicConstant ) )
+            // InternalAltarica.g:7397:1: ( ruleSymbolicConstant )
             {
-            // InternalAltarica.g:7111:1: ( ruleSymbolicConstant )
-            // InternalAltarica.g:7112:1: ruleSymbolicConstant
+            // InternalAltarica.g:7397:1: ( ruleSymbolicConstant )
+            // InternalAltarica.g:7398:1: ruleSymbolicConstant
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getDomainAccess().getConstantsSymbolicConstantParserRuleCall_4_1_1_0()); 
@@ -19954,17 +20744,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SymbolicConstant__NameAssignment_1"
-    // InternalAltarica.g:7121:1: rule__SymbolicConstant__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAltarica.g:7407:1: rule__SymbolicConstant__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__SymbolicConstant__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7125:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7126:1: ( RULE_ID )
+            // InternalAltarica.g:7411:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7412:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7126:1: ( RULE_ID )
-            // InternalAltarica.g:7127:1: RULE_ID
+            // InternalAltarica.g:7412:1: ( RULE_ID )
+            // InternalAltarica.g:7413:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSymbolicConstantAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -19995,17 +20785,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__BaseType__NameAssignment"
-    // InternalAltarica.g:7136:1: rule__BaseType__NameAssignment : ( ruleBaseTypeEnum ) ;
+    // InternalAltarica.g:7422:1: rule__BaseType__NameAssignment : ( ruleBaseTypeEnum ) ;
     public final void rule__BaseType__NameAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7140:1: ( ( ruleBaseTypeEnum ) )
-            // InternalAltarica.g:7141:1: ( ruleBaseTypeEnum )
+            // InternalAltarica.g:7426:1: ( ( ruleBaseTypeEnum ) )
+            // InternalAltarica.g:7427:1: ( ruleBaseTypeEnum )
             {
-            // InternalAltarica.g:7141:1: ( ruleBaseTypeEnum )
-            // InternalAltarica.g:7142:1: ruleBaseTypeEnum
+            // InternalAltarica.g:7427:1: ( ruleBaseTypeEnum )
+            // InternalAltarica.g:7428:1: ruleBaseTypeEnum
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBaseTypeAccess().getNameBaseTypeEnumEnumRuleCall_0()); 
@@ -20040,23 +20830,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NamedType__RefAssignment"
-    // InternalAltarica.g:7151:1: rule__NamedType__RefAssignment : ( ( RULE_ID ) ) ;
+    // InternalAltarica.g:7437:1: rule__NamedType__RefAssignment : ( ( RULE_ID ) ) ;
     public final void rule__NamedType__RefAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7155:1: ( ( ( RULE_ID ) ) )
-            // InternalAltarica.g:7156:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7441:1: ( ( ( RULE_ID ) ) )
+            // InternalAltarica.g:7442:1: ( ( RULE_ID ) )
             {
-            // InternalAltarica.g:7156:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7157:1: ( RULE_ID )
+            // InternalAltarica.g:7442:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7443:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNamedTypeAccess().getRefNamedElementCrossReference_0()); 
             }
-            // InternalAltarica.g:7158:1: ( RULE_ID )
-            // InternalAltarica.g:7159:1: RULE_ID
+            // InternalAltarica.g:7444:1: ( RULE_ID )
+            // InternalAltarica.g:7445:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNamedTypeAccess().getRefNamedElementIDTerminalRuleCall_0_1()); 
@@ -20093,17 +20883,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__NameAssignment_2"
-    // InternalAltarica.g:7170:1: rule__Class__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalAltarica.g:7456:1: rule__Class__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__Class__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7174:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7175:1: ( RULE_ID )
+            // InternalAltarica.g:7460:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7461:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7175:1: ( RULE_ID )
-            // InternalAltarica.g:7176:1: RULE_ID
+            // InternalAltarica.g:7461:1: ( RULE_ID )
+            // InternalAltarica.g:7462:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getNameIDTerminalRuleCall_2_0()); 
@@ -20134,17 +20924,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__DeclarationsAssignment_3"
-    // InternalAltarica.g:7185:1: rule__Class__DeclarationsAssignment_3 : ( ruleDeclaration ) ;
+    // InternalAltarica.g:7471:1: rule__Class__DeclarationsAssignment_3 : ( ruleDeclaration ) ;
     public final void rule__Class__DeclarationsAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7189:1: ( ( ruleDeclaration ) )
-            // InternalAltarica.g:7190:1: ( ruleDeclaration )
+            // InternalAltarica.g:7475:1: ( ( ruleDeclaration ) )
+            // InternalAltarica.g:7476:1: ( ruleDeclaration )
             {
-            // InternalAltarica.g:7190:1: ( ruleDeclaration )
-            // InternalAltarica.g:7191:1: ruleDeclaration
+            // InternalAltarica.g:7476:1: ( ruleDeclaration )
+            // InternalAltarica.g:7477:1: ruleDeclaration
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getDeclarationsDeclarationParserRuleCall_3_0()); 
@@ -20179,17 +20969,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__TransitionsAssignment_4_1"
-    // InternalAltarica.g:7200:1: rule__Class__TransitionsAssignment_4_1 : ( ruleLabeledTransition ) ;
+    // InternalAltarica.g:7486:1: rule__Class__TransitionsAssignment_4_1 : ( ruleLabeledTransition ) ;
     public final void rule__Class__TransitionsAssignment_4_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7204:1: ( ( ruleLabeledTransition ) )
-            // InternalAltarica.g:7205:1: ( ruleLabeledTransition )
+            // InternalAltarica.g:7490:1: ( ( ruleLabeledTransition ) )
+            // InternalAltarica.g:7491:1: ( ruleLabeledTransition )
             {
-            // InternalAltarica.g:7205:1: ( ruleLabeledTransition )
-            // InternalAltarica.g:7206:1: ruleLabeledTransition
+            // InternalAltarica.g:7491:1: ( ruleLabeledTransition )
+            // InternalAltarica.g:7492:1: ruleLabeledTransition
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getTransitionsLabeledTransitionParserRuleCall_4_1_0()); 
@@ -20224,17 +21014,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Class__AssertionsAssignment_5_1"
-    // InternalAltarica.g:7215:1: rule__Class__AssertionsAssignment_5_1 : ( ruleInstruction ) ;
+    // InternalAltarica.g:7501:1: rule__Class__AssertionsAssignment_5_1 : ( ruleInstruction ) ;
     public final void rule__Class__AssertionsAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7219:1: ( ( ruleInstruction ) )
-            // InternalAltarica.g:7220:1: ( ruleInstruction )
+            // InternalAltarica.g:7505:1: ( ( ruleInstruction ) )
+            // InternalAltarica.g:7506:1: ( ruleInstruction )
             {
-            // InternalAltarica.g:7220:1: ( ruleInstruction )
-            // InternalAltarica.g:7221:1: ruleInstruction
+            // InternalAltarica.g:7506:1: ( ruleInstruction )
+            // InternalAltarica.g:7507:1: ruleInstruction
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getClassAccess().getAssertionsInstructionParserRuleCall_5_1_0()); 
@@ -20269,17 +21059,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__TypeAssignment_1"
-    // InternalAltarica.g:7230:1: rule__VariableDeclaration__TypeAssignment_1 : ( ruleType ) ;
+    // InternalAltarica.g:7516:1: rule__VariableDeclaration__TypeAssignment_1 : ( ruleType ) ;
     public final void rule__VariableDeclaration__TypeAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7234:1: ( ( ruleType ) )
-            // InternalAltarica.g:7235:1: ( ruleType )
+            // InternalAltarica.g:7520:1: ( ( ruleType ) )
+            // InternalAltarica.g:7521:1: ( ruleType )
             {
-            // InternalAltarica.g:7235:1: ( ruleType )
-            // InternalAltarica.g:7236:1: ruleType
+            // InternalAltarica.g:7521:1: ( ruleType )
+            // InternalAltarica.g:7522:1: ruleType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getTypeTypeParserRuleCall_1_0()); 
@@ -20314,17 +21104,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__NameAssignment_2"
-    // InternalAltarica.g:7245:1: rule__VariableDeclaration__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalAltarica.g:7531:1: rule__VariableDeclaration__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__VariableDeclaration__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7249:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7250:1: ( RULE_ID )
+            // InternalAltarica.g:7535:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7536:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7250:1: ( RULE_ID )
-            // InternalAltarica.g:7251:1: RULE_ID
+            // InternalAltarica.g:7536:1: ( RULE_ID )
+            // InternalAltarica.g:7537:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getNameIDTerminalRuleCall_2_0()); 
@@ -20355,17 +21145,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__AttributesAssignment_3_1"
-    // InternalAltarica.g:7260:1: rule__VariableDeclaration__AttributesAssignment_3_1 : ( ruleAttribute ) ;
+    // InternalAltarica.g:7546:1: rule__VariableDeclaration__AttributesAssignment_3_1 : ( ruleAttribute ) ;
     public final void rule__VariableDeclaration__AttributesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7264:1: ( ( ruleAttribute ) )
-            // InternalAltarica.g:7265:1: ( ruleAttribute )
+            // InternalAltarica.g:7550:1: ( ( ruleAttribute ) )
+            // InternalAltarica.g:7551:1: ( ruleAttribute )
             {
-            // InternalAltarica.g:7265:1: ( ruleAttribute )
-            // InternalAltarica.g:7266:1: ruleAttribute
+            // InternalAltarica.g:7551:1: ( ruleAttribute )
+            // InternalAltarica.g:7552:1: ruleAttribute
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getAttributesAttributeParserRuleCall_3_1_0()); 
@@ -20400,17 +21190,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__VariableDeclaration__AttributesAssignment_3_2_1"
-    // InternalAltarica.g:7275:1: rule__VariableDeclaration__AttributesAssignment_3_2_1 : ( ruleAttribute ) ;
+    // InternalAltarica.g:7561:1: rule__VariableDeclaration__AttributesAssignment_3_2_1 : ( ruleAttribute ) ;
     public final void rule__VariableDeclaration__AttributesAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7279:1: ( ( ruleAttribute ) )
-            // InternalAltarica.g:7280:1: ( ruleAttribute )
+            // InternalAltarica.g:7565:1: ( ( ruleAttribute ) )
+            // InternalAltarica.g:7566:1: ( ruleAttribute )
             {
-            // InternalAltarica.g:7280:1: ( ruleAttribute )
-            // InternalAltarica.g:7281:1: ruleAttribute
+            // InternalAltarica.g:7566:1: ( ruleAttribute )
+            // InternalAltarica.g:7567:1: ruleAttribute
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getVariableDeclarationAccess().getAttributesAttributeParserRuleCall_3_2_1_0()); 
@@ -20445,17 +21235,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__NameAssignment_1"
-    // InternalAltarica.g:7290:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
+    // InternalAltarica.g:7576:1: rule__Attribute__NameAssignment_1 : ( RULE_ID ) ;
     public final void rule__Attribute__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7294:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7295:1: ( RULE_ID )
+            // InternalAltarica.g:7580:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7581:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7295:1: ( RULE_ID )
-            // InternalAltarica.g:7296:1: RULE_ID
+            // InternalAltarica.g:7581:1: ( RULE_ID )
+            // InternalAltarica.g:7582:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getNameIDTerminalRuleCall_1_0()); 
@@ -20486,17 +21276,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Attribute__ValueAssignment_3"
-    // InternalAltarica.g:7305:1: rule__Attribute__ValueAssignment_3 : ( ruleExpression ) ;
+    // InternalAltarica.g:7591:1: rule__Attribute__ValueAssignment_3 : ( ruleExpression ) ;
     public final void rule__Attribute__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7309:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7310:1: ( ruleExpression )
+            // InternalAltarica.g:7595:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7596:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7310:1: ( ruleExpression )
-            // InternalAltarica.g:7311:1: ruleExpression
+            // InternalAltarica.g:7596:1: ( ruleExpression )
+            // InternalAltarica.g:7597:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAttributeAccess().getValueExpressionParserRuleCall_3_0()); 
@@ -20531,17 +21321,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__NameAssignment_2"
-    // InternalAltarica.g:7320:1: rule__EventDeclaration__NameAssignment_2 : ( RULE_ID ) ;
+    // InternalAltarica.g:7606:1: rule__EventDeclaration__NameAssignment_2 : ( RULE_ID ) ;
     public final void rule__EventDeclaration__NameAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7324:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7325:1: ( RULE_ID )
+            // InternalAltarica.g:7610:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7611:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7325:1: ( RULE_ID )
-            // InternalAltarica.g:7326:1: RULE_ID
+            // InternalAltarica.g:7611:1: ( RULE_ID )
+            // InternalAltarica.g:7612:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getNameIDTerminalRuleCall_2_0()); 
@@ -20572,17 +21362,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__AttributesAssignment_3_1"
-    // InternalAltarica.g:7335:1: rule__EventDeclaration__AttributesAssignment_3_1 : ( ruleAttribute ) ;
+    // InternalAltarica.g:7621:1: rule__EventDeclaration__AttributesAssignment_3_1 : ( ruleAttribute ) ;
     public final void rule__EventDeclaration__AttributesAssignment_3_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7339:1: ( ( ruleAttribute ) )
-            // InternalAltarica.g:7340:1: ( ruleAttribute )
+            // InternalAltarica.g:7625:1: ( ( ruleAttribute ) )
+            // InternalAltarica.g:7626:1: ( ruleAttribute )
             {
-            // InternalAltarica.g:7340:1: ( ruleAttribute )
-            // InternalAltarica.g:7341:1: ruleAttribute
+            // InternalAltarica.g:7626:1: ( ruleAttribute )
+            // InternalAltarica.g:7627:1: ruleAttribute
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getAttributesAttributeParserRuleCall_3_1_0()); 
@@ -20617,17 +21407,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__EventDeclaration__AttributesAssignment_3_2_1"
-    // InternalAltarica.g:7350:1: rule__EventDeclaration__AttributesAssignment_3_2_1 : ( ruleAttribute ) ;
+    // InternalAltarica.g:7636:1: rule__EventDeclaration__AttributesAssignment_3_2_1 : ( ruleAttribute ) ;
     public final void rule__EventDeclaration__AttributesAssignment_3_2_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7354:1: ( ( ruleAttribute ) )
-            // InternalAltarica.g:7355:1: ( ruleAttribute )
+            // InternalAltarica.g:7640:1: ( ( ruleAttribute ) )
+            // InternalAltarica.g:7641:1: ( ruleAttribute )
             {
-            // InternalAltarica.g:7355:1: ( ruleAttribute )
-            // InternalAltarica.g:7356:1: ruleAttribute
+            // InternalAltarica.g:7641:1: ( ruleAttribute )
+            // InternalAltarica.g:7642:1: ruleAttribute
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getEventDeclarationAccess().getAttributesAttributeParserRuleCall_3_2_1_0()); 
@@ -20662,17 +21452,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__TypeAssignment_2"
-    // InternalAltarica.g:7365:1: rule__ParameterDeclaration__TypeAssignment_2 : ( ruleType ) ;
+    // InternalAltarica.g:7651:1: rule__ParameterDeclaration__TypeAssignment_2 : ( ruleType ) ;
     public final void rule__ParameterDeclaration__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7369:1: ( ( ruleType ) )
-            // InternalAltarica.g:7370:1: ( ruleType )
+            // InternalAltarica.g:7655:1: ( ( ruleType ) )
+            // InternalAltarica.g:7656:1: ( ruleType )
             {
-            // InternalAltarica.g:7370:1: ( ruleType )
-            // InternalAltarica.g:7371:1: ruleType
+            // InternalAltarica.g:7656:1: ( ruleType )
+            // InternalAltarica.g:7657:1: ruleType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getTypeTypeParserRuleCall_2_0()); 
@@ -20707,17 +21497,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__NameAssignment_3"
-    // InternalAltarica.g:7380:1: rule__ParameterDeclaration__NameAssignment_3 : ( RULE_ID ) ;
+    // InternalAltarica.g:7666:1: rule__ParameterDeclaration__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__ParameterDeclaration__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7384:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7385:1: ( RULE_ID )
+            // InternalAltarica.g:7670:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7671:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7385:1: ( RULE_ID )
-            // InternalAltarica.g:7386:1: RULE_ID
+            // InternalAltarica.g:7671:1: ( RULE_ID )
+            // InternalAltarica.g:7672:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getNameIDTerminalRuleCall_3_0()); 
@@ -20748,17 +21538,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ParameterDeclaration__ValueAssignment_5"
-    // InternalAltarica.g:7395:1: rule__ParameterDeclaration__ValueAssignment_5 : ( ruleExpression ) ;
+    // InternalAltarica.g:7681:1: rule__ParameterDeclaration__ValueAssignment_5 : ( ruleExpression ) ;
     public final void rule__ParameterDeclaration__ValueAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7399:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7400:1: ( ruleExpression )
+            // InternalAltarica.g:7685:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7686:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7400:1: ( ruleExpression )
-            // InternalAltarica.g:7401:1: ruleExpression
+            // InternalAltarica.g:7686:1: ( ruleExpression )
+            // InternalAltarica.g:7687:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getParameterDeclarationAccess().getValueExpressionParserRuleCall_5_0()); 
@@ -20793,17 +21583,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__TypeAssignment_2"
-    // InternalAltarica.g:7410:1: rule__ObserverDeclaration__TypeAssignment_2 : ( ruleType ) ;
+    // InternalAltarica.g:7696:1: rule__ObserverDeclaration__TypeAssignment_2 : ( ruleType ) ;
     public final void rule__ObserverDeclaration__TypeAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7414:1: ( ( ruleType ) )
-            // InternalAltarica.g:7415:1: ( ruleType )
+            // InternalAltarica.g:7700:1: ( ( ruleType ) )
+            // InternalAltarica.g:7701:1: ( ruleType )
             {
-            // InternalAltarica.g:7415:1: ( ruleType )
-            // InternalAltarica.g:7416:1: ruleType
+            // InternalAltarica.g:7701:1: ( ruleType )
+            // InternalAltarica.g:7702:1: ruleType
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getTypeTypeParserRuleCall_2_0()); 
@@ -20838,17 +21628,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__NameAssignment_3"
-    // InternalAltarica.g:7425:1: rule__ObserverDeclaration__NameAssignment_3 : ( RULE_ID ) ;
+    // InternalAltarica.g:7711:1: rule__ObserverDeclaration__NameAssignment_3 : ( RULE_ID ) ;
     public final void rule__ObserverDeclaration__NameAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7429:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7430:1: ( RULE_ID )
+            // InternalAltarica.g:7715:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:7716:1: ( RULE_ID )
             {
-            // InternalAltarica.g:7430:1: ( RULE_ID )
-            // InternalAltarica.g:7431:1: RULE_ID
+            // InternalAltarica.g:7716:1: ( RULE_ID )
+            // InternalAltarica.g:7717:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getNameIDTerminalRuleCall_3_0()); 
@@ -20879,17 +21669,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__ObserverDeclaration__ValueAssignment_5"
-    // InternalAltarica.g:7440:1: rule__ObserverDeclaration__ValueAssignment_5 : ( ruleExpression ) ;
+    // InternalAltarica.g:7726:1: rule__ObserverDeclaration__ValueAssignment_5 : ( ruleExpression ) ;
     public final void rule__ObserverDeclaration__ValueAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7444:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7445:1: ( ruleExpression )
+            // InternalAltarica.g:7730:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7731:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7445:1: ( ruleExpression )
-            // InternalAltarica.g:7446:1: ruleExpression
+            // InternalAltarica.g:7731:1: ( ruleExpression )
+            // InternalAltarica.g:7732:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getObserverDeclarationAccess().getValueExpressionParserRuleCall_5_0()); 
@@ -20924,17 +21714,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__EventAssignment_0"
-    // InternalAltarica.g:7455:1: rule__LabeledTransition__EventAssignment_0 : ( ruleNameRef ) ;
+    // InternalAltarica.g:7741:1: rule__LabeledTransition__EventAssignment_0 : ( ruleNameRef ) ;
     public final void rule__LabeledTransition__EventAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7459:1: ( ( ruleNameRef ) )
-            // InternalAltarica.g:7460:1: ( ruleNameRef )
+            // InternalAltarica.g:7745:1: ( ( ruleNameRef ) )
+            // InternalAltarica.g:7746:1: ( ruleNameRef )
             {
-            // InternalAltarica.g:7460:1: ( ruleNameRef )
-            // InternalAltarica.g:7461:1: ruleNameRef
+            // InternalAltarica.g:7746:1: ( ruleNameRef )
+            // InternalAltarica.g:7747:1: ruleNameRef
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLabeledTransitionAccess().getEventNameRefParserRuleCall_0_0()); 
@@ -20969,17 +21759,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__LabeledTransition__ExpressionAssignment_2"
-    // InternalAltarica.g:7470:1: rule__LabeledTransition__ExpressionAssignment_2 : ( ruleTransitionAnd ) ;
+    // InternalAltarica.g:7756:1: rule__LabeledTransition__ExpressionAssignment_2 : ( ruleTransitionAnd ) ;
     public final void rule__LabeledTransition__ExpressionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7474:1: ( ( ruleTransitionAnd ) )
-            // InternalAltarica.g:7475:1: ( ruleTransitionAnd )
+            // InternalAltarica.g:7760:1: ( ( ruleTransitionAnd ) )
+            // InternalAltarica.g:7761:1: ( ruleTransitionAnd )
             {
-            // InternalAltarica.g:7475:1: ( ruleTransitionAnd )
-            // InternalAltarica.g:7476:1: ruleTransitionAnd
+            // InternalAltarica.g:7761:1: ( ruleTransitionAnd )
+            // InternalAltarica.g:7762:1: ruleTransitionAnd
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getLabeledTransitionAccess().getExpressionTransitionAndParserRuleCall_2_0()); 
@@ -21014,17 +21804,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionAnd__RightAssignment_1_2"
-    // InternalAltarica.g:7485:1: rule__TransitionAnd__RightAssignment_1_2 : ( ruleTransitionOr ) ;
+    // InternalAltarica.g:7771:1: rule__TransitionAnd__RightAssignment_1_2 : ( ruleTransitionOr ) ;
     public final void rule__TransitionAnd__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7489:1: ( ( ruleTransitionOr ) )
-            // InternalAltarica.g:7490:1: ( ruleTransitionOr )
+            // InternalAltarica.g:7775:1: ( ( ruleTransitionOr ) )
+            // InternalAltarica.g:7776:1: ( ruleTransitionOr )
             {
-            // InternalAltarica.g:7490:1: ( ruleTransitionOr )
-            // InternalAltarica.g:7491:1: ruleTransitionOr
+            // InternalAltarica.g:7776:1: ( ruleTransitionOr )
+            // InternalAltarica.g:7777:1: ruleTransitionOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAndAccess().getRightTransitionOrParserRuleCall_1_2_0()); 
@@ -21059,17 +21849,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__TransitionOr__RightAssignment_1_2"
-    // InternalAltarica.g:7500:1: rule__TransitionOr__RightAssignment_1_2 : ( ruleTransition ) ;
+    // InternalAltarica.g:7786:1: rule__TransitionOr__RightAssignment_1_2 : ( ruleTransition ) ;
     public final void rule__TransitionOr__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7504:1: ( ( ruleTransition ) )
-            // InternalAltarica.g:7505:1: ( ruleTransition )
+            // InternalAltarica.g:7790:1: ( ( ruleTransition ) )
+            // InternalAltarica.g:7791:1: ( ruleTransition )
             {
-            // InternalAltarica.g:7505:1: ( ruleTransition )
-            // InternalAltarica.g:7506:1: ruleTransition
+            // InternalAltarica.g:7791:1: ( ruleTransition )
+            // InternalAltarica.g:7792:1: ruleTransition
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionOrAccess().getRightTransitionParserRuleCall_1_2_0()); 
@@ -21104,17 +21894,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__GuardAssignment_1"
-    // InternalAltarica.g:7515:1: rule__Transition__GuardAssignment_1 : ( ruleExpression ) ;
+    // InternalAltarica.g:7801:1: rule__Transition__GuardAssignment_1 : ( ruleExpression ) ;
     public final void rule__Transition__GuardAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7519:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7520:1: ( ruleExpression )
+            // InternalAltarica.g:7805:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7806:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7520:1: ( ruleExpression )
-            // InternalAltarica.g:7521:1: ruleExpression
+            // InternalAltarica.g:7806:1: ( ruleExpression )
+            // InternalAltarica.g:7807:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAccess().getGuardExpressionParserRuleCall_1_0()); 
@@ -21149,17 +21939,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Transition__ActionAssignment_3"
-    // InternalAltarica.g:7530:1: rule__Transition__ActionAssignment_3 : ( ruleInstruction ) ;
+    // InternalAltarica.g:7816:1: rule__Transition__ActionAssignment_3 : ( ruleInstruction ) ;
     public final void rule__Transition__ActionAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7534:1: ( ( ruleInstruction ) )
-            // InternalAltarica.g:7535:1: ( ruleInstruction )
+            // InternalAltarica.g:7820:1: ( ( ruleInstruction ) )
+            // InternalAltarica.g:7821:1: ( ruleInstruction )
             {
-            // InternalAltarica.g:7535:1: ( ruleInstruction )
-            // InternalAltarica.g:7536:1: ruleInstruction
+            // InternalAltarica.g:7821:1: ( ruleInstruction )
+            // InternalAltarica.g:7822:1: ruleInstruction
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getTransitionAccess().getActionInstructionParserRuleCall_3_0()); 
@@ -21194,17 +21984,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__VariableAssignment_1"
-    // InternalAltarica.g:7545:1: rule__Assignment__VariableAssignment_1 : ( ruleNameRef ) ;
+    // InternalAltarica.g:7831:1: rule__Assignment__VariableAssignment_1 : ( ruleNameRef ) ;
     public final void rule__Assignment__VariableAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7549:1: ( ( ruleNameRef ) )
-            // InternalAltarica.g:7550:1: ( ruleNameRef )
+            // InternalAltarica.g:7835:1: ( ( ruleNameRef ) )
+            // InternalAltarica.g:7836:1: ( ruleNameRef )
             {
-            // InternalAltarica.g:7550:1: ( ruleNameRef )
-            // InternalAltarica.g:7551:1: ruleNameRef
+            // InternalAltarica.g:7836:1: ( ruleNameRef )
+            // InternalAltarica.g:7837:1: ruleNameRef
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getVariableNameRefParserRuleCall_1_0()); 
@@ -21239,17 +22029,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Assignment__ValueAssignment_3"
-    // InternalAltarica.g:7560:1: rule__Assignment__ValueAssignment_3 : ( ruleExpression ) ;
+    // InternalAltarica.g:7846:1: rule__Assignment__ValueAssignment_3 : ( ruleExpression ) ;
     public final void rule__Assignment__ValueAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7564:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7565:1: ( ruleExpression )
+            // InternalAltarica.g:7850:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7851:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7565:1: ( ruleExpression )
-            // InternalAltarica.g:7566:1: ruleExpression
+            // InternalAltarica.g:7851:1: ( ruleExpression )
+            // InternalAltarica.g:7852:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getValueExpressionParserRuleCall_3_0()); 
@@ -21284,17 +22074,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Block__InstructionsAssignment_2"
-    // InternalAltarica.g:7575:1: rule__Block__InstructionsAssignment_2 : ( ruleInstruction ) ;
+    // InternalAltarica.g:7861:1: rule__Block__InstructionsAssignment_2 : ( ruleInstruction ) ;
     public final void rule__Block__InstructionsAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7579:1: ( ( ruleInstruction ) )
-            // InternalAltarica.g:7580:1: ( ruleInstruction )
+            // InternalAltarica.g:7865:1: ( ( ruleInstruction ) )
+            // InternalAltarica.g:7866:1: ( ruleInstruction )
             {
-            // InternalAltarica.g:7580:1: ( ruleInstruction )
-            // InternalAltarica.g:7581:1: ruleInstruction
+            // InternalAltarica.g:7866:1: ( ruleInstruction )
+            // InternalAltarica.g:7867:1: ruleInstruction
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBlockAccess().getInstructionsInstructionParserRuleCall_2_0()); 
@@ -21329,17 +22119,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__ConditionAssignment_2"
-    // InternalAltarica.g:7590:1: rule__Conditional__ConditionAssignment_2 : ( ruleExpression ) ;
+    // InternalAltarica.g:7876:1: rule__Conditional__ConditionAssignment_2 : ( ruleExpression ) ;
     public final void rule__Conditional__ConditionAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7594:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7595:1: ( ruleExpression )
+            // InternalAltarica.g:7880:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7881:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7595:1: ( ruleExpression )
-            // InternalAltarica.g:7596:1: ruleExpression
+            // InternalAltarica.g:7881:1: ( ruleExpression )
+            // InternalAltarica.g:7882:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getConditionExpressionParserRuleCall_2_0()); 
@@ -21374,17 +22164,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__ThenAssignment_4"
-    // InternalAltarica.g:7605:1: rule__Conditional__ThenAssignment_4 : ( ruleInstruction ) ;
+    // InternalAltarica.g:7891:1: rule__Conditional__ThenAssignment_4 : ( ruleInstruction ) ;
     public final void rule__Conditional__ThenAssignment_4() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7609:1: ( ( ruleInstruction ) )
-            // InternalAltarica.g:7610:1: ( ruleInstruction )
+            // InternalAltarica.g:7895:1: ( ( ruleInstruction ) )
+            // InternalAltarica.g:7896:1: ( ruleInstruction )
             {
-            // InternalAltarica.g:7610:1: ( ruleInstruction )
-            // InternalAltarica.g:7611:1: ruleInstruction
+            // InternalAltarica.g:7896:1: ( ruleInstruction )
+            // InternalAltarica.g:7897:1: ruleInstruction
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getThenInstructionParserRuleCall_4_0()); 
@@ -21419,17 +22209,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Conditional__ElseAssignment_5_1"
-    // InternalAltarica.g:7620:1: rule__Conditional__ElseAssignment_5_1 : ( ruleInstruction ) ;
+    // InternalAltarica.g:7906:1: rule__Conditional__ElseAssignment_5_1 : ( ruleInstruction ) ;
     public final void rule__Conditional__ElseAssignment_5_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7624:1: ( ( ruleInstruction ) )
-            // InternalAltarica.g:7625:1: ( ruleInstruction )
+            // InternalAltarica.g:7910:1: ( ( ruleInstruction ) )
+            // InternalAltarica.g:7911:1: ( ruleInstruction )
             {
-            // InternalAltarica.g:7625:1: ( ruleInstruction )
-            // InternalAltarica.g:7626:1: ruleInstruction
+            // InternalAltarica.g:7911:1: ( ruleInstruction )
+            // InternalAltarica.g:7912:1: ruleInstruction
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getConditionalAccess().getElseInstructionParserRuleCall_5_1_0()); 
@@ -21464,17 +22254,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__CasesAssignment_2"
-    // InternalAltarica.g:7635:1: rule__Switch__CasesAssignment_2 : ( ruleCaseExpression ) ;
+    // InternalAltarica.g:7921:1: rule__Switch__CasesAssignment_2 : ( ruleCaseExpression ) ;
     public final void rule__Switch__CasesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7639:1: ( ( ruleCaseExpression ) )
-            // InternalAltarica.g:7640:1: ( ruleCaseExpression )
+            // InternalAltarica.g:7925:1: ( ( ruleCaseExpression ) )
+            // InternalAltarica.g:7926:1: ( ruleCaseExpression )
             {
-            // InternalAltarica.g:7640:1: ( ruleCaseExpression )
-            // InternalAltarica.g:7641:1: ruleCaseExpression
+            // InternalAltarica.g:7926:1: ( ruleCaseExpression )
+            // InternalAltarica.g:7927:1: ruleCaseExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getCasesCaseExpressionParserRuleCall_2_0()); 
@@ -21509,17 +22299,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Switch__ElseAssignment_5"
-    // InternalAltarica.g:7650:1: rule__Switch__ElseAssignment_5 : ( ruleExpression ) ;
+    // InternalAltarica.g:7936:1: rule__Switch__ElseAssignment_5 : ( ruleExpression ) ;
     public final void rule__Switch__ElseAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7654:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7655:1: ( ruleExpression )
+            // InternalAltarica.g:7940:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:7941:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7655:1: ( ruleExpression )
-            // InternalAltarica.g:7656:1: ruleExpression
+            // InternalAltarica.g:7941:1: ( ruleExpression )
+            // InternalAltarica.g:7942:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchAccess().getElseExpressionParserRuleCall_5_0()); 
@@ -21553,37 +22343,37 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     // $ANTLR end "rule__Switch__ElseAssignment_5"
 
 
-    // $ANTLR start "rule__LogicalOr__OpAssignment_1_0_1"
-    // InternalAltarica.g:7665:1: rule__LogicalOr__OpAssignment_1_0_1 : ( ( 'or' ) ) ;
-    public final void rule__LogicalOr__OpAssignment_1_0_1() throws RecognitionException {
+    // $ANTLR start "rule__LogicalOr__OpAssignment_1_1"
+    // InternalAltarica.g:7951:1: rule__LogicalOr__OpAssignment_1_1 : ( ( 'or' ) ) ;
+    public final void rule__LogicalOr__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7669:1: ( ( ( 'or' ) ) )
-            // InternalAltarica.g:7670:1: ( ( 'or' ) )
+            // InternalAltarica.g:7955:1: ( ( ( 'or' ) ) )
+            // InternalAltarica.g:7956:1: ( ( 'or' ) )
             {
-            // InternalAltarica.g:7670:1: ( ( 'or' ) )
-            // InternalAltarica.g:7671:1: ( 'or' )
+            // InternalAltarica.g:7956:1: ( ( 'or' ) )
+            // InternalAltarica.g:7957:1: ( 'or' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0()); 
+               before(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_1_0()); 
             }
-            // InternalAltarica.g:7672:1: ( 'or' )
-            // InternalAltarica.g:7673:1: 'or'
+            // InternalAltarica.g:7958:1: ( 'or' )
+            // InternalAltarica.g:7959:1: 'or'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0()); 
+               before(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_1_0()); 
             }
-            match(input,62,FOLLOW_2); if (state.failed) return ;
+            match(input,66,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0()); 
+               after(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_1_0()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0()); 
+               after(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_1_0()); 
             }
 
             }
@@ -21603,24 +22393,24 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalOr__OpAssignment_1_0_1"
+    // $ANTLR end "rule__LogicalOr__OpAssignment_1_1"
 
 
-    // $ANTLR start "rule__LogicalOr__RightAssignment_1_0_2"
-    // InternalAltarica.g:7688:1: rule__LogicalOr__RightAssignment_1_0_2 : ( ruleLogicalAnd ) ;
-    public final void rule__LogicalOr__RightAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__LogicalOr__RightAssignment_1_2"
+    // InternalAltarica.g:7974:1: rule__LogicalOr__RightAssignment_1_2 : ( ruleLogicalAnd ) ;
+    public final void rule__LogicalOr__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7692:1: ( ( ruleLogicalAnd ) )
-            // InternalAltarica.g:7693:1: ( ruleLogicalAnd )
+            // InternalAltarica.g:7978:1: ( ( ruleLogicalAnd ) )
+            // InternalAltarica.g:7979:1: ( ruleLogicalAnd )
             {
-            // InternalAltarica.g:7693:1: ( ruleLogicalAnd )
-            // InternalAltarica.g:7694:1: ruleLogicalAnd
+            // InternalAltarica.g:7979:1: ( ruleLogicalAnd )
+            // InternalAltarica.g:7980:1: ruleLogicalAnd
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_2_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleLogicalAnd();
@@ -21628,7 +22418,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_2_0()); 
             }
 
             }
@@ -21648,40 +22438,40 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalOr__RightAssignment_1_0_2"
+    // $ANTLR end "rule__LogicalOr__RightAssignment_1_2"
 
 
-    // $ANTLR start "rule__LogicalAnd__OpAssignment_1_0_1"
-    // InternalAltarica.g:7703:1: rule__LogicalAnd__OpAssignment_1_0_1 : ( ( 'and' ) ) ;
-    public final void rule__LogicalAnd__OpAssignment_1_0_1() throws RecognitionException {
+    // $ANTLR start "rule__LogicalAnd__OpAssignment_1_1"
+    // InternalAltarica.g:7989:1: rule__LogicalAnd__OpAssignment_1_1 : ( ( 'and' ) ) ;
+    public final void rule__LogicalAnd__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7707:1: ( ( ( 'and' ) ) )
-            // InternalAltarica.g:7708:1: ( ( 'and' ) )
+            // InternalAltarica.g:7993:1: ( ( ( 'and' ) ) )
+            // InternalAltarica.g:7994:1: ( ( 'and' ) )
             {
-            // InternalAltarica.g:7708:1: ( ( 'and' ) )
-            // InternalAltarica.g:7709:1: ( 'and' )
+            // InternalAltarica.g:7994:1: ( ( 'and' ) )
+            // InternalAltarica.g:7995:1: ( 'and' )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0()); 
+               before(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_1_0()); 
             }
-            // InternalAltarica.g:7710:1: ( 'and' )
-            // InternalAltarica.g:7711:1: 'and'
+            // InternalAltarica.g:7996:1: ( 'and' )
+            // InternalAltarica.g:7997:1: 'and'
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0()); 
+               before(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_1_0()); 
             }
-            match(input,63,FOLLOW_2); if (state.failed) return ;
+            match(input,67,FOLLOW_2); if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0()); 
+               after(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_1_0()); 
             }
 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0()); 
+               after(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_1_0()); 
             }
 
             }
@@ -21701,24 +22491,24 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalAnd__OpAssignment_1_0_1"
+    // $ANTLR end "rule__LogicalAnd__OpAssignment_1_1"
 
 
-    // $ANTLR start "rule__LogicalAnd__RightAssignment_1_0_2"
-    // InternalAltarica.g:7726:1: rule__LogicalAnd__RightAssignment_1_0_2 : ( ruleRelation ) ;
-    public final void rule__LogicalAnd__RightAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__LogicalAnd__RightAssignment_1_2"
+    // InternalAltarica.g:8012:1: rule__LogicalAnd__RightAssignment_1_2 : ( ruleRelation ) ;
+    public final void rule__LogicalAnd__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7730:1: ( ( ruleRelation ) )
-            // InternalAltarica.g:7731:1: ( ruleRelation )
+            // InternalAltarica.g:8016:1: ( ( ruleRelation ) )
+            // InternalAltarica.g:8017:1: ( ruleRelation )
             {
-            // InternalAltarica.g:7731:1: ( ruleRelation )
-            // InternalAltarica.g:7732:1: ruleRelation
+            // InternalAltarica.g:8017:1: ( ruleRelation )
+            // InternalAltarica.g:8018:1: ruleRelation
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_2_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleRelation();
@@ -21726,7 +22516,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_2_0()); 
             }
 
             }
@@ -21746,30 +22536,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__LogicalAnd__RightAssignment_1_0_2"
+    // $ANTLR end "rule__LogicalAnd__RightAssignment_1_2"
 
 
-    // $ANTLR start "rule__Relation__OpAssignment_1_0_1"
-    // InternalAltarica.g:7741:1: rule__Relation__OpAssignment_1_0_1 : ( ( rule__Relation__OpAlternatives_1_0_1_0 ) ) ;
-    public final void rule__Relation__OpAssignment_1_0_1() throws RecognitionException {
+    // $ANTLR start "rule__Relation__OpAssignment_1_1"
+    // InternalAltarica.g:8027:1: rule__Relation__OpAssignment_1_1 : ( ( rule__Relation__OpAlternatives_1_1_0 ) ) ;
+    public final void rule__Relation__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7745:1: ( ( ( rule__Relation__OpAlternatives_1_0_1_0 ) ) )
-            // InternalAltarica.g:7746:1: ( ( rule__Relation__OpAlternatives_1_0_1_0 ) )
+            // InternalAltarica.g:8031:1: ( ( ( rule__Relation__OpAlternatives_1_1_0 ) ) )
+            // InternalAltarica.g:8032:1: ( ( rule__Relation__OpAlternatives_1_1_0 ) )
             {
-            // InternalAltarica.g:7746:1: ( ( rule__Relation__OpAlternatives_1_0_1_0 ) )
-            // InternalAltarica.g:7747:1: ( rule__Relation__OpAlternatives_1_0_1_0 )
+            // InternalAltarica.g:8032:1: ( ( rule__Relation__OpAlternatives_1_1_0 ) )
+            // InternalAltarica.g:8033:1: ( rule__Relation__OpAlternatives_1_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRelationAccess().getOpAlternatives_1_0_1_0()); 
+               before(grammarAccess.getRelationAccess().getOpAlternatives_1_1_0()); 
             }
-            // InternalAltarica.g:7748:1: ( rule__Relation__OpAlternatives_1_0_1_0 )
-            // InternalAltarica.g:7748:2: rule__Relation__OpAlternatives_1_0_1_0
+            // InternalAltarica.g:8034:1: ( rule__Relation__OpAlternatives_1_1_0 )
+            // InternalAltarica.g:8034:2: rule__Relation__OpAlternatives_1_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__Relation__OpAlternatives_1_0_1_0();
+            rule__Relation__OpAlternatives_1_1_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21777,7 +22567,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRelationAccess().getOpAlternatives_1_0_1_0()); 
+               after(grammarAccess.getRelationAccess().getOpAlternatives_1_1_0()); 
             }
 
             }
@@ -21797,24 +22587,24 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__OpAssignment_1_0_1"
+    // $ANTLR end "rule__Relation__OpAssignment_1_1"
 
 
-    // $ANTLR start "rule__Relation__RightAssignment_1_0_2"
-    // InternalAltarica.g:7757:1: rule__Relation__RightAssignment_1_0_2 : ( ruleAddition ) ;
-    public final void rule__Relation__RightAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__Relation__RightAssignment_1_2"
+    // InternalAltarica.g:8043:1: rule__Relation__RightAssignment_1_2 : ( ruleAddition ) ;
+    public final void rule__Relation__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7761:1: ( ( ruleAddition ) )
-            // InternalAltarica.g:7762:1: ( ruleAddition )
+            // InternalAltarica.g:8047:1: ( ( ruleAddition ) )
+            // InternalAltarica.g:8048:1: ( ruleAddition )
             {
-            // InternalAltarica.g:7762:1: ( ruleAddition )
-            // InternalAltarica.g:7763:1: ruleAddition
+            // InternalAltarica.g:8048:1: ( ruleAddition )
+            // InternalAltarica.g:8049:1: ruleAddition
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getRelationAccess().getRightAdditionParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getRelationAccess().getRightAdditionParserRuleCall_1_2_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleAddition();
@@ -21822,7 +22612,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getRelationAccess().getRightAdditionParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getRelationAccess().getRightAdditionParserRuleCall_1_2_0()); 
             }
 
             }
@@ -21842,30 +22632,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Relation__RightAssignment_1_0_2"
+    // $ANTLR end "rule__Relation__RightAssignment_1_2"
 
 
-    // $ANTLR start "rule__Addition__OpAssignment_1_0_1"
-    // InternalAltarica.g:7772:1: rule__Addition__OpAssignment_1_0_1 : ( ( rule__Addition__OpAlternatives_1_0_1_0 ) ) ;
-    public final void rule__Addition__OpAssignment_1_0_1() throws RecognitionException {
+    // $ANTLR start "rule__Addition__OpAssignment_1_1"
+    // InternalAltarica.g:8058:1: rule__Addition__OpAssignment_1_1 : ( ( rule__Addition__OpAlternatives_1_1_0 ) ) ;
+    public final void rule__Addition__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7776:1: ( ( ( rule__Addition__OpAlternatives_1_0_1_0 ) ) )
-            // InternalAltarica.g:7777:1: ( ( rule__Addition__OpAlternatives_1_0_1_0 ) )
+            // InternalAltarica.g:8062:1: ( ( ( rule__Addition__OpAlternatives_1_1_0 ) ) )
+            // InternalAltarica.g:8063:1: ( ( rule__Addition__OpAlternatives_1_1_0 ) )
             {
-            // InternalAltarica.g:7777:1: ( ( rule__Addition__OpAlternatives_1_0_1_0 ) )
-            // InternalAltarica.g:7778:1: ( rule__Addition__OpAlternatives_1_0_1_0 )
+            // InternalAltarica.g:8063:1: ( ( rule__Addition__OpAlternatives_1_1_0 ) )
+            // InternalAltarica.g:8064:1: ( rule__Addition__OpAlternatives_1_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAdditionAccess().getOpAlternatives_1_0_1_0()); 
+               before(grammarAccess.getAdditionAccess().getOpAlternatives_1_1_0()); 
             }
-            // InternalAltarica.g:7779:1: ( rule__Addition__OpAlternatives_1_0_1_0 )
-            // InternalAltarica.g:7779:2: rule__Addition__OpAlternatives_1_0_1_0
+            // InternalAltarica.g:8065:1: ( rule__Addition__OpAlternatives_1_1_0 )
+            // InternalAltarica.g:8065:2: rule__Addition__OpAlternatives_1_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__Addition__OpAlternatives_1_0_1_0();
+            rule__Addition__OpAlternatives_1_1_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21873,7 +22663,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAdditionAccess().getOpAlternatives_1_0_1_0()); 
+               after(grammarAccess.getAdditionAccess().getOpAlternatives_1_1_0()); 
             }
 
             }
@@ -21893,24 +22683,24 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Addition__OpAssignment_1_0_1"
+    // $ANTLR end "rule__Addition__OpAssignment_1_1"
 
 
-    // $ANTLR start "rule__Addition__RightAssignment_1_0_2"
-    // InternalAltarica.g:7788:1: rule__Addition__RightAssignment_1_0_2 : ( ruleMultiplication ) ;
-    public final void rule__Addition__RightAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__Addition__RightAssignment_1_2"
+    // InternalAltarica.g:8074:1: rule__Addition__RightAssignment_1_2 : ( ruleMultiplication ) ;
+    public final void rule__Addition__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7792:1: ( ( ruleMultiplication ) )
-            // InternalAltarica.g:7793:1: ( ruleMultiplication )
+            // InternalAltarica.g:8078:1: ( ( ruleMultiplication ) )
+            // InternalAltarica.g:8079:1: ( ruleMultiplication )
             {
-            // InternalAltarica.g:7793:1: ( ruleMultiplication )
-            // InternalAltarica.g:7794:1: ruleMultiplication
+            // InternalAltarica.g:8079:1: ( ruleMultiplication )
+            // InternalAltarica.g:8080:1: ruleMultiplication
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_2_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleMultiplication();
@@ -21918,7 +22708,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getAdditionAccess().getRightMultiplicationParserRuleCall_1_2_0()); 
             }
 
             }
@@ -21938,30 +22728,30 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Addition__RightAssignment_1_0_2"
+    // $ANTLR end "rule__Addition__RightAssignment_1_2"
 
 
-    // $ANTLR start "rule__Multiplication__OpAssignment_1_0_1"
-    // InternalAltarica.g:7803:1: rule__Multiplication__OpAssignment_1_0_1 : ( ( rule__Multiplication__OpAlternatives_1_0_1_0 ) ) ;
-    public final void rule__Multiplication__OpAssignment_1_0_1() throws RecognitionException {
+    // $ANTLR start "rule__Multiplication__OpAssignment_1_1"
+    // InternalAltarica.g:8089:1: rule__Multiplication__OpAssignment_1_1 : ( ( rule__Multiplication__OpAlternatives_1_1_0 ) ) ;
+    public final void rule__Multiplication__OpAssignment_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7807:1: ( ( ( rule__Multiplication__OpAlternatives_1_0_1_0 ) ) )
-            // InternalAltarica.g:7808:1: ( ( rule__Multiplication__OpAlternatives_1_0_1_0 ) )
+            // InternalAltarica.g:8093:1: ( ( ( rule__Multiplication__OpAlternatives_1_1_0 ) ) )
+            // InternalAltarica.g:8094:1: ( ( rule__Multiplication__OpAlternatives_1_1_0 ) )
             {
-            // InternalAltarica.g:7808:1: ( ( rule__Multiplication__OpAlternatives_1_0_1_0 ) )
-            // InternalAltarica.g:7809:1: ( rule__Multiplication__OpAlternatives_1_0_1_0 )
+            // InternalAltarica.g:8094:1: ( ( rule__Multiplication__OpAlternatives_1_1_0 ) )
+            // InternalAltarica.g:8095:1: ( rule__Multiplication__OpAlternatives_1_1_0 )
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicationAccess().getOpAlternatives_1_0_1_0()); 
+               before(grammarAccess.getMultiplicationAccess().getOpAlternatives_1_1_0()); 
             }
-            // InternalAltarica.g:7810:1: ( rule__Multiplication__OpAlternatives_1_0_1_0 )
-            // InternalAltarica.g:7810:2: rule__Multiplication__OpAlternatives_1_0_1_0
+            // InternalAltarica.g:8096:1: ( rule__Multiplication__OpAlternatives_1_1_0 )
+            // InternalAltarica.g:8096:2: rule__Multiplication__OpAlternatives_1_1_0
             {
             pushFollow(FOLLOW_2);
-            rule__Multiplication__OpAlternatives_1_0_1_0();
+            rule__Multiplication__OpAlternatives_1_1_0();
 
             state._fsp--;
             if (state.failed) return ;
@@ -21969,7 +22759,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             }
 
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicationAccess().getOpAlternatives_1_0_1_0()); 
+               after(grammarAccess.getMultiplicationAccess().getOpAlternatives_1_1_0()); 
             }
 
             }
@@ -21989,24 +22779,24 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__OpAssignment_1_0_1"
+    // $ANTLR end "rule__Multiplication__OpAssignment_1_1"
 
 
-    // $ANTLR start "rule__Multiplication__RightAssignment_1_0_2"
-    // InternalAltarica.g:7819:1: rule__Multiplication__RightAssignment_1_0_2 : ( ruleNeg ) ;
-    public final void rule__Multiplication__RightAssignment_1_0_2() throws RecognitionException {
+    // $ANTLR start "rule__Multiplication__RightAssignment_1_2"
+    // InternalAltarica.g:8105:1: rule__Multiplication__RightAssignment_1_2 : ( ruleNeg ) ;
+    public final void rule__Multiplication__RightAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7823:1: ( ( ruleNeg ) )
-            // InternalAltarica.g:7824:1: ( ruleNeg )
+            // InternalAltarica.g:8109:1: ( ( ruleNeg ) )
+            // InternalAltarica.g:8110:1: ( ruleNeg )
             {
-            // InternalAltarica.g:7824:1: ( ruleNeg )
-            // InternalAltarica.g:7825:1: ruleNeg
+            // InternalAltarica.g:8110:1: ( ruleNeg )
+            // InternalAltarica.g:8111:1: ruleNeg
             {
             if ( state.backtracking==0 ) {
-               before(grammarAccess.getMultiplicationAccess().getRightNegParserRuleCall_1_0_2_0()); 
+               before(grammarAccess.getMultiplicationAccess().getRightNegParserRuleCall_1_2_0()); 
             }
             pushFollow(FOLLOW_2);
             ruleNeg();
@@ -22014,7 +22804,7 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
             state._fsp--;
             if (state.failed) return ;
             if ( state.backtracking==0 ) {
-               after(grammarAccess.getMultiplicationAccess().getRightNegParserRuleCall_1_0_2_0()); 
+               after(grammarAccess.getMultiplicationAccess().getRightNegParserRuleCall_1_2_0()); 
             }
 
             }
@@ -22034,21 +22824,21 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end "rule__Multiplication__RightAssignment_1_0_2"
+    // $ANTLR end "rule__Multiplication__RightAssignment_1_2"
 
 
     // $ANTLR start "rule__Neg__ExpressionAssignment_0_2"
-    // InternalAltarica.g:7834:1: rule__Neg__ExpressionAssignment_0_2 : ( ruleAtom ) ;
+    // InternalAltarica.g:8120:1: rule__Neg__ExpressionAssignment_0_2 : ( ruleAtom ) ;
     public final void rule__Neg__ExpressionAssignment_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7838:1: ( ( ruleAtom ) )
-            // InternalAltarica.g:7839:1: ( ruleAtom )
+            // InternalAltarica.g:8124:1: ( ( ruleAtom ) )
+            // InternalAltarica.g:8125:1: ( ruleAtom )
             {
-            // InternalAltarica.g:7839:1: ( ruleAtom )
-            // InternalAltarica.g:7840:1: ruleAtom
+            // InternalAltarica.g:8125:1: ( ruleAtom )
+            // InternalAltarica.g:8126:1: ruleAtom
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_0_2_0()); 
@@ -22083,17 +22873,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__Neg__ExpressionAssignment_1_2"
-    // InternalAltarica.g:7849:1: rule__Neg__ExpressionAssignment_1_2 : ( ruleAtom ) ;
+    // InternalAltarica.g:8135:1: rule__Neg__ExpressionAssignment_1_2 : ( ruleAtom ) ;
     public final void rule__Neg__ExpressionAssignment_1_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7853:1: ( ( ruleAtom ) )
-            // InternalAltarica.g:7854:1: ( ruleAtom )
+            // InternalAltarica.g:8139:1: ( ( ruleAtom ) )
+            // InternalAltarica.g:8140:1: ( ruleAtom )
             {
-            // InternalAltarica.g:7854:1: ( ruleAtom )
-            // InternalAltarica.g:7855:1: ruleAtom
+            // InternalAltarica.g:8140:1: ( ruleAtom )
+            // InternalAltarica.g:8141:1: ruleAtom
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNegAccess().getExpressionAtomParserRuleCall_1_2_0()); 
@@ -22128,23 +22918,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__BooleanLiteral__ValueAssignment"
-    // InternalAltarica.g:7864:1: rule__BooleanLiteral__ValueAssignment : ( ( rule__BooleanLiteral__ValueAlternatives_0 ) ) ;
+    // InternalAltarica.g:8150:1: rule__BooleanLiteral__ValueAssignment : ( ( rule__BooleanLiteral__ValueAlternatives_0 ) ) ;
     public final void rule__BooleanLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7868:1: ( ( ( rule__BooleanLiteral__ValueAlternatives_0 ) ) )
-            // InternalAltarica.g:7869:1: ( ( rule__BooleanLiteral__ValueAlternatives_0 ) )
+            // InternalAltarica.g:8154:1: ( ( ( rule__BooleanLiteral__ValueAlternatives_0 ) ) )
+            // InternalAltarica.g:8155:1: ( ( rule__BooleanLiteral__ValueAlternatives_0 ) )
             {
-            // InternalAltarica.g:7869:1: ( ( rule__BooleanLiteral__ValueAlternatives_0 ) )
-            // InternalAltarica.g:7870:1: ( rule__BooleanLiteral__ValueAlternatives_0 )
+            // InternalAltarica.g:8155:1: ( ( rule__BooleanLiteral__ValueAlternatives_0 ) )
+            // InternalAltarica.g:8156:1: ( rule__BooleanLiteral__ValueAlternatives_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getBooleanLiteralAccess().getValueAlternatives_0()); 
             }
-            // InternalAltarica.g:7871:1: ( rule__BooleanLiteral__ValueAlternatives_0 )
-            // InternalAltarica.g:7871:2: rule__BooleanLiteral__ValueAlternatives_0
+            // InternalAltarica.g:8157:1: ( rule__BooleanLiteral__ValueAlternatives_0 )
+            // InternalAltarica.g:8157:2: rule__BooleanLiteral__ValueAlternatives_0
             {
             pushFollow(FOLLOW_2);
             rule__BooleanLiteral__ValueAlternatives_0();
@@ -22179,17 +22969,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__StringLiteral__ValueAssignment"
-    // InternalAltarica.g:7880:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
+    // InternalAltarica.g:8166:1: rule__StringLiteral__ValueAssignment : ( RULE_STRING ) ;
     public final void rule__StringLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7884:1: ( ( RULE_STRING ) )
-            // InternalAltarica.g:7885:1: ( RULE_STRING )
+            // InternalAltarica.g:8170:1: ( ( RULE_STRING ) )
+            // InternalAltarica.g:8171:1: ( RULE_STRING )
             {
-            // InternalAltarica.g:7885:1: ( RULE_STRING )
-            // InternalAltarica.g:7886:1: RULE_STRING
+            // InternalAltarica.g:8171:1: ( RULE_STRING )
+            // InternalAltarica.g:8172:1: RULE_STRING
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getStringLiteralAccess().getValueSTRINGTerminalRuleCall_0()); 
@@ -22220,17 +23010,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NumberLiteral__ValueAssignment"
-    // InternalAltarica.g:7895:1: rule__NumberLiteral__ValueAssignment : ( RULE_NUMBER ) ;
+    // InternalAltarica.g:8181:1: rule__NumberLiteral__ValueAssignment : ( RULE_NUMBER ) ;
     public final void rule__NumberLiteral__ValueAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7899:1: ( ( RULE_NUMBER ) )
-            // InternalAltarica.g:7900:1: ( RULE_NUMBER )
+            // InternalAltarica.g:8185:1: ( ( RULE_NUMBER ) )
+            // InternalAltarica.g:8186:1: ( RULE_NUMBER )
             {
-            // InternalAltarica.g:7900:1: ( RULE_NUMBER )
-            // InternalAltarica.g:7901:1: RULE_NUMBER
+            // InternalAltarica.g:8186:1: ( RULE_NUMBER )
+            // InternalAltarica.g:8187:1: RULE_NUMBER
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNumberLiteralAccess().getValueNUMBERTerminalRuleCall_0()); 
@@ -22261,23 +23051,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__VariableAssignment_0"
-    // InternalAltarica.g:7910:1: rule__NameRef__VariableAssignment_0 : ( ( RULE_ID ) ) ;
+    // InternalAltarica.g:8196:1: rule__NameRef__VariableAssignment_0 : ( ( RULE_ID ) ) ;
     public final void rule__NameRef__VariableAssignment_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7914:1: ( ( ( RULE_ID ) ) )
-            // InternalAltarica.g:7915:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:8200:1: ( ( ( RULE_ID ) ) )
+            // InternalAltarica.g:8201:1: ( ( RULE_ID ) )
             {
-            // InternalAltarica.g:7915:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7916:1: ( RULE_ID )
+            // InternalAltarica.g:8201:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:8202:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_0_0()); 
             }
-            // InternalAltarica.g:7917:1: ( RULE_ID )
-            // InternalAltarica.g:7918:1: RULE_ID
+            // InternalAltarica.g:8203:1: ( RULE_ID )
+            // InternalAltarica.g:8204:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_0_0_1()); 
@@ -22314,23 +23104,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__NameRef__VariableAssignment_1_0_2"
-    // InternalAltarica.g:7929:1: rule__NameRef__VariableAssignment_1_0_2 : ( ( RULE_ID ) ) ;
+    // InternalAltarica.g:8215:1: rule__NameRef__VariableAssignment_1_0_2 : ( ( RULE_ID ) ) ;
     public final void rule__NameRef__VariableAssignment_1_0_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7933:1: ( ( ( RULE_ID ) ) )
-            // InternalAltarica.g:7934:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:8219:1: ( ( ( RULE_ID ) ) )
+            // InternalAltarica.g:8220:1: ( ( RULE_ID ) )
             {
-            // InternalAltarica.g:7934:1: ( ( RULE_ID ) )
-            // InternalAltarica.g:7935:1: ( RULE_ID )
+            // InternalAltarica.g:8220:1: ( ( RULE_ID ) )
+            // InternalAltarica.g:8221:1: ( RULE_ID )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getVariableNamedElementCrossReference_1_0_2_0()); 
             }
-            // InternalAltarica.g:7936:1: ( RULE_ID )
-            // InternalAltarica.g:7937:1: RULE_ID
+            // InternalAltarica.g:8222:1: ( RULE_ID )
+            // InternalAltarica.g:8223:1: RULE_ID
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getNameRefAccess().getVariableNamedElementIDTerminalRuleCall_1_0_2_0_1()); 
@@ -22367,17 +23157,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__CasesAssignment_2"
-    // InternalAltarica.g:7948:1: rule__SwitchExpression__CasesAssignment_2 : ( ruleCaseExpression ) ;
+    // InternalAltarica.g:8234:1: rule__SwitchExpression__CasesAssignment_2 : ( ruleCaseExpression ) ;
     public final void rule__SwitchExpression__CasesAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7952:1: ( ( ruleCaseExpression ) )
-            // InternalAltarica.g:7953:1: ( ruleCaseExpression )
+            // InternalAltarica.g:8238:1: ( ( ruleCaseExpression ) )
+            // InternalAltarica.g:8239:1: ( ruleCaseExpression )
             {
-            // InternalAltarica.g:7953:1: ( ruleCaseExpression )
-            // InternalAltarica.g:7954:1: ruleCaseExpression
+            // InternalAltarica.g:8239:1: ( ruleCaseExpression )
+            // InternalAltarica.g:8240:1: ruleCaseExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getCasesCaseExpressionParserRuleCall_2_0()); 
@@ -22412,17 +23202,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__SwitchExpression__DefaultAssignment_5"
-    // InternalAltarica.g:7963:1: rule__SwitchExpression__DefaultAssignment_5 : ( ruleExpression ) ;
+    // InternalAltarica.g:8249:1: rule__SwitchExpression__DefaultAssignment_5 : ( ruleExpression ) ;
     public final void rule__SwitchExpression__DefaultAssignment_5() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7967:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7968:1: ( ruleExpression )
+            // InternalAltarica.g:8253:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:8254:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7968:1: ( ruleExpression )
-            // InternalAltarica.g:7969:1: ruleExpression
+            // InternalAltarica.g:8254:1: ( ruleExpression )
+            // InternalAltarica.g:8255:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getSwitchExpressionAccess().getDefaultExpressionParserRuleCall_5_0()); 
@@ -22457,17 +23247,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__ConditionAssignment_1"
-    // InternalAltarica.g:7978:1: rule__CaseExpression__ConditionAssignment_1 : ( ruleLogicalOr ) ;
+    // InternalAltarica.g:8264:1: rule__CaseExpression__ConditionAssignment_1 : ( ruleLogicalOr ) ;
     public final void rule__CaseExpression__ConditionAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7982:1: ( ( ruleLogicalOr ) )
-            // InternalAltarica.g:7983:1: ( ruleLogicalOr )
+            // InternalAltarica.g:8268:1: ( ( ruleLogicalOr ) )
+            // InternalAltarica.g:8269:1: ( ruleLogicalOr )
             {
-            // InternalAltarica.g:7983:1: ( ruleLogicalOr )
-            // InternalAltarica.g:7984:1: ruleLogicalOr
+            // InternalAltarica.g:8269:1: ( ruleLogicalOr )
+            // InternalAltarica.g:8270:1: ruleLogicalOr
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getConditionLogicalOrParserRuleCall_1_0()); 
@@ -22502,17 +23292,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__CaseExpression__CaseAssignment_3"
-    // InternalAltarica.g:7993:1: rule__CaseExpression__CaseAssignment_3 : ( ruleExpression ) ;
+    // InternalAltarica.g:8279:1: rule__CaseExpression__CaseAssignment_3 : ( ruleExpression ) ;
     public final void rule__CaseExpression__CaseAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:7997:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:7998:1: ( ruleExpression )
+            // InternalAltarica.g:8283:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:8284:1: ( ruleExpression )
             {
-            // InternalAltarica.g:7998:1: ( ruleExpression )
-            // InternalAltarica.g:7999:1: ruleExpression
+            // InternalAltarica.g:8284:1: ( ruleExpression )
+            // InternalAltarica.g:8285:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getCaseExpressionAccess().getCaseExpressionParserRuleCall_3_0()); 
@@ -22547,23 +23337,23 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__NameAssignment_1"
-    // InternalAltarica.g:8008:1: rule__FunctionCall__NameAssignment_1 : ( ( rule__FunctionCall__NameAlternatives_1_0 ) ) ;
+    // InternalAltarica.g:8294:1: rule__FunctionCall__NameAssignment_1 : ( ( rule__FunctionCall__NameAlternatives_1_0 ) ) ;
     public final void rule__FunctionCall__NameAssignment_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:8012:1: ( ( ( rule__FunctionCall__NameAlternatives_1_0 ) ) )
-            // InternalAltarica.g:8013:1: ( ( rule__FunctionCall__NameAlternatives_1_0 ) )
+            // InternalAltarica.g:8298:1: ( ( ( rule__FunctionCall__NameAlternatives_1_0 ) ) )
+            // InternalAltarica.g:8299:1: ( ( rule__FunctionCall__NameAlternatives_1_0 ) )
             {
-            // InternalAltarica.g:8013:1: ( ( rule__FunctionCall__NameAlternatives_1_0 ) )
-            // InternalAltarica.g:8014:1: ( rule__FunctionCall__NameAlternatives_1_0 )
+            // InternalAltarica.g:8299:1: ( ( rule__FunctionCall__NameAlternatives_1_0 ) )
+            // InternalAltarica.g:8300:1: ( rule__FunctionCall__NameAlternatives_1_0 )
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getNameAlternatives_1_0()); 
             }
-            // InternalAltarica.g:8015:1: ( rule__FunctionCall__NameAlternatives_1_0 )
-            // InternalAltarica.g:8015:2: rule__FunctionCall__NameAlternatives_1_0
+            // InternalAltarica.g:8301:1: ( rule__FunctionCall__NameAlternatives_1_0 )
+            // InternalAltarica.g:8301:2: rule__FunctionCall__NameAlternatives_1_0
             {
             pushFollow(FOLLOW_2);
             rule__FunctionCall__NameAlternatives_1_0();
@@ -22598,17 +23388,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__ParametersAssignment_3_0"
-    // InternalAltarica.g:8024:1: rule__FunctionCall__ParametersAssignment_3_0 : ( ruleExpression ) ;
+    // InternalAltarica.g:8310:1: rule__FunctionCall__ParametersAssignment_3_0 : ( ruleExpression ) ;
     public final void rule__FunctionCall__ParametersAssignment_3_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:8028:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:8029:1: ( ruleExpression )
+            // InternalAltarica.g:8314:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:8315:1: ( ruleExpression )
             {
-            // InternalAltarica.g:8029:1: ( ruleExpression )
-            // InternalAltarica.g:8030:1: ruleExpression
+            // InternalAltarica.g:8315:1: ( ruleExpression )
+            // InternalAltarica.g:8316:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getParametersExpressionParserRuleCall_3_0_0()); 
@@ -22643,17 +23433,17 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start "rule__FunctionCall__ParametersAssignment_3_1_1"
-    // InternalAltarica.g:8039:1: rule__FunctionCall__ParametersAssignment_3_1_1 : ( ruleExpression ) ;
+    // InternalAltarica.g:8325:1: rule__FunctionCall__ParametersAssignment_3_1_1 : ( ruleExpression ) ;
     public final void rule__FunctionCall__ParametersAssignment_3_1_1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // InternalAltarica.g:8043:1: ( ( ruleExpression ) )
-            // InternalAltarica.g:8044:1: ( ruleExpression )
+            // InternalAltarica.g:8329:1: ( ( ruleExpression ) )
+            // InternalAltarica.g:8330:1: ( ruleExpression )
             {
-            // InternalAltarica.g:8044:1: ( ruleExpression )
-            // InternalAltarica.g:8045:1: ruleExpression
+            // InternalAltarica.g:8330:1: ( ruleExpression )
+            // InternalAltarica.g:8331:1: ruleExpression
             {
             if ( state.backtracking==0 ) {
                before(grammarAccess.getFunctionCallAccess().getParametersExpressionParserRuleCall_3_1_1_0()); 
@@ -22686,6 +23476,92 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
     }
     // $ANTLR end "rule__FunctionCall__ParametersAssignment_3_1_1"
 
+
+    // $ANTLR start "rule__Error__SeverityAssignment_0"
+    // InternalAltarica.g:8340:1: rule__Error__SeverityAssignment_0 : ( ruleSeverity ) ;
+    public final void rule__Error__SeverityAssignment_0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:8344:1: ( ( ruleSeverity ) )
+            // InternalAltarica.g:8345:1: ( ruleSeverity )
+            {
+            // InternalAltarica.g:8345:1: ( ruleSeverity )
+            // InternalAltarica.g:8346:1: ruleSeverity
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorAccess().getSeveritySeverityEnumRuleCall_0_0()); 
+            }
+            pushFollow(FOLLOW_2);
+            ruleSeverity();
+
+            state._fsp--;
+            if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorAccess().getSeveritySeverityEnumRuleCall_0_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__SeverityAssignment_0"
+
+
+    // $ANTLR start "rule__Error__MessageAssignment_1"
+    // InternalAltarica.g:8355:1: rule__Error__MessageAssignment_1 : ( RULE_STRING ) ;
+    public final void rule__Error__MessageAssignment_1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // InternalAltarica.g:8359:1: ( ( RULE_STRING ) )
+            // InternalAltarica.g:8360:1: ( RULE_STRING )
+            {
+            // InternalAltarica.g:8360:1: ( RULE_STRING )
+            // InternalAltarica.g:8361:1: RULE_STRING
+            {
+            if ( state.backtracking==0 ) {
+               before(grammarAccess.getErrorAccess().getMessageSTRINGTerminalRuleCall_1_0()); 
+            }
+            match(input,RULE_STRING,FOLLOW_2); if (state.failed) return ;
+            if ( state.backtracking==0 ) {
+               after(grammarAccess.getErrorAccess().getMessageSTRINGTerminalRuleCall_1_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end "rule__Error__MessageAssignment_1"
+
     // Delegated rules
 
 
@@ -22693,60 +23569,65 @@ public class InternalAltaricaParser extends AbstractInternalContentAssistParser 
 
     public static final BitSet FOLLOW_1 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_2 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000002200000002L});
-    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000000200000000L});
-    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000000000000010L});
-    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000000400000000L});
-    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000000800000010L});
-    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000001000000000L});
-    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000002200000000L});
-    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000E1C180000010L});
-    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000E00180000012L});
-    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0250000400000010L});
-    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x0250000400000012L});
-    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x0000000180000010L});
-    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000060000000000L});
-    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x0000081000000000L});
-    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x060004007C800070L});
-    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000200000000000L});
-    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000400000000000L});
-    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x0000E00180000010L});
-    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0001000000000000L});
-    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0002000000000000L});
-    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0002000000000002L});
-    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x0004000000000000L});
-    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0004000000000002L});
-    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0008000000000000L});
-    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0010000000000000L});
-    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0020000000000000L});
-    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0000000800000000L});
-    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0040000000000000L});
-    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0100020000000000L});
-    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x2100000000000000L});
-    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x2000000000000002L});
-    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x4000000000000000L});
-    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x4000000000000002L});
-    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x8000000000000000L});
-    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x8000000000000002L});
-    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x00000000003F0000L});
-    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x00000000003F0002L});
-    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000C00000L});
-    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000C00002L});
-    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x0000000003000000L});
-    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x0000000003000002L});
-    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0400000000000000L});
-    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0800000000000000L});
-    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x0800000000000002L});
-    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x3000000000000000L});
-    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000000070000000L});
-    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x06000C007C800070L});
+    public static final BitSet FOLLOW_3 = new BitSet(new long[]{0x0000028800000000L});
+    public static final BitSet FOLLOW_4 = new BitSet(new long[]{0x0000028000000002L});
+    public static final BitSet FOLLOW_5 = new BitSet(new long[]{0x0000001000000000L});
+    public static final BitSet FOLLOW_6 = new BitSet(new long[]{0x0000002000000000L});
+    public static final BitSet FOLLOW_7 = new BitSet(new long[]{0x0000004600000000L});
+    public static final BitSet FOLLOW_8 = new BitSet(new long[]{0x0000000600000002L});
+    public static final BitSet FOLLOW_9 = new BitSet(new long[]{0x0000008000000000L});
+    public static final BitSet FOLLOW_10 = new BitSet(new long[]{0x0000000000000010L});
+    public static final BitSet FOLLOW_11 = new BitSet(new long[]{0x0000004000000010L});
+    public static final BitSet FOLLOW_12 = new BitSet(new long[]{0x0000010000000000L});
+    public static final BitSet FOLLOW_13 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_14 = new BitSet(new long[]{0x0000028000000000L});
+    public static final BitSet FOLLOW_15 = new BitSet(new long[]{0x000E1C0180000010L});
+    public static final BitSet FOLLOW_16 = new BitSet(new long[]{0x000E000180000012L});
+    public static final BitSet FOLLOW_17 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_18 = new BitSet(new long[]{0x2500002000000010L});
+    public static final BitSet FOLLOW_19 = new BitSet(new long[]{0x2500002000000012L});
+    public static final BitSet FOLLOW_20 = new BitSet(new long[]{0x0000000180000010L});
+    public static final BitSet FOLLOW_21 = new BitSet(new long[]{0x0000600000000000L});
+    public static final BitSet FOLLOW_22 = new BitSet(new long[]{0x0000810000000000L});
+    public static final BitSet FOLLOW_23 = new BitSet(new long[]{0x0001000000000000L});
+    public static final BitSet FOLLOW_24 = new BitSet(new long[]{0x600040007C800070L});
+    public static final BitSet FOLLOW_25 = new BitSet(new long[]{0x0002000000000000L});
+    public static final BitSet FOLLOW_26 = new BitSet(new long[]{0x0004000000000000L});
+    public static final BitSet FOLLOW_27 = new BitSet(new long[]{0x0000200000000000L});
+    public static final BitSet FOLLOW_28 = new BitSet(new long[]{0x000E000180000010L});
+    public static final BitSet FOLLOW_29 = new BitSet(new long[]{0x0010000000000000L});
+    public static final BitSet FOLLOW_30 = new BitSet(new long[]{0x0020000000000000L});
+    public static final BitSet FOLLOW_31 = new BitSet(new long[]{0x0020000000000002L});
+    public static final BitSet FOLLOW_32 = new BitSet(new long[]{0x0040000000000000L});
+    public static final BitSet FOLLOW_33 = new BitSet(new long[]{0x0040000000000002L});
+    public static final BitSet FOLLOW_34 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_35 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_36 = new BitSet(new long[]{0x0200000000000000L});
+    public static final BitSet FOLLOW_37 = new BitSet(new long[]{0x0000004000000000L});
+    public static final BitSet FOLLOW_38 = new BitSet(new long[]{0x0400000000000000L});
+    public static final BitSet FOLLOW_39 = new BitSet(new long[]{0x0800000000000000L});
+    public static final BitSet FOLLOW_40 = new BitSet(new long[]{0x1000200000000000L});
+    public static final BitSet FOLLOW_41 = new BitSet(new long[]{0x1000000000000000L,0x0000000000000002L});
+    public static final BitSet FOLLOW_42 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000002L});
+    public static final BitSet FOLLOW_43 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000004L});
+    public static final BitSet FOLLOW_44 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000004L});
+    public static final BitSet FOLLOW_45 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000008L});
+    public static final BitSet FOLLOW_46 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L});
+    public static final BitSet FOLLOW_47 = new BitSet(new long[]{0x00000000003F0000L});
+    public static final BitSet FOLLOW_48 = new BitSet(new long[]{0x00000000003F0002L});
+    public static final BitSet FOLLOW_49 = new BitSet(new long[]{0x0000000000C00000L});
+    public static final BitSet FOLLOW_50 = new BitSet(new long[]{0x0000000000C00002L});
+    public static final BitSet FOLLOW_51 = new BitSet(new long[]{0x0000000003000000L});
+    public static final BitSet FOLLOW_52 = new BitSet(new long[]{0x0000000003000002L});
+    public static final BitSet FOLLOW_53 = new BitSet(new long[]{0x4000000000000000L});
+    public static final BitSet FOLLOW_54 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_55 = new BitSet(new long[]{0x0000800000000000L});
+    public static final BitSet FOLLOW_56 = new BitSet(new long[]{0x8000000000000000L});
+    public static final BitSet FOLLOW_57 = new BitSet(new long[]{0x8000000000000002L});
+    public static final BitSet FOLLOW_58 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000003L});
+    public static final BitSet FOLLOW_59 = new BitSet(new long[]{0x0000000070000000L});
+    public static final BitSet FOLLOW_60 = new BitSet(new long[]{0x0000400000000000L});
+    public static final BitSet FOLLOW_61 = new BitSet(new long[]{0x6000C0007C800070L});
+    public static final BitSet FOLLOW_62 = new BitSet(new long[]{0x0000000000000020L});
 
 }

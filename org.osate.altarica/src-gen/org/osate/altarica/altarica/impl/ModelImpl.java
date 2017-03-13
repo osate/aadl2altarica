@@ -43,6 +43,7 @@ import org.osate.altarica.altarica.Model;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link org.osate.altarica.altarica.impl.ModelImpl#getErrors <em>Errors</em>}</li>
  *   <li>{@link org.osate.altarica.altarica.impl.ModelImpl#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
@@ -50,6 +51,16 @@ import org.osate.altarica.altarica.Model;
  */
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
+  /**
+   * The cached value of the '{@link #getErrors() <em>Errors</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getErrors()
+   * @generated
+   * @ordered
+   */
+  protected EList<org.osate.altarica.altarica.Error> errors;
+
   /**
    * The cached value of the '{@link #getDeclarations() <em>Declarations</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -86,6 +97,20 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<org.osate.altarica.altarica.Error> getErrors()
+  {
+    if (errors == null)
+    {
+      errors = new EObjectContainmentEList<org.osate.altarica.altarica.Error>(org.osate.altarica.altarica.Error.class, this, AltaricaPackage.MODEL__ERRORS);
+    }
+    return errors;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EList<AbstractDeclaration> getDeclarations()
   {
     if (declarations == null)
@@ -105,6 +130,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AltaricaPackage.MODEL__ERRORS:
+        return ((InternalEList<?>)getErrors()).basicRemove(otherEnd, msgs);
       case AltaricaPackage.MODEL__DECLARATIONS:
         return ((InternalEList<?>)getDeclarations()).basicRemove(otherEnd, msgs);
     }
@@ -121,6 +148,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AltaricaPackage.MODEL__ERRORS:
+        return getErrors();
       case AltaricaPackage.MODEL__DECLARATIONS:
         return getDeclarations();
     }
@@ -138,6 +167,10 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AltaricaPackage.MODEL__ERRORS:
+        getErrors().clear();
+        getErrors().addAll((Collection<? extends org.osate.altarica.altarica.Error>)newValue);
+        return;
       case AltaricaPackage.MODEL__DECLARATIONS:
         getDeclarations().clear();
         getDeclarations().addAll((Collection<? extends AbstractDeclaration>)newValue);
@@ -156,6 +189,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AltaricaPackage.MODEL__ERRORS:
+        getErrors().clear();
+        return;
       case AltaricaPackage.MODEL__DECLARATIONS:
         getDeclarations().clear();
         return;
@@ -173,6 +209,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
+      case AltaricaPackage.MODEL__ERRORS:
+        return errors != null && !errors.isEmpty();
       case AltaricaPackage.MODEL__DECLARATIONS:
         return declarations != null && !declarations.isEmpty();
     }

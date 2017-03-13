@@ -26,7 +26,50 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
-import org.osate.altarica.altarica.*;
+import org.osate.altarica.altarica.ARBoolean;
+import org.osate.altarica.altarica.ARNumber;
+import org.osate.altarica.altarica.ARString;
+import org.osate.altarica.altarica.AbstractDeclaration;
+import org.osate.altarica.altarica.Addition;
+import org.osate.altarica.altarica.AltaricaFactory;
+import org.osate.altarica.altarica.AltaricaPackage;
+import org.osate.altarica.altarica.Assignment;
+import org.osate.altarica.altarica.Attribute;
+import org.osate.altarica.altarica.BaseType;
+import org.osate.altarica.altarica.BaseTypeEnum;
+import org.osate.altarica.altarica.Block;
+import org.osate.altarica.altarica.CaseExpression;
+import org.osate.altarica.altarica.Conditional;
+import org.osate.altarica.altarica.Declaration;
+import org.osate.altarica.altarica.Domain;
+import org.osate.altarica.altarica.Equal;
+import org.osate.altarica.altarica.Event;
+import org.osate.altarica.altarica.Expression;
+import org.osate.altarica.altarica.FunctionCall;
+import org.osate.altarica.altarica.Instruction;
+import org.osate.altarica.altarica.LabeledTransition;
+import org.osate.altarica.altarica.LogicalAnd;
+import org.osate.altarica.altarica.LogicalOr;
+import org.osate.altarica.altarica.Minus;
+import org.osate.altarica.altarica.Model;
+import org.osate.altarica.altarica.Multiplication;
+import org.osate.altarica.altarica.NameRef;
+import org.osate.altarica.altarica.NamedElement;
+import org.osate.altarica.altarica.NamedType;
+import org.osate.altarica.altarica.Node;
+import org.osate.altarica.altarica.Not;
+import org.osate.altarica.altarica.Observer;
+import org.osate.altarica.altarica.Parameter;
+import org.osate.altarica.altarica.Severity;
+import org.osate.altarica.altarica.Skip;
+import org.osate.altarica.altarica.SwitchExpression;
+import org.osate.altarica.altarica.SymbolicConstant;
+import org.osate.altarica.altarica.Transition;
+import org.osate.altarica.altarica.TransitionAnd;
+import org.osate.altarica.altarica.TransitionExpression;
+import org.osate.altarica.altarica.TransitionOr;
+import org.osate.altarica.altarica.Type;
+import org.osate.altarica.altarica.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -97,6 +140,7 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
       case AltaricaPackage.NAME_REF: return createNameRef();
       case AltaricaPackage.SWITCH_EXPRESSION: return createSwitchExpression();
       case AltaricaPackage.CASE_EXPRESSION: return createCaseExpression();
+      case AltaricaPackage.ERROR: return createError();
       case AltaricaPackage.DOMAIN: return createDomain();
       case AltaricaPackage.SYMBOLIC_CONSTANT: return createSymbolicConstant();
       case AltaricaPackage.NODE: return createNode();
@@ -137,6 +181,8 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
     {
       case AltaricaPackage.BASE_TYPE_ENUM:
         return createBaseTypeEnumFromString(eDataType, initialValue);
+      case AltaricaPackage.SEVERITY:
+        return createSeverityFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -154,6 +200,8 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
     {
       case AltaricaPackage.BASE_TYPE_ENUM:
         return convertBaseTypeEnumToString(eDataType, instanceValue);
+      case AltaricaPackage.SEVERITY:
+        return convertSeverityToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -344,6 +392,17 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
   {
     CaseExpressionImpl caseExpression = new CaseExpressionImpl();
     return caseExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public org.osate.altarica.altarica.Error createError()
+  {
+    ErrorImpl error = new ErrorImpl();
+    return error;
   }
 
   /**
@@ -617,6 +676,28 @@ public class AltaricaFactoryImpl extends EFactoryImpl implements AltaricaFactory
    * @generated
    */
   public String convertBaseTypeEnumToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Severity createSeverityFromString(EDataType eDataType, String initialValue)
+  {
+    Severity result = Severity.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertSeverityToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

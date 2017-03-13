@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
+ *   <li>{@link org.osate.altarica.altarica.Model#getErrors <em>Errors</em>}</li>
  *   <li>{@link org.osate.altarica.altarica.Model#getDeclarations <em>Declarations</em>}</li>
  * </ul>
  *
@@ -39,6 +40,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface Model extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Errors</b></em>' containment reference list.
+   * The list contents are of type {@link org.osate.altarica.altarica.Error}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Errors</em>' containment reference list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Errors</em>' containment reference list.
+   * @see org.osate.altarica.altarica.AltaricaPackage#getModel_Errors()
+   * @model containment="true"
+   * @generated
+   */
+  EList<org.osate.altarica.altarica.Error> getErrors();
+
   /**
    * Returns the value of the '<em><b>Declarations</b></em>' containment reference list.
    * The list contents are of type {@link org.osate.altarica.altarica.AbstractDeclaration}.

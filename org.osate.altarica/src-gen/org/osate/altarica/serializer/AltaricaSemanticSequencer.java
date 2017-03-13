@@ -100,6 +100,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 			case AltaricaPackage.EQUAL:
 				sequence_Relation(context, (Equal) semanticObject); 
 				return; 
+			case AltaricaPackage.ERROR:
+				sequence_Error(context, (org.osate.altarica.altarica.Error) semanticObject); 
+				return; 
 			case AltaricaPackage.EVENT:
 				sequence_EventDeclaration(context, (Event) semanticObject); 
 				return; 
@@ -175,20 +178,20 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns Addition
 	 *     LogicalOr returns Addition
-	 *     LogicalOr.LogicalOr_1_0_0 returns Addition
+	 *     LogicalOr.LogicalOr_1_0 returns Addition
 	 *     LogicalAnd returns Addition
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns Addition
+	 *     LogicalAnd.LogicalAnd_1_0 returns Addition
 	 *     Relation returns Addition
-	 *     Relation.Equal_1_0_0 returns Addition
+	 *     Relation.Equal_1_0 returns Addition
 	 *     Addition returns Addition
-	 *     Addition.Addition_1_0_0 returns Addition
+	 *     Addition.Addition_1_0 returns Addition
 	 *     Multiplication returns Addition
-	 *     Multiplication.Multiplication_1_0_0 returns Addition
+	 *     Multiplication.Multiplication_1_0 returns Addition
 	 *     Neg returns Addition
 	 *     Atom returns Addition
 	 *
 	 * Constraint:
-	 *     (left=Addition_Addition_1_0_0 (op='+' | op='-') right=Multiplication)
+	 *     (left=Addition_Addition_1_0 (op='+' | op='-') right=Multiplication)
 	 */
 	protected void sequence_Addition(ISerializationContext context, Addition semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -274,15 +277,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns ARBoolean
 	 *     LogicalOr returns ARBoolean
-	 *     LogicalOr.LogicalOr_1_0_0 returns ARBoolean
+	 *     LogicalOr.LogicalOr_1_0 returns ARBoolean
 	 *     LogicalAnd returns ARBoolean
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns ARBoolean
+	 *     LogicalAnd.LogicalAnd_1_0 returns ARBoolean
 	 *     Relation returns ARBoolean
-	 *     Relation.Equal_1_0_0 returns ARBoolean
+	 *     Relation.Equal_1_0 returns ARBoolean
 	 *     Addition returns ARBoolean
-	 *     Addition.Addition_1_0_0 returns ARBoolean
+	 *     Addition.Addition_1_0 returns ARBoolean
 	 *     Multiplication returns ARBoolean
-	 *     Multiplication.Multiplication_1_0_0 returns ARBoolean
+	 *     Multiplication.Multiplication_1_0 returns ARBoolean
 	 *     Neg returns ARBoolean
 	 *     Atom returns ARBoolean
 	 *     BooleanLiteral returns ARBoolean
@@ -357,6 +360,27 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	
 	/**
 	 * Contexts:
+	 *     Error returns Error
+	 *
+	 * Constraint:
+	 *     (severity=Severity message=STRING)
+	 */
+	protected void sequence_Error(ISerializationContext context, org.osate.altarica.altarica.Error semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.ERROR__SEVERITY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.ERROR__SEVERITY));
+			if (transientValues.isValueTransient(semanticObject, AltaricaPackage.Literals.ERROR__MESSAGE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.ERROR__MESSAGE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getErrorAccess().getSeveritySeverityEnumRuleCall_0_0(), semanticObject.getSeverity());
+		feeder.accept(grammarAccess.getErrorAccess().getMessageSTRINGTerminalRuleCall_1_0(), semanticObject.getMessage());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * Contexts:
 	 *     Declaration returns Event
 	 *     EventDeclaration returns Event
 	 *
@@ -372,15 +396,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns FunctionCall
 	 *     LogicalOr returns FunctionCall
-	 *     LogicalOr.LogicalOr_1_0_0 returns FunctionCall
+	 *     LogicalOr.LogicalOr_1_0 returns FunctionCall
 	 *     LogicalAnd returns FunctionCall
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns FunctionCall
+	 *     LogicalAnd.LogicalAnd_1_0 returns FunctionCall
 	 *     Relation returns FunctionCall
-	 *     Relation.Equal_1_0_0 returns FunctionCall
+	 *     Relation.Equal_1_0 returns FunctionCall
 	 *     Addition returns FunctionCall
-	 *     Addition.Addition_1_0_0 returns FunctionCall
+	 *     Addition.Addition_1_0 returns FunctionCall
 	 *     Multiplication returns FunctionCall
-	 *     Multiplication.Multiplication_1_0_0 returns FunctionCall
+	 *     Multiplication.Multiplication_1_0 returns FunctionCall
 	 *     Neg returns FunctionCall
 	 *     Atom returns FunctionCall
 	 *     FunctionCall returns FunctionCall
@@ -418,20 +442,20 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns LogicalAnd
 	 *     LogicalOr returns LogicalAnd
-	 *     LogicalOr.LogicalOr_1_0_0 returns LogicalAnd
+	 *     LogicalOr.LogicalOr_1_0 returns LogicalAnd
 	 *     LogicalAnd returns LogicalAnd
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns LogicalAnd
+	 *     LogicalAnd.LogicalAnd_1_0 returns LogicalAnd
 	 *     Relation returns LogicalAnd
-	 *     Relation.Equal_1_0_0 returns LogicalAnd
+	 *     Relation.Equal_1_0 returns LogicalAnd
 	 *     Addition returns LogicalAnd
-	 *     Addition.Addition_1_0_0 returns LogicalAnd
+	 *     Addition.Addition_1_0 returns LogicalAnd
 	 *     Multiplication returns LogicalAnd
-	 *     Multiplication.Multiplication_1_0_0 returns LogicalAnd
+	 *     Multiplication.Multiplication_1_0 returns LogicalAnd
 	 *     Neg returns LogicalAnd
 	 *     Atom returns LogicalAnd
 	 *
 	 * Constraint:
-	 *     (left=LogicalAnd_LogicalAnd_1_0_0 op='and' right=Relation)
+	 *     (left=LogicalAnd_LogicalAnd_1_0 op='and' right=Relation)
 	 */
 	protected void sequence_LogicalAnd(ISerializationContext context, LogicalAnd semanticObject) {
 		if (errorAcceptor != null) {
@@ -443,9 +467,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_AND__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_0_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getLogicalAndAccess().getLogicalAndLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLogicalAndAccess().getOpAndKeyword_1_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getLogicalAndAccess().getRightRelationParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -454,20 +478,20 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns LogicalOr
 	 *     LogicalOr returns LogicalOr
-	 *     LogicalOr.LogicalOr_1_0_0 returns LogicalOr
+	 *     LogicalOr.LogicalOr_1_0 returns LogicalOr
 	 *     LogicalAnd returns LogicalOr
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns LogicalOr
+	 *     LogicalAnd.LogicalAnd_1_0 returns LogicalOr
 	 *     Relation returns LogicalOr
-	 *     Relation.Equal_1_0_0 returns LogicalOr
+	 *     Relation.Equal_1_0 returns LogicalOr
 	 *     Addition returns LogicalOr
-	 *     Addition.Addition_1_0_0 returns LogicalOr
+	 *     Addition.Addition_1_0 returns LogicalOr
 	 *     Multiplication returns LogicalOr
-	 *     Multiplication.Multiplication_1_0_0 returns LogicalOr
+	 *     Multiplication.Multiplication_1_0 returns LogicalOr
 	 *     Neg returns LogicalOr
 	 *     Atom returns LogicalOr
 	 *
 	 * Constraint:
-	 *     (left=LogicalOr_LogicalOr_1_0_0 op='or' right=LogicalAnd)
+	 *     (left=LogicalOr_LogicalOr_1_0 op='or' right=LogicalAnd)
 	 */
 	protected void sequence_LogicalOr(ISerializationContext context, LogicalOr semanticObject) {
 		if (errorAcceptor != null) {
@@ -479,9 +503,9 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, AltaricaPackage.Literals.LOGICAL_OR__RIGHT));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0_0(), semanticObject.getLeft());
-		feeder.accept(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_0_1_0(), semanticObject.getOp());
-		feeder.accept(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_0_2_0(), semanticObject.getRight());
+		feeder.accept(grammarAccess.getLogicalOrAccess().getLogicalOrLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getLogicalOrAccess().getOpOrKeyword_1_1_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getLogicalOrAccess().getRightLogicalAndParserRuleCall_1_2_0(), semanticObject.getRight());
 		feeder.finish();
 	}
 	
@@ -491,7 +515,7 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     declarations+=AbstractDeclaration+
+	 *     (errors+=Error* declarations+=AbstractDeclaration*)
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -502,20 +526,20 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns Multiplication
 	 *     LogicalOr returns Multiplication
-	 *     LogicalOr.LogicalOr_1_0_0 returns Multiplication
+	 *     LogicalOr.LogicalOr_1_0 returns Multiplication
 	 *     LogicalAnd returns Multiplication
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns Multiplication
+	 *     LogicalAnd.LogicalAnd_1_0 returns Multiplication
 	 *     Relation returns Multiplication
-	 *     Relation.Equal_1_0_0 returns Multiplication
+	 *     Relation.Equal_1_0 returns Multiplication
 	 *     Addition returns Multiplication
-	 *     Addition.Addition_1_0_0 returns Multiplication
+	 *     Addition.Addition_1_0 returns Multiplication
 	 *     Multiplication returns Multiplication
-	 *     Multiplication.Multiplication_1_0_0 returns Multiplication
+	 *     Multiplication.Multiplication_1_0 returns Multiplication
 	 *     Neg returns Multiplication
 	 *     Atom returns Multiplication
 	 *
 	 * Constraint:
-	 *     (left=Multiplication_Multiplication_1_0_0 (op='*' | op='/') right=Neg)
+	 *     (left=Multiplication_Multiplication_1_0 (op='*' | op='/') right=Neg)
 	 */
 	protected void sequence_Multiplication(ISerializationContext context, Multiplication semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
@@ -526,15 +550,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns NameRef
 	 *     LogicalOr returns NameRef
-	 *     LogicalOr.LogicalOr_1_0_0 returns NameRef
+	 *     LogicalOr.LogicalOr_1_0 returns NameRef
 	 *     LogicalAnd returns NameRef
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns NameRef
+	 *     LogicalAnd.LogicalAnd_1_0 returns NameRef
 	 *     Relation returns NameRef
-	 *     Relation.Equal_1_0_0 returns NameRef
+	 *     Relation.Equal_1_0 returns NameRef
 	 *     Addition returns NameRef
-	 *     Addition.Addition_1_0_0 returns NameRef
+	 *     Addition.Addition_1_0 returns NameRef
 	 *     Multiplication returns NameRef
-	 *     Multiplication.Multiplication_1_0_0 returns NameRef
+	 *     Multiplication.Multiplication_1_0 returns NameRef
 	 *     Neg returns NameRef
 	 *     Atom returns NameRef
 	 *     NameRef returns NameRef
@@ -571,15 +595,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns Minus
 	 *     LogicalOr returns Minus
-	 *     LogicalOr.LogicalOr_1_0_0 returns Minus
+	 *     LogicalOr.LogicalOr_1_0 returns Minus
 	 *     LogicalAnd returns Minus
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns Minus
+	 *     LogicalAnd.LogicalAnd_1_0 returns Minus
 	 *     Relation returns Minus
-	 *     Relation.Equal_1_0_0 returns Minus
+	 *     Relation.Equal_1_0 returns Minus
 	 *     Addition returns Minus
-	 *     Addition.Addition_1_0_0 returns Minus
+	 *     Addition.Addition_1_0 returns Minus
 	 *     Multiplication returns Minus
-	 *     Multiplication.Multiplication_1_0_0 returns Minus
+	 *     Multiplication.Multiplication_1_0 returns Minus
 	 *     Neg returns Minus
 	 *     Atom returns Minus
 	 *
@@ -601,15 +625,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns Not
 	 *     LogicalOr returns Not
-	 *     LogicalOr.LogicalOr_1_0_0 returns Not
+	 *     LogicalOr.LogicalOr_1_0 returns Not
 	 *     LogicalAnd returns Not
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns Not
+	 *     LogicalAnd.LogicalAnd_1_0 returns Not
 	 *     Relation returns Not
-	 *     Relation.Equal_1_0_0 returns Not
+	 *     Relation.Equal_1_0 returns Not
 	 *     Addition returns Not
-	 *     Addition.Addition_1_0_0 returns Not
+	 *     Addition.Addition_1_0 returns Not
 	 *     Multiplication returns Not
-	 *     Multiplication.Multiplication_1_0_0 returns Not
+	 *     Multiplication.Multiplication_1_0 returns Not
 	 *     Neg returns Not
 	 *     Atom returns Not
 	 *
@@ -631,15 +655,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns ARNumber
 	 *     LogicalOr returns ARNumber
-	 *     LogicalOr.LogicalOr_1_0_0 returns ARNumber
+	 *     LogicalOr.LogicalOr_1_0 returns ARNumber
 	 *     LogicalAnd returns ARNumber
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns ARNumber
+	 *     LogicalAnd.LogicalAnd_1_0 returns ARNumber
 	 *     Relation returns ARNumber
-	 *     Relation.Equal_1_0_0 returns ARNumber
+	 *     Relation.Equal_1_0 returns ARNumber
 	 *     Addition returns ARNumber
-	 *     Addition.Addition_1_0_0 returns ARNumber
+	 *     Addition.Addition_1_0 returns ARNumber
 	 *     Multiplication returns ARNumber
-	 *     Multiplication.Multiplication_1_0_0 returns ARNumber
+	 *     Multiplication.Multiplication_1_0 returns ARNumber
 	 *     Neg returns ARNumber
 	 *     Atom returns ARNumber
 	 *     NumberLiteral returns ARNumber
@@ -712,21 +736,21 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns Equal
 	 *     LogicalOr returns Equal
-	 *     LogicalOr.LogicalOr_1_0_0 returns Equal
+	 *     LogicalOr.LogicalOr_1_0 returns Equal
 	 *     LogicalAnd returns Equal
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns Equal
+	 *     LogicalAnd.LogicalAnd_1_0 returns Equal
 	 *     Relation returns Equal
-	 *     Relation.Equal_1_0_0 returns Equal
+	 *     Relation.Equal_1_0 returns Equal
 	 *     Addition returns Equal
-	 *     Addition.Addition_1_0_0 returns Equal
+	 *     Addition.Addition_1_0 returns Equal
 	 *     Multiplication returns Equal
-	 *     Multiplication.Multiplication_1_0_0 returns Equal
+	 *     Multiplication.Multiplication_1_0 returns Equal
 	 *     Neg returns Equal
 	 *     Atom returns Equal
 	 *
 	 * Constraint:
 	 *     (
-	 *         left=Relation_Equal_1_0_0 
+	 *         left=Relation_Equal_1_0 
 	 *         (
 	 *             op='==' | 
 	 *             op='!=' | 
@@ -760,15 +784,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns ARString
 	 *     LogicalOr returns ARString
-	 *     LogicalOr.LogicalOr_1_0_0 returns ARString
+	 *     LogicalOr.LogicalOr_1_0 returns ARString
 	 *     LogicalAnd returns ARString
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns ARString
+	 *     LogicalAnd.LogicalAnd_1_0 returns ARString
 	 *     Relation returns ARString
-	 *     Relation.Equal_1_0_0 returns ARString
+	 *     Relation.Equal_1_0 returns ARString
 	 *     Addition returns ARString
-	 *     Addition.Addition_1_0_0 returns ARString
+	 *     Addition.Addition_1_0 returns ARString
 	 *     Multiplication returns ARString
-	 *     Multiplication.Multiplication_1_0_0 returns ARString
+	 *     Multiplication.Multiplication_1_0 returns ARString
 	 *     Neg returns ARString
 	 *     Atom returns ARString
 	 *     StringLiteral returns ARString
@@ -791,15 +815,15 @@ public class AltaricaSemanticSequencer extends AbstractDelegatingSemanticSequenc
 	 * Contexts:
 	 *     Expression returns SwitchExpression
 	 *     LogicalOr returns SwitchExpression
-	 *     LogicalOr.LogicalOr_1_0_0 returns SwitchExpression
+	 *     LogicalOr.LogicalOr_1_0 returns SwitchExpression
 	 *     LogicalAnd returns SwitchExpression
-	 *     LogicalAnd.LogicalAnd_1_0_0 returns SwitchExpression
+	 *     LogicalAnd.LogicalAnd_1_0 returns SwitchExpression
 	 *     Relation returns SwitchExpression
-	 *     Relation.Equal_1_0_0 returns SwitchExpression
+	 *     Relation.Equal_1_0 returns SwitchExpression
 	 *     Addition returns SwitchExpression
-	 *     Addition.Addition_1_0_0 returns SwitchExpression
+	 *     Addition.Addition_1_0 returns SwitchExpression
 	 *     Multiplication returns SwitchExpression
-	 *     Multiplication.Multiplication_1_0_0 returns SwitchExpression
+	 *     Multiplication.Multiplication_1_0 returns SwitchExpression
 	 *     Neg returns SwitchExpression
 	 *     Atom returns SwitchExpression
 	 *     SwitchExpression returns SwitchExpression

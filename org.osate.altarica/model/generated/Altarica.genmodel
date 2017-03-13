@@ -12,7 +12,12 @@
       <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//BaseTypeEnum/INTEGER"/>
       <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//BaseTypeEnum/BOOLEAN"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Altarica.ecore#//Severity">
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//Severity/ERROR"/>
+      <genEnumLiterals ecoreEnumLiteral="Altarica.ecore#//Severity/WARNING"/>
+    </genEnums>
     <genClasses ecoreClass="Altarica.ecore#//Model">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Model/errors"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Model/declarations"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//AbstractDeclaration"/>
@@ -57,6 +62,10 @@
     <genClasses ecoreClass="Altarica.ecore#//CaseExpression">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/condition"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//CaseExpression/case"/>
+    </genClasses>
+    <genClasses ecoreClass="Altarica.ecore#//Error">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//Error/severity"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Altarica.ecore#//Error/message"/>
     </genClasses>
     <genClasses ecoreClass="Altarica.ecore#//Domain">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Altarica.ecore#//Domain/constants"/>

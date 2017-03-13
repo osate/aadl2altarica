@@ -24,7 +24,47 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.osate.altarica.altarica.*;
+import org.osate.altarica.altarica.ARBoolean;
+import org.osate.altarica.altarica.ARNumber;
+import org.osate.altarica.altarica.ARString;
+import org.osate.altarica.altarica.AbstractDeclaration;
+import org.osate.altarica.altarica.Addition;
+import org.osate.altarica.altarica.AltaricaPackage;
+import org.osate.altarica.altarica.Assignment;
+import org.osate.altarica.altarica.Attribute;
+import org.osate.altarica.altarica.BaseType;
+import org.osate.altarica.altarica.Block;
+import org.osate.altarica.altarica.CaseExpression;
+import org.osate.altarica.altarica.Conditional;
+import org.osate.altarica.altarica.Declaration;
+import org.osate.altarica.altarica.Domain;
+import org.osate.altarica.altarica.Equal;
+import org.osate.altarica.altarica.Event;
+import org.osate.altarica.altarica.Expression;
+import org.osate.altarica.altarica.FunctionCall;
+import org.osate.altarica.altarica.Instruction;
+import org.osate.altarica.altarica.LabeledTransition;
+import org.osate.altarica.altarica.LogicalAnd;
+import org.osate.altarica.altarica.LogicalOr;
+import org.osate.altarica.altarica.Minus;
+import org.osate.altarica.altarica.Model;
+import org.osate.altarica.altarica.Multiplication;
+import org.osate.altarica.altarica.NameRef;
+import org.osate.altarica.altarica.NamedElement;
+import org.osate.altarica.altarica.NamedType;
+import org.osate.altarica.altarica.Node;
+import org.osate.altarica.altarica.Not;
+import org.osate.altarica.altarica.Observer;
+import org.osate.altarica.altarica.Parameter;
+import org.osate.altarica.altarica.Skip;
+import org.osate.altarica.altarica.SwitchExpression;
+import org.osate.altarica.altarica.SymbolicConstant;
+import org.osate.altarica.altarica.Transition;
+import org.osate.altarica.altarica.TransitionAnd;
+import org.osate.altarica.altarica.TransitionExpression;
+import org.osate.altarica.altarica.TransitionOr;
+import org.osate.altarica.altarica.Type;
+import org.osate.altarica.altarica.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -173,6 +213,11 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
       public Adapter caseCaseExpression(CaseExpression object)
       {
         return createCaseExpressionAdapter();
+      }
+      @Override
+      public Adapter caseError(org.osate.altarica.altarica.Error object)
+      {
+        return createErrorAdapter();
       }
       @Override
       public Adapter caseDomain(Domain object)
@@ -562,6 +607,21 @@ public class AltaricaAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createCaseExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.osate.altarica.altarica.Error <em>Error</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.osate.altarica.altarica.Error
+   * @generated
+   */
+  public Adapter createErrorAdapter()
   {
     return null;
   }

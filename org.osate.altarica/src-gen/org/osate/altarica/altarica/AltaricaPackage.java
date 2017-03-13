@@ -83,13 +83,22 @@ public interface AltaricaPackage extends EPackage
   int MODEL = 0;
 
   /**
+   * The feature id for the '<em><b>Errors</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODEL__ERRORS = 0;
+
+  /**
    * The feature id for the '<em><b>Declarations</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__DECLARATIONS = 0;
+  int MODEL__DECLARATIONS = 1;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -98,7 +107,7 @@ public interface AltaricaPackage extends EPackage
    * @generated
    * @ordered
    */
-  int MODEL_FEATURE_COUNT = 1;
+  int MODEL_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.AbstractDeclarationImpl <em>Abstract Declaration</em>}' class.
@@ -549,6 +558,43 @@ public interface AltaricaPackage extends EPackage
   int CASE_EXPRESSION_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.osate.altarica.altarica.impl.ErrorImpl <em>Error</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.altarica.altarica.impl.ErrorImpl
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getError()
+   * @generated
+   */
+  int ERROR = 17;
+
+  /**
+   * The feature id for the '<em><b>Severity</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ERROR__SEVERITY = 0;
+
+  /**
+   * The feature id for the '<em><b>Message</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ERROR__MESSAGE = 1;
+
+  /**
+   * The number of structural features of the '<em>Error</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ERROR_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.osate.altarica.altarica.impl.DomainImpl <em>Domain</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -556,7 +602,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getDomain()
    * @generated
    */
-  int DOMAIN = 17;
+  int DOMAIN = 18;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -593,7 +639,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSymbolicConstant()
    * @generated
    */
-  int SYMBOLIC_CONSTANT = 18;
+  int SYMBOLIC_CONSTANT = 19;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -621,7 +667,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNode()
    * @generated
    */
-  int NODE = 19;
+  int NODE = 20;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -676,7 +722,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getVariable()
    * @generated
    */
-  int VARIABLE = 20;
+  int VARIABLE = 21;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -722,7 +768,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAttribute()
    * @generated
    */
-  int ATTRIBUTE = 21;
+  int ATTRIBUTE = 22;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -759,7 +805,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEvent()
    * @generated
    */
-  int EVENT = 22;
+  int EVENT = 23;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -796,7 +842,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getParameter()
    * @generated
    */
-  int PARAMETER = 23;
+  int PARAMETER = 24;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -842,7 +888,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getObserver()
    * @generated
    */
-  int OBSERVER = 24;
+  int OBSERVER = 25;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -888,7 +934,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getTransitionAnd()
    * @generated
    */
-  int TRANSITION_AND = 25;
+  int TRANSITION_AND = 26;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -925,7 +971,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getTransitionOr()
    * @generated
    */
-  int TRANSITION_OR = 26;
+  int TRANSITION_OR = 27;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -962,7 +1008,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getTransition()
    * @generated
    */
-  int TRANSITION = 27;
+  int TRANSITION = 28;
 
   /**
    * The feature id for the '<em><b>Guard</b></em>' containment reference.
@@ -999,7 +1045,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSkip()
    * @generated
    */
-  int SKIP = 28;
+  int SKIP = 29;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1036,7 +1082,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 29;
+  int ASSIGNMENT = 30;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1091,7 +1137,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 30;
+  int BLOCK = 31;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1137,7 +1183,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getConditional()
    * @generated
    */
-  int CONDITIONAL = 31;
+  int CONDITIONAL = 32;
 
   /**
    * The feature id for the '<em><b>Cases</b></em>' containment reference list.
@@ -1192,7 +1238,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalOr()
    * @generated
    */
-  int LOGICAL_OR = 32;
+  int LOGICAL_OR = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1238,7 +1284,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getLogicalAnd()
    * @generated
    */
-  int LOGICAL_AND = 33;
+  int LOGICAL_AND = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1284,7 +1330,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getEqual()
    * @generated
    */
-  int EQUAL = 34;
+  int EQUAL = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1330,7 +1376,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getAddition()
    * @generated
    */
-  int ADDITION = 35;
+  int ADDITION = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1376,7 +1422,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getMultiplication()
    * @generated
    */
-  int MULTIPLICATION = 36;
+  int MULTIPLICATION = 37;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1422,7 +1468,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getNot()
    * @generated
    */
-  int NOT = 37;
+  int NOT = 38;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1450,7 +1496,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getMinus()
    * @generated
    */
-  int MINUS = 38;
+  int MINUS = 39;
 
   /**
    * The feature id for the '<em><b>Expression</b></em>' containment reference.
@@ -1478,7 +1524,7 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getFunctionCall()
    * @generated
    */
-  int FUNCTION_CALL = 39;
+  int FUNCTION_CALL = 40;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -1515,7 +1561,17 @@ public interface AltaricaPackage extends EPackage
    * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getBaseTypeEnum()
    * @generated
    */
-  int BASE_TYPE_ENUM = 40;
+  int BASE_TYPE_ENUM = 41;
+
+  /**
+   * The meta object id for the '{@link org.osate.altarica.altarica.Severity <em>Severity</em>}' enum.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.osate.altarica.altarica.Severity
+   * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSeverity()
+   * @generated
+   */
+  int SEVERITY = 42;
 
 
   /**
@@ -1527,6 +1583,17 @@ public interface AltaricaPackage extends EPackage
    * @generated
    */
   EClass getModel();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.Model#getErrors <em>Errors</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Errors</em>'.
+   * @see org.osate.altarica.altarica.Model#getErrors()
+   * @see #getModel()
+   * @generated
+   */
+  EReference getModel_Errors();
 
   /**
    * Returns the meta object for the containment reference list '{@link org.osate.altarica.altarica.Model#getDeclarations <em>Declarations</em>}'.
@@ -1874,6 +1941,38 @@ public interface AltaricaPackage extends EPackage
    * @generated
    */
   EReference getCaseExpression_Case();
+
+  /**
+   * Returns the meta object for class '{@link org.osate.altarica.altarica.Error <em>Error</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Error</em>'.
+   * @see org.osate.altarica.altarica.Error
+   * @generated
+   */
+  EClass getError();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.Error#getSeverity <em>Severity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Severity</em>'.
+   * @see org.osate.altarica.altarica.Error#getSeverity()
+   * @see #getError()
+   * @generated
+   */
+  EAttribute getError_Severity();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.osate.altarica.altarica.Error#getMessage <em>Message</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Message</em>'.
+   * @see org.osate.altarica.altarica.Error#getMessage()
+   * @see #getError()
+   * @generated
+   */
+  EAttribute getError_Message();
 
   /**
    * Returns the meta object for class '{@link org.osate.altarica.altarica.Domain <em>Domain</em>}'.
@@ -2578,6 +2677,16 @@ public interface AltaricaPackage extends EPackage
   EEnum getBaseTypeEnum();
 
   /**
+   * Returns the meta object for enum '{@link org.osate.altarica.altarica.Severity <em>Severity</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for enum '<em>Severity</em>'.
+   * @see org.osate.altarica.altarica.Severity
+   * @generated
+   */
+  EEnum getSeverity();
+
+  /**
    * Returns the factory that creates the instances of the model.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2609,6 +2718,14 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EClass MODEL = eINSTANCE.getModel();
+
+    /**
+     * The meta object literal for the '<em><b>Errors</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODEL__ERRORS = eINSTANCE.getModel_Errors();
 
     /**
      * The meta object literal for the '<em><b>Declarations</b></em>' containment reference list feature.
@@ -2905,6 +3022,32 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EReference CASE_EXPRESSION__CASE = eINSTANCE.getCaseExpression_Case();
+
+    /**
+     * The meta object literal for the '{@link org.osate.altarica.altarica.impl.ErrorImpl <em>Error</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.altarica.altarica.impl.ErrorImpl
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getError()
+     * @generated
+     */
+    EClass ERROR = eINSTANCE.getError();
+
+    /**
+     * The meta object literal for the '<em><b>Severity</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ERROR__SEVERITY = eINSTANCE.getError_Severity();
+
+    /**
+     * The meta object literal for the '<em><b>Message</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ERROR__MESSAGE = eINSTANCE.getError_Message();
 
     /**
      * The meta object literal for the '{@link org.osate.altarica.altarica.impl.DomainImpl <em>Domain</em>}' class.
@@ -3481,6 +3624,16 @@ public interface AltaricaPackage extends EPackage
      * @generated
      */
     EEnum BASE_TYPE_ENUM = eINSTANCE.getBaseTypeEnum();
+
+    /**
+     * The meta object literal for the '{@link org.osate.altarica.altarica.Severity <em>Severity</em>}' enum.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.osate.altarica.altarica.Severity
+     * @see org.osate.altarica.altarica.impl.AltaricaPackageImpl#getSeverity()
+     * @generated
+     */
+    EEnum SEVERITY = eINSTANCE.getSeverity();
 
   }
 

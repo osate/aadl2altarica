@@ -22,7 +22,47 @@ import org.eclipse.emf.ecore.EPackage;
 
 import org.eclipse.emf.ecore.util.Switch;
 
-import org.osate.altarica.altarica.*;
+import org.osate.altarica.altarica.ARBoolean;
+import org.osate.altarica.altarica.ARNumber;
+import org.osate.altarica.altarica.ARString;
+import org.osate.altarica.altarica.AbstractDeclaration;
+import org.osate.altarica.altarica.Addition;
+import org.osate.altarica.altarica.AltaricaPackage;
+import org.osate.altarica.altarica.Assignment;
+import org.osate.altarica.altarica.Attribute;
+import org.osate.altarica.altarica.BaseType;
+import org.osate.altarica.altarica.Block;
+import org.osate.altarica.altarica.CaseExpression;
+import org.osate.altarica.altarica.Conditional;
+import org.osate.altarica.altarica.Declaration;
+import org.osate.altarica.altarica.Domain;
+import org.osate.altarica.altarica.Equal;
+import org.osate.altarica.altarica.Event;
+import org.osate.altarica.altarica.Expression;
+import org.osate.altarica.altarica.FunctionCall;
+import org.osate.altarica.altarica.Instruction;
+import org.osate.altarica.altarica.LabeledTransition;
+import org.osate.altarica.altarica.LogicalAnd;
+import org.osate.altarica.altarica.LogicalOr;
+import org.osate.altarica.altarica.Minus;
+import org.osate.altarica.altarica.Model;
+import org.osate.altarica.altarica.Multiplication;
+import org.osate.altarica.altarica.NameRef;
+import org.osate.altarica.altarica.NamedElement;
+import org.osate.altarica.altarica.NamedType;
+import org.osate.altarica.altarica.Node;
+import org.osate.altarica.altarica.Not;
+import org.osate.altarica.altarica.Observer;
+import org.osate.altarica.altarica.Parameter;
+import org.osate.altarica.altarica.Skip;
+import org.osate.altarica.altarica.SwitchExpression;
+import org.osate.altarica.altarica.SymbolicConstant;
+import org.osate.altarica.altarica.Transition;
+import org.osate.altarica.altarica.TransitionAnd;
+import org.osate.altarica.altarica.TransitionExpression;
+import org.osate.altarica.altarica.TransitionOr;
+import org.osate.altarica.altarica.Type;
+import org.osate.altarica.altarica.Variable;
 
 /**
  * <!-- begin-user-doc -->
@@ -212,6 +252,13 @@ public class AltaricaSwitch<T> extends Switch<T>
       {
         CaseExpression caseExpression = (CaseExpression)theEObject;
         T result = caseCaseExpression(caseExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case AltaricaPackage.ERROR:
+      {
+        org.osate.altarica.altarica.Error error = (org.osate.altarica.altarica.Error)theEObject;
+        T result = caseError(error);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -687,6 +734,22 @@ public class AltaricaSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseCaseExpression(CaseExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Error</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Error</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseError(org.osate.altarica.altarica.Error object)
   {
     return null;
   }

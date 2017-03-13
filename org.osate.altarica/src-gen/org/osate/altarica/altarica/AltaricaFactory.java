@@ -191,6 +191,15 @@ public interface AltaricaFactory extends EFactory
   CaseExpression createCaseExpression();
 
   /**
+   * Returns a new object of class '<em>Error</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Error</em>'.
+   * @generated
+   */
+  Error createError();
+
+  /**
    * Returns a new object of class '<em>Domain</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

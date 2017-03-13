@@ -10,6 +10,7 @@ import org.eclipse.xtext.IGrammarAccess;
 import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.AbstractElementAlias;
+import org.eclipse.xtext.serializer.analysis.GrammarAlias.GroupAlias;
 import org.eclipse.xtext.serializer.analysis.GrammarAlias.TokenAlias;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynNavigable;
 import org.eclipse.xtext.serializer.analysis.ISyntacticSequencerPDAProvider.ISynTransition;
@@ -22,12 +23,14 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	protected AltaricaGrammarAccess grammarAccess;
 	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_6_0_a;
 	protected AbstractElementAlias match_Atom_LeftParenthesisKeyword_6_0_p;
+	protected AbstractElementAlias match_Model___TransformationKeyword_1_0_IssuesKeyword_1_1_LeftCurlyBracketKeyword_1_2_RightCurlyBracketKeyword_1_4__q;
 	
 	@Inject
 	protected void init(IGrammarAccess access) {
 		grammarAccess = (AltaricaGrammarAccess) access;
 		match_Atom_LeftParenthesisKeyword_6_0_a = new TokenAlias(true, true, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_6_0());
 		match_Atom_LeftParenthesisKeyword_6_0_p = new TokenAlias(true, false, grammarAccess.getAtomAccess().getLeftParenthesisKeyword_6_0());
+		match_Model___TransformationKeyword_1_0_IssuesKeyword_1_1_LeftCurlyBracketKeyword_1_2_RightCurlyBracketKeyword_1_4__q = new GroupAlias(false, true, new TokenAlias(false, false, grammarAccess.getModelAccess().getTransformationKeyword_1_0()), new TokenAlias(false, false, grammarAccess.getModelAccess().getIssuesKeyword_1_1()), new TokenAlias(false, false, grammarAccess.getModelAccess().getLeftCurlyBracketKeyword_1_2()), new TokenAlias(false, false, grammarAccess.getModelAccess().getRightCurlyBracketKeyword_1_4()));
 	}
 	
 	@Override
@@ -46,6 +49,8 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 				emit_Atom_LeftParenthesisKeyword_6_0_a(semanticObject, getLastNavigableState(), syntaxNodes);
 			else if (match_Atom_LeftParenthesisKeyword_6_0_p.equals(syntax))
 				emit_Atom_LeftParenthesisKeyword_6_0_p(semanticObject, getLastNavigableState(), syntaxNodes);
+			else if (match_Model___TransformationKeyword_1_0_IssuesKeyword_1_1_LeftCurlyBracketKeyword_1_2_RightCurlyBracketKeyword_1_4__q.equals(syntax))
+				emit_Model___TransformationKeyword_1_0_IssuesKeyword_1_1_LeftCurlyBracketKeyword_1_2_RightCurlyBracketKeyword_1_4__q(semanticObject, getLastNavigableState(), syntaxNodes);
 			else acceptNodes(getLastNavigableState(), syntaxNodes);
 		}
 	}
@@ -92,6 +97,18 @@ public class AltaricaSyntacticSequencer extends AbstractSyntacticSequencer {
 	 *     (rule start) (ambiguity) {Multiplication.left=}
 	 */
 	protected void emit_Atom_LeftParenthesisKeyword_6_0_p(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
+		acceptNodes(transition, nodes);
+	}
+	
+	/**
+	 * Ambiguous syntax:
+	 *     ('transformation' 'issues' '{' '}')?
+	 *
+	 * This ambiguous syntax occurs at:
+	 *     (rule start) (ambiguity) (rule start)
+	 *     (rule start) (ambiguity) declarations+=AbstractDeclaration
+	 */
+	protected void emit_Model___TransformationKeyword_1_0_IssuesKeyword_1_1_LeftCurlyBracketKeyword_1_2_RightCurlyBracketKeyword_1_4__q(EObject semanticObject, ISynNavigable transition, List<INode> nodes) {
 		acceptNodes(transition, nodes);
 	}
 	
