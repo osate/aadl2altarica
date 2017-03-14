@@ -21,7 +21,6 @@
 -- @nsURI AADL2=http://aadl.info/AADL/2.0
 -- @nsURI EMV2=http://www.aadl.info/EMV2
 
-
 module AADLEM2AltaRica;
 create OUT: AR from IN: AADL;
 
@@ -47,6 +46,9 @@ helper def: domains: Sequence(AR!Domain) = Sequence{};
 -- helper to collect created classes
 helper def: classes: Sequence(AR!Node) = Sequence{};
 
+-- helper to collect errors
+helper def: errors: Sequence(AR!Error) = Sequence{};
+
 endpoint rule Finish() {
 	using {
 		m: AR!Model = thisModule.traces.getDefaultSourceElements()
@@ -56,6 +58,8 @@ endpoint rule Finish() {
 	do {
 		m.declarations <- 
 				thisModule.domains -> append(thisModule.classes) -> flatten();
+		m.errors <-
+				thisModule.errors;
 		'done'.debug();
 	}
 }
@@ -393,7 +397,7 @@ helper context EMV2!ErrorPropagation def: getSymbol(token: EMV2!TypeToken): AR!S
 	else
 		thisModule.SymbolicConstant(self, name)
 	endif;
-	
+
 unique lazy rule SymbolicConstant {
 	from
 		prop: EMV2!ErrorPropagation,
@@ -430,8 +434,12 @@ helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTra
 	let handled_props: Collection(EMV2!ErrorBehaviorTransition) =
 		transitions -> select(t |
 			not t.target.oclIsUndefined() and not t.condition.isSingleEvent()
-		)
-	in
+		) in
+--	let errors: Collection(AR!Error) =
+--		transitions 
+--		-> collect(t | not(handled_events -> contains(t) or handled_props -> contains(t))) 
+--		-> collect(t | thisModule.Error(#warning, 'test'))
+--	in
 		handled_events -> collect(t | thisModule.EventTransition(self, t))
 		-> append(handled_props -> collect(t | thisModule.PropagationTransition(self, t)))
 		-> flatten()
@@ -711,7 +719,7 @@ lazy rule CaseExpression {
 			condition <- ci.caseCondition(propCond),
 			case <-
 				if not propCond.typeToken.oclIsUndefined() then
-					propCond.outgoing.getSymbol(propCond.typeToken.typeTokens->first())
+					thisModule.findSymbol(propCond)
 				else
 					let condElem: EMV2!ConditionElement = propCond.condition.conditionElements->first() in
 					let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
@@ -720,6 +728,17 @@ lazy rule CaseExpression {
 				endif.ref()
 		)
 }
+
+helper def: findSymbol(pc: EMV2!OutgoingPropagationCondition): AR!SymbolicConstant =
+	-- must be single leaf type token
+	let leaves: Sequence(EMV2!TypeToken) = pc.leafTokens() in
+	if leaves -> size() <> 1 then
+		let error: AR!Error = thisModule.Error(#error, pc, 'must propagate a single error type') in
+		thisModule.NoError(thisModule.FlowDomain(pc.outgoing))
+	else
+		pc.outgoing.getSymbol(leaves -> first())
+	endif;
+	
 
 helper context AADL!ComponentInstance def: caseCondition(pc: EMV2!OutgoingPropagationCondition): AR!Expression =
 	if pc.condition.oclIsUndefined() then
@@ -792,4 +811,20 @@ lazy rule LeafNameRef {
 		ref: AR!NameRef (
 			variable <- var
 		)
+}
+
+lazy rule Error {
+	from
+	  severity: AR!Severity,
+		ne: AADL!Element,
+		message: String
+	to
+	  err: AR!Error (
+	  	severity <- severity,
+			message <- ne.uri() + ' ' + message
+	  )
+	do {
+		thisModule.errors <:= thisModule.errors -> append(err);
+		err;
+	}
 }

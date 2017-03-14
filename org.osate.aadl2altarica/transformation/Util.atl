@@ -161,12 +161,22 @@ helper context EMV2!ConditionElement def: isNoErrorCondition(): Boolean =
 
 helper context EMV2!ConditionElement def: leafTokens(): Sequence(EMV2!TypeToken) =
 	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
-	if self.constraint.oclIsUndefined() then
+	let types: EMV2!TypeSet = self.constraint in
+	if types.oclIsUndefined() then
 		Sequence{}
 	else
-		self.constraint.leafTypeTokens(usedTypes)
+		types.leafTypeTokens(usedTypes)
 	endif;
 
+helper context EMV2!OutgoingPropagationCondition def: leafTokens(): Sequence(EMV2!TypeToken) =
+	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.containingClassifier().usedTypes() in
+	let types: EMV2!TypeSet = self.typeToken in
+	if types.oclIsUndefined() then
+		Sequence{}
+	else
+		types.leafTypeTokens(usedTypes)
+	endif;
+	
 helper context EMV2!EMV2Path def: errorPropagation: EMV2!ErrorPropagation =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getErrorPropagation', Sequence{self}
@@ -231,6 +241,12 @@ helper context Sequence(OclAny) def: removeAll(toRemove: Sequence(OclAny)): Sequ
 	else
 		self->excluding(toRemove->first())->removeAll(toRemove->tail())
 	endif;
+
+-- for error reporting
+helper context AADL!Element def: uri(): String =
+	"#native"!"org::eclipse::emf::ecore::util::EcoreUtil".refInvokeStaticOperation(
+		'getURI', Sequence{self}
+	).toString();
 
 -- Replace invalid characters in identifier with '_'
 helper context String def: normalizeId(): String =
