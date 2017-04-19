@@ -285,6 +285,11 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 --- Map to keep track of flow variables created for propagations in a component instance
 helper def: ep2flows: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence(AR!Variable)) = Map{};
 
+helper def: printep2flows(): String =
+	thisModule.ep2flows->getKeys()->collect(k | ('(' + k.io.getInstanceObjectPath() 
+		+ ', ' + k.prop.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + ' ' + k.prop.hashCode().toString() + ')').debug())
+		;
+	
 unique lazy rule OutFlow {
 	from
 		ci: AADL!ComponentInstance,
@@ -551,7 +556,9 @@ helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!
 helper context AADL!ComponentInstance def: inPropGuard(condElem: EMV2!ConditionElement): AR!Expression =
 	let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = inProp}) in
-	condElem.orOfFlows(inFlows);
+	let dummy: OclAny = if inFlows.oclIsUndefined() then thisModule.printep2flows().force() else thisModule.ep2flows endif in
+	condElem.orOfFlows(inFlows.debug(self.getInstanceObjectPath() + '---' + inProp.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + '---' + inProp.hashCode().toString()));
+--	condElem.orOfFlows(inFlows);
 
 -- ip{t1, t2, ... => f_i == t1 or f_i == t2 or ...  OK
 -- ip             => f_i != noerror                 OK
@@ -732,11 +739,15 @@ lazy rule CaseExpression {
 helper def: findSymbol(pc: EMV2!OutgoingPropagationCondition): AR!SymbolicConstant =
 	-- must be single leaf type token
 	let leaves: Sequence(EMV2!TypeToken) = pc.leafTokens() in
-	if leaves -> size() <> 1 then
-		let error: AR!Error = thisModule.Error(#error, pc, 'must propagate a single error type') in
+	if leaves->size() < 1 then
 		thisModule.NoError(thisModule.FlowDomain(pc.outgoing))
 	else
-		pc.outgoing.getSymbol(leaves -> first())
+		if leaves->size() < 1 then
+			let error: AR!Error = thisModule.Error(#error, pc, 'must propagate a single error type') in
+			pc.outgoing.getSymbol(leaves -> first())
+		else
+			pc.outgoing.getSymbol(leaves -> first())
+		endif
 	endif;
 	
 
