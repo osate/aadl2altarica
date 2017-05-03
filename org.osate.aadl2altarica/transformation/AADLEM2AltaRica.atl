@@ -34,8 +34,8 @@ rule SystemInstance {
 		m: AR!Model (
 		)
 	do {
---		thisModule.componentsToProcess.debug() -> collect(ci | ci.name).debug();
---		thisModule.analysisModel.printPropagationPaths();
+		thisModule.componentsToProcess -> collect(ci | ci.getInstanceObjectPath().debug()).force();
+		thisModule.analysisModel.printPropagationPaths();
 		thisModule.Node(si);
 	}
 }
@@ -74,7 +74,7 @@ unique lazy rule Node {
   }
 	to
 		node: AR!Node (
-			name <- c.name.normalizeId() + '_' + thisModule.classes -> size().toString(),
+			name <- c.name.normalizeId().debug(' *** ') + '_' + thisModule.classes -> size().toString(),
 			-- need to force declarations because assertions need containment structure in place
 			declarations <- ci.subnodes() -> force() ->
 					append(ci.events()) -> append(ci.states()) -> append(ci.flows()) -> flatten(),
@@ -257,6 +257,7 @@ unique lazy rule StateSymbol {
 helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 	let outFlows: Sequence(AR!Variable) = 
 		let outProps: Sequence(EMV2!ErrorPropagation) = self.classifier.outgoingErrorPropagations() in
+		let dummy: OclAny = outProps->collect(p|p.featureorPPRef.featureorPP.getQualifiedName()).debug('outprops for ' + self.getInstanceObjectPath()) in
 		if outProps.isEmpty() then
 			Sequence{}
 		else
@@ -264,6 +265,7 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 		endif in
 	let inFlows: Sequence(AR!Variable) = 
 		let inProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations() in
+		let dummy: OclAny = inProps->collect(p|p.featureorPPRef.featureorPP.getQualifiedName()).debug('inprops for ' + self.getInstanceObjectPath()) in
 			if inProps.isEmpty() then
 				Sequence{}
 			else
@@ -280,7 +282,7 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 							)
 					endif
 			endif in
-	outFlows -> append(inFlows);
+	outFlows -> append(inFlows) -> force();
 
 --- Map to keep track of flow variables created for propagations in a component instance
 helper def: ep2flows: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence(AR!Variable)) = Map{};
@@ -306,7 +308,7 @@ unique lazy rule OutFlow {
 		)
 	do {
 		thisModule.ep2flows <:= thisModule.ep2flows -> 
-				including(Tuple{io = ci, prop = prop}, Sequence{flow});
+				including(Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.featureorPPRef.featureorPP.getQualifiedName())}, Sequence{flow});
 		flow;
 	}
 }
@@ -318,12 +320,22 @@ helper context EMV2!ErrorPropagation def: noError: AR!SymbolicConstant =
 --- Return the no_error symbol for this in(!) flow
 helper context AR!Variable def: noError: AR!SymbolicConstant =
 	let srcProp: EMV2!ErrorPropagation = thisModule.inFlow2srcProp.get(self) in
-	srcProp.noError;
+	if srcProp.oclIsUndefined() then
+	--todo: generate error
+		OclUndefined
+	else
+		srcProp.noError
+	endif;
 
 --- Return the symbolic constant corresponding to the given token for this in(!) flow
 helper context AR!Variable def: constant(token: EMV2!TypeToken): AR!SymbolicConstant =
 	let srcProp: EMV2!ErrorPropagation = thisModule.inFlow2srcProp.get(self) in
-	srcProp.getSymbol(token);
+	if srcProp.oclIsUndefined() then
+	--todo: generate error
+		OclUndefined
+	else
+		srcProp.getSymbol(token)
+	endif;
 
 --- Map to keep track of propagations used to create the domain for incoming flow variables
 helper def: inFlow2srcProp: Map(AR!Variable, EMV2!ErrorPropagation) = Map{};
@@ -556,10 +568,17 @@ helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!
 helper context AADL!ComponentInstance def: inPropGuard(condElem: EMV2!ConditionElement): AR!Expression =
 	let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = inProp}) in
-	let dummy: OclAny = if inFlows.oclIsUndefined() then thisModule.printep2flows().force() else thisModule.ep2flows endif in
-	condElem.orOfFlows(inFlows.debug(self.getInstanceObjectPath() + '---' + inProp.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + '---' + inProp.hashCode().toString()));
---	condElem.orOfFlows(inFlows);
-
+	if inFlows.oclIsUndefined() then
+		let dummy1: OclAny = self.getInstanceObjectPath().debug('Component: ') in
+		let dummy2: OclAny = inProp.featureorPPRef.featureorPP.getName().debug('Propagation: ' + inProp.hashCode().toString()) in
+--		let dummy3: OclAny = thisModule.printep2flows().force() in
+		--todo: generate error
+		thisModule.ARBoolean(false)
+	else
+--		condElem.orOfFlows(inFlows.debug(self.getInstanceObjectPath() + '---' + inProp.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + '---' + inProp.hashCode().toString()))
+	  condElem.orOfFlows(inFlows)
+  endif;
+	
 -- ip{t1, t2, ... => f_i == t1 or f_i == t2 or ...  OK
 -- ip             => f_i != noerror                 OK
 -- ip{noerror}    => f_i == noerror                 OK
@@ -575,8 +594,14 @@ helper context EMV2!ConditionElement def: orOfFlows(flows: Sequence(AR!Variable)
 						->collect(t | head.constant(t))
 						->select(c | not c.oclIsUndefined()) in
 				if constants->isEmpty() then
-					-- ip
-					thisModule.NotEqual(head, head.noError) 
+				  let noerr: AR!SymbolicConstant = head.noError in
+					if noerr.oclIsUndefined() then
+					--todo: generate error
+						thisModule.ARBoolean(false)
+					else
+						-- ip
+						thisModule.NotEqual(head, head.noError)
+					endif
 				else 
 					-- ip{t1, t2, ...}
 					head.orOfConstants(constants) 
@@ -612,11 +637,16 @@ helper context AR!Variable def: orOfConstants(constants: Sequence(AR!SymbolicCon
 helper context AADL!ComponentInstance def: allNoError(eps: Sequence(EMV2!ErrorPropagation)): AR!Expression =
 	let head: EMV2!ErrorPropagation = eps -> first() in
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = head}) in
-	let exp: AR!Expression = thisModule.allNoError(inFlows) in
-	if eps -> size() = 1 then
-		exp
+	if inFlows.oclIsUndefined() then
+	  --todo: generate error
+		thisModule.ARBoolean(false)
 	else
-		thisModule.And(exp, self.allNoError(eps -> tail()))
+		let exp: AR!Expression = thisModule.allNoError(inFlows) in
+		if eps -> size() = 1 then
+			exp
+		else
+			thisModule.And(exp, self.allNoError(eps -> tail()))
+		endif
 	endif;
 	
 helper def: allNoError(flows: Sequence(AR!Variable)): AR!Expression =
@@ -708,7 +738,10 @@ lazy rule OutPropAssignment {
 		propConds: Set(EMV2!OutgoingPropagationCondition)
 	to
 		i: AR!Assignment (
-			variable <- thisModule.OutFlow(ci, prop).ref(),
+			variable <- 
+				let flowVar: AR!Variable = thisModule.OutFlow(ci, prop) in
+				--let flowVar: AR!Variable = thisModule.ep2flows.get(Tuple{io = ci, prop = prop})->at(1) in
+				flowVar.ref(),
 			value <- s
 		),
 		s: AR!SwitchExpression (

@@ -73,7 +73,7 @@ helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection
 	);
 
 helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Set(EMV2!OutgoingPropagationCondition)) =
-	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing);
+	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing); -- .debug('outprop2propconds ' + self.getQualifiedName());
 
 helper context AADL!ComponentInstance def: occurrenceDistribution(event:EMV2!ErrorBehaviorEvent): TupleType(name: String, lambda: Real) =
 	let pas: Sequence(EMV2!EMV2PropertyAssociation) = 
@@ -187,7 +187,7 @@ helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util
 		"#native"!"org::osate::xtext::aadl2::errormodel::util::AnalysisModel".refInvokeStaticOperation(
 			'createAnalysisModel', Sequence{si});
 
--- Component instances that should be processed (vased on leaf components wrt error model)
+-- Component instances that should be processed (based on leaf components wrt error model)
 helper def: componentsToProcess: Set(AADL!ComponentInstance) =
 	thisModule.emLeafComponents -> iterate(ci; acc: Set(AADL!ComponentInstance) = thisModule.emLeafComponents.asSet() |
 		thisModule.collectParents(ci, acc)
@@ -213,6 +213,11 @@ helper def: dst2paths: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!Erro
 			let d: OclAny = p.getPathDst() in 
 			Tuple{io = d.getComponentInstance(), prop = d.getErrorPropagation()}
 	);
+
+helper def: printdst2paths(): String =
+	thisModule.dst2paths->getKeys()->collect(k | ('(' + k.io.getInstanceObjectPath() 
+		+ ', ' + k.prop.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + ' ' + k.prop.hashCode().toString() + ')').debug())
+		;
 
 -- Where to put assertions
 helper def: ci2paths: Map(AADL!ComponentInstance, Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) =
