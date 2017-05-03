@@ -32,6 +32,7 @@ import org.eclipse.jface.window.Window
 import org.eclipse.m2m.atl.emftvm.EmftvmFactory
 import org.eclipse.m2m.atl.emftvm.util.DefaultModuleResolver
 import org.eclipse.m2m.atl.emftvm.util.TimingData
+import org.eclipse.ui.PlatformUI
 import org.eclipse.ui.handlers.HandlerUtil
 import org.eclipse.xtext.resource.FileExtensionProvider
 import org.eclipse.xtext.resource.XtextResourceSet
@@ -41,7 +42,6 @@ import org.osate.aadl2.util.Aadl2ResourceImpl
 import org.osate.altarica.ui.internal.AltaricaActivator
 import org.osate.ui.dialogs.Dialog
 import org.osate.ui.dialogs.SOMChooserDialog
-import org.eclipse.ui.PlatformUI
 
 class ConvertToAltaRica extends AbstractHandler {
 
@@ -100,14 +100,27 @@ class ConvertToAltaRica extends AbstractHandler {
 		val td = new TimingData
 		env.loadModule(moduleResolver, "AADLEM2AltaRica")
 		td.finishLoading
-		env.run(td)
-		td.finish
+		try {
+			env.run(td)
+			td.finish
 
 		// Save models
-		try {
-			outModel.resource.save(null)
-		} catch (IOException e) {
+			try {
+				outModel.resource.save(null)
+			} catch (IOException e) {
+				e.printStackTrace
+			}
+		} catch (Exception e) {
 			e.printStackTrace
+			val r = rs.createResource(inURI.trimFileExtension.appendFileExtension("xmi"))
+			r.contents.addAll(outModel.resource.contents)
+			try {
+				r.save(null)
+			} catch (IOException ex) {
+				ex.printStackTrace
+			} finally {
+				outModel.resource.contents.addAll(r.contents)
+			}
 		}
 
 		null
