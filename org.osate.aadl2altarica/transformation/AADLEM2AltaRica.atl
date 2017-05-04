@@ -733,7 +733,15 @@ helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Ins
 			let propConds: Sequence(EMV2!OutgoingPropagationCondition) = self.outProp2propConds.get(prop) in
 			thisModule.OutPropAssignment(self, self.localPropagation(prop), propConds)
 		)
-	endif;
+-- unconnected out flow => don't generate assertion
+--		props -> filter(p |
+--				let flowVar: AR!Variable = thisModule.ep2flows.get(Tuple{io = self, prop = p})->at(1) in
+--				not flowVar.oclIsUndefined()
+--		)	-> collect(prop |
+--				let propConds: Sequence(EMV2!OutgoingPropagationCondition) = self.outProp2propConds.get(prop) in
+--				thisModule.OutPropAssignment(self, self.localPropagation(prop), propConds)
+--		)
+		endif;
 
 lazy rule OutPropAssignment {
 	from
