@@ -34,18 +34,18 @@ helper context AADL!ComponentInstance def: process: Boolean =
 
 -- Helpers for EMV2 processing
 
-helper context AADL2!Classifier def: outgoingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
+helper context AADL2!Classifier def: outgoingErrorPropagations: Sequence(EMV2!ErrorPropagation) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllOutgoingErrorPropagations', Sequence{self}
 	);
 
-helper context AADL2!Classifier def: incomingErrorPropagations(): Sequence(EMV2!ErrorPropagation) =
+helper context AADL2!Classifier def: incomingErrorPropagations: Sequence(EMV2!ErrorPropagation) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllIncomingErrorPropagations', Sequence{self}
 	);
 
-helper context AADL2!Classifier def: errorPropagations(): Sequence(EMV2!ErrorPropagation) =
-	self.incomingErrorPropagations() -> including(self.outgoingErrorPropagations()) -> flatten();
+helper context AADL2!Classifier def: errorPropagations: Sequence(EMV2!ErrorPropagation) =
+	self.incomingErrorPropagations -> including(self.outgoingErrorPropagations) -> flatten();
 
 helper context AADL2!Classifier def: usedTypes(): Sequence(EMV2!ErrorModelLibrary) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
@@ -73,7 +73,13 @@ helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection
 	);
 
 helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Set(EMV2!OutgoingPropagationCondition)) =
-	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing); -- .debug('outprop2propconds ' + self.getQualifiedName());
+	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing);
+
+--- If an error propagation is overridden, find the one closest w.r.t to inheritance to this component
+helper context AADL!ComponentInstance def: localPropagation(prop: EMV2!ErrorPropagation): EMV2!ErrorPropagation =
+	self.classifier.errorPropagations
+			-> select(oep | oep.featureorPPRef.featureorPP.getName().equalsIgnoreCase(prop.featureorPPRef.featureorPP.getName()))
+			-> at(1);
 
 helper context AADL!ComponentInstance def: occurrenceDistribution(event:EMV2!ErrorBehaviorEvent): TupleType(name: String, lambda: Real) =
 	let pas: Sequence(EMV2!EMV2PropertyAssociation) = 

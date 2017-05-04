@@ -70,7 +70,7 @@ unique lazy rule Node {
   using {
 		c: AADL2!ComponentClassifier = ci.classifier;
 		hasPropagations: Sequence(EMV2!ErrorPropagation) = 
-			not (c.oclIsUndefined() or c.errorPropagations().isEmpty());
+			not (c.oclIsUndefined() or c.errorPropagations.isEmpty());
   }
 	to
 		node: AR!Node (
@@ -117,7 +117,7 @@ unique lazy rule NodeInstance {
 
 helper context AADL!ComponentInstance def: events(): Sequence(AR!Variable) =
 	let events: Sequence(AR!Variable) = self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event)) in
-		if self.classifier.incomingErrorPropagations().isEmpty() then 
+		if self.classifier.incomingErrorPropagations.isEmpty() then 
 			events 
 		else 
 			events.append(thisModule.ImmediateEvent(self))
@@ -256,7 +256,7 @@ unique lazy rule StateSymbol {
 
 helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 	let outFlows: Sequence(AR!Variable) = 
-		let outProps: Sequence(EMV2!ErrorPropagation) = self.classifier.outgoingErrorPropagations() in
+		let outProps: Sequence(EMV2!ErrorPropagation) = self.classifier.outgoingErrorPropagations in
 		let dummy: OclAny = outProps->collect(p|p.featureorPPRef.featureorPP.getQualifiedName()).debug('outprops for ' + self.getInstanceObjectPath()) in
 		if outProps.isEmpty() then
 			Sequence{}
@@ -264,7 +264,7 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 			outProps->collect(oep | thisModule.OutFlow(self, oep))
 		endif in
 	let inFlows: Sequence(AR!Variable) = 
-		let inProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations() in
+		let inProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations in
 		let dummy: OclAny = inProps->collect(p|p.featureorPPRef.featureorPP.getQualifiedName()).debug('inprops for ' + self.getInstanceObjectPath()) in
 			if inProps.isEmpty() then
 				Sequence{}
@@ -358,12 +358,12 @@ unique lazy rule InFlow {
 		if (thisModule.ep2flows.getKeys() -> includes(Tuple{io = ci, prop = prop})) {
 			thisModule.ep2flows <:= thisModule.ep2flows -> 
 					including(
-							Tuple{io = ci, prop = prop}, 
+							Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.featureorPPRef.featureorPP.getQualifiedName())}, 
 							thisModule.ep2flows.get(Tuple{io = ci, prop = prop}) -> append(flow)
 					);
 		} else {
 			thisModule.ep2flows <:= thisModule.ep2flows -> 
-					including(Tuple{io = ci, prop = prop}, Sequence{flow});
+					including(Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.featureorPPRef.featureorPP.getQualifiedName())}, Sequence{flow});
 		}
 		thisModule.inFlow2srcProp <:= thisModule.inFlow2srcProp -> including(flow, srcProp);
 		thisModule.inCount <:= count + 1;
@@ -523,8 +523,8 @@ helper context AADL!ComponentInstance def: guardExpression(et: EMV2!ErrorBehavio
 	self.condition(source, condElems);
 
 helper context AADL!ComponentInstance def: condition(source: Sequence(EMV2!ErrorBehaviorState), condElems: Sequence(EMV2!ConditionElement)): AR!Expression =
-	let inProps: EMV2!ErrorPropagation = condElems->getInProps() in
-	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations()->removeAll(inProps) in
+	let inProps: EMV2!ErrorPropagation = self.getInProps(condElems) in
+	let otherProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations->removeAll(inProps) in
 	let inPropGuard: AR!Expression = self.inPropGuard(condElems) in
 	let propGuard: AR!Expression =
 		if otherProps.isEmpty() then
@@ -548,8 +548,8 @@ helper context AADL!ComponentInstance def: condition(source: Sequence(EMV2!Error
 		events->first()
 	endif;
 
-helper context Sequence(EMV2!ConditionElement) def: getInProps(): Sequence(EMV2!ErrorPropagation) =
-	self->collect(ce | ce.getErrorPropagation())->select(p | not p.oclIsUndefined());
+helper context AADL!ComponentInstance  def: getInProps(ces: Sequence(EMV2!ConditionElement)): Sequence(EMV2!ErrorPropagation) =
+	ces->collect(ce | ce.getErrorPropagation())->select(p | not p.oclIsUndefined());
 
 helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!ConditionElement)): AR!Expression =
 	if condElems.isEmpty() then
@@ -727,7 +727,7 @@ helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Ins
 	else
 		props->collect(prop |
 			let propConds: Sequence(EMV2!OutgoingPropagationCondition) = self.outProp2propConds.get(prop) in
-			thisModule.OutPropAssignment(self, prop, propConds)
+			thisModule.OutPropAssignment(self, self.localPropagation(prop), propConds)
 		)
 	endif;
 
@@ -739,8 +739,8 @@ lazy rule OutPropAssignment {
 	to
 		i: AR!Assignment (
 			variable <- 
-				let flowVar: AR!Variable = thisModule.OutFlow(ci, prop) in
-				--let flowVar: AR!Variable = thisModule.ep2flows.get(Tuple{io = ci, prop = prop})->at(1) in
+				--let flowVar: AR!Variable = thisModule.OutFlow(ci, prop) in
+				let flowVar: AR!Variable = thisModule.ep2flows.get(Tuple{io = ci, prop = prop})->at(1) in
 				flowVar.ref(),
 			value <- s
 		),
@@ -759,7 +759,7 @@ lazy rule CaseExpression {
 			condition <- ci.caseCondition(propCond),
 			case <-
 				if not propCond.typeToken.oclIsUndefined() then
-					thisModule.findSymbol(propCond)
+					ci.findSymbol(propCond)
 				else
 					let condElem: EMV2!ConditionElement = propCond.condition.conditionElements->first() in
 					let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
@@ -769,17 +769,18 @@ lazy rule CaseExpression {
 		)
 }
 
-helper def: findSymbol(pc: EMV2!OutgoingPropagationCondition): AR!SymbolicConstant =
+helper context AADL!ComponentInstance def: findSymbol(pc: EMV2!OutgoingPropagationCondition): AR!SymbolicConstant =
 	-- must be single leaf type token
+	let localProp: EMV2!ErrorPropagation = self.localPropagation(pc.outgoing) in
 	let leaves: Sequence(EMV2!TypeToken) = pc.leafTokens() in
 	if leaves->size() < 1 then
-		thisModule.NoError(thisModule.FlowDomain(pc.outgoing))
+		thisModule.NoError(thisModule.FlowDomain(localProp))
 	else
 		if leaves->size() < 1 then
 			let error: AR!Error = thisModule.Error(#error, pc, 'must propagate a single error type') in
-			pc.outgoing.getSymbol(leaves -> first())
+			localProp.getSymbol(leaves -> first())
 		else
-			pc.outgoing.getSymbol(leaves -> first())
+			localProp.getSymbol(leaves -> first())
 		endif
 	endif;
 	
