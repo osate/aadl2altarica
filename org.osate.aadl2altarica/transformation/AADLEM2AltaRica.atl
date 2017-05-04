@@ -548,8 +548,8 @@ helper context AADL!ComponentInstance def: condition(source: Sequence(EMV2!Error
 		events->first()
 	endif;
 
-helper context AADL!ComponentInstance  def: getInProps(ces: Sequence(EMV2!ConditionElement)): Sequence(EMV2!ErrorPropagation) =
-	ces->collect(ce | ce.getErrorPropagation())->select(p | not p.oclIsUndefined());
+helper context AADL!ComponentInstance def: getInProps(ces: Sequence(EMV2!ConditionElement)): Sequence(EMV2!ErrorPropagation) =
+	ces->collect(ce | ce.getErrorPropagation())->select(p | not p.oclIsUndefined())->collect(p | self.localPropagation(p));
 
 helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!ConditionElement)): AR!Expression =
 	if condElems.isEmpty() then
@@ -566,13 +566,12 @@ helper context AADL!ComponentInstance def: inPropGuard(condElems: Sequence(EMV2!
 
 --- Create a guard expression fragment from an in propagation
 helper context AADL!ComponentInstance def: inPropGuard(condElem: EMV2!ConditionElement): AR!Expression =
-	let inProp: EMV2!ErrorPropagation = condElem.qualifiedErrorPropagationReference.errorPropagation in
+	let inProp: EMV2!ErrorPropagation = self.localPropagation(condElem.qualifiedErrorPropagationReference.errorPropagation) in
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = inProp}) in
 	if inFlows.oclIsUndefined() then
 		let dummy1: OclAny = self.getInstanceObjectPath().debug('Component: ') in
 		let dummy2: OclAny = inProp.featureorPPRef.featureorPP.getName().debug('Propagation: ' + inProp.hashCode().toString()) in
 --		let dummy3: OclAny = thisModule.printep2flows().force() in
-		--todo: generate error
 		thisModule.ARBoolean(false)
 	else
 --		condElem.orOfFlows(inFlows.debug(self.getInstanceObjectPath() + '---' + inProp.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + '---' + inProp.hashCode().toString()))
@@ -638,8 +637,8 @@ helper context AADL!ComponentInstance def: allNoError(eps: Sequence(EMV2!ErrorPr
 	let head: EMV2!ErrorPropagation = eps -> first() in
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = head}) in
 	if inFlows.oclIsUndefined() then
-	  --todo: generate error
-		thisModule.ARBoolean(false)
+	  -- no input to in propagation 
+		thisModule.ARBoolean(true)
 	else
 		let exp: AR!Expression = thisModule.allNoError(inFlows) in
 		if eps -> size() = 1 then
