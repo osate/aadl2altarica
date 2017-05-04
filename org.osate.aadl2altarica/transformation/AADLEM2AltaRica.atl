@@ -572,7 +572,12 @@ helper context AADL!ComponentInstance def: inPropGuard(condElem: EMV2!ConditionE
 		let dummy1: OclAny = self.getInstanceObjectPath().debug('Component: ') in
 		let dummy2: OclAny = inProp.featureorPPRef.featureorPP.getName().debug('Propagation: ' + inProp.hashCode().toString()) in
 --		let dummy3: OclAny = thisModule.printep2flows().force() in
-		thisModule.ARBoolean(false)
+		-- unconnected in flow
+		if condElem.isNoErrorCondition() then
+			thisModule.ARBoolean(true)
+		else
+			thisModule.ARBoolean(false)
+		endif
 	else
 --		condElem.orOfFlows(inFlows.debug(self.getInstanceObjectPath() + '---' + inProp.getFeatureorPPRef().getFeatureorPP().getQualifiedName() + '---' + inProp.hashCode().toString()))
 	  condElem.orOfFlows(inFlows)
