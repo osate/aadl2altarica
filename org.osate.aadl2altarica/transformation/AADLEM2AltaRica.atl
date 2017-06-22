@@ -257,7 +257,7 @@ unique lazy rule StateSymbol {
 helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 	let outFlows: Sequence(AR!Variable) = 
 		let outProps: Sequence(EMV2!ErrorPropagation) = self.classifier.outgoingErrorPropagations in
-		let dummy: OclAny = outProps->collect(p|p.featureorPPRef.featureorPP.getQualifiedName()).debug('outprops for ' + self.getInstanceObjectPath()) in
+		let dummy: OclAny = outProps->collect(p|p.printName).debug('outprops for ' + self.getInstanceObjectPath()) in
 		if outProps.isEmpty() then
 			Sequence{}
 		else
@@ -265,7 +265,7 @@ helper context AADL!ComponentInstance def: flows(): Sequence(AR!Variable) =
 		endif in
 	let inFlows: Sequence(AR!Variable) = 
 		let inProps: Sequence(EMV2!ErrorPropagation) = self.classifier.incomingErrorPropagations in
-		let dummy: OclAny = inProps->collect(p|p.featureorPPRef.featureorPP.getQualifiedName()).debug('inprops for ' + self.getInstanceObjectPath()) in
+		let dummy: OclAny = inProps->collect(p|p.printName).debug('inprops for ' + self.getInstanceObjectPath()) in
 			if inProps.isEmpty() then
 				Sequence{}
 			else
@@ -308,7 +308,7 @@ unique lazy rule OutFlow {
 		)
 	do {
 		thisModule.ep2flows <:= thisModule.ep2flows -> 
-				including(Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.featureorPPRef.featureorPP.getQualifiedName())}, Sequence{flow});
+				including(Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.printName)}, Sequence{flow});
 		flow;
 	}
 }
@@ -358,12 +358,12 @@ unique lazy rule InFlow {
 		if (thisModule.ep2flows.getKeys() -> includes(Tuple{io = ci, prop = prop})) {
 			thisModule.ep2flows <:= thisModule.ep2flows -> 
 					including(
-							Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.featureorPPRef.featureorPP.getQualifiedName())}, 
+							Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.printName)}, 
 							thisModule.ep2flows.get(Tuple{io = ci, prop = prop}) -> append(flow)
 					);
 		} else {
 			thisModule.ep2flows <:= thisModule.ep2flows -> 
-					including(Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.featureorPPRef.featureorPP.getQualifiedName())}, Sequence{flow});
+					including(Tuple{io = ci.debug(' ' + ci.getQualifiedName()), prop = prop.debug('  ' + prop.printName)}, Sequence{flow});
 		}
 		thisModule.inFlow2srcProp <:= thisModule.inFlow2srcProp -> including(flow, srcProp);
 		thisModule.inCount <:= count + 1;
@@ -570,7 +570,7 @@ helper context AADL!ComponentInstance def: inPropGuard(condElem: EMV2!ConditionE
 	let inFlows: Sequence(AR!Variable) = thisModule.ep2flows.get(Tuple{io = self, prop = inProp}) in
 	if inFlows.oclIsUndefined() then
 		let dummy1: OclAny = self.getInstanceObjectPath().debug('Component: ') in
-		let dummy2: OclAny = inProp.featureorPPRef.featureorPP.getName().debug('Propagation: ' + inProp.hashCode().toString()) in
+		let dummy2: OclAny = inProp.printName.debug('Propagation: ' + inProp.hashCode().toString()) in
 --		let dummy3: OclAny = thisModule.printep2flows().force() in
 		-- unconnected in flow
 		if condElem.isNoErrorCondition() then

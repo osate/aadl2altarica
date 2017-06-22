@@ -75,11 +75,28 @@ helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection
 helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Set(EMV2!OutgoingPropagationCondition)) =
 	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing);
 
+--- Get the name of an error propagation for printing
+helper context EMV2!ErrorPropagation def: printName: String =
+	if self.kind.oclIsUndefined() then
+		self.featureorPPRef.featureorPP.getQualifiedName()
+	else
+		self.kind
+	endif;
+
 --- If an error propagation is overridden, find the one closest w.r.t to inheritance to this component
 helper context AADL!ComponentInstance def: localPropagation(prop: EMV2!ErrorPropagation): EMV2!ErrorPropagation =
 	self.classifier.errorPropagations
-			-> select(oep | oep.featureorPPRef.featureorPP.getName().equalsIgnoreCase(prop.featureorPPRef.featureorPP.getName()))
-			-> at(1);
+			-> select(oep |
+				if prop.kind.oclIsUndefined() and oep.kind.oclIsUndefined() then
+					oep.featureorPPRef.featureorPP.getName().equalsIgnoreCase(prop.featureorPPRef.featureorPP.getName())
+				else
+					if not prop.kind.oclIsUndefined() and not oep.kind.oclIsUndefined() then
+						oep.kind.equalsIgnoreCase(prop.kind)
+					else
+						false
+					endif
+				endif
+			) -> at(1);
 
 helper context AADL!ComponentInstance def: occurrenceDistribution(event:EMV2!ErrorBehaviorEvent): TupleType(name: String, lambda: Real) =
 	let pas: Sequence(EMV2!EMV2PropertyAssociation) = 
