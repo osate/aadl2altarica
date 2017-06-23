@@ -334,7 +334,16 @@ helper context AR!Variable def: constant(token: EMV2!TypeToken): AR!SymbolicCons
 	--todo: generate error
 		OclUndefined
 	else
-		srcProp.getSymbol(token)
+		if token.noError then
+		  srcProp.getSymbol(token)
+		else
+			let srcTypes: Sequence(EMV2!ErrorType) = srcProp.leafTokens()->collect(t | t.type)->flatten() in
+			if srcTypes->includes(token.type->at(1)) then
+				srcProp.getSymbol(token)
+			else
+				OclUndefined
+			endif
+		endif
 	endif;
 
 --- Map to keep track of propagations used to create the domain for incoming flow variables
@@ -598,13 +607,18 @@ helper context EMV2!ConditionElement def: orOfFlows(flows: Sequence(AR!Variable)
 						->collect(t | head.constant(t))
 						->select(c | not c.oclIsUndefined()) in
 				if constants->isEmpty() then
-				  let noerr: AR!SymbolicConstant = head.noError in
-					if noerr.oclIsUndefined() then
-					--todo: generate error
-						thisModule.ARBoolean(false)
+					if self.leafTokens()->isEmpty() then
+				  	let noerr: AR!SymbolicConstant = head.noError in
+						if noerr.oclIsUndefined() then
+						--todo: generate error
+							thisModule.ARBoolean(false)
+						else
+							-- ip
+							thisModule.NotEqual(head, head.noError)
+						endif
 					else
-						-- ip
-						thisModule.NotEqual(head, head.noError)
+						-- ip{t1, t2, ...} but all filtered out, can never match
+						thisModule.ARBoolean(false)
 					endif
 				else 
 					-- ip{t1, t2, ...}
