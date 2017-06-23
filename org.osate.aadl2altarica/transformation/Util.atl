@@ -72,8 +72,18 @@ helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection
 		'getAllOutgoingPropagationConditions', Sequence{self}
 	);
 
-helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Set(EMV2!OutgoingPropagationCondition)) =
-	self.classifier.outgoingPropagationConditions()->mappedBy(pc | pc.outgoing);
+helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Sequence(EMV2!OutgoingPropagationCondition)) =
+	let opcs: Sequence(EMV2!OutgoingPropagationCondition) = 
+			self.classifier.outgoingPropagationConditions() in
+	let byName: Map(String, Set(EMV2!OutgoingPropagationCondition)) = 
+			opcs->mappedBy(pc | pc.outgoing.printName) in
+	opcs->iterate(opc; acc : Map(EMV2!ErrorPropagation, Sequence(EMV2!OutgoingPropagationCondition)) = Map{} |
+    if acc.getKeys()->collect(ep | ep.printName)->includes(opc.outgoing.printName) then
+			acc
+		else
+			acc->including(opc.outgoing, byName.get(opc.outgoing.printName))
+		endif
+  );
 
 --- Get the name of an error propagation for printing
 helper context EMV2!ErrorPropagation def: printName: String =
@@ -85,6 +95,7 @@ helper context EMV2!ErrorPropagation def: printName: String =
 
 --- If an error propagation is overridden, find the one closest w.r.t to inheritance to this component
 helper context AADL!ComponentInstance def: localPropagation(prop: EMV2!ErrorPropagation): EMV2!ErrorPropagation =
+	-- depends on error propagation list being ordered!
 	self.classifier.errorPropagations
 			-> select(oep |
 				if prop.kind.oclIsUndefined() and oep.kind.oclIsUndefined() then
