@@ -55,8 +55,7 @@ class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 		} else if (owner instanceof SwitchExpression) {
 			domainOfAssignment(owner.eContainer as Assignment)
 		} else if (owner instanceof CaseExpression) {
-			//Scopes.scopeFor(owner.getContainerOfType(Node).declarations, domainOfAssignment(owner.eContainer.eContainer as Assignment))
-			domainOfAssignment(owner.eContainer.eContainer as Assignment)
+			Scopes.scopeFor(owner.getContainerOfType(Node).declarations, domainOfAssignment(owner.eContainer.eContainer as Assignment))
 		} else {
 			val nested = context.nested
 			if (nested === null) {
