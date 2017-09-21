@@ -47,15 +47,15 @@ class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 	def scope_NameRef_variable(NameRef context, EReference reference) {
 		val owner = context.eContainer
 		if (owner instanceof Attribute) {
-			domainOfAttribute(owner)
+			Scopes.scopeFor(domainOfAttribute(owner))
 		} else if (owner instanceof Equal && (owner as Equal).right == context) {
-			domainOfEqual(owner as Equal)
+			Scopes.scopeFor(domainOfEqual(owner as Equal))
 		} else if (owner instanceof Assignment && (owner as Assignment).value == context && owner.getContainerOfType(Transition) !== null) {
-			domainOfAssignment(owner as Assignment)
+			Scopes.scopeFor(domainOfAssignment(owner as Assignment))
 		} else if (owner instanceof SwitchExpression) {
-			domainOfAssignment(owner.eContainer as Assignment)
+			Scopes.scopeFor(domainOfAssignment(owner.eContainer as Assignment))
 		} else if (owner instanceof CaseExpression) {
-			Scopes.scopeFor(owner.getContainerOfType(Node).declarations, domainOfAssignment(owner.eContainer.eContainer as Assignment))
+			Scopes.scopeFor(domainOfAssignment(owner.eContainer.eContainer as Assignment), Scopes.scopeFor(owner.getContainerOfType(Node).declarations))
 		} else {
 			val nested = context.nested
 			if (nested === null) {
@@ -87,21 +87,21 @@ class AltaricaScopeProvider extends AbstractDeclarativeScopeProvider {
 		val variable = attrib.getContainerOfType(Variable)
 		val type = variable.type as NamedType
 		val domain = type.ref as Domain
-		Scopes.scopeFor(domain.constants)
+		domain.constants
 	}
 
 	def domainOfEqual(Equal equal) {
 		val variable = (equal.left as NameRef).variable as Variable
 		val type = variable.type as NamedType
 		val domain = type.ref as Domain
-		Scopes.scopeFor(domain.constants)
+		domain.constants
 	}
 
 	def domainOfAssignment(Assignment assign) {
 		val variable = assign.variable.variable as Variable
 		val type = variable.type as NamedType
 		val domain = type.ref as Domain
-		Scopes.scopeFor(domain.constants)
+		domain.constants
 	}
 
 }
