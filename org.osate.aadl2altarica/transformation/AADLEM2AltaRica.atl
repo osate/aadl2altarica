@@ -78,7 +78,13 @@ unique lazy rule Node {
 			-- need to force declarations because assertions need containment structure in place
 			declarations <- ci.subnodes() -> force() ->
 					append(ci.events()) -> append(ci.states()) -> append(ci.flows()) -> flatten(),
-			transitions <- ci.transitions() -> append(ci.compositions()) -> flatten(),
+			transitions <- 
+					let cs: Sequence(AR!LabeledTransition) = ci.compositions() in
+					if cs -> notEmpty() then
+						cs
+					else
+						ci.transitions() 
+					endif,
 			assertions <- ci.internalAssertions() -> append(ci.externalAssertions()) -> flatten()
 		)
 	do {
@@ -451,6 +457,7 @@ helper context EMV2!ConditionExpression def: isSingleEvent(): Boolean =
 -- TODO better filtering of valid transitions
 -- LIMITATIONS
 -- - dst=same is not supported
+-- - condition must be either single event or conjunctin of in propagations
 helper context AADL!ComponentInstance def: transitions(): Sequence(AR!LabeledTransition) =
 	let transitions: Collection(EMV2!ErrorBehaviorTransition) = self.classifier.errorTransitions() in
 	let handled_events: Collection(EMV2!ErrorBehaviorTransition) = 
