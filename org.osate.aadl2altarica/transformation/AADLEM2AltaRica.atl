@@ -78,7 +78,7 @@ unique lazy rule Node {
 			-- need to force declarations because assertions need containment structure in place
 			declarations <- ci.subnodes() -> force() ->
 					append(ci.events()) -> append(ci.states()) -> append(ci.flows()) -> flatten(),
-			transitions <- ci.transitions(),
+			transitions <- ci.transitions() -> append(ci.compositions()) -> flatten(),
 			assertions <- ci.internalAssertions() -> append(ci.externalAssertions()) -> flatten()
 		)
 	do {
@@ -117,7 +117,7 @@ unique lazy rule NodeInstance {
 
 helper context AADL!ComponentInstance def: events(): Sequence(AR!Variable) =
 	let events: Sequence(AR!Variable) = self.classifier.errorEvents() -> collect(event | thisModule.Event(self, event)) in
-		if self.classifier.incomingErrorPropagations.isEmpty() then 
+		if self.classifier.incomingErrorPropagations.isEmpty() and self.classifier.compositeStates().isEmpty() then 
 			events 
 		else 
 			events.append(thisModule.ImmediateEvent(self))
@@ -548,7 +548,7 @@ helper context AADL!ComponentInstance def: condition(source: Sequence(EMV2!Error
 		thisModule.And(stateGuard, propGuard)
 	endif;
 
-	helper context Sequence(EMV2!ConditionElement) def: getErrorEvent(): EMV2!ErrorEvent =
+helper context Sequence(EMV2!ConditionElement) def: getErrorEvent(): EMV2!ErrorEvent =
 	let events: Sequence(EMV2!ErrorEvent) = 
 			self->collect(ce | ce.getErrorEvent())->select(e | not e.oclIsUndefined()) in
 	if events.isEmpty() then
@@ -702,11 +702,11 @@ lazy rule And {
 
 lazy rule Equal {
 	from
-		inflow: AR!Variable,
+		variable: AR!Variable,
 		value: AR!SymbolicConstant
 	to
 		eq: AR!Equal (
-			left <- inflow.ref(),
+			left <- variable.ref(),
 			op <- '==',
 			right <- value.ref()
 		)
@@ -714,11 +714,11 @@ lazy rule Equal {
 
 lazy rule NotEqual {
 	from
-		inflow: AR!Variable,
+		variable: AR!Variable,
 		value: AR!SymbolicConstant
 	to
 		eq: AR!Equal (
-			left <- inflow.ref(),
+			left <- variable.ref(),
 			op <- '!=',
 			right <- value.ref()
 		)
@@ -735,6 +735,74 @@ lazy rule BaseType {
 		)
 }
 
+-- transitions for composed error bahavior
+helper context AADL!ComponentInstance def: compositions(): Sequence(AR!Instruction) =
+	let states: Sequence(EMV2!CompositeState) = self.classifier.compositeStates() in
+	states -> collect(s | thisModule.CompositionTransition(self, s))
+	;
+
+--- Create a transition which is caused by an event
+lazy rule CompositionTransition {
+	from
+		ci: AADL!ComponentInstance,
+		ct: EMV2!CompositeState
+	to
+		lt: AR!LabeledTransition (
+			event <- thisModule.ImmediateEvent(ci).ref(),
+			expression <- te
+		),
+		te: AR!Transition (
+			guard <- ci.stateGuardExpression(ct.condition),
+			action <- a
+		),
+		a: AR!Assignment (
+			variable <- thisModule.State(ci).ref(),
+			value <- thisModule.StateSymbol(ci.classifier, ct.state).ref()
+		)
+}
+
+helper context AADL!ComponentInstance def: stateGuardExpression(cond: EMV2!OrExpression): AR!Expression =
+	let left: AR!Expression = self.stateGuardExpression(cond.operands->at(1)) in
+	let right: AR!Expression = self.stateGuardExpression(cond.operands->at(2)) in
+	thisModule.Or(left, right)
+	;
+
+helper context AADL!ComponentInstance def: stateGuardExpression(cond: EMV2!AndExpression): AR!Expression =
+	let left: AR!Expression = self.stateGuardExpression(cond.operands->at(1)) in
+	let right: AR!Expression = self.stateGuardExpression(cond.operands->at(2)) in
+	thisModule.And(left, right)
+	;
+
+helper context AADL!ComponentInstance def: stateGuardExpression(cond: EMV2!SConditionElement): AR!Expression =
+	if cond.qualifiedState.oclIsUndefined() then
+		thisModule.ARBoolean(true) -- TODO: unhandled construct
+	else
+		self.stateGuardExpression(cond.qualifiedState, self)
+	endif;
+
+helper context AADL!ComponentInstance def: stateGuardExpression(qebs: EMV2!QualifiedErrorBehaviorState, upto: AADL!ComponentInstance): AR!Expression =
+	let ci: AADL!ComponentInstance = self.componentInstance -> select(s | s.name.equalsIgnoreCase(qebs.subcomponent.subcomponent.name))->at(1) in
+	if qebs.next.oclIsUndefined() then
+		let stateref: AR!NameRef = thisModule.NameRef(thisModule.State(ci), ci, upto) in
+		let statesym: AR!SymbolicConstant = thisModule.StateSymbol(ci.classifier, qebs.state) in
+		thisModule.EqualState(stateref, statesym)
+	else
+		ci.stateGuardExpression(qebs.next, upto)
+	endif;
+
+lazy rule EqualState {
+	from
+		varref: AR!NameRef,
+		value: AR!SymbolicConstant
+	to
+		eq: AR!Equal (
+			left <- varref,
+			op <- '==',
+			right <- value.ref()
+		)
+}
+
+	
 --- Create assertions from out propagation conditions
 --- for now, no condition is allowed, the propagated token must be a leaf token!
 -- TODO add filter expression (for voter example w/o states)
@@ -858,13 +926,13 @@ lazy rule NameRef {
 	from
 		var: AR!Variable,
 		owner: AADL!ComponentInstance,
-		upto: AADL!ComponentInstance
+		upto: AADL!ComponentInstance 
 	to
 		ref: AR!NameRef (
 			variable <- var,
 			nested <-
 					let parent: AADL!ComponentInstance = owner.refImmediateComposite() in
-					if parent = upto then		
+					if (parent = upto) then		
 						owner.nodeInstance.ref()
 					else
 						thisModule.NameRef(owner.nodeInstance, parent, upto)

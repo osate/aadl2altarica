@@ -67,6 +67,11 @@ helper context AADL2!Classifier def: errorTransitions(): Collection(EMV2!ErrorBe
 		'getAllErrorBehaviorTransitions', Sequence{self}
 	);
 
+helper context AADL2!Classifier def: compositeStates(): Sequence(EMV2!CompositeState) =
+	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
+		'getAllCompositeStates', Sequence{self}
+	);
+
 helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection(EMV2!OutgoingPropagationCondition) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllOutgoingPropagationConditions', Sequence{self}
@@ -223,7 +228,9 @@ helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util
 
 -- Component instances that should be processed (based on leaf components wrt error model)
 helper def: componentsToProcess: Set(AADL!ComponentInstance) =
-	thisModule.emLeafComponents -> iterate(ci; acc: Set(AADL!ComponentInstance) = thisModule.emLeafComponents.asSet() |
+--	let initial: Sequence(AADL!ComponentInstance) = thisModule.emLeafComponents in
+	let initial: Sequence(AADL!ComponentInstance) = thisModule.allComponentsWithEM in
+	initial -> iterate(ci; acc: Set(AADL!ComponentInstance) = initial.asSet() |
 		thisModule.collectParents(ci, acc)
 	);
 
@@ -237,6 +244,22 @@ helper def: collectParents(ci: AADL!ComponentInstance, acc: Set(AADL!ComponentIn
 
 helper def: emLeafComponents: Sequence(AADL!ComponentInstance) = 
 	thisModule.analysisModel.getSubcomponents();
+
+helper def: allComponentsWithEM: Sequence(AADL!ComponentInstance) =
+	thisModule.systemInstance.getAllComponentInstances() -> select(ci | ci.classifier.hasAnnex('emv2')).debug();
+	
+helper context AADL2!Classifier def: hasAnnex(name: String): Boolean =
+	let extended: Sequence(AADL2!Classifier) = self.getSelfPlusAllExtended() in
+	let lookup: Sequence(AADL2!Classifier) = 
+		if self.oclIsKindOf(AADL2!ComponentImplementation) then
+			extended -> append(self.getType().getSelfPlusAllExtended()) -> flatten()
+		else
+			extended
+		endif
+	in
+	lookup -> exists(cl |
+		cl.ownedAnnexSubclause -> exists(sc | sc.name.equalsIgnoreCase(name))
+	);
 
 helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") =
 	thisModule.analysisModel.getPropagationPaths();
