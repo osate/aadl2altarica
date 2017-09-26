@@ -62,6 +62,16 @@ helper context AADL2!Classifier def: errorStates(): Collection(EMV2!ErrorBehavio
 		'getAllErrorBehaviorStates', Sequence{self}
 	);
 
+helper context AADL2!Classifier def: errorStateTypes: Sequence(EMV2!TypeToken) =
+	let usedTypes: Sequence(EMV2!ErrorModelLibrary) = self.usedTypes() in
+	self.errorStates() -> iterate(s; acc: Set(EMV2!TypeToken) = Set{} |
+		if s.debug().typeSet.oclIsUndefined().debug() then
+			acc
+		else
+			acc -> union(s.typeSet.debug().leafTypeTokens(usedTypes.debug()).asSet())
+		endif
+	) -> asSequence().debug('%%%%%');
+
 helper context AADL2!Classifier def: errorTransitions(): Collection(EMV2!ErrorBehaviorTransition) =
 	"#native"!"org::osate::xtext::aadl2::errormodel::util::EMV2Util".refInvokeStaticOperation(
 		'getAllErrorBehaviorTransitions', Sequence{self}

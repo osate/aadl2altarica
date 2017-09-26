@@ -179,13 +179,21 @@ unique lazy rule ImmediateEvent {
 
 --- Transform EMV2 error states to an AR variable
 --- The varable 's domain represents the error states, initial value is the constant for the initial state
---- LIMITATION: no typed error states
 helper context AADL!ComponentInstance def: states(): Sequence(AR!Variable) =
-	let state: AR!Variable = thisModule.State(self) in
-	if state.oclIsUndefined() then 
+	let statevar: AR!Variable = thisModule.State(self) in
+	if statevar.oclIsUndefined() then 
 		Sequence{}
-	else 
-		Sequence{state}
+	else
+		if self.classifier.errorStates() -> exists(s | not s.typeSet.oclIsUndefined()) then
+			let typevar: AR!Variable = thisModule.StateType(self) in
+			if typevar.oclIsUndefined() then
+				Sequence{statevar}
+			else
+				Sequence{statevar, typevar}
+			endif
+		else 
+			Sequence{statevar}
+		endif
 	endif;
 
 unique lazy rule State {
@@ -194,7 +202,7 @@ unique lazy rule State {
 			ci.classifier.errorStates() -> notEmpty()
 		)
 	to
-		state: AR!Variable (
+		statevar: AR!Variable (
 			name <- 'errorstate',
 			type <- thisModule.StateDomainType(ci),
 			attributes <- Sequence{init}
@@ -202,6 +210,23 @@ unique lazy rule State {
 		init: AR!Attribute (
 			name <- 'init',
 			value <- ci.classifier.initialState().ref()
+		)
+}
+
+unique lazy rule StateType {
+	from
+		ci: AADL!ComponentInstance (
+			ci.classifier.errorStates() -> notEmpty()
+		)
+	to
+		typevar: AR!Variable (
+			name <- 'errorstate_type',
+			type <- thisModule.StateTypeDomainType(ci),
+			attributes <- Sequence{init}
+		),
+		init: AR!Attribute (
+			name <- 'init',
+			value <- thisModule.NoError(thisModule.StateTypeDomain(ci.classifier)).ref()
 		)
 }
 
@@ -255,6 +280,51 @@ unique lazy rule StateSymbol {
 	to 
 		const: AR!SymbolicConstant (
 			name <- state.altaRicaName()
+		)
+}
+
+--- Create a domain type for the error state type variable of a component instance
+--- References the domain of the instantiated component classifier
+lazy rule StateTypeDomainType {
+	from
+		ci: AADL!ComponentInstance
+	to
+		domainType: AR!NamedType (
+			ref <- thisModule.StateTypeDomain(ci.classifier)
+		)
+}
+
+--- Create a domain from the error types of the error states in a classifier
+unique lazy rule StateTypeDomain {
+	from
+		c: AADL!ComponentClassifier
+	using {
+		count: Integer = thisModule.domainCount;
+	}
+	to
+		domain: AR!Domain (
+			name <- 'domain_' + count.toString(),
+			constants <- c.createTypeSymbols() -> prepend(thisModule.NoError(domain))
+		)
+	do {
+		thisModule.domainCount <:= count + 1;
+		thisModule.domains <:= thisModule.domains -> append(domain);
+		domain;
+	}
+}
+	
+--- Create the symbols for the type state domain
+helper context AADL2!ComponentClassifier def: createTypeSymbols(): Sequence(AR!SymbolicConstant) =
+	self.errorStateTypes -> collect(t | thisModule.StateTypeSymbol(self, t));
+
+--- Create a state symbol
+unique lazy rule StateTypeSymbol {
+	from
+		c: AADL2!ComponentClassifier,
+		token: EMV2!TypeToken
+	to 
+		const: AR!SymbolicConstant (
+			name <- token.name()
 		)
 }
 
