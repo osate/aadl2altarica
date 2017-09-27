@@ -818,7 +818,8 @@ helper context AADL!ComponentInstance def: internalAssertions(): Sequence(AR!Ins
 	if props.isEmpty() then
 		Sequence{}
 	else
-		props->collect(prop |
+		let propsByName: Sequence(EMV2!ErrorPropagation) = props -> sortedBy(p | p.name()) in
+		props -> sortedBy(prop | prop.name()) -> collect(prop |
 			let propConds: Sequence(EMV2!OutgoingPropagationCondition) = self.outProp2propConds.get(prop) in
 			thisModule.OutPropAssignment(self, self.localPropagation(prop), propConds)
 		)
@@ -836,7 +837,7 @@ lazy rule OutPropAssignment {
 	from
 		ci: AADL!ComponentInstance,
 		prop: EMV2!ErrorPropagation,
-		propConds: Set(EMV2!OutgoingPropagationCondition)
+		propConds: Sequence(EMV2!OutgoingPropagationCondition)
 	to
 		i: AR!Assignment (
 			variable <- 

@@ -17,7 +17,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.ide;bundle-version="3.11.0",
  org.eclipse.m2m.atl.emftvm;bundle-version="3.8.0",
  org.osate.altarica.ui;bundle-version="1.0.0",
- org.osate.ui;bundle-version="1.0.0"
+ org.osate.ui;bundle-version="1.0.0",
+ org.osate.xtext.aadl2.errormodel;bundle-version="1.0.0",
+ org.osate.aadl2.modelsupport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: CMU/SEI

@@ -78,10 +78,19 @@ helper context AADL2!Classifier def: outgoingPropagationConditions(): Collection
 	);
 
 helper context AADL!ComponentInstance def: outProp2propConds: Map(EMV2!ErrorPropagation, Sequence(EMV2!OutgoingPropagationCondition)) =
-	let opcs: Sequence(EMV2!OutgoingPropagationCondition) = 
-			self.classifier.outgoingPropagationConditions() in
-	let byName: Map(String, Set(EMV2!OutgoingPropagationCondition)) = 
-			opcs->mappedBy(pc | pc.outgoing.printName) in
+	let opcs: Sequence(EMV2!OutgoingPropagationCondition) = self.classifier.outgoingPropagationConditions() in
+	let byName: Map(String, Sequence(EMV2!OutgoingPropagationCondition)) = 
+			opcs -> iterate(opc; acc: Map(String, Sequence(EMV2!OutgoingPropagationCondition)) = Map{} |
+				let key: String = opc.outgoing.printName in
+				let val: Sequence(EMV2!OutgoingPropagationCondition) = acc.get(key) in
+				acc.including(key,
+					if val.oclIsUndefined() then
+						Sequence{opc}
+					else
+						val -> append(opc)
+					endif
+				)
+			) in
 	opcs->iterate(opc; acc : Map(EMV2!ErrorPropagation, Sequence(EMV2!OutgoingPropagationCondition)) = Map{} |
     if acc.getKeys()->collect(ep | ep.printName)->includes(opc.outgoing.printName) then
 			acc
@@ -227,14 +236,13 @@ helper def: analysisModel: "#native"!"org::osate::xtext::aadl2::errormodel::util
 			'createAnalysisModel', Sequence{si});
 
 -- Component instances that should be processed (based on leaf components wrt error model)
-helper def: componentsToProcess: Set(AADL!ComponentInstance) =
---	let initial: Sequence(AADL!ComponentInstance) = thisModule.emLeafComponents in
+helper def: componentsToProcess: OrderedSet(AADL!ComponentInstance) =
 	let initial: Sequence(AADL!ComponentInstance) = thisModule.allComponentsWithEM in
-	initial -> iterate(ci; acc: Set(AADL!ComponentInstance) = initial.asSet() |
+	initial -> iterate(ci; acc: OrderedSet(AADL!ComponentInstance) = initial.asOrderedSet() |
 		thisModule.collectParents(ci, acc)
 	);
 
-helper def: collectParents(ci: AADL!ComponentInstance, acc: Set(AADL!ComponentInstance)): Set(AADL!ComponentInstance) =
+helper def: collectParents(ci: AADL!ComponentInstance, acc: OrderedSet(AADL!ComponentInstance)): OrderedSet(AADL!ComponentInstance) =
 	let parent: AADL!ComponentInstance = ci.eContainer() in
 	if parent.oclIsUndefined() or acc -> contains(parent) then
 		acc
@@ -266,9 +274,19 @@ helper def: propagationPaths: Sequence("#native"!"org::osate::xtext::aadl2::erro
 
 -- How to split propagation destinations based on fan-in
 helper def: dst2paths: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) =
-	thisModule.propagationPaths -> mappedBy(p | 
+	thisModule.propagationPaths -> iterate(p; acc: Map(TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation), Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) = Map{} |
+		let key: TupleType(io: AADL!ComponentInstance, prop: EMV2!ErrorPropagation) =
 			let d: OclAny = p.getPathDst() in 
 			Tuple{io = d.getComponentInstance(), prop = d.getErrorPropagation()}
+		in
+		let val: Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") = acc.get(key) in
+		acc.including(key,
+			if val.oclIsUndefined() then
+				Sequence{p}
+			else
+				val -> including(p)
+			endif
+		)
 	);
 
 helper def: printdst2paths(): String =
@@ -278,7 +296,18 @@ helper def: printdst2paths(): String =
 
 -- Where to put assertions
 helper def: ci2paths: Map(AADL!ComponentInstance, Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) =
-	thisModule.propagationPaths -> mappedBy(p | p.assertionContainer);
+	thisModule.propagationPaths -> iterate(p; acc: Map(AADL!ComponentInstance, Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord")) = Map{} |
+		let key: AADL!ComponentInstance = p.assertionContainer in
+		let val: Sequence("#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord") = acc.get(key) in
+		acc.including(key,
+			if val.oclIsUndefined() then
+				Sequence{p}
+			else
+				val -> including(p)
+			endif
+		)
+	);
+
 
 helper context "#native"!"org::osate::xtext::aadl2::errormodel::util::PropagationPathRecord" def: assertionContainer: AADL!ComponentInstance =
 	if self.isConnectionPath() then
