@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: AALD to AltaRica Translator
+Bundle-Name: AADL to AltaRica Translator
 Bundle-SymbolicName: org.osate.aadl2altarica;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.osate.aadl2altarica.Activator
