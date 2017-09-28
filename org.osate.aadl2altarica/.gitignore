@@ -1,6 +1,5 @@
 /bin
 /target
 *._trace
-/xtend-gen/
 /ar
 *.jar
