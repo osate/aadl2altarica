@@ -8,7 +8,7 @@ Bundle-ActivationPolicy: lazy
 Require-Bundle: org.osate.altarica,
  org.osate.altarica.ui,
  org.eclipse.core.runtime,
- org.eclipse.xtext.junit4,
+ org.eclipse.xtext.testing,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.ui.workbench;resolution:=optional
 Import-Package: org.apache.log4j,
