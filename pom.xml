@@ -20,7 +20,7 @@
 		<emft.testing.version>2.9.0</emft.testing.version>
 		<xsemantics.version>1.11.0</xsemantics.version>
 
-		<osate.stable.url>http://www.aadl.info/aadl/osate/stable/${osate.stable.version}/update-site/</osate.stable.url>
+		<osate.stable.url>http://osate-build.sei.cmu.edu/download/osate/stable/${osate.stable.version}/update-site/</osate.stable.url>
 		<eclipse.stable.url>http://download.eclipse.org/releases/mars/201602261000</eclipse.stable.url>
 		<xtext.stable.url>http://download.eclipse.org/modeling/tmf/xtext/updates/releases/${xtext.stable.version}/</xtext.stable.url>
 		<emft.stable.url>http://download.eclipse.org/modeling/emft/mwe/updates/releases/${emft.stable.version}/</emft.stable.url>
